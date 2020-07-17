@@ -1,10 +1,9 @@
 // According to https://medium.com/@kitze/%EF%B8%8F-from-react-to-an-electron-app-ready-for-production-a0468ecb1da3
-// This Electron entry file `app.js` is placed into the `public` folder, so it can get copied to
-// the `build` folder as it is.
+// This Electron entry file `electron.js` is placed into the `public` folder, so it can get copied
+// to the `build` folder as it is.
 
 const path = require('path');
 const { app, BrowserWindow } = require('electron');
-const isDevMode = require('electron-is-dev');
 
 let window = null;
 
@@ -17,6 +16,8 @@ function CreateWindow() {
             nodeIntegration: true
         }
     });
+
+    let isDevMode = process.env.mode === 'development' ? true : false;
 
     if (!isDevMode)
         window.loadFile(path.join(__dirname, '../build/index.html'));

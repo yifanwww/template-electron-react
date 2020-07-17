@@ -4240,11 +4240,6 @@ electron-builder@^22.7.0:
     update-notifier "^4.1.0"
     yargs "^15.3.1"
 
-electron-is-dev@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npm.taobao.org/electron-is-dev/download/electron-is-dev-1.2.0.tgz#2e5cea0a1b3ccf1c86f577cee77363ef55deb05e"
-  integrity sha1-LlzqChs8zxyG9XfO53Nj71XesF4=
-
 electron-publish@22.7.0:
   version "22.7.0"
   resolved "https://registry.npm.taobao.org/electron-publish/download/electron-publish-22.7.0.tgz?cache=0&sync_timestamp=1594883086452&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-publish%2Fdownload%2Felectron-publish-22.7.0.tgz#d92ba7c4007c9ac1dd070593e48028184fb2dc19"
