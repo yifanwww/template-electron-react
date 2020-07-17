@@ -10,13 +10,14 @@
     },
     "private": true,
     "main": "electron/app.js",
+    "homepage": ".",
     "scripts": {
-        "start": "electron .",
+        "start": "npm run build && electron .",
         "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
         "web": "react-scripts start",
-        "dev": "cross-env ENV=development electron ."
+        "dev": "cross-env ENV=development electron .",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
     },
     "eslintConfig": {
         "extends": "react-app"

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 let window = null;
@@ -16,7 +16,7 @@ app.once('ready', () => {
     const devMode = process.env.ENV === 'development';
 
     if (!devMode)
-        window.loadFile(path.join(__dirname, 'build/index.html'));
+        window.loadFile(path.join(__dirname, '../build/index.html'));
     else {
         window.loadURL('http://localhost:3000/');
         window.openDevTools();
