@@ -1,7 +1,3 @@
-// According to https://medium.com/@kitze/%EF%B8%8F-from-react-to-an-electron-app-ready-for-production-a0468ecb1da3
-// This Electron entry file `electron.js` is placed into the `public` folder, so it can get copied
-// to the `build` folder as it is.
-
 import path from 'path';
 import { app, BrowserWindow } from 'electron';
 
