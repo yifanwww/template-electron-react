@@ -9,14 +9,16 @@
         "url": "https://github.com/YF1999"
     },
     "private": true,
-    "main": "public/electron.js",
+    "main": "build/electron.js",
     "homepage": "./",
     "scripts": {
         "prestart": "npm run build",
         "start": "electron .",
-        "build": "npm run build-renderer",
+        "build": "npm run build-main && npm run build-renderer",
+        "build-main": "webpack --config config/webpack.main.config.js",
         "build-renderer": "react-scripts build",
         "dev": "nodemon --config nodemon.json",
+        "build-dev": "cross-env mode=development webpack --config config/webpack.main.config.js",
         "dev-electron": "cross-env mode=development electron .",
         "web": "react-scripts start",
         "test": "react-scripts test",
@@ -55,6 +57,8 @@
         "cross-env": "^7.0.2",
         "electron": "^9.1.0",
         "electron-builder": "^22.7.0",
-        "nodemon": "^2.0.4"
+        "nodemon": "^2.0.4",
+        "ts-loader": "^8.0.1",
+        "webpack-cli": "^3.3.12"
     }
 }

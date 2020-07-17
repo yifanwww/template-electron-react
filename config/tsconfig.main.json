@@ -2,6 +2,7 @@
     "compilerOptions": {
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
+        "baseUrl": "../",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
@@ -13,15 +14,14 @@
         ],
         "module": "esnext",
         "moduleResolution": "node",
-        "noEmit": true,
         "noImplicitAny": true,
-        "resolveJsonModule": true,
+        "outDir": "../build/",
         "skipLibCheck": true,
         "sourceMap": true,
         "strict": true,
         "target": "ES2018"
     },
     "include": [
-        "src"
+        "../electron/"
     ]
 }

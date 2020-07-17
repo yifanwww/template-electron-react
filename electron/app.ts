@@ -2,10 +2,10 @@
 // This Electron entry file `electron.js` is placed into the `public` folder, so it can get copied
 // to the `build` folder as it is.
 
-const path = require('path');
-const { app, BrowserWindow } = require('electron');
+import path from 'path';
+import { app, BrowserWindow } from 'electron';
 
-let window = null;
+let window: BrowserWindow | null = null;
 
 function CreateWindow() {
     window = new BrowserWindow({
@@ -17,13 +17,13 @@ function CreateWindow() {
         }
     });
 
-    let isDevMode = process.env.mode === 'development' ? true : false;
+    const isDevMode = process.env.mode === 'development' ? true : false;
 
     if (!isDevMode)
-        window.loadFile(path.join(__dirname, '../build/index.html'));
+        window.loadFile(path.join(__dirname, 'index.html'));
     else {
         window.loadURL('http://localhost:3000/');
-        window.openDevTools();
+        window.webContents.openDevTools();
     }
 
     window.once('closed', () => window = null);
