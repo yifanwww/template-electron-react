@@ -1,9 +1,10 @@
 {
-    "watch": "public/electron.js",
+    "watch": "./electron/",
+    "ext": "js ts",
     "delay": "2500",
     "verbose": true,
-    "exec": "npm run dev-electron",
+    "exec": "npm run dev-main",
     "events": {
-        "restart": "@echo restart 'npm run dev-electron'"
+        "restart": "@echo restart 'npm run dev-main'"
     }
 }
