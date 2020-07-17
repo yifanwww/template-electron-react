@@ -1,5 +1,5 @@
 {
-    "editor.rulers": [100, 120],
+    "editor.rulers": [100],
 
     "files.exclude": {
         "**/.git": true,

@@ -1,0 +1,9 @@
+{
+    "watch": "public/electron.js",
+    "delay": "2500",
+    "verbose": true,
+    "exec": "npm run dev-electron",
+    "events": {
+        "restart": "@echo restart 'npm run dev-electron'"
+    }
+}
