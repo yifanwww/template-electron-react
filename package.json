@@ -9,13 +9,15 @@
         "url": "https://github.com/YF1999"
     },
     "private": true,
-    "main": "electron/app.js",
-    "homepage": ".",
+    "main": "public/electron.js",
+    "homepage": "./",
     "scripts": {
         "start": "npm run build && electron .",
         "build": "react-scripts build",
         "web": "react-scripts start",
         "dev": "cross-env ENV=development electron .",
+        "preinstaller": "npm run build",
+        "installer": "electron-builder build -w",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -42,6 +44,7 @@
         "@types/node": "^12.0.0",
         "@types/react": "^16.9.0",
         "@types/react-dom": "^16.9.0",
+        "electron-is-dev": "^1.2.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-scripts": "3.4.1",
@@ -49,6 +52,51 @@
     },
     "devDependencies": {
         "cross-env": "^7.0.2",
-        "electron": "^9.1.0"
+        "electron": "^9.1.0",
+        "electron-builder": "^22.7.0"
+    },
+    "build": {
+        "productName": "template-electron-create-react-app",
+        "appId": "YF1999.template-electron-create-react-app",
+        "files": [
+            "build/**/*",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "buildResources": "assets",
+            "output": "release"
+        },
+        "dmg": {
+            "contents": [
+                {
+                    "x": 130,
+                    "y": 220
+                },
+                {
+                    "x": 410,
+                    "y": 220,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "win": {
+            "target": [
+                "nsis"
+            ]
+        },
+        "linux": {
+            "target": [
+                "deb",
+                "rpm",
+                "AppImage"
+            ],
+            "category": "Development"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowElevation": true,
+            "allowToChangeInstallationDirectory": true
+        }
     }
 }
