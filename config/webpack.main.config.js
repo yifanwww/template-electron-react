@@ -10,7 +10,8 @@ const ResolveApp = relativePath => path.resolve(appDirectory, relativePath);
 // Predefined paths.
 const appBuild = ResolveApp('build');
 const appIndexJs = ResolveApp('src/main/app');
-const appSrc = ResolveApp('src/main');
+const appSrcMain = ResolveApp('src/main');
+const appSrcUtils = ResolveApp('src/utils');
 const appTsConfig = ResolveApp('config/tsconfig.main.json');
 
 module.exports = {
@@ -26,7 +27,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loader: 'ts-loader',
-                include: appSrc,
+                include: [appSrcMain, appSrcUtils],
                 options: {
                     configFile: appTsConfig
                 }

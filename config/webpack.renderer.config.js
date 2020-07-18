@@ -41,7 +41,8 @@ const ResolveModule = (resolveFn, filePath) => {
 const appPublic = ResolveApp('src/public');
 const appHtml = ResolveApp('src/public/index.html');
 const appIndexJs = ResolveModule(ResolveApp, 'src/renderer/index');
-const appSrc = ResolveApp('src/renderer');
+const appSrcRenderer = ResolveApp('src/renderer');
+const appSrcUtils = ResolveApp('src/utils');
 const appTsConfig = ResolveApp('config/tsconfig.renderer.json');
 const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 const proxySetup = ResolveApp('src/renderer/setupProxy.js');
@@ -53,8 +54,10 @@ const proxySetup = ResolveApp('src/renderer/setupProxy.js');
 // }
 
 // Override webpack configurations.
+// The Webpack config to use when compiling your react app for development or production.
 function OverrideWebpackConfigs(config, env) {
-    // The Webpack config to use when compiling your react app for development or production.
+    config.module.rules[1].include = [appSrcRenderer, appSrcUtils];
+    config.module.rules[2].oneOf[1].include = [appSrcRenderer, appSrcUtils];
 
     // WriteConfigs(config, 'webpack.json');
 
@@ -66,7 +69,7 @@ function OverridePathsConfigs(paths, env) {
     paths.appPublic = appPublic;
     paths.appHtml = appHtml;
     paths.appIndexJs = appIndexJs;
-    paths.appSrc = appSrc;
+    paths.appSrc = appSrcRenderer;
     paths.appTsConfig = appTsConfig;
     paths.testsSetup = testsSetup;
     paths.proxySetup = proxySetup;
