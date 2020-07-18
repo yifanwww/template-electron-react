@@ -1,27 +1,34 @@
+const fs = require('fs');
 const path = require('path');
 
 const isDevMode = process.env.mode === 'development' ? true : false;
 
-function GetPath(relativePath) {
-    return path.resolve(__dirname, relativePath);
-}
+// Copied from `node_modules/react-scripts/config/path.js`, line 17 (react-scripts@3.4.1)
+const appDirectory = fs.realpathSync(process.cwd());
+const ResolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
+// Predefined paths.
+const appBuild = ResolveApp('build');
+const appIndexJs = ResolveApp('src/main/app');
+const appSrc = ResolveApp('src/main');
+const appTsConfig = ResolveApp('config/tsconfig.main.json');
 
 module.exports = {
     target: 'electron-main',
     mode: isDevMode ? 'development' : 'production',
-    entry: GetPath('../electron/app.ts'),
+    entry: appIndexJs,
     output: {
         filename: 'electron.js',
-        path: GetPath('../build')
+        path: appBuild
     },
     module: {
         rules: [
             {
                 test: /\.ts$/,
                 loader: 'ts-loader',
-                include: GetPath('../electron'),
+                include: appSrc,
                 options: {
-                    configFile: GetPath('tsconfig.main.json')
+                    configFile: appTsConfig
                 }
             }
         ]
