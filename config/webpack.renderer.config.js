@@ -41,6 +41,7 @@ const ResolveModule = (resolveFn, filePath) => {
 const appPublic = ResolveApp('src/public');
 const appHtml = ResolveApp('src/public/index.html');
 const appIndexJs = ResolveModule(ResolveApp, 'src/renderer/index');
+const appSrc = ResolveApp('src');
 const appSrcRenderer = ResolveApp('src/renderer');
 const appSrcUtils = ResolveApp('src/utils');
 const appTsConfig = ResolveApp('config/tsconfig.renderer.json');
@@ -69,7 +70,7 @@ function OverridePathsConfigs(paths, env) {
     paths.appPublic = appPublic;
     paths.appHtml = appHtml;
     paths.appIndexJs = appIndexJs;
-    paths.appSrc = appSrcRenderer;
+    paths.appSrc = appSrc;
     paths.appTsConfig = appTsConfig;
     paths.testsSetup = testsSetup;
     paths.proxySetup = proxySetup;
