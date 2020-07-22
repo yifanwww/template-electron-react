@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-    rootDir: process.cwd(),
+    rootDir: path.join(__dirname, '..'),
     roots: ['<rootDir>/src/main', '<rootDir>/src/utils'],
     testRegex: 'test/(.+)\\.test\\.ts$',
     transform: {
