@@ -7,6 +7,9 @@ module.exports = {
     transform: {
         '^.+\\.ts$': 'ts-jest',
     },
+    testPathIgnorePatterns: [
+        '/node_modules/'
+    ],
     testEnvironment: 'node',
     collectCoverage: false,
     moduleFileExtensions: ['js', 'ts'],
