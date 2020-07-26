@@ -1,4 +1,4 @@
-const Base = require('./webpack.base.config')
+const Base = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -8,13 +8,16 @@ const Base = require('./webpack.base.config')
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.
-function OverrideWebpackConfigs(config, env) {
-    config.module.rules[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
-    config.module.rules[2].oneOf[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
+function OverrideWebpackConfigs(webpack, env) {
+    webpack.module.rules[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
+    webpack.module.rules[2].oneOf[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
 
-    // WriteConfigs(config, 'webpack.json');
+    for (let index in Base.Alias)
+        webpack.resolve.alias[index] = Base.Alias[index];
 
-    return config;
+    // WriteConfigs(webpack, 'webpack.json');
+
+    return webpack;
 }
 
 // Override paths configurations.

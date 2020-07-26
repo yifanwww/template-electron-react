@@ -1,4 +1,4 @@
-const Base = require('./webpack.base.config')
+const Base = require('./webpack.base.config');
 
 module.exports = {
     target: 'electron-main',
@@ -22,6 +22,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.js'],
+        alias: Base.Alias
     },
     node: {
         __dirname: false,
