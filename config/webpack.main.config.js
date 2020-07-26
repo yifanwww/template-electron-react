@@ -1,35 +1,21 @@
-const fs = require('fs');
-const path = require('path');
-
-const isDevMode = process.env.mode === 'development' ? true : false;
-
-// Copied from `node_modules/react-scripts/config/path.js`, line 17 (react-scripts@3.4.1)
-const appDirectory = fs.realpathSync(process.cwd());
-const ResolveApp = relativePath => path.resolve(appDirectory, relativePath);
-
-// Predefined paths.
-const appBuild = ResolveApp('build');
-const appIndexJs = ResolveApp('src/main/app');
-const appSrcMain = ResolveApp('src/main');
-const appSrcUtils = ResolveApp('src/utils');
-const appTsConfig = ResolveApp('config/tsconfig.main.json');
+const Base = require('./webpack.base.config')
 
 module.exports = {
     target: 'electron-main',
-    mode: isDevMode ? 'development' : 'production',
-    entry: appIndexJs,
+    mode: Base.IsDevMode ? 'development' : 'production',
+    entry: Base.Paths.AppIndexJsMain,
     output: {
         filename: 'electron.js',
-        path: appBuild
+        path: Base.Paths.AppBuild
     },
     module: {
         rules: [
             {
                 test: /\.ts$/,
                 loader: 'ts-loader',
-                include: [appSrcMain, appSrcUtils],
+                include: [Base.Paths.AppSrcMain, Base.Paths.AppSrcUtils],
                 options: {
-                    configFile: appTsConfig
+                    configFile: Base.Paths.AppTsConfigMain
                 }
             }
         ]
