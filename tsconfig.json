@@ -17,8 +17,8 @@
         "noEmit": true,
         "noImplicitAny": true,
         "paths": {
-            "@UIElement": [
-                "./src/renderer/UIElement"
+            "@Utils": [
+                "./src/utils"
             ]
         },
         "resolveJsonModule": true,

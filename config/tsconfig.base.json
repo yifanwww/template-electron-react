@@ -2,8 +2,8 @@
     "compilerOptions": {
         "baseUrl": "../",
         "paths": {
-            "@UIElement": [
-                "./src/renderer/UIElement"
+            "@Utils": [
+                "./src/utils"
             ]
         }
     }

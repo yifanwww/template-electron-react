@@ -57,7 +57,7 @@ const isDevMode = process.env.mode === 'development' ? true : false;
 
 // Alias
 const alias = {
-    '@UIElement': ResolveApp('src/renderer/UIElement')
+    '@Utils': ResolveApp('src/utils')
 };
 
 module.exports = {
