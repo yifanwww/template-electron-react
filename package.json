@@ -13,15 +13,15 @@
     "homepage": "./",
     "scripts": {
         "start": "electron .",
-        "build": "npm run build-renderer && npm run build-main",
-        "build-main": "webpack --config config/webpack.main.config.js",
+        "build": "yarn build-renderer && yarn build-main",
+        "build-main": "webpack --config configs/webpack.main.config.js",
         "build-renderer": "react-app-rewired build",
-        "premain": "cross-env mode=development webpack --config config/webpack.main.config.js",
+        "premain": "cross-env mode=development webpack --config configs/webpack.main.config.js",
         "main": "cross-env mode=development electron .",
         "web": "react-app-rewired start",
-        "installer": "electron-builder build -w",
+        "installer": "electron-builder build --config ./configs/electron-builder.yml -w --x64",
         "test-react": "react-app-rewired test",
-        "test": "jest --config config/jest.config.js",
+        "test": "jest --config configs/jest.config.js",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
@@ -39,7 +39,7 @@
             "last 1 safari version"
         ]
     },
-    "config-overrides-path": "config/webpack.renderer.config.js",
+    "config-overrides-path": "configs/webpack.renderer.config.js",
     "dependencies": {
         "@types/node": "^12.0.0",
         "@types/react": "^16.9.0",

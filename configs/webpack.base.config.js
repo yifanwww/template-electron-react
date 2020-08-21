@@ -47,8 +47,8 @@ const appSrc = ResolveApp('src');
 const appSrcMain = ResolveApp('src/main');
 const appSrcRenderer = ResolveApp('src/renderer');
 const appSrcUtils = ResolveApp('src/utils');
-const appTsConfigMain = ResolveApp('config/tsconfig.main.json');
-const appTsConfigRenderer = ResolveApp('config/tsconfig.renderer.json');
+const appTsConfigMain = ResolveApp('configs/tsconfig.main.json');
+const appTsConfigRenderer = ResolveApp('configs/tsconfig.renderer.json');
 const proxySetup = ResolveApp('src/renderer/setupProxy.js');
 const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 
