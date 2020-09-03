@@ -23,9 +23,12 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // Use custom eslint rc
     // We have three options to custom:
-    // `ignore`, `baseConfig` and `useEslintrc` (line 350-356 in `react-scrips` 3.4.1)
-    // But we only need to custom the `baseConfig` option.
+    // 'ignore', 'baseConfig' and 'useEslintrc' (line 350-356 in 'react-scrips' 3.4.1)
 
+    // HACK: Why it works fine if the 'ignore' option is 'true'?
+    // For example: if it is false, definition for rule 'node/no-deprecated-api' is not found in
+    // 'node_modules/safer-buffer/safer.js' when you're using 'iconv-lite'
+    webpack.module.rules[1].use[0].options.ignore = true;
     webpack.module.rules[1].use[0].options.baseConfig.extends = [Base.EslintConfigPath];
     // WriteConfigs(webpack.module.rules[1].use[0].options, 'webpack.json');
 
