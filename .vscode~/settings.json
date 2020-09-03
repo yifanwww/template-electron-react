@@ -1,4 +1,5 @@
 {
+    "editor.insertSpaces": true,
     "editor.rulers": [100],
 
     "files.exclude": {
