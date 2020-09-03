@@ -1,4 +1,4 @@
-// The version of `react-scripts` is 3.4.1
+// Used for `react-scripts` 3.4.1
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
@@ -60,8 +60,12 @@ const alias = {
     '@Utils': ResolveApp('src/utils')
 };
 
+// Eslint rc path
+const eslintConfigPath = ResolveApp('configs/eslintrc.js');
+
 module.exports = {
     Alias: alias,
+    EslintConfigPath: eslintConfigPath,
     IsDevMode: isDevMode,
     Paths: {
         AppBuild: appBuild,

@@ -1,3 +1,5 @@
+// const fs = require('fs');
+
 const Base = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
@@ -11,11 +13,24 @@ const Base = require('./webpack.base.config');
 function OverrideWebpackConfigs(webpack, env) {
     webpack.module.rules[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
     webpack.module.rules[2].oneOf[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
+    // WriteConfigs(webpack.module.rules, 'webpack.json');
+
+    // Use custom aliases
 
     for (let index in Base.Alias)
         webpack.resolve.alias[index] = Base.Alias[index];
+    // WriteConfigs(webpack.resolve.alias, 'webpack.json');
 
-    // WriteConfigs(webpack, 'webpack.json');
+    // Use custom eslint rc
+    // // We have three options to custom:
+    // `ignore`, `baseConfig` and `useEslintrc` (line 350-356 in `react-scrips` 3.4.1)
+    // But we only need to custom the `baseConfig` option.
+
+    // WriteConfigs(webpack.module.rules[1].use[0].options, 'webpack.json');
+    webpack.module.rules[1].use[0].options.baseConfig.extends = [Base.EslintConfigPath];
+    // WriteConfigs(webpack.module.rules[1].use[0].options, 'webpack.json');
+
+    // process.exit(0);
 
     return webpack;
 }
