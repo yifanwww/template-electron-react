@@ -22,15 +22,13 @@ function OverrideWebpackConfigs(webpack, env) {
     // WriteConfigs(webpack.resolve.alias, 'webpack.json');
 
     // Use custom eslint rc
-    // // We have three options to custom:
+    // We have three options to custom:
     // `ignore`, `baseConfig` and `useEslintrc` (line 350-356 in `react-scrips` 3.4.1)
     // But we only need to custom the `baseConfig` option.
 
     // WriteConfigs(webpack.module.rules[1].use[0].options, 'webpack.json');
     webpack.module.rules[1].use[0].options.baseConfig.extends = [Base.EslintConfigPath];
     // WriteConfigs(webpack.module.rules[1].use[0].options, 'webpack.json');
-
-    // process.exit(0);
 
     return webpack;
 }
