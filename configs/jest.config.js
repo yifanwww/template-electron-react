@@ -1,22 +1,22 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    rootDir: path.join(__dirname, '..'),
-    roots: ['<rootDir>/src/main', '<rootDir>/src/utils'],
-    testRegex: 'test/(.+)\\.test\\.ts$',
+    rootDir: path.join(__dirname, ".."),
+    roots: ["<rootDir>/src/main", "<rootDir>/src/utils"],
+    testRegex: "test/(.+)\\.test\\.ts$",
     transform: {
-        '^.+\\.ts$': 'ts-jest',
+        "^.+\\.ts$": "ts-jest",
     },
     testPathIgnorePatterns: [
-        '/node_modules/'
+        "/node_modules/"
     ],
-    testEnvironment: 'node',
+    testEnvironment: "node",
     collectCoverage: false,
-    moduleFileExtensions: ['js', 'ts'],
+    moduleFileExtensions: ["js", "ts"],
     globals: {
         // ts-jest configuration goes here.
-        'ts-jest': {
-            tsConfig: '<rootDir>/configs/tsconfig.main.json'
+        "ts-jest": {
+            tsConfig: "<rootDir>/configs/tsconfig.main.json"
         }
     }
 }

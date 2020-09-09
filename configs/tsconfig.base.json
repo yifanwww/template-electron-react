@@ -2,6 +2,9 @@
     "compilerOptions": {
         "baseUrl": "../",
         "paths": {
+            "@ClientArea": [
+                "./src/renderer/ClientArea"
+            ],
             "@Utils": [
                 "./src/utils"
             ]

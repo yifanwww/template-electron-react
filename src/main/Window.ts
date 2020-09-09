@@ -1,5 +1,5 @@
 import path from "path";
-import { BrowserWindow } from "electron";
+import { BrowserWindow, ipcMain, IpcMainEvent } from "electron";
 
 let window: BrowserWindow | null;
 
@@ -32,7 +32,7 @@ export async function CreateWindow(): Promise<void> {
 }
 
 function AddWindowListeners(): void {
-    window!.on("show", () => { OnWindowResized(); });
+    window!.on("show", () => { });
 
     window!.on("resize", () => { OnWindowResized(); });
 
@@ -48,6 +48,15 @@ function OnWindowResized() {
     window!.webContents.send("WindowResized", { width: size[0], height: size[1] });
 }
 
-function AddIpcMainListeners(): void { }
+function AddIpcMainListeners(): void {
+    ipcMain.on("ClientAreaInitialized", OnClientAreaInitialized);
+}
 
-function RemoveIpcMainListeners(): void { }
+function RemoveIpcMainListeners(): void {
+    ipcMain.removeListener("ClientAreaInitialized", OnClientAreaInitialized);
+}
+
+function OnClientAreaInitialized(event: IpcMainEvent) {
+    let size = window!.getContentSize();
+    event.reply("ClientAreaInitialized", { width: size[0], height: size[1] });
+}

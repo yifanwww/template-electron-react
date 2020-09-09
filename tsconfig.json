@@ -17,6 +17,9 @@
         "noEmit": true,
         "noImplicitAny": true,
         "paths": {
+            "@ClientArea": [
+                "./src/renderer/ClientArea"
+            ],
             "@Utils": [
                 "./src/utils"
             ]

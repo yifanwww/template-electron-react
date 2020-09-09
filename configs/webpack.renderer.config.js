@@ -1,10 +1,10 @@
-// const fs = require('fs');
+// const fs = require("fs");
 
-const Base = require('./webpack.base.config');
+const Base = require("./webpack.base.config");
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
-//     const configStr = JSON.stringify(config, '', '    ');
+//     const configStr = JSON.stringify(config, "", "    ");
 //     fs.writeFileSync(filename, configStr);
 // }
 
@@ -13,13 +13,13 @@ const Base = require('./webpack.base.config');
 function OverrideWebpackConfigs(webpack, env) {
     webpack.module.rules[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
     webpack.module.rules[2].oneOf[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
-    // WriteConfigs(webpack.module.rules, 'webpack.json');
+    // WriteConfigs(webpack.module.rules, "webpack.json");
 
     // Use custom aliases
 
     for (let index in Base.Alias)
         webpack.resolve.alias[index] = Base.Alias[index];
-    // WriteConfigs(webpack.resolve.alias, 'webpack.json');
+    // WriteConfigs(webpack.resolve.alias, "webpack.json");
 
     // Use custom eslint rc
     // We have three options to custom:
@@ -30,7 +30,7 @@ function OverrideWebpackConfigs(webpack, env) {
     // 'node_modules/safer-buffer/safer.js' when you're using 'iconv-lite'
     webpack.module.rules[1].use[0].options.ignore = true;
     webpack.module.rules[1].use[0].options.baseConfig.extends = [Base.EslintConfigPath];
-    // WriteConfigs(webpack.module.rules[1].use[0].options, 'webpack.json');
+    // WriteConfigs(webpack.module.rules[1].use[0].options, "webpack.json");
 
     return webpack;
 }
@@ -45,7 +45,7 @@ function OverridePathsConfigs(paths, env) {
     paths.testsSetup = Base.Paths.TestsSetup;
     paths.proxySetup = Base.Paths.ProxySetup;
 
-    // WriteConfigs(paths, 'paths.json');
+    // WriteConfigs(paths, "paths.json");
 
     return paths;
 }
