@@ -1,9 +1,11 @@
 import React from "react";
 import { IpcRendererEvent } from "electron";
+import { Provider } from "react-redux";
 
 import { AbstractClientArea, Size } from "@ClientArea";
 
 import { App } from "./App";
+import { Store } from "./Store";
 
 interface IProps { }
 interface IState {
@@ -23,7 +25,11 @@ class ClientArea extends AbstractClientArea<IProps, IState>
     }
 
     public render(): JSX.Element {
-        return <App />;
+        return (
+            <Provider store={Store}>
+                <App />
+            </Provider>
+        );
     }
 
     // -------------------------------------------------------------------------------- Ipc Receiver

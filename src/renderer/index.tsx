@@ -1,18 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 
-import { Store } from "./Store";
 import "./index.css";
 
 import { ReactAppClientArea } from "./ReactApp";
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={Store}>
-            <ReactAppClientArea />
-        </Provider>
+        <ReactAppClientArea />
     </React.StrictMode>,
     document.getElementById("root")
 );
