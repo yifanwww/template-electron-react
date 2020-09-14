@@ -8,6 +8,9 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/node_modules": true
+        "**/node_modules": true,
+        ".vscode~": true,
+        "build": true,
+        "release": true
     }
 }
