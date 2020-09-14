@@ -1,5 +1,4 @@
 import React from "react";
-import { IpcRendererEvent } from "electron";
 import { Provider } from "react-redux";
 
 import { AbstractClientArea, Size } from "@ClientArea";
@@ -7,16 +6,15 @@ import { AbstractClientArea, Size } from "@ClientArea";
 import { App } from "./App";
 import { Store } from "./Store";
 
-interface IProps { }
-interface IState {
+interface ClientAreaState {
     clientAreaSize: Size;
 }
 
-class ClientArea extends AbstractClientArea<IProps, IState>
+class ClientArea extends AbstractClientArea<{}, ClientAreaState>
 {
     // --------------------------------------------------------------------------------------- React
 
-    public constructor(props: Readonly<IProps>) {
+    public constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {
@@ -34,12 +32,12 @@ class ClientArea extends AbstractClientArea<IProps, IState>
 
     // -------------------------------------------------------------------------------- Ipc Receiver
 
-    protected OnClientAreaInitialized = (event: IpcRendererEvent, clientAreaSize: Size): void => {
+    protected OnClientAreaInitialized = (event: any, clientAreaSize: Size): void => {
         console.log(clientAreaSize);
         this.setState({ clientAreaSize: clientAreaSize });
     }
 
-    protected OnWindowResized = (event: IpcRendererEvent, clientAreaSize: Size): void => {
+    protected OnWindowResized = (event: any, clientAreaSize: Size): void => {
         console.log(clientAreaSize);
         this.setState({ clientAreaSize: clientAreaSize });
     }
