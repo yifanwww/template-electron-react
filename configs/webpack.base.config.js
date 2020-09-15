@@ -58,6 +58,7 @@ const isDevMode = process.env.mode === "development" ? true : false;
 // Alias
 const alias = {
     "@ClientArea": ResolveApp("src/renderer/ClientArea"),
+    "@Electron": ResolveApp("src/renderer/Electron"),
     "@RendererTypes": ResolveApp("src/renerer/Types")
 };
 

@@ -12,7 +12,7 @@
     "main": "build/electron.js",
     "homepage": "./",
     "scripts": {
-        "start": "electron .",
+        "app": "electron .",
         "build": "yarn build-renderer && yarn build-main",
         "build-main": "webpack --config configs/webpack.main.config.js",
         "build-renderer": "react-app-rewired build",

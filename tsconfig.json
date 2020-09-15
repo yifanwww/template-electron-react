@@ -20,6 +20,9 @@
             "@ClientArea": [
                 "./src/renderer/ClientArea"
             ],
+            "@Electron": [
+                "./src/renderer/Electron"
+            ],
             "@RendererTypes": [
                 "./src/renerer/Types"
             ]

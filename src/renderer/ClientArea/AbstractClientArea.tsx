@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { IpcRendererEvent } from "electron";
 
-const { ipcRenderer } = window.require("electron");
+import { IpcRenderer } from "@Electron";
 
 export interface Size {
     width: number;
@@ -13,15 +13,15 @@ export abstract class AbstractClientArea<P, S> extends Component<P, S>
     // --------------------------------------------------------------------------------------- React
 
     public componentDidMount(): void {
-        ipcRenderer.on("ClientAreaInitialized", this.OnClientAreaInitialized);
-        ipcRenderer.on("WindowResized", this.OnWindowResized);
+        IpcRenderer.On("ClientAreaInitialized", this.OnClientAreaInitialized);
+        IpcRenderer.On("WindowResized", this.OnWindowResized);
 
-        ipcRenderer.send("ClientAreaInitialized");
+        IpcRenderer.Send("ClientAreaInitialized");
     }
 
     public componentWillUnmount(): void {
-        ipcRenderer.removeListener("ClientAreaInitialized", this.OnClientAreaInitialized);
-        ipcRenderer.removeListener("WindowResized", this.OnWindowResized);
+        IpcRenderer.RemoveListener("ClientAreaInitialized", this.OnClientAreaInitialized);
+        IpcRenderer.RemoveListener("WindowResized", this.OnWindowResized);
     }
 
     // -------------------------------------------------------------------------------- Ipc Receiver

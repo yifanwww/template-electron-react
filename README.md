@@ -78,11 +78,11 @@ This script will first run script `yarn build-renderer` and then run script `yar
 
 Do not change this order, for `yarn build-renderer` (`react-scripts build`) will clear the old files in `./build` and then put the new compiled files into it. If you run script `yarn build-main` first, the new compiled `electron.js` file will be cleared when you run script `yarn build-renderer`.
 
-### `yarn start`
+### `yarn app`
 
 Runs the app in the `production` mode.
 
-You should run script `yarn build` before running script `yarn start`.
+You should run script `yarn build` before running script `yarn app`.
 
 ### `yarn installer`
 
@@ -102,7 +102,7 @@ The page will reload if you make edits.
 
 You will also see any lint errors in the console.
 
-### `yarn dev`
+### `yarn main`
 
 After running script `yarn web`, runs this script to execute the electorn app which will load the ui from the url [http://localhost:3000](http://localhost:3000).
 
