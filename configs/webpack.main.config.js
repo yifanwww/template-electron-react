@@ -2,7 +2,6 @@ const Base = require("./webpack.base.config");
 
 module.exports = {
     target: "electron-main",
-    mode: Base.IsDevMode ? "development" : "production",
     entry: Base.Paths.AppIndexJsMain,
     output: {
         filename: "electron.js",

@@ -52,9 +52,6 @@ const appTsConfigRenderer = ResolveApp("configs/tsconfig.renderer.json");
 const proxySetup = ResolveApp("src/renderer/setupProxy.js");
 const testsSetup = ResolveModule(ResolveApp, "src/renderer/setupTests");
 
-// Is dev mode or not
-const isDevMode = process.env.mode === "development" ? true : false;
-
 // Alias
 const alias = {
     "@ClientArea": ResolveApp("src/renderer/ClientArea"),
@@ -68,7 +65,6 @@ const eslintConfigPath = ResolveApp("configs/eslintrc.js");
 module.exports = {
     Alias: alias,
     EslintConfigPath: eslintConfigPath,
-    IsDevMode: isDevMode,
     Paths: {
         AppBuild: appBuild,
         AppHtml: appHtml,
