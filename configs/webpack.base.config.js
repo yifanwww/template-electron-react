@@ -58,8 +58,7 @@ const isDevMode = process.env.mode === "development" ? true : false;
 // Alias
 const alias = {
     "@ClientArea": ResolveApp("src/renderer/ClientArea"),
-    "@RendererTypes": ResolveApp("src/renerer/Types"),
-    "@Utils": ResolveApp("src/utils")
+    "@RendererTypes": ResolveApp("src/renerer/Types")
 };
 
 // Eslint rc path
