@@ -60,11 +60,11 @@ Here is a thing you need to know, the `./.vscode` folder is ignored by git but t
 
 To build this application, you have these scripts to execute:
 
-### `yarn build-main`
+### `yarn build:main`
 
 Builds electron main process code in `production` mode. These code will be compiled into a file `electron.js` in `./build`.
 
-### `yarn build-renderer`
+### `yarn build:renderer`
 
 Builds electron renderer process code in `production` mode, which is actually the react code.
 
@@ -74,9 +74,9 @@ But I actually use `react-app-rewired build`, for which I can modify some `react
 
 ### `yarn build`
 
-This script will first run script `yarn build-renderer` and then run script `yarn build-main`.
+This script will first run script `yarn build:renderer` and then run script `yarn build:main`.
 
-Do not change this order, for `yarn build-renderer` (`react-scripts build`) will clear the old files in `./build` and then put the new compiled files into it. If you run script `yarn build-main` first, the new compiled `electron.js` file will be cleared when you run script `yarn build-renderer`.
+Do not change this order, for `yarn build:renderer` (`react-scripts build`) will clear the old files in `./build` and then put the new compiled files into it. If you run script `yarn build:main` first, the new compiled `electron.js` file will be cleared when you run script `yarn build:renderer`.
 
 ### `yarn app`
 
