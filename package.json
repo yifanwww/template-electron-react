@@ -13,13 +13,13 @@
     "homepage": "./",
     "scripts": {
         "app": "electron .",
-        "build": "yarn build-renderer && yarn build-main",
-        "build-dev": "webpack --config configs/webpack.main.config.js --mode development",
-        "build-main": "webpack --config configs/webpack.main.config.js --mode production",
-        "build-renderer": "react-app-rewired build",
+        "build": "yarn build:renderer && yarn build:main",
+        "build:dev": "webpack --config configs/webpack.main.config.js --mode development",
+        "build:main": "webpack --config configs/webpack.main.config.js --mode production",
+        "build:renderer": "react-app-rewired build",
         "eject": "react-scripts eject",
         "installer": "electron-builder build --config ./configs/electron-builder.yml -w --x64",
-        "main": "yarn build-dev && cross-env mode=development electron .",
+        "main": "yarn build:dev && cross-env mode=development electron .",
         "test": "jest --config configs/jest.config.js",
         "test-react": "react-app-rewired test",
         "web": "react-app-rewired start"
