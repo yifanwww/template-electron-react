@@ -1,3 +1,3 @@
-export { AbstractClientArea } from "./AbstractClientArea";
+export { AbstractClientArea } from './AbstractClientArea';
 
-export type { Size } from "./AbstractClientArea";
+export type { Size } from './AbstractClientArea';

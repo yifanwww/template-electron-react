@@ -1,12 +1,11 @@
-import { IpcRendererWrapper } from "./IpcRendererWrapper";
+import { IpcRendererWrapper } from './IpcRendererWrapper';
 
 let _ipc: Electron.IpcRenderer | undefined;
 
 try {
-    let { ipcRenderer } = window.require("electron");
+    let { ipcRenderer } = window.require('electron');
     _ipc = ipcRenderer;
-}
-catch (error) {
+} catch (error) {
     console.log(error.message);
 }
 

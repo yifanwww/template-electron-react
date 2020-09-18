@@ -1,24 +1,23 @@
-import React from "react";
-import { Provider } from "react-redux";
+import React from 'react';
+import { Provider } from 'react-redux';
 
-import { AbstractClientArea, Size } from "@ClientArea";
+import { AbstractClientArea, Size } from '@ClientArea';
 
-import { App } from "./App";
-import { Store } from "./Store";
+import { App } from './App';
+import { Store } from './Store';
 
 interface ClientAreaState {
     clientAreaSize: Size;
 }
 
-class ClientArea extends AbstractClientArea<{}, ClientAreaState>
-{
+class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
     // --------------------------------------------------------------------------------------- React
 
     public constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {
-            clientAreaSize: { width: 1280, height: 720 }
+            clientAreaSize: { width: 1280, height: 720 },
         };
     }
 
@@ -35,12 +34,12 @@ class ClientArea extends AbstractClientArea<{}, ClientAreaState>
     protected OnClientAreaInitialized = (event: any, clientAreaSize: Size): void => {
         console.log(clientAreaSize);
         this.setState({ clientAreaSize: clientAreaSize });
-    }
+    };
 
     protected OnWindowResized = (event: any, clientAreaSize: Size): void => {
         console.log(clientAreaSize);
         this.setState({ clientAreaSize: clientAreaSize });
-    }
+    };
 }
 
 export { ClientArea as ReactAppClientArea };

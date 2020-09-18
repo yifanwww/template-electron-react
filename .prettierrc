@@ -1,6 +1,9 @@
 {
-    "singleQuote": true,
     "eslintIntegration": true,
+    "endOfLine": "lf",
+    "printWidth": 100,
+    "semi": true,
+    "singleQuote": true,
     "tabWidth": 4,
     "useTabs": false
 }
