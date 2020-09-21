@@ -1,6 +1,7 @@
 {
-    "eslintIntegration": true,
+    "arrowParens": "avoid",
     "endOfLine": "lf",
+    "eslintIntegration": true,
     "printWidth": 100,
     "semi": true,
     "singleQuote": true,
