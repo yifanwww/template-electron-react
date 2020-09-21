@@ -10,6 +10,9 @@
             ],
             "@RendererTypes": [
                 "./src/renerer/Types"
+            ],
+            "@Utils/*": [
+                "src/utils/*"
             ]
         }
     }

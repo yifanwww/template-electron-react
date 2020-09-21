@@ -56,7 +56,8 @@ const testsSetup = ResolveModule(ResolveApp, "src/renderer/setupTests");
 const alias = {
     "@ClientArea": ResolveApp("src/renderer/ClientArea"),
     "@Electron": ResolveApp("src/renderer/Electron"),
-    "@RendererTypes": ResolveApp("src/renerer/Types")
+    "@RendererTypes": ResolveApp("src/renerer/Types"),
+    "@Utils/*": ResolveApp("src/utils/*")
 };
 
 // Eslint rc path
