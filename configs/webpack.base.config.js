@@ -57,7 +57,7 @@ const alias = {
     '@ClientArea': ResolveApp('src/renderer/ClientArea'),
     '@Electron': ResolveApp('src/renderer/Electron'),
     '@RendererTypes': ResolveApp('src/renerer/Types'),
-    '@Utils/*': ResolveApp('src/utils/*'),
+    '@Utils': ResolveApp('src/utils'),
 };
 
 // Eslint rc path
