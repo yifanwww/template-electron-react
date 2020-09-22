@@ -1,6 +1,6 @@
 // const fs = require("fs");
 
-const Base = require("./webpack.base.config");
+const Base = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -17,8 +17,9 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // Use custom aliases
 
-    for (let index in Base.Alias)
+    for (let index in Base.Alias) {
         webpack.resolve.alias[index] = Base.Alias[index];
+    }
     // WriteConfigs(webpack.resolve.alias, "webpack.json");
 
     // Use custom eslint rc
@@ -52,5 +53,5 @@ function OverridePathsConfigs(paths, env) {
 
 module.exports = {
     webpack: OverrideWebpackConfigs,
-    paths: OverridePathsConfigs
-}
+    paths: OverridePathsConfigs,
+};
