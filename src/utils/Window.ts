@@ -1,3 +1,9 @@
+export interface PartWindowChannels {
+    ClientAreaInitialized: string;
+    WindowResized: string;
+    WindowToOpen: string;
+}
+
 export class WindowChannels {
     public static readonly Common = {
         WindowType: 'WT',

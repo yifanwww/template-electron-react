@@ -1,7 +1,7 @@
 import Path from 'path';
 import { BrowserWindow, IpcMainEvent, ipcMain } from 'electron';
 
-import { WindowType, WindowChannels } from '@Utils/Window';
+import { WindowChannels, WindowType, PartWindowChannels } from '@Utils/Window';
 
 import { CreateWindow } from '.';
 
@@ -19,10 +19,12 @@ export interface CreateWindowOption {
 export abstract class AbstractWindow {
     protected _window?: BrowserWindow;
     protected readonly _windowType: WindowType;
+    protected readonly _partWindowChannels: PartWindowChannels;
 
-    public constructor(windowType: WindowType) {
+    public constructor(windowType: WindowType, partWindowChannels: PartWindowChannels) {
         this._window = undefined;
         this._windowType = windowType;
+        this._partWindowChannels = partWindowChannels;
     }
 
     public async Create(options: CreateWindowOption): Promise<void> {
@@ -74,20 +76,20 @@ export abstract class AbstractWindow {
 
     protected _AddIpcListeners(): void {
         ipcMain.on(
-            WindowChannels.MainWindow.ClientAreaInitialized,
+            this._partWindowChannels.ClientAreaInitialized,
             this._Wrapper_ClientAreaInitialized
         );
-        ipcMain.on(WindowChannels.MainWindow.WindowToOpen, this._Wrapper_NewWindowToOpen);
+        ipcMain.on(this._partWindowChannels.WindowToOpen, this._Wrapper_NewWindowToOpen);
         ipcMain.on(WindowChannels.Common.WindowType, this._Wrapper_WindowTypeToGet);
     }
 
     protected _RemoveIpcListeners(): void {
         ipcMain.removeListener(
-            WindowChannels.MainWindow.ClientAreaInitialized,
+            this._partWindowChannels.ClientAreaInitialized,
             this._Wrapper_ClientAreaInitialized
         );
         ipcMain.removeListener(
-            WindowChannels.MainWindow.WindowToOpen,
+            this._partWindowChannels.WindowToOpen,
             this._Wrapper_NewWindowToOpen
         );
         ipcMain.removeListener(WindowChannels.Common.WindowType, this._Wrapper_WindowTypeToGet);
@@ -108,7 +110,7 @@ export abstract class AbstractWindow {
     protected _OnWindowResized(): void {
         let size = this._window!.getContentSize();
 
-        this._window!.webContents.send(WindowChannels.MainWindow.WindowResized, {
+        this._window!.webContents.send(this._partWindowChannels.WindowResized, {
             width: size[0],
             height: size[1],
         });
@@ -134,7 +136,7 @@ export abstract class AbstractWindow {
 
     protected _OnClientAreaInitialized(event: IpcMainEvent): void {
         let size = this._window!.getContentSize();
-        event.reply(WindowChannels.MainWindow.ClientAreaInitialized, {
+        event.reply(this._partWindowChannels.ClientAreaInitialized, {
             width: size[0],
             height: size[1],
         });
