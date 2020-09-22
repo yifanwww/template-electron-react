@@ -140,7 +140,7 @@ export abstract class AbstractWindow {
         });
     }
 
-    private _Wrapper_NewWindowToOpen: IpcEvent<WindowType> = (event, windowType) =>
+    private _Wrapper_NewWindowToOpen: IpcEvent<number> = (event, windowType) =>
         this._InvokeEventHandler(event, () => this._OnNewWindowToOpen(event, windowType));
 
     protected _OnNewWindowToOpen(event: any, windowType: WindowType): void {
