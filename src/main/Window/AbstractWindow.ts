@@ -116,7 +116,7 @@ export abstract class AbstractWindow {
 
     // ---------------------------------------------------------------------------------- Ipc Events
 
-    private _InvokeEventHandler(event: IpcMainEvent, eventHandler: () => void) {
+    protected _InvokeEventHandler(event: IpcMainEvent, eventHandler: () => void) {
         if (event.sender.id === this._window!.id) {
             eventHandler();
         }
