@@ -128,6 +128,8 @@ export abstract class AbstractWindow {
         this._InvokeEventHandler(event, () => this._OnWindowTypeToGet(event));
 
     private _OnWindowTypeToGet = (event: IpcMainEvent): void => {
+        console.debug('Send window type.');
+
         event.returnValue = this._windowType;
     };
 
@@ -135,6 +137,8 @@ export abstract class AbstractWindow {
         this._InvokeEventHandler(event, () => this._OnClientAreaInitialized(event));
 
     protected _OnClientAreaInitialized(event: IpcMainEvent): void {
+        console.debug('Send content size.');
+
         let size = this._window!.getContentSize();
         event.reply(this._partWindowChannels.ClientAreaInitialized, {
             width: size[0],
@@ -146,6 +150,8 @@ export abstract class AbstractWindow {
         this._InvokeEventHandler(event, () => this._OnNewWindowToOpen(event, windowType));
 
     protected _OnNewWindowToOpen(event: any, windowType: WindowType): void {
+        console.debug('Try to create a new window.');
+
         CreateWindow(windowType);
     }
 }
