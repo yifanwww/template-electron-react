@@ -6,10 +6,12 @@ const _isDevelopment = process.env.YF1999_Template_Electron_Mode === 'Developmen
 
 const _mainWindow = new MainWindow();
 
-export function CreateWindow(windowType: WindowType) {
+export function CreateWindow(windowType: WindowType): Promise<void> | void {
     if (windowType === WindowType.MainWindow) {
         if (!_mainWindow.State) {
-            _mainWindow.Create({ development: _isDevelopment });
+            return _mainWindow.Create({ development: _isDevelopment });
         }
     }
+
+    return;
 }

@@ -6,7 +6,7 @@ try {
     let { ipcRenderer } = window.require('electron');
     _ipc = ipcRenderer;
 } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
 }
 
 export const IpcRenderer = new IpcRendererWrapper(_ipc);
