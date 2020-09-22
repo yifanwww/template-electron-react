@@ -12,6 +12,4 @@ export function CreateWindow(windowType: WindowType): Promise<void> | void {
             return _mainWindow.Create({ development: _isDevelopment });
         }
     }
-
-    return;
 }
