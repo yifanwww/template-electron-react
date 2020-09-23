@@ -55,7 +55,7 @@ const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 // Alias
 const alias = {
     '@ClientArea': ResolveApp('src/renderer/ClientArea'),
-    '@Electron': ResolveApp('src/renderer/Electron'),
+    '@Electron': ResolveApp('src/utils/Electron'),
     '@RendererTypes': ResolveApp('src/renerer/Types'),
     '@Utils': ResolveApp('src/utils'),
 };
