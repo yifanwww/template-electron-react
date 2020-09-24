@@ -30,7 +30,7 @@ export class BaseIpcMainClass {
         this._ipc.On(this.NewWindowToOpen, func);
     }
 
-    public RemoveWindowToOpen(func: IpcMainFunc<WindowType>): void {
+    public RemoveNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
         this._ipc.RemoveListener(this.NewWindowToOpen, func);
     }
 }

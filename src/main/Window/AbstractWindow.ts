@@ -81,7 +81,7 @@ export abstract class AbstractWindow {
 
     protected _RemoveIpcListeners(): void {
         BaseIpcMain.RemoveClientAreaInitialized(this._Wrapper_ClientAreaInitialized);
-        BaseIpcMain.RemoveWindowToOpen(this._Wrapper_NewWindowToOpen);
+        BaseIpcMain.RemoveNewWindowToOpen(this._Wrapper_NewWindowToOpen);
         BaseIpcMain.RemoveWindowTypeToGet(this._Wrapper_WindowTypeToGet);
     }
 
