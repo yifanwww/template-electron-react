@@ -26,8 +26,8 @@
             "@RendererTypes": [
                 "./src/renerer/Types"
             ],
-            "@Utils/*": [
-                "src/utils/*"
+            "@Utils": [
+                "./src/utils/Utils"
             ]
         },
         "resolveJsonModule": true,

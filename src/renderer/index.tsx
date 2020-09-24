@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
-import { WindowChannels, WindowType } from '@Utils/Window';
+import { WindowChannels, WindowType } from '@Utils';
 import { IpcRenderer } from '@Electron';
 
 import { ReactAppClientArea } from './ReactApp';

@@ -1,7 +1,7 @@
 import Path from 'path';
 import { BrowserWindow, IpcMainEvent, ipcMain } from 'electron';
 
-import { WindowChannels, WindowType, PartWindowChannels } from '@Utils/Window';
+import { WindowChannels, WindowType, PartWindowChannels } from '@Utils';
 
 import { CreateWindow } from '.';
 

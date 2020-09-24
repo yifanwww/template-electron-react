@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { IpcRendererEvent } from 'electron';
 import { IpcRenderer } from '@Electron';
-import { PartWindowChannels } from '@Utils/Window';
+import { PartWindowChannels } from '@Utils';
 
 type IpcEvent<Args = undefined> = Args extends undefined
     ? (event: IpcRendererEvent) => void

@@ -1,4 +1,4 @@
-import { WindowChannels, WindowType } from '@Utils/Window';
+import { WindowChannels, WindowType } from '@Utils';
 
 import { AbstractWindow } from './AbstractWindow';
 

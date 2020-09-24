@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { WindowChannels } from '@Utils/Window';
+import { WindowChannels } from '@Utils';
 import { AbstractClientArea, Size } from '@ClientArea';
 
 import { App } from './App';
