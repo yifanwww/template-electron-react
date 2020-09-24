@@ -1,5 +1,9 @@
 export { IpcMainWrapper } from './IpcMainWrapper';
-export { BaseIpcMain } from './BaseIpcMain';
+export type { IpcMainFunc, IpcMainInvokeFunc } from './IpcMainWrapper';
 
-export { IpcRendererWrapper, IpcRenderer } from './IpcRendererWrapper';
-export { BaseIpcRenderer } from './BaseIpcRenderer';
+export { IpcRendererWrapper } from './IpcRendererWrapper';
+export type { IpcRendererFunc } from './IpcRendererWrapper';
+
+export { BaseIpcMain } from './BaseIpcMain';
+export { BaseIpcRendererClass, BaseIpcRenderer } from './BaseIpcRenderer';
+export type { ClientAreaSize } from './BaseIpc.types';

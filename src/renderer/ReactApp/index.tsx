@@ -1,21 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { WindowChannels } from '@Utils';
-import { AbstractClientArea, Size } from '@ClientArea';
+import { AbstractClientArea } from '@ClientArea';
+import { ClientAreaSize } from '@Electron';
 
 import { App } from './App';
 import { Store } from './Store';
 
 interface ClientAreaState {
-    clientAreaSize: Size;
+    clientAreaSize: ClientAreaSize;
 }
 
 class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
     // --------------------------------------------------------------------------------------- React
 
     public constructor(props: Readonly<{}>) {
-        super(props, WindowChannels.MainWindow);
+        super(props);
 
         this.state = {
             clientAreaSize: { width: 1280, height: 720 },
@@ -32,12 +32,12 @@ class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
 
     // ---------------------------------------------------------------------------------- Ipc Events
 
-    protected _OnceClientAreaInitialized(event: any, clientAreaSize: Size): void {
+    protected _OnceClientAreaInitialized(event: any, clientAreaSize: ClientAreaSize): void {
         console.log(clientAreaSize);
         this.setState({ clientAreaSize: clientAreaSize });
     }
 
-    protected _OnWindowResized(event: any, clientAreaSize: Size): void {
+    protected _OnWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
         console.log(clientAreaSize);
         this.setState({ clientAreaSize: clientAreaSize });
     }

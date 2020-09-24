@@ -1,9 +1,10 @@
 import Path from 'path';
-import { BrowserWindow, IpcMainEvent, ipcMain } from 'electron';
+import { BrowserWindow, IpcMainEvent } from 'electron';
 
-import { WindowChannels, WindowType, PartWindowChannels } from '@Utils';
+import { WindowType } from '@Utils';
 
 import { CreateWindow } from '.';
+import { BaseIpcMain } from '@Electron';
 
 type WindowEvent = () => void;
 type IpcEvent<Args = undefined> = Args extends undefined
@@ -19,12 +20,10 @@ export interface CreateWindowOption {
 export abstract class AbstractWindow {
     protected _window?: BrowserWindow;
     protected readonly _windowType: WindowType;
-    protected readonly _partWindowChannels: PartWindowChannels;
 
-    public constructor(windowType: WindowType, partWindowChannels: PartWindowChannels) {
+    public constructor(windowType: WindowType) {
         this._window = undefined;
         this._windowType = windowType;
-        this._partWindowChannels = partWindowChannels;
     }
 
     public async Create(options: CreateWindowOption): Promise<void> {
@@ -75,24 +74,15 @@ export abstract class AbstractWindow {
     // ------------------------------------------------------------------------------- Ipc Listeners
 
     protected _AddIpcListeners(): void {
-        ipcMain.on(
-            this._partWindowChannels.ClientAreaInitialized,
-            this._Wrapper_ClientAreaInitialized
-        );
-        ipcMain.on(this._partWindowChannels.WindowToOpen, this._Wrapper_NewWindowToOpen);
-        ipcMain.on(WindowChannels.Common.WindowType, this._Wrapper_WindowTypeToGet);
+        BaseIpcMain.OnClientAreaInitialized(this._Wrapper_ClientAreaInitialized);
+        BaseIpcMain.OnNewWindowToOpen(this._Wrapper_NewWindowToOpen);
+        BaseIpcMain.OnWindowTypeToGet(this._Wrapper_WindowTypeToGet);
     }
 
     protected _RemoveIpcListeners(): void {
-        ipcMain.removeListener(
-            this._partWindowChannels.ClientAreaInitialized,
-            this._Wrapper_ClientAreaInitialized
-        );
-        ipcMain.removeListener(
-            this._partWindowChannels.WindowToOpen,
-            this._Wrapper_NewWindowToOpen
-        );
-        ipcMain.removeListener(WindowChannels.Common.WindowType, this._Wrapper_WindowTypeToGet);
+        BaseIpcMain.RemoveClientAreaInitialized(this._Wrapper_ClientAreaInitialized);
+        BaseIpcMain.RemoveWindowToOpen(this._Wrapper_NewWindowToOpen);
+        BaseIpcMain.RemoveWindowTypeToGet(this._Wrapper_WindowTypeToGet);
     }
 
     // ------------------------------------------------------------------------------- Window Events
@@ -110,7 +100,7 @@ export abstract class AbstractWindow {
     protected _OnWindowResized(): void {
         let size = this._window!.getContentSize();
 
-        this._window!.webContents.send(this._partWindowChannels.WindowResized, {
+        this._window!.webContents.send(BaseIpcMain.WindowResized, {
             width: size[0],
             height: size[1],
         });
@@ -140,7 +130,7 @@ export abstract class AbstractWindow {
         console.debug('Send content size.');
 
         let size = this._window!.getContentSize();
-        event.reply(this._partWindowChannels.ClientAreaInitialized, {
+        event.reply(BaseIpcMain.ClientAreaInitialized, {
             width: size[0],
             height: size[1],
         });

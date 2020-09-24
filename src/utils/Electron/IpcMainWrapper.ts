@@ -1,11 +1,19 @@
 import { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
+export type IpcMainFunc<Argument = undefined> = Argument extends undefined
+    ? (event: IpcMainEvent) => void
+    : (event: IpcMainEvent, argument: Argument) => void;
+
+export type IpcMainInvokeFunc<Argument = undefined> = Argument extends undefined
+    ? (event: IpcMainInvokeEvent) => void
+    : (event: IpcMainInvokeEvent, argument: Argument) => void;
+
 export class IpcMainWrapper {
     private _ipc?: Electron.IpcMain;
 
     public constructor() {
         try {
-            let { ipcMain } = window.require('electron');
+            let { ipcMain } = require('electron');
             this._ipc = ipcMain;
         } catch (error) {
             console.error(error.message);
