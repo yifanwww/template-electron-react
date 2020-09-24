@@ -21,7 +21,10 @@ export class IpcRendererWrapper {
         return this;
     }
 
-    public Once(channel: string, listener: (event: IpcRendererEvent, argument?: any) => void): this {
+    public Once(
+        channel: string,
+        listener: (event: IpcRendererEvent, argument?: any) => void
+    ): this {
         this._ipc?.once(channel, listener);
         return this;
     }

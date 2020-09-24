@@ -1,5 +1,4 @@
-import { IpcMainEvent } from 'electron';
-import { IpcMainInvokeEvent } from 'electron/main';
+import { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
 export class IpcMainWrapper {
     private _ipc?: Electron.IpcMain;
