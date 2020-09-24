@@ -1,6 +1,7 @@
 import { WindowType } from '@Utils';
 
-import { IpcRendererWrapper, IpcRendererFunc } from './IpcRendererWrapper';
+import { IpcRendererWrapper } from './IpcRendererWrapper';
+import { IpcRendererFunc } from './IpcWrapper.types';
 import { ClientAreaSize } from './BaseIpc.types';
 
 export class BaseIpcRendererClass {

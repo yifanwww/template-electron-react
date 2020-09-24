@@ -1,6 +1,7 @@
 import { WindowType } from '@Utils';
 
-import { IpcMainWrapper, IpcMainFunc } from './IpcMainWrapper';
+import { IpcMainWrapper } from './IpcMainWrapper';
+import { IpcMainFunc } from './IpcWrapper.types';
 
 export class BaseIpcMainClass {
     protected readonly _ipc = new IpcMainWrapper();

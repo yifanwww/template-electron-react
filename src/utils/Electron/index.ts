@@ -1,8 +1,6 @@
 export { IpcMainWrapper } from './IpcMainWrapper';
-export type { IpcMainFunc, IpcMainInvokeFunc } from './IpcMainWrapper';
-
 export { IpcRendererWrapper } from './IpcRendererWrapper';
-export type { IpcRendererFunc } from './IpcRendererWrapper';
+export type { IpcMainFunc, IpcMainInvokeFunc, IpcRendererFunc } from './IpcWrapper.types';
 
 export { BaseIpcMainClass, BaseIpcMain } from './BaseIpcMain';
 export { BaseIpcRendererClass, BaseIpcRenderer } from './BaseIpcRenderer';

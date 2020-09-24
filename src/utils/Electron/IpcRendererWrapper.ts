@@ -1,9 +1,5 @@
 import { IpcRendererEvent } from 'electron';
 
-export type IpcRendererFunc<Argument = undefined> = Argument extends undefined
-    ? (event: IpcRendererEvent) => void
-    : (event: IpcRendererEvent, argument: Argument) => void;
-
 export class IpcRendererWrapper {
     private _ipc?: Electron.IpcRenderer;
 

@@ -1,13 +1,5 @@
 import { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-export type IpcMainFunc<Argument = undefined> = Argument extends undefined
-    ? (event: IpcMainEvent) => void
-    : (event: IpcMainEvent, argument: Argument) => void;
-
-export type IpcMainInvokeFunc<Argument = undefined> = Argument extends undefined
-    ? (event: IpcMainInvokeEvent) => void
-    : (event: IpcMainInvokeEvent, argument: Argument) => void;
-
 export class IpcMainWrapper {
     private _ipc?: Electron.IpcMain;
 
@@ -22,14 +14,14 @@ export class IpcMainWrapper {
 
     public Handle(
         channel: string,
-        listener: (event: IpcMainInvokeEvent, argument: any) => Promise<void> | any
+        listener: (event: IpcMainInvokeEvent, argument: any) => any
     ): void {
         this._ipc?.handle(channel, listener);
     }
 
     public HandleOnce(
         channel: string,
-        listener: (event: IpcMainInvokeEvent, argument: any) => Promise<void> | any
+        listener: (event: IpcMainInvokeEvent, argument: any) => any
     ): void {
         this._ipc?.handleOnce(channel, listener);
     }
