@@ -1,3 +1,2 @@
-import { IpcRendererWrapper } from './IpcRendererWrapper';
-
-export const IpcRenderer = new IpcRendererWrapper();
+export { IpcMainWrapper } from './IpcMainWrapper';
+export { IpcRendererWrapper, IpcRenderer } from './IpcRendererWrapper';
