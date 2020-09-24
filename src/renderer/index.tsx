@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import './index.css';
-import { WindowChannels, WindowType } from '@Utils/Window';
-import { IpcRenderer } from '@Electron';
+import { WindowType } from '@Utils';
+import { BaseIpcRenderer } from '@Electron';
 
 import { ReactAppClientArea } from './ReactApp';
 
 function CreateClientArea(): JSX.Element {
-    const windowType: WindowType = IpcRenderer.SendSync(WindowChannels.Common.WindowType);
+    const windowType: WindowType = BaseIpcRenderer.GetWindowType();
 
     let clientArea: JSX.Element;
     switch (windowType) {

@@ -18,16 +18,16 @@
         "noImplicitAny": true,
         "paths": {
             "@ClientArea": [
-                "./src/renderer/ClientArea"
+                "src/renderer/ClientArea"
             ],
             "@Electron": [
-                "./src/renderer/Electron"
+                "src/utils/Electron"
             ],
             "@RendererTypes": [
-                "./src/renerer/Types"
+                "src/renerer/Types"
             ],
-            "@Utils/*": [
-                "src/utils/*"
+            "@Utils": [
+                "src/utils/Utils"
             ]
         },
         "resolveJsonModule": true,
