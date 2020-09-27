@@ -1,6 +1,6 @@
 # template-electron-create-react-app
 
-A template project for developing electron application by electron, react (create-react-app) and typescript.
+A template project for developing electron application by react (create-react-app), redux and typescript.
 
 You can create your own project by importing this template project.
 
@@ -10,21 +10,24 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Install Packages
 
-I recommand you using `yarn` to manage your packages, which is faster and more convenient than `npm`.
+I recommand you using `yarn` to manage your packages, which is (a little) faster and more convenient than `npm`.
 
 Then you need to use `yarn install` to install the packages this template project needs:
 - dependencies:
-    - @types/node
-    - @types/react
-    - @types/react-dom
+    - @reduxjs/toolkit
     - react
     - react-dom
+    - react-redux
     - react-scripts
 - development dependencies:
     - @testing-library/jest-dom
     - @testing-library/react
     - @testing-library/user-event
     - @types/jest
+    - @types/node
+    - @types/react
+    - @types/react-dom
+    - @types/react-redux
     - cross-env
     - electron
     - electron-builder
@@ -34,27 +37,27 @@ Then you need to use `yarn install` to install the packages this template projec
     - typescript
     - webpack-cli
 
-When installing electron package, it will download a compressed pack directly from `github`, for example `electron-v9.1.0-win32-x64.zip`.
+When installing electron package, it will download a compressed pack directly from `github`, for example `electron-v10.1.1-win32-x64.zip`.
 
 It may take a long time for a bad network connection to `github`. It doesn't work to set a proxy tool for npm or yarn, because the downloading process doesn't download the pack through npm or yarn, but a download tool [`electron/get`](https://github.com/electron/get).
 
-Fortunately, the download tool `electron/get` will check cache before downloading. So you could download the compressed pack from `github` manually, then copy it to where the cache files placed.
+Fortunately, the download tool `electron/get` will check its cache before downloading. So you could download the compressed pack from `github` manually, then copy it to where the cache files placed.
 
 For example, if you need to install electron 9.1.0 in 64-bit windows:
-1. Download `electron-v9.1.0-win32-x64.zip` from `github`.
+1. Download `electron-v10.1.1-win32-x64.zip` from `github`.
 2. Open `file explorer` at `%localappdata%`, create `./electron/Cache` folder.
-3. In cache, create `httpsgithub.comelectronelectronreleasesdownloadv9.1.0electron-v9.1.0-win32-x64.zip` folder, then copy the zip file into this folder.
+3. In cache, create `httpsgithub.comelectronelectronreleasesdownloadv10.1.1electron-v10.1.1-win32-x64.zip` folder, then copy the zip file into this folder.
 4. Now you can `yarn install` in this project, `electron/get` will find the existing zip file in cache and use it to install electron.
 
 ### Use Visual Studio Code
 
-I also recommand you using `visual studio code` to develop your electron application.
+It's recommanded for you to use `visual studio code` to develop your electron application.
 
 After you creating your own project, you need to rename the `template-electron-create-react-app.code-workspace` file to `<YouProjectName>.code-workspace`, and then use vscode open it.
 
-The vscode project configurations need to be set in `./.vscode/settings.json`. I have provided a very simple `settings.json` in `./.vscode~`, you could copy and edit it.
+The vscode project configurations need to be set in `./.vscode/settings.json`. I have provided a very simple `settings~.json`, you can copy and edit it.
 
-Here is a thing you need to know, the `./.vscode` folder is ignored by git but the `./.vscode~` folder is not. For you can set some personal project settings which are probobly not suit for other developers. You should edit the `./.vscode~/settings.json` file and inform others, if you have changed some communal project settings.
+In git, the `settings.json` file is ignored but the `settings~.json` file is not. For you can set some personal project settings which are probobly not suit for other developers. You should edit the `settings~.json` file and inform others, if you have changed some communal project settings.
 
 ## Build This Application
 
@@ -133,3 +136,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 To modify this project configurations, check out the [How to modify this project configurations](./configs/README.md).
+
+I also provide some utils for you to develop applications easier:
+- [@Electron](./src/utils/Electron/README.md)
+- [@Utils](./src/utils/Utils/README.md)
