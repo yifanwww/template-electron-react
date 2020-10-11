@@ -1,5 +1,4 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.insertSpaces": true,
     "editor.rulers": [100],
     "editor.tabSize": 4,
@@ -13,5 +12,12 @@
         "**/node_modules": true,
         "build": true,
         "release": true
+    },
+
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
