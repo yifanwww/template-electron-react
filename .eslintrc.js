@@ -1,0 +1,48 @@
+module.exports = {
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb-typescript/base'],
+    plugins: [
+        '@typescript-eslint',
+        'flowtype',
+        'import',
+        'jest',
+        'jsx-a11y',
+        'only-warn',
+        'prettier',
+        'react',
+        'react-hooks',
+    ],
+    parserOptions: {
+        project: './tsconfig.json',
+    },
+    rules: {
+        '@typescript-eslint/comma-dangle': 'off',
+        '@typescript-eslint/indent': ['warn', 4],
+        '@typescript-eslint/lines-between-class-members': 'off',
+        '@typescript-eslint/no-loop-func': 'off',
+        'arrow-body-style': 'off',
+        'class-methods-use-this': 'off',
+        curly: 'off',
+        'guard-for-in': 'off', // XXX
+        'function-paren-newline': 'off',
+        'implicit-arrow-linebreak': 'off',
+        'import/extensions': 'off',
+        'import/no-cycle': 'off',
+        'import/prefer-default-export': 'off',
+        'max-classes-per-file': ['warn', 2],
+        'max-len': ['warn', { code: 100 }],
+        'no-continue': 'off',
+        'no-console': 'off', // XXX
+        'no-else-return': 'off',
+        'no-param-reassign': 'off',
+        'no-restricted-syntax': 'off',
+        'no-undef': 'off',
+        'nonblock-statement-body-position': 'off',
+        'object-curly-newline': 'off',
+        'object-shorthand': 'off',
+        'operator-linebreak': 'off',
+        'react/prop-types': 'off',
+    },
+    env: {
+        'jest/globals': true,
+    },
+};
