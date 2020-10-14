@@ -61,7 +61,7 @@ const alias = {
 };
 
 // Eslint rc path
-const eslintConfigPath = ResolveApp('configs/eslintrc.js');
+const eslintConfigPath = ResolveApp('configs/.eslintrc.js');
 
 module.exports = {
     Alias: alias,
