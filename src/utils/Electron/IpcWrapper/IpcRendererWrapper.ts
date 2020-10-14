@@ -1,23 +1,23 @@
 import { IpcRendererEvent } from 'electron';
 
 export class IpcRendererWrapper {
-    private _ipc?: Electron.IpcRenderer;
+    private ipc?: Electron.IpcRenderer;
 
     public constructor() {
         try {
-            let { ipcRenderer } = window.require('electron');
-            this._ipc = ipcRenderer;
+            const { ipcRenderer } = window.require('electron');
+            this.ipc = ipcRenderer;
         } catch (error) {
             console.error(error.message);
         }
     }
 
     public async Invoke(channel: string, argument?: any): Promise<any> {
-        return this._ipc?.invoke(channel, argument);
+        return this.ipc?.invoke(channel, argument);
     }
 
     public On(channel: string, listener: (event: IpcRendererEvent, argument?: any) => void): this {
-        this._ipc?.on(channel, listener);
+        this.ipc?.on(channel, listener);
         return this;
     }
 
@@ -25,16 +25,16 @@ export class IpcRendererWrapper {
         channel: string,
         listener: (event: IpcRendererEvent, argument?: any) => void
     ): this {
-        this._ipc?.once(channel, listener);
+        this.ipc?.once(channel, listener);
         return this;
     }
 
     public PostMessage(channel: string, message: any, transfer?: MessagePort[]): void {
-        this._ipc?.postMessage(channel, message, transfer);
+        this.ipc?.postMessage(channel, message, transfer);
     }
 
     public RemoveAllListeners(channel: string): this {
-        this._ipc?.removeAllListeners(channel);
+        this.ipc?.removeAllListeners(channel);
         return this;
     }
 
@@ -42,23 +42,23 @@ export class IpcRendererWrapper {
         channel: string,
         listener: (event: IpcRendererEvent, argument?: any) => void
     ): this {
-        this._ipc?.removeListener(channel, listener);
+        this.ipc?.removeListener(channel, listener);
         return this;
     }
 
     public Send(channel: string, argument?: any): void {
-        this._ipc?.send(channel, argument);
+        this.ipc?.send(channel, argument);
     }
 
     public SendSync(channel: string, argument?: any): any {
-        return this._ipc?.sendSync(channel, argument);
+        return this.ipc?.sendSync(channel, argument);
     }
 
     public SendTo(webContentsId: number, channel: string, argument?: any): void {
-        this._ipc?.sendTo(webContentsId, channel, argument);
+        this.ipc?.sendTo(webContentsId, channel, argument);
     }
 
     public SendToHost(channel: string, argument?: any): void {
-        this._ipc?.sendToHost(channel, argument);
+        this.ipc?.sendToHost(channel, argument);
     }
 }
