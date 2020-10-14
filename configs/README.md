@@ -2,7 +2,7 @@
 
 There are some configuration files in the current folder:
 - [electron-builder.yml](./electron-builder.yml)
-- [eslintrc.js](./eslintrc.js)
+- [.eslintrc.js](./.eslintrc.js)
 - [jest.config.js](./jest.config.js)
 - [tsconfig.base.json](./tsconfig.base.json)
 - [tsconfig.main.json](./tsconfig.main.json)
@@ -17,7 +17,7 @@ In this configuration file, this configuration about how electron-builder packs 
 
 <!-- TODO -->
 
-## eslintrc.js
+## .eslintrc.js
 
 In this configuration file, this configuration about how eslint lints this application's code.
 
