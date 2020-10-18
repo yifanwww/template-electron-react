@@ -17,6 +17,9 @@
         "noEmit": true,
         "noImplicitAny": true,
         "paths": {
+            "@Assets/*": [
+                "src/renderer/Assets/*"
+            ],
             "@ClientArea": [
                 "src/renderer/ClientArea"
             ],

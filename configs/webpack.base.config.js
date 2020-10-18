@@ -7,7 +7,7 @@ const path = require('path');
 
 // Copied from `node_modules/react-scripts/config/path.js`, line 17
 const appDirectory = fs.realpathSync(process.cwd());
-const ResolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const ResolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 // Copied from `node_modules/react-scripts/config/path.js`, line 32
 const moduleFileExtensions = [
@@ -26,8 +26,8 @@ const moduleFileExtensions = [
 
 // Copied from `node_modules/react-scripts/config/path.js`, line 47
 const ResolveModule = (resolveFn, filePath) => {
-    const extension = moduleFileExtensions.find(extension =>
-        fs.existsSync(resolveFn(`${filePath}.${extension}`))
+    const extension = moduleFileExtensions.find((extension) =>
+        fs.existsSync(resolveFn(`${filePath}.${extension}`)),
     );
 
     if (extension) {
@@ -54,6 +54,7 @@ const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 
 // Alias
 const alias = {
+    '@Assets': ResolveApp('src/renderer/Assets'),
     '@ClientArea': ResolveApp('src/renderer/ClientArea'),
     '@Electron': ResolveApp('src/utils/Electron'),
     '@RendererTypes': ResolveApp('src/renerer/Types'),
