@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb-typescript/base'],
+    extends: ['plugin:react/recommended', 'eslint:recommended', 'airbnb-typescript/base'],
     plugins: [
         '@typescript-eslint',
         'flowtype',
@@ -19,6 +19,8 @@ module.exports = {
         '@typescript-eslint/indent': ['warn', 4],
         '@typescript-eslint/lines-between-class-members': 'off',
         '@typescript-eslint/no-loop-func': 'off',
+        '@typescript-eslint/no-shadow': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
         'arrow-body-style': 'off',
         'class-methods-use-this': 'off',
         curly: 'off',
