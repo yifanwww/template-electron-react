@@ -1,3 +1,7 @@
+// Used for `react-scripts` 3.4.4
+// For more information about how to override default configs of `react-scripts`
+// visit: https://github.com/timarney/react-app-rewired
+
 // const fs = require("fs");
 
 const Base = require('./webpack.base.config');
@@ -23,8 +27,8 @@ function OverrideWebpackConfigs(webpack, env) {
     // WriteConfigs(webpack.resolve.alias, "webpack.json");
 
     // Use custom eslint rc
-    // We have three options to custom:
-    // 'ignore', 'baseConfig' and 'useEslintrc' (line 350-356 in 'react-scrips' 3.4.1)
+    // We have three options to custom: 'ignore', 'baseConfig' and 'useEslintrc'
+    // (line 350-356 in 'react-scrips/config/webpack.config.js')
 
     // HACK: Why it works fine if the 'ignore' option is 'true'?
     // For example: if it is false, definition for rule 'node/no-deprecated-api' is not found in

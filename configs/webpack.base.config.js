@@ -1,15 +1,15 @@
-// Used for `react-scripts` 3.4.1
+// Used for `react-scripts` 3.4.4
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
 const fs = require('fs');
 const path = require('path');
 
-// Copied from `node_modules/react-scripts/config/path.js`, line 17
+// Copied from `node_modules/react-scripts/config/path.js`, line 17-18
 const appDirectory = fs.realpathSync(process.cwd());
 const ResolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
-// Copied from `node_modules/react-scripts/config/path.js`, line 32
+// Copied from `node_modules/react-scripts/config/path.js`, line 32-44
 const moduleFileExtensions = [
     'web.mjs',
     'mjs',
@@ -24,7 +24,7 @@ const moduleFileExtensions = [
     'jsx',
 ];
 
-// Copied from `node_modules/react-scripts/config/path.js`, line 47
+// Copied from `node_modules/react-scripts/config/path.js`, line 47-57
 const ResolveModule = (resolveFn, filePath) => {
     const extension = moduleFileExtensions.find((extension) =>
         fs.existsSync(resolveFn(`${filePath}.${extension}`)),
@@ -37,7 +37,7 @@ const ResolveModule = (resolveFn, filePath) => {
     return resolveFn(`${filePath}.js`);
 };
 
-// Edited from `node_modules/react-scripts/config/path.js`, line 60
+// Edited from `node_modules/react-scripts/config/path.js`, line 60-76
 const appBuild = ResolveApp('build');
 const appHtml = ResolveApp('src/public/index.html');
 const appIndexJsMain = ResolveApp('src/main/app');

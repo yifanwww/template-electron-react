@@ -1,45 +1,11 @@
 {
     "compilerOptions": {
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
         "baseUrl": "./",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true,
         "jsx": "react",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext"
-        ],
-        "module": "esnext",
-        "moduleResolution": "node",
         "noEmit": true,
-        "noImplicitAny": true,
-        "paths": {
-            "@Assets/*": [
-                "src/renderer/Assets/*"
-            ],
-            "@ClientArea": [
-                "src/renderer/ClientArea"
-            ],
-            "@Electron": [
-                "src/utils/Electron"
-            ],
-            "@RendererTypes": [
-                "src/renerer/Types"
-            ],
-            "@Utils": [
-                "src/utils/Utils"
-            ]
-        },
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
-        "sourceMap": true,
-        "strict": true,
-        "target": "ES2018"
+        "rootDir": "./"
     },
-    "include": [
-        "./src"
-    ]
+    "extends": "./configs/tsconfig.base.json",
+    "exclude": ["node_modules"],
+    "include": ["./src"]
 }
