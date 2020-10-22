@@ -1,7 +1,8 @@
 import {
-    PayloadAction,
     ActionCreatorWithPayload,
     ActionCreatorWithoutPayload,
+    Dispatch,
+    PayloadAction,
 } from '@reduxjs/toolkit';
 import { WritableDraft } from 'immer/dist/types/types-external';
 
@@ -9,7 +10,7 @@ import { WritableDraft } from 'immer/dist/types/types-external';
 
 export type IReducer<State, Payload = undefined> = (
     state: WritableDraft<State>,
-    action: PayloadAction<Payload>
+    action: PayloadAction<Payload>,
 ) => void;
 
 // MapStateToProps
@@ -37,19 +38,13 @@ type PayloadInAction<Action> = Action extends (payload: infer Payload) => Payloa
     : unknown;
 
 type DispatchAction<Action extends ActionCreator> = Action extends ActionCreatorWithoutPayload
-    ? () => void
-    : (payload: PayloadInAction<Action>) => void;
+    ? () => ReturnType<Action>
+    : (payload: PayloadInAction<Action>) => ReturnType<Action>;
 
-type ActionDict = { [key: string]: ActionCreator };
+type ReducerAction = { readonly [key: string]: ActionCreator };
 
-/** @todo */
-type DeepActionDict = { [key: string]: ActionCreator };
-
-export type IPickDispatchProps<Actions extends ActionDict, Selections extends keyof Actions> = {
-    readonly [ReducerName in Selections]: DispatchAction<Actions[ReducerName]>;
-};
-
-/** @todo */
-type IDeepPickDispatchProps<Actions extends DeepActionDict, Selections extends keyof Actions> = {
-    readonly [ReducerName in Selections]: DispatchAction<Actions[ReducerName]>;
+export type IMapActionsToProps<Actions extends ReducerAction> = (
+    dispatch: Dispatch,
+) => {
+    readonly [ReducerName in keyof Actions]?: DispatchAction<Actions[ReducerName]>;
 };
