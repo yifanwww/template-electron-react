@@ -87,6 +87,8 @@ module.exports = {
 
         'no-param-reassign': 'off',
 
+        'no-plusplus': 'off',
+
         'no-restricted-syntax': 'off',
 
         // Disabled for JSX.Element
