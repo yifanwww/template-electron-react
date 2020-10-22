@@ -4,37 +4,37 @@ import { IpcRendererWrapper } from './IpcRendererWrapper';
 import { IpcRendererFunc } from './IpcWrapper.types';
 import { ClientAreaSize } from './BaseIpc.types';
 
-export class BaseIpcRendererClass {
+export class BaseIpcRenderer {
     protected readonly ipc = new IpcRendererWrapper();
 
-    public ClientAreaInitialized = 'ClientAreaInitialized';
-    public NewWindowToOpen = 'NewWindowToOpen';
-    public WindowResized = 'WindowResized';
-    public WindowType = 'WindowType';
+    public clientAreaInitialized = 'ClientAreaInitialized';
+    public newWindowToOpen = 'NewWindowToOpen';
+    public windowResized = 'WindowResized';
+    public windowType = 'WindowType';
 
-    public GetWindowType(): WindowType {
-        return this.ipc.SendSync(this.WindowType);
+    public getWindowType(): WindowType {
+        return this.ipc.sendSync(this.windowType);
     }
 
-    public OnceClientAreaInitialized(func: IpcRendererFunc<ClientAreaSize>): void {
-        this.ipc.Once(this.ClientAreaInitialized, func);
+    public onceClientAreaInitialized(func: IpcRendererFunc<ClientAreaSize>): void {
+        this.ipc.once(this.clientAreaInitialized, func);
     }
 
-    public SendClientAreaInitialized(): void {
-        this.ipc.Send(this.ClientAreaInitialized);
+    public sendClientAreaInitialized(): void {
+        this.ipc.send(this.clientAreaInitialized);
     }
 
-    public OnWindowResized(func: IpcRendererFunc<ClientAreaSize>): void {
-        this.ipc.On(this.WindowResized, func);
+    public onWindowResized(func: IpcRendererFunc<ClientAreaSize>): void {
+        this.ipc.on(this.windowResized, func);
     }
 
-    public RemoveWindowResized(func: IpcRendererFunc<ClientAreaSize>): void {
-        this.ipc.RemoveListener(this.WindowResized, func);
+    public removeWindowResized(func: IpcRendererFunc<ClientAreaSize>): void {
+        this.ipc.removeListener(this.windowResized, func);
     }
 
-    public OpenNewWindow(windowType: WindowType): void {
-        this.ipc.Send(this.NewWindowToOpen, windowType);
+    public openNewWindow(windowType: WindowType): void {
+        this.ipc.send(this.newWindowToOpen, windowType);
     }
 }
 
-export const BaseIpcRenderer = new BaseIpcRendererClass();
+export const baseIpcRenderer = new BaseIpcRenderer();

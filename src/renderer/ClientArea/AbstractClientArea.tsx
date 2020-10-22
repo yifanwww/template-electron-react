@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import { IpcRendererEvent } from 'electron';
 
-import { ClientAreaSize, BaseIpcRenderer } from '@Electron';
+import { ClientAreaSize, baseIpcRenderer } from '@Electron';
 
 type IpcEvent<Args = undefined> = Args extends undefined
     ? (event: IpcRendererEvent) => void
@@ -16,43 +16,43 @@ export abstract class AbstractClientArea<P, S> extends Component<P, S> {
     }
 
     public componentDidMount(): void {
-        this.AddIpcListeners();
-        this.AddIpcOnceListeners();
-        this.SendIpcMessage();
+        this.addIpcListeners();
+        this.addIpcOnceListeners();
+        this.sendIpcMessage();
     }
 
     public componentWillUnmount(): void {
-        this.RemoveIpcListeners();
+        this.removeIpcListeners();
     }
 
     // ------------------------------------------------------------------------------- Ipc Listeners
 
-    protected AddIpcOnceListeners(): void {
-        BaseIpcRenderer.OnceClientAreaInitialized(this.Wrapper_ClientAreaInitialized);
+    protected addIpcOnceListeners(): void {
+        baseIpcRenderer.onceClientAreaInitialized(this.wrapperClientAreaInitialized);
     }
 
-    protected AddIpcListeners(): void {
-        BaseIpcRenderer.OnWindowResized(this.Wrapper_WindowResized);
+    protected addIpcListeners(): void {
+        baseIpcRenderer.onWindowResized(this.wrapperWindowResized);
     }
 
-    protected RemoveIpcListeners(): void {
-        BaseIpcRenderer.RemoveWindowResized(this.Wrapper_WindowResized);
+    protected removeIpcListeners(): void {
+        baseIpcRenderer.removeWindowResized(this.wrapperWindowResized);
     }
 
-    protected SendIpcMessage(): void {
-        BaseIpcRenderer.SendClientAreaInitialized();
+    protected sendIpcMessage(): void {
+        baseIpcRenderer.sendClientAreaInitialized();
     }
 
     // ---------------------------------------------------------------------------------- Ipc Events
 
-    private Wrapper_ClientAreaInitialized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
-        this.OnceClientAreaInitialized(event, clientAreaSize);
-    protected OnceClientAreaInitialized(
+    private wrapperClientAreaInitialized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
+        this.onceClientAreaInitialized(event, clientAreaSize);
+    protected onceClientAreaInitialized(
         event: IpcRendererEvent,
         clientAreaSize: ClientAreaSize,
     ): void {}
 
-    private Wrapper_WindowResized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
-        this.OnWindowResized(event, clientAreaSize);
-    protected OnWindowResized(event: IpcRendererEvent, clientAreaSize: ClientAreaSize): void {}
+    private wrapperWindowResized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
+        this.onWindowResized(event, clientAreaSize);
+    protected onWindowResized(event: IpcRendererEvent, clientAreaSize: ClientAreaSize): void {}
 }

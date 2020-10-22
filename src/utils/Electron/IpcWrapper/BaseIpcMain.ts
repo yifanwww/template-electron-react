@@ -3,37 +3,37 @@ import { WindowType } from '@Utils';
 import { IpcMainWrapper } from './IpcMainWrapper';
 import { IpcMainFunc } from './IpcWrapper.types';
 
-export class BaseIpcMainClass {
+export class BaseIpcMain {
     protected readonly ipc = new IpcMainWrapper();
 
-    public ClientAreaInitialized = 'ClientAreaInitialized';
-    public NewWindowToOpen = 'NewWindowToOpen';
-    public WindowResized = 'WindowResized';
-    public WindowType = 'WindowType';
+    public readonly clientAreaInitialized = 'ClientAreaInitialized';
+    public readonly newWindowToOpen = 'NewWindowToOpen';
+    public readonly windowResized = 'WindowResized';
+    public readonly windowType = 'WindowType';
 
-    public OnClientAreaInitialized(func: IpcMainFunc): void {
-        this.ipc.On(this.ClientAreaInitialized, func);
+    public onClientAreaInitialized(func: IpcMainFunc): void {
+        this.ipc.on(this.clientAreaInitialized, func);
     }
 
-    public RemoveClientAreaInitialized(func: IpcMainFunc): void {
-        this.ipc.RemoveListener(this.ClientAreaInitialized, func);
+    public removeClientAreaInitialized(func: IpcMainFunc): void {
+        this.ipc.removeListener(this.clientAreaInitialized, func);
     }
 
-    public OnWindowTypeToGet(func: IpcMainFunc): void {
-        this.ipc.On(this.WindowType, func);
+    public onWindowTypeToGet(func: IpcMainFunc): void {
+        this.ipc.on(this.windowType, func);
     }
 
-    public RemoveWindowTypeToGet(func: IpcMainFunc<WindowType>): void {
-        this.ipc.RemoveListener(this.WindowType, func);
+    public removeWindowTypeToGet(func: IpcMainFunc<WindowType>): void {
+        this.ipc.removeListener(this.windowType, func);
     }
 
-    public OnNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
-        this.ipc.On(this.NewWindowToOpen, func);
+    public onNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
+        this.ipc.on(this.newWindowToOpen, func);
     }
 
-    public RemoveNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
-        this.ipc.RemoveListener(this.NewWindowToOpen, func);
+    public removeNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
+        this.ipc.removeListener(this.newWindowToOpen, func);
     }
 }
 
-export const BaseIpcMain = new BaseIpcMainClass();
+export const baseIpcMain = new BaseIpcMain();

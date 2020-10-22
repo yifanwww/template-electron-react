@@ -1,6 +1,7 @@
 import { IpcRendererEvent } from 'electron';
 
 export class IpcRendererWrapper {
+    // eslint-disable-next-line no-undef
     private ipc?: Electron.IpcRenderer;
 
     public constructor() {
@@ -12,16 +13,16 @@ export class IpcRendererWrapper {
         }
     }
 
-    public async Invoke(channel: string, argument?: any): Promise<any> {
+    public async invoke(channel: string, argument?: any): Promise<any> {
         return this.ipc?.invoke(channel, argument);
     }
 
-    public On(channel: string, listener: (event: IpcRendererEvent, argument?: any) => void): this {
+    public on(channel: string, listener: (event: IpcRendererEvent, argument?: any) => void): this {
         this.ipc?.on(channel, listener);
         return this;
     }
 
-    public Once(
+    public once(
         channel: string,
         listener: (event: IpcRendererEvent, argument?: any) => void
     ): this {
@@ -29,16 +30,16 @@ export class IpcRendererWrapper {
         return this;
     }
 
-    public PostMessage(channel: string, message: any, transfer?: MessagePort[]): void {
+    public postMessage(channel: string, message: any, transfer?: MessagePort[]): void {
         this.ipc?.postMessage(channel, message, transfer);
     }
 
-    public RemoveAllListeners(channel: string): this {
+    public removeAllListeners(channel: string): this {
         this.ipc?.removeAllListeners(channel);
         return this;
     }
 
-    public RemoveListener(
+    public removeListener(
         channel: string,
         listener: (event: IpcRendererEvent, argument?: any) => void
     ): this {
@@ -46,19 +47,19 @@ export class IpcRendererWrapper {
         return this;
     }
 
-    public Send(channel: string, argument?: any): void {
+    public send(channel: string, argument?: any): void {
         this.ipc?.send(channel, argument);
     }
 
-    public SendSync(channel: string, argument?: any): any {
+    public sendSync(channel: string, argument?: any): any {
         return this.ipc?.sendSync(channel, argument);
     }
 
-    public SendTo(webContentsId: number, channel: string, argument?: any): void {
+    public sendTo(webContentsId: number, channel: string, argument?: any): void {
         this.ipc?.sendTo(webContentsId, channel, argument);
     }
 
-    public SendToHost(channel: string, argument?: any): void {
+    public sendToHost(channel: string, argument?: any): void {
         this.ipc?.sendToHost(channel, argument);
     }
 }

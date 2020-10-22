@@ -87,6 +87,9 @@ module.exports = {
 
         'no-restricted-syntax': 'off',
 
+        // Disabled for JSX.Element
+        'no-undef': 'off',
+
         // Disabled for import-statement
         'object-curly-newline': 'off',
 

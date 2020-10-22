@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 import { WindowType } from '@Utils';
-import { BaseIpcRenderer } from '@Electron';
+import { baseIpcRenderer } from '@Electron';
 
 import * as serviceWorker from './serviceWorker';
 import { ReactAppClientArea } from './ReactApp';
 
 function CreateClientArea(): JSX.Element {
-    const windowType: WindowType = BaseIpcRenderer.GetWindowType();
+    const windowType: WindowType = baseIpcRenderer.getWindowType();
 
     let clientArea: JSX.Element;
     switch (windowType) {
-        case WindowType.MainWindow:
+        case WindowType.mainWindow:
             clientArea = <ReactAppClientArea />;
             break;
 

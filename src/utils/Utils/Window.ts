@@ -1,3 +1,3 @@
 export enum WindowType {
-    MainWindow = 1,
+    mainWindow = 1,
 }

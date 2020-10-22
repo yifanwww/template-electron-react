@@ -32,14 +32,14 @@ class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
 
     // ---------------------------------------------------------------------------------- Ipc Events
 
-    protected OnceClientAreaInitialized(event: any, clientAreaSize: ClientAreaSize): void {
-        console.log(clientAreaSize);
-        this.setState({ clientAreaSize: clientAreaSize });
+    protected onceClientAreaInitialized(event: any, clientAreaSize: ClientAreaSize): void {
+        // console.log(clientAreaSize);
+        this.setState({ clientAreaSize });
     }
 
-    protected OnWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
-        console.log(clientAreaSize);
-        this.setState({ clientAreaSize: clientAreaSize });
+    protected onWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
+        // console.log(clientAreaSize);
+        this.setState({ clientAreaSize });
     }
 }
 

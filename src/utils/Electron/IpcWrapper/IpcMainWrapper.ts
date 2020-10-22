@@ -1,6 +1,7 @@
 import { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
 export class IpcMainWrapper {
+    // eslint-disable-next-line no-undef
     private ipc?: Electron.IpcMain;
 
     public constructor() {
@@ -13,40 +14,40 @@ export class IpcMainWrapper {
         }
     }
 
-    public Handle(
+    public handle(
         channel: string,
         listener: (event: IpcMainInvokeEvent, argument: any) => any
     ): void {
         this.ipc?.handle(channel, listener);
     }
 
-    public HandleOnce(
+    public handleOnce(
         channel: string,
         listener: (event: IpcMainInvokeEvent, argument: any) => any
     ): void {
         this.ipc?.handleOnce(channel, listener);
     }
 
-    public On(channel: string, listener: (event: IpcMainEvent, argument?: any) => void): this {
+    public on(channel: string, listener: (event: IpcMainEvent, argument?: any) => void): this {
         this.ipc?.on(channel, listener);
         return this;
     }
 
-    public Once(channel: string, listener: (event: IpcMainEvent, argument?: any) => void): this {
+    public once(channel: string, listener: (event: IpcMainEvent, argument?: any) => void): this {
         this.ipc?.once(channel, listener);
         return this;
     }
 
-    public RemoveAllListeners(channel: string): this {
+    public removeAllListeners(channel: string): this {
         this.ipc?.removeAllListeners(channel);
         return this;
     }
 
-    public RemoveHandler(channel: string): void {
+    public removeHandler(channel: string): void {
         this.ipc?.removeHandler(channel);
     }
 
-    public RemoveListener(
+    public removeListener(
         channel: string,
         listener: (event: IpcMainEvent, argument?: any) => void
     ): this {

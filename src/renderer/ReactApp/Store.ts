@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/indent */
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 export const Store = configureStore({ reducer: {} });
