@@ -15,6 +15,7 @@
             "@ClientArea": ["src/renderer/ClientArea"],
             "@Electron": ["src/utils/Electron"],
             "@RendererTypes": ["src/renerer/Types"],
+            "@Theme": ["src/renderer/Theme"],
             "@Utils": ["src/utils/Utils"]
         },
         "resolveJsonModule": true,

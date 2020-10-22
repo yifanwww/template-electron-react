@@ -58,6 +58,7 @@ const alias = {
     '@ClientArea': ResolveApp('src/renderer/ClientArea'),
     '@Electron': ResolveApp('src/utils/Electron'),
     '@RendererTypes': ResolveApp('src/renerer/Types'),
+    '@Theme': ResolveApp('src/renderer/Theme'),
     '@Utils': ResolveApp('src/utils/Utils'),
 };
 
