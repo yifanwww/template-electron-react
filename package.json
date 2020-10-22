@@ -17,11 +17,14 @@
         "build:dev": "webpack --config configs/webpack.main.config.js --mode development",
         "build:main": "webpack --config configs/webpack.main.config.js --mode production",
         "build:renderer": "react-app-rewired build",
-        "eject": "react-scripts eject",
+        "eslint": "eslint ./src/ -c ./.eslintrc.js --ext .ts,.tsx",
+        "eslint:main": "eslint ./src/main/ -c ./.eslintrc.js --ext .ts,.tsx",
+        "eslint:renderer": "eslint ./src/renderer/ -c ./.eslintrc.js --ext .ts,.tsx",
+        "eslint:utils": "eslint ./src/utils/ -c ./.eslintrc.js --ext .ts,.tsx",
         "installer": "electron-builder build --config ./configs/electron-builder.yml -w --x64",
         "main": "yarn build:dev && cross-env YF1999_Template_Electron_Mode=Development electron .",
         "test": "jest --config configs/jest.config.js",
-        "test-react": "react-app-rewired test",
+        "test:react": "react-app-rewired test",
         "web": "react-app-rewired start"
     },
     "eslintConfig": {
