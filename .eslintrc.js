@@ -54,6 +54,8 @@ module.exports = {
 
         'class-methods-use-this': 'off',
 
+        'consistent-return': 'off',
+
         // XXX
         'guard-for-in': 'off',
 
