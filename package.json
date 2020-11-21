@@ -2,33 +2,11 @@
     "name": "template-electron-create-react-app",
     "version": "0.0.0",
     "description": "A template project for developing electron application by electron, react (create-react-app) and typescript.",
-    "repository": "git@github.com:YF1999/template-electron-create-react-app.git",
+    "main": "build/electron.js",
     "author": {
         "name": "YF1999",
         "email": "1586939317@qq.com",
         "url": "https://github.com/YF1999"
-    },
-    "private": true,
-    "main": "build/electron.js",
-    "homepage": "./",
-    "scripts": {
-        "app": "electron .",
-        "app:dev": "yarn build:dev && cross-env YF1999_Template_Electron_Mode=Development electron .",
-        "app:web": "react-app-rewired start",
-        "build": "yarn build:renderer && yarn build:main",
-        "build:dev": "webpack --config configs/webpack.main.config.js --mode development",
-        "build:main": "webpack --config configs/webpack.main.config.js --mode production",
-        "build:renderer": "react-app-rewired build",
-        "eslint": "eslint ./src/ -c ./.eslintrc.js --ext .ts,.tsx",
-        "eslint:main": "eslint ./src/main/ -c ./.eslintrc.js --ext .ts,.tsx",
-        "eslint:renderer": "eslint ./src/renderer/ -c ./.eslintrc.js --ext .ts,.tsx",
-        "eslint:utils": "eslint ./src/utils/ -c ./.eslintrc.js --ext .ts,.tsx",
-        "installer": "electron-builder build --config ./configs/electron-builder.yml -w --x64",
-        "test": "jest --config configs/jest.config.js",
-        "test:react": "react-app-rewired test"
-    },
-    "eslintConfig": {
-        "extends": "./configs/.eslintrc.js"
     },
     "browserslist": {
         "production": [
@@ -42,7 +20,35 @@
             "last 1 safari version"
         ]
     },
+    "bugs": {
+        "url": "https://github.com/YSoftwareTech/template-electron-create-react-app/issues"
+    },
     "config-overrides-path": "configs/webpack.renderer.config.js",
+    "eslintConfig": {
+        "extends": ".eslintrc.js"
+    },
+    "homepage": ".",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/YSoftwareTech/template-electron-create-react-app"
+    },
+    "scripts": {
+        "app": "electron .",
+        "app:dev": "yarn build:dev && cross-env YF1999_Template_Electron_Mode=Development electron .",
+        "app:web": "react-app-rewired start",
+        "build": "yarn build:renderer && yarn build:main",
+        "build:dev": "webpack --config configs/webpack.main.config.js --mode development",
+        "build:main": "webpack --config configs/webpack.main.config.js --mode production",
+        "build:renderer": "react-app-rewired build",
+        "eslint": "eslint src -c .eslintrc.js --ext .ts,.tsx",
+        "eslint:main": "eslint src/main -c .eslintrc.js --ext .ts,.tsx",
+        "eslint:renderer": "eslint src/renderer -c .eslintrc.js --ext .ts,.tsx",
+        "eslint:utils": "eslint src/utils -c .eslintrc.js --ext .ts,.tsx",
+        "installer": "electron-builder build --config configs/electron-builder.yml -w --x64",
+        "test": "jest --config configs/jest.config.js",
+        "test:react": "react-app-rewired test"
+    },
     "dependencies": {
         "@reduxjs/toolkit": "^1.4.0",
         "react": "^16.13.1",
