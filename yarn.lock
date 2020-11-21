@@ -5356,11 +5356,6 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-only-warn@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-only-warn/download/eslint-plugin-only-warn-1.0.2.tgz#22bf3ce9f0a8671eecf78757d6eff3fd518be0aa"
-  integrity sha1-Ir886fCoZx7s94dX1u/z/VGL4Ko=
-
 eslint-plugin-prettier@^3.1.4:
   version "3.1.4"
   resolved "https://registry.npm.taobao.org/eslint-plugin-prettier/download/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
