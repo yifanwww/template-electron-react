@@ -1,6 +1,9 @@
-// Used for `react-scripts` 3.4.4
+// Used for `react-scripts` 4.0.0
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
+
+// paths.js: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/paths.js
+// webpack.config.js: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/webpack.config.js
 
 // const fs = require("fs");
 
@@ -8,34 +11,29 @@ const Base = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
-//     const configStr = JSON.stringify(config, "", "    ");
+//     const configStr = JSON.stringify(config, "", "  ");
 //     fs.writeFileSync(filename, configStr);
 // }
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.
 function OverrideWebpackConfigs(webpack, env) {
-    webpack.module.rules[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
-    webpack.module.rules[2].oneOf[1].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
+    // 1. Set the correct directories where the source code should be compiled.
+
     // WriteConfigs(webpack.module.rules, "webpack.json");
+    webpack.module.rules[1].oneOf[2].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
 
-    // Use custom aliases
+    // 2. Use custom aliases.
 
+    // WriteConfigs(webpack.resolve.alias, "webpack.json");
     for (let index in Base.Alias) {
         webpack.resolve.alias[index] = Base.Alias[index];
     }
-    // WriteConfigs(webpack.resolve.alias, "webpack.json");
 
-    // Use custom eslint rc
-    // We have three options to custom: 'ignore', 'baseConfig' and 'useEslintrc'
-    // (line 350-356 in 'react-scrips/config/webpack.config.js')
+    // 3. Use custom eslint rc.
+    // TODO: Now the eslint check is disabled.
 
-    // HACK: Why it works fine if the 'ignore' option is 'true'?
-    // For example: if it is false, definition for rule 'node/no-deprecated-api' is not found in
-    // 'node_modules/safer-buffer/safer.js' when you're using 'iconv-lite'
-    webpack.module.rules[1].use[0].options.ignore = true;
-    webpack.module.rules[1].use[0].options.baseConfig.extends = [Base.EslintConfigPath];
-    // WriteConfigs(webpack.module.rules[1].use[0].options, "webpack.json");
+    // WriteConfigs([webpack.plugins[8], webpack.plugins[9]], "webpack.json");
 
     return webpack;
 }
