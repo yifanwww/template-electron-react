@@ -25,6 +25,7 @@ export type IPickStateProps<States extends StateDict, Selections extends keyof S
 };
 
 /** @todo */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type IDeepPickStateProps<States extends DeepStateDict, Selections extends keyof States> = {
     readonly [StateName in Selections]: States[StateName];
 };
