@@ -31,7 +31,7 @@ function OverrideWebpackConfigs(webpack, env) {
     }
 
     // 3. Use custom eslint rc.
-    // TODO: Now the eslint check is disabled.
+    // TODO: It seems now `react-scripts` will detect if `.eslintrc.js` exists or not.
 
     // WriteConfigs([webpack.plugins[8], webpack.plugins[9]], "webpack.json");
 
