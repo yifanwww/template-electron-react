@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "baseUrl": "../",
+        "baseUrl": "..",
         "noEmit": false,
-        "outDir": "../build/"
+        "outDir": "../build"
     },
     "extends": "./tsconfig.base.json",
-    "exclude": ["node_modules"],
-    "include": ["../src/main", "../src/utils"]
+    "include": ["../src/main", "../src/utils"],
+    "exclude": ["build", "node_modules"]
 }

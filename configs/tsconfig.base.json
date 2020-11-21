@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
+        "allowJs": false,
         "allowSyntheticDefaultImports": true,
-        "baseUrl": "../",
+        "baseUrl": "..",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,

@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": ".",
         "jsx": "react",
         "noEmit": true,
-        "rootDir": "./"
+        "rootDir": "."
     },
     "extends": "./configs/tsconfig.base.json",
-    "exclude": ["node_modules"],
-    "include": ["./src"]
+    "include": ["src"],
+    "exclude": ["build", "node_modules"]
 }

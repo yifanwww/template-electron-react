@@ -1,25 +1,25 @@
 module.exports = {
-    extends: ['airbnb-typescript/base'],
-    plugins: [
-        '@typescript-eslint',
-        'flowtype',
-        'import',
-        'jest',
-        'jsx-a11y',
-        'only-warn',
-        'prettier',
-        'react',
-        'react-hooks',
-    ],
-    parserOptions: {
-        project: './tsconfig.json',
-    },
     env: {
         browser: true,
         es2017: true,
         jest: true,
         node: true,
     },
+    extends: ['airbnb-typescript/base'],
+    ignorePatterns: ['*.js', '*.d.ts'],
+    parserOptions: {
+        project: 'tsconfig.json',
+    },
+    plugins: [
+        '@typescript-eslint',
+        'flowtype',
+        'import',
+        'jest',
+        'jsx-a11y',
+        'prettier',
+        'react',
+        'react-hooks',
+    ],
     rules: {
         '@typescript-eslint/comma-dangle': 'off',
 
@@ -56,7 +56,6 @@ module.exports = {
 
         'consistent-return': 'off',
 
-        // XXX
         'guard-for-in': 'off',
 
         'implicit-arrow-linebreak': 'off',
@@ -81,7 +80,7 @@ module.exports = {
 
         'no-continue': 'off',
 
-        'no-console': ['error', { allow: ['warn', 'error'] }],
+        'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
 
         'no-else-return': 'off',
 
