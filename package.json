@@ -67,7 +67,7 @@
         "@types/react-redux": "^7.1.9",
         "@typescript-eslint/eslint-plugin": "^4.4.1",
         "cross-env": "^7.0.2",
-        "electron": "10.1.1",
+        "electron": "10.1.6",
         "electron-builder": "^22.7.0",
         "eslint-config-airbnb-typescript": "^11.0.0",
         "eslint-config-react-app": "^5.2.1",
