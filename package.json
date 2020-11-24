@@ -68,7 +68,7 @@
         "@typescript-eslint/eslint-plugin": "^4.4.1",
         "cross-env": "^7.0.2",
         "electron": "10.1.6",
-        "electron-builder": "^22.7.0",
+        "electron-builder": "^22.9.1",
         "eslint-config-airbnb-typescript": "^11.0.0",
         "eslint-config-react-app": "^5.2.1",
         "eslint-plugin-jest": "^24.1.0",
