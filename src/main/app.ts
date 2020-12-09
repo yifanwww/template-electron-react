@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 
-import { WindowType } from '@Utils';
+import { WindowType } from '#Utils';
 
 import { createWindow } from './Window';
 

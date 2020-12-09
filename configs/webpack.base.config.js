@@ -54,12 +54,12 @@ const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 
 // Alias
 const alias = {
-    '@Assets': ResolveApp('src/renderer/Assets'),
-    '@ClientArea': ResolveApp('src/renderer/ClientArea'),
-    '@Electron': ResolveApp('src/utils/Electron'),
-    '@RendererTypes': ResolveApp('src/renerer/Types'),
-    '@Theme': ResolveApp('src/renderer/Theme'),
-    '@Utils': ResolveApp('src/utils/Utils'),
+    '#Assets': ResolveApp('src/renderer/Assets'),
+    '#ClientArea': ResolveApp('src/renderer/ClientArea'),
+    '#Electron': ResolveApp('src/utils/Electron'),
+    '#RendererTypes': ResolveApp('src/renerer/Types'),
+    '#Theme': ResolveApp('src/renderer/Theme'),
+    '#Utils': ResolveApp('src/utils/Utils'),
 };
 
 // Eslint rc path

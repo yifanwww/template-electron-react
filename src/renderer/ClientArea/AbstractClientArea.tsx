@@ -2,7 +2,7 @@
 import { Component } from 'react';
 import { IpcRendererEvent } from 'electron';
 
-import { ClientAreaSize, baseIpcRenderer } from '@Electron';
+import { ClientAreaSize, baseIpcRenderer } from '#Electron';
 
 type IpcEvent<Args = undefined> = Args extends undefined
     ? (event: IpcRendererEvent) => void

@@ -1,4 +1,4 @@
-import { WindowType } from '@Utils';
+import { WindowType } from '#Utils';
 
 import { MainWindow } from './MainWindow';
 

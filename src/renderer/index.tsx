@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import { WindowType } from '@Utils';
-import { baseIpcRenderer } from '@Electron';
+import { WindowType } from '#Utils';
+import { baseIpcRenderer } from '#Electron';
 
 import * as serviceWorker from './serviceWorker';
 import { ReactAppClientArea } from './ReactApp';

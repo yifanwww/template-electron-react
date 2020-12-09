@@ -1,4 +1,4 @@
-# @Electron
+# Electron
 
 This module contains the following sub modules now:
 - Ipc Wrapper

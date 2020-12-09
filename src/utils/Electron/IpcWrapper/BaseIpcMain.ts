@@ -1,4 +1,4 @@
-import { WindowType } from '@Utils';
+import { WindowType } from '#Utils';
 
 import { IpcMainWrapper } from './IpcMainWrapper';
 import { IpcMainFunc } from './IpcWrapper.types';

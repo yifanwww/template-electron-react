@@ -12,12 +12,12 @@
         "noEmit": true,
         "noImplicitAny": true,
         "paths": {
-            "@Assets/*": ["src/renderer/Assets/*"],
-            "@ClientArea": ["src/renderer/ClientArea"],
-            "@Electron": ["src/utils/Electron"],
-            "@RendererTypes": ["src/renerer/Types"],
-            "@Theme": ["src/renderer/Theme"],
-            "@Utils": ["src/utils/Utils"]
+            "#Assets/*": ["src/renderer/Assets/*"],
+            "#ClientArea": ["src/renderer/ClientArea"],
+            "#Electron": ["src/utils/Electron"],
+            "#RendererTypes": ["src/renerer/Types"],
+            "#Theme": ["src/renderer/Theme"],
+            "#Utils": ["src/utils/Utils"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,

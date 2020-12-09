@@ -1,8 +1,8 @@
 import Path from 'path';
 import { BrowserWindow, IpcMainEvent } from 'electron';
 
-import { WindowType } from '@Utils';
-import { baseIpcMain } from '@Electron';
+import { WindowType } from '#Utils';
+import { baseIpcMain } from '#Electron';
 
 import { createWindow } from './CreateWindow';
 

@@ -1,4 +1,4 @@
-import { WindowType } from '@Utils';
+import { WindowType } from '#Utils';
 
 import { IpcRendererWrapper } from './IpcRendererWrapper';
 import { IpcRendererFunc } from './IpcWrapper.types';
