@@ -66,7 +66,6 @@ module.exports = {
                 leadingUnderscore: 'allow',
             },
         ],
-        '@typescript-eslint/no-shadow': ['error', { allow: ['props', 'resolve', 'theme'] }],
 
         'import/extensions': 'off', // Seems not working for tsx extension
         // 'import/extensions': [
