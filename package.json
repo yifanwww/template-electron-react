@@ -34,8 +34,8 @@
         "url": "https://github.com/YSoftwareTech/template-electron-create-react-app"
     },
     "scripts": {
-        "app": "electron .",
-        "app:dev": "yarn build:dev && cross-env YF1999_Template_Electron_Mode=Development electron .",
+        "app": "node scripts/app.mjs",
+        "app:dev": "yarn build:dev && node scripts/app-dev.mjs",
         "app:web": "react-app-rewired start",
         "build": "yarn build:renderer && yarn build:main",
         "build:dev": "webpack --config configs/webpack.main.config.js --mode development",

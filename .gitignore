@@ -1,4 +1,4 @@
-# Editors & IDEs
+# Editors and IDEs
 
 /.vscode/settings.json
 
@@ -8,9 +8,10 @@
 /.pnp
 .pnp.js
 
-# Testing
+# Running and Testing
 
 /coverage
+/working
 
 # Production
 

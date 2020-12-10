@@ -6,7 +6,7 @@ module.exports = {
         node: true,
     },
     extends: ['airbnb-typescript/base'],
-    ignorePatterns: ['*.js', '*.d.ts'],
+    ignorePatterns: ['*.cjs', '*.js', '*.mjs', '*.d.ts'],
     parserOptions: {
         project: 'tsconfig.json',
     },
