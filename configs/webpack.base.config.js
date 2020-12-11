@@ -46,7 +46,7 @@ const appPublic = ResolveApp('src/public');
 const appSrc = ResolveApp('src');
 const appSrcMain = ResolveApp('src/main');
 const appSrcRenderer = ResolveApp('src/renderer');
-const appSrcUtils = ResolveApp('src/utils');
+const appSrcShared = ResolveApp('src/shared');
 const appTsConfigMain = ResolveApp('configs/tsconfig.main.json');
 const appTsConfigRenderer = ResolveApp('configs/tsconfig.renderer.json');
 const proxySetup = ResolveApp('src/renderer/setupProxy.js');
@@ -56,10 +56,11 @@ const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 const alias = {
     '#Assets': ResolveApp('src/renderer/Assets'),
     '#ClientArea': ResolveApp('src/renderer/ClientArea'),
-    '#Electron': ResolveApp('src/utils/Electron'),
+    '#MainUtils': ResolveApp('src/main/Utils'),
     '#RendererTypes': ResolveApp('src/renerer/Types'),
+    '#RendererUtils': ResolveApp('src/renderer/Utils'),
+    '#shared': ResolveApp('src/shared'),
     '#Theme': ResolveApp('src/renderer/Theme'),
-    '#Utils': ResolveApp('src/utils/Utils'),
 };
 
 // Eslint rc path
@@ -77,7 +78,7 @@ module.exports = {
         AppSrc: appSrc,
         AppSrcMain: appSrcMain,
         AppSrcRenderer: appSrcRenderer,
-        AppSrcUtils: appSrcUtils,
+        AppSrcShared: appSrcShared,
         AppTsConfigMain: appTsConfigMain,
         AppTsConfigRenderer: appTsConfigRenderer,
         ProxySetup: proxySetup,

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import { WindowType } from '#Utils';
-import { baseIpcRenderer } from '#Electron';
+import { WindowType } from '#shared/WindowType';
+import { baseIpcRenderer } from '#RendererUtils/IpcWrapper';
 
 import * as serviceWorker from './serviceWorker';
 import { ReactAppClientArea } from './ReactApp';
@@ -28,7 +28,7 @@ ReactDOM.render(
     <React.StrictMode>
         <CreateClientArea />
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change unregister() to register()

@@ -1,8 +1,9 @@
-import { WindowType } from '#Utils';
+import { WindowType } from '#shared/WindowType';
+
+import { IpcRendererFunc } from '#shared/IpcWrapper.types';
+import { ClientAreaSize } from '#shared/ClientAreaSize.types';
 
 import { IpcRendererWrapper } from './IpcRendererWrapper';
-import { IpcRendererFunc } from './IpcWrapper.types';
-import { ClientAreaSize } from './BaseIpc.types';
 
 export class BaseIpcRenderer {
     protected readonly ipc = new IpcRendererWrapper();

@@ -12,7 +12,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loader: 'ts-loader',
-                include: [Base.Paths.AppSrcMain, Base.Paths.AppSrcUtils],
+                include: [Base.Paths.AppSrcMain, Base.Paths.AppSrcShared],
                 options: {
                     configFile: Base.Paths.AppTsConfigMain,
                 },

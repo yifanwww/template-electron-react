@@ -1,4 +1,4 @@
-import { WindowType } from '#Utils';
+import { WindowType } from '#shared/WindowType';
 
 import { AbstractWindow } from './AbstractWindow';
 

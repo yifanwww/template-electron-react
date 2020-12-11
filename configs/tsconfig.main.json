@@ -5,6 +5,6 @@
         "outDir": "../build"
     },
     "extends": "./tsconfig.base.json",
-    "include": ["../src/main", "../src/utils"],
+    "include": ["../src/main", "../src/shared"],
     "exclude": ["build", "node_modules"]
 }

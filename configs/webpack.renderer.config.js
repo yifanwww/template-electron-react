@@ -21,7 +21,7 @@ function OverrideWebpackConfigs(webpack, env) {
     // 1. Set the correct directories where the source code should be compiled.
 
     // WriteConfigs(webpack.module.rules, "webpack.json");
-    webpack.module.rules[1].oneOf[2].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcUtils];
+    webpack.module.rules[1].oneOf[2].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcShared];
 
     // 2. Use custom aliases.
 

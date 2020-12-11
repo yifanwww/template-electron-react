@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { AbstractClientArea } from '#ClientArea';
-import { ClientAreaSize } from '#Electron';
+import { ClientAreaSize } from '#shared/ClientAreaSize.types';
 
 import { App } from './App';
 import { Store } from './Store';

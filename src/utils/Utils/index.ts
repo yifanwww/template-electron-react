@@ -1,1 +1,0 @@
-export { WindowType } from './Window';

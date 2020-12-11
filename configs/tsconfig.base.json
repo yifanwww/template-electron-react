@@ -13,11 +13,12 @@
         "noImplicitAny": true,
         "paths": {
             "#Assets/*": ["src/renderer/Assets/*"],
+            "#shared/*": ["src/shared/*"],
+            "#MainUtils/*": ["src/main/Utils/*"],
+            "#RendererUtils/*": ["src/renderer/Utils/*"],
             "#ClientArea": ["src/renderer/ClientArea"],
-            "#Electron": ["src/utils/Electron"],
             "#RendererTypes": ["src/renerer/Types"],
-            "#Theme": ["src/renderer/Theme"],
-            "#Utils": ["src/utils/Utils"]
+            "#Theme": ["src/renderer/Theme"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,
