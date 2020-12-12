@@ -17,7 +17,7 @@
             "#MainUtils/*": ["src/main/Utils/*"],
             "#RendererUtils/*": ["src/renderer/Utils/*"],
             "#ClientArea": ["src/renderer/ClientArea"],
-            "#RendererTypes": ["src/renerer/Types"],
+            "#RendererTypes": ["src/renderer/Types"],
             "#Theme": ["src/renderer/Theme"]
         },
         "resolveJsonModule": true,
