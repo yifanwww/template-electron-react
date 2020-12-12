@@ -1,17 +1,26 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 
 import { AbstractClientArea } from '#ClientArea';
 import { ClientAreaSize } from '#shared/ClientAreaSize.types';
 
-import { App } from './App';
 import { Store } from './Store';
+import { Actions } from './Slice';
+import { App } from './App';
+
+function ProviderMiddle(props: { clientAreaSize: ClientAreaSize }) {
+    const dispatch = useDispatch();
+
+    dispatch(Actions.updateClientAreaSize(props.clientAreaSize));
+
+    return <App />;
+}
 
 interface ClientAreaState {
     clientAreaSize: ClientAreaSize;
 }
 
-class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
+export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> {
     // --------------------------------------------------------------------------------------- React
 
     public constructor(props: Readonly<{}>) {
@@ -25,7 +34,7 @@ class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
     public render(): JSX.Element {
         return (
             <Provider store={Store}>
-                <App />
+                <ProviderMiddle clientAreaSize={this.state.clientAreaSize} />
             </Provider>
         );
     }
@@ -33,14 +42,10 @@ class ClientArea extends AbstractClientArea<{}, ClientAreaState> {
     // ---------------------------------------------------------------------------------- Ipc Events
 
     protected onceClientAreaInitialized(event: any, clientAreaSize: ClientAreaSize): void {
-        // console.log(clientAreaSize);
         this.setState({ clientAreaSize });
     }
 
     protected onWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
-        // console.log(clientAreaSize);
         this.setState({ clientAreaSize });
     }
 }
-
-export { ClientArea as ReactAppClientArea };
