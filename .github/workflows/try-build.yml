@@ -1,0 +1,27 @@
+name: Try building this project
+
+on:
+  push:
+    branches:
+    - main
+
+
+jobs:
+  TryBuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js environment
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Setup node modules
+      run: yarn install
+
+    - name: Build project
+      run: yarn build
