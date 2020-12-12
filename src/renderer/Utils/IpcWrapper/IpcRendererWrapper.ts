@@ -1,7 +1,6 @@
 import { IpcRendererEvent } from 'electron';
 
 export class IpcRendererWrapper {
-    // eslint-disable-next-line no-undef
     private ipc?: Electron.IpcRenderer;
 
     public constructor() {

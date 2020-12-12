@@ -1,7 +1,6 @@
 import { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
 export class IpcMainWrapper {
-    // eslint-disable-next-line no-undef
     private ipc?: Electron.IpcMain;
 
     public constructor() {

@@ -28,7 +28,7 @@ module.exports = {
         'implicit-arrow-linebreak': 'off',
         'max-len': ['error', { code: 100 }],
         'no-continue': 'off',
-        'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
+        'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
         'no-else-return': 'off',
         'no-param-reassign': 'off',
         'no-plusplus': 'off',
@@ -73,7 +73,6 @@ module.exports = {
         //     'always',
         //     { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' },
         // ],
-        'import/no-cycle': 'off', // HACK: Disabled for redux
         'import/no-extraneous-dependencies': 'off', // Disabled for import-statement of 'electron'
         'import/prefer-default-export': 'off',
     },

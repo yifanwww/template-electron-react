@@ -4,6 +4,7 @@ import { BrowserWindow, IpcMainEvent } from 'electron';
 import { WindowType } from '#shared/WindowType';
 import { baseIpcMain } from '#MainUtils/IpcWrapper';
 
+// eslint-disable-next-line import/no-cycle
 import { createWindow } from './CreateWindow';
 
 type WindowEvent = () => void;

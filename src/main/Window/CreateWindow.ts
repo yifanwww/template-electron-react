@@ -1,5 +1,6 @@
 import { WindowType } from '#shared/WindowType';
 
+// eslint-disable-next-line import/no-cycle
 import { MainWindow } from './MainWindow';
 
 const isDevelopment = process.env.YSoftwareTech_Template_Electron_Mode === 'Development';
