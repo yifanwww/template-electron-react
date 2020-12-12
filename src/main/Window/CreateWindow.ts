@@ -2,7 +2,7 @@ import { WindowType } from '#shared/WindowType';
 
 import { MainWindow } from './MainWindow';
 
-const isDevelopment = process.env.YF1999_Template_Electron_Mode === 'Development';
+const isDevelopment = process.env.YSoftwareTech_Template_Electron_Mode === 'Development';
 
 const mainWindow = new MainWindow();
 
