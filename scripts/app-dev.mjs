@@ -1,3 +1,10 @@
-import { executeElectron } from './execute-electron.mjs';
+import { createWorkingDir, executeElectron } from './utils.mjs';
 
-executeElectron('cross-env YSoftwareTech_Template_Electron_Mode=Development electron ..');
+async function main() {
+    await createWorkingDir();
+    return executeElectron(
+        'cross-env YSoftwareTech_Template_Electron_Mode=Development electron ..',
+    );
+}
+
+main();

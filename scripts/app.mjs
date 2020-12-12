@@ -1,3 +1,8 @@
-import { executeElectron } from './execute-electron.mjs';
+import { createWorkingDir, executeElectron } from './utils.mjs';
 
-executeElectron('electron ..');
+async function main() {
+    await createWorkingDir();
+    return executeElectron('electron ..');
+}
+
+main();
