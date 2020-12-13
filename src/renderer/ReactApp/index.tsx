@@ -8,7 +8,11 @@ import { Store } from './Store';
 import { Actions } from './Slice';
 import { App } from './App';
 
-function ProviderMiddle(props: { clientAreaSize: ClientAreaSize }) {
+interface StoreUpdaterProps {
+    clientAreaSize: ClientAreaSize;
+}
+
+function StoreUpdater(props: Readonly<StoreUpdaterProps>) {
     const dispatch = useDispatch();
 
     dispatch(Actions.updateClientAreaSize(props.clientAreaSize));
@@ -34,7 +38,7 @@ export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> 
     public render(): JSX.Element {
         return (
             <Provider store={Store}>
-                <ProviderMiddle clientAreaSize={this.state.clientAreaSize} />
+                <StoreUpdater clientAreaSize={this.state.clientAreaSize} />
             </Provider>
         );
     }
