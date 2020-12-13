@@ -7,6 +7,9 @@
 
 // const fs = require("fs");
 
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' });
+
 const Base = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
@@ -35,7 +38,7 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // WriteConfigs([webpack.plugins[8], webpack.plugins[9]], "webpack.json");
 
-    return webpack;
+    return smp.wrap(webpack);
 }
 
 // Override paths configurations.

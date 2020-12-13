@@ -1,6 +1,9 @@
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' });
+
 const Base = require('./webpack.base.config');
 
-module.exports = {
+module.exports = smp.wrap({
     target: 'electron-main',
     entry: Base.Paths.AppIndexJsMain,
     output: {
@@ -27,4 +30,4 @@ module.exports = {
         __dirname: false,
         __filename: false,
     },
-};
+});
