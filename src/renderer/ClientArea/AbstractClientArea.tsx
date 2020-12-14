@@ -3,11 +3,8 @@ import { Component } from 'react';
 import { IpcRendererEvent } from 'electron';
 
 import { ClientAreaSize } from '#shared/ClientAreaSize.types';
+import { IpcRListener } from '#shared/IpcWrapper.types';
 import { baseIpcRenderer } from '#RendererUtils/IpcWrapper';
-
-type IpcEvent<Args = undefined> = Args extends undefined
-    ? (event: IpcRendererEvent) => void
-    : (event: IpcRendererEvent, args: Args) => void;
 
 export abstract class AbstractClientArea<P, S> extends Component<P, S> {
     // --------------------------------------------------------------------------------------- React
@@ -53,8 +50,8 @@ export abstract class AbstractClientArea<P, S> extends Component<P, S> {
 
     protected onWindowResized(event: IpcRendererEvent, clientAreaSize: ClientAreaSize): void {}
 
-    private bOnceClientAreaInitialized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
+    private bOnceClientAreaInitialized: IpcRListener<ClientAreaSize> = (event, clientAreaSize) =>
         this.onceClientAreaInitialized(event, clientAreaSize);
-    private bOnWindowResized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
+    private bOnWindowResized: IpcRListener<ClientAreaSize> = (event, clientAreaSize) =>
         this.onWindowResized(event, clientAreaSize);
 }

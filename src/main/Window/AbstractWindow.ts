@@ -2,16 +2,11 @@ import Path from 'path';
 import { BrowserWindow, IpcMainEvent } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
+import { IpcMListener } from '#shared/IpcWrapper.types';
 import { baseIpcMain } from '#MainUtils/IpcWrapper';
 
 // eslint-disable-next-line import/no-cycle
 import { createWindow } from './CreateWindow';
-
-type WindowEvent = () => void;
-
-export type IpcEvent<Args = undefined> = Args extends undefined
-    ? (event: IpcMainEvent) => void
-    : (event: IpcMainEvent, args: Args) => void;
 
 export interface CreateWindowOption {
     development: boolean;
@@ -89,7 +84,7 @@ export abstract class AbstractWindow {
 
     // ------------------------------------------------------------------------------- Window Events
 
-    private onWindowClosed: WindowEvent = () => {
+    private onWindowClosed = () => {
         this.removeWindowListeners();
         this.removeIpcListeners();
         this.window = undefined;
@@ -106,8 +101,8 @@ export abstract class AbstractWindow {
         });
     }
 
-    private bOnWindowResized: WindowEvent = () => this.onWindowResized();
-    private bOnWindowShowed: WindowEvent = () => this.onWindowShowed();
+    private bOnWindowResized = () => this.onWindowResized();
+    private bOnWindowShowed = () => this.onWindowShowed();
 
     // ---------------------------------------------------------------------------------- Ipc Events
 
@@ -143,8 +138,8 @@ export abstract class AbstractWindow {
         createWindow(windowType);
     }
 
-    private bOnClientAreaInitialized: IpcEvent = (event) => this.onClientAreaInitialized(event);
-    private bOnNewWindowToOpen: IpcEvent<WindowType> = (event, windowType) =>
+    private bOnClientAreaInitialized: IpcMListener = (event) => this.onClientAreaInitialized(event);
+    private bOnNewWindowToOpen: IpcMListener<WindowType> = (event, windowType) =>
         this.onNewWindowToOpen(event, windowType);
-    private bOnWindowTypeToGet: IpcEvent = (event) => this.onWindowTypeToGet(event);
+    private bOnWindowTypeToGet: IpcMListener = (event) => this.onWindowTypeToGet(event);
 }

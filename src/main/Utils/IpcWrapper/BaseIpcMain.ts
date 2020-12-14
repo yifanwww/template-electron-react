@@ -1,4 +1,4 @@
-import { IpcMainFunc } from '#shared/IpcWrapper.types';
+import { IpcMListener } from '#shared/IpcWrapper.types';
 import { WindowType } from '#shared/WindowType';
 
 import { IpcMainWrapper } from './IpcMainWrapper';
@@ -11,28 +11,28 @@ export class BaseIpcMain {
     public readonly windowResized = 'WindowResized';
     public readonly windowType = 'WindowType';
 
-    public onClientAreaInitialized(func: IpcMainFunc): void {
-        this.ipc.on(this.clientAreaInitialized, func);
+    public onClientAreaInitialized(handler: IpcMListener): void {
+        this.ipc.on(this.clientAreaInitialized, handler);
     }
 
-    public removeClientAreaInitialized(func: IpcMainFunc): void {
-        this.ipc.removeListener(this.clientAreaInitialized, func);
+    public removeClientAreaInitialized(handler: IpcMListener): void {
+        this.ipc.removeListener(this.clientAreaInitialized, handler);
     }
 
-    public onWindowTypeToGet(func: IpcMainFunc): void {
-        this.ipc.on(this.windowType, func);
+    public onWindowTypeToGet(handler: IpcMListener): void {
+        this.ipc.on(this.windowType, handler);
     }
 
-    public removeWindowTypeToGet(func: IpcMainFunc): void {
-        this.ipc.removeListener(this.windowType, func);
+    public removeWindowTypeToGet(handler: IpcMListener): void {
+        this.ipc.removeListener(this.windowType, handler);
     }
 
-    public onNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
-        this.ipc.on(this.newWindowToOpen, func);
+    public onNewWindowToOpen(handler: IpcMListener<WindowType>): void {
+        this.ipc.on(this.newWindowToOpen, handler);
     }
 
-    public removeNewWindowToOpen(func: IpcMainFunc<WindowType>): void {
-        this.ipc.removeListener(this.newWindowToOpen, func);
+    public removeNewWindowToOpen(handler: IpcMListener<WindowType>): void {
+        this.ipc.removeListener(this.newWindowToOpen, handler);
     }
 }
 

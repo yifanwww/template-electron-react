@@ -1,6 +1,6 @@
 import { WindowType } from '#shared/WindowType';
 
-import { IpcRendererFunc } from '#shared/IpcWrapper.types';
+import { IpcRListener } from '#shared/IpcWrapper.types';
 import { ClientAreaSize } from '#shared/ClientAreaSize.types';
 
 import { IpcRendererWrapper } from './IpcRendererWrapper';
@@ -17,20 +17,20 @@ export class BaseIpcRenderer {
         return this.ipc.sendSync(this.windowType);
     }
 
-    public onceClientAreaInitialized(func: IpcRendererFunc<ClientAreaSize>): void {
-        this.ipc.once(this.clientAreaInitialized, func);
+    public onceClientAreaInitialized(handler: IpcRListener<ClientAreaSize>): void {
+        this.ipc.once(this.clientAreaInitialized, handler);
     }
 
     public sendClientAreaInitialized(): void {
         this.ipc.send(this.clientAreaInitialized);
     }
 
-    public onWindowResized(func: IpcRendererFunc<ClientAreaSize>): void {
-        this.ipc.on(this.windowResized, func);
+    public onWindowResized(handler: IpcRListener<ClientAreaSize>): void {
+        this.ipc.on(this.windowResized, handler);
     }
 
-    public removeWindowResized(func: IpcRendererFunc<ClientAreaSize>): void {
-        this.ipc.removeListener(this.windowResized, func);
+    public removeWindowResized(handler: IpcRListener<ClientAreaSize>): void {
+        this.ipc.removeListener(this.windowResized, handler);
     }
 
     public openNewWindow(windowType: WindowType): void {

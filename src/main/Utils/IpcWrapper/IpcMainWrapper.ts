@@ -15,24 +15,24 @@ export class IpcMainWrapper {
 
     public handle(
         channel: string,
-        listener: (event: IpcMainInvokeEvent, argument: any) => any
+        listener: (event: IpcMainInvokeEvent, ...args: any[]) => Promise<void> | any,
     ): void {
         this.ipc?.handle(channel, listener);
     }
 
     public handleOnce(
         channel: string,
-        listener: (event: IpcMainInvokeEvent, argument: any) => any
+        listener: (event: IpcMainInvokeEvent, ...args: any[]) => Promise<void> | any,
     ): void {
         this.ipc?.handleOnce(channel, listener);
     }
 
-    public on(channel: string, listener: (event: IpcMainEvent, argument?: any) => void): this {
+    public on(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): this {
         this.ipc?.on(channel, listener);
         return this;
     }
 
-    public once(channel: string, listener: (event: IpcMainEvent, argument?: any) => void): this {
+    public once(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): this {
         this.ipc?.once(channel, listener);
         return this;
     }
@@ -48,7 +48,7 @@ export class IpcMainWrapper {
 
     public removeListener(
         channel: string,
-        listener: (event: IpcMainEvent, argument?: any) => void
+        listener: (event: IpcMainEvent, ...args: any[]) => void,
     ): this {
         this.ipc?.removeListener(channel, listener);
         return this;
