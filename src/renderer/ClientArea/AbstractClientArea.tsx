@@ -29,15 +29,15 @@ export abstract class AbstractClientArea<P, S> extends Component<P, S> {
     // ------------------------------------------------------------------------------- Ipc Listeners
 
     protected addIpcOnceListeners(): void {
-        baseIpcRenderer.onceClientAreaInitialized(this.wrapperClientAreaInitialized);
+        baseIpcRenderer.onceClientAreaInitialized(this.bOnceClientAreaInitialized);
     }
 
     protected addIpcListeners(): void {
-        baseIpcRenderer.onWindowResized(this.wrapperWindowResized);
+        baseIpcRenderer.onWindowResized(this.bOnWindowResized);
     }
 
     protected removeIpcListeners(): void {
-        baseIpcRenderer.removeWindowResized(this.wrapperWindowResized);
+        baseIpcRenderer.removeWindowResized(this.bOnWindowResized);
     }
 
     protected sendIpcMessage(): void {
@@ -46,14 +46,15 @@ export abstract class AbstractClientArea<P, S> extends Component<P, S> {
 
     // ---------------------------------------------------------------------------------- Ipc Events
 
-    private wrapperClientAreaInitialized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
-        this.onceClientAreaInitialized(event, clientAreaSize);
     protected onceClientAreaInitialized(
         event: IpcRendererEvent,
         clientAreaSize: ClientAreaSize,
     ): void {}
 
-    private wrapperWindowResized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
-        this.onWindowResized(event, clientAreaSize);
     protected onWindowResized(event: IpcRendererEvent, clientAreaSize: ClientAreaSize): void {}
+
+    private bOnceClientAreaInitialized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
+        this.onceClientAreaInitialized(event, clientAreaSize);
+    private bOnWindowResized: IpcEvent<ClientAreaSize> = (event, clientAreaSize) =>
+        this.onWindowResized(event, clientAreaSize);
 }

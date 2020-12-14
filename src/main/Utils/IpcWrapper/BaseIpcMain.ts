@@ -23,7 +23,7 @@ export class BaseIpcMain {
         this.ipc.on(this.windowType, func);
     }
 
-    public removeWindowTypeToGet(func: IpcMainFunc<WindowType>): void {
+    public removeWindowTypeToGet(func: IpcMainFunc): void {
         this.ipc.removeListener(this.windowType, func);
     }
 
