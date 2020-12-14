@@ -39,7 +39,7 @@ module.exports = {
         'operator-linebreak': 'off', // Disabled for prettier
 
         '@typescript-eslint/comma-dangle': 'off',
-        '@typescript-eslint/indent': 'off', // Failed for some generic type definitions
+        '@typescript-eslint/indent': ['error', 4],
         '@typescript-eslint/lines-between-class-members': 'off',
         '@typescript-eslint/naming-convention': [
             'error',

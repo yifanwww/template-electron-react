@@ -12,18 +12,18 @@ export class IpcRendererWrapper {
         }
     }
 
-    public async invoke(channel: string, argument?: any): Promise<any> {
-        return this.ipc?.invoke(channel, argument);
+    public async invoke(channel: string, ...args: any[]): Promise<any> {
+        return this.ipc?.invoke(channel, ...args);
     }
 
-    public on(channel: string, listener: (event: IpcRendererEvent, argument?: any) => void): this {
+    public on(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): this {
         this.ipc?.on(channel, listener);
         return this;
     }
 
     public once(
         channel: string,
-        listener: (event: IpcRendererEvent, argument?: any) => void
+        listener: (event: IpcRendererEvent, ...args: any[]) => void,
     ): this {
         this.ipc?.once(channel, listener);
         return this;
@@ -40,25 +40,25 @@ export class IpcRendererWrapper {
 
     public removeListener(
         channel: string,
-        listener: (event: IpcRendererEvent, argument?: any) => void
+        listener: (event: IpcRendererEvent, ...args: any[]) => void,
     ): this {
         this.ipc?.removeListener(channel, listener);
         return this;
     }
 
-    public send(channel: string, argument?: any): void {
-        this.ipc?.send(channel, argument);
+    public send(channel: string, ...args: any[]): void {
+        this.ipc?.send(channel, ...args);
     }
 
-    public sendSync(channel: string, argument?: any): any {
-        return this.ipc?.sendSync(channel, argument);
+    public sendSync(channel: string, ...args: any[]): any {
+        return this.ipc?.sendSync(channel, ...args);
     }
 
-    public sendTo(webContentsId: number, channel: string, argument?: any): void {
-        this.ipc?.sendTo(webContentsId, channel, argument);
+    public sendTo(webContentsId: number, channel: string, ...args: any[]): void {
+        this.ipc?.sendTo(webContentsId, channel, ...args);
     }
 
-    public sendToHost(channel: string, argument?: any): void {
-        this.ipc?.sendToHost(channel, argument);
+    public sendToHost(channel: string, ...args: any[]): void {
+        this.ipc?.sendToHost(channel, ...args);
     }
 }

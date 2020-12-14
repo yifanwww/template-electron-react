@@ -47,9 +47,13 @@ export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> 
 
     protected onceClientAreaInitialized(event: any, clientAreaSize: ClientAreaSize): void {
         this.setState({ clientAreaSize });
+
+        console.log(`clientarea-initialized: ${JSON.stringify(clientAreaSize)}`);
     }
 
     protected onWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
         this.setState({ clientAreaSize });
+
+        console.log(`window-resized: ${JSON.stringify(clientAreaSize)}`);
     }
 }
