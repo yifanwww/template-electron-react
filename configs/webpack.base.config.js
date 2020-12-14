@@ -57,6 +57,7 @@ const alias = {
     '#Assets': ResolveApp('src/renderer/Assets'),
     '#ClientArea': ResolveApp('src/renderer/ClientArea'),
     '#MainUtils': ResolveApp('src/main/Utils'),
+    '#node': ResolveApp('src/renderer/node'),
     '#RendererTypes': ResolveApp('src/renderer/Types'),
     '#RendererUtils': ResolveApp('src/renderer/Utils'),
     '#shared': ResolveApp('src/shared'),

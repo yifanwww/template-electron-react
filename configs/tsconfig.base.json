@@ -15,6 +15,7 @@
             "#Assets/*": ["src/renderer/Assets/*"],
             "#shared/*": ["src/shared/*"],
             "#MainUtils/*": ["src/main/Utils/*"],
+            "#node/*": ["src/renderer/node/*"],
             "#RendererUtils/*": ["src/renderer/Utils/*"],
             "#ClientArea": ["src/renderer/ClientArea"],
             "#RendererTypes": ["src/renderer/Types"],
