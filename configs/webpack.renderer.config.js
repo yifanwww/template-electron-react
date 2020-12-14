@@ -38,7 +38,11 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // WriteConfigs([webpack.plugins[8], webpack.plugins[9]], "webpack.json");
 
-    return smp.wrap(webpack);
+    if (webpack.mode === 'production') {
+        return smp.wrap(webpack);
+    } else {
+        return webpack;
+    }
 }
 
 // Override paths configurations.
