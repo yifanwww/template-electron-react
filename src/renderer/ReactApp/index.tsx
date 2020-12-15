@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { Provider, useDispatch } from 'react-redux';
 
 import { AbstractClientArea } from '#ClientArea';
@@ -15,7 +15,11 @@ interface StoreUpdaterProps {
 function StoreUpdater(props: Readonly<StoreUpdaterProps>) {
     const dispatch = useDispatch();
 
-    dispatch(Actions.updateClientAreaSize(props.clientAreaSize));
+    // Passing an empty array as second argument triggers the callback in useEffect only after the
+    // initial render, thus replicating `componentDidMount` lifecycle behaviour.
+    useEffect(() => {
+        dispatch(Actions.updateClientAreaSize(props.clientAreaSize));
+    }, []);
 
     return <App />;
 }
