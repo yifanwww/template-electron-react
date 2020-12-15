@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Provider, useDispatch } from 'react-redux';
 
 import { AbstractClientArea } from '#ClientArea';
@@ -35,7 +35,7 @@ export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> 
         };
     }
 
-    public render(): JSX.Element {
+    public render(): ReactElement {
         return (
             <Provider store={Store}>
                 <StoreUpdater clientAreaSize={this.state.clientAreaSize} />

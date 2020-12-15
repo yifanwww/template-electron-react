@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
@@ -8,10 +8,10 @@ import { baseIpcRenderer } from '#RendererUtils/IpcWrapper';
 import * as serviceWorker from './serviceWorker';
 import { ReactAppClientArea } from './ReactApp';
 
-function CreateClientArea(): JSX.Element {
+function CreateClientArea(): ReactElement {
     const windowType: WindowType = baseIpcRenderer.getWindowType();
 
-    let clientArea: JSX.Element;
+    let clientArea: ReactElement;
     switch (windowType) {
         case WindowType.mainWindow:
             clientArea = <ReactAppClientArea />;
