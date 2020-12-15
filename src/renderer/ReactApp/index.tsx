@@ -15,11 +15,9 @@ interface StoreUpdaterProps {
 function StoreUpdater(props: Readonly<StoreUpdaterProps>) {
     const dispatch = useDispatch();
 
-    // Passing an empty array as second argument triggers the callback in useEffect only after the
-    // initial render, thus replicating `componentDidMount` lifecycle behaviour.
     useEffect(() => {
         dispatch(Actions.updateClientAreaSize(props.clientAreaSize));
-    }, []);
+    });
 
     return <App />;
 }
