@@ -7,6 +7,10 @@ interface AppState {
     clientAreaSize: ClientAreaSize;
 }
 
+const initialState: AppState = {
+    clientAreaSize: { width: 1280, height: 720 },
+};
+
 // ---------------------------------------------------------------------------------------- Reducers
 
 type ReducerFunc<Payload = undefined> = IReducer<AppState, Payload>;
@@ -17,10 +21,6 @@ const updateClientAreaSize: ReducerFunc<ClientAreaSize> = (state, action) => {
 
 // ------------------------------------------------------------------------------------------- Slice
 
-const initialState: AppState = {
-    clientAreaSize: { width: 1280, height: 720 },
-};
-
 const slice = createSlice({
     name: 'Slice_MainWindow',
     initialState,
@@ -29,8 +29,7 @@ const slice = createSlice({
     },
 });
 
-export const Reducer = slice.reducer;
-
 export const Actions = slice.actions;
+export const Reducer = slice.reducer;
 
 export type MapActionsToProps = IMapActionsToProps<typeof Actions>;
