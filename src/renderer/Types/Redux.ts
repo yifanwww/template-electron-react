@@ -13,23 +13,6 @@ export type IReducer<State, Payload = undefined> = (
     action: PayloadAction<Payload>,
 ) => void;
 
-// MapStateToProps
-
-type StateDict = { [key: string]: any };
-
-/** @todo */
-type DeepStateDict = any;
-
-export type IPickStateProps<States extends StateDict, Selections extends keyof States> = {
-    readonly [StateName in Selections]: States[StateName];
-};
-
-/** @todo */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type IDeepPickStateProps<States extends DeepStateDict, Selections extends keyof States> = {
-    readonly [StateName in Selections]: States[StateName];
-};
-
 // MapDispatchToProps
 
 type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
