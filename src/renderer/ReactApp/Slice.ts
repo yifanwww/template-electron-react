@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ClientAreaSize } from '#shared/ClientAreaSize.types';
-import type { IReducer, IMapActionsToProps } from '#RendererTypes';
+import type { ClientAreaSize, IReducer, IMapActionsToProps } from '#RendererTypes';
 
 interface AppState {
     clientAreaSize: ClientAreaSize;
@@ -22,7 +21,7 @@ const updateClientAreaSize: ReducerFunc<ClientAreaSize> = (state, action) => {
 // ------------------------------------------------------------------------------------------- Slice
 
 const slice = createSlice({
-    name: 'Slice_MainWindow',
+    name: 'Slice_ReactApp',
     initialState,
     reducers: {
         updateClientAreaSize,

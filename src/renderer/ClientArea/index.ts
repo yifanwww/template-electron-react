@@ -1,1 +1,1 @@
-export { AbstractClientArea } from './AbstractClientArea';
+export * from './AbstractClientArea';

@@ -1,8 +1,8 @@
 import React, { ReactElement, useEffect } from 'react';
 import { Provider, useDispatch } from 'react-redux';
 
+import { ClientAreaSize } from '#RendererUtils/Types';
 import { AbstractClientArea } from '#ClientArea';
-import { ClientAreaSize } from '#shared/ClientAreaSize.types';
 
 import { Store } from './Store';
 import { Actions } from './Slice';
@@ -47,9 +47,9 @@ export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> 
         );
     }
 
-    // ---------------------------------------------------------------------------------- Ipc Events
+    // ----------------------------------------------------------------------------- Window Handlers
 
-    protected onceClientAreaInitialized(event: any, clientAreaSize: ClientAreaSize): void {
+    protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {
         this.setState({ clientAreaSize });
 
         console.log(`clientarea-initialized: ${JSON.stringify(clientAreaSize)}`);

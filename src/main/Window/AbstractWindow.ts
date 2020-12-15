@@ -59,30 +59,14 @@ export abstract class AbstractWindow {
 
     protected addWindowListeners(): void {
         this.window!.on('show', this.bOnWindowShowed);
-        this.window!.on('resize', this.bOnWindowResized);
         this.window!.once('closed', this.onWindowClosed);
     }
 
     protected removeWindowListeners(): void {
         this.window!.removeListener('show', this.bOnWindowShowed);
-        this.window!.removeListener('resize', this.bOnWindowResized);
     }
 
-    // ------------------------------------------------------------------------------- Ipc Listeners
-
-    protected addIpcListeners(): void {
-        baseIpcMain.onClientAreaInitialized(this.bOnClientAreaInitialized);
-        baseIpcMain.onNewWindowToOpen(this.bOnNewWindowToOpen);
-        baseIpcMain.onWindowTypeToGet(this.bOnWindowTypeToGet);
-    }
-
-    protected removeIpcListeners(): void {
-        baseIpcMain.removeClientAreaInitialized(this.bOnClientAreaInitialized);
-        baseIpcMain.removeNewWindowToOpen(this.bOnNewWindowToOpen);
-        baseIpcMain.removeWindowTypeToGet(this.bOnWindowTypeToGet);
-    }
-
-    // ------------------------------------------------------------------------------- Window Events
+    // ----------------------------------------------------------------------------- Window Handlers
 
     private onWindowClosed = () => {
         this.removeWindowListeners();
@@ -92,19 +76,21 @@ export abstract class AbstractWindow {
 
     protected onWindowShowed(): void {}
 
-    protected onWindowResized(): void {
-        const size = this.window!.getContentSize();
-
-        this.window!.webContents.send(baseIpcMain.windowResized, {
-            width: size[0],
-            height: size[1],
-        });
-    }
-
-    private bOnWindowResized = () => this.onWindowResized();
     private bOnWindowShowed = () => this.onWindowShowed();
 
-    // ---------------------------------------------------------------------------------- Ipc Events
+    // ------------------------------------------------------------------------------- Ipc Listeners
+
+    protected addIpcListeners(): void {
+        baseIpcMain.onNewWindowToOpen(this.bOnNewWindowToOpen);
+        baseIpcMain.onWindowTypeToGet(this.bOnWindowTypeToGet);
+    }
+
+    protected removeIpcListeners(): void {
+        baseIpcMain.removeNewWindowToOpen(this.bOnNewWindowToOpen);
+        baseIpcMain.removeWindowTypeToGet(this.bOnWindowTypeToGet);
+    }
+
+    // -------------------------------------------------------------------------------- Ipc Handlers
 
     protected checkSender(event: IpcMainEvent): boolean {
         return event.sender.id === this.window!.id;
@@ -118,18 +104,6 @@ export abstract class AbstractWindow {
         event.returnValue = this.windowType;
     };
 
-    protected onClientAreaInitialized(event: IpcMainEvent): void {
-        if (!this.checkSender(event)) return;
-
-        // console.debug('Send content size.');
-
-        const size = this.window!.getContentSize();
-        event.reply(baseIpcMain.clientAreaInitialized, {
-            width: size[0],
-            height: size[1],
-        });
-    }
-
     protected onNewWindowToOpen(event: any, windowType: WindowType): void {
         if (!this.checkSender(event)) return;
 
@@ -138,7 +112,6 @@ export abstract class AbstractWindow {
         createWindow(windowType);
     }
 
-    private bOnClientAreaInitialized: IpcMListener = (event) => this.onClientAreaInitialized(event);
     private bOnNewWindowToOpen: IpcMListener<WindowType> = (event, windowType) =>
         this.onNewWindowToOpen(event, windowType);
     private bOnWindowTypeToGet: IpcMListener = (event) => this.onWindowTypeToGet(event);

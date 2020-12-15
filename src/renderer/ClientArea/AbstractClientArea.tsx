@@ -1,10 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component } from 'react';
-import { IpcRendererEvent } from 'electron';
+import { Component, UIEvent, UIEventHandler } from 'react';
 
-import { ClientAreaSize } from '#shared/ClientAreaSize.types';
-import { IpcRListener } from '#shared/IpcWrapper.types';
-import { baseIpcRenderer } from '#RendererUtils/IpcWrapper';
+import { ClientAreaSize } from '#RendererUtils/Types';
 
 export abstract class AbstractClientArea<P, S> extends Component<P, S> {
     // --------------------------------------------------------------------------------------- React
@@ -14,44 +10,48 @@ export abstract class AbstractClientArea<P, S> extends Component<P, S> {
     }
 
     public componentDidMount(): void {
+        this.addWindowListeners();
+
         this.addIpcListeners();
         this.addIpcOnceListeners();
         this.sendIpcMessage();
+
+        this.bOnceClientAreaInitialized();
     }
 
     public componentWillUnmount(): void {
+        this.removeWindowListeners();
         this.removeIpcListeners();
     }
 
+    // ---------------------------------------------------------------------------- Window Listeners
+
+    protected addWindowListeners(): void {
+        window.onresize = this.bOnWindowResized as any;
+    }
+
+    protected removeWindowListeners(): void {
+        window.onresize = null;
+    }
+
+    // ----------------------------------------------------------------------------- Window Handlers
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {}
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    protected onWindowResized(event: UIEvent, clientAreaSize: ClientAreaSize): void {}
+
+    private bOnceClientAreaInitialized = () =>
+        this.onceClientAreaInitialized({ height: window.innerHeight, width: window.innerWidth });
+
+    private bOnWindowResized: UIEventHandler = (event) =>
+        this.onWindowResized(event, { height: window.innerHeight, width: window.innerWidth });
+
     // ------------------------------------------------------------------------------- Ipc Listeners
 
-    protected addIpcOnceListeners(): void {
-        baseIpcRenderer.onceClientAreaInitialized(this.bOnceClientAreaInitialized);
-    }
-
-    protected addIpcListeners(): void {
-        baseIpcRenderer.onWindowResized(this.bOnWindowResized);
-    }
-
-    protected removeIpcListeners(): void {
-        baseIpcRenderer.removeWindowResized(this.bOnWindowResized);
-    }
-
-    protected sendIpcMessage(): void {
-        baseIpcRenderer.sendClientAreaInitialized();
-    }
-
-    // ---------------------------------------------------------------------------------- Ipc Events
-
-    protected onceClientAreaInitialized(
-        event: IpcRendererEvent,
-        clientAreaSize: ClientAreaSize,
-    ): void {}
-
-    protected onWindowResized(event: IpcRendererEvent, clientAreaSize: ClientAreaSize): void {}
-
-    private bOnceClientAreaInitialized: IpcRListener<ClientAreaSize> = (event, clientAreaSize) =>
-        this.onceClientAreaInitialized(event, clientAreaSize);
-    private bOnWindowResized: IpcRListener<ClientAreaSize> = (event, clientAreaSize) =>
-        this.onWindowResized(event, clientAreaSize);
+    protected addIpcOnceListeners(): void {}
+    protected addIpcListeners(): void {}
+    protected sendIpcMessage(): void {}
+    protected removeIpcListeners(): void {}
 }
