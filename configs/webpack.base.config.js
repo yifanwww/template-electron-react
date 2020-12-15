@@ -54,13 +54,15 @@ const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 
 // Alias
 const alias = {
+    '#shared': ResolveApp('src/shared'),
+    // main
+    '#MainUtils': ResolveApp('src/main/Utils'),
+    // renderer
     '#Assets': ResolveApp('src/renderer/Assets'),
     '#ClientArea': ResolveApp('src/renderer/ClientArea'),
-    '#MainUtils': ResolveApp('src/main/Utils'),
-    '#node': ResolveApp('src/renderer/node'),
-    '#RendererTypes': ResolveApp('src/renderer/Types'),
+    '#node': ResolveApp('src/renderer/Utils/node'),
+    '#RendererTypes': ResolveApp('src/renderer/Utils/Types'),
     '#RendererUtils': ResolveApp('src/renderer/Utils'),
-    '#shared': ResolveApp('src/shared'),
     '#Theme': ResolveApp('src/renderer/Theme'),
 };
 

@@ -12,13 +12,15 @@
         "noEmit": true,
         "noImplicitAny": true,
         "paths": {
-            "#Assets/*": ["src/renderer/Assets/*"],
             "#shared/*": ["src/shared/*"],
+            // main
             "#MainUtils/*": ["src/main/Utils/*"],
-            "#node/*": ["src/renderer/node/*"],
+            // renderer
+            "#Assets/*": ["src/renderer/Assets/*"],
+            "#node/*": ["src/renderer/Utils/node/*"],
             "#RendererUtils/*": ["src/renderer/Utils/*"],
             "#ClientArea": ["src/renderer/ClientArea"],
-            "#RendererTypes": ["src/renderer/Types"],
+            "#RendererTypes": ["src/renderer/Utils/Types"],
             "#Theme": ["src/renderer/Theme"]
         },
         "resolveJsonModule": true,
