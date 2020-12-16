@@ -1,8 +1,7 @@
 // Type definitions from @types/node@12.19.9, used for Nodejs v12
-/* eslint-disable import/newline-after-import */
+/* eslint-disable @typescript-eslint/naming-convention */
 
 import events from 'events';
-export type {};
 
 const _ = window.require('events') as typeof events;
 export default _;

@@ -60,9 +60,9 @@ module.exports = {
             { selector: 'typeAlias', format: ['PascalCase'] },
             { selector: 'typeParameter', format: ['PascalCase'] },
             {
-                // HACK: 'PascalCase' for react components from react-redux.connect, 'UPPER_CASE' for constant variables
+                // 'UPPER_CASE' for constant variables
                 selector: 'variable',
-                format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+                format: ['camelCase', 'UPPER_CASE'],
                 leadingUnderscore: 'allow',
             },
         ],

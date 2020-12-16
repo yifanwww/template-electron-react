@@ -28,7 +28,6 @@ const slice = createSlice({
     },
 });
 
-export const Actions = slice.actions;
-export const Reducer = slice.reducer;
+export const { actions, reducer } = slice;
 
-export type MapActionsToProps = IMapActionsToProps<typeof Actions>;
+export type MapActionsToProps = IMapActionsToProps<typeof actions>;

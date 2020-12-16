@@ -4,8 +4,8 @@ import { Provider, useDispatch } from 'react-redux';
 import { ClientAreaSize } from '#RendererUtils/Types';
 import { AbstractClientArea } from '#ClientArea';
 
-import { Store } from './Store';
-import { Actions } from './Slice';
+import { store } from './Store';
+import { actions } from './Slice';
 import { App } from './App';
 
 interface StoreUpdaterProps {
@@ -16,7 +16,7 @@ function StoreUpdater(props: Readonly<StoreUpdaterProps>) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(Actions.updateClientAreaSize(props.clientAreaSize));
+        dispatch(actions.updateClientAreaSize(props.clientAreaSize));
     });
 
     return <App />;
@@ -39,7 +39,7 @@ export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> 
 
     public render(): ReactElement {
         return (
-            <Provider store={Store}>
+            <Provider store={store}>
                 <StoreUpdater clientAreaSize={this.state.clientAreaSize} />
             </Provider>
         );

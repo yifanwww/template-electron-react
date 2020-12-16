@@ -1,10 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
-import { Reducer } from './Slice';
+import { reducer } from './Slice';
 
-export const Store = configureStore({ reducer: Reducer });
+export const store = configureStore({ reducer });
 
-export type StoreState = ReturnType<typeof Store.getState>;
+export type StoreState = ReturnType<typeof store.getState>;
 
 // prettier-ignore
 export type AppThunk<ReturnType = void> =
