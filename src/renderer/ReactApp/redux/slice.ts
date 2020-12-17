@@ -21,7 +21,7 @@ const updateClientAreaSize: ReducerFunc<ClientAreaSize> = (state, action) => {
 // ------------------------------------------------------------------------------------------- Slice
 
 const slice = createSlice({
-    name: 'Slice_ReactApp',
+    name: 'ReactApp',
     initialState,
     reducers: {
         updateClientAreaSize,

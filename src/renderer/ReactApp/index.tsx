@@ -4,8 +4,7 @@ import { Provider, useDispatch } from 'react-redux';
 import { ClientAreaSize } from '#RendererUtils/Types';
 import { AbstractClientArea } from '#ClientArea';
 
-import { store } from './Store';
-import { actions } from './Slice';
+import { actions, store } from './redux';
 import { App } from './App';
 
 interface StoreUpdaterProps {
