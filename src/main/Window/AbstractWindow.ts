@@ -9,7 +9,7 @@ import { baseIpcMain } from '#MainUtils/IpcWrapper';
 import { createWindow } from './CreateWindow';
 
 export interface CreateWindowOption {
-    development: boolean;
+    production: boolean;
     height?: number;
     width?: number;
 }
@@ -26,7 +26,7 @@ export abstract class AbstractWindow {
     public async create(options: CreateWindowOption): Promise<void> {
         if (this.window !== undefined) return;
 
-        const { development, height, width } = options;
+        const { production, height, width } = options;
 
         this.window = new BrowserWindow({
             width: width === undefined ? 1280 : width,
@@ -40,7 +40,7 @@ export abstract class AbstractWindow {
         this.addWindowListeners();
         this.addIpcListeners();
 
-        if (!development) {
+        if (production) {
             await this.window.loadFile(Path.join(__dirname, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
