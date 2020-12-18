@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
 import { WindowType } from '#shared/WindowType';
 import { baseIpcRenderer } from '#RendererUtils/IpcWrapper';
+import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 import { ReactAppClientArea } from './ReactApp';

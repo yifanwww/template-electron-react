@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 
-function App(): ReactElement {
+export function App(): ReactElement {
     return (
         <div className="App">
             <header className="App-header">
@@ -22,5 +23,3 @@ function App(): ReactElement {
         </div>
     );
 }
-
-export { App };

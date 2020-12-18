@@ -26,8 +26,6 @@ interface ClientAreaState {
 }
 
 export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> {
-    // --------------------------------------------------------------------------------------- React
-
     public constructor(props: Readonly<{}>) {
         super(props);
 
@@ -35,6 +33,8 @@ export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> 
             clientAreaSize: { width: 1280, height: 720 },
         };
     }
+
+    // ------------------------------------------------------------------------------ ReactLifeCycle
 
     public render(): ReactElement {
         return (
