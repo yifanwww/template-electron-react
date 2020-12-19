@@ -8,6 +8,14 @@
 /.pnp
 .pnp.js
 
+# Environment
+
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Running and Testing
 
 /coverage
@@ -21,12 +29,6 @@
 # Misc
 
 .eslintcache
-
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
 debug.log
 
