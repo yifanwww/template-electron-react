@@ -13,3 +13,27 @@ export type PickFunctions<T> = Pick<T, FunctionKeys<T>>;
 export type PickNonFunctions<T> = Pick<T, NonFunctionKeys<T>>;
 
 export type RequiredWithOptionalFunction<T> = PickFunctions<T> & Required<PickNonFunctions<T>>;
+
+/**
+ * TypeScript type to return a deep partial object (each property can be undefined, recursively).
+ */
+// prettier-ignore
+export type DeepPartial<T> = {
+    [P in keyof T]?: T[P] extends (infer U)[]
+        ? DeepPartial<U>[]
+        : T[P] extends object
+            ? DeepPartial<T[P]>
+            : T[P];
+};
+
+/**
+ * TypeScript type to return a deep readonly object (recursively).
+ */
+// prettier-ignore
+export type DeepReadonly<T> = {
+    readonly [P in keyof T]: T[P] extends (infer U)[]
+        ? DeepReadonly<U>[]
+        : T[P] extends object
+            ? DeepReadonly<T[P]>
+            : T[P];
+};
