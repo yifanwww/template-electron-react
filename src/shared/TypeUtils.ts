@@ -12,7 +12,7 @@ export type NonFunctionKeys<T> = { [K in keyof T]-?: NonFunctionKey<T, K> }[keyo
 export type PickFunctions<T> = Pick<T, FunctionKeys<T>>;
 export type PickNonFunctions<T> = Pick<T, NonFunctionKeys<T>>;
 
-export type RequiredWithOptionalFunction<T> = PickFunctions<T> & Required<PickNonFunctions<T>>;
+export type RequiredNonFunction<T> = PickFunctions<T> & Required<PickNonFunctions<T>>;
 
 /**
  * TypeScript type to return a deep partial object (each property can be undefined, recursively).
