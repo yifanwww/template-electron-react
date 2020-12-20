@@ -1,1 +1,1 @@
-export { ColorTransformer } from './ColorTransformer';
+export * from './ColorTransformer';

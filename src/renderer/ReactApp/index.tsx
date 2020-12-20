@@ -7,11 +7,11 @@ import { AbstractClientArea } from '#ClientArea';
 import { actions, store } from './redux';
 import { App } from './App';
 
-interface StoreUpdaterProps {
+interface IStoreUpdaterProps {
     clientAreaSize: ClientAreaSize;
 }
 
-function StoreUpdater(props: Readonly<StoreUpdaterProps>) {
+function StoreUpdater(props: Readonly<IStoreUpdaterProps>) {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,11 +21,11 @@ function StoreUpdater(props: Readonly<StoreUpdaterProps>) {
     return <App />;
 }
 
-interface ClientAreaState {
+interface IReactAppClientAreaState {
     clientAreaSize: ClientAreaSize;
 }
 
-export class ReactAppClientArea extends AbstractClientArea<{}, ClientAreaState> {
+export class ReactAppClientArea extends AbstractClientArea<{}, IReactAppClientAreaState> {
     public constructor(props: Readonly<{}>) {
         super(props);
 
