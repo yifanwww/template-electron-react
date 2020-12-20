@@ -1,45 +1,19 @@
-import React, { ReactElement, useEffect } from 'react';
-import { Provider, useDispatch } from 'react-redux';
+import React, { ReactElement } from 'react';
+import { Provider } from 'react-redux';
 
 import { ClientAreaSize } from '#RendererUtils/Types';
 import { AbstractClientArea } from '#ClientArea';
 
-import { actions, store } from './redux';
+import { actions, sdispatch, store } from './redux';
 import { App } from './App';
 
-interface IStoreUpdaterProps {
-    clientAreaSize: ClientAreaSize;
-}
-
-function StoreUpdater(props: Readonly<IStoreUpdaterProps>) {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(actions.updateClientAreaSize(props.clientAreaSize));
-    });
-
-    return <App />;
-}
-
-interface IReactAppClientAreaState {
-    clientAreaSize: ClientAreaSize;
-}
-
-export class ReactAppClientArea extends AbstractClientArea<{}, IReactAppClientAreaState> {
-    public constructor(props: Readonly<{}>) {
-        super(props);
-
-        this.state = {
-            clientAreaSize: { width: 1280, height: 720 },
-        };
-    }
-
+export class ReactAppClientArea extends AbstractClientArea {
     // ------------------------------------------------------------------------------ ReactLifeCycle
 
     public render(): ReactElement {
         return (
             <Provider store={store}>
-                <StoreUpdater clientAreaSize={this.state.clientAreaSize} />
+                <App />
             </Provider>
         );
     }
@@ -47,14 +21,14 @@ export class ReactAppClientArea extends AbstractClientArea<{}, IReactAppClientAr
     // ----------------------------------------------------------------------------- Window Handlers
 
     protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {
-        this.setState({ clientAreaSize });
+        sdispatch(actions.updateClientAreaSize(clientAreaSize));
 
-        console.log(`clientarea-initialized: ${JSON.stringify(clientAreaSize)}`);
+        console.log('clientarea-initialized.');
     }
 
     protected onWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
-        this.setState({ clientAreaSize });
+        sdispatch(actions.updateClientAreaSize(clientAreaSize));
 
-        console.log(`window-resized: ${JSON.stringify(clientAreaSize)}`);
+        console.log('window-resized.');
     }
 }

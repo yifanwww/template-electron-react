@@ -16,6 +16,8 @@ type ReducerFunc<Payload = undefined> = IReducer<AppState, Payload>;
 
 const updateClientAreaSize: ReducerFunc<ClientAreaSize> = (state, action) => {
     state.clientAreaSize = action.payload;
+
+    console.log(`update clientarea: ${JSON.stringify(action.payload)}.`);
 };
 
 // ------------------------------------------------------------------------------------------- Slice

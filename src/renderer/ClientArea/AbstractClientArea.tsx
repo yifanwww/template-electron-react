@@ -2,7 +2,7 @@ import { Component, UIEvent, UIEventHandler } from 'react';
 
 import { ClientAreaSize } from '#RendererUtils/Types';
 
-export abstract class AbstractClientArea<P, S> extends Component<P, S> {
+export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S> {
     // --------------------------------------------------------------------------------------- React
 
     public constructor(props: Readonly<P>) {
