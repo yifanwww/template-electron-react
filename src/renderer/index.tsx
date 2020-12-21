@@ -2,14 +2,14 @@ import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 
 import { WindowType } from '#shared/WindowType';
-import { baseIpcRenderer } from '#RendererUtils/IpcWrapper';
+import { windowIpc } from '#RendererUtils/IpcWrapper';
 import './index.css';
 
 import * as serviceWorker from './serviceWorker';
 import { ReactAppClientArea } from './ReactApp';
 
 function CreateClientArea(): ReactElement {
-    const windowType: WindowType = baseIpcRenderer.getWindowType();
+    const windowType: WindowType = windowIpc.getWindowType();
 
     let clientArea: ReactElement;
     switch (windowType) {

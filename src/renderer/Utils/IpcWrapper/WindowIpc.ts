@@ -2,7 +2,7 @@ import { WindowType } from '#shared/WindowType';
 
 import { IpcRendererWrapper } from './IpcRendererWrapper';
 
-export class BaseIpcRenderer {
+export class WindowIpc {
     protected readonly ipc = new IpcRendererWrapper();
 
     public newWindowToOpen = 'NewWindowToOpen';
@@ -17,4 +17,4 @@ export class BaseIpcRenderer {
     }
 }
 
-export const baseIpcRenderer = new BaseIpcRenderer();
+export const windowIpc = new WindowIpc();
