@@ -4,6 +4,22 @@ export class IpcRendererWrapper {
     private ipc?: Electron.IpcRenderer;
 
     public constructor() {
+        /* eslint-disable max-len */
+        // NOTE:
+        // In electron 12 or higher-version electron:
+        // - `contextIsolation` will be true by default, and considering about security we should not set it false.
+        // - `nodeIntegration` option will be deleted.
+        // If we set `contextIsolation` true when creating windows, we cannot use global variable `window` here.
+        // Also we cannot use `require('electron')` for an error 'fs.existsSync is not a function' raised from `node_modules/electron/index.js`.
+        //
+        // Which means:
+        // Error 'window.require is not a function' will be raised if `contextIsolation` is set true.
+        // Error 'fs.existsSync is not a function' will be raised from `node_modules/electron/index.js` if using `const { ipcRenderer } = require('electron')`.
+        //
+        // More information:
+        // [[Discussion] Changing the defaults for nodeIntegration and contextIsolation to improve the default security posture of Electron applications](https://github.com/electron/electron/issues/23506)
+        // [Error while importing electron in react | import { ipcRenderer } from 'electron'](https://github.com/electron/electron/issues/9920)
+        /* eslint-enable max-len */
         try {
             const { ipcRenderer } = window.require('electron');
             this.ipc = ipcRenderer;
