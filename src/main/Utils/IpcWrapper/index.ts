@@ -1,1 +1,1 @@
-export * from './BaseIpcMain';
+export * from './WindowIpc';

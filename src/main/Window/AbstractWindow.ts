@@ -3,7 +3,7 @@ import { BrowserWindow, IpcMainEvent } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
 import { IpcMListener } from '#shared/IpcWrapper.types';
-import { baseIpcMain } from '#MainUtils/IpcWrapper';
+import { windowIpc } from '#MainUtils/IpcWrapper';
 
 // eslint-disable-next-line import/no-cycle
 import { createWindow } from './CreateWindow';
@@ -88,13 +88,13 @@ export abstract class AbstractWindow {
     // ------------------------------------------------------------------------------- Ipc Listeners
 
     protected addIpcListeners(): void {
-        baseIpcMain.onNewWindowToOpen(this.bOnNewWindowToOpen);
-        baseIpcMain.onWindowTypeToGet(this.bOnWindowTypeToGet);
+        windowIpc.onNewWindowToOpen(this.bOnNewWindowToOpen);
+        windowIpc.onWindowTypeToGet(this.bOnWindowTypeToGet);
     }
 
     protected removeIpcListeners(): void {
-        baseIpcMain.removeNewWindowToOpen(this.bOnNewWindowToOpen);
-        baseIpcMain.removeWindowTypeToGet(this.bOnWindowTypeToGet);
+        windowIpc.removeNewWindowToOpen(this.bOnNewWindowToOpen);
+        windowIpc.removeWindowTypeToGet(this.bOnWindowTypeToGet);
     }
 
     // -------------------------------------------------------------------------------- Ipc Handlers

@@ -1,2 +1,2 @@
-export * from './BaseIpcRenderer';
+export * from './WindowIpc';
 export * from './IpcRendererWrapper';

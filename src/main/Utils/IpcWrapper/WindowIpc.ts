@@ -3,7 +3,7 @@ import { ipcMain as ipc } from 'electron';
 import { IpcMListener } from '#shared/IpcWrapper.types';
 import { WindowType } from '#shared/WindowType';
 
-export class BaseIpcMain {
+export class WindowIpc {
     public readonly newWindowToOpen = 'NewWindowToOpen';
     public readonly windowType = 'WindowType';
 
@@ -24,4 +24,4 @@ export class BaseIpcMain {
     }
 }
 
-export const baseIpcMain = new BaseIpcMain();
+export const windowIpc = new WindowIpc();
