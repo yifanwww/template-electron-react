@@ -47,14 +47,15 @@ Use `yarn install` to install the packages this template project needs:
     - typescript
     - webpack-cli
 
-When installing `electron` package, it will download a compressed pack, `electron-v10.1.6-win32-x64.zip`, directly from Github by its own download tool [electron/get](https://github.com/electron/get). It may take a long time if you do not have a fast network connection to Github.
+When installing `electron` package, it will download a compressed pack, `electron-v11.1.0-win32-x64.zip`, directly from Github by its own download tool [electron/get](https://github.com/electron/get). It may take a long time if you do not have a fast network connection to Github.
 
 Fortunately, the download tool `electron/get` will check its cache before downloading. So you could download the compressed pack from Github manually, then copy it to where the cache files placed.
 
 You have this steps to do:
-1. Download `electron-v10.1.6-win32-x64.zip` from Github.
+1. Download `electron-v11.1.0-win32-x64.zip` from Github:
+   [https://github.com/electron/electron/releases/download/v11.1.0/electron-v11.1.0-win32-x64.zip](https://github.com/electron/electron/releases/download/v11.1.0/electron-v11.1.0-win32-x64.zip).
 2. Open `File Explorer` at `%localappdata%`, create `electron/Cache` folder.
-3. Create `httpsgithub.comelectronelectronreleasesdownloadv10.1.6electron-v10.1.6-win32-x64.zip` folder, and then copy the zip file into it.
+3. Create `httpsgithub.comelectronelectronreleasesdownloadv11.1.0electron-v11.1.0-win32-x64.zip` folder, and then copy the zip file into it.
 4. Now you can `yarn install` in this project, `electron/get` will find the existing zip file and use it to install electron.
 
 ### Use Visual Studio Code as Your Editor
