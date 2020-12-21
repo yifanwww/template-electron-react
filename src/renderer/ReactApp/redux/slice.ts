@@ -12,9 +12,9 @@ const initialState: AppState = {
 
 // ---------------------------------------------------------------------------------------- Reducers
 
-type ReducerFunc<Payload = undefined> = IReducer<AppState, Payload>;
+type Reducer<Payload = undefined> = IReducer<AppState, Payload>;
 
-const updateClientAreaSize: ReducerFunc<ClientAreaSize> = (state, action) => {
+const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
     state.clientAreaSize = action.payload;
 
     console.log(`update clientarea: ${JSON.stringify(action.payload)}.`);
