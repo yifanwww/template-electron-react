@@ -23,7 +23,7 @@ module.exports = smp.wrap({
         ],
     },
     resolve: {
-        extensions: ['.ts'],
+        extensions: ['.js', '.ts'],
         alias: Base.Alias,
     },
     node: {
