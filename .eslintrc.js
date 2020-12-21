@@ -39,7 +39,9 @@ module.exports = {
         'operator-linebreak': 'off', // Disabled for prettier
 
         '@typescript-eslint/comma-dangle': 'off',
-        '@typescript-eslint/indent': ['error', 4],
+        // According to https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
+        // Disable this rule and use prettier instead.
+        '@typescript-eslint/indent': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
         '@typescript-eslint/naming-convention': [
             'error',
