@@ -1,3 +1,5 @@
+import _fs from 'fs';
+import _path from 'path';
 import React, { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
@@ -16,6 +18,19 @@ export class ReactAppClientArea extends AbstractClientArea {
                 <App />
             </Provider>
         );
+    }
+
+    public componentDidMount() {
+        // Please delete these code in your own application.
+
+        super.componentDidMount();
+
+        const cwd = process.cwd();
+        console.log(cwd);
+        _fs.promises
+            .readdir(_path.join(cwd, '..'))
+            .then((res) => console.log(res))
+            .catch(() => undefined);
     }
 
     // ----------------------------------------------------------------------------- Window Handlers
