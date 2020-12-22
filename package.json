@@ -35,7 +35,7 @@
     },
     "scripts": {
         "app": "node scripts/app.mjs",
-        "app:dev": "yarn build:dev && node scripts/app-dev.mjs",
+        "app:dev": "yarn build:dev && node scripts/app.mjs",
         "app:web": "react-app-rewired start",
         "build": "yarn build:renderer && yarn build:main",
         "build:dev": "webpack --config configs/webpack.main.config.js --mode development",
