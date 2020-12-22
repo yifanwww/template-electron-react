@@ -17,7 +17,6 @@
             "#MainUtils/*": ["src/main/Utils/*"],
             // renderer
             "#Assets/*": ["src/renderer/Assets/*"],
-            "#node/*": ["src/renderer/Utils/node/*"],
             "#RendererUtils/*": ["src/renderer/Utils/*"],
             "#ClientArea": ["src/renderer/ClientArea"],
             "#RendererTypes": ["src/renderer/Utils/Types"],
