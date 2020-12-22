@@ -2,8 +2,8 @@
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
-// paths.js: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/paths.js
-// webpack.config.js: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/config/webpack.config.js
+// paths.js: https://github.com/facebook/create-react-app/blob/v4.0.1/packages/react-scripts/config/paths.js
+// webpack.config.js: https://github.com/facebook/create-react-app/blob/v4.0.1/packages/react-scripts/config/webpack.config.js
 
 // const fs = require('fs');
 
