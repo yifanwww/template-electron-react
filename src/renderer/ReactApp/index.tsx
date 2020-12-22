@@ -23,6 +23,8 @@ export class ReactAppClientArea extends AbstractClientArea {
     public componentDidMount() {
         // Please delete these code in your own application.
 
+        super.componentDidMount();
+
         const cwd = process.cwd();
         console.log(cwd);
         _fs.promises
