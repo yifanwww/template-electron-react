@@ -1,4 +1,4 @@
-// Used for `react-scripts` 4.0.0
+// Used for `react-scripts` 4.0.1
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
