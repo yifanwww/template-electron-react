@@ -3,7 +3,8 @@ import { BrowserWindow, IpcMainEvent } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
 import { IpcMListener } from '#shared/IpcWrapper.types';
-import { windowIpc } from '#MainUtils/IpcWrapper';
+
+import { windowIpc } from '../Ipc';
 
 // eslint-disable-next-line import/no-cycle
 import { createWindow } from './CreateWindow';
