@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 import { WindowType } from '#shared/WindowType';
@@ -25,9 +25,9 @@ function CreateClientArea(): ReactElement {
 }
 
 ReactDOM.render(
-    <React.StrictMode>
+    <StrictMode>
         <CreateClientArea />
-    </React.StrictMode>,
+    </StrictMode>,
     document.getElementById('root'),
 );
 
