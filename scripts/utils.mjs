@@ -23,8 +23,7 @@ export async function executeElectron(command) {
     return new Promise((resolve) => {
         const _process = _child.spawn('npx', command.split(' '), {
             cwd: workingDir,
-            shell: true,
-            stdio: [process.stdin, process.stdout, process.stderr],
+            stdio: 'inherit',
         });
 
         _process.on('exit', () => resolve());
