@@ -1,4 +1,5 @@
 import _child from 'child_process';
+import _electron from 'electron';
 import _fs from 'fs';
 import _path from 'path';
 import _url from 'url';
@@ -19,9 +20,9 @@ export async function createWorkingDir() {
     return createFolder(workingDir);
 }
 
-export async function executeElectron(command) {
+export async function executeElectron(args) {
     return new Promise((resolve) => {
-        const _process = _child.spawn('npx', command.split(' '), {
+        const _process = _child.spawn(_electron, args.split(' ').slice(1), {
             cwd: workingDir,
             stdio: 'inherit',
         });
