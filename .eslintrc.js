@@ -12,7 +12,6 @@ module.exports = {
     },
     plugins: [
         '@typescript-eslint',
-        'flowtype',
         'import',
         'jest',
         'jsx-a11y',
