@@ -1,13 +1,13 @@
-// Used for `react-scripts` 3.4.4
+// Used for `react-scripts` 4.0.1
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
-const fs = require('fs');
-const path = require('path');
+const _fs = require('fs');
+const _path = require('path');
 
 // Copied from `node_modules/react-scripts/config/path.js`, line 17-18
-const appDirectory = fs.realpathSync(process.cwd());
-const ResolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
+const appDirectory = _fs.realpathSync(_path.join(__dirname, '..'));
+const ResolveApp = (relativePath) => _path.resolve(appDirectory, relativePath);
 
 // Copied from `node_modules/react-scripts/config/path.js`, line 32-44
 const moduleFileExtensions = [
@@ -27,7 +27,7 @@ const moduleFileExtensions = [
 // Copied from `node_modules/react-scripts/config/path.js`, line 47-57
 const ResolveModule = (resolveFn, filePath) => {
     const extension = moduleFileExtensions.find((extension) =>
-        fs.existsSync(resolveFn(`${filePath}.${extension}`)),
+        _fs.existsSync(resolveFn(`${filePath}.${extension}`)),
     );
 
     if (extension) {

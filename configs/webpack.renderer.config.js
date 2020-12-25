@@ -21,6 +21,8 @@ const Base = require('./webpack.base.config');
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.
 function OverrideWebpackConfigs(webpack, env) {
+    const isEnvProduction = webpack.mode === 'production';
+
     // 1. Set target to "electron-renderer"
 
     webpack.target = 'electron-renderer';
@@ -44,11 +46,7 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // Finish.
 
-    if (webpack.mode === 'production') {
-        return smp.wrap(webpack);
-    } else {
-        return webpack;
-    }
+    return isEnvProduction ? smp.wrap(webpack) : webpack;
 }
 
 // Override paths configurations.

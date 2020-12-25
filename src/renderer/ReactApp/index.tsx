@@ -1,6 +1,6 @@
 import _fs from 'fs';
 import _path from 'path';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
 import { ClientAreaSize } from '#RendererUtils/Types';

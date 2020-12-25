@@ -126,7 +126,7 @@ You should run script `yarn build` before running script `yarn app`.
 
 ### `yarn app:dev`
 
-Execute this electron application in `development` mode, which will load the ui from the url [http://localhost:3000](http://localhost:3000).
+After executing `yarn app:web`, execute this electron application in `development` mode, which will load the ui from the url [http://localhost:3000](http://localhost:3000).
 
 ## Learn More
 
