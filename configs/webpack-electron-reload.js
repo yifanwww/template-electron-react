@@ -30,6 +30,8 @@ module.exports = class WebpackElectronReload {
             cwd: this._cwd,
             stdio: 'inherit',
         });
+        this._process.on('exit', () => (this._process = null));
+
         this._info(`Started electron process: ${this._process.pid}`);
     }
 
@@ -43,6 +45,7 @@ module.exports = class WebpackElectronReload {
             this._info(`Kill electron process: ${this._process.pid}`);
             try {
                 process.kill(this._process.pid);
+                this._process = null;
             } catch (err) {
                 console.error(err);
             }
