@@ -1,6 +1,6 @@
-# template-electron-create-react-app
+# template-electron-cra
 
-A template project for developing electron application by react (create-react-app), with using redux and typescript.
+A template project for developing electron application by react (CRA), with using redux and typescript.
 
 You can create your own project by importing this template project.
 
