@@ -1,7 +1,7 @@
 {
-    "name": "template-electron-create-react-app",
-    "version": "0.0.0",
-    "description": "A template project for developing electron application by electron, react (create-react-app) and typescript.",
+    "name": "template-electron-cra",
+    "version": "0.1.0",
+    "description": "A template project for developing electron application by electron, react (CRA) and typescript.",
     "main": "build/electron.js",
     "author": {
         "name": "YF1999",
@@ -21,7 +21,7 @@
         ]
     },
     "bugs": {
-        "url": "https://github.com/YSoftwareTech/template-electron-create-react-app/issues"
+        "url": "https://github.com/YSoftwareTech/template-electron-cra/issues"
     },
     "config-overrides-path": "configs/webpack.renderer.config.js",
     "eslintConfig": {
@@ -31,7 +31,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/YSoftwareTech/template-electron-create-react-app"
+        "url": "https://github.com/YSoftwareTech/template-electron-cra"
     },
     "scripts": {
         "app": "node scripts/app.mjs",
