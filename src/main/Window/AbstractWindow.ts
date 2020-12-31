@@ -59,7 +59,7 @@ export abstract class AbstractWindow {
 
     // -------------------------------------------------------------------------------------- Getter
 
-    public get State(): boolean {
+    public get state(): boolean {
         return this.window !== undefined;
     }
 

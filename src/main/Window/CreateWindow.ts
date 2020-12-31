@@ -9,7 +9,7 @@ const mainWindow = new MainWindow();
 
 export function createWindow(windowType: WindowType): Promise<void> | void {
     if (windowType === WindowType.mainWindow) {
-        if (!mainWindow.State) {
+        if (!mainWindow.state) {
             // console.debug('Create main window.');
             return mainWindow.create({ production });
         }
