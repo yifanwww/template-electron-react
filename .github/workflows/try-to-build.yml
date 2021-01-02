@@ -1,4 +1,4 @@
-name: Try building this project
+name: Try-To-Build
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  TryBuild:
+  try-to-build:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 

@@ -44,7 +44,7 @@ module.exports = {
         '@typescript-eslint/lines-between-class-members': 'off',
         '@typescript-eslint/naming-convention': [
             'error',
-            { selector: 'accessor', format: ['PascalCase'] }, // The accessor names shouldn't be the same as properties
+            { selector: 'accessor', format: ['camelCase'] },
             { selector: 'class', format: ['PascalCase'] },
             { selector: 'enum', format: ['PascalCase'] },
             { selector: 'enumMember', format: ['camelCase'] },

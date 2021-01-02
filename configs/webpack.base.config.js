@@ -59,10 +59,8 @@ const alias = {
     '#MainUtils': ResolveApp('src/main/Utils'),
     // renderer
     '#Assets': ResolveApp('src/renderer/Assets'),
-    '#ClientArea': ResolveApp('src/renderer/ClientArea'),
     '#RendererTypes': ResolveApp('src/renderer/Utils/Types'),
     '#RendererUtils': ResolveApp('src/renderer/Utils'),
-    '#Theme': ResolveApp('src/renderer/Theme'),
 };
 
 // Eslint rc path

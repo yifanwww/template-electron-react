@@ -48,8 +48,10 @@
         "dev:renderer": "react-app-rewired start",
         "lint": "eslint src -c .eslintrc.js",
         "lint:main": "eslint src/main -c .eslintrc.js",
-        "lint:renderer": "eslint src/renderer -c .eslintrc.js",
-        "lint:utils": "eslint src/utils -c .eslintrc.js",
+        "lint:renderer:reactapp": "eslint src/renderer/ReactApp -c .eslintrc.js",
+        "lint:renderer:root": "eslint src/renderer/*.ts src/renderer/*.tsx -c .eslintrc.js",
+        "lint:renderer:utils": "eslint src/renderer/Utils -c .eslintrc.js",
+        "lint:shared": "eslint src/shared -c .eslintrc.js",
         "installer": "electron-builder build --config configs/electron-builder.yml -w --x64",
         "test": "jest --config configs/jest.config.js",
         "test:react": "react-app-rewired test"

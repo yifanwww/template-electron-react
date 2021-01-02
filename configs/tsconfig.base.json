@@ -18,9 +18,7 @@
             // renderer
             "#Assets/*": ["src/renderer/Assets/*"],
             "#RendererUtils/*": ["src/renderer/Utils/*"],
-            "#ClientArea": ["src/renderer/ClientArea"],
-            "#RendererTypes": ["src/renderer/Utils/Types"],
-            "#Theme": ["src/renderer/Theme"]
+            "#RendererTypes": ["src/renderer/Utils/Types"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,
