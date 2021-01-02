@@ -13,16 +13,16 @@ jobs:
     timeout-minutes: 5
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Use Node.js environment
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
+      - name: Use Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
 
-    - name: Setup node modules
-      run: yarn install
+      - name: Setup node modules
+        run: yarn install
 
-    - name: Build project
-      run: yarn build
+      - name: Build project
+        run: yarn build
