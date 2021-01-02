@@ -23,5 +23,17 @@ jobs:
     - name: Setup node modules
       run: yarn install
 
-    - name: Lint code
-      run: yarn lint
+    - name: Lint Main
+      run: yarn lint:main
+
+    - name: Lint Renderer ReactApp
+      run: yarn lint:renderer:reactapp
+
+    - name: Lint Renderer Root
+      run: yarn lint:renderer:root
+
+    - name: Lint Renderer Utils
+      run: yarn lint:renderer:utils
+
+    - name: Lint Shared
+      run: yarn lint:shared

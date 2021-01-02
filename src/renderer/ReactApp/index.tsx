@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
 import { ClientAreaSize } from '#RendererUtils/Types';
-import { AbstractClientArea } from '#ClientArea';
+import { AbstractClientArea } from '#RendererUtils/ClientArea';
 
 import { actions, sdispatch, store } from './redux';
 import { App } from './App';
