@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  Lint:
+  setup:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -23,17 +23,47 @@ jobs:
     - name: Setup node modules
       run: yarn install
 
+  lint-main:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
     - name: Lint Main
       run: yarn lint:main
 
+  lint-renderer-reactapp:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
     - name: Lint Renderer ReactApp
       run: yarn lint:renderer:reactapp
 
+  lint-renderer-root:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
     - name: Lint Renderer Root
       run: yarn lint:renderer:root
 
+  lint-renderer-utils:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
     - name: Lint Renderer Utils
       run: yarn lint:renderer:utils
 
+  lint-shared:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
     - name: Lint Shared
       run: yarn lint:shared
