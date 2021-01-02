@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  setup:
+  try-to-build:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
@@ -24,11 +24,5 @@ jobs:
     - name: Setup node modules
       run: yarn install
 
-  try-to-build:
-    needs: setup
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-
-    steps:
     - name: Build project
       run: yarn build
