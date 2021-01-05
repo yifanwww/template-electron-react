@@ -37,9 +37,10 @@ module.exports = {
         'object-curly-newline': 'off', // Disabled for prettier
         'operator-linebreak': 'off', // Disabled for prettier
 
+        '@typescript-eslint/brace-style': 'off', // Disabled for better comments
         '@typescript-eslint/comma-dangle': 'off',
         // According to https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
-        // Disable this rule and use prettier instead.
+        // Disable the next rule and use prettier instead.
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
         '@typescript-eslint/naming-convention': [

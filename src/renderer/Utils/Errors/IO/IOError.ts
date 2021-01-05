@@ -1,3 +1,3 @@
-import { _Error } from '../_Error';
+import { InternalError } from '../InternalError';
 
-export class IOError extends _Error {}
+export class IOError extends InternalError {}

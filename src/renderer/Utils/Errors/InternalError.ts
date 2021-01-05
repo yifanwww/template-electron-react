@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export class _Error extends Error {
+export class InternalError extends Error {
     protected _name: string;
     protected _message: string;
     protected _stack?: string;
