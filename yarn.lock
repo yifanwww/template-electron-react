@@ -8248,10 +8248,10 @@ no-case@^3.0.4:
     lower-case "^2.0.2"
     tslib "^2.0.3"
 
-node-errors-pro@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/node-errors-pro/-/node-errors-pro-0.1.0.tgz#11345efc857ef939132cb7de3bfbf29359ed2c30"
-  integrity sha512-ixhntQei7SVHCw+/boKhh1c6nsyhvhnj9Zl47MQaCtWOZAYCUbauqKRTDLJn6b2/FyJPHx/vgqSngtj/VnByXw==
+node-errors-pro@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/node-errors-pro/-/node-errors-pro-0.2.0.tgz#8fa5d4da756fecb0e429a0db84cda241233d4de4"
+  integrity sha512-WfnTvOSv/3zKmpUJFwK2jcfCoYHS+KkLXSKwuiAnOSmi9AlqeSHjnFlRVuZ4icI56aWycNIyekF0l5B2wjcGag==
 
 node-forge@^0.10.0:
   version "0.10.0"
