@@ -2,7 +2,7 @@ import { ReactElement, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 import { WindowType } from '#shared/WindowType';
-import { windowIpc } from '#RendererUtils/IpcWrapper';
+import { windowIpc } from '#RendererUtils/Ipc';
 import './index.css';
 
 import * as serviceWorker from './serviceWorker';
