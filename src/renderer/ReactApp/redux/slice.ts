@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { ClientAreaSize, IReducer, IMapActionsToProps } from '#RendererTypes';
+import type { ClientAreaSize, IReducer, IMapActionsToProps } from '#RUtils/Types';
 
 interface AppState {
     clientAreaSize: ClientAreaSize;

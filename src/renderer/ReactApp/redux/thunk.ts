@@ -1,6 +1,6 @@
 import { Action, ThunkAction } from '@reduxjs/toolkit';
 
-import { IMapThunksToProps } from '#RendererUtils/Types';
+import { IMapThunksToProps } from '#RUtils/Types';
 
 import { StoreState } from './store';
 

@@ -56,11 +56,10 @@ const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
 const alias = {
     '#shared': ResolveApp('src/shared'),
     // main
-    '#MainUtils': ResolveApp('src/main/Utils'),
+    '#MUtils': ResolveApp('src/main/Utils'),
     // renderer
     '#Assets': ResolveApp('src/renderer/Assets'),
-    '#RendererTypes': ResolveApp('src/renderer/Utils/Types'),
-    '#RendererUtils': ResolveApp('src/renderer/Utils'),
+    '#RUtils': ResolveApp('src/renderer/Utils'),
 };
 
 // Eslint rc path
