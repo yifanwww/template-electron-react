@@ -1,6 +1,6 @@
-import { ipcMain as ipc } from 'electron';
+import { ipcMain } from 'electron';
 
-import { IpcMListener } from '#shared/IpcWrapper.types';
+import { IpcMListener } from '#shared/IpcTypes';
 import { WindowType } from '#shared/WindowType';
 
 export class WindowIpc {
@@ -8,19 +8,19 @@ export class WindowIpc {
     public readonly windowType = 'WindowType';
 
     public onWindowTypeToGet(handler: IpcMListener): void {
-        ipc.on(this.windowType, handler);
+        ipcMain.on(this.windowType, handler);
     }
 
     public removeWindowTypeToGet(handler: IpcMListener): void {
-        ipc.removeListener(this.windowType, handler);
+        ipcMain.removeListener(this.windowType, handler);
     }
 
     public onNewWindowToOpen(handler: IpcMListener<WindowType>): void {
-        ipc.on(this.newWindowToOpen, handler);
+        ipcMain.on(this.newWindowToOpen, handler);
     }
 
     public removeNewWindowToOpen(handler: IpcMListener<WindowType>): void {
-        ipc.removeListener(this.newWindowToOpen, handler);
+        ipcMain.removeListener(this.newWindowToOpen, handler);
     }
 }
 

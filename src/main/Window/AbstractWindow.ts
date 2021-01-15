@@ -2,7 +2,7 @@ import Path from 'path';
 import { BrowserWindow, IpcMainEvent } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
-import { IpcMListener } from '#shared/IpcWrapper.types';
+import { IpcMListener } from '#shared/IpcTypes';
 
 import { windowIpc } from '../Ipc';
 

@@ -14,11 +14,10 @@
         "paths": {
             "#shared/*": ["src/shared/*"],
             // main
-            "#MainUtils/*": ["src/main/Utils/*"],
+            "#MUtils/*": ["src/main/Utils/*"],
             // renderer
             "#Assets/*": ["src/renderer/Assets/*"],
-            "#RendererUtils/*": ["src/renderer/Utils/*"],
-            "#RendererTypes": ["src/renderer/Utils/Types"]
+            "#RUtils/*": ["src/renderer/Utils/*"]
         },
         "resolveJsonModule": true,
         "skipLibCheck": true,

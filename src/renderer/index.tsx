@@ -2,11 +2,11 @@ import { ReactElement, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 import { WindowType } from '#shared/WindowType';
-import { windowIpc } from '#RendererUtils/IpcWrapper';
+import { windowIpc } from '#RUtils/Ipc';
 import './index.css';
 
 import * as serviceWorker from './serviceWorker';
-import { ReactAppClientArea } from './ReactApp';
+import { AppClientArea } from './App';
 
 function CreateClientArea(): ReactElement {
     const windowType: WindowType = windowIpc.getWindowType();
@@ -14,11 +14,11 @@ function CreateClientArea(): ReactElement {
     let clientArea: ReactElement;
     switch (windowType) {
         case WindowType.mainWindow:
-            clientArea = <ReactAppClientArea />;
+            clientArea = <AppClientArea />;
             break;
 
         default:
-            clientArea = <ReactAppClientArea />;
+            clientArea = <AppClientArea />;
     }
 
     return clientArea;
