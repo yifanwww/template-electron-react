@@ -22,7 +22,7 @@ const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
 
 // ------------------------------------------------------------------------------------------- Slice
 
-const slice = createSlice({
+const appSlice = createSlice({
     name: 'ReactApp',
     initialState,
     reducers: {
@@ -30,6 +30,6 @@ const slice = createSlice({
     },
 });
 
-export const { actions, reducer } = slice;
+export const { actions: appActions, reducer: appReducer } = appSlice;
 
-export type MapActionsToProps = IMapActionsToProps<typeof actions>;
+export type AppMapActionsToProps = IMapActionsToProps<typeof appActions>;
