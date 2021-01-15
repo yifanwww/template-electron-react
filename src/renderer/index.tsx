@@ -13,7 +13,7 @@ function CreateClientArea(): ReactElement {
 
     let clientArea: ReactElement;
     switch (windowType) {
-        case WindowType.mainWindow:
+        case WindowType.main:
             clientArea = <MainClientArea />;
             break;
 

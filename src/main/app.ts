@@ -6,7 +6,7 @@ import { createWindow } from './Window';
 
 // This method will be called when Electron has finished initialization and is ready to create
 // browser windows.
-app.on('ready', () => createWindow(WindowType.mainWindow));
+app.on('ready', () => createWindow(WindowType.main));
 
 app.on('window-all-closed', () => {
     // On macOS, most applications and their menu bars will key activated unless users use
@@ -20,6 +20,6 @@ app.on('activate', () => {
     // On macOS, usually applications will re-create new windows if single click the dock icon when
     // no other windows opened.
     if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow(WindowType.mainWindow);
+        createWindow(WindowType.main);
     }
 });
