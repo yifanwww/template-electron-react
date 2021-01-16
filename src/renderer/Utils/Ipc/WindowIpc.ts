@@ -2,7 +2,7 @@ import { ipcRenderer } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
 
-export class WindowIpc {
+class WindowIpc {
     public newWindowToOpen = 'NewWindowToOpen';
     public windowType = 'WindowType';
 

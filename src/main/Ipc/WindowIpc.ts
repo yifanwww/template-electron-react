@@ -3,7 +3,7 @@ import { ipcMain } from 'electron';
 import { IpcMListener } from '#shared/IpcTypes';
 import { WindowType } from '#shared/WindowType';
 
-export class WindowIpc {
+class WindowIpc {
     public readonly newWindowToOpen = 'NewWindowToOpen';
     public readonly windowType = 'WindowType';
 
