@@ -20,6 +20,7 @@ module.exports = (env, argv) => {
             filename: 'electron.js',
             path: Base.Paths.AppBuild,
         },
+        devtool: isEnvProduction ? 'source-map' : 'cheap-module-source-map',
         module: {
             rules: [
                 {
