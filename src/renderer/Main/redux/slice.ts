@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { ClientAreaSize, IReducer, IMapActionsToProps } from '#RUtils/Types';
+import type { ClientAreaSize, IReducer } from '#RUtils/Types';
 
 interface MainState {
     clientAreaSize: ClientAreaSize;
@@ -29,5 +29,3 @@ export const { actions: mainActions, reducer: mainReducer } = createSlice({
         updateClientAreaSize,
     },
 });
-
-export type MainMapActionsToProps = IMapActionsToProps<typeof mainActions>;
