@@ -2,17 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { ClientAreaSize, IReducer, IMapActionsToProps } from '#RUtils/Types';
 
-interface AppState {
+interface MainState {
     clientAreaSize: ClientAreaSize;
 }
 
-const initialState: AppState = {
+const initialState: MainState = {
     clientAreaSize: { width: 1280, height: 720 },
 };
 
 // ---------------------------------------------------------------------------------------- Reducers
 
-type Reducer<Payload = undefined> = IReducer<AppState, Payload>;
+type Reducer<Payload = undefined> = IReducer<MainState, Payload>;
 
 const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
     state.clientAreaSize = action.payload;
@@ -22,14 +22,12 @@ const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
 
 // ------------------------------------------------------------------------------------------- Slice
 
-const appSlice = createSlice({
-    name: 'ReactApp',
+export const { actions: mainActions, reducer: mainReducer } = createSlice({
+    name: 'Main',
     initialState,
     reducers: {
         updateClientAreaSize,
     },
 });
 
-export const { actions: appActions, reducer: appReducer } = appSlice;
-
-export type AppMapActionsToProps = IMapActionsToProps<typeof appActions>;
+export type MainMapActionsToProps = IMapActionsToProps<typeof mainActions>;

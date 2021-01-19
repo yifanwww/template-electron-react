@@ -1,17 +1,17 @@
 import { WindowType } from '#shared/WindowType';
 
 // eslint-disable-next-line import/no-cycle
-import { MainWindow } from './MainWindow';
+import { Main } from './Main';
 
 const production = process.env.NODE_ENV === 'production';
 
-const mainWindow = new MainWindow();
+const main = new Main();
 
 export function createWindow(windowType: WindowType): Promise<void> | void {
-    if (windowType === WindowType.mainWindow) {
-        if (!mainWindow.state) {
+    if (windowType === WindowType.main) {
+        if (!main.state) {
             // console.debug('Create main window.');
-            return mainWindow.create({ production });
+            return main.create({ production });
         }
     }
 }

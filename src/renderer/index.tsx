@@ -6,19 +6,19 @@ import { windowIpc } from '#RUtils/Ipc';
 import './index.css';
 
 import * as serviceWorker from './serviceWorker';
-import { AppClientArea } from './App';
+import { MainClientArea } from './Main';
 
 function CreateClientArea(): ReactElement {
     const windowType: WindowType = windowIpc.getWindowType();
 
     let clientArea: ReactElement;
     switch (windowType) {
-        case WindowType.mainWindow:
-            clientArea = <AppClientArea />;
+        case WindowType.main:
+            clientArea = <MainClientArea />;
             break;
 
         default:
-            clientArea = <AppClientArea />;
+            clientArea = <MainClientArea />;
     }
 
     return clientArea;
