@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { ClientAreaSize, IReducer } from '#RUtils/Types';
+import { ClientAreaSize } from '#RUtils/Types';
+import { IReducer } from '#RUtils/Redux';
 
 interface MainState {
     clientAreaSize: ClientAreaSize;

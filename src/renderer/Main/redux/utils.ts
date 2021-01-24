@@ -1,4 +1,4 @@
-import { IMapActionsToProps, IMapThunksToProps } from '#RUtils/Types';
+import { IMapActionsToProps, IMapThunksToProps } from '#RUtils/Redux';
 
 import { mainActions } from './slice';
 import { mainThunks } from './thunk';
