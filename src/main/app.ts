@@ -20,7 +20,7 @@ app.on('ready', () => {
 
         installExtensions([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
             .then((name: string) => console.info(`Added extensions: ${name}`))
-            .catch((err: any) => console.error('An error occurred:', err));
+            .catch((err: any) => console.error('An error occurred: ', err));
     }
 
     createWindow(WindowType.main);
