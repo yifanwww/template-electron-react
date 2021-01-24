@@ -4,8 +4,11 @@ import { mainActions } from './slice';
 import { mainThunks } from './thunk';
 
 export function mapMainDispatchToProps<
-    T1 extends IMapActionsToProps<typeof mainActions>,
-    T2 extends IMapThunksToProps<typeof mainThunks>
->(mapActionsToProps: T1, mapThunksToProps: T2): T1 & T2 {
+    MapActionsToProps extends IMapActionsToProps<typeof mainActions>,
+    MapThunksToProps extends IMapThunksToProps<typeof mainThunks>
+>(
+    mapActionsToProps: MapActionsToProps,
+    mapThunksToProps: MapThunksToProps,
+): MapActionsToProps & MapThunksToProps {
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
