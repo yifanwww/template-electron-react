@@ -23,6 +23,7 @@ module.exports = {
         'arrow-body-style': 'off', // Disabled for prettier
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
+        'function-paren-newline': 'off', // Disabled for prettier
         'guard-for-in': 'off',
         'implicit-arrow-linebreak': 'off',
         'max-len': ['error', { code: 100 }],
