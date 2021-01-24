@@ -16,9 +16,11 @@ export type IReducer<State, Payload = undefined> = (
 
 // IMapActionsToProps
 
-type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
+interface IActions {
+    readonly [key: string]: ActionCreator;
+}
 
-type ReducerActions = { readonly [key: string]: ActionCreator };
+type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
 
 type PayloadInAction<Action> = Action extends (payload: infer Payload) => PayloadAction<any>
     ? Payload
@@ -28,18 +30,18 @@ type DispatchAction<Action extends ActionCreator> = Action extends ActionCreator
     ? () => ReturnType<Action>
     : (payload: PayloadInAction<Action>) => ReturnType<Action>;
 
-export type IMapActionsToProps<Actions extends ReducerActions> = {
+export type IMapActionsToProps<Actions extends IActions> = {
     readonly [ReducerName in keyof Actions]?: DispatchAction<Actions[ReducerName]>;
 };
 
 // IMapThunksToProps
 
-type ThunkSet = {
+interface IThunks {
     readonly [key: string]: (
         ...args: any
     ) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
-};
+}
 
-export type IMapThunksToProps<Thunks extends ThunkSet> = {
+export type IMapThunksToProps<Thunks extends IThunks> = {
     readonly [ThunkName in keyof Thunks]?: (...args: Parameters<Thunks[ThunkName]>) => void;
 };
