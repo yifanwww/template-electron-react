@@ -40,11 +40,9 @@ import {
 
 import { DeepPartial } from '#shared/TypeUtils';
 
-export type Props2Styles<StyleProps, Styles extends IStyleSet<Styles>> = (
-    props: StyleProps,
-) => DeepPartial<Styles>;
-export type PropsTokens2Styles<StyleProps, Tokens, Styles extends IStyleSet<Styles>> = (
-    props: StyleProps,
+type Props2Styles<Props, Styles extends IStyleSet<Styles>> = (props: Props) => DeepPartial<Styles>;
+type PropsTokens2Styles<Props, Tokens, Styles extends IStyleSet<Styles>> = (
+    props: Props,
     theme: ITheme,
     tokens: Tokens,
 ) => DeepPartial<Styles>;
@@ -56,16 +54,19 @@ export type ButtonStyleFunc<Option extends {} | undefined = undefined> = Option 
 export type CheckboxStyleFunc = Props2Styles<ICheckboxStyleProps, ICheckboxStyles>;
 
 export type ChoiceGroupStyleFunc = Props2Styles<IChoiceGroupStyleProps, IChoiceGroupStyles>;
-// prettier-ignore
-export type ChoiceGroupOptionStyleFunc =
-    Props2Styles<IChoiceGroupOptionStyleProps, IChoiceGroupOptionStyles>;
+export type ChoiceGroupOptionStyleFunc = Props2Styles<
+    IChoiceGroupOptionStyleProps,
+    IChoiceGroupOptionStyles
+>;
 
-// prettier-ignore
-export type ContextualMenuStyleFunc =
-    Props2Styles<IContextualMenuStyleProps, IContextualMenuStyles>;
-// prettier-ignore
-export type ContextualMenuItemStyleFunc =
-    Props2Styles<IContextualMenuItemStyleProps, IContextualMenuItemStyles>;
+export type ContextualMenuStyleFunc = Props2Styles<
+    IContextualMenuStyleProps,
+    IContextualMenuStyles
+>;
+export type ContextualMenuItemStyleFunc = Props2Styles<
+    IContextualMenuItemStyleProps,
+    IContextualMenuItemStyles
+>;
 
 export type DetailsListStyleFunc = Props2Styles<IDetailsListStyleProps, IDetailsListStyles>;
 export type DetailsListRowStyleFunc = Props2Styles<IDetailsRowStyleProps, IDetailsRowStyles>;
