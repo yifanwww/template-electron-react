@@ -23,7 +23,7 @@ export function useMainDispatchFunctions<
 >(
     mapActionsToProps: MapActionsToProps,
     mapThunksToProps: MapThunksToProps,
-    deps?: DependencyList,
+    deps: DependencyList | undefined = [],
 ): MapActionsToProps & MapThunksToProps {
     return useMemo(() => mapMainDispatchToProps(mapActionsToProps, mapThunksToProps), deps);
 }
