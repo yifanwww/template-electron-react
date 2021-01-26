@@ -1,2 +1,2 @@
-export * from './FluentuiProps';
+export * from './FluentuiRenderFunc';
 export * from './FluentuiStyles';
