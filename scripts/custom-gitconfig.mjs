@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
-import lodash from 'lodash';
+import lodash from 'lodash-es';
 
 /** @param {string} configFile */
 async function getConfigContent(configFile) {

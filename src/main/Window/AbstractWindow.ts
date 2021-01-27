@@ -66,13 +66,10 @@ export abstract class AbstractWindow {
     // ---------------------------------------------------------------------------- Window Listeners
 
     protected addWindowListeners(): void {
-        this.window!.on('show', this.bOnWindowShowed);
         this.window!.once('closed', this.onWindowClosed);
     }
 
-    protected removeWindowListeners(): void {
-        this.window!.removeListener('show', this.bOnWindowShowed);
-    }
+    protected removeWindowListeners(): void {}
 
     // ----------------------------------------------------------------------------- Window Handlers
 
@@ -81,10 +78,6 @@ export abstract class AbstractWindow {
         this.removeIpcListeners();
         this.window = undefined;
     };
-
-    protected onWindowShowed(): void {}
-
-    private bOnWindowShowed = () => this.onWindowShowed();
 
     // ------------------------------------------------------------------------------- Ipc Listeners
 
@@ -105,19 +98,11 @@ export abstract class AbstractWindow {
     }
 
     private onWindowTypeToGet = (event: IpcMainEvent): void => {
-        if (!this.checkSender(event)) return;
-
-        // console.debug('Send window type.');
-
-        event.returnValue = this.windowType;
+        if (this.checkSender(event)) event.returnValue = this.windowType;
     };
 
     protected onNewWindowToOpen(event: any, windowType: WindowType): void {
-        if (!this.checkSender(event)) return;
-
-        // console.debug('Try to create a new window.');
-
-        createWindow(windowType);
+        if (this.checkSender(event)) createWindow(windowType);
     }
 
     private bOnNewWindowToOpen: IpcMListener<WindowType> = (event, windowType) =>

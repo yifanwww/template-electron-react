@@ -21,9 +21,11 @@ export type RequiredNonFunction<T> = PickFunctions<T> & Required<PickNonFunction
 export type DeepPartial<T> = {
     [P in keyof T]?: T[P] extends (infer U)[]
         ? DeepPartial<U>[]
-        : T[P] extends object
-            ? DeepPartial<T[P]>
-            : T[P];
+        : T[P] extends (...args: any[]) => any
+            ? T[P]
+            : T[P] extends object
+                ? DeepPartial<T[P]>
+                : T[P];
 };
 
 /**
@@ -33,7 +35,9 @@ export type DeepPartial<T> = {
 export type DeepReadonly<T> = {
     readonly [P in keyof T]: T[P] extends (infer U)[]
         ? DeepReadonly<U>[]
-        : T[P] extends object
-            ? DeepReadonly<T[P]>
-            : T[P];
+        : T[P] extends (...args: any[]) => any
+            ? T[P]
+            : T[P] extends object
+                ? DeepReadonly<T[P]>
+                : T[P];
 };
