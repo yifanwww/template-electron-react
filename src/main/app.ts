@@ -4,23 +4,29 @@ import { WindowType } from '#shared/WindowType';
 
 import { createWindow } from './Window';
 
+async function installExtensions(): Promise<void> {
+    /* eslint-disable global-require */
+    const {
+        default: installExtension,
+        REDUX_DEVTOOLS,
+        REACT_DEVELOPER_TOOLS,
+    } = require('electron-devtools-installer') as typeof import('electron-devtools-installer');
+    /* eslint-enable global-require */
+
+    const succeed = (name: string) => console.info(`Added extension: ${name}`);
+    const fail = (err: any) => console.error('An error occurred: ', err);
+
+    await Promise.all([
+        installExtension(REDUX_DEVTOOLS).then(succeed).catch(fail),
+        installExtension(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail),
+    ]);
+}
+
 // This method will be called when Electron has finished initialization and is ready to create
 // browser windows.
-app.on('ready', () => {
-    if (process.env.NODE_ENV === 'production') {
-        console.info('No extensions will be installed.');
-    } else {
-        /* eslint-disable global-require */
-        const {
-            default: installExtensions,
-            REDUX_DEVTOOLS,
-            REACT_DEVELOPER_TOOLS,
-        } = require('electron-devtools-installer');
-        /* eslint-enable global-require */
-
-        installExtensions([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
-            .then((name: string) => console.info(`Added extensions: ${name}`))
-            .catch((err: any) => console.error('An error occurred: ', err));
+app.on('ready', async () => {
+    if (process.env.NODE_ENV === 'development') {
+        await installExtensions();
     }
 
     createWindow(WindowType.main);
