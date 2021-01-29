@@ -37,6 +37,7 @@ module.exports = {
         'no-underscore-dangle': 'off', // Disabled for leading-underscore options of '@typescript-eslint/naming-convention'
         'object-curly-newline': 'off', // Disabled for prettier
         'operator-linebreak': 'off', // Disabled for prettier
+        'prefer-arrow-callback': 'off', // For React.memo, using function is more convenient to debug with react devtools
 
         '@typescript-eslint/brace-style': 'off', // Disabled for better comments
         '@typescript-eslint/comma-dangle': 'off',
