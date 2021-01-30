@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { mainReducer } from './slice';
+import { reducer } from './slice';
 
-export const mainStore = configureStore({ reducer: mainReducer });
+export const store = configureStore({ reducer });
 
-export type MainStoreState = ReturnType<typeof mainStore.getState>;
+export type StoreState = ReturnType<typeof store.getState>;

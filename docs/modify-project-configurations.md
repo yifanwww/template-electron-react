@@ -1,15 +1,15 @@
-# How to modify this project configurations
+# How To Modify This Project Configurations
 
-There are some configuration files in the current folder:
-- [electron-builder.yml](./electron-builder.yml)
-- [.eslintrc.js](./.eslintrc.js)
-- [jest.config.js](./jest.config.js)
-- [tsconfig.base.json](./tsconfig.base.json)
-- [tsconfig.main.json](./tsconfig.main.json)
-- [tsconfig.renderer.json](./tsconfig.renderer.json)
-- [webpack.base.config.js](./webpack.base.config.js)
-- [webpack.main.config.js](./webpack.main.config.js)
-- [webpack.renderer.config.js](./webpack.renderer.config.js)
+There are some configuration files in `configs` folder:
+- [electron-builder.yml](../configs/electron-builder.yml)
+- [.eslintrc.js](../configs/.eslintrc.js)
+- [jest.config.js](../configs/jest.config.js)
+- [tsconfig.base.json](../configs/tsconfig.base.json)
+- [tsconfig.main.json](../configs/tsconfig.main.json)
+- [tsconfig.renderer.json](../configs/tsconfig.renderer.json)
+- [webpack.base.config.js](../configs/webpack.base.config.js)
+- [webpack.main.config.js](../configs/webpack.main.config.js)
+- [webpack.renderer.config.js](../configs/webpack.renderer.config.js)
 
 ## electron-builder.yml
 
