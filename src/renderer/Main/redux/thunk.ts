@@ -1,13 +1,8 @@
 import { Action, ThunkAction } from '@reduxjs/toolkit';
 
-import { MainStoreState } from './store';
+import { StoreState } from './store';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-type MainThunk<ReturnType = void> = ThunkAction<
-    ReturnType,
-    MainStoreState,
-    unknown,
-    Action<string>
->;
+type Thunk<ReturnType = void> = ThunkAction<ReturnType, StoreState, unknown, Action<string>>;
 
-export const mainThunks = {};
+export const thunks = {};
