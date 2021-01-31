@@ -1,5 +1,6 @@
+import { Dispatch } from '@reduxjs/toolkit';
 import { DependencyList, useMemo } from 'react';
-import { shallowEqual, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { IMapActionsToProps, IMapThunksToProps } from '#RUtils/Redux';
 
@@ -35,13 +36,17 @@ export function mapMainDispatchToProps<
 }
 
 /** An custom hook for functional containers. */
-export function useMainDispatchFunctions<
+export function useMainDispatch<
     TMapActionsToProps extends IMapActionsToProps<typeof actions>,
     TMapThunksToProps extends IMapThunksToProps<typeof thunks>
 >(
-    mapActionsToProps: TMapActionsToProps,
-    mapThunksToProps: TMapThunksToProps,
+    mapActionsToProps: (dispatch: Dispatch<any>) => TMapActionsToProps,
+    mapThunksToProps: (dispatch: Dispatch<any>) => TMapThunksToProps,
     deps: DependencyList | undefined = [],
 ): TMapActionsToProps & TMapThunksToProps {
-    return useMemo(() => mapMainDispatchToProps(mapActionsToProps, mapThunksToProps), deps);
+    const dispatch = useDispatch();
+    return useMemo(
+        () => mapMainDispatchToProps(mapActionsToProps(dispatch), mapThunksToProps(dispatch)),
+        deps,
+    );
 }
