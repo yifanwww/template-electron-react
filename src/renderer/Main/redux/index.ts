@@ -1,35 +1,47 @@
 import { DependencyList, useMemo } from 'react';
+import { shallowEqual, useSelector } from 'react-redux';
 
 import { IMapActionsToProps, IMapThunksToProps } from '#RUtils/Redux';
 
+import { GlobalState, globalState } from './global-state';
 import { actions } from './slice';
 import { StoreState, store } from './store';
 import { thunks } from './thunk';
 
 export { actions as mainActions };
 export { store as mainStore };
-export type { StoreState as MainStoreState };
 export { thunks as mainThunks };
+
+export type { GlobalState as MainGlobalState };
+export type { StoreState as MainStoreState };
+
+/** An custom hook for functional containers. */
+export function useMainSelector<TSelected = unknown>(
+    selector: (state: StoreState, globalState: GlobalState) => TSelected,
+    equalityFn: (left: TSelected, right: TSelected) => boolean = shallowEqual,
+): TSelected {
+    return useSelector((state: StoreState) => selector(state, globalState), equalityFn);
+}
 
 /** Used for the second parameter of `connect` */
 export function mapMainDispatchToProps<
-    MapActionsToProps extends IMapActionsToProps<typeof actions>,
-    MapThunksToProps extends IMapThunksToProps<typeof thunks>
+    TMapActionsToProps extends IMapActionsToProps<typeof actions>,
+    TMapThunksToProps extends IMapThunksToProps<typeof thunks>
 >(
-    mapActionsToProps: MapActionsToProps,
-    mapThunksToProps: MapThunksToProps,
-): MapActionsToProps & MapThunksToProps {
+    mapActionsToProps: TMapActionsToProps,
+    mapThunksToProps: TMapThunksToProps,
+): TMapActionsToProps & TMapThunksToProps {
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
 
 /** An custom hook for functional containers. */
 export function useMainDispatchFunctions<
-    MapActionsToProps extends IMapActionsToProps<typeof actions>,
-    MapThunksToProps extends IMapThunksToProps<typeof thunks>
+    TMapActionsToProps extends IMapActionsToProps<typeof actions>,
+    TMapThunksToProps extends IMapThunksToProps<typeof thunks>
 >(
-    mapActionsToProps: MapActionsToProps,
-    mapThunksToProps: MapThunksToProps,
+    mapActionsToProps: TMapActionsToProps,
+    mapThunksToProps: TMapThunksToProps,
     deps: DependencyList | undefined = [],
-): MapActionsToProps & MapThunksToProps {
+): TMapActionsToProps & TMapThunksToProps {
     return useMemo(() => mapMainDispatchToProps(mapActionsToProps, mapThunksToProps), deps);
 }
