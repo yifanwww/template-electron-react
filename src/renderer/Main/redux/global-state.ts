@@ -5,3 +5,5 @@ export interface GlobalState {}
  * Don't change this state directly, please change it only in the dispatch of redux.
  */
 export const globalState: GlobalState = {};
+
+export const getGlobalState = () => globalState;
