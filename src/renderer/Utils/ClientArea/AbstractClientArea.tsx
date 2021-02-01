@@ -1,6 +1,6 @@
 import { Component, UIEvent, UIEventHandler } from 'react';
 
-import { ClientAreaSize } from '#RUtils/Types';
+import { ClientAreaSize } from './ClientAreaSize';
 
 export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S> {
     // --------------------------------------------------------------------------------------- React

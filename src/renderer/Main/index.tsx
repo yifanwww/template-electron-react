@@ -3,8 +3,7 @@ import _path from 'path';
 import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
-import { ClientAreaSize } from '#RUtils/Types';
-import { AbstractClientArea } from '#RUtils/ClientArea';
+import { AbstractClientArea, ClientAreaSize } from '#RUtils/ClientArea';
 
 import { mainActions, mainStore } from './redux';
 import { App } from './App';
