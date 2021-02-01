@@ -5,14 +5,6 @@ import {
     PayloadAction,
     ThunkAction,
 } from '@reduxjs/toolkit';
-import { WritableDraft } from 'immer/dist/types/types-external';
-
-// IReducer
-
-export type IReducer<State, Payload = undefined> = (
-    state: WritableDraft<State>,
-    action: PayloadAction<Payload>,
-) => void;
 
 // IMapActionsToProps
 
@@ -30,7 +22,7 @@ type DispatchAction<Action extends ActionCreator> = Action extends ActionCreator
     ? () => ReturnType<Action>
     : (payload: PayloadInAction<Action>) => ReturnType<Action>;
 
-export type IMapActionsToProps<Actions extends IActions> = {
+export type IActionsDestructuring<Actions extends IActions> = {
     readonly [ReducerName in keyof Actions]?: DispatchAction<Actions[ReducerName]>;
 };
 
@@ -42,6 +34,6 @@ interface IThunks {
     ) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
 }
 
-export type IMapThunksToProps<Thunks extends IThunks> = {
+export type IThunksDestructuring<Thunks extends IThunks> = {
     readonly [ThunkName in keyof Thunks]?: (...args: Parameters<Thunks[ThunkName]>) => void;
 };
