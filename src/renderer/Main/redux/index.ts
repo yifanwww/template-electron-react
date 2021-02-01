@@ -1,4 +1,4 @@
-import { Dispatch } from '@reduxjs/toolkit';
+import { Dispatch as _Dispatch } from '@reduxjs/toolkit';
 import { DependencyList, useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
@@ -24,10 +24,13 @@ export function useMainSelector<TSelected = unknown>(
     return useSelector((state: StoreState) => selector(state, globalState), equalityFn);
 }
 
+type IActions = typeof actions;
+type IThunks = typeof thunks;
+
 /** Used for the second parameter of `connect` */
 export function mapMainDispatchToProps<
-    TMapActionsToProps extends IActionsDestructuring<typeof actions>,
-    TMapThunksToProps extends IThunksDestructuring<typeof thunks>
+    TMapActionsToProps extends IActionsDestructuring<IActions>,
+    TMapThunksToProps extends IThunksDestructuring<IThunks>
 >(
     mapActionsToProps: TMapActionsToProps,
     mapThunksToProps: TMapThunksToProps,
@@ -35,18 +38,24 @@ export function mapMainDispatchToProps<
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
 
+type Dispatch = _Dispatch<any>;
+
 /** An custom hook for functional containers. */
 export function useMainDispatch<
-    TActionsDestructuring extends IActionsDestructuring<typeof actions>,
-    TThunksDestructuring extends IThunksDestructuring<typeof thunks>
+    TActionsDestructuring extends IActionsDestructuring<IActions>,
+    TThunksDestructuring extends IThunksDestructuring<IThunks>
 >(
-    actionsDestructuring: (dispatch: Dispatch<any>) => TActionsDestructuring,
-    thunksDestructuring: (dispatch: Dispatch<any>) => TThunksDestructuring,
+    actionsDestructuring: (dispatch: Dispatch, actions: IActions) => TActionsDestructuring,
+    thunksDestructuring: (dispatch: Dispatch, thunks: IThunks) => TThunksDestructuring,
     deps: DependencyList | undefined = [],
 ): TActionsDestructuring & TThunksDestructuring {
     const dispatch = useDispatch();
     return useMemo(
-        () => mapMainDispatchToProps(actionsDestructuring(dispatch), thunksDestructuring(dispatch)),
+        () =>
+            mapMainDispatchToProps(
+                actionsDestructuring(dispatch, actions),
+                thunksDestructuring(dispatch, thunks),
+            ),
         deps,
     );
 }
