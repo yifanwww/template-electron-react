@@ -1,4 +1,4 @@
-import { Dispatch as _Dispatch } from '@reduxjs/toolkit';
+import { Dispatch } from '@reduxjs/toolkit';
 import { DependencyList, useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
@@ -16,7 +16,13 @@ export { thunks as mainThunks };
 export type { GlobalState as MainGlobalState };
 export type { StoreState as MainStoreState };
 
-/** An custom hook for functional containers. */
+/**
+ * An custom hook for functional containers.
+ *
+ * If you need to take some data from the global state, you could use this hook  instead of
+ * importing the global state, to write simpler code. The global state will be passed as the second
+ * parameter.
+ */
 export function useMainSelector<TSelected = unknown>(
     selector: (state: StoreState, globalState: GlobalState) => TSelected,
     equalityFn: (left: TSelected, right: TSelected) => boolean = shallowEqual,
@@ -38,24 +44,29 @@ export function mapMainDispatchToProps<
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
 
-type Dispatch = _Dispatch<any>;
-
-/** An custom hook for functional containers. */
+/**
+ * An custom hook for functional containers.
+ *
+ * You can use this hook to write simpler code to get the action functions and thunk functions. This
+ * hook uses `useMemo` to avoid changing the action functions and thunk functions while rerendering
+ * the containers.
+ *
+ * You don't need to use `useDispatch` to get a dispatch, the dispatch will be passed as the first
+ * parameter. Actions and thunks will be passed as the second parameter.
+ */
 export function useMainDispatch<
     TActionsDestructuring extends IActionsDestructuring<IActions>,
     TThunksDestructuring extends IThunksDestructuring<IThunks>
 >(
-    actionsDestructuring: (dispatch: Dispatch, actions: IActions) => TActionsDestructuring,
-    thunksDestructuring: (dispatch: Dispatch, thunks: IThunks) => TThunksDestructuring,
+    actionsDestructuring: (dispatch: Dispatch<any>, actions: IActions) => TActionsDestructuring,
+    thunksDestructuring: (dispatch: Dispatch<any>, thunks: IThunks) => TThunksDestructuring,
     deps: DependencyList | undefined = [],
 ): TActionsDestructuring & TThunksDestructuring {
     const dispatch = useDispatch();
-    return useMemo(
-        () =>
-            mapMainDispatchToProps(
-                actionsDestructuring(dispatch, actions),
-                thunksDestructuring(dispatch, thunks),
-            ),
-        deps,
-    );
+    return useMemo(() => {
+        return mapMainDispatchToProps(
+            actionsDestructuring(dispatch, actions),
+            thunksDestructuring(dispatch, thunks),
+        );
+    }, deps);
 }
