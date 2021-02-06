@@ -68,5 +68,6 @@ export function useMainDispatch<
             actionsDestructuring(dispatch, actions),
             thunksDestructuring(dispatch, thunks),
         );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);
 }
