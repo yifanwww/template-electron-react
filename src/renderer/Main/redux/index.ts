@@ -63,11 +63,12 @@ export function useMainDispatch<
     deps: DependencyList | undefined = [],
 ): TActionsDestructuring & TThunksDestructuring {
     const dispatch = useDispatch();
-    return useMemo(() => {
-        return mapMainDispatchToProps(
-            actionsDestructuring(dispatch, actions),
-            thunksDestructuring(dispatch, thunks),
-        );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, deps);
+    return useMemo(
+        () => ({
+            ...actionsDestructuring(dispatch, actions),
+            ...thunksDestructuring(dispatch, thunks),
+        }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        deps,
+    );
 }
