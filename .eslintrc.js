@@ -80,5 +80,8 @@ module.exports = {
         // ],
         'import/no-extraneous-dependencies': 'off', // Disabled for import-statement of 'electron'
         'import/prefer-default-export': 'off',
+
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     },
 };
