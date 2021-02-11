@@ -2,7 +2,12 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { DependencyList, useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
-import { IActionsDestructuring, IThunksDestructuring } from '#RUtils/Redux';
+import {
+    IActionsDestructuring,
+    IExactlyActionsDestructuring,
+    IExactlyThunksDestructuring,
+    IThunksDestructuring,
+} from '#RUtils/Redux';
 
 import { GlobalState, globalState } from './global-state';
 import { actions } from './slice';
@@ -30,16 +35,16 @@ export function useMainSelector<TSelected = unknown>(
     return useSelector((state: StoreState) => selector(state, globalState), equalityFn);
 }
 
-type IActions = typeof actions;
-type IThunks = typeof thunks;
+type Actions = typeof actions;
+type Thunks = typeof thunks;
 
 /** Used for the second parameter of `connect` */
 export function mapMainDispatchToProps<
-    TMapActionsToProps extends IActionsDestructuring<IActions>,
-    TMapThunksToProps extends IThunksDestructuring<IThunks>
+    TMapActionsToProps extends IActionsDestructuring<Actions>,
+    TMapThunksToProps extends IThunksDestructuring<Thunks>
 >(
-    mapActionsToProps: TMapActionsToProps,
-    mapThunksToProps: TMapThunksToProps,
+    mapActionsToProps: IExactlyActionsDestructuring<TMapActionsToProps, Actions>,
+    mapThunksToProps: IExactlyThunksDestructuring<TMapThunksToProps, Thunks>,
 ): TMapActionsToProps & TMapThunksToProps {
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
@@ -55,11 +60,17 @@ export function mapMainDispatchToProps<
  * parameter. Actions and thunks will be passed as the second parameter.
  */
 export function useMainDispatch<
-    TActionsDestructuring extends IActionsDestructuring<IActions>,
-    TThunksDestructuring extends IThunksDestructuring<IThunks>
+    TActionsDestructuring extends IActionsDestructuring<Actions>,
+    TThunksDestructuring extends IThunksDestructuring<Thunks>
 >(
-    actionsDestructuring: (dispatch: Dispatch<any>, actions: IActions) => TActionsDestructuring,
-    thunksDestructuring: (dispatch: Dispatch<any>, thunks: IThunks) => TThunksDestructuring,
+    actionsDestructuring: (
+        dispatch: Dispatch<any>,
+        actions: Actions,
+    ) => IExactlyActionsDestructuring<TActionsDestructuring, Actions>,
+    thunksDestructuring: (
+        dispatch: Dispatch<any>,
+        thunks: Thunks,
+    ) => IExactlyThunksDestructuring<TThunksDestructuring, Thunks>,
     deps: DependencyList | undefined = [],
 ): TActionsDestructuring & TThunksDestructuring {
     const dispatch = useDispatch();

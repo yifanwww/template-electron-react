@@ -6,7 +6,7 @@ import {
     ThunkAction,
 } from '@reduxjs/toolkit';
 
-// IMapActionsToProps
+// IActionsDestructuring
 
 interface IActions {
     readonly [key: string]: ActionCreator;
@@ -14,19 +14,26 @@ interface IActions {
 
 type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
 
-type PayloadInAction<Action> = Action extends (payload: infer Payload) => PayloadAction<any>
+type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<any>
     ? Payload
     : unknown;
 
-type DispatchAction<Action extends ActionCreator> = Action extends ActionCreatorWithoutPayload
-    ? () => ReturnType<Action>
-    : (payload: PayloadInAction<Action>) => ReturnType<Action>;
+type DispatchAction<TAction extends ActionCreator> = TAction extends ActionCreatorWithoutPayload
+    ? () => ReturnType<TAction>
+    : (payload: PayloadInAction<TAction>) => ReturnType<TAction>;
 
-export type IActionsDestructuring<Actions extends IActions> = {
-    readonly [ReducerName in keyof Actions]?: DispatchAction<Actions[ReducerName]>;
+export type IActionsDestructuring<TActions extends IActions> = {
+    readonly [ReducerName in keyof TActions]?: DispatchAction<TActions[ReducerName]>;
 };
 
-// IMapThunksToProps
+export type IExactlyActionsDestructuring<
+    TActionsDestructuring,
+    TActions extends IActions
+> = keyof TActionsDestructuring extends keyof IActionsDestructuring<TActions>
+    ? TActionsDestructuring
+    : never;
+
+// IThunksDestructuring
 
 interface IThunks {
     readonly [key: string]: (
@@ -34,6 +41,13 @@ interface IThunks {
     ) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
 }
 
-export type IThunksDestructuring<Thunks extends IThunks> = {
-    readonly [ThunkName in keyof Thunks]?: (...args: Parameters<Thunks[ThunkName]>) => void;
+export type IThunksDestructuring<TThunks extends IThunks> = {
+    readonly [ThunkName in keyof TThunks]?: (...args: Parameters<TThunks[ThunkName]>) => void;
 };
+
+export type IExactlyThunksDestructuring<
+    TThunksDestructuring,
+    TThunks extends IThunks
+> = keyof TThunksDestructuring extends keyof IThunksDestructuring<TThunks>
+    ? TThunksDestructuring
+    : never;
