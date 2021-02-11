@@ -8,7 +8,7 @@ import {
 
 // IActionsDestructuring
 
-interface IActions {
+export interface IActions {
     readonly [key: string]: ActionCreator;
 }
 
@@ -35,7 +35,7 @@ export type IExactlyActionsDestructuring<
 
 // IThunksDestructuring
 
-interface IThunks {
+export interface IThunks {
     readonly [key: string]: (
         ...args: any
     ) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
