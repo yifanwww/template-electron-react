@@ -22,6 +22,15 @@ export interface IStrictRawStyle extends IRawStyleBase {
     selectors?: {
         [key: string]: IStrictStyle;
     };
+
+    // additional
+
+    ':active'?: IRawStyleBase;
+    ':hover'?: IRawStyleBase;
+    ':focus'?: IRawStyleBase;
+    ':visited'?: IRawStyleBase;
+    ':focus-within'?: IRawStyleBase;
+    ':focus-visible'?: IRawStyleBase;
 }
 
 export type IStrictStyleBase = IStrictRawStyle | string | false | null | undefined;
