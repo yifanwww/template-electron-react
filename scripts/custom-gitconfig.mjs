@@ -1,10 +1,10 @@
-import chalk from 'chalk';
-import fs from 'fs';
-import lodash from 'lodash-es';
+import _chalk from 'chalk';
+import _fs from 'fs';
+import _lodash from 'lodash-es';
 
 /** @param {string} configFile */
 async function getConfigContent(configFile) {
-    const content = await fs.promises.readFile(configFile, { encoding: 'utf-8' });
+    const content = await _fs.promises.readFile(configFile, { encoding: 'utf-8' });
     return content.trim().replace(/\r\n/g, '\n');
 }
 
@@ -124,22 +124,22 @@ async function main() {
 
     const originalContent = await getConfigContent(configFile);
     const configs = analyzeConfigs(originalContent);
-    const mergedConfigs = lodash.merge({ ...configs }, customConfigs);
+    const mergedConfigs = _lodash.merge({ ...configs }, customConfigs);
 
     if (JSON.stringify(configs) === JSON.stringify(mergedConfigs)) {
-        console.info(chalk.grey("No need to change '.git/config'"));
+        console.info(_chalk.grey("No need to change '.git/config'"));
     } else {
         const newContent = convertConfigsToString(mergedConfigs);
 
-        console.info(chalk.blue("Update '.git/config' to add or change some configs."));
+        console.info(_chalk.blue("Update '.git/config' to add or change some configs."));
         console.info('--- original local git config ---');
-        console.info(chalk.blackBright(originalContent));
+        console.info(_chalk.blackBright(originalContent));
         console.info('--- new local git config ---');
-        console.info(chalk.blackBright(newContent));
-        console.info(chalk.yellow('--- the reason why git configs will be changed ---'));
+        console.info(_chalk.blackBright(newContent));
+        console.info(_chalk.yellow('--- the reason why git configs will be changed ---'));
         console.info(infos);
 
-        await fs.promises.writeFile(configFile, newContent + '\n');
+        await _fs.promises.writeFile(configFile, newContent + '\n');
     }
 }
 
