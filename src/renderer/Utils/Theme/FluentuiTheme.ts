@@ -2,7 +2,7 @@
 // For more information:
 // https://fabricweb.z5.web.core.windows.net/pr-deploy-site/refs/heads/7.0/theming-designer/index.html
 
-import { ICustomizations, createTheme, IPalette, ISemanticColors } from '@fluentui/react';
+import { createTheme, IPalette, ISemanticColors } from '@fluentui/react';
 
 export const fluentuiPalette: Partial<IPalette> = {
     // theme colors
@@ -137,12 +137,7 @@ export const fluentuiSemantic: Partial<ISemanticColors> = {
     // listHeaderBackgroundPressed: ''
 };
 
-export const fluentuiTheme: ICustomizations = {
-    settings: {
-        theme: createTheme({
-            palette: fluentuiPalette,
-            semanticColors: fluentuiSemantic,
-        }),
-    },
-    scopedSettings: {},
-};
+export const fluentuiTheme = createTheme({
+    palette: fluentuiPalette,
+    semanticColors: fluentuiSemantic,
+});

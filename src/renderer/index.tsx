@@ -1,12 +1,15 @@
 import { ReactElement, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import { initializeIcons, ThemeProvider } from '@fluentui/react';
 
 import { WindowType } from '#shared/WindowType';
 import { windowIpc } from '#RUtils/Ipc';
-import './index.css';
+import { fluentuiTheme } from '#RUtils/Theme';
 
-import * as serviceWorker from './serviceWorker';
 import { MainClientArea } from './Main';
+
+import './index.css';
+import * as serviceWorker from './serviceWorker';
 
 function CreateClientArea(): ReactElement {
     const windowType: WindowType = windowIpc.getWindowType();
@@ -24,9 +27,13 @@ function CreateClientArea(): ReactElement {
     return clientArea;
 }
 
+initializeIcons();
+
 ReactDOM.render(
     <StrictMode>
-        <CreateClientArea />
+        <ThemeProvider theme={fluentuiTheme}>
+            <CreateClientArea />
+        </ThemeProvider>
     </StrictMode>,
     document.getElementById('root'),
 );
