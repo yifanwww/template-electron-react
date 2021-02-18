@@ -14,17 +14,11 @@ import * as serviceWorker from './serviceWorker';
 function CreateClientArea(): ReactElement {
     const windowType: WindowType = windowIpc.getWindowType();
 
-    let clientArea: ReactElement;
+    // eslint-disable-next-line default-case
     switch (windowType) {
-        case WindowType.main:
-            clientArea = <MainClientArea />;
-            break;
-
-        default:
-            clientArea = <MainClientArea />;
+        case 'main':
+            return <MainClientArea />;
     }
-
-    return clientArea;
 }
 
 initializeIcons();

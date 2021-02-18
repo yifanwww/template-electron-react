@@ -1,3 +1,1 @@
-export enum WindowType {
-    main = 1,
-}
+export type WindowType = 'main';

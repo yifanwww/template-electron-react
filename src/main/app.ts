@@ -1,8 +1,8 @@
 import { app, BrowserWindow } from 'electron';
 
-import { WindowType } from '#shared/WindowType';
+import { WindowManager } from './WindowManager';
 
-import { createWindow } from './Window';
+const windowManager = new WindowManager();
 
 async function installExtensions(): Promise<void> {
     /* eslint-disable global-require */
@@ -28,7 +28,7 @@ app.on('ready', async () => {
         await installExtensions();
     }
 
-    createWindow(WindowType.main);
+    windowManager.createWindow({ windowType: 'main' });
 });
 
 app.on('window-all-closed', () => {
@@ -42,6 +42,6 @@ app.on('activate', () => {
     // On macOS, usually applications will re-create new windows if single click the dock icon when no other windows
     // opened.
     if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow(WindowType.main);
+        windowManager.createWindow({ windowType: 'main' });
     }
 });
