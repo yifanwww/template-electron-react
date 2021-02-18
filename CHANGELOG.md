@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [v0.2.0] template-electron-cra [UNRELEASED]
+## [v0.2.0] template-electron-cra [2021-02-19]
 ### Features
 
 - Compilation

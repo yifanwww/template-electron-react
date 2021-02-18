@@ -1,6 +1,6 @@
 {
     "name": "template-electron-cra",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A template project for developing electron application by electron, react (CRA) and typescript.",
     "main": "build/electron.js",
     "author": {
