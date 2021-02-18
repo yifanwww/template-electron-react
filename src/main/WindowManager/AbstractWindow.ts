@@ -7,24 +7,24 @@ import { IpcMListener } from '#shared/IpcTypes';
 import { windowIpc } from '../Ipc';
 import { CloseWindowOption, CreateWindowOption } from './Window.types';
 
-interface WindowOption {
+export interface WindowOption {
     windowId: string;
     windowType: WindowType;
     height?: number;
     width?: number;
-    onCloseWindow: (option: CloseWindowOption) => Promise<void>;
-    onCreateWindow: (option: CreateWindowOption) => Promise<void>;
+    createWindow: (option: CreateWindowOption) => Promise<void>;
+    onClosedWindow: (option: CloseWindowOption) => Promise<void>;
 }
 
-export class Window {
-    private static readonly production = process.env.NODE_ENV === 'production';
+export abstract class AbstractWindow {
+    protected static readonly production = process.env.NODE_ENV === 'production';
 
-    private readonly window: BrowserWindow;
-    private readonly windowType: WindowType;
-    private readonly windowId: string;
+    protected readonly window: BrowserWindow;
+    protected readonly windowType: WindowType;
+    protected readonly windowId: string;
 
-    private onCloseWindow: (option: CloseWindowOption) => Promise<void>;
-    private onCreateWindow: (option: CreateWindowOption) => Promise<void>;
+    private readonly createWindow: (option: CreateWindowOption) => Promise<void>;
+    private readonly onClosedWindow: (option: CloseWindowOption) => Promise<void>;
 
     public constructor(option: WindowOption) {
         this.windowId = option.windowId;
@@ -44,15 +44,15 @@ export class Window {
             },
         });
 
-        this.onCloseWindow = option.onCloseWindow;
-        this.onCreateWindow = option.onCreateWindow;
+        this.createWindow = option.createWindow;
+        this.onClosedWindow = option.onClosedWindow;
+
+        this.addWindowListeners();
+        this.addIpcListeners();
     }
 
     public async show(): Promise<void> {
-        this.addWindowListeners();
-        this.addIpcListeners();
-
-        if (Window.production) {
+        if (AbstractWindow.production) {
             await this.window.loadFile(_path.join(__dirname, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
@@ -63,29 +63,29 @@ export class Window {
 
     // ------------------------------------------------------------------------------------------------ Window Listeners
 
-    private addWindowListeners(): void {
-        this.window!.once('closed', this.onWindowClosed);
+    protected addWindowListeners(): void {
+        this.window!.once('closed', this.onceClosedWindow);
     }
 
-    private removeWindowListeners(): void {}
+    protected removeWindowListeners(): void {}
 
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
-    private onWindowClosed = () => {
+    private onceClosedWindow = () => {
         this.removeWindowListeners();
         this.removeIpcListeners();
 
-        this.onCloseWindow({ windowId: this.windowId });
+        this.onClosedWindow({ windowId: this.windowId });
     };
 
     // --------------------------------------------------------------------------------------------------- Ipc Listeners
 
-    private addIpcListeners(): void {
+    protected addIpcListeners(): void {
         windowIpc.onNewWindowToOpen(this.bOnNewWindowToOpen);
         windowIpc.onWindowTypeToGet(this.bOnWindowTypeToGet);
     }
 
-    private removeIpcListeners(): void {
+    protected removeIpcListeners(): void {
         windowIpc.removeNewWindowToOpen(this.bOnNewWindowToOpen);
         windowIpc.removeWindowTypeToGet(this.bOnWindowTypeToGet);
     }
@@ -101,7 +101,7 @@ export class Window {
     };
 
     private onNewWindowToOpen(event: any, windowType: WindowType): void {
-        if (this.checkSender(event)) this.onCreateWindow({ windowType });
+        if (this.checkSender(event)) this.createWindow({ windowType });
     }
 
     private bOnNewWindowToOpen: IpcMListener<WindowType> = (event, windowType) =>
