@@ -4,10 +4,7 @@ import { GlobalEntityStateAdapter } from './types';
 import { createUnsortedStateAdapter } from './unsorted-state-adapter';
 import { selectIdValue } from './utils';
 
-export function createSortedStateAdapter<T>(
-    selectId: IdSelector<T>,
-    sort: Comparer<T>,
-): GlobalEntityStateAdapter<T> {
+export function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>): GlobalEntityStateAdapter<T> {
     const { removeOne, removeMany, removeAll } = createUnsortedStateAdapter(selectId);
 
     function areArraysEqual(a: unknown[], b: unknown[]) {
@@ -45,9 +42,7 @@ export function createSortedStateAdapter<T>(
             entities = Object.values(entities);
         }
 
-        const entitiesToAdd = entities.filter(
-            (entity) => !(selectIdValue(entity, selectId) in state.entities),
-        );
+        const entitiesToAdd = entities.filter((entity) => !(selectIdValue(entity, selectId) in state.entities));
 
         if (entitiesToAdd.length !== 0) {
             merge(state, entitiesToAdd);
@@ -73,11 +68,7 @@ export function createSortedStateAdapter<T>(
         return state;
     }
 
-    function takeUpdatedModel<S extends EntityState<T>>(
-        models: T[],
-        update: Update<T>,
-        state: S,
-    ): boolean {
+    function takeUpdatedModel<S extends EntityState<T>>(models: T[], update: Update<T>, state: S): boolean {
         if (!(update.id in state.entities)) {
             return false;
         }
@@ -109,10 +100,7 @@ export function createSortedStateAdapter<T>(
         return updateMany(state, [update]);
     }
 
-    function upsertMany<S extends EntityState<T>>(
-        state: S,
-        entities: T[] | Record<EntityId, T>,
-    ): S {
+    function upsertMany<S extends EntityState<T>>(state: S, entities: T[] | Record<EntityId, T>): S {
         if (!Array.isArray(entities)) {
             entities = Object.values(entities);
         }

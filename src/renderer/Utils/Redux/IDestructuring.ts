@@ -14,9 +14,7 @@ export interface IActions {
 
 type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
 
-type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<any>
-    ? Payload
-    : unknown;
+type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<any> ? Payload : unknown;
 
 type DispatchAction<TAction extends ActionCreator> = TAction extends ActionCreatorWithoutPayload
     ? () => ReturnType<TAction>
@@ -29,16 +27,12 @@ export type IActionsDestructuring<TActions extends IActions> = {
 export type IExactlyActionsDestructuring<
     TActionsDestructuring,
     TActions extends IActions
-> = keyof TActionsDestructuring extends keyof IActionsDestructuring<TActions>
-    ? TActionsDestructuring
-    : never;
+> = keyof TActionsDestructuring extends keyof IActionsDestructuring<TActions> ? TActionsDestructuring : never;
 
 // IThunksDestructuring
 
 export interface IThunks {
-    readonly [key: string]: (
-        ...args: any
-    ) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
+    readonly [key: string]: (...args: any) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
 }
 
 export type IThunksDestructuring<TThunks extends IThunks> = {
@@ -48,6 +42,4 @@ export type IThunksDestructuring<TThunks extends IThunks> = {
 export type IExactlyThunksDestructuring<
     TThunksDestructuring,
     TThunks extends IThunks
-> = keyof TThunksDestructuring extends keyof IThunksDestructuring<TThunks>
-    ? TThunksDestructuring
-    : never;
+> = keyof TThunksDestructuring extends keyof IThunksDestructuring<TThunks> ? TThunksDestructuring : never;

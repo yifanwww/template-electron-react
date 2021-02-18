@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable @typescript-eslint/indent */
 
 import { IpcMainEvent, IpcMainInvokeEvent, IpcRendererEvent } from 'electron';
 

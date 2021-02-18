@@ -26,9 +26,7 @@ const moduleFileExtensions = [
 
 // Copied from `node_modules/react-scripts/config/path.js`, line 47-57
 const ResolveModule = (resolveFn, filePath) => {
-    const extension = moduleFileExtensions.find((extension) =>
-        _fs.existsSync(resolveFn(`${filePath}.${extension}`)),
-    );
+    const extension = moduleFileExtensions.find((extension) => _fs.existsSync(resolveFn(`${filePath}.${extension}`)));
 
     if (extension) {
         return resolveFn(`${filePath}.${extension}`);

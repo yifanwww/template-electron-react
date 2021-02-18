@@ -29,12 +29,10 @@ export abstract class AbstractWindow {
 
         const { production, height, width } = options;
 
-        /* eslint-disable max-len */
         // NOTE:
         // In electron 12 or higher-version electron:
         // - `contextIsolation` will be true by default, and considering about security we should not set it false.
         // - `nodeIntegration` option will be deleted.
-        /* eslint-enable max-len */
         this.window = new BrowserWindow({
             width: width === undefined ? 1280 : width,
             height: height === undefined ? 720 : height,

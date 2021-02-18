@@ -13,16 +13,13 @@ interface EntityDefinition<T> {
 
 /**
  * The `createGlobalEntityAdapter` function is implemented with reference to `createEntityAdapter`
- * (https://github.com/reduxjs/redux-toolkit/blob/v1.5.0/src/entities/create_adapter.ts) only for
- * the global state.
+ * (https://github.com/reduxjs/redux-toolkit/blob/v1.5.0/src/entities/create_adapter.ts) only for the global state.
  *
- * An adapter created from `createEntityAdapter` operates entities by generated reducer functions.
- * Reducer functions do not work in the global state, you should use `createGlobalEntityAdapter`
- * instead to create your adapter to operate the entities.
+ * An adapter created from `createEntityAdapter` operates entities by generated reducer functions. Reducer functions do
+ * not work in the global state, you should use `createGlobalEntityAdapter` instead to create your adapter to operate
+ * the entities.
  */
-export function createGlobalEntityAdapter<T>(
-    options: Partial<EntityDefinition<T>>,
-): GlobalEntityAdapter<T> {
+export function createGlobalEntityAdapter<T>(options: Partial<EntityDefinition<T>>): GlobalEntityAdapter<T> {
     const { selectId, sortComparer }: EntityDefinition<T> = {
         selectId: (instance: any) => instance.id,
         sortComparer: false,

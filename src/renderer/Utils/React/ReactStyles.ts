@@ -1,6 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable @typescript-eslint/indent */
-
 import { CSSProperties } from 'react';
 
 // prettier-ignore

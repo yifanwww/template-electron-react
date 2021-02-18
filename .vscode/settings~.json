@@ -1,6 +1,6 @@
 {
     "editor.insertSpaces": true,
-    "editor.rulers": [100],
+    "editor.rulers": [120],
     "editor.tabSize": 4,
 
     "files.exclude": {

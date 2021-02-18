@@ -54,19 +54,10 @@ export type ButtonStyleFunc<Option extends {} | undefined = undefined> = Option 
 export type CheckboxStyleFunc = Props2Styles<ICheckboxStyleProps, ICheckboxStyles>;
 
 export type ChoiceGroupStyleFunc = Props2Styles<IChoiceGroupStyleProps, IChoiceGroupStyles>;
-export type ChoiceGroupOptionStyleFunc = Props2Styles<
-    IChoiceGroupOptionStyleProps,
-    IChoiceGroupOptionStyles
->;
+export type ChoiceGroupOptionStyleFunc = Props2Styles<IChoiceGroupOptionStyleProps, IChoiceGroupOptionStyles>;
 
-export type ContextualMenuStyleFunc = Props2Styles<
-    IContextualMenuStyleProps,
-    IContextualMenuStyles
->;
-export type ContextualMenuItemStyleFunc = Props2Styles<
-    IContextualMenuItemStyleProps,
-    IContextualMenuItemStyles
->;
+export type ContextualMenuStyleFunc = Props2Styles<IContextualMenuStyleProps, IContextualMenuStyles>;
+export type ContextualMenuItemStyleFunc = Props2Styles<IContextualMenuItemStyleProps, IContextualMenuItemStyles>;
 
 export type DetailsListStyleFunc = Props2Styles<IDetailsListStyleProps, IDetailsListStyles>;
 export type DetailsListRowStyleFunc = Props2Styles<IDetailsRowStyleProps, IDetailsRowStyles>;

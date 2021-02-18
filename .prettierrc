@@ -2,7 +2,7 @@
     "arrowParens": "always",
     "endOfLine": "lf",
     "eslintIntegration": true,
-    "printWidth": 100,
+    "printWidth": 120,
     "semi": true,
     "singleQuote": true,
     "tabWidth": 4,

@@ -3,9 +3,7 @@ import { EntityId, EntityState, IdSelector, Update } from '@reduxjs/toolkit';
 import { GlobalEntityStateAdapter } from './types';
 import { selectIdValue } from './utils';
 
-export function createUnsortedStateAdapter<T>(
-    selectId: IdSelector<T>,
-): GlobalEntityStateAdapter<T> {
+export function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): GlobalEntityStateAdapter<T> {
     function addOne<S extends EntityState<T>>(state: S, entity: T): S {
         const key = selectIdValue(entity, selectId);
 
@@ -103,9 +101,7 @@ export function createUnsortedStateAdapter<T>(
                     // Spreads ignore falsy values, so this works even if there isn't
                     // an existing update already at this key
                     changes: {
-                        ...(updatesPerEntity[update.id]
-                            ? updatesPerEntity[update.id].changes
-                            : null),
+                        ...(updatesPerEntity[update.id] ? updatesPerEntity[update.id].changes : null),
                         ...update.changes,
                     },
                 };
@@ -117,8 +113,7 @@ export function createUnsortedStateAdapter<T>(
         const didMutateEntities = updates.length > 0;
 
         if (didMutateEntities) {
-            const didMutateIds =
-                updates.filter((update) => takeNewKey(newKeys, update, state)).length > 0;
+            const didMutateIds = updates.filter((update) => takeNewKey(newKeys, update, state)).length > 0;
 
             if (didMutateIds) {
                 state.ids = state.ids.map((id) => newKeys[id] || id);
@@ -132,10 +127,7 @@ export function createUnsortedStateAdapter<T>(
         return updateMany(state, [update]);
     }
 
-    function upsertMany<S extends EntityState<T>>(
-        state: S,
-        entities: T[] | Record<EntityId, T>,
-    ): S {
+    function upsertMany<S extends EntityState<T>>(state: S, entities: T[] | Record<EntityId, T>): S {
         if (!Array.isArray(entities)) {
             entities = Object.values(entities);
         }

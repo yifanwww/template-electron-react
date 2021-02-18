@@ -1,6 +1,6 @@
 // The default theme fluentui sets, DO NOT CHANGE IT.
 // For more information:
-// fabricweb.z5.web.core.windows.net/pr-deploy-site/refs/heads/7.0/theming-designer/index.html
+// https://fabricweb.z5.web.core.windows.net/pr-deploy-site/refs/heads/7.0/theming-designer/index.html
 
 import { ICustomizations, createTheme, IPalette, ISemanticColors } from '@fluentui/react';
 

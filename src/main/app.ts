@@ -22,8 +22,7 @@ async function installExtensions(): Promise<void> {
     ]);
 }
 
-// This method will be called when Electron has finished initialization and is ready to create
-// browser windows.
+// This method will be called when Electron has finished initialization and is ready to create browser windows.
 app.on('ready', async () => {
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
@@ -33,16 +32,15 @@ app.on('ready', async () => {
 });
 
 app.on('window-all-closed', () => {
-    // On macOS, most applications and their menu bars will key activated unless users use
-    // `cmd + Q` to quit.
+    // On macOS, most applications and their menu bars will key activated unless users use `cmd + Q` to quit.
     if (process.platform !== 'darwin') {
         app.quit();
     }
 });
 
 app.on('activate', () => {
-    // On macOS, usually applications will re-create new windows if single click the dock icon when
-    // no other windows opened.
+    // On macOS, usually applications will re-create new windows if single click the dock icon when no other windows
+    // opened.
     if (BrowserWindow.getAllWindows().length === 0) {
         createWindow(WindowType.main);
     }

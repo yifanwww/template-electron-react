@@ -1,19 +1,8 @@
-import {
-    Comparer,
-    EntityId,
-    EntitySelectors,
-    EntityState,
-    IdSelector,
-    Update,
-} from '@reduxjs/toolkit';
+import { Comparer, EntityId, EntitySelectors, EntityState, IdSelector, Update } from '@reduxjs/toolkit';
 
-declare type IsAny<T, True, False = never> = true | false extends (T extends never ? true : false)
-    ? True
-    : False;
+declare type IsAny<T, True, False = never> = true | false extends (T extends never ? true : false) ? True : False;
 declare type PreventAny<S, T> = IsAny<S, EntityState<T>, S>;
 
-// prettier-ignore
-/* eslint-disable max-len */
 export interface GlobalEntityStateAdapter<T> {
     addOne<S extends EntityState<T>>(state: PreventAny<S, T>, entity: T): S;
     addMany<S extends EntityState<T>>(state: PreventAny<S, T>, entities: T[] | Record<EntityId, T>): S;
@@ -26,7 +15,6 @@ export interface GlobalEntityStateAdapter<T> {
     upsertOne<S extends EntityState<T>>(state: PreventAny<S, T>, entity: T): S;
     upsertMany<S extends EntityState<T>>(state: PreventAny<S, T>, entities: T[] | Record<EntityId, T>): S;
 }
-/* eslint-enable max-len */
 
 export interface GlobalEntityAdapter<T> extends GlobalEntityStateAdapter<T> {
     selectId: IdSelector<T>;

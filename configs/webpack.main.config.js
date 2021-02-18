@@ -52,7 +52,5 @@ module.exports = (env, argv) => {
         },
     };
 
-    return isEnvProduction
-        ? new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' }).wrap(webpack)
-        : webpack;
+    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' }).wrap(webpack) : webpack;
 };
