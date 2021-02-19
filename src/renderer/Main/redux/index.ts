@@ -6,7 +6,7 @@ import {
     ReduxHooksFactory,
 } from '#RUtils/Redux';
 
-import { GlobalState, globalState } from './global-state';
+import { GlobalState, globalStore } from './global-state';
 import { actions } from './slice';
 import { StoreState, store } from './store';
 import { thunks } from './thunk';
@@ -37,4 +37,4 @@ export const { useReduxDispatch: useMainDispatch, useReduxSelector: useMainSelec
     typeof thunks,
     StoreState,
     GlobalState
->(actions, thunks, globalState);
+>(actions, thunks, globalStore.getGlobalState);

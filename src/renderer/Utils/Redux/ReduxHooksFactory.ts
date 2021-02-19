@@ -14,7 +14,7 @@ import {
 export function ReduxHooksFactory<TActions extends IActions, TThunks extends IThunks, TStoreState, TGlobalState>(
     actions: TActions,
     thunks: TThunks,
-    globalState: TGlobalState,
+    getGlobalState: () => TGlobalState,
 ) {
     /**
      * An custom hook for functional containers.
@@ -26,7 +26,7 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
         selector: (state: TStoreState, globalState: TGlobalState) => TSelected,
         equalityFn: (left: TSelected, right: TSelected) => boolean = shallowEqual,
     ): TSelected {
-        return useSelector((state: TStoreState) => selector(state, globalState), equalityFn);
+        return useSelector((state: TStoreState) => selector(state, getGlobalState()), equalityFn);
     }
 
     /**
