@@ -6,16 +6,16 @@ import {
     ReduxHooksFactory,
 } from '#RUtils/Redux';
 
-import { GlobalState, globalStore } from './global-state';
-import { actions } from './slice';
-import { StoreState, store } from './store';
+import { GlobalStoreState, StoreState } from './types';
+import { globalStore } from './globalStore';
+import { actions, store } from './slice';
 import { thunks } from './thunk';
 
 export { actions as mainActions };
 export { store as mainStore };
 export { thunks as mainThunks };
 
-export type { GlobalState as MainGlobalState };
+export type { GlobalStoreState as MainGlobalStoreState };
 export type { StoreState as MainStoreState };
 
 type Actions = typeof actions;
@@ -36,5 +36,5 @@ export const { useReduxDispatch: useMainDispatch, useReduxSelector: useMainSelec
     typeof actions,
     typeof thunks,
     StoreState,
-    GlobalState
+    GlobalStoreState
 >(actions, thunks, globalStore.getGlobalState);

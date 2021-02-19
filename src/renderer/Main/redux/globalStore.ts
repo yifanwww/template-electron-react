@@ -1,7 +1,7 @@
 import { configureGlobalStore } from '#RUtils/Redux';
 
-export interface GlobalState {}
+import { GlobalStoreState } from './types';
 
-const initialGlobalState: GlobalState = {};
+const initialGlobalState: GlobalStoreState = {};
 
 export const globalStore = configureGlobalStore({ initialGlobalState });

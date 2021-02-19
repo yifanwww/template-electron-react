@@ -1,19 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 import { ClientAreaSize } from '#RUtils/ClientArea';
 import { IReducer } from '#RUtils/Redux';
 
-interface MainState {
-    clientAreaSize: ClientAreaSize;
-}
+import { StoreState } from './types';
 
-const initialState: MainState = {
+const initialState: StoreState = {
     clientAreaSize: { width: 1280, height: 720 },
 };
 
 // ---------------------------------------------------------------------------------------- Reducers
 
-type Reducer<Payload = undefined> = IReducer<MainState, Payload>;
+type Reducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
 const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
     state.clientAreaSize = action.payload;
@@ -23,10 +21,14 @@ const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
 
 // ------------------------------------------------------------------------------------------- Slice
 
-export const { actions, reducer } = createSlice({
+const { actions, reducer } = createSlice({
     name: 'Main',
     initialState,
     reducers: {
         updateClientAreaSize,
     },
 });
+
+export { actions };
+
+export const store = configureStore({ reducer });
