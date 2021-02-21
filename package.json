@@ -36,6 +36,7 @@
     "scripts": {
         "app": "node scripts/app.mjs",
         "build": "yarn build:renderer && yarn build:main",
+        "build-profile": "yarn build:renderer --profile && yarn build:main",
         "build:main": "webpack --config configs/webpack.main.config.js --mode production",
         "build:renderer": "react-app-rewired build",
         "clean": "rimraf build release working",
