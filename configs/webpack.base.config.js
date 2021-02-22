@@ -33,12 +33,8 @@ const alias = {
     '#RUtils': ResolveProject('src/renderer/Utils'),
 };
 
-// Eslint rc path
-const eslintConfigPath = ResolveProject('configs/.eslintrc.js');
-
 module.exports = {
     alias,
-    eslintConfigPath,
     paths: {
         appBuild,
         appHtml,
