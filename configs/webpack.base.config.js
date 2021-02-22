@@ -64,21 +64,21 @@ const alias = {
 const eslintConfigPath = ResolveApp('configs/.eslintrc.js');
 
 module.exports = {
-    Alias: alias,
-    EslintConfigPath: eslintConfigPath,
-    Paths: {
-        AppBuild: appBuild,
-        AppHtml: appHtml,
-        AppIndexJsMain: appIndexJsMain,
-        AppIndexJsRenderer: appIndexJsRenderer,
-        AppPublic: appPublic,
-        AppSrc: appSrc,
-        AppSrcMain: appSrcMain,
-        AppSrcRenderer: appSrcRenderer,
-        AppSrcShared: appSrcShared,
-        AppTsConfigMain: appTsConfigMain,
-        AppTsConfigRenderer: appTsConfigRenderer,
-        ProxySetup: proxySetup,
-        TestsSetup: testsSetup,
+    alias,
+    eslintConfigPath,
+    paths: {
+        appBuild,
+        appHtml,
+        appIndexJsMain,
+        appIndexJsRenderer,
+        appPublic,
+        appSrc,
+        appSrcMain,
+        appSrcRenderer,
+        appSrcShared,
+        appTsConfigMain,
+        appTsConfigRenderer,
+        proxySetup,
+        testsSetup,
     },
 };

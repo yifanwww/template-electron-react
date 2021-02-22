@@ -4,10 +4,10 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const WebpackElectronReload = require('./webpack-electron-reload');
 const WebpackMkdir = require('./webpack-mkdir');
 
-const Base = require('./webpack.base.config');
+const BaseWebpack = require('./webpack.base.config');
 
-const _projectDir = _path.join(__dirname, '..');
-const _workingDir = _path.join(_projectDir, 'working');
+const _projectDir = _path.resolve(__dirname, '..');
+const _workingDir = _path.resolve(_projectDir, 'working');
 
 module.exports = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
@@ -15,10 +15,10 @@ module.exports = (env, argv) => {
 
     const webpack = {
         target: 'electron-main',
-        entry: Base.Paths.AppIndexJsMain,
+        entry: BaseWebpack.paths.appIndexJsMain,
         output: {
             filename: 'electron.js',
-            path: Base.Paths.AppBuild,
+            path: BaseWebpack.paths.appBuild,
         },
         devtool: isEnvProduction ? 'source-map' : 'cheap-module-source-map',
         module: {
@@ -26,9 +26,9 @@ module.exports = (env, argv) => {
                 {
                     test: /\.ts$/,
                     loader: 'ts-loader',
-                    include: [Base.Paths.AppSrcMain, Base.Paths.AppSrcShared],
+                    include: [BaseWebpack.paths.appSrcMain, BaseWebpack.paths.appSrcShared],
                     options: {
-                        configFile: Base.Paths.AppTsConfigMain,
+                        configFile: BaseWebpack.paths.appTsConfigMain,
                     },
                 },
             ],
@@ -39,7 +39,7 @@ module.exports = (env, argv) => {
         ].filter(Boolean),
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
-            alias: Base.Alias,
+            alias: BaseWebpack.alias,
         },
         watch: isEnvDevelopment,
         watchOptions: {

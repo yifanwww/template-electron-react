@@ -8,9 +8,8 @@
 // const fs = require('fs');
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const smp = new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' });
 
-const Base = require('./webpack.base.config');
+const BaseWebpack = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -30,14 +29,11 @@ function OverrideWebpackConfigs(webpack, env) {
     // 2. Set the correct directories where the source code should be compiled.
 
     // WriteConfigs(webpack.module.rules, 'webpack.json');
-    webpack.module.rules[1].oneOf[2].include = [Base.Paths.AppSrcRenderer, Base.Paths.AppSrcShared];
+    webpack.module.rules[1].oneOf[2].include = [BaseWebpack.paths.appSrcRenderer, BaseWebpack.paths.appSrcShared];
 
     // 3. Use custom aliases.
 
-    // WriteConfigs(webpack.resolve.alias, 'webpack.json');
-    for (let index in Base.Alias) {
-        webpack.resolve.alias[index] = Base.Alias[index];
-    }
+    webpack.resolve.alias = BaseWebpack.alias;
 
     // 4. Use custom eslint rc.
     // TODO: It seems now `react-scripts` will detect if `.eslintrc.js` exists or not.
@@ -46,18 +42,18 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // Finish.
 
-    return isEnvProduction ? smp.wrap(webpack) : webpack;
+    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' }).wrap(webpack) : webpack;
 }
 
 // Override paths configurations.
 function OverridePathsConfigs(paths, env) {
-    paths.appPublic = Base.Paths.AppPublic;
-    paths.appHtml = Base.Paths.AppHtml;
-    paths.appIndexJs = Base.Paths.AppIndexJsRenderer;
-    paths.appSrc = Base.Paths.AppSrc;
-    paths.appTsConfig = Base.Paths.AppTsConfigRenderer;
-    paths.testsSetup = Base.Paths.TestsSetup;
-    paths.proxySetup = Base.Paths.ProxySetup;
+    paths.appPublic = BaseWebpack.paths.appPublic;
+    paths.appHtml = BaseWebpack.paths.appHtml;
+    paths.appIndexJs = BaseWebpack.paths.appIndexJsRenderer;
+    paths.appSrc = BaseWebpack.paths.appSrc;
+    paths.appTsConfig = BaseWebpack.paths.appTsConfigRenderer;
+    paths.testsSetup = BaseWebpack.paths.testsSetup;
+    paths.proxySetup = BaseWebpack.paths.proxySetup;
 
     // WriteConfigs(paths, 'paths.json');
 
