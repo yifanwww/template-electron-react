@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
 
     const webpack = {
         target: 'electron-main',
-        entry: BaseWebpack.paths.appIndexJsMain,
+        entry: BaseWebpack.paths.appIndexTsMain,
         output: {
             filename: 'electron.js',
             path: BaseWebpack.paths.appBuild,

@@ -1,67 +1,40 @@
-// Used for `react-scripts` 4.0.1
+// Used for `react-scripts` 4.0.2
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
-const _fs = require('fs');
 const _path = require('path');
 
-// Copied from `node_modules/react-scripts/config/path.js`, line 17-18
-const appDirectory = _fs.realpathSync(_path.join(__dirname, '..'));
-const ResolveApp = (relativePath) => _path.resolve(appDirectory, relativePath);
+// Edited from `node_modules/react-scripts/config/path.js`, line 17-18
+const _projectDir = _path.resolve(__dirname, '..');
+const ResolveProject = (relativePath) => _path.resolve(_projectDir, relativePath);
 
-// Copied from `node_modules/react-scripts/config/path.js`, line 32-44
-const moduleFileExtensions = [
-    'web.mjs',
-    'mjs',
-    'web.js',
-    'js',
-    'web.ts',
-    'ts',
-    'web.tsx',
-    'tsx',
-    'json',
-    'web.jsx',
-    'jsx',
-];
-
-// Copied from `node_modules/react-scripts/config/path.js`, line 47-57
-const ResolveModule = (resolveFn, filePath) => {
-    const extension = moduleFileExtensions.find((extension) => _fs.existsSync(resolveFn(`${filePath}.${extension}`)));
-
-    if (extension) {
-        return resolveFn(`${filePath}.${extension}`);
-    }
-
-    return resolveFn(`${filePath}.js`);
-};
-
-// Edited from `node_modules/react-scripts/config/path.js`, line 60-76
-const appBuild = ResolveApp('build');
-const appHtml = ResolveApp('src/public/index.html');
-const appIndexJsMain = ResolveApp('src/main/app');
-const appIndexJsRenderer = ResolveModule(ResolveApp, 'src/renderer/index');
-const appPublic = ResolveApp('src/public');
-const appSrc = ResolveApp('src');
-const appSrcMain = ResolveApp('src/main');
-const appSrcRenderer = ResolveApp('src/renderer');
-const appSrcShared = ResolveApp('src/shared');
-const appTsConfigMain = ResolveApp('configs/tsconfig.main.json');
-const appTsConfigRenderer = ResolveApp('configs/tsconfig.renderer.json');
-const proxySetup = ResolveApp('src/renderer/setupProxy.js');
-const testsSetup = ResolveModule(ResolveApp, 'src/renderer/setupTests');
+// Edited from `node_modules/react-scripts/config/path.js`, line 62-79
+const appBuild = ResolveProject('build');
+const appHtml = ResolveProject('src/public/index.html');
+const appIndexTsMain = ResolveProject('src/main/app.ts');
+const appIndexTsRenderer = ResolveProject('src/renderer/index.tsx');
+const appPublic = ResolveProject('src/public');
+const appSrc = ResolveProject('src');
+const appSrcMain = ResolveProject('src/main');
+const appSrcRenderer = ResolveProject('src/renderer');
+const appSrcShared = ResolveProject('src/shared');
+const appTsConfigMain = ResolveProject('configs/tsconfig.main.json');
+const appTsConfigRenderer = ResolveProject('configs/tsconfig.renderer.json');
+const proxySetup = ResolveProject('src/renderer/setupProxy.js');
+const testsSetup = ResolveProject('src/renderer/setupTests.ts');
 
 // Alias
 const alias = {
-    '#shared': ResolveApp('src/shared'),
+    '#shared': ResolveProject('src/shared'),
     // main
-    '#MUtils': ResolveApp('src/main/Utils'),
+    '#MUtils': ResolveProject('src/main/Utils'),
     // renderer
-    '#Assets': ResolveApp('src/renderer/Assets'),
-    '#RUtils': ResolveApp('src/renderer/Utils'),
+    '#Assets': ResolveProject('src/renderer/Assets'),
+    '#RUtils': ResolveProject('src/renderer/Utils'),
 };
 
 // Eslint rc path
-const eslintConfigPath = ResolveApp('configs/.eslintrc.js');
+const eslintConfigPath = ResolveProject('configs/.eslintrc.js');
 
 module.exports = {
     alias,
@@ -69,8 +42,8 @@ module.exports = {
     paths: {
         appBuild,
         appHtml,
-        appIndexJsMain,
-        appIndexJsRenderer,
+        appIndexTsMain,
+        appIndexTsRenderer,
         appPublic,
         appSrc,
         appSrcMain,

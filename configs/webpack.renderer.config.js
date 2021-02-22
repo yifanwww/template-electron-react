@@ -1,4 +1,4 @@
-// Used for `react-scripts` 4.0.1
+// Used for `react-scripts` 4.0.2
 // For more information about how to override default configs of `react-scripts`
 // visit: https://github.com/timarney/react-app-rewired
 
@@ -49,7 +49,7 @@ function OverrideWebpackConfigs(webpack, env) {
 function OverridePathsConfigs(paths, env) {
     paths.appPublic = BaseWebpack.paths.appPublic;
     paths.appHtml = BaseWebpack.paths.appHtml;
-    paths.appIndexJs = BaseWebpack.paths.appIndexJsRenderer;
+    paths.appIndexJs = BaseWebpack.paths.appIndexTsRenderer;
     paths.appSrc = BaseWebpack.paths.appSrc;
     paths.appTsConfig = BaseWebpack.paths.appTsConfigRenderer;
     paths.testsSetup = BaseWebpack.paths.testsSetup;
