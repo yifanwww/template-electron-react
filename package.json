@@ -54,7 +54,7 @@
         "test:react": "react-app-rewired test"
     },
     "dependencies": {
-        "@fluentui/react": "^8.0.0-beta.49",
+        "@fluentui/react": "^8.0.0-beta.58",
         "@reduxjs/toolkit": "^1.5.0",
         "immer": "^8.0.0",
         "node-errors-pro": "^0.2.0",
