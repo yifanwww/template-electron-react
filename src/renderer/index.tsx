@@ -25,7 +25,7 @@ initializeIcons();
 
 ReactDOM.render(
     <StrictMode>
-        <ThemeProvider id="root" theme={fluentuiTheme}>
+        <ThemeProvider id="ThemeProvider" theme={fluentuiTheme}>
             <CreateClientArea />
         </ThemeProvider>
     </StrictMode>,

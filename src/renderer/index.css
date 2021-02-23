@@ -12,7 +12,12 @@ code {
 
 #root {
     display: grid;
+    height: 100vh;
+    width: 100vw;
+}
 
+#ThemeProvider {
+    display: grid;
     height: 100vh;
     width: 100vw;
 }
