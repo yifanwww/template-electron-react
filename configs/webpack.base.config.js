@@ -4,11 +4,13 @@
 
 const _path = require('path');
 
-// Edited from `node_modules/react-scripts/config/path.js`, line 17-18
+// Edited from `https://github.com/facebook/create-react-app/blob/v4.0.2/packages/react-scripts/config/paths.js`
+// Line 17-18
 const _projectDir = _path.resolve(__dirname, '..');
 const ResolveProject = (relativePath) => _path.resolve(_projectDir, relativePath);
 
-// Edited from `node_modules/react-scripts/config/path.js`, line 62-79
+// Edited from `https://github.com/facebook/create-react-app/blob/v4.0.2/packages/react-scripts/config/paths.js`
+// Line 62-79
 const appBuild = ResolveProject('build');
 const appHtml = ResolveProject('src/public/index.html');
 const appIndexTsMain = ResolveProject('src/main/app.ts');

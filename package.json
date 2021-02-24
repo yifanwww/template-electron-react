@@ -1,12 +1,22 @@
 {
-    "name": "template-electron-cra",
+    "name": "@ysoftwaretech/template-electron-cra",
     "version": "0.2.0",
     "description": "A template project for developing electron application by electron, react (CRA) and typescript.",
     "main": "build/electron.js",
+    "homepage": "https://github.com/YSoftwareTech/template-electron-cra#readme",
+    "license": "MIT",
     "author": {
         "name": "YF1999",
         "email": "1586939317@qq.com",
         "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YSoftwareTech/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/YSoftwareTech/template-electron-cra"
     },
     "browserslist": {
         "production": [
@@ -20,18 +30,9 @@
             "last 1 safari version"
         ]
     },
-    "bugs": {
-        "url": "https://github.com/YSoftwareTech/template-electron-cra/issues"
-    },
     "config-overrides-path": "configs/webpack.renderer.config.js",
     "eslintConfig": {
         "extends": ".eslintrc.js"
-    },
-    "homepage": ".",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/YSoftwareTech/template-electron-cra"
     },
     "scripts": {
         "app": "node scripts/app.mjs",
