@@ -20,7 +20,7 @@ jobs:
           node-version: 14.x
 
       - name: Setup node modules
-        run: yarn install
+        run: npm ci
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint

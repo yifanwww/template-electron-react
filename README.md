@@ -5,8 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 You can create your own project by importing this template project.
 
-It's recommanded for you to use `yarn` to manage your packages. If you want to use `npm`, please delete `yarn.lock`.
-
 ## Use Visual Studio Code as Your Editor
 
 It's recommanded for you to use `Visual Studio Code` to develop your electron application.

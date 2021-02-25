@@ -7,5 +7,5 @@ Fortunately, the download tool `electron/get` will check its cache before downlo
 You have this steps to do:
 1. Download [electron-v11.2.1-win32-x64.zip](https://github.com/electron/electron/releases/download/v11.2.1/electron-v11.2.1-win32-x64.zip) from Github.
 2. Open `File Explorer` at `%localappdata%`, create `electron/Cache` folder.
-3. Create `httpsgithub.comelectronelectronreleasesdownloadv11.2.1electron-v11.2.1-win32-x64.zip` folder, and then copy the zip file into it.
-4. Now you can `yarn install` in this project, `electron/get` will find the existing zip file and use it to install electron.
+3. Create `8929302e09b6a213ccd7c6f1e48fb14c4053144515fdb12d25ad645abcb59af2` folder, and then copy the zip file into it.
+4. Now you can `npm ci` in this project, `electron/get` will find the existing zip file and use it to install electron.
