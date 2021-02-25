@@ -10,15 +10,7 @@ module.exports = {
     parserOptions: {
         project: 'tsconfig.json',
     },
-    plugins: [
-        '@typescript-eslint',
-        'import',
-        'jest',
-        'jsx-a11y',
-        'prettier',
-        'react',
-        'react-hooks',
-    ],
+    plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
     rules: {
         'arrow-body-style': 'off', // Disabled for prettier
         'class-methods-use-this': 'off',
