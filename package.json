@@ -31,9 +31,6 @@
         ]
     },
     "config-overrides-path": "configs/webpack.renderer.config.js",
-    "eslintConfig": {
-        "extends": ".eslintrc.js"
-    },
     "scripts": {
         "app": "node scripts/app.mjs",
         "build": "npm run build:renderer && npm run build:main",
