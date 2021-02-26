@@ -9,7 +9,7 @@ const initialState: StoreState = {
     clientAreaSize: { width: 1280, height: 720 },
 };
 
-// ---------------------------------------------------------------------------------------- Reducers
+// ------------------------------------------------------------------------------------------------------------ Reducers
 
 type Reducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
@@ -19,7 +19,7 @@ const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
     console.log(`update clientarea: ${JSON.stringify(action.payload)}.`);
 };
 
-// ------------------------------------------------------------------------------------------- Slice
+// --------------------------------------------------------------------------------------------------------------- Slice
 
 const { actions, reducer } = createSlice({
     name: 'Main',

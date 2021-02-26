@@ -6,7 +6,7 @@ import {
     ThunkAction,
 } from '@reduxjs/toolkit';
 
-// IActionsDestructuring
+// ----------------------------------------------------------------------------------------------- IActionsDestructuring
 
 export interface IActions {
     readonly [key: string]: ActionCreator;
@@ -29,7 +29,7 @@ export type IExactlyActionsDestructuring<
     TActions extends IActions
 > = keyof TActionsDestructuring extends keyof IActionsDestructuring<TActions> ? TActionsDestructuring : never;
 
-// IThunksDestructuring
+// ------------------------------------------------------------------------------------------------ IThunksDestructuring
 
 export interface IThunks {
     readonly [key: string]: (...args: any) => ThunkAction<Promise<void> | void, any, any, Action<any>>;

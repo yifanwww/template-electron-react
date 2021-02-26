@@ -9,7 +9,7 @@ import { mainActions, mainStore } from './redux';
 import { App } from './App';
 
 export class MainClientArea extends AbstractClientArea {
-    // ------------------------------------------------------------------------------ ReactLifeCycle
+    // -------------------------------------------------------------------------------------------------- ReactLifeCycle
 
     public render(): ReactElement {
         return (
@@ -32,7 +32,7 @@ export class MainClientArea extends AbstractClientArea {
             .catch(() => undefined);
     }
 
-    // ----------------------------------------------------------------------------- Window Handlers
+    // ------------------------------------------------------------------------------------------------- Window Handlers
 
     protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {
         mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize));

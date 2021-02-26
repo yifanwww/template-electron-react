@@ -3,7 +3,7 @@ import { Component, UIEvent, UIEventHandler } from 'react';
 import { ClientAreaSize } from './ClientAreaSize';
 
 export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S> {
-    // --------------------------------------------------------------------------------------- React
+    // ----------------------------------------------------------------------------------------------------------- React
 
     public constructor(props: Readonly<P>) {
         super(props);
@@ -24,7 +24,7 @@ export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S>
         this.removeIpcListeners();
     }
 
-    // ---------------------------------------------------------------------------- Window Listeners
+    // ------------------------------------------------------------------------------------------------ Window Listeners
 
     protected addWindowListeners(): void {
         window.onresize = this.bOnWindowResized as any;
@@ -34,7 +34,7 @@ export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S>
         window.onresize = null;
     }
 
-    // ----------------------------------------------------------------------------- Window Handlers
+    // ------------------------------------------------------------------------------------------------- Window Handlers
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {}
@@ -48,7 +48,7 @@ export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S>
     private bOnWindowResized: UIEventHandler = (event) =>
         this.onWindowResized(event, { height: window.innerHeight, width: window.innerWidth });
 
-    // ------------------------------------------------------------------------------- Ipc Listeners
+    // --------------------------------------------------------------------------------------------------- Ipc Listeners
 
     protected addIpcOnceListeners(): void {}
     protected addIpcListeners(): void {}
