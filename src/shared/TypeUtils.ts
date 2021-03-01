@@ -1,19 +1,3 @@
-export type NullableKeys<T> = { [K in keyof T]-?: undefined extends T[K] ? K : never }[keyof T];
-export type NonNullableKeys<T> = { [K in keyof T]-?: undefined extends T[K] ? never : K }[keyof T];
-
-export type ExtractFunction<T, K extends keyof T> = Extract<Readonly<T>[K], Function>;
-
-export type FunctionKey<T, K extends keyof T> = ExtractFunction<T, K> extends never ? never : K;
-export type FunctionKeys<T> = { [K in keyof T]-?: FunctionKey<T, K> }[keyof T];
-
-export type NonFunctionKey<T, K extends keyof T> = ExtractFunction<T, K> extends never ? K : never;
-export type NonFunctionKeys<T> = { [K in keyof T]-?: NonFunctionKey<T, K> }[keyof T];
-
-export type PickFunctions<T> = Pick<T, FunctionKeys<T>>;
-export type PickNonFunctions<T> = Pick<T, NonFunctionKeys<T>>;
-
-export type RequiredNonFunction<T> = PickFunctions<T> & Required<PickNonFunctions<T>>;
-
 /**
  * TypeScript type to return a deep partial object (each property can be undefined, recursively).
  */
@@ -41,3 +25,17 @@ export type DeepReadonly<T> = {
                 ? DeepReadonly<T[P]>
                 : T[P];
 };
+
+/**
+ * T must contains all the properties of U.
+ *
+ * The result of 'a' extends 'a' | 'b' is true, but the result of 'a' | 'b' extends 'a' is false.
+ */
+export type Contain<T, U> = keyof U extends keyof T ? T : never;
+
+/**
+ * The properties of T must be contained in U.
+ *
+ * The result of 'a' extends 'a' | 'b' is true, but the result of 'a' | 'b' extends 'a' is false.
+ */
+export type Contained<T, U> = keyof T extends keyof U ? T : never;

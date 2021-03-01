@@ -1,14 +1,13 @@
-import { Dispatch } from '@reduxjs/toolkit';
 import { DependencyList, useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import {
+    ActionsDestructuring,
     IActions,
     IActionsDestructuring,
-    IExactlyActionsDestructuring,
-    IExactlyThunksDestructuring,
     IThunks,
     IThunksDestructuring,
+    ThunksDestructuring,
 } from './IDestructuring';
 
 export function ReduxHooksFactory<TActions extends IActions, TThunks extends IThunks, TStoreState, TGlobalState>(
@@ -42,14 +41,8 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
         TActionsDestructuring extends IActionsDestructuring<TActions>,
         TThunksDestructuring extends IThunksDestructuring<TThunks>
     >(
-        actionsDestructuring: (
-            dispatch: Dispatch<any>,
-            actions: TActions,
-        ) => IExactlyActionsDestructuring<TActionsDestructuring, TActions>,
-        thunksDestructuring: (
-            dispatch: Dispatch<any>,
-            thunks: TThunks,
-        ) => IExactlyThunksDestructuring<TThunksDestructuring, TThunks>,
+        actionsDestructuring: ActionsDestructuring<TActions, TActionsDestructuring>,
+        thunksDestructuring: ThunksDestructuring<TThunks, TThunksDestructuring>,
         deps: DependencyList | undefined = [],
     ): TActionsDestructuring & TThunksDestructuring {
         const dispatch = useDispatch();

@@ -1,10 +1,5 @@
-import {
-    IActionsDestructuring,
-    IExactlyActionsDestructuring,
-    IExactlyThunksDestructuring,
-    IThunksDestructuring,
-    ReduxHooksFactory,
-} from '#RUtils/Redux';
+import { Contained } from '#shared/TypeUtils';
+import { IActionsDestructuring, IThunksDestructuring, ReduxHooksFactory } from '#RUtils/Redux';
 
 import { GlobalStoreState, StoreState } from './types';
 import { globalStore } from './globalStore';
@@ -18,16 +13,13 @@ export { thunks as mainThunks };
 export type { GlobalStoreState as MainGlobalStoreState };
 export type { StoreState as MainStoreState };
 
-type Actions = typeof actions;
-type Thunks = typeof thunks;
-
 /** Used for the second parameter of `connect` */
 export function mapMainDispatchToProps<
-    TMapActionsToProps extends IActionsDestructuring<Actions>,
-    TMapThunksToProps extends IThunksDestructuring<Thunks>
+    TMapActionsToProps extends IActionsDestructuring<typeof actions>,
+    TMapThunksToProps extends IThunksDestructuring<typeof thunks>
 >(
-    mapActionsToProps: IExactlyActionsDestructuring<TMapActionsToProps, Actions>,
-    mapThunksToProps: IExactlyThunksDestructuring<TMapThunksToProps, Thunks>,
+    mapActionsToProps: Contained<TMapActionsToProps, typeof actions>,
+    mapThunksToProps: Contained<TMapThunksToProps, typeof thunks>,
 ): TMapActionsToProps & TMapThunksToProps {
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
