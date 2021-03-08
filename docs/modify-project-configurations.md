@@ -17,12 +17,6 @@ In this configuration file, this configuration about how electron-builder packs 
 
 <!-- TODO -->
 
-## .eslintrc.js
-
-In this configuration file, this configuration about how eslint lints this application's code.
-
-<!-- TODO -->
-
 ## jest.config.js
 
 In this configuration file, there is a jest's configuration.

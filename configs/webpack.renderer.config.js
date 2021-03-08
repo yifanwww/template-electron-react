@@ -37,11 +37,6 @@ function OverrideWebpackConfigs(webpack, env) {
 
     webpack.resolve.alias = BaseWebpack.alias;
 
-    // 4. Use custom eslint rc.
-    // TODO: It seems now `react-scripts` will detect if `.eslintrc.js` exists or not.
-
-    // WriteConfigs([webpack.plugins[8], webpack.plugins[9]], 'webpack.json');
-
     // Finish.
 
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' }).wrap(webpack) : webpack;
