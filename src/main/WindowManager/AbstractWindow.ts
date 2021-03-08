@@ -30,10 +30,6 @@ export abstract class AbstractWindow {
         this.windowId = option.windowId;
         this.windowType = option.windowType;
 
-        // NOTE:
-        // In electron 12 or higher-version electron:
-        // - `contextIsolation` will be true by default, and considering about security we should not set it false.
-        // - `nodeIntegration` option will be deleted.
         this.window = new BrowserWindow({
             width: option.width === undefined ? 1280 : option.width,
             height: option.height === undefined ? 720 : option.height,
