@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
 import logo from './logo.svg';
-import scss from './App.module.css';
+import scss from './App.module.scss';
 
 export function App(): ReactElement {
     return (
