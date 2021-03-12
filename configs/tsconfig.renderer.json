@@ -24,7 +24,8 @@
   },
   "extends": "./tsconfig.base.json",
   "include": [
-    "../src",
-    "../src/shared"
+    "../src/renderer",
+    "../src/shared",
+    "../src/react-app-env.d.ts"
   ]
 }
