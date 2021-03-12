@@ -1,7 +1,5 @@
 {
     "compilerOptions": {
-        "baseUrl": "..",
-        "noEmit": false,
         "outDir": "../build"
     },
     "extends": "./tsconfig.base.json",
