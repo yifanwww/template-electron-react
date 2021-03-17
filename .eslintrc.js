@@ -6,36 +6,49 @@ module.exports = {
         jest: true,
         node: true,
     },
-    extends: ['airbnb-typescript/base'],
+    extends: ['airbnb-typescript/base', 'prettier', 'prettier/prettier'],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs', '*.d.ts'],
     parserOptions: {
         project: 'tsconfig.json',
     },
     plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
     rules: {
-        'arrow-body-style': 'off', // Disabled for prettier
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
-        'function-paren-newline': 'off', // Disabled for prettier
+        // Disables this rule and use prettier instead
+        'function-paren-newline': 'off',
         'guard-for-in': 'off',
         'implicit-arrow-linebreak': 'off',
-        'max-len': ['error', { code: 120 }],
+        // https://github.com/prettier/eslint-config-prettier/#max-len
+        // This rule is needed but disabled by eslint-config-prettier
+        'max-len': ['error', { code: 120, ignoreUrls: true }],
         'no-continue': 'off',
         'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
         'no-else-return': 'off',
         'no-param-reassign': 'off',
         'no-plusplus': 'off',
         'no-restricted-syntax': 'off',
-        'no-undef': 'off', // Disabled for JSX.Element
-        'no-underscore-dangle': 'off', // Disabled for leading-underscore options of '@typescript-eslint/naming-convention'
-        'object-curly-newline': 'off', // Disabled for prettier
-        'operator-linebreak': 'off', // Disabled for prettier
-        'prefer-arrow-callback': 'off', // For React.memo, using function is more convenient to debug with react devtools
+        // https://github.com/prettier/eslint-config-prettier/#no-tabs
+        // This rule is needed but disabled by eslint-config-prettier
+        'no-tabs': 'error',
+        // Disabled for leading-underscore options of '@typescript-eslint/naming-convention'
+        'no-underscore-dangle': 'off',
+        // https://github.com/prettier/eslint-config-prettier/#no-unexpected-multiline
+        // This rule is needed but disabled by eslint-config-prettier
+        'no-unexpected-multiline': 'error',
+        // Disables this rule and use prettier instead
+        'object-curly-newline': 'off',
+        // Disables this rule and use prettier instead
+        'operator-linebreak': 'off',
+        // https://github.com/prettier/eslint-config-prettier/#quotes
+        // This rule is needed but disabled by eslint-config-prettier
+        quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
 
-        '@typescript-eslint/brace-style': 'off', // Disabled for better comments
+        // Disabled for better comments
+        '@typescript-eslint/brace-style': 'off',
         '@typescript-eslint/comma-dangle': 'off',
-        // According to https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
-        // Disable the next rule and use prettier instead.
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
+        // Disables this rule and use prettier instead
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
         '@typescript-eslint/naming-convention': [
@@ -65,16 +78,23 @@ module.exports = {
             },
         ],
 
-        'import/extensions': 'off', // Seems not working for tsx extension
+        // Seems not working for tsx extension
+        'import/extensions': 'off',
         // 'import/extensions': [
         //     'error',
         //     'always',
         //     { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' },
         // ],
-        'import/no-extraneous-dependencies': 'off', // Disabled for import-statement of 'electron'
+        // Disabled for import-statement of 'electron'
+        'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
 
-        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-        'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+        // Enables prettier rules
+        'prettier/prettier': 'error',
+
+        // Checks rules of Hooks
+        'react-hooks/rules-of-hooks': 'error',
+        // Checks effect dependencies
+        'react-hooks/exhaustive-deps': 'warn',
     },
 };
