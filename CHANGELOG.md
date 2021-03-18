@@ -1,5 +1,53 @@
 # CHANGELOG
 
+## [v0.3.0] template-electron-cra [Unreleased]
+### Features
+
+- Compilation
+    - Add new NPM script `build-profile` to enable profiling in production build
+
+- React
+    - Set environment variable `INLINE_RUNTIME_CHUNK` as `false` to disable the runtime chunk inlining
+    - Set environment variable `PUBLIC_URL` as `./` to avoid react loading the `homepage` value of package.json while compiling
+
+- Redux
+    - Add `configureGlobalStore` util function to help creating a global store
+
+- Eslint
+    - Add `eslint-plugin-node` into eslint configs
+    - Set `root` to `true`
+
+- Add css id `ThemeProvider` for fluentui's ThemeProvider
+- Add `Contain` and `Contained` type util definitions
+- Use SCSS instead of fluentui css-in-js to apply CSS styles
+
+### Changes
+
+- Git
+    - Update .gitattributes
+
+- Compilation
+    - Refactor base webpack configs
+    - Stop hacking eslint configs in renderer webpack configs
+    - Update typescript configs
+
+### Breaking Changes
+
+- Use npm instead of yarn to manage repository
+
+### Dependencies
+
+- New
+    - Add 'eslint-config-prettier' v8.1.0
+    - Add 'prettier' v2.2.1
+    - Add 'sass' v1.32.8
+    - Add 'typed-css-modules' v0.6.5
+- Upgrade
+    - Update '@fluentui/react' from v8.0.0-beta.49 to v8.1.0
+    - Update '@types/node' from v12.19.9 to v14.14.32
+    - Update 'electron' from v11.2.1 to v12.0.0
+    - Update 'react-scripts' from v4.0.1 to v4.0.3
+
 ## [v0.2.0] template-electron-cra [2021-02-19]
 ### Features
 
