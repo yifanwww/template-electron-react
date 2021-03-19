@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [v0.3.0] template-electron-cra [Unreleased]
+## [v0.3.0] template-electron-cra (Unreleased)
 ### Features
 
 - Compilation
@@ -48,7 +48,7 @@
     - Update 'electron' from v11.2.1 to v12.0.0
     - Update 'react-scripts' from v4.0.1 to v4.0.3
 
-## [v0.2.0] template-electron-cra [2021-02-19]
+## [v0.2.0] template-electron-cra (2021-02-19)
 ### Features
 
 - Compilation
@@ -153,7 +153,7 @@
     - typescript: ^4.1.3
     - webpack-cli: ^3.3.12
 
-## [v0.1.0-fluentui] template-electron-cra [2020-12-30]
+## [v0.1.0-fluentui] template-electron-cra (2020-12-30)
 ### Main Info of Environment
 
 - create-react-app@4.0.1
@@ -182,7 +182,7 @@
     - IReducer, IMapActionsToProps and IMapThunkToProps
     - type definitions for fluentui props and fluentui styles
 
-## [v0.1.0] template-electron-cra [2020-12-30]
+## [v0.1.0] template-electron-cra (2020-12-30)
 ### Main Info of Environment
 
 - create-react-app@4.0.1
