@@ -9,7 +9,7 @@ You can create your own project by importing this template project.
 
 It's recommanded for you to use `Visual Studio Code` to develop your electron application.
 
-After you creating your own project, you need to rename the `template-electron-create-react-app.code-workspace` file to `<YouProjectName>.code-workspace`, and then use vscode to open it.
+After you creating your own project, you need to rename the `template-electron-cra.code-workspace` file to `<YouProjectName>.code-workspace`, and then use vscode to open it.
 
 The vscode project configurations need to be set in `.vscode/settings.json`. I have provided a very simple `settings~.json`, you can copy and edit it.
 For git, the `settings.json` file is ignored but the `settings~.json` file is not. For you can set some personal project settings which are probobly not suit for other developers. You should edit the `settings~.json` file and inform others, if you have changed some communal project settings.
