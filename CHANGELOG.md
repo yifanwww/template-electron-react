@@ -34,6 +34,7 @@
 ### Breaking Changes
 
 - Use npm instead of yarn to manage repository
+- Change user name from 'YSoftwareTech' to 'YSoftwareRepo'
 
 ### Dependencies
 
@@ -43,10 +44,30 @@
     - Add 'sass' v1.32.8
     - Add 'typed-css-modules' v0.6.5
 - Upgrade
-    - Update '@fluentui/react' from v8.0.0-beta.49 to v8.1.0
+    - Update '@fluentui/react' from v8.0.0-beta.49 to v8.8.0
+    - Update '@types/jest' from v24.0.0 to v26.0.21
     - Update '@types/node' from v12.19.9 to v14.14.32
+    - Update '@types/react' from v17.0.0 to v17.0.3
+    - Update '@types/react-dom' from v17.0.0 to v17.0.3
+    - Update '@types/react-redux' from v7.1.15 to v7.1.16
+    - Update '@typescript-eslint/eslint-plugin' from v4.14.1 to v4.19.0
+    - Update 'concurrently' from v5.3.0 to v6.0.0
     - Update 'electron' from v11.2.1 to v12.0.0
+    - Update 'electron-builder' from v22.9.1 to v22.10.5
+    - Update 'eslint-plugin-jest' from v24.1.3 to v24.3.2
+    - Update 'eslint-plugin-prettier' from v3.3.0 to v3.3.1
+    - Update 'eslint-plugin-react' from v7.21.5 to v7.23.1
+    - Update 'immer' from v8.0.0 to v9.0.1
+    - Update 'react' from v17.0.1 to v17.0.2
+    - Update 'react-app-rewired' from v2.1.6 to v2.1.8
+    - Update 'react-dom' from v17.0.1 to v17.0.2
+    - Update 'react-redux' from v7.2.2 to v7.2.3
     - Update 'react-scripts' from v4.0.1 to v4.0.3
+    - Update 'speed-measure-webpack-plugin' from v1.3.3 to v1.4.2
+    - Update 'ts-jest' from v26.1.3 to v26.5.4
+    - Update 'ts-loader' from v8.0.1 to v8.0.18
+    - Update 'typescript' from v4.1.5 to v4.2.3
+    - Update 'webpack-cli' from v3.3.12 to v4.5.0
 
 ## [v0.2.0] template-electron-cra (2021-02-19)
 ### Features
