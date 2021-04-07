@@ -3,8 +3,8 @@ import { BrowserWindow, IpcMainEvent } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
 import { IpcMListener } from '#shared/IpcTypes';
+import { windowIpc } from '#MUtils/Ipc';
 
-import { windowIpc } from '../Ipc';
 import { CloseWindowOption, CreateWindowOption } from './Window.types';
 
 export interface WindowOption {
