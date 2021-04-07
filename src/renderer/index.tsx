@@ -6,7 +6,7 @@ import { WindowType } from '#shared/WindowType';
 import { windowIpc } from '#RUtils/Ipc';
 import { fluentuiTheme } from '#RUtils/Theme';
 
-import { MainClientArea } from './Main';
+import { MainClientArea } from './MainWindow';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
