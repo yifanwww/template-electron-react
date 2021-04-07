@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import { AbstractClientArea, ClientAreaSize } from '#RUtils/ClientArea';
 
-import { mainActions, mainStore } from './redux';
+import { mainActions, mainStore } from './Redux';
 import { App } from './App';
 
 export class MainClientArea extends AbstractClientArea {
