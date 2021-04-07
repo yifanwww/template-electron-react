@@ -111,20 +111,29 @@ async function main() {
     const configFile = '.git/config';
 
     const customConfigs = {
-        pull: { ff: 'only' },
+        core: {
+            ignorecase: 'false',
+        },
+        pull: {
+            ff: 'only',
+        },
     };
     // prettier-ignore
     const infos = 
-`- Set pull.ff to 'only'
-  When you try to execute 'git pull', if git finds out that it cannot do 'merge' in fast-forward
-  mode after 'fetch', git will abort 'pull'.
-  You need to use 'git rebase' manually to move your local changes to the top of the remote changes.
-  Or you can use 'git merge', but not recommended.
-`;
+`
+- Set core.ignorecase to 'false'
+  If a filename's case is changed, git will track it.
+
+- Set pull.ff to 'only'
+  When you try to execute 'git pull', if git finds out that it cannot do
+  'merge' in fast-forward mode after 'fetch', git will abort 'pull'.
+  You need to use 'git rebase' manually to move your local changes to the top
+  of the remote changes. Or you can use 'git merge', but not recommended.
+`.trim();
 
     const originalContent = await getConfigContent(configFile);
     const configs = analyzeConfigs(originalContent);
-    const mergedConfigs = _lodash.merge({ ...configs }, customConfigs);
+    const mergedConfigs = _lodash.merge({}, configs, customConfigs);
 
     if (JSON.stringify(configs) === JSON.stringify(mergedConfigs)) {
         console.info(_chalk.grey("No need to change '.git/config'"));
@@ -132,10 +141,10 @@ async function main() {
         const newContent = convertConfigsToString(mergedConfigs);
 
         console.info(_chalk.blue("Update '.git/config' to add or change some configs."));
-        console.info('--- original local git config ---');
-        console.info(_chalk.blackBright(originalContent));
-        console.info('--- new local git config ---');
-        console.info(_chalk.blackBright(newContent));
+        console.info(_chalk.yellow('--- original local git config ---'));
+        console.info(originalContent);
+        console.info(_chalk.yellow('--- new local git config ---'));
+        console.info(newContent);
         console.info(_chalk.yellow('--- the reason why git configs will be changed ---'));
         console.info(infos);
 
