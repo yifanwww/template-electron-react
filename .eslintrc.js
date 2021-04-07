@@ -22,6 +22,8 @@ module.exports = {
         // https://github.com/prettier/eslint-config-prettier/#max-len
         // This rule is needed but disabled by eslint-config-prettier
         'max-len': ['error', { code: 120, ignoreUrls: true }],
+        // Allows bitwise operators, but be CAREFUL for not using them in most case.
+        'no-bitwise': 'off',
         'no-continue': 'off',
         'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
         'no-else-return': 'off',
