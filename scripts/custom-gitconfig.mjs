@@ -111,9 +111,6 @@ async function main() {
     const configFile = '.git/config';
 
     const customConfigs = {
-        core: {
-            ignorecase: 'false',
-        },
         pull: {
             ff: 'only',
         },
@@ -121,9 +118,6 @@ async function main() {
     // prettier-ignore
     const infos = 
 `
-- Set core.ignorecase to 'false'
-  If a filename's case is changed, git will track it.
-
 - Set pull.ff to 'only'
   When you try to execute 'git pull', if git finds out that it cannot do
   'merge' in fast-forward mode after 'fetch', git will abort 'pull'.
