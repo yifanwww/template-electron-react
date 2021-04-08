@@ -24,9 +24,13 @@ export function mapMainDispatchToProps<
     return { ...mapActionsToProps, ...mapThunksToProps };
 }
 
-export const { useReduxDispatch: useMainDispatch, useReduxSelector: useMainSelector } = ReduxHooksFactory<
-    typeof actions,
-    typeof thunks,
-    StoreState,
-    GlobalStoreState
->(actions, thunks, globalStore.getGlobalState);
+export const {
+    useReduxSelector: useMainSelector,
+    useReduxActionsDispatch: useMainActionsDispatch,
+    useReduxThunksDispatch: useMainThunksDispatch,
+    useReduxDispatch: useMainDispatch,
+} = ReduxHooksFactory<typeof actions, typeof thunks, StoreState, GlobalStoreState>(
+    actions,
+    thunks,
+    globalStore.getGlobalState,
+);
