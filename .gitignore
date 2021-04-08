@@ -2,6 +2,12 @@
 
 /.vscode/settings.json
 
+# Source
+
+/src/**/*.cjs
+/src/**/*.js
+/src/**/*.mjs
+
 # Dependencies
 
 /node_modules
