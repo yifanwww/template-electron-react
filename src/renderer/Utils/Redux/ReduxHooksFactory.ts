@@ -28,6 +28,8 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
         return useSelector((state: TStoreState) => selector(state, getGlobalState()), equalityFn);
     }
 
+    // FIXME: useReduxActionsDispatch fails to infer the parameters of each callback in actionsDestructuring.
+
     /**
      * An custom hook for functional containers.
      *
@@ -48,6 +50,8 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
             deps,
         );
     }
+
+    // FIXME: useReduxThunksDispatch fails to infer the parameters of each callback in thunksDestructuring.
 
     /**
      * An custom hook for functional containers.
