@@ -28,10 +28,6 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
         return useSelector((state: TStoreState) => selector(state, getGlobalState()), equalityFn);
     }
 
-    // FIXME: Typescript fails to infer the parameters of each callback in actionsDestructuring.
-    // Accroding to https://github.com/microsoft/TypeScript/issues/43605
-    // This is a bug in typescript, may be fixed at typescript@4.4.0.
-
     /**
      * An custom hook for functional containers.
      *
@@ -40,6 +36,10 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      *
      * You don't need to use `useDispatch` to get a dispatch, the dispatch will be passed as the first parameter.
      * Actions will be passed as the second parameter.
+     *
+     * FIXME: Typescript fails to infer the parameters of each callback in actionsDestructuring.
+     * Accroding to https://github.com/microsoft/TypeScript/issues/43605
+     * This is a bug in typescript, may be fixed at typescript@4.4.0.
      */
     function useReduxActionsDispatch<TActionsDestructuring extends IActionsDestructuring<TActions>>(
         actionsDestructuring: ActionsDestructuring<TActions, TActionsDestructuring>,
@@ -53,10 +53,6 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
         );
     }
 
-    // FIXME: Typesript fails to infer the parameters of each callback in thunksDestructuring.
-    // Accroding to https://github.com/microsoft/TypeScript/issues/43605
-    // This is a bug in typescript, may be fixed at typescript@4.4.0.
-
     /**
      * An custom hook for functional containers.
      *
@@ -65,6 +61,10 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      *
      * You don't need to use `useDispatch` to get a dispatch, the dispatch will be passed as the first parameter.
      * Thunks will be passed as the second parameter.
+     *
+     * FIXME: Typesript fails to infer the parameters of each callback in thunksDestructuring.
+     * Accroding to https://github.com/microsoft/TypeScript/issues/43605
+     * This is a bug in typescript, may be fixed at typescript@4.4.0.
      */
     function useReduxThunksDispatch<TThunksDestructuring extends IThunksDestructuring<TThunks>>(
         thunksDestructuring: ThunksDestructuring<TThunks, TThunksDestructuring>,
