@@ -18,7 +18,7 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
     /**
      * An custom hook for functional containers.
      *
-     * If you need to take some data from the global state, you could use this hook  instead of importing the global
+     * If you need to take some data from the global state, you could use this hook instead of importing the global
      * state, to write simpler code. The global state will be passed as the second parameter.
      */
     function useReduxSelector<TSelected = unknown>(
