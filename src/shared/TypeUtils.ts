@@ -39,3 +39,18 @@ export type Contain<T, U> = keyof U extends keyof T ? T : never;
  * The result of 'a' extends 'a' | 'b' is true, but the result of 'a' | 'b' extends 'a' is false.
  */
 export type Contained<T, U> = keyof T extends keyof U ? T : never;
+
+/**
+ * Generic type for Object.
+ */
+export type Object<T extends string | number = string | number, U = any> = { [key in T]: U };
+
+/**
+ * Generic type for Object, with value being string.
+ */
+export type ObjectStr<T extends string | number = string | number> = Object<T, string>;
+
+/**
+ * Generic type for Object, with value being number.
+ */
+export type ObjectNum<T extends string | number = string | number> = Object<T, number>;
