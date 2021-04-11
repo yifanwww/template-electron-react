@@ -1,0 +1,13 @@
+# Production
+
+/build
+/relase
+
+# Configurations
+
+/configs/tsconfig.renderer.json
+
+# Running and Testing
+
+/coverage
+/working

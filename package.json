@@ -48,7 +48,7 @@
         "lint": "eslint src",
         "prebuild": "node ./scripts/custom-gitconfig.mjs",
         "predev": "node ./scripts/custom-gitconfig.mjs",
-        "pretty": "npx prettier --write \"src/**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx}\"",
+        "pretty": "npx prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx}\"",
         "test": "jest --config configs/jest.config.js",
         "test:react": "react-app-rewired test"
     },
