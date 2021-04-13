@@ -6,7 +6,7 @@ import { IReducer } from '#RUtils/Redux';
 import { StoreState } from './types';
 
 const initialState: StoreState = {
-    clientAreaSize: { width: 1280, height: 720 },
+    clientAreaSize: { height: 720, width: 1280 },
 };
 
 // ------------------------------------------------------------------------------------------------------------ Reducers
