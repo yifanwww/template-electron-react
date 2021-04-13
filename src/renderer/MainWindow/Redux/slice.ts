@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-import { ClientAreaSize } from '#RUtils/ClientArea';
+import { IClientAreaSize } from '#RUtils/GlobalTypes';
 import { IReducer } from '#RUtils/Redux';
 
 import { StoreState } from './types';
@@ -13,7 +13,7 @@ const initialState: StoreState = {
 
 type Reducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
-const updateClientAreaSize: Reducer<ClientAreaSize> = (state, action) => {
+const updateClientAreaSize: Reducer<IClientAreaSize> = (state, action) => {
     state.clientAreaSize = action.payload;
 };
 

@@ -1,7 +1,7 @@
-import { ClientAreaSize } from '#RUtils/ClientArea';
+import { IClientAreaSize } from '#RUtils/GlobalTypes';
 
 export interface StoreState {
-    clientAreaSize: ClientAreaSize;
+    clientAreaSize: IClientAreaSize;
 }
 
 export interface GlobalStoreState {}

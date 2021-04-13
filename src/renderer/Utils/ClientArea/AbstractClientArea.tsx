@@ -1,6 +1,6 @@
 import { Component, UIEvent, UIEventHandler } from 'react';
 
-import { ClientAreaSize } from './ClientAreaSize';
+import { IClientAreaSize } from '#RUtils/GlobalTypes';
 
 export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S> {
     // ----------------------------------------------------------------------------------------------------------- React
@@ -37,10 +37,10 @@ export abstract class AbstractClientArea<P = {}, S = {}> extends Component<P, S>
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {}
+    protected onceClientAreaInitialized(clientAreaSize: IClientAreaSize): void {}
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    protected onWindowResized(event: UIEvent, clientAreaSize: ClientAreaSize): void {}
+    protected onWindowResized(event: UIEvent, clientAreaSize: IClientAreaSize): void {}
 
     private bOnceClientAreaInitialized = () =>
         this.onceClientAreaInitialized({ height: window.innerHeight, width: window.innerWidth });

@@ -3,7 +3,8 @@ import _path from 'path';
 import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
-import { AbstractClientArea, ClientAreaSize } from '#RUtils/ClientArea';
+import { AbstractClientArea } from '#RUtils/ClientArea';
+import { IClientAreaSize } from '#RUtils/GlobalTypes';
 
 import { mainActions, mainStore } from './Redux';
 import { App } from './App';
@@ -34,13 +35,13 @@ export class MainClientArea extends AbstractClientArea {
 
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
-    protected onceClientAreaInitialized(clientAreaSize: ClientAreaSize): void {
+    protected onceClientAreaInitialized(clientAreaSize: IClientAreaSize): void {
         mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize));
 
         console.log('clientarea-initialized.');
     }
 
-    protected onWindowResized(event: any, clientAreaSize: ClientAreaSize): void {
+    protected onWindowResized(event: any, clientAreaSize: IClientAreaSize): void {
         mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize));
 
         console.log('window-resized.');
