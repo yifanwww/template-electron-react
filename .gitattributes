@@ -46,6 +46,7 @@
 
 .clang-format               text eol=lf
 .editorconfig               text eol=lf
+.env                        text eol=lf
 .gitattributes              text eol=lf
 .gitmodules                 text eol=lf
 .gitignore                  text eol=lf
