@@ -1,5 +1,39 @@
 # CHANGELOG
 
+## [v0.4.0] template-electron-cra (Unreleased)
+### Features
+
+- NPM
+    - Add npm script `pretty` to use prettier to format all code
+
+- Redux
+    - Add `useReduxActionsDispatch` and `useReduxThunksDispatch` hooks
+
+- Types
+    - Add new types utils `Object`, `ObjectStr` and `ObjectNum`
+
+### Changes
+
+- Git
+    - Ignore *.cjs, *.js and *.mjs in src
+
+- Compilation
+    - Disable `eslint-webpack-plugin` completely
+
+- Eslint
+    - Disable `no-bitwise` rule
+    - Disable `no-constant-condition` rule
+
+### Breaking Changes
+
+- Move `ColorTransformer`, `npm2px` and `npm2pt` into `#RUtils/Theme`
+- Move `WindowIpc` into `#MUtils/Ipc`
+- Rename `src/renderer/Main` to `src/renderer/MainWindow`
+- Rename `src/renderer/MainWindow/redux` to `src/renderer/MainWindow/Redux`
+- Delete interface `ClientAreaSize`, add interfaces `IClientAreaSize` and `IElementSize` in `src/renderer/Utils/GlobalTypes.ts`
+
+### Dependencies
+
 ## [v0.3.0] template-electron-cra (2021-04-06)
 ### Features
 
