@@ -1,34 +1,22 @@
-import { ReactElement } from 'react';
+import { ReactElement, useCallback } from 'react';
 import { Provider } from 'react-redux';
 
-import { AbstractClientArea } from '#RUtils/ClientArea';
-import { IClientAreaSize } from '#RUtils/GlobalTypes';
+import { ClientAreaSizeProvider, IClientAreaSizeProviderProps } from '#RUtils/ClientArea';
 
 import { mainActions, mainStore } from './Redux';
 import { RootLayout } from './Containers/RootLayout';
 
-export class MainClientArea extends AbstractClientArea {
-    // -------------------------------------------------------------------------------------------------- ReactLifeCycle
+export function MainClientArea(): ReactElement {
+    const onClientAreaSizeChange = useCallback<NonNullable<IClientAreaSizeProviderProps['onClientAreaSizeChange']>>(
+        (clientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize)),
+        [],
+    );
 
-    public render(): ReactElement {
-        return (
-            <Provider store={mainStore}>
+    return (
+        <Provider store={mainStore}>
+            <ClientAreaSizeProvider onClientAreaSizeChange={onClientAreaSizeChange}>
                 <RootLayout />
-            </Provider>
-        );
-    }
-
-    // ------------------------------------------------------------------------------------------------- Window Handlers
-
-    protected onceClientAreaInitialized(clientAreaSize: IClientAreaSize): void {
-        mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize));
-
-        console.log('clientarea-initialized.');
-    }
-
-    protected onWindowResized(event: any, clientAreaSize: IClientAreaSize): void {
-        mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize));
-
-        console.log('window-resized.');
-    }
+            </ClientAreaSizeProvider>
+        </Provider>
+    );
 }

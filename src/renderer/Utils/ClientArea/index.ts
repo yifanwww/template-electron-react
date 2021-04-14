@@ -1,1 +1,1 @@
-export * from './AbstractClientArea';
+export * from './ClientAreaSizeProvider';
