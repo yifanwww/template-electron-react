@@ -1,5 +1,3 @@
-import _fs from 'fs';
-import _path from 'path';
 import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
@@ -7,7 +5,7 @@ import { AbstractClientArea } from '#RUtils/ClientArea';
 import { IClientAreaSize } from '#RUtils/GlobalTypes';
 
 import { mainActions, mainStore } from './Redux';
-import { App } from './App';
+import { RootLayout } from './Containers/RootLayout';
 
 export class MainClientArea extends AbstractClientArea {
     // -------------------------------------------------------------------------------------------------- ReactLifeCycle
@@ -15,22 +13,9 @@ export class MainClientArea extends AbstractClientArea {
     public render(): ReactElement {
         return (
             <Provider store={mainStore}>
-                <App />
+                <RootLayout />
             </Provider>
         );
-    }
-
-    public componentDidMount() {
-        // Please delete these code in your own application.
-
-        super.componentDidMount();
-
-        const cwd = process.cwd();
-        console.log(cwd);
-        _fs.promises
-            .readdir(_path.join(cwd, '..'))
-            .then((res) => console.log(res))
-            .catch(() => undefined);
     }
 
     // ------------------------------------------------------------------------------------------------- Window Handlers
