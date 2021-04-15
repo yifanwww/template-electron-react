@@ -1,6 +1,8 @@
-import { ReactElement, ReactNode, useCallback, useEffect } from 'react';
+import { ReactElement, ReactNode, useCallback, useEffect, useRef } from 'react';
 
 import { IClientAreaSize } from '#RUtils/GlobalTypes';
+
+import './ClientAreaSizeProvider.css';
 
 export interface IClientAreaSizeProviderProps {
     children: ReactNode;
@@ -10,8 +12,10 @@ export interface IClientAreaSizeProviderProps {
 export function ClientAreaSizeProvider(props: Readonly<IClientAreaSizeProviderProps>): ReactElement {
     const { children, onClientAreaSizeChange } = props;
 
+    const ref = useRef<HTMLDivElement>(null);
+
     const _onClientAreaSizeChange = useCallback(
-        () => onClientAreaSizeChange({ height: window.innerHeight, width: window.innerWidth }),
+        () => onClientAreaSizeChange({ height: ref.current!.clientHeight, width: ref.current!.clientWidth }),
         [onClientAreaSizeChange],
     );
 
@@ -25,7 +29,9 @@ export function ClientAreaSizeProvider(props: Readonly<IClientAreaSizeProviderPr
         };
     }, [_onClientAreaSizeChange]);
 
-    // TODO: Track the size of div.
-
-    return <div>{children}</div>;
+    return (
+        <div id="ClientAreaSizeProvider" ref={ref}>
+            {children}
+        </div>
+    );
 }
