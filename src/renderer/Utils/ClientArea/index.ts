@@ -1,1 +1,1 @@
-export * from './ClientAreaSizeProvider';
+export * from './ClientAreaProvider';

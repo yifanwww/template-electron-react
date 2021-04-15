@@ -2,20 +2,20 @@ import { ReactElement, ReactNode, useCallback, useEffect, useRef } from 'react';
 
 import { IClientAreaSize } from '#RUtils/GlobalTypes';
 
-import './ClientAreaSizeProvider.css';
+import './ClientAreaProvider.css';
 
-export interface IClientAreaSizeProviderProps {
-    children: ReactNode;
-    onClientAreaSizeChange: (clientAreaSize: IClientAreaSize) => void;
+export interface IClientAreaProviderProps {
+    children?: ReactNode;
+    onClientAreaSizeChange?: (clientAreaSize: IClientAreaSize) => void;
 }
 
-export function ClientAreaSizeProvider(props: Readonly<IClientAreaSizeProviderProps>): ReactElement {
+export function ClientAreaProvider(props: Readonly<IClientAreaProviderProps>): ReactElement {
     const { children, onClientAreaSizeChange } = props;
 
     const ref = useRef<HTMLDivElement>(null);
 
     const _onClientAreaSizeChange = useCallback(
-        () => onClientAreaSizeChange({ height: ref.current!.clientHeight, width: ref.current!.clientWidth }),
+        () => onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth }),
         [onClientAreaSizeChange],
     );
 
@@ -30,7 +30,7 @@ export function ClientAreaSizeProvider(props: Readonly<IClientAreaSizeProviderPr
     }, [_onClientAreaSizeChange]);
 
     return (
-        <div id="ClientAreaSizeProvider" ref={ref}>
+        <div id="ClientAreaProvider" ref={ref}>
             {children}
         </div>
     );
