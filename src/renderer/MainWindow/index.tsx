@@ -13,12 +13,12 @@ export function MainClientArea(): ReactElement {
     );
 
     return (
-        <Provider store={mainStore}>
-            <FramelessWindow>
-                <TitleBar onClientAreaSizeChange={onClientAreaSizeChange}>
+        <FramelessWindow>
+            <TitleBar onClientAreaSizeChange={onClientAreaSizeChange}>
+                <Provider store={mainStore}>
                     <ClientArea />
-                </TitleBar>
-            </FramelessWindow>
-        </Provider>
+                </Provider>
+            </TitleBar>
+        </FramelessWindow>
     );
 }
