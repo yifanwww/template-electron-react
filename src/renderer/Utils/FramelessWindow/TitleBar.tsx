@@ -2,14 +2,14 @@ import { ReactElement, ReactNode, useCallback, useEffect, useRef } from 'react';
 
 import { IClientAreaSize } from '#RUtils/GlobalTypes';
 
-import './ClientAreaProvider.css';
+import scss from './TitleBar.module.scss';
 
-export interface IClientAreaProviderProps {
+export interface ITitleBarProps {
     children?: ReactNode;
     onClientAreaSizeChange?: (clientAreaSize: IClientAreaSize) => void;
 }
 
-export function ClientAreaProvider(props: Readonly<IClientAreaProviderProps>): ReactElement {
+export function TitleBar(props: Readonly<ITitleBarProps>): ReactElement {
     const { children, onClientAreaSizeChange } = props;
 
     const ref = useRef<HTMLDivElement>(null);
@@ -30,7 +30,7 @@ export function ClientAreaProvider(props: Readonly<IClientAreaProviderProps>): R
     }, [_onClientAreaSizeChange]);
 
     return (
-        <div id="ClientAreaProvider" ref={ref}>
+        <div id={scss.Root} ref={ref}>
             {children}
         </div>
     );

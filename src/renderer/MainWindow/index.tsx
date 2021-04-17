@@ -1,22 +1,24 @@
 import { ReactElement, useCallback } from 'react';
 import { Provider } from 'react-redux';
 
-import { ClientAreaProvider, IClientAreaProviderProps } from '#RUtils/ClientArea';
+import { FramelessWindow, ITitleBarProps, TitleBar } from '#RUtils/FramelessWindow';
 
 import { mainActions, mainStore } from './Redux';
-import { RootLayout } from './Containers/RootLayout';
+import { ClientArea } from './Containers/ClientArea';
 
 export function MainClientArea(): ReactElement {
-    const onClientAreaSizeChange = useCallback<NonNullable<IClientAreaProviderProps['onClientAreaSizeChange']>>(
+    const onClientAreaSizeChange = useCallback<NonNullable<ITitleBarProps['onClientAreaSizeChange']>>(
         (clientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize)),
         [],
     );
 
     return (
         <Provider store={mainStore}>
-            <ClientAreaProvider onClientAreaSizeChange={onClientAreaSizeChange}>
-                <RootLayout />
-            </ClientAreaProvider>
+            <FramelessWindow>
+                <TitleBar onClientAreaSizeChange={onClientAreaSizeChange}>
+                    <ClientArea />
+                </TitleBar>
+            </FramelessWindow>
         </Provider>
     );
 }
