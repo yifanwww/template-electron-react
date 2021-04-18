@@ -6,18 +6,18 @@ import { WindowType } from '#shared/WindowType';
 import { windowIpc } from '#RUtils/Ipc';
 import { fluentuiTheme } from '#RUtils/Theme';
 
-import { MainClientArea } from './MainWindow';
+import { MainWindow } from './MainWindow';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-function CreateClientArea(): ReactElement {
+function WindowSwitch(): ReactElement {
     const windowType: WindowType = windowIpc.getWindowType();
 
     // eslint-disable-next-line default-case
     switch (windowType) {
         case 'main':
-            return <MainClientArea />;
+            return <MainWindow />;
     }
 }
 
@@ -26,7 +26,7 @@ initializeIcons();
 ReactDOM.render(
     <StrictMode>
         <ThemeProvider id="ThemeProvider" theme={fluentuiTheme}>
-            <CreateClientArea />
+            <WindowSwitch />
         </ThemeProvider>
     </StrictMode>,
     document.getElementById('root'),

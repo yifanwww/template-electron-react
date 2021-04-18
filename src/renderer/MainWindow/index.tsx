@@ -6,7 +6,7 @@ import { FramelessWindow, ITitleBarProps, TitleBar } from '#RUtils/FramelessWind
 import { mainActions, mainStore } from './Redux';
 import { ClientArea } from './Containers/ClientArea';
 
-export function MainClientArea(): ReactElement {
+export function MainWindow(): ReactElement {
     const onClientAreaSizeChange = useCallback<NonNullable<ITitleBarProps['onClientAreaSizeChange']>>(
         (clientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(clientAreaSize)),
         [],
