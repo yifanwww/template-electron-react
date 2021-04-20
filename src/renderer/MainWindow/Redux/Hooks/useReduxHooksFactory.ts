@@ -7,9 +7,8 @@ import { thunks } from '../thunk';
 
 export const {
     useReduxSelector: useMainSelector,
-    useReduxActionsDispatch: useMainActionsDispatch,
-    useReduxThunksDispatch: useMainThunksDispatch,
-    useReduxDispatch: useMainDispatch,
+    useReduxDispatchedActions: useMainDispatchedActions,
+    useReduxDispatchedThunks: useMainDispatchedThunks,
 } = ReduxHooksFactory<typeof actions, typeof thunks, StoreState, GlobalStoreState>(
     actions,
     thunks,

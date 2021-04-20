@@ -1,14 +1,7 @@
-import { DependencyList, useMemo } from 'react';
+import { useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
-import {
-    ActionsDestructuring,
-    IActions,
-    IActionsDestructuring,
-    IThunks,
-    IThunksDestructuring,
-    ThunksDestructuring,
-} from './IDestructuring';
+import { IActions, IDispatchedActions, IDispatchedThunks, IThunks } from './IDispatched';
 
 export function ReduxHooksFactory<TActions extends IActions, TThunks extends IThunks, TStoreState, TGlobalState>(
     actions: TActions,
@@ -31,86 +24,44 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
     /**
      * An custom hook for functional containers.
      *
-     * You can use this hook to write simpler code to get the action functions. This hook uses `useMemo` to avoid
-     * changing the action functions while rerendering the containers.
-     *
-     * You don't need to use `useDispatch` to get a dispatch, the dispatch will be passed as the first parameter.
-     * Actions will be passed as the second parameter.
-     *
-     * FIXME: Typescript fails to infer the parameters of each callback in actionsDestructuring.
-     * Accroding to https://github.com/microsoft/TypeScript/issues/43605
-     * This is a bug in typescript, may be fixed at typescript@4.4.0.
+     * This hook returns functions which will dispatch the certain actions automatically. You can use this hook to write
+     * simpler code rather than use `useDispatch`.
      */
-    function useReduxActionsDispatch<TActionsDestructuring extends IActionsDestructuring<TActions>>(
-        actionsDestructuring: ActionsDestructuring<TActions, TActionsDestructuring>,
-        deps: DependencyList | undefined = [],
-    ): TActionsDestructuring {
+    function useReduxDispatchedActions(): IDispatchedActions<TActions> {
         const dispatch = useDispatch();
-        return useMemo(
-            () => ({ ...actionsDestructuring(dispatch, actions) }),
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            deps,
-        );
+        return useMemo(() => {
+            const dispatchedActions: Partial<IDispatchedActions<TActions>> = {};
+
+            for (const actionName in actions) {
+                (dispatchedActions[actionName] as any) = (payload: any) => dispatch(actions[actionName](payload));
+            }
+
+            return dispatchedActions as IDispatchedActions<TActions>;
+        }, [dispatch]);
     }
 
     /**
      * An custom hook for functional containers.
      *
-     * You can use this hook to write simpler code to get the thunk functions. This hook uses `useMemo` to avoid
-     * changing the thunk functions while rerendering the containers.
-     *
-     * You don't need to use `useDispatch` to get a dispatch, the dispatch will be passed as the first parameter.
-     * Thunks will be passed as the second parameter.
-     *
-     * FIXME: Typesript fails to infer the parameters of each callback in thunksDestructuring.
-     * Accroding to https://github.com/microsoft/TypeScript/issues/43605
-     * This is a bug in typescript, may be fixed at typescript@4.4.0.
+     * This hook returns functions which will dispatch the certain thunks automatically. You can use this hook to write
+     * simpler code rather than use `useDispatch`.
      */
-    function useReduxThunksDispatch<TThunksDestructuring extends IThunksDestructuring<TThunks>>(
-        thunksDestructuring: ThunksDestructuring<TThunks, TThunksDestructuring>,
-        deps: DependencyList | undefined = [],
-    ): TThunksDestructuring {
+    function useReduxDispatchedThunks(): IDispatchedThunks<TThunks> {
         const dispatch = useDispatch();
-        return useMemo(
-            () => ({ ...thunksDestructuring(dispatch, thunks) }),
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            deps,
-        );
-    }
+        return useMemo(() => {
+            const dispatchedThunks: Partial<IDispatchedThunks<TThunks>> = {};
 
-    /**
-     * An custom hook for functional containers.
-     *
-     * If you need to get both the action functions and thunk functions, you can use this hook instead of using both
-     * `useReduxActionsDispatch` and `useReduxThunksDispatch` hooks. This hook uses `useMemo` to avoid changing the
-     * action functions and thunk functions while rerendering the containers.
-     *
-     * You don't need to use `useDispatch` to get a dispatch, the dispatch will be passed as the first parameter.
-     * Actions and thunks will be passed as the second parameter.
-     */
-    function useReduxDispatch<
-        TActionsDestructuring extends IActionsDestructuring<TActions>,
-        TThunksDestructuring extends IThunksDestructuring<TThunks>
-    >(
-        actionsDestructuring: ActionsDestructuring<TActions, TActionsDestructuring>,
-        thunksDestructuring: ThunksDestructuring<TThunks, TThunksDestructuring>,
-        deps: DependencyList | undefined = [],
-    ): TActionsDestructuring & TThunksDestructuring {
-        const dispatch = useDispatch();
-        return useMemo(
-            () => ({
-                ...actionsDestructuring(dispatch, actions),
-                ...thunksDestructuring(dispatch, thunks),
-            }),
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            deps,
-        );
+            for (const thunkName in thunks) {
+                dispatchedThunks[thunkName] = (...args: any[]) => dispatch(thunks[thunkName](...args));
+            }
+
+            return dispatchedThunks as IDispatchedThunks<TThunks>;
+        }, [dispatch]);
     }
 
     return {
         useReduxSelector,
-        useReduxActionsDispatch,
-        useReduxThunksDispatch,
-        useReduxDispatch,
+        useReduxDispatchedActions,
+        useReduxDispatchedThunks,
     };
 }
