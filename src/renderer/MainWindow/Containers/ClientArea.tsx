@@ -1,13 +1,13 @@
-import { ReactElement } from 'react';
+import { memo } from 'react';
 
 import { InfoDisplay } from '../Components';
 
-import scss from './RootLayout.module.scss';
+import scss from './ClientArea.module.scss';
 
-export function RootLayout(): ReactElement {
+export const ClientArea = memo(function ClientArea() {
     return (
         <div className={scss.Layout}>
             <InfoDisplay />
         </div>
     );
-}
+});
