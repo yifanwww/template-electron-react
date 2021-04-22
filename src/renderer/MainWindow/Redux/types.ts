@@ -9,6 +9,7 @@ export interface StoreState {
 
 export interface GlobalStoreState {}
 
-export type Reducer<Payload = undefined> = IReducer<StoreState, Payload>;
+export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
-export type Thunk<ReturnType = void> = ThunkAction<ReturnType, StoreState, unknown, Action<string>>;
+export type MainThunk<ReturnType = void> = ThunkAction<ReturnType, StoreState, unknown, Action<string>>;
+export type MainPromiseThunk<ReturnType = void> = ThunkAction<Promise<ReturnType>, StoreState, unknown, Action<string>>;
