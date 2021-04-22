@@ -1,6 +1,6 @@
 import { configureGlobalStore } from '#RUtils/Redux';
 
-import { GlobalStoreState } from './types';
+import { GlobalStoreState } from '../types';
 
 const initialGlobalState: GlobalStoreState = {};
 
