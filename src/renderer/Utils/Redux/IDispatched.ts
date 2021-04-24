@@ -1,7 +1,7 @@
 import {
-    Action,
     ActionCreatorWithoutPayload,
     ActionCreatorWithPayload,
+    AnyAction,
     PayloadAction,
     ThunkAction,
 } from '@reduxjs/toolkit';
@@ -27,9 +27,11 @@ export type IDispatchedActions<TActions extends IActions> = {
 // --------------------------------------------------------------------------------------------------- IDispatchedThunks
 
 export interface IThunks {
-    readonly [key: string]: (...args: any) => ThunkAction<Promise<void> | void, any, any, Action<any>>;
+    readonly [key: string]: <ReturnType>(...args: any[]) => ThunkAction<ReturnType, any, any, AnyAction>;
 }
 
+// prettier-ignore
 export type IDispatchedThunks<TThunks extends IThunks> = {
-    readonly [ThunkName in keyof TThunks]: (...args: Parameters<TThunks[ThunkName]>) => void;
+    readonly [ThunkName in keyof TThunks]:
+        (...args: Parameters<TThunks[ThunkName]>) => ReturnType<ReturnType<TThunks[ThunkName]>>;
 };

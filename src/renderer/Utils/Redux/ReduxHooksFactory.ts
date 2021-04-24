@@ -1,3 +1,4 @@
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
@@ -47,12 +48,12 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      * simpler code rather than use `useDispatch`.
      */
     function useReduxDispatchedThunks(): IDispatchedThunks<TThunks> {
-        const dispatch = useDispatch();
+        const dispatch = useDispatch<ThunkDispatch<TStoreState, unknown, AnyAction>>();
         return useMemo(() => {
             const dispatchedThunks: Partial<IDispatchedThunks<TThunks>> = {};
 
             for (const thunkName in thunks) {
-                dispatchedThunks[thunkName] = (...args: any[]) => dispatch(thunks[thunkName](...args));
+                (dispatchedThunks[thunkName] as any) = (...args: any[]) => dispatch(thunks[thunkName](...args));
             }
 
             return dispatchedThunks as IDispatchedThunks<TThunks>;
