@@ -7,10 +7,30 @@
     - Add npm script `pretty` to use prettier to format all code
 
 - Redux
-    - Add `useReduxActionsDispatch` and `useReduxThunksDispatch` hooks
+    - Add `useReduxDispatchedActions` and `useReduxDispatchedThunks` hooks
+    - Add `Components` and `Containers` folders
+    - Add `MainPromiseThunk` type
+    - Add support to infer the return type of async thunks while using `useReduxDispatchedThunks`
 
 - Types
     - Add new types utils `Object`, `ObjectStr` and `ObjectNum`
+
+- Frameless Window
+    - Now only provide an initial `FramelessWindow` and `TitleBar`, the client area size will be provided from `TitleBar`
+
+- Fluent UI
+    - Add event type alias for the following components, see `src/renderer/Utils/Fluentui/EventsInProps.ts`:
+        - ChoiceGroup
+        - ContextualMenu
+        - List
+        - Pivot
+        - TextField
+        - Toggle
+
+- Hooks
+    - New hooks:
+        - `useClientAreaSize`
+        - `useCountdown`
 
 ### Changes
 
@@ -24,6 +44,10 @@
     - Disable `no-bitwise` rule
     - Disable `no-constant-condition` rule
 
+- Redux
+    - Rename type `Reducer` to `MainReducer`
+    - Rename type `Thunk` to `MainThunk`
+
 ### Breaking Changes
 
 - Move `ColorTransformer`, `npm2px` and `npm2pt` into `#RUtils/Theme`
@@ -31,6 +55,9 @@
 - Rename `src/renderer/Main` to `src/renderer/MainWindow`
 - Rename `src/renderer/MainWindow/redux` to `src/renderer/MainWindow/Redux`
 - Delete interface `ClientAreaSize`, add interfaces `IClientAreaSize` and `IElementSize` in `src/renderer/Utils/GlobalTypes.ts`
+- Delete `AbstractClientArea`, now your own client-area containers should not be inherited from `AbstractClientArea`
+- Delete custom hook `useReduxDispatch`, please use `useReduxDispatchedActions` or `useReduxDispatchedThunks` instead
+- Delete `mapMainDispatchToProps`
 
 ### Dependencies
 
