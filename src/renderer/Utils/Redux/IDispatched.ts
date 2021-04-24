@@ -27,7 +27,7 @@ export type IDispatchedActions<TActions extends IActions> = {
 // --------------------------------------------------------------------------------------------------- IDispatchedThunks
 
 export interface IThunks {
-    readonly [key: string]: <ReturnType>(...args: any[]) => ThunkAction<ReturnType, any, any, AnyAction>;
+    readonly [key: string]: (...args: any[]) => ThunkAction<any, any, any, AnyAction>;
 }
 
 // prettier-ignore
