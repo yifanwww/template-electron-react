@@ -11,13 +11,18 @@ import { MainWindow } from './MainWindow';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-function WindowSwitch(): ReactElement {
+function WindowSwitch(): ReactElement | null {
     const windowType: WindowType = windowIpc.getWindowType();
 
-    // eslint-disable-next-line default-case
+    let never: never;
     switch (windowType) {
         case 'main':
             return <MainWindow />;
+
+        default:
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            never = windowType;
+            return null;
     }
 }
 
