@@ -6,7 +6,7 @@ import { createSelectorsFactory } from './state-selectors';
 import { GlobalEntityAdapter } from './types';
 import { createUnsortedStateAdapter } from './unsorted-state-adapter';
 
-interface EntityDefinition<T> {
+export interface IEntityAdapterOptions<T> {
     selectId: (model: T) => EntityId;
     sortComparer: false | Comparer<T>;
 }
@@ -19,11 +19,10 @@ interface EntityDefinition<T> {
  * not work in the global state, you should use `createGlobalEntityAdapter` instead to create your adapter to operate
  * the entities.
  */
-export function createGlobalEntityAdapter<T>(options: Partial<EntityDefinition<T>>): GlobalEntityAdapter<T> {
-    const { selectId, sortComparer }: EntityDefinition<T> = {
-        selectId: (instance: any) => instance.id,
-        sortComparer: false,
-        ...options,
+export function createGlobalEntityAdapter<T>(options: Partial<IEntityAdapterOptions<T>>): GlobalEntityAdapter<T> {
+    const { selectId, sortComparer }: IEntityAdapterOptions<T> = {
+        selectId: options.selectId ?? ((instance: any) => instance.id),
+        sortComparer: options.sortComparer ?? false,
     };
 
     const { getInitialState } = createInitialStateFactory<T>();
