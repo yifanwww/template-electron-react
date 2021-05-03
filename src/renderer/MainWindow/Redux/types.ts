@@ -3,9 +3,11 @@ import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
 import { IClientAreaSize } from '#RUtils/GlobalTypes';
 import { IReducer } from '#RUtils/Redux';
 
-export interface StoreState {
+interface DisplayConfigurationState {
     clientAreaSize: IClientAreaSize;
 }
+
+export interface StoreState extends DisplayConfigurationState {}
 
 export interface GlobalStoreState {}
 

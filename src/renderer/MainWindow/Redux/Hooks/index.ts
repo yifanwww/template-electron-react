@@ -1,2 +1,2 @@
-export * from './useClientAreaSize';
+export * from './useDisplayConfiguration';
 export * from './useReduxHooksFactory';

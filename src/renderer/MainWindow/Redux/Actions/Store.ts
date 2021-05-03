@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 import { StoreState } from '../types';
-import { updateClientAreaSize } from './Reducers';
+import { updateClientAreaSize } from './DisplayConfigurationReducers';
 
 const initialState: StoreState = {
     clientAreaSize: { height: 720, width: 1280 },
