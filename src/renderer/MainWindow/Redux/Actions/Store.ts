@@ -3,13 +3,15 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { StoreState } from '../types';
 import { updateClientAreaSize } from './DisplayConfigurationReducers';
 
-const initialState: StoreState = {
-    clientAreaSize: { height: 720, width: 1280 },
-};
+function getInitialState(): StoreState {
+    return {
+        clientAreaSize: { height: 720, width: 1280 },
+    };
+}
 
 const { actions, reducer } = createSlice({
     name: 'Main',
-    initialState,
+    initialState: getInitialState(),
     reducers: {
         updateClientAreaSize,
     },
