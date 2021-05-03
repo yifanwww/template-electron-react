@@ -4,10 +4,9 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { IActions, IDispatchedActions, IDispatchedThunks, IThunks } from './IDispatched';
 
-export function ReduxHooksFactory<TActions extends IActions, TThunks extends IThunks, TStoreState, TGlobalState>(
+export function ReduxHooksFactory<TActions extends IActions, TThunks extends IThunks, TStoreState>(
     actions: TActions,
     thunks: TThunks,
-    getGlobalState: () => TGlobalState,
 ) {
     /**
      * An custom hook for functional containers.
@@ -16,10 +15,10 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      * state, to write simpler code. The global state will be passed as the second parameter.
      */
     function useReduxSelector<TSelected = unknown>(
-        selector: (state: TStoreState, globalState: TGlobalState) => TSelected,
+        selector: (state: TStoreState) => TSelected,
         equalityFn: (left: TSelected, right: TSelected) => boolean = shallowEqual,
     ): TSelected {
-        return useSelector((state: TStoreState) => selector(state, getGlobalState()), equalityFn);
+        return useSelector((state: TStoreState) => selector(state), equalityFn);
     }
 
     /**

@@ -9,8 +9,6 @@ interface DisplayConfigurationState {
 
 export interface StoreState extends DisplayConfigurationState {}
 
-export interface GlobalStoreState {}
-
 export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
 export type MainThunk<ReturnType = void> = ThunkAction<ReturnType, StoreState, unknown, AnyAction>;
