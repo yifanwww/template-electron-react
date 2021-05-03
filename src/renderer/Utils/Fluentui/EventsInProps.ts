@@ -1,6 +1,7 @@
 import {
     IChoiceGroupOptionProps,
     IChoiceGroupProps,
+    IComboBoxProps,
     IContextualMenuItem,
     IContextualMenuItemProps,
     IContextualMenuProps,
@@ -14,6 +15,15 @@ export type OnChoiceGroupChange = NonNullable<IChoiceGroupProps['onChange']>;
 
 export type OnChoiceGroupOptionRenderField = NonNullable<IChoiceGroupOptionProps['onRenderField']>;
 export type OnChoiceGroupOptionRenderLabel = NonNullable<IChoiceGroupOptionProps['onRenderLabel']>;
+
+export type OnComboBoxChange = NonNullable<IComboBoxProps['onChange']>;
+export type OnComboBoxItemClick = NonNullable<IComboBoxProps['onItemClick']>;
+export type OnComboBoxMenuDismiss = NonNullable<IComboBoxProps['onMenuDismiss']>;
+export type OnComboBoxMenuDismissed = NonNullable<IComboBoxProps['onMenuDismissed']>;
+export type OnComboBoxMenuOpen = NonNullable<IComboBoxProps['onMenuOpen']>;
+export type OnComboBoxPendingValueChanged = NonNullable<IComboBoxProps['onPendingValueChanged']>;
+export type OnComboBoxResolveOptions = NonNullable<IComboBoxProps['onResolveOptions']>;
+export type OnComboBoxScrollToItem = NonNullable<IComboBoxProps['onScrollToItem']>;
 
 export type OnContextualMenuDismiss = NonNullable<IContextualMenuProps['onDismiss']>;
 export type OnContextualMenuMenuDismissed = NonNullable<IContextualMenuProps['onMenuDismissed']>;
