@@ -17,4 +17,7 @@ const { actions, reducer } = createSlice({
 
 export { actions };
 
-export const store = configureStore({ reducer });
+export const store = configureStore({
+    reducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({ immutableCheck: false, serializableCheck: false }),
+});
