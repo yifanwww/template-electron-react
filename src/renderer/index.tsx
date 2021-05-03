@@ -11,7 +11,7 @@ import { MainWindow } from './MainWindow';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-function WindowSwitch(): ReactElement | null {
+function WindowProvider(): ReactElement | null {
     const windowType: WindowType = windowIpc.getWindowType();
 
     let never: never;
@@ -31,7 +31,7 @@ initializeIcons();
 ReactDOM.render(
     <StrictMode>
         <ThemeProvider id="ThemeProvider" theme={fluentuiTheme}>
-            <WindowSwitch />
+            <WindowProvider />
         </ThemeProvider>
     </StrictMode>,
     document.getElementById('root'),
