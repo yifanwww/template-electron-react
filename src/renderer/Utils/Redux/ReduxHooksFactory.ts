@@ -1,13 +1,35 @@
-import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { AnyAction, Dispatch, ThunkDispatch } from '@reduxjs/toolkit';
 import { useMemo } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 
 import { IActions, IDispatchedActions, IDispatchedThunks, IThunks } from './IDispatched';
 
 export function ReduxHooksFactory<TActions extends IActions, TThunks extends IThunks, TStoreState>(
     actions: TActions,
     thunks: TThunks,
+    dispatch: Dispatch<any> & ThunkDispatch<TStoreState, unknown, AnyAction>,
 ) {
+    function _generateDispatchedActions() {
+        const dispatchedActions: Partial<IDispatchedActions<TActions>> = {};
+
+        for (const actionName in actions)
+            (dispatchedActions[actionName] as any) = (payload: any) => dispatch(actions[actionName](payload));
+
+        return dispatchedActions as IDispatchedActions<TActions>;
+    }
+
+    function _generateDispatchedThunks() {
+        const dispatchedThunks: Partial<IDispatchedThunks<TThunks>> = {};
+
+        for (const thunkName in thunks)
+            (dispatchedThunks[thunkName] as any) = (...args: any[]) => dispatch(thunks[thunkName](...args));
+
+        return dispatchedThunks as IDispatchedThunks<TThunks>;
+    }
+
+    const dispatchedActions = _generateDispatchedActions();
+    const dispatchedThunks = _generateDispatchedThunks();
+
     /**
      * An custom hook for functional containers.
      *
@@ -27,18 +49,7 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      * This hook returns functions which will dispatch the certain actions automatically. You can use this hook to write
      * simpler code rather than use `useDispatch`.
      */
-    function useReduxDispatchedActions(): IDispatchedActions<TActions> {
-        const dispatch = useDispatch();
-        return useMemo(() => {
-            const dispatchedActions: Partial<IDispatchedActions<TActions>> = {};
-
-            for (const actionName in actions) {
-                (dispatchedActions[actionName] as any) = (payload: any) => dispatch(actions[actionName](payload));
-            }
-
-            return dispatchedActions as IDispatchedActions<TActions>;
-        }, [dispatch]);
-    }
+    const useReduxDispatchedActions = () => useMemo<IDispatchedActions<TActions>>(() => dispatchedActions, []);
 
     /**
      * An custom hook for functional containers.
@@ -46,18 +57,7 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      * This hook returns functions which will dispatch the certain thunks automatically. You can use this hook to write
      * simpler code rather than use `useDispatch`.
      */
-    function useReduxDispatchedThunks(): IDispatchedThunks<TThunks> {
-        const dispatch = useDispatch<ThunkDispatch<TStoreState, unknown, AnyAction>>();
-        return useMemo(() => {
-            const dispatchedThunks: Partial<IDispatchedThunks<TThunks>> = {};
-
-            for (const thunkName in thunks) {
-                (dispatchedThunks[thunkName] as any) = (...args: any[]) => dispatch(thunks[thunkName](...args));
-            }
-
-            return dispatchedThunks as IDispatchedThunks<TThunks>;
-        }, [dispatch]);
-    }
+    const useReduxDispatchedThunks = () => useMemo<IDispatchedThunks<TThunks>>(() => dispatchedThunks, []);
 
     return {
         useReduxSelector,
