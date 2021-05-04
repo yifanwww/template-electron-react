@@ -5,6 +5,7 @@ import {
     IContextualMenuItem,
     IContextualMenuItemProps,
     IContextualMenuProps,
+    IDropdownProps,
     IListProps,
     IPivotProps,
     ITextFieldProps,
@@ -39,6 +40,8 @@ export type OnContextualMenuItemRenderContent = NonNullable<IContextualMenuItem[
 export type OnContextualMenuItemRenderIcon = NonNullable<IContextualMenuItem['onRenderIcon']>;
 
 export type OnContextualMenuItemCheckmarkClick = NonNullable<IContextualMenuItemProps['onCheckmarkClick']>;
+
+export type OnDropdownChange = NonNullable<IDropdownProps['onChange']>;
 
 export type OnListPageAdded = NonNullable<IListProps['onPageAdded']>;
 export type OnListPageRemoved = NonNullable<IListProps['onPageRemoved']>;
