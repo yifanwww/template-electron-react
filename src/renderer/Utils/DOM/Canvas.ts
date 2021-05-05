@@ -5,45 +5,36 @@ export interface IDrawCanvasLineOptions {
     strokeStyle?: string;
 }
 
-function drawLines(context: CanvasRenderingContext2D, dots: IDotPosition[], options?: IDrawCanvasLineOptions): void {
-    if (options?.lineWidth) context.lineWidth = options.lineWidth;
-    if (options?.strokeStyle) context.strokeStyle = options.strokeStyle;
-
-    context.beginPath();
-    for (let index = 0; index < dots.length; index++) {
-        if (index === 0) {
-            context.moveTo(dots[index].x, dots[index].y);
-        } else {
-            context.lineTo(dots[index].x, dots[index].y);
-        }
-    }
-    context.stroke();
-    context.closePath();
-}
-
 function drawLinesOffset(
     context: CanvasRenderingContext2D,
     dots: IDotPosition[],
     offset: IOffset,
     options?: IDrawCanvasLineOptions,
 ): void {
-    drawLines(
-        context,
-        dots.map((dot) => ({ x: dot.x + offset.x, y: dot.y + offset.y })),
-        options,
-    );
+    if (options?.lineWidth) context.lineWidth = options.lineWidth;
+    if (options?.strokeStyle) context.strokeStyle = options.strokeStyle;
+
+    const { x: offsetx, y: offsety } = offset;
+
+    context.beginPath();
+    for (let index = 0; index < dots.length; index++) {
+        const { x, y } = dots[index];
+        if (index === 0) {
+            context.moveTo(x + offsetx, y + offsety);
+        } else {
+            context.lineTo(x + offsetx, y + offsety);
+        }
+    }
+    context.stroke();
+    context.closePath();
+}
+
+function drawLines(context: CanvasRenderingContext2D, dots: IDotPosition[], options?: IDrawCanvasLineOptions): void {
+    drawLinesOffset(context, dots, { x: 0, y: 0 }, options);
 }
 
 export interface IDrawCanvasRectOptions {
     fillStyle?: string;
-}
-
-function fillRects(context: CanvasRenderingContext2D, rects: IElementSize[], options?: IDrawCanvasRectOptions): void {
-    if (options?.fillStyle) context.fillStyle = options.fillStyle;
-
-    for (let index = 0; index < rects.length; index++) {
-        context.fillRect(rects[index].left, rects[index].top, rects[index].width, rects[index].height);
-    }
 }
 
 function fillRectsOffset(
@@ -52,16 +43,18 @@ function fillRectsOffset(
     offset: IOffset,
     options?: IDrawCanvasRectOptions,
 ): void {
-    fillRects(
-        context,
-        rects.map((rect) => ({
-            left: rect.left + offset.x,
-            top: rect.top + offset.y,
-            width: rect.width,
-            height: rect.height,
-        })),
-        options,
-    );
+    if (options?.fillStyle) context.fillStyle = options.fillStyle;
+
+    const { x: offsetx, y: offsety } = offset;
+
+    for (let index = 0; index < rects.length; index++) {
+        const { left, top, width, height } = rects[index];
+        context.fillRect(left + offsetx, top + offsety, width, height);
+    }
+}
+
+function fillRects(context: CanvasRenderingContext2D, rects: IElementSize[], options?: IDrawCanvasRectOptions): void {
+    fillRectsOffset(context, rects, { x: 0, y: 0 }, options);
 }
 
 export const CanvasUtils = {
