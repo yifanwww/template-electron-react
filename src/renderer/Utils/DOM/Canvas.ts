@@ -1,4 +1,4 @@
-import { IDotPosition, IElementSize, IOffset } from '../GlobalTypes';
+import { IDotPosition, IRectPosition, IOffset } from '../GlobalTypes';
 
 export interface IDrawCanvasLineOptions {
     lineWidth?: number;
@@ -39,7 +39,7 @@ export interface IDrawCanvasRectOptions {
 
 function fillRectsOffset(
     context: CanvasRenderingContext2D,
-    rects: IElementSize[],
+    rects: IRectPosition[],
     offset: IOffset,
     options?: IDrawCanvasRectOptions,
 ): void {
@@ -53,7 +53,7 @@ function fillRectsOffset(
     }
 }
 
-function fillRects(context: CanvasRenderingContext2D, rects: IElementSize[], options?: IDrawCanvasRectOptions): void {
+function fillRects(context: CanvasRenderingContext2D, rects: IRectPosition[], options?: IDrawCanvasRectOptions): void {
     fillRectsOffset(context, rects, { x: 0, y: 0 }, options);
 }
 
