@@ -1,11 +1,23 @@
 export interface IClientAreaSize {
-    height: number;
     width: number;
+    height: number;
 }
 
 export interface IElementSize {
-    height: number;
     left: number;
     top: number;
     width: number;
+    height: number;
+}
+
+export interface IElementPosition {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+}
+
+export interface IDotPosition {
+    x: number;
+    y: number;
 }
