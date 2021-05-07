@@ -1,17 +1,50 @@
+import { keyframes, makeStyles } from '@fluentui/react';
 import { ReactElement } from 'react';
 
 import logo from './logo.svg';
-import scss from './InfoDisplay.module.scss';
+
+const useStyles = makeStyles(() => {
+    const _keyframes = keyframes({
+        from: { transform: 'rotate(0deg)' },
+        to: { transform: 'rotate(360deg)' },
+    });
+
+    return {
+        header: {
+            alignItems: 'center',
+            background: '#282c34',
+            color: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+            fontSize: 'calc(10px + 2vmin)',
+            justifyContent: 'center',
+            minHeight: '100vh',
+        },
+        link: {
+            color: '#61dafb',
+        },
+        logo: {
+            height: '40vmin',
+            pointerEvents: 'none',
+
+            '@media (prefers-reduced-motion: no-preference)': {
+                animation: `${_keyframes} infinite 20s linear`,
+            },
+        },
+    };
+});
 
 export function InfoDisplay(): ReactElement {
+    const classNames = useStyles();
+
     return (
-        <header className={scss.Header}>
-            <img src={logo} className={scss.Logo} alt="logo" />
+        <header className={classNames.header}>
+            <img className={classNames.logo} src={logo} alt="logo" />
             <p>
                 Edit <code>src/renderer/MainWindow/App.tsx</code> and save to reload.
             </p>
             <a
-                className={scss.Link}
+                className={classNames.link}
                 href="https://github.com/YSoftwareRepo/template-electron-cra"
                 target="_blank"
                 rel="noopener noreferrer"
