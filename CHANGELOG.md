@@ -7,13 +7,20 @@
     - Add npm script `pretty` to use prettier to format all code
 
 - Redux
-    - Add `useReduxDispatchedActions` and `useReduxDispatchedThunks` hooks
+    - Add `useReduxDispatchedActions` and `useReduxDispatchedThunks` hooks, the dispatched actions and dispatched thunks will be cached in `ReduxHooksFactory`
     - Add `Components` and `Containers` folders
     - Add `MainPromiseThunk` type
     - Add support to infer the return type of async thunks while using `useReduxDispatchedThunks`
 
 - Types
     - Add new types utils `Object`, `ObjectStr` and `ObjectNum`
+    - Add new types for renderer
+        - `IClientAreaSize`
+        - `IDotPosition`
+        - `IElementPosition`
+        - `IElementSize`
+        - `IOffset`
+        - `IRectPosition`
 
 - Frameless Window
     - Now only provide an initial `FramelessWindow` and `TitleBar`, the client area size will be provided from `TitleBar`
@@ -21,7 +28,9 @@
 - Fluent UI
     - Add event type alias for the following components, see `src/renderer/Utils/Fluentui/EventsInProps.ts`:
         - ChoiceGroup
+        - ComboBox
         - ContextualMenu
+        - Dropdown
         - List
         - Pivot
         - TextField
@@ -31,6 +40,13 @@
     - New hooks:
         - `useClientAreaSize`
         - `useCountdown`
+
+- DOM
+    - Add `CanvasUtils` to operate canvas dom, it contains the following methods:
+        - `drawLines`
+        - `drawLinesOffset`
+        - `fillRects`
+        - `fillRectsOffset`
 
 ### Changes
 
@@ -47,6 +63,7 @@
 - Redux
     - Rename type `Reducer` to `MainReducer`
     - Rename type `Thunk` to `MainThunk`
+    - Disable `immutableCheck` and `serializableCheck` when in development
 
 ### Breaking Changes
 
@@ -54,12 +71,15 @@
 - Move `WindowIpc` into `#MUtils/Ipc`
 - Rename `src/renderer/Main` to `src/renderer/MainWindow`
 - Rename `src/renderer/MainWindow/redux` to `src/renderer/MainWindow/Redux`
-- Delete interface `ClientAreaSize`, add interfaces `IClientAreaSize` and `IElementSize` in `src/renderer/Utils/GlobalTypes.ts`
+- Delete interface `ClientAreaSize`
 - Delete `AbstractClientArea`, now your own client-area containers should not be inherited from `AbstractClientArea`
 - Delete custom hook `useReduxDispatch`, please use `useReduxDispatchedActions` or `useReduxDispatchedThunks` instead
 - Delete `mapMainDispatchToProps`
 
 ### Dependencies
+
+- Upgrade
+    - Update 'electron' from v12.0.0 to v12.0.5
 
 ## [v0.3.0] template-electron-cra (2021-04-06)
 ### Features
