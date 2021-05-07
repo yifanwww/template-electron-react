@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "awwit.typed-css-modules-plugin",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "Gruntfuggly.todo-tree"
