@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode, useCallback, useEffect, useRef } from 'react';
 
-import { IClientAreaSize } from '#RUtils/GlobalTypes';
+import { IClientAreaSize } from '#RUtils/Types';
 
 import scss from './TitleBar.module.scss';
 

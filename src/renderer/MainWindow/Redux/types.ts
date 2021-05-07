@@ -1,6 +1,6 @@
 import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
 
-import { IClientAreaSize } from '#RUtils/GlobalTypes';
+import { IClientAreaSize } from '#RUtils/Types';
 import { IReducer } from '#RUtils/Redux';
 
 interface DisplayConfigurationState {

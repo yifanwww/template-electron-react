@@ -1,4 +1,4 @@
-import { IClientAreaSize } from '#RUtils/GlobalTypes';
+import { IClientAreaSize } from '#RUtils/Types';
 
 import { MainReducer } from '../types';
 
