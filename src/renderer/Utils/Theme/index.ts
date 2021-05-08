@@ -1,5 +1,3 @@
 export * from './ColorTransformer';
 export * from './FluentuiTheme';
-
-export const num2px = (num: number) => `${num}px`;
-export const num2pt = (num: number) => `${num}pt`;
+export * from './num2string';
