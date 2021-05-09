@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 
 import logo from './logo.svg';
 
-const useStyles = makeStyles(() => {
+const useClasses = makeStyles(() => {
     const _keyframes = keyframes({
         from: { transform: 'rotate(0deg)' },
         to: { transform: 'rotate(360deg)' },
@@ -35,16 +35,16 @@ const useStyles = makeStyles(() => {
 });
 
 export function InfoDisplay(): ReactElement {
-    const classNames = useStyles();
+    const classes = useClasses();
 
     return (
-        <header className={classNames.header}>
-            <img className={classNames.logo} src={logo} alt="logo" />
+        <header className={classes.header}>
+            <img className={classes.logo} src={logo} alt="logo" />
             <p>
                 Edit <code>src/renderer/MainWindow/App.tsx</code> and save to reload.
             </p>
             <a
-                className={classNames.link}
+                className={classes.link}
                 href="https://github.com/YSoftwareRepo/template-electron-cra"
                 target="_blank"
                 rel="noopener noreferrer"
