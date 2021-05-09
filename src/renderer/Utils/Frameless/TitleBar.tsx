@@ -30,7 +30,7 @@ export function TitleBar(props: Readonly<ITitleBarProps>): ReactElement {
     }, [_onClientAreaSizeChange]);
 
     return (
-        <div id={scss.Root} ref={ref}>
+        <div className={scss.Root} ref={ref}>
             {children}
         </div>
     );
