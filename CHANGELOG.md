@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [v0.4.0] template-electron-cra (Unreleased)
+## [v0.4.0] template-electron-cra (2021-05-09)
 ### Features
 
 - NPM
