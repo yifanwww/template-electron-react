@@ -7,5 +7,5 @@ export interface IFramelessWindowProps {
 }
 
 export function FramelessWindow(props: Readonly<IFramelessWindowProps>): ReactElement {
-    return <div className={scss.Root}>{props.children}</div>;
+    return <div id={scss.Root}>{props.children}</div>;
 }
