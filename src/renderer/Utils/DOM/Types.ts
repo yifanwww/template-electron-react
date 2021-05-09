@@ -1,4 +1,4 @@
-import { IElementPosition } from './Element';
+import { IElementPosition } from '#RUtils/Types';
 
 export interface IDotPosition {
     x: number;

@@ -1,4 +1,6 @@
-import { IDotPosition, IRectPosition, IOffset } from '#RUtils/Types';
+import { IOffset } from '#RUtils/Types';
+
+import { IDotPosition, IRectPosition } from './Types';
 
 export interface IDrawCanvasLineOptions {
     lineWidth?: number;
