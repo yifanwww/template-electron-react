@@ -7,7 +7,9 @@ interface DisplayConfigurationState {
     clientAreaSize: IClientAreaSize;
 }
 
-export interface StoreState extends DisplayConfigurationState {}
+export interface StoreState extends DisplayConfigurationState {
+    prepared: boolean;
+}
 
 export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;
 

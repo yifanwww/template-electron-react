@@ -1,3 +1,5 @@
-import {} from './Thunks';
+import { prepare } from './Thunks';
 
-export const thunks = {};
+export const thunks = {
+    prepare,
+};
