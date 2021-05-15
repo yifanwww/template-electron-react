@@ -1,21 +1,27 @@
-import _chalk from 'chalk';
-import _fs from 'fs';
-import _lodash from 'lodash-es';
+import chalk from 'chalk';
+import fs from 'fs';
+import lodash from 'lodash';
 
-/** @param {string} configFile */
-async function getConfigContent(configFile) {
-    const content = await _fs.promises.readFile(configFile, { encoding: 'utf-8' });
+interface GitProperties {
+    [key: string]: string;
+}
+
+interface GitMidProperties {
+    [key: string]: GitProperties;
+}
+
+interface GitConfig {
+    [key: string]: GitProperties | GitMidProperties;
+}
+
+async function getConfigContent(configFile: string) {
+    const content = await fs.promises.readFile(configFile, { encoding: 'utf-8' });
     return content.trim().replace(/\r\n/g, '\n');
 }
 
-/** @param {string} content */
-function analyzeConfigs(content) {
-    /**
-     * @param {string[]} lines
-     * @param {number} i
-     */
-    function getProperties(lines, i) {
-        const properties = {};
+function analyzeConfigs(content: string): GitConfig {
+    function getProperties(lines: string[], i: number): GitProperties {
+        const properties: GitProperties = {};
 
         for (let j = i; j < lines.length; j++) {
             const line = lines[j].trim();
@@ -31,7 +37,7 @@ function analyzeConfigs(content) {
         return properties;
     }
 
-    const configs = {};
+    const configs: GitConfig = {};
 
     const lines = content.split('\n');
     for (let i = 0; i < lines.length; i++) {
@@ -58,13 +64,8 @@ function analyzeConfigs(content) {
     return configs;
 }
 
-/** @param {{}} configs */
-function convertConfigsToString(configs) {
-    /**
-     * @param {string} title
-     * @param {{}} properties
-     */
-    function convertProperties(title, properties) {
+function convertConfigsToString(configs: GitConfig): string {
+    function convertProperties(title: string, properties: GitProperties | GitMidProperties) {
         const lines = [];
 
         // subtitle
@@ -107,7 +108,7 @@ function convertConfigsToString(configs) {
     return lines.join('\n');
 }
 
-async function main() {
+async function main(): Promise<void> {
     const configFile = '.git/config';
 
     const customConfigs = {
@@ -127,22 +128,22 @@ async function main() {
 
     const originalContent = await getConfigContent(configFile);
     const configs = analyzeConfigs(originalContent);
-    const mergedConfigs = _lodash.merge({}, configs, customConfigs);
+    const mergedConfigs = lodash.merge({}, configs, customConfigs);
 
     if (JSON.stringify(configs) === JSON.stringify(mergedConfigs)) {
-        console.info(_chalk.grey("No need to change '.git/config'"));
+        console.info(chalk.grey("No need to change '.git/config'"));
     } else {
         const newContent = convertConfigsToString(mergedConfigs);
 
-        console.info(_chalk.blue("Update '.git/config' to add or change some configs."));
-        console.info(_chalk.yellow('--- original local git config ---'));
+        console.info(chalk.blue("Update '.git/config' to add or change some configs."));
+        console.info(chalk.yellow('--- original local git config ---'));
         console.info(originalContent);
-        console.info(_chalk.yellow('--- new local git config ---'));
+        console.info(chalk.yellow('--- new local git config ---'));
         console.info(newContent);
-        console.info(_chalk.yellow('--- the reason why git configs will be changed ---'));
+        console.info(chalk.yellow('--- the reason why git configs will be changed ---'));
         console.info(infos);
 
-        await _fs.promises.writeFile(configFile, newContent + '\n');
+        await fs.promises.writeFile(configFile, `${newContent}\n`);
     }
 }
 

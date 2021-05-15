@@ -8,6 +8,7 @@
         "isolatedModules": true,
         "jsx": "react-jsx",
         "lib": ["dom", "dom.iterable", "esnext"],
+        "listEmittedFiles": true,
         "module": "esnext",
         "moduleResolution": "node",
         "noImplicitAny": true,

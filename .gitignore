@@ -1,19 +1,3 @@
-# Editors and IDEs
-
-/.vscode/settings.json
-
-# Source
-
-/src/**/*.cjs
-/src/**/*.js
-/src/**/*.mjs
-
-# Dependencies
-
-/node_modules
-/.pnp
-.pnp.js
-
 # Environment
 
 .DS_Store
@@ -22,15 +6,33 @@
 .env.test.local
 .env.production.local
 
-# Running and Testing
+# Editors and IDEs
 
-/coverage
-/working
+/.vscode/settings.json
 
-# Production
+# Dependencies
+
+/node_modules
+/.pnp
+.pnp.js
+
+# Source
+
+/src/**/*.cjs
+/src/**/*.js
+/src/**/*.mjs
+
+# Compilation
 
 /build
 /release
+/scripts/*
+!/scripts/*.ts
+
+# After Running Or Testing
+
+/coverage
+/working
 
 # Misc
 
