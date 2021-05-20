@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## [v0.5.0] template-electron-cra (Unreleased)
+### Features
+
+- Main Window
+    - Add `prepared` property into main redux store and its `usePrepared` hook
+    - Dispatch `prepare` thunk when the app start
+
+- Utils
+    - Add `Timer`
+
+### Changes
+
+### Breaking Changes
+
+- Move `IDotPosition` and `IRectPosition` into Utils/DOM
+- Use typescript to write scripts, compile them before build or dev
+
+### Dependencies
+
+- Use `lodash` rather than `lodash-es`
+
 ## [v0.4.0] template-electron-cra (2021-05-09)
 ### Features
 
