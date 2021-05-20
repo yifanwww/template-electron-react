@@ -1,8 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 import { StoreState } from '../types';
-import { updateClientAreaSize } from './DisplayConfigurationReducers';
-import { _finishPreparing } from './Reducers';
+import { _finishPreparing, updateClientAreaSize } from './DisplayConfigurationReducers';
 
 function getInitialState(): StoreState {
     return {
