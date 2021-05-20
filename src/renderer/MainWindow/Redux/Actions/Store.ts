@@ -6,8 +6,10 @@ import { _finishPreparing } from './Reducers';
 
 function getInitialState(): StoreState {
     return {
-        clientAreaSize: { height: 720, width: 1280 },
-        prepared: false,
+        displayConfiguration: {
+            clientAreaSize: { height: 720, width: 1280 },
+            prepared: false,
+        },
     };
 }
 

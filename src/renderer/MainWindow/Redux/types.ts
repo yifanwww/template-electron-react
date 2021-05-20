@@ -5,10 +5,11 @@ import { IReducer } from '#RUtils/Redux';
 
 interface DisplayConfigurationState {
     clientAreaSize: IClientAreaSize;
+    prepared: boolean;
 }
 
-export interface StoreState extends DisplayConfigurationState {
-    prepared: boolean;
+export interface StoreState {
+    displayConfiguration: DisplayConfigurationState;
 }
 
 export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;
