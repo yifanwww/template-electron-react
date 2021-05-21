@@ -6,7 +6,6 @@
 - Main Window
     - Add `prepared` property into main redux store and its `usePrepared` hook
     - Dispatch `prepare` thunk when the app start
-
 - Utils
     - Add `Timer`
 
@@ -26,13 +25,11 @@
 
 - NPM
     - Add npm script `pretty` to use prettier to format all code
-
 - Redux
     - Add `useReduxDispatchedActions` and `useReduxDispatchedThunks` hooks, the dispatched actions and dispatched thunks will be cached in `ReduxHooksFactory`
     - Add `Components` and `Containers` folders
     - Add `MainPromiseThunk` type
     - Add support to infer the return type of async thunks while using `useReduxDispatchedThunks`
-
 - Types
     - Add new types utils `Object`, `ObjectStr` and `ObjectNum`
     - Add new types for renderer
@@ -42,10 +39,8 @@
         - `IElementSize`
         - `IOffset`
         - `IRectPosition`
-
 - Frameless Window
     - Now only provide an initial `FramelessWindow` and `TitleBar`, the client area size will be provided from `TitleBar`
-
 - Fluent UI
     - Add event type alias for the following components, see `src/renderer/Utils/Fluentui/EventsInProps.ts`:
         - ChoiceGroup
@@ -56,12 +51,10 @@
         - Pivot
         - TextField
         - Toggle
-
 - Hooks
     - New hooks:
         - `useClientAreaSize`
         - `useCountdown`
-
 - DOM
     - Add `CanvasUtils` to operate canvas dom, it contains the following methods:
         - `drawLines`
@@ -73,14 +66,11 @@
 
 - Git
     - Ignore *.cjs, *.js and *.mjs in src
-
 - Compilation
     - Disable `eslint-webpack-plugin` completely
-
 - Eslint
     - Disable `no-bitwise` rule
     - Disable `no-constant-condition` rule
-
 - Redux
     - Rename type `Reducer` to `MainReducer`
     - Rename type `Thunk` to `MainThunk`
@@ -107,18 +97,14 @@
 
 - Compilation
     - Add new NPM script `build-profile` to enable profiling in production build
-
 - React
     - Set environment variable `INLINE_RUNTIME_CHUNK` as `false` to disable the runtime chunk inlining
     - Set environment variable `PUBLIC_URL` as `./` to avoid react loading the `homepage` value of package.json while compiling
-
 - Redux
     - Add `configureGlobalStore` util function to help creating a global store
-
 - Eslint
     - Add `eslint-plugin-node` into eslint configs
     - Set `root` to `true`
-
 - Add css id `ThemeProvider` for fluentui's ThemeProvider
 - Add `Contain` and `Contained` type util definitions
 - Use SCSS instead of fluentui css-in-js to apply CSS styles
@@ -127,7 +113,6 @@
 
 - Git
     - Update .gitattributes
-
 - Compilation
     - Refactor base webpack configs
     - Stop hacking eslint configs in renderer webpack configs
@@ -178,10 +163,8 @@
     - Add source map when compiling main code by webpack
     - Add npm scripts hooks `prebuild` and `predev`, to edit git configs to only permit fast-forward pull
     - Add `electron-devtools-installer` to install extensions in development mode
-
 - Environment
     - Add dependency `node-errors-pro` to support more kinds of errors
-
 - Redux
     - Add `global-state` to improving the performance of redux
     - Add `createGlobalEntityAdapter` to use adapters in global state, the adapters created by `createEntityAdapter` (provided by `@reduxjs/toolkit`) cannot be used out of redux store
@@ -191,15 +174,12 @@
         - `useReduxSelector`
           an custom hook to use the global state in functional containers
     - Add `IExactlyActionsDestructuring` and `IExactlyThunksDestructuring` to do a strict type check for `mapMainDispatchToProps` and `useReduxDispatch`
-
 - Fluentui
     - Add `IStrictStyle` to do a strict type check for styles
     - Add `mergeStrictStyles` to use `IStrictStyle`
     - Use `ThemeProvider` to provide theme
-
 - Transformer
     - Add `num2px` and `num2pt` utils
-
 - WindowManager
     - Add `WindowManager` to manage multi windows
     - Delete the old window managing solution
@@ -208,25 +188,20 @@
 
 - Ipc
     - Delete all ipc wrappers
-
 - Environment
     - Restructure project, change path aliases
     - Update dependency `@fluentui/react` from v7.157.1 to v8.0.0-beta.49
     - Update dev dependency `eslint-config-airbnb-typescript` from v12.0.0 to v12.3.1
     - Change line length limit, from 100 to 120
-
 - Fluentui
     - Update fluentui styles and render utils
-
 - Redux
     - Rename `IMapActionsToProps` to `IActionsDestructuring`
     - Rename `IMapThunksToProps` to `IThunksDestructuring`
-
 - Eslint
     - Allow 'PascalCase' naming for variable
     - Disable `prefer-arrow-callback`
     - Enable `react-hooks/rules-of-hooks` and `react-hooks/exhaustive-deps`
-
 - Scripts
     - Delete 'utils.mjs', move the util functions into 'app.mjs'
 
