@@ -20,7 +20,7 @@ module.exports = {
         'guard-for-in': 'off',
         'implicit-arrow-linebreak': 'off',
         // https://github.com/prettier/eslint-config-prettier/#max-len
-        // This rule is needed but disabled by eslint-config-prettier
+        // This rule is needed otherwise it will be disabled by eslint-config-prettier
         'max-len': ['error', { code: 120, ignoreUrls: true }],
         // Allows bitwise operators, but be CAREFUL for not using them in most case.
         'no-bitwise': 'off',
@@ -32,19 +32,19 @@ module.exports = {
         'no-plusplus': 'off',
         'no-restricted-syntax': 'off',
         // https://github.com/prettier/eslint-config-prettier/#no-tabs
-        // This rule is needed but disabled by eslint-config-prettier
+        // This rule is needed otherwise it will be disabled by eslint-config-prettier
         'no-tabs': 'error',
         // Disabled for leading-underscore options of '@typescript-eslint/naming-convention'
         'no-underscore-dangle': 'off',
         // https://github.com/prettier/eslint-config-prettier/#no-unexpected-multiline
-        // This rule is needed but disabled by eslint-config-prettier
+        // This rule is needed otherwise it will be disabled by eslint-config-prettier
         'no-unexpected-multiline': 'error',
         // Disables this rule and use prettier instead
         'object-curly-newline': 'off',
         // Disables this rule and use prettier instead
         'operator-linebreak': 'off',
         // https://github.com/prettier/eslint-config-prettier/#quotes
-        // This rule is needed but disabled by eslint-config-prettier
+        // This rule is needed otherwise it will be disabled by eslint-config-prettier
         quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
 
         // Disabled for better comments
