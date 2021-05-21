@@ -46,7 +46,7 @@
         "dev:main": "webpack --config configs/webpack.main.config.js --mode development",
         "dev:renderer": "react-app-rewired start",
         "installer": "electron-builder build --config configs/electron-builder.yml -w --x64",
-        "lint": "eslint src",
+        "lint": "eslint .",
         "prebuild": "npm run build:scripts && node scripts/custom-gitconfig.js",
         "predev": "npm run build:scripts && node scripts/custom-gitconfig.js",
         "pretty": "npx prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx}\"",
