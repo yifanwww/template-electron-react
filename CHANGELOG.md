@@ -6,10 +6,18 @@
 - Main Window
     - Add `prepared` property into main redux store and its `usePrepared` hook
     - Dispatch `prepare` thunk when the app start
-- Utils
+- Shared
     - Add `Timer`
 
 ### Changes
+
+- Compile
+    - Make typescript more strict
+- Main Window
+    - Change redux store structure
+    - Simplify the exports from redux
+- Redux
+    - Improve ReduxHooksFactory for better devtools performance view
 
 ### Breaking Changes
 
@@ -19,6 +27,25 @@
 ### Dependencies
 
 - Use `lodash` rather than `lodash-es`
+- New
+    - @typescript-eslint/parser v4.24.0
+- Upgrade
+    - @fluentui/react from v8.8.0 to v8.14.13
+    - @reduxjs/toolkit from v1.5.0 to v1.5.1
+    - @typescript-eslint/eslint-plugin from v4.19.0 to v4.24.0
+    - chalk from v4.1.0 to v4.1.1
+    - concurrently from v6.0.0 to v6.1.0
+    - electron-devtools-installer from v3.1.1 to v3.2.0
+    - eslint-config-prettier from v8.1.0 to v8.3.0
+    - eslint-plugin-import from v2.22.1 to v2.23.3
+    - eslint-plugin-jest from v24.3.2 to v24.3.6
+    - eslint-plugin-prettier from v3.3.1 to v3.4.0
+    - eslint-plugin-react from v7.23.1 to v7.23.2
+    - prettier from v2.2.1 to v2.3.0
+    - sass from v1.32.8 to v1.34.0
+    - speed-measure-webpack-plugin from v1.4.2 to v1.5.0
+- Remove
+    - immer v9.0.1
 
 ## [v0.4.0] template-electron-cra (2021-05-09)
 ### Features
