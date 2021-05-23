@@ -40,7 +40,7 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
         selector: (state: TStoreState) => TSelected,
         equalityFn: (left: TSelected, right: TSelected) => boolean = shallowEqual,
     ): TSelected {
-        return useSelector((state: TStoreState) => selector(state), equalityFn);
+        return useSelector(selector, equalityFn);
     }
 
     /**
@@ -49,7 +49,9 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      * This hook returns functions which will dispatch the certain actions automatically. You can use this hook to write
      * simpler code rather than use `useDispatch`.
      */
-    const useReduxDispatchedActions = () => useMemo<IDispatchedActions<TActions>>(() => dispatchedActions, []);
+    function useReduxDispatchedActions() {
+        return useMemo<IDispatchedActions<TActions>>(() => dispatchedActions, []);
+    }
 
     /**
      * An custom hook for functional containers.
@@ -57,7 +59,9 @@ export function ReduxHooksFactory<TActions extends IActions, TThunks extends ITh
      * This hook returns functions which will dispatch the certain thunks automatically. You can use this hook to write
      * simpler code rather than use `useDispatch`.
      */
-    const useReduxDispatchedThunks = () => useMemo<IDispatchedThunks<TThunks>>(() => dispatchedThunks, []);
+    function useReduxDispatchedThunks() {
+        return useMemo<IDispatchedThunks<TThunks>>(() => dispatchedThunks, []);
+    }
 
     return {
         useReduxSelector,
