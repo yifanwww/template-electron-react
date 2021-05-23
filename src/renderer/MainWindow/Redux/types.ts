@@ -15,4 +15,4 @@ export interface StoreState {
 export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
 export type MainThunk<ReturnType = void> = ThunkAction<ReturnType, StoreState, unknown, AnyAction>;
-export type MainPromiseThunk<ReturnType = void> = ThunkAction<Promise<ReturnType>, StoreState, unknown, AnyAction>;
+export type MainAsyncThunk<ReturnType = void> = MainThunk<Promise<ReturnType>>;
