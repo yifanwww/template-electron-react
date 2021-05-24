@@ -15,6 +15,10 @@ export class Timer {
         this._id = null;
     }
 
+    get isTiming() {
+        return this._id !== null;
+    }
+
     private _timeoutTrigger = () => {
         this._id = null;
         this._trigger();
