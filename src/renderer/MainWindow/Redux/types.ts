@@ -1,7 +1,5 @@
-import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
-
 import { IClientAreaSize } from '#RUtils/Types';
-import { IReducer } from '#RUtils/Redux';
+import { IAsyncThunk, IReducer, IThunk } from '#RUtils/Redux';
 
 interface DisplayConfigurationState {
     clientAreaSize: IClientAreaSize;
@@ -14,5 +12,5 @@ export interface StoreState {
 
 export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;
 
-export type MainThunk<ReturnType = void> = ThunkAction<ReturnType, StoreState, unknown, AnyAction>;
-export type MainPromiseThunk<ReturnType = void> = ThunkAction<Promise<ReturnType>, StoreState, unknown, AnyAction>;
+export type MainThunk<ReturnType = void> = IThunk<ReturnType, StoreState, unknown>;
+export type MainAsyncThunk<ReturnType = void> = IAsyncThunk<ReturnType, StoreState, unknown>;
