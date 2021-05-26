@@ -1,2 +1,3 @@
+export * from './useDispatching';
 export * from './useDisplayConfiguration';
-export * from './useReduxHooksFactory';
+export * from './useTypedSelectors';

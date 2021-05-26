@@ -1,4 +1,4 @@
-import { useMainSelector } from './useReduxHooksFactory';
+import { useMainSelector } from './useTypedSelectors';
 
 export const useClientAreaSize = () => useMainSelector((state) => state.displayConfiguration.clientAreaSize);
 
