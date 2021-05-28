@@ -1,13 +1,13 @@
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 
-import { IActions, IDispatchedActions } from './IDispatched';
+import { IActions, IDispatchingActions } from './IDispatching';
 
 /**
  * This hook returns functions which will dispatch the certain actions automatically. You can use this hook to write
  * simpler code rather than use `useDispatch`.
  */
-export function useDispatchingActions<TActions extends IActions>(actions: TActions): IDispatchedActions<TActions> {
+export function useDispatchingActions<TActions extends IActions>(actions: TActions): IDispatchingActions<TActions> {
     const actionsRef = useRef<TActions>();
 
     const memoActions = useMemo(() => {
@@ -22,11 +22,11 @@ export function useDispatchingActions<TActions extends IActions>(actions: TActio
     const dispatch = useDispatch();
 
     return useMemo(() => {
-        const dispatchingActions: Partial<IDispatchedActions<TActions>> = {};
+        const dispatchingActions: Partial<IDispatchingActions<TActions>> = {};
 
         for (const actionName in memoActions)
             (dispatchingActions[actionName] as any) = (payload: any) => dispatch(memoActions[actionName](payload));
 
-        return dispatchingActions as IDispatchedActions<TActions>;
+        return dispatchingActions as IDispatchingActions<TActions>;
     }, [memoActions, dispatch]);
 }

@@ -1,5 +1,5 @@
 export * from './createTypedSelector';
-export * from './IDispatched';
+export * from './IDispatching';
 export * from './IReducer';
 export * from './IThunk';
 export * from './useDispatchingActions';

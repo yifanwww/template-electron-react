@@ -1,13 +1,13 @@
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 
-import { IThunks, IDispatchedThunks } from './IDispatched';
+import { IThunks, IDispatchingThunks } from './IDispatching';
 
 /**
  * This hook returns functions which will dispatch the certain thunks automatically. You can use this hook to write
  * simpler code rather than use `useDispatch`.
  */
-export function useDispatchingThunks<TThunks extends IThunks>(thunks: TThunks): IDispatchedThunks<TThunks> {
+export function useDispatchingThunks<TThunks extends IThunks>(thunks: TThunks): IDispatchingThunks<TThunks> {
     const thunksRef = useRef<TThunks>();
 
     const memoThunks = useMemo(() => {
@@ -22,11 +22,11 @@ export function useDispatchingThunks<TThunks extends IThunks>(thunks: TThunks): 
     const dispatch = useDispatch();
 
     return useMemo(() => {
-        const dispatchingThunks: Partial<IDispatchedThunks<TThunks>> = {};
+        const dispatchingThunks: Partial<IDispatchingThunks<TThunks>> = {};
 
         for (const thunkName in memoThunks)
             (dispatchingThunks[thunkName] as any) = (payload: any) => dispatch(memoThunks[thunkName](payload));
 
-        return dispatchingThunks as IDispatchedThunks<TThunks>;
+        return dispatchingThunks as IDispatchingThunks<TThunks>;
     }, [memoThunks, dispatch]);
 }

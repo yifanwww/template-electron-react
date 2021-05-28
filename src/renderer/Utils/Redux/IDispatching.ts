@@ -6,7 +6,7 @@ import {
     ThunkAction,
 } from '@reduxjs/toolkit';
 
-// -------------------------------------------------------------------------------------------------- IDispatchedActions
+// ------------------------------------------------------------------------------------------------- IDispatchingActions
 
 export interface IActions {
     readonly [key: string]: ActionCreator;
@@ -20,18 +20,18 @@ type DispatchAction<TAction extends ActionCreator> = TAction extends ActionCreat
     ? () => ReturnType<TAction>
     : (payload: PayloadInAction<TAction>) => ReturnType<TAction>;
 
-export type IDispatchedActions<TActions extends IActions> = {
+export type IDispatchingActions<TActions extends IActions> = {
     readonly [ReducerName in keyof TActions]: DispatchAction<TActions[ReducerName]>;
 };
 
-// --------------------------------------------------------------------------------------------------- IDispatchedThunks
+// -------------------------------------------------------------------------------------------------- IDispatchingThunks
 
 export interface IThunks {
     readonly [key: string]: (...args: any[]) => ThunkAction<any, any, any, AnyAction>;
 }
 
 // prettier-ignore
-export type IDispatchedThunks<TThunks extends IThunks> = {
+export type IDispatchingThunks<TThunks extends IThunks> = {
     readonly [ThunkName in keyof TThunks]:
         (...args: Parameters<TThunks[ThunkName]>) => ReturnType<ReturnType<TThunks[ThunkName]>>;
 };
