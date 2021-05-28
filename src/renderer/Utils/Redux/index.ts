@@ -1,4 +1,4 @@
-export * from './createSelectors';
+export * from './createTypedSelector';
 export * from './IDispatched';
 export * from './IReducer';
 export * from './IThunk';

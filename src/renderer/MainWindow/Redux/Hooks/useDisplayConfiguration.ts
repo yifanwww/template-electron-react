@@ -1,4 +1,4 @@
-import { useMainSelector } from './useTypedSelectors';
+import { useMainSelector } from './useTypedSelector';
 
 export const useClientAreaSize = () => useMainSelector((state) => state.displayConfiguration.clientAreaSize);
 
