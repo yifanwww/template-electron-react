@@ -1,13 +1,13 @@
 import { IClientAreaSize } from '#RUtils/Types';
 import { IAsyncThunk, IReducer, IThunk } from '#RUtils/Redux';
 
-interface DisplayConfigurationState {
+interface DisplayConfig {
     clientAreaSize: IClientAreaSize;
     prepared: boolean;
 }
 
 export interface StoreState {
-    displayConfiguration: DisplayConfigurationState;
+    displayConfig: DisplayConfig;
 }
 
 export type MainReducer<Payload = undefined> = IReducer<StoreState, Payload>;

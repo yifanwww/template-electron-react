@@ -1,11 +1,11 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 import { StoreState } from '../types';
-import { _finishPreparing, updateClientAreaSize } from './DisplayConfigurationReducers';
+import { _finishPreparing, updateClientAreaSize } from './DisplayConfigReducers';
 
 function getInitialState(): StoreState {
     return {
-        displayConfiguration: {
+        displayConfig: {
             clientAreaSize: { height: 720, width: 1280 },
             prepared: false,
         },
