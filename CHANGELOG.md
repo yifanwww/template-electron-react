@@ -8,6 +8,8 @@
     - Dispatch `prepare` thunk when the app start
 - Shared
     - Add `Timer`
+- Redux
+    - Add `IThunk` and `IAsyncThunk` type definitions
 
 ### Changes
 
@@ -16,13 +18,14 @@
 - Main Window
     - Change redux store structure
     - Simplify the exports from redux
-- Redux
-    - Improve ReduxHooksFactory for better devtools performance view
+    - Rename `MainPromiseThunk` to `MainAsyncThunk`
 
 ### Breaking Changes
 
 - Move `IDotPosition` and `IRectPosition` into Utils/DOM
 - Use typescript to write scripts, compile them before build or dev
+- Redux
+    - Delete `ReduxHooksFactory`, use `createTypedSelector`, `useDispatchingActions` and `useDispatchingThunks` instead
 
 ### Dependencies
 
