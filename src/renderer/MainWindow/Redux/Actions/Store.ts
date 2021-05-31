@@ -1,5 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+import { omitUnderscorePrefixActions } from '#RUtils/Redux';
+
 import { StoreState } from '../types';
 import { _finishPreparing, updateClientAreaSize } from './DisplayConfigReducers';
 
@@ -12,7 +14,7 @@ function getInitialState(): StoreState {
     };
 }
 
-const { actions, reducer } = createSlice({
+const { actions: _actions, reducer } = createSlice({
     name: 'Main',
     initialState: getInitialState(),
     reducers: {
@@ -21,7 +23,9 @@ const { actions, reducer } = createSlice({
     },
 });
 
-export { actions };
+export { _actions };
+
+export const actions = omitUnderscorePrefixActions(_actions);
 
 export const store = configureStore({
     reducer,

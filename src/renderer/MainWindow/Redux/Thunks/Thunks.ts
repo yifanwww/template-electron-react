@@ -1,8 +1,8 @@
-import { actions } from '../Actions';
+import { _actions } from '../Actions';
 import { MainThunk } from '../types';
 
 export function prepare(): MainThunk {
     return (dispatch) => {
-        dispatch(actions._finishPreparing());
+        dispatch(_actions._finishPreparing());
     };
 }
