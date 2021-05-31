@@ -69,3 +69,14 @@ export type ObjectStr<T extends string | number = string | number> = Object<T, s
  * Generic type for Object, with value being number.
  */
 export type ObjectNum<T extends string | number = string | number> = Object<T, number>;
+
+/**
+ * Exclude from T those types that start with underscore.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export type ExcludeUnderscorePrefix<T> = T extends `_${infer R}` ? never : T;
+
+/**
+ * Construct a type with the properties of T except for those that start with underscore.
+ */
+export type OmitUnderscorePrefix<T extends object> = Pick<T, ExcludeUnderscorePrefix<keyof T>>;
