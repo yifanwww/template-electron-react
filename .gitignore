@@ -24,6 +24,8 @@
 
 # Compilation
 
+*.tsbuildinfo
+
 /build
 /release
 /scripts/*
