@@ -17,15 +17,15 @@ async function createFolder(dir: string): Promise<void> {
 
 async function executeElectron(args: string): Promise<void> {
     return new Promise((resolve) => {
-        const process = child.spawn(electron, args.split(' ').slice(1), { cwd: workingDir, stdio: 'inherit' });
-
-        process.on('exit', () => resolve());
+        child
+            .spawn(electron, args.split(' ').slice(1), { cwd: workingDir, stdio: 'inherit' })
+            .on('exit', () => resolve());
     });
 }
 
-async function main(): Promise<void> {
+async function runApp(): Promise<void> {
     await createFolder(workingDir);
     return executeElectron('electron ..');
 }
 
-main();
+runApp();
