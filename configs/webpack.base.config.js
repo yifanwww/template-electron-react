@@ -11,19 +11,21 @@ const ResolveProject = (relativePath) => _path.resolve(_projectDir, relativePath
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
-const appBuild = ResolveProject('build');
-const appHtml = ResolveProject('src/public/index.html');
-const appIndexTsMain = ResolveProject('src/main/app.ts');
-const appIndexTsRenderer = ResolveProject('src/renderer/index.tsx');
-const appPublic = ResolveProject('src/public');
-const appSrc = ResolveProject('src');
-const appSrcMain = ResolveProject('src/main');
-const appSrcRenderer = ResolveProject('src/renderer');
-const appSrcShared = ResolveProject('src/shared');
-const appTsConfigMain = ResolveProject('configs/tsconfig.main.json');
-const appTsConfigRenderer = ResolveProject('configs/tsconfig.renderer.json');
-const proxySetup = ResolveProject('src/renderer/setupProxy.js');
-const testsSetup = ResolveProject('src/renderer/setupTests.ts');
+const paths = {
+    appBuild: ResolveProject('build'),
+    appHtml: ResolveProject('src/public/index.html'),
+    appIndexTsMain: ResolveProject('src/main/app.ts'),
+    appIndexTsRenderer: ResolveProject('src/renderer/index.tsx'),
+    appPublic: ResolveProject('src/public'),
+    appSrc: ResolveProject('src'),
+    appSrcMain: ResolveProject('src/main'),
+    appSrcRenderer: ResolveProject('src/renderer'),
+    appSrcShared: ResolveProject('src/shared'),
+    appTsConfigMain: ResolveProject('configs/tsconfig.main.json'),
+    appTsConfigRenderer: ResolveProject('configs/tsconfig.renderer.json'),
+    proxySetup: ResolveProject('src/renderer/setupProxy.js'),
+    testsSetup: ResolveProject('src/renderer/setupTests.ts'),
+};
 
 // Alias
 const alias = {
@@ -37,19 +39,5 @@ const alias = {
 
 module.exports = {
     alias,
-    paths: {
-        appBuild,
-        appHtml,
-        appIndexTsMain,
-        appIndexTsRenderer,
-        appPublic,
-        appSrc,
-        appSrcMain,
-        appSrcRenderer,
-        appSrcShared,
-        appTsConfigMain,
-        appTsConfigRenderer,
-        proxySetup,
-        testsSetup,
-    },
+    paths,
 };
