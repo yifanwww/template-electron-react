@@ -59,7 +59,7 @@ module.exports = {
             { selector: 'accessor', format: ['camelCase'] },
             { selector: 'class', format: ['PascalCase'] },
             { selector: 'enum', format: ['PascalCase'] },
-            { selector: 'enumMember', format: ['camelCase'] },
+            { selector: 'enumMember', format: ['camelCase', 'PascalCase'] },
             {
                 // 'PascalCase' for react function components
                 selector: 'function',
