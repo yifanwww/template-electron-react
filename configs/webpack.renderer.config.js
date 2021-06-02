@@ -39,7 +39,7 @@ function OverrideWebpackConfigs(webpack, env) {
 
     // Finish.
 
-    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' }).wrap(webpack) : webpack;
+    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 }
 
 // Override paths configurations.
