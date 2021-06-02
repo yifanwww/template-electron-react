@@ -1,8 +1,8 @@
 const _path = require('path');
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const WebpackElectronReload = require('./webpack-electron-reload');
-const WebpackMkdir = require('./webpack-mkdir');
+const WebpackElectronReload = require('../scripts/webpack-electron-reload');
+const WebpackMkdir = require('../scripts/webpack-mkdir');
 
 const BaseWebpack = require('./webpack.base.config');
 

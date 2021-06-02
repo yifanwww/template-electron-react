@@ -1,17 +1,25 @@
-const _child = require('child_process');
-const _electron = require('electron');
-const _chalk = require('chalk');
+import child from 'child_process';
+import _electron from 'electron';
+import chalk from 'chalk';
+
+import { Compiler } from 'webpack';
+
+const electron = _electron as unknown as string;
 
 module.exports = class WebpackElectronReload {
-    constructor(projectDir, cwd) {
+    private _cwd: string;
+    private _projectDir: string;
+    private _process: child.ChildProcess | null;
+
+    public constructor(projectDir: string, cwd: string) {
         this._cwd = cwd;
         this._projectDir = projectDir;
         this._process = null;
 
-        this._info(`Found electron at "${_electron}"`);
+        this._info(`Found electron at "${electron}"`);
     }
 
-    apply(compiler) {
+    public apply = (compiler: Compiler) => {
         let server = false;
         compiler.hooks.done.tap('WebpackElectronReload', () => {
             if (!server) {
@@ -21,26 +29,29 @@ module.exports = class WebpackElectronReload {
                 this._restart();
             }
         });
-    }
+    };
 
-    _info = (msg) => console.info(_chalk.blackBright('[webpack-electron-reload] ') + msg);
+    private _info = (msg: string) => console.info(chalk.blackBright('[webpack-electron-reload] ') + msg);
 
-    _spawn() {
-        this._process = _child.spawn(_electron, [this._projectDir], {
-            cwd: this._cwd,
-            stdio: 'inherit',
-        });
-        this._process.on('exit', () => (this._process = null));
+    private _spawn = () => {
+        this._process = child
+            .spawn(electron, [this._projectDir], {
+                cwd: this._cwd,
+                stdio: 'inherit',
+            })
+            .on('exit', () => {
+                this._process = null;
+            });
 
         this._info(`Started electron process: ${this._process.pid}`);
-    }
+    };
 
-    _start() {
+    private _start = () => {
         this._info('Spawning electron process.');
         this._spawn();
-    }
+    };
 
-    _restart() {
+    private _restart = () => {
         if (this._process) {
             this._info(`Kill electron process: ${this._process.pid}`);
             try {
@@ -54,5 +65,5 @@ module.exports = class WebpackElectronReload {
 
         this._info('Respawning electron process.');
         this._spawn();
-    }
+    };
 };
