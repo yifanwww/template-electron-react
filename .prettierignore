@@ -7,6 +7,10 @@
 
 /configs/tsconfig.renderer.json
 
+# Scripts
+
+scripts/*.js
+
 # Running and Testing
 
 /coverage
