@@ -4,10 +4,10 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const WebpackElectronReload = require('../scripts/webpack-electron-reload');
 const WebpackMkdir = require('../scripts/webpack-mkdir');
 
-const BaseWebpack = require('./webpack.base.config');
+const { alias, paths } = require('./webpack.base.config');
 
-const _projectDir = _path.resolve(__dirname, '..');
-const _workingDir = _path.resolve(_projectDir, 'working');
+const projectDir = _path.resolve(__dirname, '..');
+const workingDir = _path.resolve(projectDir, 'working');
 
 module.exports = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
@@ -15,10 +15,10 @@ module.exports = (env, argv) => {
 
     const webpack = {
         target: 'electron-main',
-        entry: BaseWebpack.paths.appIndexTsMain,
+        entry: paths.appIndexTsMain,
         output: {
             filename: 'electron.js',
-            path: BaseWebpack.paths.appBuild,
+            path: paths.appBuild,
         },
         devtool: isEnvProduction ? 'source-map' : 'cheap-module-source-map',
         module: {
@@ -26,20 +26,18 @@ module.exports = (env, argv) => {
                 {
                     test: /\.ts$/,
                     loader: 'ts-loader',
-                    include: [BaseWebpack.paths.appSrcMain, BaseWebpack.paths.appSrcShared],
-                    options: {
-                        configFile: BaseWebpack.paths.appTsConfigMain,
-                    },
+                    include: [paths.appSrcMain, paths.appSrcShared],
+                    options: { configFile: paths.appTsConfigMain },
                 },
             ],
         },
         plugins: [
-            new WebpackMkdir(_workingDir),
-            isEnvDevelopment && new WebpackElectronReload(_projectDir, _workingDir),
+            new WebpackMkdir(workingDir),
+            isEnvDevelopment && new WebpackElectronReload(projectDir, workingDir),
         ].filter(Boolean),
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
-            alias: BaseWebpack.alias,
+            alias: alias,
         },
         watch: isEnvDevelopment,
         watchOptions: {

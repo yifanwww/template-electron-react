@@ -11,7 +11,7 @@
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-const BaseWebpack = require('./webpack.base.config');
+const { alias, paths: _paths } = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -31,11 +31,11 @@ function OverrideWebpackConfigs(webpack, env) {
     // 2. Set the correct directories where the source code should be compiled.
 
     // WriteConfigs(webpack.module.rules, 'webpack.json');
-    webpack.module.rules[1].oneOf[2].include = [BaseWebpack.paths.appSrcRenderer, BaseWebpack.paths.appSrcShared];
+    webpack.module.rules[1].oneOf[2].include = [_paths.appSrcRenderer, _paths.appSrcShared];
 
     // 3. Use custom aliases.
 
-    webpack.resolve.alias = BaseWebpack.alias;
+    webpack.resolve.alias = alias;
 
     // Finish.
 
@@ -44,15 +44,14 @@ function OverrideWebpackConfigs(webpack, env) {
 
 // Override paths configurations.
 function OverridePathsConfigs(paths, env) {
-    paths.appPublic = BaseWebpack.paths.appPublic;
-    paths.appHtml = BaseWebpack.paths.appHtml;
-    paths.appIndexJs = BaseWebpack.paths.appIndexTsRenderer;
-    paths.appSrc = BaseWebpack.paths.appSrc;
-    paths.appTsConfig = BaseWebpack.paths.appTsConfigRenderer;
-    paths.testsSetup = BaseWebpack.paths.testsSetup;
-    paths.proxySetup = BaseWebpack.paths.proxySetup;
-
-    // WriteConfigs(paths, 'paths.json');
+    paths.appHtml = _paths.appHtml;
+    paths.appIndexJs = _paths.appIndexTsRenderer;
+    paths.appPublic = _paths.appPublic;
+    paths.appTsConfig = _paths.appTsConfigRenderer;
+    paths.appTypeDeclarations = _paths.appTypeDeclarations;
+    paths.proxySetup = _paths.proxySetup;
+    paths.swSrc = _paths.swSrc;
+    paths.testsSetup = _paths.testsSetup;
 
     return paths;
 }

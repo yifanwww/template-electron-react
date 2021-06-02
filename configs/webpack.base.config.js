@@ -6,35 +6,36 @@ const _path = require('path');
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 17-18
-const _projectDir = _path.resolve(__dirname, '..');
-const ResolveProject = (relativePath) => _path.resolve(_projectDir, relativePath);
+const projectDir = _path.resolve(__dirname, '..');
+const resolveProject = (relativePath) => _path.resolve(projectDir, relativePath);
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
 const paths = {
-    appBuild: ResolveProject('build'),
-    appHtml: ResolveProject('src/public/index.html'),
-    appIndexTsMain: ResolveProject('src/main/app.ts'),
-    appIndexTsRenderer: ResolveProject('src/renderer/index.tsx'),
-    appPublic: ResolveProject('src/public'),
-    appSrc: ResolveProject('src'),
-    appSrcMain: ResolveProject('src/main'),
-    appSrcRenderer: ResolveProject('src/renderer'),
-    appSrcShared: ResolveProject('src/shared'),
-    appTsConfigMain: ResolveProject('configs/tsconfig.main.json'),
-    appTsConfigRenderer: ResolveProject('configs/tsconfig.renderer.json'),
-    proxySetup: ResolveProject('src/renderer/setupProxy.js'),
-    testsSetup: ResolveProject('src/renderer/setupTests.ts'),
+    appBuild: resolveProject('build'),
+    appHtml: resolveProject('src/public/index.html'),
+    appIndexTsMain: resolveProject('src/main/app.ts'),
+    appIndexTsRenderer: resolveProject('src/renderer/index.tsx'),
+    appPublic: resolveProject('src/public'),
+    appSrcMain: resolveProject('src/main'),
+    appSrcRenderer: resolveProject('src/renderer'),
+    appSrcShared: resolveProject('src/shared'),
+    appTsConfigMain: resolveProject('configs/tsconfig.main.json'),
+    appTsConfigRenderer: resolveProject('configs/tsconfig.renderer.json'),
+    appTypeDeclarations: resolveProject('src/renderer/react-app-env.d.ts'),
+    proxySetup: resolveProject('src/renderer/setupProxy.js'),
+    swSrc: resolveProject('src/renderer/service-worker.js'),
+    testsSetup: resolveProject('src/renderer/setupTests.ts'),
 };
 
 // Alias
 const alias = {
-    '#shared': ResolveProject('src/shared'),
+    '#shared': resolveProject('src/shared'),
     // main
-    '#MUtils': ResolveProject('src/main/Utils'),
+    '#MUtils': resolveProject('src/main/Utils'),
     // renderer
-    '#Assets': ResolveProject('src/renderer/Assets'),
-    '#RUtils': ResolveProject('src/renderer/Utils'),
+    '#Assets': resolveProject('src/renderer/Assets'),
+    '#RUtils': resolveProject('src/renderer/Utils'),
 };
 
 module.exports = {
