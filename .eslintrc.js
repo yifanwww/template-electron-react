@@ -31,6 +31,9 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-plusplus': 'off',
         'no-restricted-syntax': 'off',
+        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md#how-to-use
+        // Must disable this rule
+        'no-return-await': 'off',
         // https://github.com/prettier/eslint-config-prettier/#no-tabs
         // This rule is needed otherwise it will be disabled by eslint-config-prettier
         'no-tabs': 'error',
@@ -80,6 +83,7 @@ module.exports = {
                 leadingUnderscore: 'allow',
             },
         ],
+        '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
         // Seems not working for tsx extension
         'import/extensions': 'off',
