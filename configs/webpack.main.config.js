@@ -1,9 +1,9 @@
 const _path = require('path');
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const WebpackElectronReload = require('../scripts/webpack-electron-reload');
-const WebpackMkdir = require('../scripts/webpack-mkdir');
 
+const MkdirWebpackPlugin = require('../scripts/mkdir-webpack-plugin');
+const ReloadElectronWebpackPlugin = require('../scripts/reload-electron-webpack-plugin');
 const { alias, paths } = require('./webpack.base.config');
 
 const projectDir = _path.resolve(__dirname, '..');
@@ -32,8 +32,8 @@ module.exports = (env, argv) => {
             ],
         },
         plugins: [
-            new WebpackMkdir(workingDir),
-            isEnvDevelopment && new WebpackElectronReload(projectDir, workingDir),
+            new MkdirWebpackPlugin(workingDir),
+            isEnvDevelopment && new ReloadElectronWebpackPlugin(projectDir, workingDir),
         ].filter(Boolean),
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],

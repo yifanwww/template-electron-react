@@ -6,7 +6,7 @@ import { Compiler } from 'webpack';
 
 const electron = _electron as unknown as string;
 
-module.exports = class WebpackElectronReload {
+module.exports = class ReloadElectronWebpackPlugin {
     private _cwd: string;
     private _projectDir: string;
     private _process: child.ChildProcess | null;
@@ -21,7 +21,7 @@ module.exports = class WebpackElectronReload {
 
     public apply = (compiler: Compiler) => {
         let server = false;
-        compiler.hooks.done.tap('WebpackElectronReload', () => {
+        compiler.hooks.done.tap('ReloadElectronWebpackPlugin', () => {
             if (!server) {
                 server = true;
                 this._start();
@@ -31,7 +31,7 @@ module.exports = class WebpackElectronReload {
         });
     };
 
-    private _info = (msg: string) => console.info(chalk.blackBright('[webpack-electron-reload] ') + msg);
+    private _info = (msg: string) => console.info(chalk.blackBright('[reload-electron-webpack-plugin] ') + msg);
 
     private _spawn = () => {
         this._process = child

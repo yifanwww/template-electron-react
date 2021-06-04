@@ -3,7 +3,7 @@ import chalk from 'chalk';
 
 import type { Compiler } from 'webpack';
 
-module.exports = class WebpackMkdir {
+module.exports = class MkdirWebpackPlugin {
     private _dir: string;
 
     public constructor(dir: string) {
@@ -11,10 +11,10 @@ module.exports = class WebpackMkdir {
     }
 
     public apply(compiler: Compiler) {
-        compiler.hooks.done.tap('WebpackMkdir', () => this._mkdir());
+        compiler.hooks.done.tap('MkdirWebpackPlugin', () => this._mkdir());
     }
 
-    private _info = (msg: string) => console.info(chalk.blackBright('[webpack-mkdir] ') + msg);
+    private _info = (msg: string) => console.info(chalk.blackBright('[mkdir-webpack-plugin] ') + msg);
 
     private _mkdir = () => {
         try {
