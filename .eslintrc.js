@@ -85,14 +85,10 @@ module.exports = {
         ],
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
-        // Seems not working for tsx extension
         'import/extensions': 'off',
-        // 'import/extensions': [
-        //     'error',
-        //     'always',
-        //     { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' },
-        // ],
-        // Disabled for import-statement of 'electron'
+        'import/no-default-export': 'error',
+        'import/no-deprecated': 'warn',
+        // Disabled for import-statement of dev dependencies
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
 
