@@ -52,6 +52,9 @@
         "test": "jest --config configs/jest.config.js",
         "test:react": "react-app-rewired test --config-overrides configs/webpack.renderer.config.js"
     },
+    "engines": {
+        "node": ">=14 <15"
+    },
     "dependencies": {
         "@fluentui/react": "^8.14.13",
         "@reduxjs/toolkit": "^1.5.1",
