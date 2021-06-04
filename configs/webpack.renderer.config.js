@@ -11,7 +11,7 @@
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-const { alias, paths: _paths } = require('./webpack.base.config');
+const { alias: _alias, paths: _paths } = require('./webpack.base.config');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -33,9 +33,13 @@ function OverrideWebpackConfigs(webpack, env) {
     // WriteConfigs(webpack.module.rules, 'webpack.json');
     webpack.module.rules[1].oneOf[2].include = [_paths.appSrcRenderer, _paths.appSrcShared];
 
-    // 3. Use custom aliases.
+    // 3. Add custom aliases.
 
-    webpack.resolve.alias = alias;
+    const { alias } = webpack.resolve;
+    webpack.resolve.alias = {
+        ...alias,
+        ..._alias,
+    };
 
     // Finish.
 
