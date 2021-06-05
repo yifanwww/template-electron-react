@@ -22,10 +22,19 @@
     - Make typescript more strict
     - Rename npm script `build-profile` to `build:profile`
     - Enable typescript incremental compilation
+    - Move webpack plugins into scripts, rename them and use typescript to code them
+    - Set SMP's format to `human`
+    - Fix npm script `build:profile` to enable profiling in the production build
+    - Fix aliases of renderer webpack
 - Main Window
     - Change redux store structure
     - Simplify the exports from redux
     - Rename `MainPromiseThunk` to `MainAsyncThunk`
+- Eslint
+    - Allow enum member to be PascalCase style
+    - Add rule `@typescript-eslint/return-await` at `in-try-catch`
+    - Add rule `import/no-default-export` at `error`
+    - Add rule `import/no-deprecated` at `warn`
 
 ### Breaking Changes
 
@@ -50,6 +59,7 @@
     - `@typescript-eslint/eslint-plugin` from v4.19.0 to v4.24.0
     - `chalk` from v4.1.0 to v4.1.1
     - `concurrently` from v6.0.0 to v6.1.0
+    - `electron` from v12.0.5 to v13.1.1
     - `electron-devtools-installer` from v3.1.1 to v3.2.0
     - `eslint-config-prettier` from v8.1.0 to v8.3.0
     - `eslint-plugin-import` from v2.22.1 to v2.23.3
