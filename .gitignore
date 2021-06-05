@@ -28,8 +28,8 @@ src/**/*.mjs
 
 build
 release
-scripts/*
-!scripts/*.ts
+scripts/**/*.js
+scripts/**/*.map
 
 # After Running Or Testing
 
