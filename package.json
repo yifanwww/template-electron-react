@@ -47,8 +47,8 @@
         "dev:renderer": "react-app-rewired start --config-overrides configs/webpack.renderer.config.js",
         "installer": "electron-builder build --config configs/electron-builder.yml -w --x64",
         "lint": "eslint .",
-        "prebuild": "npm run build:scripts && node scripts/custom-gitconfig.js",
-        "predev": "npm run build:scripts && node scripts/custom-gitconfig.js",
+        "prebuild": "npm run build:scripts",
+        "predev": "npm run build:scripts",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "test": "jest --config configs/jest.config.js",
         "test:react": "react-app-rewired test --config-overrides configs/webpack.renderer.config.js"
