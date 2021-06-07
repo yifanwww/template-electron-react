@@ -1,15 +1,16 @@
-const _path = require('path');
+import _path from 'path';
+import { ConfigurationFactory } from 'webpack';
+
+import { MkdirWebpackPlugin } from '../webpack-plugins/mkdir-webpack-plugin';
+import { ReloadElectronWebpackPlugin } from '../webpack-plugins/reload-electron-webpack-plugin';
+import { alias, paths } from './webpack.base.config';
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-const MkdirWebpackPlugin = require('../scripts/mkdir-webpack-plugin');
-const ReloadElectronWebpackPlugin = require('../scripts/reload-electron-webpack-plugin');
-const { alias, paths } = require('./webpack.base.config');
-
-const projectDir = _path.resolve(__dirname, '..');
+const projectDir = _path.resolve(__dirname, '../..');
 const workingDir = _path.resolve(projectDir, 'working');
 
-module.exports = (env, argv) => {
+const factory: ConfigurationFactory = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
     const isEnvProduction = argv.mode === 'production';
 
@@ -37,7 +38,7 @@ module.exports = (env, argv) => {
         ].filter(Boolean),
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
-            alias: alias,
+            alias,
         },
         watch: isEnvDevelopment,
         watchOptions: {
@@ -45,10 +46,14 @@ module.exports = (env, argv) => {
             // poll: 10_000,
         },
         node: {
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             __dirname: false,
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             __filename: false,
         },
     };
 
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 };
+
+module.exports = factory;

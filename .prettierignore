@@ -5,7 +5,7 @@
 
 # Configurations
 
-/configs/tsconfig.renderer.json
+/scripts/tsconfigs/tsconfig.renderer.json
 
 # Scripts
 

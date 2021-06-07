@@ -1,12 +1,11 @@
+import chalk from 'chalk';
 import child from 'child_process';
 import _electron from 'electron';
-import chalk from 'chalk';
-
 import { Compiler } from 'webpack';
 
 const electron = _electron as unknown as string;
 
-module.exports = class ReloadElectronWebpackPlugin {
+export class ReloadElectronWebpackPlugin {
     private _cwd: string;
     private _projectDir: string;
     private _process: child.ChildProcess | null;
@@ -66,4 +65,4 @@ module.exports = class ReloadElectronWebpackPlugin {
         this._info('Respawning electron process.');
         this._spawn();
     };
-};
+}

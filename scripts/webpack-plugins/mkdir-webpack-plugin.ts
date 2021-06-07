@@ -1,9 +1,8 @@
-import fs from 'fs';
 import chalk from 'chalk';
+import fs from 'fs';
+import { Compiler } from 'webpack';
 
-import type { Compiler } from 'webpack';
-
-module.exports = class MkdirWebpackPlugin {
+export class MkdirWebpackPlugin {
     private _dir: string;
 
     public constructor(dir: string) {
@@ -24,4 +23,4 @@ module.exports = class MkdirWebpackPlugin {
             this._info(`Directory ${this._dir} exists.`);
         }
     };
-};
+}

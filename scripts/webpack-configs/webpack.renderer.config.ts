@@ -9,9 +9,9 @@
 
 // const fs = require('fs');
 
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+import { alias as _alias, paths as _paths } from './webpack.base.config';
 
-const { alias: _alias, paths: _paths } = require('./webpack.base.config');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -21,7 +21,7 @@ const { alias: _alias, paths: _paths } = require('./webpack.base.config');
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.
-function OverrideWebpackConfigs(webpack, env) {
+function OverrideWebpackConfigs(webpack: any) {
     const isEnvProduction = webpack.mode === 'production';
 
     // 1. Set target to "electron-renderer"
@@ -47,7 +47,7 @@ function OverrideWebpackConfigs(webpack, env) {
 }
 
 // Override paths configurations.
-function OverridePathsConfigs(paths, env) {
+function OverridePathsConfigs(paths: any) {
     paths.appHtml = _paths.appHtml;
     paths.appIndexJs = _paths.appIndexTsRenderer;
     paths.appPublic = _paths.appPublic;
