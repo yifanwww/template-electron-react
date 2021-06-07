@@ -8,10 +8,10 @@
 //   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
 
 // const fs = require('fs');
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+import { Configuration } from 'webpack';
 
 import { alias as _alias, paths as _paths } from './webpack.base.config';
-
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 // Write configurations as json data into file, for debugging.
 // function WriteConfigs(config, filename) {
@@ -21,7 +21,7 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.
-function OverrideWebpackConfigs(webpack: any) {
+function OverrideWebpackConfigs(webpack: Configuration) {
     const isEnvProduction = webpack.mode === 'production';
 
     // 1. Set target to "electron-renderer"
@@ -31,12 +31,12 @@ function OverrideWebpackConfigs(webpack: any) {
     // 2. Set the correct directories where the source code should be compiled.
 
     // WriteConfigs(webpack.module.rules, 'webpack.json');
-    webpack.module.rules[1].oneOf[2].include = [_paths.appSrcRenderer, _paths.appSrcShared];
+    webpack.module!.rules[1].oneOf![2].include = [_paths.appSrcRenderer, _paths.appSrcShared];
 
     // 3. Add custom aliases.
 
-    const { alias } = webpack.resolve;
-    webpack.resolve.alias = {
+    const { alias } = webpack.resolve!;
+    webpack.resolve!.alias = {
         ...alias,
         ..._alias,
     };
