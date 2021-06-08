@@ -5,6 +5,7 @@ import { WindowType } from '#shared/WindowType';
 import { IpcMListener } from '#shared/IpcTypes';
 import { windowIpc } from '#MUtils/Ipc';
 
+import { installationPath } from '../constants';
 import { CloseWindowOption, CreateWindowOption } from './Window.types';
 
 export interface WindowOption {
@@ -49,7 +50,7 @@ export abstract class AbstractWindow {
 
     public async show(): Promise<void> {
         if (AbstractWindow.production) {
-            await this.window.loadFile(_path.resolve(__dirname, 'index.html'));
+            await this.window.loadFile(_path.resolve(installationPath, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
         }
