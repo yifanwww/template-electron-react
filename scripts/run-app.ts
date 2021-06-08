@@ -3,7 +3,7 @@ import _electron from 'electron';
 import fs from 'fs';
 import path from 'path';
 
-const workingDir = path.join(__dirname, '../working');
+const workingDir = path.resolve(__dirname, '../working');
 const electron = _electron as unknown as string;
 
 async function createFolder(dir: string): Promise<void> {

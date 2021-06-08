@@ -49,7 +49,7 @@ export abstract class AbstractWindow {
 
     public async show(): Promise<void> {
         if (AbstractWindow.production) {
-            await this.window.loadFile(_path.join(__dirname, 'index.html'));
+            await this.window.loadFile(_path.resolve(__dirname, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
         }
@@ -96,7 +96,7 @@ export abstract class AbstractWindow {
         if (this.checkSender(event)) event.returnValue = this.windowType;
     };
 
-    private onNewWindowToOpen(event: any, windowType: WindowType): void {
+    private onNewWindowToOpen(event: IpcMainEvent, windowType: WindowType): void {
         if (this.checkSender(event)) this.createWindow({ windowType });
     }
 
