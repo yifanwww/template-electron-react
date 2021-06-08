@@ -86,6 +86,7 @@ module.exports = {
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
         'import/extensions': 'off',
+        'import/no-cycle': 'error',
         'import/no-default-export': 'error',
         'import/no-deprecated': 'warn',
         // Disabled for import-statement of dev dependencies
