@@ -8,8 +8,8 @@ directories:
     output: release/
 
 files:
-    - ./build/**/*
-    - ./package.json
+    - build/
+    - node_modules/
 
 dmg:
     contents:

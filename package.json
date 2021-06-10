@@ -45,7 +45,7 @@
         "dev": "concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
         "dev:main": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode development",
         "dev:renderer": "react-app-rewired start --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
-        "installer": "electron-builder build --config configs/electron-builder.yml -w --x64",
+        "installer": "electron-builder build --config scripts/electron-builder.yml -w --x64",
         "lint": "eslint .",
         "prebuild": "npm run build:scripts",
         "predev": "npm run build:scripts",
