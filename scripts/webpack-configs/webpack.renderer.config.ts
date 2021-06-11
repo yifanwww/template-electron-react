@@ -7,7 +7,7 @@
 // - webpack.config.js:
 //   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
 
-// const fs = require('fs');
+// import fs from 'fs';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration } from 'webpack';
 

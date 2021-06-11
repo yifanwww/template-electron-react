@@ -5,13 +5,11 @@ import { WindowManager } from './WindowManager';
 const windowManager = new WindowManager();
 
 async function installExtensions(): Promise<void> {
-    /* eslint-disable global-require */
     const {
         default: installExtension,
         REDUX_DEVTOOLS,
         REACT_DEVELOPER_TOOLS,
-    } = require('electron-devtools-installer') as typeof import('electron-devtools-installer');
-    /* eslint-enable global-require */
+    } = await import('electron-devtools-installer');
 
     const succeed = (name: string) => console.info(`Added extension: ${name}`);
     const fail = (err: any) => console.error('An error occurred: ', err);
