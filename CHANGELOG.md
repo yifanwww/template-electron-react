@@ -3,6 +3,8 @@
 ## [v0.5.0] template-electron-cra (Unreleased)
 ### Features
 
+- Main Process
+    - Add `AppPaths` to get appPath and srcPath
 - Main Window
     - Add `prepared` property into main redux store and its `usePrepared` hook
     - Dispatch `prepare` thunk when the app start
@@ -15,6 +17,8 @@
 - Redux
     - Add `IThunk` and `IAsyncThunk` type definitions
     - Re-export `WritableDraft` from `immer/dist/types/types-external`
+- Utils
+    - Add `IMargin` and `IMarginInfo`, and their transformer, add `mergeToGridTemplate`
 
 ### Changes
 
@@ -26,6 +30,10 @@
     - Set SMP's format to `human`
     - Fix npm script `build:profile` to enable profiling in the production build
     - Fix aliases of renderer webpack
+    - Delete `custom-gitconfig.ts`
+    - Move webpack configs into scripts, and use typescript to code them
+    - Move typescript configs into scripts
+    - Change electron-builder configs to build smaller installer
 - Main Window
     - Change redux store structure
     - Simplify the exports from redux
@@ -35,6 +43,7 @@
     - Add rule `@typescript-eslint/return-await` at `in-try-catch`
     - Add rule `import/no-default-export` at `error`
     - Add rule `import/no-deprecated` at `warn`
+    - Set rule `import/no-cycle` to `error`
 
 ### Breaking Changes
 
@@ -43,13 +52,15 @@
 - Redux
     - Delete `ReduxHooksFactory`, use `createTypedSelector`, `useDispatchingActions` and `useDispatchingThunks` instead
     - Support to only export non-internal actions out of redux
+- Delete `windowIpc`, use `mainIpc` and `rendererIpc` instead
 
 ### Dependencies
 
 - Use `lodash` rather than `lodash-es`
 - New
     - `@typescript-eslint/parser` v4.24.0
-    - `web-vitals` v1.1.2
+    - `web-vitals` v2.0.1
+    - `@types/speed-measure-webpack-plugin` v1.3.3
 - Upgrade
     - `@fluentui/react` from v8.8.0 to v8.14.13
     - `@reduxjs/toolkit` from v1.5.0 to v1.5.1
@@ -66,11 +77,12 @@
     - `eslint-plugin-jest` from v24.3.2 to v24.3.6
     - `eslint-plugin-prettier` from v3.3.1 to v3.4.0
     - `eslint-plugin-react` from v7.23.1 to v7.23.2
-    - `prettier` from v2.2.1 to v2.3.0
+    - `prettier` from v2.2.1 to v2.3.1
     - `sass` from v1.32.8 to v1.34.0
     - `speed-measure-webpack-plugin` from v1.4.2 to v1.5.0
 - Remove
     - `immer` v9.0.1
+- Move dependency `react-scripts` to be a dev dependency
 
 ## [v0.4.0] template-electron-cra (2021-05-09)
 ### Features
