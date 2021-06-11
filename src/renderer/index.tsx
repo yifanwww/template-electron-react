@@ -2,17 +2,17 @@ import { initializeIcons, ThemeProvider } from '@fluentui/react';
 import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
-import { WindowType } from '#shared/WindowType';
-import { windowIpc } from '#RUtils/Ipc';
+import { rendererIpc } from '#RUtils/RendererIpc';
 import { fluentuiTheme } from '#RUtils/Theme';
+import { WindowType } from '#shared/WindowType';
 
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
 import './index.css';
 
-function WindowProvider(): ReactElement | null {
-    const windowType: WindowType = windowIpc.getWindowType();
+function WindowProvider(): ReactElement {
+    const windowType: WindowType = rendererIpc.getWindowType();
 
     let never: never;
     switch (windowType) {
@@ -20,9 +20,8 @@ function WindowProvider(): ReactElement | null {
             return <MainWindow />;
 
         default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = windowType;
-            return null;
+            return never;
     }
 }
 

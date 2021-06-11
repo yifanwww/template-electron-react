@@ -2,10 +2,10 @@ import _path from 'path';
 import { BrowserWindow, IpcMainEvent } from 'electron';
 
 import { WindowType } from '#shared/WindowType';
-import { IpcMListener } from '#shared/IpcTypes';
-import { windowIpc } from '#MUtils/Ipc';
+import { IpcMListener } from '#shared/Ipc';
 
-import { installationPath } from '../constants';
+import { AppPaths } from '../AppPaths';
+import { mainIpc } from './MainIpc';
 import { CloseWindowOption, CreateWindowOption } from './Window.types';
 
 export interface WindowOption {
@@ -50,7 +50,7 @@ export abstract class AbstractWindow {
 
     public async show(): Promise<void> {
         if (AbstractWindow.production) {
-            await this.window.loadFile(_path.resolve(installationPath, 'index.html'));
+            await this.window.loadFile(_path.resolve(AppPaths.srcPath, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
         }
@@ -78,13 +78,13 @@ export abstract class AbstractWindow {
     // --------------------------------------------------------------------------------------------------- Ipc Listeners
 
     protected addIpcListeners(): void {
-        windowIpc.onNewWindowToOpen(this.bOnNewWindowToOpen);
-        windowIpc.onWindowTypeToGet(this.bOnWindowTypeToGet);
+        mainIpc.onGetWindowType(this.bGetWindowType);
+        mainIpc.onOpenNewWindow(this.bOpenNewWindow);
     }
 
     protected removeIpcListeners(): void {
-        windowIpc.removeNewWindowToOpen(this.bOnNewWindowToOpen);
-        windowIpc.removeWindowTypeToGet(this.bOnWindowTypeToGet);
+        mainIpc.removeGetWindowType(this.bGetWindowType);
+        mainIpc.removeOpenNewWindow(this.bOpenNewWindow);
     }
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
@@ -93,15 +93,14 @@ export abstract class AbstractWindow {
         return event.sender.id === this.window!.id;
     }
 
-    private onWindowTypeToGet = (event: IpcMainEvent): void => {
+    private getWindowType = (event: IpcMainEvent): void => {
         if (this.checkSender(event)) event.returnValue = this.windowType;
     };
 
-    private onNewWindowToOpen(event: IpcMainEvent, windowType: WindowType): void {
+    private openNewWindow(event: IpcMainEvent, windowType: WindowType): void {
         if (this.checkSender(event)) this.createWindow({ windowType });
     }
 
-    private bOnNewWindowToOpen: IpcMListener<WindowType> = (event, windowType) =>
-        this.onNewWindowToOpen(event, windowType);
-    private bOnWindowTypeToGet: IpcMListener = (event) => this.onWindowTypeToGet(event);
+    private bGetWindowType: IpcMListener = (event) => this.getWindowType(event);
+    private bOpenNewWindow: IpcMListener<WindowType> = (event, windowType) => this.openNewWindow(event, windowType);
 }
