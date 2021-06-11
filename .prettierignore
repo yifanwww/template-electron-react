@@ -6,6 +6,7 @@
 # Configurations
 
 /scripts/tsconfigs/tsconfig.renderer.json
+/scripts/**/*.js
 
 # Scripts
 
