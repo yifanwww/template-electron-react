@@ -11,6 +11,9 @@
         "editor.rulers": [120],
         "editor.tabSize": 4,
 
+        "files.associations": {
+            "electron-builder.json": "jsonc"
+        },
         "files.exclude": {
             "**/.DS_Store": true,
             "**/.git": true,
@@ -24,6 +27,13 @@
         },
 
         "git.enabled": true,
+
+        "json.schemas": [
+            {
+                "fileMatch": ["electron-builder.json"],
+                "url": "https://json.schemastore.org/electron-builder.json"
+            }
+        ],
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",

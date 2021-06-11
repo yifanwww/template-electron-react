@@ -1,0 +1,67 @@
+{
+    // For more information visit https://www.electron.build/
+
+    "appId": "YSoftwareRepo.template-electron-cra",
+    "productName": "template-electron-cra",
+    "extends": null,
+
+    "asar": true,
+
+    "directories": {
+        "buildResources": "build",
+        "output": "release"
+    },
+
+    // https://www.electron.build/configuration/contents#files
+    "files": [
+        "build/**/*",
+        "node_modules/**/*",
+        "package.json",
+
+        "!**/node_modules/@*/*/{CHANGELOG.json,CHANGELOG.md,README,README.md,readme,readme.md}",
+        "!**/node_modules/@*/*/{.eslintcache,.eslintrc,.eslintrc.*}",
+
+        "!**/node_modules/*/{CHANGELOG.json}",
+        "!**/node_modules/*/{.eslintcache,.eslintrc,.eslintrc.*}",
+
+        "!**/node_modules/**/*.map"
+    ],
+
+    // windows
+
+    "win": {
+        "target": [
+            {
+                "target": "nsis",
+                "arch": ["x64"]
+            }
+        ],
+        "requestedExecutionLevel": "asInvoker"
+    },
+
+    "nsis": {
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true,
+        "oneClick": false
+    },
+
+    // mac
+
+    "mac": {
+        "category": "public.app-category.tools",
+        "target": "dmg"
+    },
+
+    "dmg": {
+        "contents": [
+            { "type": "link", "path": "/Application", "x": 410, "y": 150 },
+            { "type": "file", "x": 130, "y": 150 }
+        ]
+    },
+
+    // linux
+
+    "linux": {
+        "target": ["deb", "AppImage"]
+    }
+}
