@@ -7,6 +7,7 @@ import {
     IContextualMenuProps,
     IDropdownProps,
     IListProps,
+    IPersonaProps,
     IPivotProps,
     ITextFieldProps,
     IToggleProps,
@@ -51,6 +52,14 @@ export type OnListRenderPage = NonNullable<IListProps['onRenderPage']>;
 export type OnListRenderRoot = NonNullable<IListProps['onRenderRoot']>;
 export type OnListRenderSurface = NonNullable<IListProps['onRenderSurface']>;
 export type OnListShouldVirtualize = NonNullable<IListProps['onShouldVirtualize']>;
+
+export type OnPersonaPhotoLoadingStateChange = NonNullable<IPersonaProps['onPhotoLoadingStateChange']>;
+export type OnPersonaRenderInitials = NonNullable<IPersonaProps['onRenderInitials']>;
+export type OnPersonaRenderOptionalText = NonNullable<IPersonaProps['onRenderOptionalText']>;
+export type OnPersonaRenderPersonaCoin = NonNullable<IPersonaProps['onRenderPersonaCoin']>;
+export type OnPersonaRenderPrimaryText = NonNullable<IPersonaProps['onRenderPrimaryText']>;
+export type OnPersonaRenderSecondaryText = NonNullable<IPersonaProps['onRenderSecondaryText']>;
+export type OnPersonaRenderTertiaryText = NonNullable<IPersonaProps['onRenderTertiaryText']>;
 
 export type OnPivotLinkClick = NonNullable<IPivotProps['onLinkClick']>;
 
