@@ -7,7 +7,7 @@ module.exports = {
         node: true,
     },
     extends: ['airbnb-typescript/base', 'prettier', 'prettier/prettier'],
-    ignorePatterns: ['*.cjs', '*.js', '*.mjs', '*.d.ts'],
+    ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
     parserOptions: {
         project: 'tsconfig.json',
     },
@@ -101,4 +101,12 @@ module.exports = {
         // Checks effect dependencies
         'react-hooks/exhaustive-deps': 'warn',
     },
+    overrides: [
+        {
+            files: ['*.d.ts'],
+            rules: {
+                '@typescript-eslint/naming-convention': 'off',
+            },
+        },
+    ],
 };

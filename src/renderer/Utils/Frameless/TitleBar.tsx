@@ -2,7 +2,7 @@ import { ReactElement, ReactNode, useCallback, useEffect, useRef } from 'react';
 
 import { IClientAreaSize } from '#RUtils/Types';
 
-import scss from './TitleBar.module.scss';
+import scss from './Frameless.module.scss';
 
 export interface ITitleBarProps {
     children?: ReactNode;
@@ -30,7 +30,7 @@ export function TitleBar(props: Readonly<ITitleBarProps>): ReactElement {
     }, [_onClientAreaSizeChange]);
 
     return (
-        <div id={scss.Root} ref={ref}>
+        <div id={scss.TitleBar} ref={ref}>
             {children}
         </div>
     );
