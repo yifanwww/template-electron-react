@@ -339,12 +339,9 @@ function _useKeyImpl(
     key: Keyboard | undefined,
     handler: UseKeyHandler,
 ): void {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const memoHandler = useCallback(handler, []);
-
     const _handler = useCallback(
-        (event: KeyboardEvent) => (key ? filterKey(event, key, memoHandler) : memoHandler(event)),
-        [key, memoHandler],
+        (event: KeyboardEvent) => (key ? filterKey(event, key, handler) : handler(event)),
+        [handler, key],
     );
 
     useEffect(() => {
@@ -395,12 +392,9 @@ export function useKeyUp(element: HTMLElement | null, ...args: [any, any?]): voi
 }
 
 function _useWindowKeyImpl(type: KeyboardEventType, key: Keyboard | undefined, handler: UseKeyHandler): void {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const memoHandler = useCallback(handler, []);
-
     const _handler = useCallback(
-        (event: KeyboardEvent) => (key ? filterKey(event, key, memoHandler) : memoHandler(event)),
-        [key, memoHandler],
+        (event: KeyboardEvent) => (key ? filterKey(event, key, handler) : handler(event)),
+        [handler, key],
     );
 
     useEffect(() => {
