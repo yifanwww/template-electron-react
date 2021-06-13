@@ -333,29 +333,75 @@ function filterKey(event: KeyboardEvent, key: Keyboard, handler: UseKeyHandler):
 
 export type KeyboardEventType = 'keydown' | 'keypress' | 'keyup';
 
-export function useKey(element: HTMLElement, type: KeyboardEventType, key: Keyboard, handler: UseKeyHandler): void {
-    const _handler = useCallback((event: KeyboardEvent) => filterKey(event, key, handler), [handler, key]);
+function _useKeyImpl(
+    element: HTMLElement | null,
+    type: KeyboardEventType,
+    key: Keyboard | undefined,
+    handler: UseKeyHandler,
+): void {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const memoHandler = useCallback(handler, []);
+
+    const _handler = useCallback(
+        (event: KeyboardEvent) => (key ? filterKey(event, key, memoHandler) : memoHandler(event)),
+        [key, memoHandler],
+    );
 
     useEffect(() => {
-        element.addEventListener(type, _handler);
+        element?.addEventListener(type, _handler);
 
         return () => {
-            element.removeEventListener(type, _handler);
+            element?.removeEventListener(type, _handler);
         };
     }, [_handler, element, type]);
 }
 
-export const useKeyDown = (element: HTMLElement, key: Keyboard, handler: UseKeyHandler) =>
-    useKey(element, 'keydown', key, handler);
+export function useKey(element: HTMLElement | null, type: KeyboardEventType, handler: UseKeyHandler): void;
+export function useKey(
+    element: HTMLElement | null,
+    type: KeyboardEventType,
+    key: Keyboard,
+    handler: UseKeyHandler,
+): void;
+export function useKey(
+    element: HTMLElement | null,
+    type: KeyboardEventType,
+    keyOrHandler: Keyboard | UseKeyHandler,
+    handler?: UseKeyHandler,
+): void {
+    if (typeof keyOrHandler === 'number') {
+        _useKeyImpl(element, type, keyOrHandler, handler!);
+    } else {
+        _useKeyImpl(element, type, undefined, keyOrHandler);
+    }
+}
 
-export const useKeyPress = (element: HTMLElement, key: Keyboard, handler: UseKeyHandler) =>
-    useKey(element, 'keypress', key, handler);
+export function useKeyDown(element: HTMLElement | null, handler: UseKeyHandler): void;
+export function useKeyDown(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+export function useKeyDown(element: HTMLElement | null, ...args: [any, any?]): void {
+    useKey(element, 'keydown', ...args);
+}
 
-export const useKeyUp = (element: HTMLElement, key: Keyboard, handler: UseKeyHandler) =>
-    useKey(element, 'keyup', key, handler);
+export function useKeyPress(element: HTMLElement | null, handler: UseKeyHandler): void;
+export function useKeyPress(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+export function useKeyPress(element: HTMLElement | null, ...args: [any, any?]): void {
+    useKey(element, 'keypress', ...args);
+}
 
-export function useWindowKey(type: KeyboardEventType, key: Keyboard, handler: UseKeyHandler): void {
-    const _handler = useCallback((event: KeyboardEvent) => filterKey(event, key, handler), [handler, key]);
+export function useKeyUp(element: HTMLElement | null, handler: UseKeyHandler): void;
+export function useKeyUp(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+export function useKeyUp(element: HTMLElement | null, ...args: [any, any?]): void {
+    useKey(element, 'keyup', ...args);
+}
+
+function _useWindowKeyImpl(type: KeyboardEventType, key: Keyboard | undefined, handler: UseKeyHandler): void {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const memoHandler = useCallback(handler, []);
+
+    const _handler = useCallback(
+        (event: KeyboardEvent) => (key ? filterKey(event, key, memoHandler) : memoHandler(event)),
+        [key, memoHandler],
+    );
 
     useEffect(() => {
         window.addEventListener(type, _handler);
@@ -366,8 +412,34 @@ export function useWindowKey(type: KeyboardEventType, key: Keyboard, handler: Us
     }, [_handler, type]);
 }
 
-export const useWindowKeyDown = (key: Keyboard, handler: UseKeyHandler) => useWindowKey('keydown', key, handler);
+export function useWindowKey(type: KeyboardEventType, handler: UseKeyHandler): void;
+export function useWindowKey(type: KeyboardEventType, key: Keyboard, handler: UseKeyHandler): void;
+export function useWindowKey(
+    type: KeyboardEventType,
+    keyOrHandler: Keyboard | UseKeyHandler,
+    handler?: UseKeyHandler,
+): void {
+    if (typeof keyOrHandler === 'number') {
+        _useWindowKeyImpl(type, keyOrHandler, handler!);
+    } else {
+        _useWindowKeyImpl(type, undefined, keyOrHandler);
+    }
+}
 
-export const useWindowKeyPress = (key: Keyboard, handler: UseKeyHandler) => useWindowKey('keypress', key, handler);
+export function useWindowKeyDown(handler: UseKeyHandler): void;
+export function useWindowKeyDown(key: Keyboard, handler: UseKeyHandler): void;
+export function useWindowKeyDown(...args: [any, any?]): void {
+    useWindowKey('keydown', ...args);
+}
 
-export const useWindowKeyUp = (key: Keyboard, handler: UseKeyHandler) => useWindowKey('keyup', key, handler);
+export function useWindowKeyPress(handler: UseKeyHandler): void;
+export function useWindowKeyPress(key: Keyboard, handler: UseKeyHandler): void;
+export function useWindowKeyPress(...args: [any, any?]): void {
+    useWindowKey('keypress', ...args);
+}
+
+export function useWindowKeyUp(handler: UseKeyHandler): void;
+export function useWindowKeyUp(key: Keyboard, handler: UseKeyHandler): void;
+export function useWindowKeyUp(...args: [any, any?]): void {
+    useWindowKey('keyup', ...args);
+}
