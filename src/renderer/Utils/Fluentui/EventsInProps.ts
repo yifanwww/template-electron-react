@@ -8,6 +8,7 @@ import {
     IDropdownProps,
     IListProps,
     IPersonaProps,
+    IPivotItemProps,
     IPivotProps,
     ITextFieldProps,
     IToggleProps,
@@ -62,6 +63,7 @@ export type OnPersonaRenderSecondaryText = NonNullable<IPersonaProps['onRenderSe
 export type OnPersonaRenderTertiaryText = NonNullable<IPersonaProps['onRenderTertiaryText']>;
 
 export type OnPivotLinkClick = NonNullable<IPivotProps['onLinkClick']>;
+export type OnPivotItemRenderLink = NonNullable<IPivotItemProps['onRenderItemLink']>;
 
 export type OnTextFieldChange = NonNullable<ITextFieldProps['onChange']>;
 export type OnTextFieldGetErrorMessage = NonNullable<ITextFieldProps['onGetErrorMessage']>;
