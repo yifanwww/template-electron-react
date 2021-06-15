@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [v0.5.0] template-electron-cra (Unreleased)
+## [v0.5.0] template-electron-cra (2021-06-15)
 ### Features
 
 - Main Process
@@ -58,30 +58,33 @@
 
 - Use `lodash` rather than `lodash-es`
 - New
-    - `@typescript-eslint/parser` v4.24.0
-    - `web-vitals` v2.0.1
+    - `@typescript-eslint/parser`           v4.24.0
+    - `web-vitals`                          v2.0.1
     - `@types/speed-measure-webpack-plugin` v1.3.3
 - Upgrade
-    - `@fluentui/react` from v8.8.0 to v8.14.13
-    - `@reduxjs/toolkit` from v1.5.0 to v1.5.1
-    - `@testing-library/jest-dom` from v4.2.4 to v5.11.4
-    - `@testing-library/react` from v9.3.2 to v11.1.0
-    - `@testing-library/user-event` from v7.1.2 to v12.1.10
-    - `@typescript-eslint/eslint-plugin` from v4.19.0 to v4.24.0
-    - `chalk` from v4.1.0 to v4.1.1
-    - `concurrently` from v6.0.0 to v6.1.0
-    - `electron` from v12.0.5 to v13.1.1
-    - `electron-devtools-installer` from v3.1.1 to v3.2.0
-    - `eslint-config-prettier` from v8.1.0 to v8.3.0
-    - `eslint-plugin-import` from v2.22.1 to v2.23.3
-    - `eslint-plugin-jest` from v24.3.2 to v24.3.6
-    - `eslint-plugin-prettier` from v3.3.1 to v3.4.0
-    - `eslint-plugin-react` from v7.23.1 to v7.23.2
-    - `prettier` from v2.2.1 to v2.3.1
-    - `sass` from v1.32.8 to v1.34.0
-    - `speed-measure-webpack-plugin` from v1.4.2 to v1.5.0
+    - `@fluentui/react`                     from v8.8.0 to v8.14.13
+    - `@reduxjs/toolkit`                    from v1.5.0 to v1.5.1
+    - `@testing-library/jest-dom`           from v4.2.4 to v5.11.4
+    - `@testing-library/react`              from v9.3.2 to v11.1.0
+    - `@testing-library/user-event`         from v7.1.2 to v12.1.10
+    - `@typescript-eslint/eslint-plugin`    from v4.19.0 to v4.24.0
+    - `@types/node`                         from v14.14.32 to v14.17.3
+    - `@types/react`                        from v17.0.3 to v17.0.11
+    - `@types/react-dom`                    from v17.0.3 to v17.0.7
+    - `chalk`                               from v4.1.0 to v4.1.1
+    - `concurrently`                        from v6.0.0 to v6.1.0
+    - `electron`                            from v12.0.5 to v13.1.1
+    - `electron-devtools-installer`         from v3.1.1 to v3.2.0
+    - `eslint-config-prettier`              from v8.1.0 to v8.3.0
+    - `eslint-plugin-import`                from v2.22.1 to v2.23.3
+    - `eslint-plugin-jest`                  from v24.3.2 to v24.3.6
+    - `eslint-plugin-prettier`              from v3.3.1 to v3.4.0
+    - `eslint-plugin-react`                 from v7.23.1 to v7.23.2
+    - `prettier`                            from v2.2.1 to v2.3.1
+    - `sass`                                from v1.32.8 to v1.34.0
+    - `speed-measure-webpack-plugin`        from v1.4.2 to v1.5.0
 - Remove
-    - `immer` v9.0.1
+    - `immer`                               v9.0.1
 - Move dependency `react-scripts` to be a dev dependency
 
 ## [v0.4.0] template-electron-cra (2021-05-09)
