@@ -6,3 +6,9 @@ export interface IDotPosition {
 }
 
 export interface IRectPosition extends IElementPosition {}
+
+export interface ITextWithPosition {
+    text: number | string;
+    x: number;
+    y: number;
+}
