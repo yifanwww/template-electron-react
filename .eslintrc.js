@@ -11,7 +11,17 @@ module.exports = {
     parserOptions: {
         project: 'tsconfig.json',
     },
-    plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
+    plugins: [
+        '@typescript-eslint',
+        'deprecation',
+        'import',
+        'jest',
+        'jsx-a11y',
+        'node',
+        'prettier',
+        'react',
+        'react-hooks',
+    ],
     rules: {
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
@@ -85,10 +95,13 @@ module.exports = {
         ],
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
+        'deprecation/deprecation': 'warn',
+
         'import/extensions': 'off',
         'import/no-cycle': 'error',
         'import/no-default-export': 'error',
-        'import/no-deprecated': 'warn',
+        // Use 'deprecation/deprecation' instead.
+        'import/no-deprecated': 'off',
         // Disabled for import-statement of dev dependencies
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
