@@ -11,6 +11,10 @@ import { reportWebVitals } from './reportWebVitals';
 
 import './index.css';
 
+function initializeFluentui(): void {
+    initializeIcons();
+}
+
 function WindowProvider(): ReactElement {
     const windowType: WindowType = rendererIpc.getWindowType();
 
@@ -25,18 +29,22 @@ function WindowProvider(): ReactElement {
     }
 }
 
-initializeIcons();
+function main(): void {
+    initializeFluentui();
 
-render(
-    <StrictMode>
-        <ThemeProvider id="ThemeProvider" theme={fluentuiTheme}>
-            <WindowProvider />
-        </ThemeProvider>
-    </StrictMode>,
-    document.getElementById('root'),
-);
+    render(
+        <StrictMode>
+            <ThemeProvider id="ThemeProvider" theme={fluentuiTheme}>
+                <WindowProvider />
+            </ThemeProvider>
+        </StrictMode>,
+        document.getElementById('root'),
+    );
 
-// If you want to start measuring performance in your app, pass a function to log results
-// (for example: reportWebVitals (console.log)) or send to an analytics endpoint.
-// Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+    // If you want to start measuring performance in your app, pass a function to log results
+    // (for example: reportWebVitals (console.log)) or send to an analytics endpoint.
+    // Learn more: https://bit.ly/CRA-vitals
+    reportWebVitals(console.log);
+}
+
+main();
