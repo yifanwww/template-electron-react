@@ -12,9 +12,9 @@ export interface IActions {
     readonly [key: string]: ActionCreator;
 }
 
-type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
+type ActionCreator = ActionCreatorWithPayload<unknown> | ActionCreatorWithoutPayload;
 
-type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<any> ? Payload : unknown;
+type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<unknown> ? Payload : unknown;
 
 type DispatchAction<TAction extends ActionCreator> = TAction extends ActionCreatorWithoutPayload
     ? () => ReturnType<TAction>
@@ -27,7 +27,7 @@ export type IDispatchingActions<TActions extends IActions> = {
 // -------------------------------------------------------------------------------------------------- IDispatchingThunks
 
 export interface IThunks {
-    readonly [key: string]: (...args: any[]) => ThunkAction<any, any, any, AnyAction>;
+    readonly [key: string]: (...args: unknown[]) => ThunkAction<unknown, unknown, unknown, AnyAction>;
 }
 
 // prettier-ignore

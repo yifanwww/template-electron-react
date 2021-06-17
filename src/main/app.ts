@@ -12,7 +12,7 @@ async function installExtensions(): Promise<void> {
     } = await import('electron-devtools-installer');
 
     const succeed = (name: string) => console.info(`Added extension: ${name}`);
-    const fail = (err: any) => console.error('An error occurred: ', err);
+    const fail = (err: unknown) => console.error('An error occurred: ', err);
 
     await Promise.all([
         installExtension(REDUX_DEVTOOLS).then(succeed).catch(fail),

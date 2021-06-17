@@ -375,18 +375,21 @@ export function useKey(
 
 export function useKeyDown(element: HTMLElement | null, handler: UseKeyHandler): void;
 export function useKeyDown(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useKeyDown(element: HTMLElement | null, ...args: [any, any?]): void {
     useKey(element, 'keydown', ...args);
 }
 
 export function useKeyPress(element: HTMLElement | null, handler: UseKeyHandler): void;
 export function useKeyPress(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useKeyPress(element: HTMLElement | null, ...args: [any, any?]): void {
     useKey(element, 'keypress', ...args);
 }
 
 export function useKeyUp(element: HTMLElement | null, handler: UseKeyHandler): void;
 export function useKeyUp(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useKeyUp(element: HTMLElement | null, ...args: [any, any?]): void {
     useKey(element, 'keyup', ...args);
 }
@@ -422,18 +425,21 @@ export function useWindowKey(
 
 export function useWindowKeyDown(handler: UseKeyHandler): void;
 export function useWindowKeyDown(key: Keyboard, handler: UseKeyHandler): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useWindowKeyDown(...args: [any, any?]): void {
     useWindowKey('keydown', ...args);
 }
 
 export function useWindowKeyPress(handler: UseKeyHandler): void;
 export function useWindowKeyPress(key: Keyboard, handler: UseKeyHandler): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useWindowKeyPress(...args: [any, any?]): void {
     useWindowKey('keypress', ...args);
 }
 
 export function useWindowKeyUp(handler: UseKeyHandler): void;
 export function useWindowKeyUp(key: Keyboard, handler: UseKeyHandler): void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useWindowKeyUp(...args: [any, any?]): void {
     useWindowKey('keyup', ...args);
 }

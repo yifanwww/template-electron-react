@@ -46,8 +46,31 @@ function OverrideWebpackConfigs(webpack: Configuration) {
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 }
 
+interface CRAPaths {
+    dotent: string;
+    appPath: string;
+    appBuild: string;
+    appPublic: string;
+    appHtml: string;
+    appIndexJs: string;
+    appPackageJson: string;
+    appSrc: string;
+    appTsConfig: string;
+    appJsConfig: string;
+    yarnLockFile: string;
+    testsSetup: string;
+    proxySetup: string;
+    appNodeModules: string;
+    swSrc: string;
+    publicUrlOrPath: string;
+    ownPath: string;
+    pwnNodeModules: string;
+    appTypeDeclarations: string;
+    ownTypeDeclarations: string;
+}
+
 // Override paths configurations.
-function OverridePathsConfigs(paths: any) {
+function OverridePathsConfigs(paths: CRAPaths) {
     paths.appHtml = _paths.appHtml;
     paths.appIndexJs = _paths.appIndexTsRenderer;
     paths.appPublic = _paths.appPublic;

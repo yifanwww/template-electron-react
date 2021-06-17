@@ -5,7 +5,7 @@
 export type DeepPartial<T> = {
     [P in keyof T]?: T[P] extends (infer U)[]
         ? DeepPartial<U>[]
-        : T[P] extends (...args: any[]) => any
+        : T[P] extends (...args: never[]) => unknown
             ? T[P]
             : T[P] extends object
                 ? DeepPartial<T[P]>
@@ -58,7 +58,7 @@ export type Contained<T, U> = keyof T extends keyof U ? T : never;
 /**
  * Generic type for Object.
  */
-export type Object<T extends string | number = string | number, U = any> = { [key in T]: U };
+export type Object<T extends string | number = string | number, U = unknown> = { [key in T]: U };
 
 /**
  * Generic type for Object, with value being string.

@@ -22,10 +22,10 @@ export function useDispatchingActions<TActions extends IActions>(actions: TActio
     const dispatch = useDispatch();
 
     return useMemo(() => {
-        const dispatchingActions: Partial<IDispatchingActions<TActions>> = {};
+        const dispatchingActions: Record<string, Function> = {};
 
         for (const actionName in memoActions)
-            (dispatchingActions[actionName] as any) = (payload: any) => dispatch(memoActions[actionName](payload));
+            dispatchingActions[actionName] = (payload: unknown) => dispatch(memoActions[actionName](payload));
 
         return dispatchingActions as IDispatchingActions<TActions>;
     }, [memoActions, dispatch]);

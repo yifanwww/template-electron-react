@@ -93,6 +93,7 @@ module.exports = {
                 leadingUnderscore: 'allow',
             },
         ],
+        '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
         'deprecation/deprecation': 'warn',

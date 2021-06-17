@@ -4,7 +4,7 @@ export class Timer {
     private _autoReset: boolean;
     private _interval: number;
 
-    private _id: number | NodeJS.Timeout | null;
+    private _id: ReturnType<typeof setInterval> | null;
 
     constructor(trigger: () => void, interval: number = 1000) {
         this._trigger = trigger;
@@ -40,9 +40,9 @@ export class Timer {
     public stop = (): void => {
         if (this._id) {
             if (this._autoReset) {
-                clearInterval(this._id as any);
+                clearInterval(this._id);
             } else {
-                clearTimeout(this._id as any);
+                clearTimeout(this._id);
             }
 
             this._id = null;

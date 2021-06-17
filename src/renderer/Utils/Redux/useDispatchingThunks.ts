@@ -22,10 +22,10 @@ export function useDispatchingThunks<TThunks extends IThunks>(thunks: TThunks): 
     const dispatch = useDispatch();
 
     return useMemo(() => {
-        const dispatchingThunks: Partial<IDispatchingThunks<TThunks>> = {};
+        const dispatchingThunks: Record<string, Function> = {};
 
         for (const thunkName in memoThunks)
-            (dispatchingThunks[thunkName] as any) = (payload: any) => dispatch(memoThunks[thunkName](payload));
+            dispatchingThunks[thunkName] = (payload: unknown) => dispatch(memoThunks[thunkName](payload));
 
         return dispatchingThunks as IDispatchingThunks<TThunks>;
     }, [memoThunks, dispatch]);
