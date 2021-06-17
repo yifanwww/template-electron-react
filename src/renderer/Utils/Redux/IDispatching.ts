@@ -12,7 +12,8 @@ export interface IActions {
     readonly [key: string]: ActionCreator;
 }
 
-type ActionCreator = ActionCreatorWithPayload<unknown> | ActionCreatorWithoutPayload;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
 
 type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<unknown> ? Payload : unknown;
 
@@ -27,7 +28,8 @@ export type IDispatchingActions<TActions extends IActions> = {
 // -------------------------------------------------------------------------------------------------- IDispatchingThunks
 
 export interface IThunks {
-    readonly [key: string]: (...args: unknown[]) => ThunkAction<unknown, unknown, unknown, AnyAction>;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    readonly [key: string]: (...args: unknown[]) => ThunkAction<unknown, any, unknown, AnyAction>;
 }
 
 // prettier-ignore
