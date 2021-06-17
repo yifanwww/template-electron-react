@@ -29,7 +29,7 @@ export type IDispatchingActions<TActions extends IActions> = {
 
 export interface IThunks {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    readonly [key: string]: (...args: unknown[]) => ThunkAction<unknown, any, unknown, AnyAction>;
+    readonly [key: string]: (...args: never[]) => ThunkAction<unknown, any, unknown, AnyAction>;
 }
 
 // prettier-ignore
