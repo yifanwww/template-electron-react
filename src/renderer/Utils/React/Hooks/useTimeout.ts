@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 import { useConst } from './useConst';
-import { useConstFn } from './useConstFn';
 
 export interface IUseTimeoutActions {
     readonly setTimeout: (callback: () => void, duration?: number) => number;
@@ -28,21 +27,18 @@ export function useTimeout(): IUseTimeoutActions {
         [timeoutIds],
     );
 
-    const _setTimeout = useConstFn((callback: () => void, duration?: number): number => {
-        const id = setTimeout(callback, duration) as unknown as number;
+    const actions = useConst<IUseTimeoutActions>({
+        setTimeout: (callback: () => void, duration?: number): number => {
+            const id = setTimeout(callback, duration) as unknown as number;
+            timeoutIds[id] = 1;
+            return id;
+        },
 
-        timeoutIds[id] = 1;
-
-        return id;
+        clearTimeout: (id: number): void => {
+            delete timeoutIds[id];
+            clearTimeout(id);
+        },
     });
 
-    const _clearTimeout = useConstFn((id: number): void => {
-        delete timeoutIds[id];
-        clearTimeout(id);
-    });
-
-    return {
-        setTimeout: _setTimeout,
-        clearTimeout: _clearTimeout,
-    };
+    return actions;
 }

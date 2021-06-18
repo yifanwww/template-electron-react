@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 import { useConst } from './useConst';
-import { useConstFn } from './useConstFn';
 
 export interface IUseIntervalActions {
     readonly setInterval: (callback: () => void, duration?: number) => number;
@@ -28,21 +27,18 @@ export function useInterval(): IUseIntervalActions {
         [intervalIds],
     );
 
-    const _setInterval = useConstFn((callback: () => void, duration?: number): number => {
-        const id = setInterval(callback, duration) as unknown as number;
+    const actions = useConst<IUseIntervalActions>({
+        setInterval: (callback: () => void, duration?: number): number => {
+            const id = setInterval(callback, duration) as unknown as number;
+            intervalIds[id] = 1;
+            return id;
+        },
 
-        intervalIds[id] = 1;
-
-        return id;
+        clearInterval: (id: number): void => {
+            delete intervalIds[id];
+            clearInterval(id);
+        },
     });
 
-    const _clearInterval = useConstFn((id: number): void => {
-        delete intervalIds[id];
-        clearInterval(id);
-    });
-
-    return {
-        setInterval: _setInterval,
-        clearInterval: _clearInterval,
-    };
+    return actions;
 }
