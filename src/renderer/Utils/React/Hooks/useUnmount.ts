@@ -7,7 +7,10 @@ import * as React from 'react';
  */
 export function useUnmount(callback: () => void) {
     const unmountRef = React.useRef(callback);
+
+    // Update the ref each render so that the latest callback will be invoked if it changes.
     unmountRef.current = callback;
+
     React.useEffect(
         () => () => {
             unmountRef.current?.();

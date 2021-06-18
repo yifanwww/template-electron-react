@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 /**
  * Hook which asynchronously executes a callback once the component has been mounted.
@@ -6,9 +6,11 @@ import { useEffect, useRef } from 'react';
  * @param callback Function to call before mount.
  */
 export function useMount(callback: () => void) {
-    const mountRef = useRef(callback);
-    mountRef.current = callback;
-    useEffect(() => {
-        mountRef.current?.();
-    }, []);
+    useEffect(
+        () => {
+            callback();
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [],
+    );
 }

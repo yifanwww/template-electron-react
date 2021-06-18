@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 
 import { useConst } from './useConst';
-import { useConstFunction } from './useConstFunction';
+import { useConstFn } from './useConstFn';
 
-export interface IUseSetTimeoutCallbacks {
-    readonly setTimeout: (callback: () => void, duration: number) => number;
+export interface IUseTimeoutActions {
+    readonly setTimeout: (callback: () => void, duration?: number) => number;
     readonly clearTimeout: (id: number) => void;
 }
 
 /**
  *  Returns a wrapper function for `setTimeout` which automatically handles disposal.
  */
-export function useSetTimeout(): IUseSetTimeoutCallbacks {
+export function useTimeout(): IUseTimeoutActions {
     const timeoutIds = useConst<Record<number, number>>({});
 
     // Cleanup function.
@@ -28,7 +28,7 @@ export function useSetTimeout(): IUseSetTimeoutCallbacks {
         [timeoutIds],
     );
 
-    const _setTimeout = useConstFunction((callback: () => void, duration: number): number => {
+    const _setTimeout = useConstFn((callback: () => void, duration?: number): number => {
         const id = setTimeout(callback, duration) as unknown as number;
 
         timeoutIds[id] = 1;
@@ -36,7 +36,7 @@ export function useSetTimeout(): IUseSetTimeoutCallbacks {
         return id;
     });
 
-    const _clearTimeout = useConstFunction((id: number): void => {
+    const _clearTimeout = useConstFn((id: number): void => {
         delete timeoutIds[id];
         clearTimeout(id);
     });
