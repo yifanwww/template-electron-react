@@ -15,12 +15,12 @@ export function useDualTriggerEvent(dualTriggerEvent: () => void, delayLimit: nu
     const _delayLimit = delayLimit >= 0 ? delayLimit : 0;
 
     const trigger = useCallback(() => {
-        const currTriggerTime = new Date().getTime();
+        const currTriggerTime = Date.now();
         if (currTriggerTime - lastTriggerTime < _delayLimit) {
             setTriggerTime(0);
             dualTriggerEvent();
         } else {
-            setTriggerTime(new Date().getTime());
+            setTriggerTime(Date.now());
         }
     }, [_delayLimit, dualTriggerEvent, lastTriggerTime]);
 
