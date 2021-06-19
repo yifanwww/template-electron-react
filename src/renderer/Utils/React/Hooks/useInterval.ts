@@ -16,14 +16,13 @@ export function useInterval(): IUseIntervalActions {
     // Cleanup function.
     useEffect(
         () => {
+            // Here runs only when this component did unmount.
             return () => {
-                // Here runs only when this component did unmount.
-                for (const id of Object.keys(intervalIds)) {
-                    clearInterval(id as unknown as number);
-                }
+                // Clear the interval timers if they exist.
+                for (const id of Object.keys(intervalIds)) clearInterval(id as unknown as number);
             };
         },
-        // useConst ensures this will never change, but react-hooks/exhaustive-deps doesn't know that
+        // useConst ensures this will never change, but `react-hooks/exhaustive-deps` doesn't know that.
         [intervalIds],
     );
 
