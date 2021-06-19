@@ -1,26 +1,38 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-type SetCountdown = (countdown: number) => void;
+import { useConstFn } from './useConstFn';
 
-const getCurrentTime = () => Math.round(Date.now() / 1000);
-const getTargetTime = (countdown: number) => Math.round(Date.now() / 1000 + countdown);
+export type ISetCountdownAction = (countdown: number) => void;
 
-export function useCountdown(countdown: number): [number, SetCountdown] {
-    const [targetTime, setTargetTime] = useState(getTargetTime(countdown));
-    const [currentTime, setCurrentTime] = useState(getCurrentTime());
+export function useCountdown(): [number, ISetCountdownAction] {
+    const intervalIdRef = useRef<number>();
 
-    const setCountdown = useCallback((_countdown: number) => setTargetTime(getTargetTime(_countdown)), [setTargetTime]);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [targetTime, setTargetTime] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const _currentTime = getCurrentTime();
-            if (currentTime !== _currentTime) {
-                setCurrentTime(_currentTime);
+    const setCountdown = useConstFn((_countdown: number) => {
+        const _currentTime = Date.now() / 1000;
+        const _targetTime = _currentTime + _countdown;
+        setCurrentTime(_currentTime);
+        setTargetTime(_targetTime);
+
+        clearInterval(intervalIdRef.current);
+        intervalIdRef.current = setInterval(() => {
+            const curr = Date.now() / 1000;
+            setCurrentTime(curr);
+
+            if (curr >= _targetTime) {
+                clearInterval(intervalIdRef.current);
+                intervalIdRef.current = undefined;
             }
-        });
+        }, 50) as unknown as number;
+    });
 
-        return () => clearInterval(interval);
-    }, [currentTime]);
+    // Cleanup function.
+    useEffect(() => {
+        // Here runs only when this component did unmount. Clear the interval timer if it exists.
+        return () => clearInterval(intervalIdRef.current);
+    }, []);
 
-    return [targetTime - currentTime >= 0 ? targetTime - currentTime : 0, setCountdown];
+    return [Math.max(0, Math.ceil(targetTime - currentTime)), setCountdown];
 }
