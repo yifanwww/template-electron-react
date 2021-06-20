@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useConst } from './useConst';
 
 export interface IUseSimpleIntervalActions {
+    readonly isWorking: () => boolean;
     readonly setInterval: (callback: () => void, duration?: number) => void;
     readonly clearInterval: () => void;
 }
@@ -20,6 +21,8 @@ export function useSimpleInterval(): IUseSimpleIntervalActions {
     }, []);
 
     const actions = useConst<IUseSimpleIntervalActions>({
+        isWorking: () => intervalIdRef.current !== undefined,
+
         setInterval: (callback: () => void, duration?: number): void => {
             clearInterval(intervalIdRef.current);
 

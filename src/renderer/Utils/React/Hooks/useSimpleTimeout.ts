@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 
 import { useConst } from './useConst';
+import { useConstFn } from './useConstFn';
 
 export interface IUseSimpleTimeoutActions {
+    readonly isWorking: () => boolean;
     readonly setTimeout: (callback: () => void, duration?: number) => void;
     readonly clearTimeout: () => void;
 }
@@ -19,11 +21,18 @@ export function useSimpleTimeout(): IUseSimpleTimeoutActions {
         return () => clearTimeout(timeoutIdRef.current);
     }, []);
 
+    const trigger = useConstFn((callback: () => void) => {
+        timeoutIdRef.current = undefined;
+        callback();
+    });
+
     const actions = useConst<IUseSimpleTimeoutActions>({
+        isWorking: () => timeoutIdRef.current !== undefined,
+
         setTimeout: (callback: () => void, duration?: number): void => {
             clearTimeout(timeoutIdRef.current);
 
-            timeoutIdRef.current = setTimeout(callback, duration) as unknown as number;
+            timeoutIdRef.current = setTimeout(() => trigger(callback), duration) as unknown as number;
         },
 
         clearTimeout: () => clearTimeout(timeoutIdRef.current),
