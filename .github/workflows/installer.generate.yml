@@ -1,0 +1,30 @@
+name: Generate Installer
+
+env:
+    GITHUB_TOKEN: ${{ secrets.YF1999_GITHUB_PAT }}
+
+on:
+    push:
+        branches: main
+
+jobs:
+    generate-installer:
+        runs-on: windows-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Use Node.js environment
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.x
+
+            - name: Setup node modules
+              run: npm ci
+
+            - name: Build project
+              run: npm run build
+
+            - name: Generate installer
+              run: npm run gen-installer

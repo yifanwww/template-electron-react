@@ -1,15 +1,13 @@
-name: Try-To-Build
+name: Build
 
 on:
     push:
         branches:
-            - main
-            - build-fix
+            - '**'
 
 jobs:
-    try-to-build:
+    build:
         runs-on: ubuntu-latest
-        timeout-minutes: 5
 
         steps:
             - name: Checkout code
