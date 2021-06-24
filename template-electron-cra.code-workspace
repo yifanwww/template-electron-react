@@ -71,7 +71,7 @@
             "editor.autoIndent": "advanced",
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.insertSpaces": true,
-            "editor.tabSize": 4
+            "editor.tabSize": 2
         },
 
         // extension settings
