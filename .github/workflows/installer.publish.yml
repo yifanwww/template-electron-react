@@ -1,36 +1,36 @@
 name: Publish Installer
 
 env:
-    GITHUB_TOKEN: ${{ secrets.YF1999_GITHUB_PAT }}
+  GITHUB_TOKEN: ${{ secrets.YF1999_GITHUB_PAT }}
 
 on:
-    push:
-        tags: v*
+  push:
+    tags: v*
 
 jobs:
-    publish-installer:
-        runs-on: windows-latest
+  publish-installer:
+    runs-on: windows-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-            - name: Use Node.js environment
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14.x
+      - name: Use Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
 
-            - name: Setup node modules
-              run: npm ci
+      - name: Setup node modules
+        run: npm ci
 
-            - name: Build project
-              run: npm run build
+      - name: Build project
+        run: npm run build
 
-            - name: Generate installer
-              run: npm run gen-installer
+      - name: Generate installer
+        run: npm run gen-installer
 
-            - name: Upload installer
-              uses: actions/upload-artifact@v2
-              with:
-                  name: release
-                  path: release/*.exe
+      - name: Upload installer
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: release/*.exe
