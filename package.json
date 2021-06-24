@@ -16,7 +16,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/YSoftwareRepo/template-electron-cra"
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git"
     },
     "browserslist": {
         "production": [
