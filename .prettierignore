@@ -3,14 +3,10 @@
 /build
 /release
 
-# Configurations
+# Scripts
 
 /scripts/tsconfigs/tsconfig.renderer.json
 /scripts/**/*.js
-
-# Scripts
-
-scripts/*.js
 
 # Running and Testing
 
