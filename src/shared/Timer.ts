@@ -1,10 +1,12 @@
+import { Optional } from './TypeUtils';
+
 export class Timer {
     private _trigger: () => void;
 
     private _autoReset: boolean;
     private _interval: number;
 
-    private _id: ReturnType<typeof setInterval> | null;
+    private _id: Optional<ReturnType<typeof setInterval>>;
 
     constructor(trigger: () => void, interval: number = 1000) {
         this._trigger = trigger;

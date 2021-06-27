@@ -1,5 +1,7 @@
 import { useCallback, useEffect } from 'react';
 
+import { Optional } from '#shared/TypeUtils';
+
 export enum Keyboard {
     KeyA = 0, // A-Z Or a-z
     KeyB,
@@ -334,7 +336,7 @@ function filterKey(event: KeyboardEvent, key: Keyboard, handler: UseKeyHandler):
 export type KeyboardEventType = 'keydown' | 'keypress' | 'keyup';
 
 function _useKeyImpl(
-    element: HTMLElement | null,
+    element: Optional<HTMLElement>,
     type: KeyboardEventType,
     key: Keyboard | undefined,
     handler: UseKeyHandler,
@@ -353,15 +355,15 @@ function _useKeyImpl(
     }, [_handler, element, type]);
 }
 
-export function useKey(element: HTMLElement | null, type: KeyboardEventType, handler: UseKeyHandler): void;
+export function useKey(element: Optional<HTMLElement>, type: KeyboardEventType, handler: UseKeyHandler): void;
 export function useKey(
-    element: HTMLElement | null,
+    element: Optional<HTMLElement>,
     type: KeyboardEventType,
     key: Keyboard,
     handler: UseKeyHandler,
 ): void;
 export function useKey(
-    element: HTMLElement | null,
+    element: Optional<HTMLElement>,
     type: KeyboardEventType,
     keyOrHandler: Keyboard | UseKeyHandler,
     handler?: UseKeyHandler,
@@ -373,24 +375,24 @@ export function useKey(
     }
 }
 
-export function useKeyDown(element: HTMLElement | null, handler: UseKeyHandler): void;
-export function useKeyDown(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+export function useKeyDown(element: Optional<HTMLElement>, handler: UseKeyHandler): void;
+export function useKeyDown(element: Optional<HTMLElement>, key: Keyboard, handler: UseKeyHandler): void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function useKeyDown(element: HTMLElement | null, ...args: [any, any?]): void {
+export function useKeyDown(element: Optional<HTMLElement>, ...args: [any, any?]): void {
     useKey(element, 'keydown', ...args);
 }
 
-export function useKeyPress(element: HTMLElement | null, handler: UseKeyHandler): void;
-export function useKeyPress(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+export function useKeyPress(element: Optional<HTMLElement>, handler: UseKeyHandler): void;
+export function useKeyPress(element: Optional<HTMLElement>, key: Keyboard, handler: UseKeyHandler): void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function useKeyPress(element: HTMLElement | null, ...args: [any, any?]): void {
+export function useKeyPress(element: Optional<HTMLElement>, ...args: [any, any?]): void {
     useKey(element, 'keypress', ...args);
 }
 
-export function useKeyUp(element: HTMLElement | null, handler: UseKeyHandler): void;
-export function useKeyUp(element: HTMLElement | null, key: Keyboard, handler: UseKeyHandler): void;
+export function useKeyUp(element: Optional<HTMLElement>, handler: UseKeyHandler): void;
+export function useKeyUp(element: Optional<HTMLElement>, key: Keyboard, handler: UseKeyHandler): void;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function useKeyUp(element: HTMLElement | null, ...args: [any, any?]): void {
+export function useKeyUp(element: Optional<HTMLElement>, ...args: [any, any?]): void {
     useKey(element, 'keyup', ...args);
 }
 

@@ -80,3 +80,5 @@ export type ExcludeUnderscorePrefix<T> = T extends `_${infer R}` ? never : T;
  * Construct a type with the properties of T except for those that start with underscore.
  */
 export type OmitUnderscorePrefix<T extends object> = Pick<T, ExcludeUnderscorePrefix<keyof T>>;
+
+export type Optional<T> = T | null;

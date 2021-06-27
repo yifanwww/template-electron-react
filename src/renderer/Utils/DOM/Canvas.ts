@@ -1,4 +1,5 @@
 import { IOffset } from '#RUtils/Types';
+import { Optional } from '#shared/TypeUtils';
 
 import { IDotPosition, IRectPosition, ITextWithPosition } from './Types';
 
@@ -23,7 +24,7 @@ export abstract class CanvasUtils {
     static createLinePainter(context: CanvasRenderingContext2D, offset: IOffset = this.zeroOffset): CanvasLinePainter {
         type Next = (x: number, y: number) => void;
 
-        let _next: Next | null = null;
+        let _next: Optional<Next> = null;
 
         const _lineTo: Next = (x, y) => context.lineTo(x, y);
         const _moveTo: Next = (x, y) => {

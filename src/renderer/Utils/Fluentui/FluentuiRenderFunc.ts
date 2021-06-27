@@ -1,10 +1,12 @@
 import { ReactElement } from 'react';
 import { IDetailsGroupDividerProps, IDetailsRowProps } from '@fluentui/react';
 
+import { Optional } from '#shared/TypeUtils';
+
 type IRenderFunc<Props> = (
     props?: Props,
-    defaultRender?: (props?: Props) => ReactElement | null,
-) => ReactElement | null;
+    defaultRender?: (props?: Props) => Optional<ReactElement>,
+) => Optional<ReactElement>;
 
 export type DetailsGroupDividerRenderFunc = IRenderFunc<IDetailsGroupDividerProps>;
 
