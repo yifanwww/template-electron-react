@@ -10,6 +10,7 @@ on:
 jobs:
   generate-installer:
     runs-on: windows-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout code
