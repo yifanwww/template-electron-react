@@ -16,7 +16,7 @@ export class WindowManager {
         switch (windowType) {
             case 'main':
                 this.store[windowId] = new MainWindow({
-                    windowId: '',
+                    windowId,
                     height: option?.height,
                     width: option?.width,
                     createWindow: this.createWindow,
