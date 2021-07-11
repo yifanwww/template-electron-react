@@ -2,9 +2,8 @@
 
 import _path from 'path';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
-import { Configuration, ConfigurationFactory, Plugin } from 'webpack';
+import { Configuration, ConfigurationFactory } from 'webpack';
 
-import { MkdirWebpackPlugin } from '../webpack-plugins/mkdir-webpack-plugin';
 import { ReloadElectronWebpackPlugin } from '../webpack-plugins/reload-electron-webpack-plugin';
 import { alias, paths } from './webpack.base.config';
 
@@ -33,10 +32,7 @@ const factory: ConfigurationFactory = (env, argv) => {
                 },
             ],
         },
-        plugins: [
-            new MkdirWebpackPlugin(workingDir),
-            isEnvDevelopment && new ReloadElectronWebpackPlugin(projectDir, workingDir),
-        ].filter(Boolean) as Plugin[],
+        plugins: isEnvDevelopment ? [new ReloadElectronWebpackPlugin(projectDir, workingDir)] : [],
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
             alias,
