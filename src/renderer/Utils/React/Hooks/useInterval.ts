@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 import { useConst } from './useConst';
-import { useConstFn } from './useConstFn';
 
 export interface IUseIntervalActions {
     readonly setInterval: (callback: () => void, duration?: number) => number;
@@ -17,32 +16,28 @@ export function useInterval(): IUseIntervalActions {
     // Cleanup function.
     useEffect(
         () => {
+            // Here runs only when this component did unmount.
             return () => {
-                // Here runs only when this component did unmount.
-                for (const id of Object.keys(intervalIds)) {
-                    clearInterval(id as unknown as number);
-                }
+                // Clear the interval timers if they exist.
+                for (const id of Object.keys(intervalIds)) clearInterval(id as unknown as number);
             };
         },
-        // useConst ensures this will never change, but react-hooks/exhaustive-deps doesn't know that
+        // useConst ensures this will never change, but `react-hooks/exhaustive-deps` doesn't know that.
         [intervalIds],
     );
 
-    const _setInterval = useConstFn((callback: () => void, duration?: number): number => {
-        const id = setInterval(callback, duration) as unknown as number;
+    const actions = useConst<IUseIntervalActions>({
+        setInterval: (callback: () => void, duration?: number): number => {
+            const id = setInterval(callback, duration) as unknown as number;
+            intervalIds[id] = 1;
+            return id;
+        },
 
-        intervalIds[id] = 1;
-
-        return id;
+        clearInterval: (id: number): void => {
+            delete intervalIds[id];
+            clearInterval(id);
+        },
     });
 
-    const _clearInterval = useConstFn((id: number): void => {
-        delete intervalIds[id];
-        clearInterval(id);
-    });
-
-    return {
-        setInterval: _setInterval,
-        clearInterval: _clearInterval,
-    };
+    return actions;
 }
