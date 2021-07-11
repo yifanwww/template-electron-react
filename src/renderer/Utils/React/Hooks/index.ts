@@ -3,7 +3,7 @@ export * from './useConst';
 export * from './useConstFn';
 export * from './useCountdown';
 export * from './useDelayFn';
-export * from './useDualTriggerEvent';
+export * from './useDoubleTrigger';
 export * from './useForceUpdate';
 export * from './useHover';
 export * from './useImmediateFocus';
