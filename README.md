@@ -11,10 +11,7 @@ It's recommanded for you to use `Visual Studio Code` to develop your electron ap
 
 After you creating your own project, you need to rename the `template-electron-cra.code-workspace` file to `<YouProjectName>.code-workspace`, and then use vscode to open it.
 
-The vscode project configurations need to be set in `.vscode/settings.json`. I have provided a very simple `settings~.json`, you can copy and edit it.
-For git, the `settings.json` file is ignored but the `settings~.json` file is not. For you can set some personal project settings which are probobly not suit for other developers. You should edit the `settings~.json` file and inform others, if you have changed some communal project settings.
-
-You need to install two vscode package: `ESLint` and `Prettier - Code formatter`.
+You need to install three vscode packages: `ESLint`, `Prettier - Code formatter` and `Todo Tree`.
 
 ## More Information
 
