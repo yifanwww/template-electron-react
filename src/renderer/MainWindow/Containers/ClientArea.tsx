@@ -11,9 +11,7 @@ export const ClientArea = memo(function ClientArea() {
 
     const { prepare } = useMainDispatchingThunks();
 
-    useEffect(() => {
-        prepare();
-    }, [prepare]);
+    useEffect(prepare, [prepare]);
 
     return (
         <div className={classes.clientArea}>
