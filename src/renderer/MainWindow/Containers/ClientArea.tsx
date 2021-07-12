@@ -4,17 +4,17 @@ import { memo, useEffect } from 'react';
 import { InfoDisplay } from '../Components';
 import { useMainDispatchingThunks } from '../Redux';
 
-const useClasses = makeStyles({ clientArea: { display: 'grid' } });
+const useClassNames = makeStyles({ clientArea: { display: 'grid' } });
 
 export const ClientArea = memo(function ClientArea() {
-    const classes = useClasses();
+    const classNames = useClassNames();
 
     const { prepare } = useMainDispatchingThunks();
 
     useEffect(prepare, [prepare]);
 
     return (
-        <div className={classes.clientArea}>
+        <div className={classNames.clientArea}>
             <InfoDisplay />
         </div>
     );
