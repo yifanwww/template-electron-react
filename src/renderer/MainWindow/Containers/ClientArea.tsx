@@ -1,7 +1,7 @@
 import { makeStyles } from '@fluentui/react';
 import { memo, useEffect } from 'react';
 
-import { InfoDisplay } from '../Components';
+import { Introduction } from '../Components/Introduction';
 import { useMainDispatchingThunks } from '../Redux';
 
 const useClassNames = makeStyles({ clientArea: { display: 'grid' } });
@@ -15,7 +15,7 @@ export const ClientArea = memo(function ClientArea() {
 
     return (
         <div className={classNames.clientArea}>
-            <InfoDisplay />
+            <Introduction />
         </div>
     );
 });

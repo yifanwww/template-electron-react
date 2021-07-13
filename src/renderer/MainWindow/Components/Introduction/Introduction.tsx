@@ -10,7 +10,7 @@ const useClassNames = makeStyles(() => {
     });
 
     return {
-        header: {
+        introduction: {
             alignItems: 'center',
             background: '#282c34',
             color: 'white',
@@ -34,11 +34,11 @@ const useClassNames = makeStyles(() => {
     };
 });
 
-export function InfoDisplay(): ReactElement {
+export function Introduction(): ReactElement {
     const classNames = useClassNames();
 
     return (
-        <header className={classNames.header}>
+        <header className={classNames.introduction}>
             <img className={classNames.logo} src={logo} alt="logo" />
             <p>
                 Edit <code>src/renderer/MainWindow/App.tsx</code> and save to reload.
