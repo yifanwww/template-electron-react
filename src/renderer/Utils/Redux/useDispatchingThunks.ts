@@ -25,7 +25,7 @@ export function useDispatchingThunks<TThunks extends IThunks>(thunks: TThunks): 
         const dispatchingThunks: Record<string, Function> = {};
 
         for (const thunkName in memoThunks)
-            dispatchingThunks[thunkName] = (payload: never) => dispatch(memoThunks[thunkName](payload));
+            dispatchingThunks[thunkName] = (...args: never[]) => dispatch(memoThunks[thunkName](...args));
 
         return dispatchingThunks as IDispatchingThunks<TThunks>;
     }, [memoThunks, dispatch]);
