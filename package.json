@@ -44,11 +44,11 @@
         "dev": "concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
         "dev:main": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode development",
         "dev:renderer": "react-app-rewired start --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "gen-installer": "electron-builder build --config scripts/electron/electron-builder.json --win",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts && node scripts/md-working.js",
         "predev": "npm run build-scripts && node scripts/md-working.js",
-        "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "run-build": "node scripts/run-app.js",
         "test": "react-app-rewired test --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
         "test-coverage": "npm run test -- --coverage --watchAll=false"
