@@ -1,9 +1,18 @@
 import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
 import { Introduction } from './Introduction';
 
-test('renders learn @YSoftwareRepo/template-electron-cra link', () => {
-    const { getByText } = render(<Introduction />);
-    const linkElement = getByText(/Learn @YSoftwareRepo\/template-electron-cra/i);
-    expect(linkElement).toBeInTheDocument();
+describe('Test component `Introduction`', () => {
+    test('renders link', () => {
+        const { getByText } = render(<Introduction />);
+        const linkElement = getByText(new RegExp('Learn @YSoftwareRepo/template-electron-cra', 'i'));
+        expect(linkElement).toBeInTheDocument();
+    });
+
+    test('[snapshot] renders', () => {
+        const component = renderer.create(<Introduction />);
+        const tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

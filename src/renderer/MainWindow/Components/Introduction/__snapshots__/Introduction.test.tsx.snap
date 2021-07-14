@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test component \`Introduction\` [snapshot] renders 1`] = `
+<header
+  className="introduction-54"
+>
+  <img
+    alt="logo"
+    className="logo-56"
+    src="logo.svg"
+  />
+  <p>
+    Edit 
+    <code>
+      src/renderer/MainWindow/App.tsx
+    </code>
+     and save to reload.
+  </p>
+  <a
+    className="link-55"
+    href="https://github.com/YSoftwareRepo/template-electron-cra"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Learn @YSoftwareRepo/template-electron-cra
+  </a>
+</header>
+`;
