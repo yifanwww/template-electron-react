@@ -2,9 +2,10 @@ import { initializeIcons, ThemeProvider } from '@fluentui/react';
 import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
+import { Optional } from '#Common/TypeUtils';
+import { WindowType } from '#Common/WindowType';
 import { rendererIpc } from '#RUtils/RendererIpc';
 import { fluentuiTheme } from '#RUtils/Theme';
-import { WindowType } from '#shared/WindowType';
 
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
@@ -15,7 +16,7 @@ function initializeFluentui(): void {
     initializeIcons();
 }
 
-function WindowProvider(): ReactElement {
+function WindowProvider(): Optional<ReactElement> {
     const windowType: WindowType = rendererIpc.getWindowType();
 
     let never: never;
@@ -25,7 +26,8 @@ function WindowProvider(): ReactElement {
 
         default:
             never = windowType;
-            return never;
+            console.error(`Wrong window type '${never}' to create the specified window user interface.`);
+            return null;
     }
 }
 

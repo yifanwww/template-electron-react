@@ -5,6 +5,6 @@
         "outDir": "../../build",
         "rootDir": "../.."
     },
-    "include": ["../../src/main", "../../src/shared"],
+    "include": ["../../src/common", "../../src/main"],
     "exclude": ["../../build", "../../node_modules"]
 }

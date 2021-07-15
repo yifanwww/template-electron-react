@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { IDetailsGroupDividerProps, IDetailsRowProps } from '@fluentui/react';
 
-import { Optional } from '#shared/TypeUtils';
+import { Optional } from '#Common/TypeUtils';
 
 type IRenderFunc<Props> = (
     props?: Props,

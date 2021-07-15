@@ -24,7 +24,7 @@
   },
   "extends": "./tsconfig.base.json",
   "include": [
-    "../../src/renderer",
-    "../../src/shared"
+    "../../src/common",
+    "../../src/renderer"
   ]
 }

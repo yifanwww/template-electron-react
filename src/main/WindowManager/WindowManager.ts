@@ -25,8 +25,8 @@ export class WindowManager {
                 break;
 
             default:
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 never = windowType;
+                console.error(`Wrong window type '${never}' to create the specified browser window`);
         }
 
         this.store[windowId]!.show();

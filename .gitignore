@@ -31,9 +31,12 @@ release
 scripts/**/*.js
 scripts/**/*.map
 
-# After Running Or Testing
+# Testing
 
 coverage
+
+# Working Directory
+
 working
 
 # Misc

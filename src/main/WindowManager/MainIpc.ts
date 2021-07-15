@@ -1,7 +1,7 @@
 import { ipcMain } from 'electron';
 
-import { Channels, IpcMListener } from '#shared/Ipc';
-import { WindowType } from '#shared/WindowType';
+import { Channels, IpcMListener } from '#Common/Ipc';
+import { WindowType } from '#Common/WindowType';
 
 class MainIpc {
     public onGetWindowType(handler: IpcMListener): this {

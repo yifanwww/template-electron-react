@@ -38,7 +38,7 @@ import {
     IToggleStyles,
 } from '@fluentui/react';
 
-import { DeepPartial } from '#shared/TypeUtils';
+import { DeepPartial } from '#Common/TypeUtils';
 
 type Props2Styles<Props, Styles extends IStyleSet<Styles>> = (props: Props) => DeepPartial<Styles>;
 type PropsTokens2Styles<Props, Tokens, Styles extends IStyleSet<Styles>> = (

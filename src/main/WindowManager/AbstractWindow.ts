@@ -1,8 +1,8 @@
 import _path from 'path';
 import { BrowserWindow, IpcMainEvent } from 'electron';
 
-import { WindowType } from '#shared/WindowType';
-import { IpcMListener } from '#shared/Ipc';
+import { IpcMListener } from '#Common/Ipc';
+import { WindowType } from '#Common/WindowType';
 
 import { AppPaths } from '../AppPaths';
 import { mainIpc } from './MainIpc';
