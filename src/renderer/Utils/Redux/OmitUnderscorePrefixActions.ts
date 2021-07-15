@@ -1,4 +1,4 @@
-import { OmitUnderscorePrefix } from '#shared/TypeUtils';
+import { OmitUnderscorePrefix } from '#Common/TypeUtils';
 
 import { IActions } from './IDispatching';
 

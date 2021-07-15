@@ -1,4 +1,4 @@
-import { WindowType } from '#shared/WindowType';
+import { WindowType } from '#Common/WindowType';
 
 export interface CreateWindowOption {
     windowType: WindowType;

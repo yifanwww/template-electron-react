@@ -17,9 +17,9 @@ export const paths = {
     appIndexTsMain: resolveProject('src/main/app.ts'),
     appIndexTsRenderer: resolveProject('src/renderer/index.tsx'),
     appPublic: resolveProject('src/public'),
+    appSrcCommon: resolveProject('src/common'),
     appSrcMain: resolveProject('src/main'),
     appSrcRenderer: resolveProject('src/renderer'),
-    appSrcShared: resolveProject('src/shared'),
     appTsConfigMain: resolveProject('scripts/tsconfigs/tsconfig.main.json'),
     appTsConfigRenderer: resolveProject('scripts/tsconfigs/tsconfig.renderer.json'),
     appTypeDeclarations: resolveProject('src/renderer/react-app-env.d.ts'),
@@ -30,7 +30,8 @@ export const paths = {
 
 // Alias
 export const alias = {
-    '#shared': resolveProject('src/shared'),
+    // common
+    '#Common': resolveProject('src/common'),
     // main
     '#MUtils': resolveProject('src/main/Utils'),
     // renderer

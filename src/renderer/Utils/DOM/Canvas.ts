@@ -1,5 +1,5 @@
+import { Optional } from '#Common/TypeUtils';
 import { IOffset } from '#RUtils/Types';
-import { Optional } from '#shared/TypeUtils';
 
 import { IDotPosition, IRectPosition, ITextWithPosition } from './Types';
 

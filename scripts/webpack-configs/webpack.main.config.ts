@@ -27,7 +27,7 @@ const factory: ConfigurationFactory = (env, argv) => {
                 {
                     test: /\.ts$/,
                     loader: 'ts-loader',
-                    include: [paths.appSrcMain, paths.appSrcShared],
+                    include: [paths.appSrcCommon, paths.appSrcMain],
                     options: { configFile: paths.appTsConfigMain },
                 },
             ],
