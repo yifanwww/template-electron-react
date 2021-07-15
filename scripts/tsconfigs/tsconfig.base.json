@@ -15,6 +15,7 @@
         "newLine": "lf",
         "noImplicitAny": true,
         "noImplicitThis": true,
+        "noImplicitOverride": true,
         "noImplicitReturns": true,
         "paths": {
             "#shared/*": ["src/shared/*"],
