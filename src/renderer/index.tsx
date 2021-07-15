@@ -4,8 +4,8 @@ import { render } from 'react-dom';
 
 import { Optional } from '#Common/TypeUtils';
 import { WindowType } from '#Common/WindowType';
+import { fluentuiTheme } from '#RUtils/Fluentui';
 import { rendererIpc } from '#RUtils/RendererIpc';
-import { fluentuiTheme } from '#RUtils/Theme';
 
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';

@@ -1,10 +1,10 @@
 // The default theme fluentui sets, DO NOT CHANGE IT.
 // For more information:
-// https://fabricweb.z5.web.core.windows.net/pr-deploy-site/refs/heads/7.0/theming-designer/index.html
+// https://fluentuipr.z22.web.core.windows.net/heads/master/theming-designer/index.html
 
 import { createTheme, IPalette, ISemanticColors } from '@fluentui/react';
 
-export const fluentuiPalette: Partial<IPalette> = {
+export const palette: Partial<IPalette> = {
     // theme colors
 
     themeDarker: '#004578',
@@ -63,7 +63,7 @@ export const fluentuiPalette: Partial<IPalette> = {
     greenLight: '#bad80a',
 };
 
-export const fluentuiSemantic: Partial<ISemanticColors> = {
+export const semanticColors: Partial<ISemanticColors> = {
     // bodyBackground: '',
     // bodyBackgroundHovered: '',
     // bodyBackgroundChecked: '',
@@ -137,7 +137,4 @@ export const fluentuiSemantic: Partial<ISemanticColors> = {
     // listHeaderBackgroundPressed: ''
 };
 
-export const fluentuiTheme = createTheme({
-    palette: fluentuiPalette,
-    semanticColors: fluentuiSemantic,
-});
+export const fluentuiTheme = createTheme({ palette, semanticColors });
