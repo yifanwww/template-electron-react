@@ -1,4 +1,3 @@
-export * from './EventsInProps';
-export * from './FluentuiRenderFunc';
-export * from './FluentuiStyles';
-export * from './Theme.FluentUI';
+export * from './Events';
+export * from './Styles';
+export * from './Theme.Default';
