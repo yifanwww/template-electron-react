@@ -1,5 +1,5 @@
 import { createTypedSelector } from '#RUtils/Redux';
 
-import { StoreState } from '../types';
+import { IStoreState } from '../types';
 
-export const useMainSelector = createTypedSelector<StoreState>();
+export const useMainSelector = createTypedSelector<IStoreState>();

@@ -1,5 +1,5 @@
 import { thunkCreatorFactory } from '#RUtils/Redux';
 
-import { StoreState } from '../types';
+import { IStoreState } from '../types';
 
-export const createMainThunk = thunkCreatorFactory<StoreState>();
+export const createMainThunk = thunkCreatorFactory<IStoreState>();
