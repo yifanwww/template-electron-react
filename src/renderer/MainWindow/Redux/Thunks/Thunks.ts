@@ -1,8 +1,6 @@
 import { _actions } from '../Actions';
-import { MainThunk } from '../types';
+import { createMainThunk } from './CreateMainThunk';
 
-export function prepare(): MainThunk {
-    return (dispatch) => {
-        dispatch(_actions._finishPreparing());
-    };
-}
+export const prepare = createMainThunk((dispatch) => {
+    dispatch(_actions._finishPreparing());
+});

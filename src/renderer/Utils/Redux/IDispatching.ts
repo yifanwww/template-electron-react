@@ -1,10 +1,6 @@
-import {
-    ActionCreatorWithoutPayload,
-    ActionCreatorWithPayload,
-    AnyAction,
-    PayloadAction,
-    ThunkAction,
-} from '@reduxjs/toolkit';
+import { ActionCreatorWithoutPayload, ActionCreatorWithPayload, PayloadAction } from '@reduxjs/toolkit';
+
+import { IThunk } from './Thunk';
 
 // ------------------------------------------------------------------------------------------------- IDispatchingActions
 
@@ -28,8 +24,7 @@ export type IDispatchingActions<TActions extends IActions> = {
 // -------------------------------------------------------------------------------------------------- IDispatchingThunks
 
 export interface IThunks {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    readonly [key: string]: (...args: never[]) => ThunkAction<unknown, any, unknown, AnyAction>;
+    readonly [key: string]: (...args: never[]) => IThunk<unknown, never, never>;
 }
 
 // prettier-ignore
