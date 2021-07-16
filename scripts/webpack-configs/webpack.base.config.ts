@@ -28,8 +28,8 @@ export const paths = {
     testsSetup: resolveProject('src/renderer/setupTests.ts'),
 };
 
-// Alias
-export const alias = {
+// webpack path aliases
+export const aliases = {
     // common
     '#Common': resolveProject('src/common'),
     // main
@@ -37,4 +37,17 @@ export const alias = {
     // renderer
     '#Assets': resolveProject('src/renderer/Assets'),
     '#RUtils': resolveProject('src/renderer/Utils'),
+};
+
+const resolveJest = (relativePath: string) => `<rootDir>/${relativePath}$1`;
+
+// jest path aliases
+export const jestAliases = {
+    // common
+    '#Common(.*)$': resolveJest('src/common'),
+    // main
+    '#MUtils(.*)$': resolveJest('src/main/Utils'),
+    // renderer
+    '#Assets(.*)$': resolveJest('src/renderer/Assets'),
+    '#RUtils(.*)$': resolveJest('src/renderer/Utils'),
 };

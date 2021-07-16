@@ -11,7 +11,7 @@ import { Config } from '@jest/types';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration } from 'webpack';
 
-import { alias as _alias, paths as _paths } from './webpack.base.config';
+import { aliases, jestAliases, paths as _paths } from './webpack.base.config';
 
 interface CRAPaths {
     dotent: string;
@@ -70,12 +70,11 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
 
     webpack.module!.rules[1].oneOf![2].include = [_paths.appSrcCommon, _paths.appSrcRenderer];
 
-    // 3. Add custom aliases.
+    // 3. Add custom path aliases.
 
-    const { alias } = webpack.resolve!;
     webpack.resolve!.alias = {
-        ...alias,
-        ..._alias,
+        ...webpack.resolve!.alias,
+        ...aliases,
     };
 
     // Finish.
@@ -109,6 +108,13 @@ function overrideJestConfigs(config: Config.InitialOptions): Config.InitialOptio
         '<rootDir>/src/renderer/**/__tests__/**/*.{ts,tsx}',
         '<rootDir>/src/renderer/**/*.{spec,test}.{ts,tsx}',
     ];
+
+    // 5. Add custom path aliases.
+
+    config.moduleNameMapper = {
+        ...config.moduleNameMapper,
+        ...jestAliases,
+    };
 
     return config;
 }

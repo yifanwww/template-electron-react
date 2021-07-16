@@ -5,7 +5,7 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration, ConfigurationFactory } from 'webpack';
 
 import { ReloadElectronWebpackPlugin } from '../webpack-plugins/reload-electron-webpack-plugin';
-import { alias, paths } from './webpack.base.config';
+import { aliases, paths } from './webpack.base.config';
 
 const projectDir = _path.resolve(__dirname, '../..');
 const workingDir = _path.resolve(projectDir, 'working');
@@ -35,7 +35,7 @@ const factory: ConfigurationFactory = (env, argv) => {
         plugins: isEnvDevelopment ? [new ReloadElectronWebpackPlugin(projectDir, workingDir)] : [],
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
-            alias,
+            alias: aliases,
         },
         watch: isEnvDevelopment,
         watchOptions: {
