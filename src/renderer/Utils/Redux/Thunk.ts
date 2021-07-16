@@ -1,28 +1,25 @@
-import { Action, AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { AnyAction, ThunkAction, ThunkDispatch } from '@reduxjs/toolkit';
 
-/**
- * Edited from `ThunkAction` of `@reduxjs/toolkit`.
- */
-export type IThunkAction<R, S, E, A extends Action> = (
-    dispatch: ThunkDispatch<S, E, A>,
-    getState: () => S,
-    thunkArgument: E,
-) => R;
+export type IThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
-export type IThunk<ReturnType, State, ThunkArgument> = IThunkAction<ReturnType, State, ThunkArgument, AnyAction>;
+export type IThunk<ReturnType, State, ThunkArgs extends unknown[]> = (
+    dispatch: ThunkDispatch<State, never, AnyAction>,
+    getState: () => State,
+    ...thunkArgs: ThunkArgs
+) => ReturnType;
 
-export type IThunkClosure<ReturnType, State, ThunkArgument> = ThunkArgument extends undefined
-    ? () => IThunk<ReturnType, State, unknown>
-    : (thunkArgument: ThunkArgument) => IThunk<ReturnType, State, ThunkArgument>;
+export type IThunkClosure<ReturnType, State, ThunkArgs extends unknown[]> = ThunkArgs extends undefined
+    ? () => IThunkAction<ReturnType, State>
+    : (...thunkArgs: ThunkArgs) => IThunkAction<ReturnType, State>;
 
 export function thunkCreatorFactory<State>() {
-    return function createThunk<ReturnType, ThunkArgument = undefined>(
-        thunk: IThunk<ReturnType, State, ThunkArgument>,
-    ): IThunkClosure<ReturnType, State, ThunkArgument> {
-        function thunkClosure(thunkArgument: ThunkArgument): IThunk<ReturnType, State, ThunkArgument> {
-            return (dispatch, getState) => thunk(dispatch, getState, thunkArgument);
+    return function createThunk<ReturnType, ThunkArgs extends unknown[]>(
+        thunk: IThunk<ReturnType, State, ThunkArgs>,
+    ): IThunkClosure<ReturnType, State, ThunkArgs> {
+        function thunkClosure(...thunkArgs: ThunkArgs): IThunkAction<ReturnType, State> {
+            return (dispatch, getState) => thunk(dispatch, getState, ...thunkArgs);
         }
 
-        return thunkClosure as IThunkClosure<ReturnType, State, ThunkArgument>;
+        return thunkClosure as never;
     };
 }
