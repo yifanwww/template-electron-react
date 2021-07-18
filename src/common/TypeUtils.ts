@@ -82,3 +82,11 @@ export type ExcludeUnderscorePrefix<T> = T extends `_${infer R}` ? never : T;
 export type OmitUnderscorePrefix<T extends object> = Pick<T, ExcludeUnderscorePrefix<keyof T>>;
 
 export type Optional<T> = T | null;
+
+export type ExcludeFunction<T> = Exclude<T, Function>;
+export type ExtractFunction<T> = Extract<T, Function>;
+
+/**
+ * Obtain the static methods of a class.
+ */
+export type ClassStaticMethods<T extends abstract new (...args: unknown[]) => unknown> = Exclude<keyof T, 'prototype'>;
