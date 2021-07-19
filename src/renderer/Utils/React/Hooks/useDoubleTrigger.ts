@@ -9,22 +9,23 @@ import { useCallback, useRef } from 'react';
  * between the current trigger time and the last trigger time is less than the delay limit. Default is `500`.
  * @returns The trigger.
  */
-export function useDoubleTrigger(doubleTrigger?: () => void, delayLimit: number = 500): () => void {
+export function useDoubleTrigger<T extends (...args: never[]) => void>(doubleTrigger?: T, delayLimit: number = 500): T {
     const timeRef = useRef(0);
 
-    const _delayLimit = delayLimit >= 0 ? delayLimit : 0;
-
-    const trigger = useCallback(() => {
-        if (doubleTrigger) {
-            const currTime = Date.now();
-            if (currTime - timeRef.current < _delayLimit) {
-                timeRef.current = 0;
-                doubleTrigger();
-            } else {
-                timeRef.current = currTime;
+    const trigger = useCallback(
+        (...args: never[]) => {
+            if (doubleTrigger) {
+                const currTime = Date.now();
+                if (currTime - timeRef.current < delayLimit) {
+                    timeRef.current = 0;
+                    doubleTrigger(...args);
+                } else {
+                    timeRef.current = currTime;
+                }
             }
-        }
-    }, [_delayLimit, doubleTrigger]);
+        },
+        [delayLimit, doubleTrigger],
+    );
 
-    return trigger;
+    return trigger as T;
 }
