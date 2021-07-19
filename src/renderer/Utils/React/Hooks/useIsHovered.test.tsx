@@ -9,14 +9,14 @@ describe('Test react hook `useIsHovered`', () => {
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isHovered = useIsHovered(ref);
-            return <div ref={ref}>Test Component</div>;
+            return <div ref={ref}>Test-Component</div>;
         }
 
         expect(isHovered).toBeUndefined();
         const { getByText } = render(<TestComponent />);
         expect(isHovered).toBeFalsy();
 
-        const component = getByText('Test Component');
+        const component = getByText('Test-Component');
 
         fireEvent.mouseOver(component);
         expect(isHovered).toBeTruthy();
@@ -33,14 +33,14 @@ describe('Test react hook `useIsHovered`', () => {
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsHovered(ref, false);
-            return <div ref={ref}>Test Component</div>;
+            return <div ref={ref}>Test-Component</div>;
         }
 
         expect(isFocused).toBeUndefined();
         const { getByText } = render(<TestComponent />);
         expect(isFocused).toBeFalsy();
 
-        const component = getByText('Test Component');
+        const component = getByText('Test-Component');
 
         fireEvent.mouseOver(component);
         expect(isFocused).toBeFalsy();

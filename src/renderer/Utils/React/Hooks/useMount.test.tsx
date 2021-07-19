@@ -9,7 +9,7 @@ describe('Test react hook `useMount`', () => {
         function TestComponent() {
             useMount(() => onMount());
 
-            return <>Test Component</>;
+            return <>Test-Component</>;
         }
 
         expect(onMount).toBeCalledTimes(0);

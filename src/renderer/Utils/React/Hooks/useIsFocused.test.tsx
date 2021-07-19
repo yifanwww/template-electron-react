@@ -11,7 +11,7 @@ describe('Test react hook `useIsFocused`', () => {
             isFocused = useIsFocused(ref);
             return (
                 <div tabIndex={0} ref={ref}>
-                    Test Component
+                    Test-Component
                 </div>
             );
         }
@@ -20,7 +20,7 @@ describe('Test react hook `useIsFocused`', () => {
         const { getByText } = render(<TestComponent />);
         expect(isFocused).toBeFalsy();
 
-        const component = getByText('Test Component');
+        const component = getByText('Test-Component');
 
         fireEvent.focus(component);
         expect(isFocused).toBeTruthy();
@@ -39,7 +39,7 @@ describe('Test react hook `useIsFocused`', () => {
             isFocused = useIsFocused(ref, false);
             return (
                 <div tabIndex={0} ref={ref}>
-                    Test Component
+                    Test-Component
                 </div>
             );
         }
@@ -48,7 +48,7 @@ describe('Test react hook `useIsFocused`', () => {
         const { getByText } = render(<TestComponent />);
         expect(isFocused).toBeFalsy();
 
-        const component = getByText('Test Component');
+        const component = getByText('Test-Component');
 
         fireEvent.focus(component);
         expect(isFocused).toBeFalsy();

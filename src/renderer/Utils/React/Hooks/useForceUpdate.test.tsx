@@ -12,7 +12,7 @@ describe('Test react hook `useForceUpdate`', () => {
             useEffect(forceUpdate, [forceUpdate]);
 
             renderCount++;
-            return <>Test Component</>;
+            return <>Test-Component</>;
         }
 
         render(<TestComponent />);

@@ -17,7 +17,7 @@ describe('Test react hook `useImmediateFocus`', () => {
 
             return (
                 <div tabIndex={0} ref={ref}>
-                    Test Component
+                    Test-Component
                 </div>
             );
         }
@@ -40,7 +40,7 @@ describe('Test react hook `useImmediateFocus`', () => {
 
             return (
                 <div tabIndex={0} ref={ref}>
-                    Test Component
+                    Test-Component
                 </div>
             );
         }

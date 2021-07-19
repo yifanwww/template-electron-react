@@ -9,7 +9,7 @@ describe('Test react hook `useUnmount`', () => {
         function TestComponent() {
             useUnmount(() => onUnmount());
 
-            return <>Test Component</>;
+            return <>Test-Component</>;
         }
 
         expect(onUnmount).toBeCalledTimes(0);
