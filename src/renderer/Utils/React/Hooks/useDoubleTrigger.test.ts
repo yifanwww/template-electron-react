@@ -20,7 +20,7 @@ describe('Test react hook `useDoubleTrigger`', () => {
 
     test('trigger multiple times', async () => {
         const fn = jest.fn(() => {});
-        const { result } = renderHook(() => useDoubleTrigger(fn, 100));
+        const { result } = renderHook(() => useDoubleTrigger(fn, 250));
         expect(fn).toHaveBeenCalledTimes(0);
 
         act(() => result.current());
