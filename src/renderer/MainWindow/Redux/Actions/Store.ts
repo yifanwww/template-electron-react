@@ -3,7 +3,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { omitUnderscorePrefixActions } from '#RUtils/Redux';
 
 import { IStoreState } from '../types';
-import { _finishPreparing, updateClientAreaSize } from './DisplayConfigReducers';
+import { _finishPreparing, updateClientAreaSize } from './Reducers.DisplayConfig';
 
 function getInitialState(): IStoreState {
     return {
