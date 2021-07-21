@@ -108,6 +108,8 @@
         "import/no-extraneous-dependencies": "off",
         "import/prefer-default-export": "off",
 
+        "jest/prefer-strict-equal": "error",
+
         // Enables prettier rules
         "prettier/prettier": "error",
 
