@@ -6,16 +6,7 @@ import { WindowType } from '#Common/WindowType';
 
 import { appPaths } from '../AppPaths';
 import { mainIpc } from './MainIpc';
-import { CloseWindowOption, CreateWindowOption } from './Window.types';
-
-export interface WindowOption {
-    windowId: string;
-    windowType: WindowType;
-    height?: number;
-    width?: number;
-    createWindow: (option: CreateWindowOption) => Promise<void>;
-    onClosedWindow: (option: CloseWindowOption) => Promise<void>;
-}
+import { IAbstractWindowOption, ICloseWindowOption, ICreateWindowOption } from './Types';
 
 export abstract class AbstractWindow {
     protected static readonly production = process.env.NODE_ENV === 'production';
@@ -24,10 +15,10 @@ export abstract class AbstractWindow {
     protected readonly windowType: WindowType;
     protected readonly windowId: string;
 
-    private readonly createWindow: (option: CreateWindowOption) => Promise<void>;
-    private readonly onClosedWindow: (option: CloseWindowOption) => Promise<void>;
+    private readonly createWindow: (option: ICreateWindowOption) => Promise<void>;
+    private readonly onClosedWindow: (option: ICloseWindowOption) => Promise<void>;
 
-    public constructor(option: WindowOption) {
+    public constructor(option: IAbstractWindowOption) {
         this.windowId = option.windowId;
         this.windowType = option.windowType;
 
