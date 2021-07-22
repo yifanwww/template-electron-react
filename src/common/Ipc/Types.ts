@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
+import { IpcMainEvent, IpcMainInvokeEvent, IpcRendererEvent } from 'electron';
 
 export type IpcMainHandler<ReturnType, Args extends unknown[]> = (
     event: IpcMainInvokeEvent,
@@ -8,3 +8,5 @@ export type IpcMainHandler<ReturnType, Args extends unknown[]> = (
 ) => ReturnType;
 
 export type IpcMainListener<Args extends unknown[] = unknown[]> = (event: IpcMainEvent, ...args: Args) => void;
+
+export type IpcRendererListener<Args extends unknown[] = unknown[]> = (event: IpcRendererEvent, ...args: Args) => void;

@@ -2,10 +2,11 @@ import { initializeIcons, ThemeProvider } from '@fluentui/react';
 import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
+import { IpcChannels } from '#Common/Ipc';
 import { Optional } from '#Common/TypeUtils';
 import { WindowType } from '#Common/WindowType';
 import { fluentuiTheme } from '#RUtils/Fluentui';
-import { rendererIpc } from '#RUtils/RendererIpc';
+import { IpcRendererWrapper } from '#RUtils/IpcRenderer';
 
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
@@ -17,7 +18,7 @@ function initializeFluentui(): void {
 }
 
 function WindowProvider(): Optional<ReactElement> {
-    const windowType: WindowType = rendererIpc.getWindowType();
+    const windowType: WindowType = IpcRendererWrapper.sendSync(IpcChannels.GetWindowType);
 
     let never: never;
     switch (windowType) {

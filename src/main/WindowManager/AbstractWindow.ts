@@ -1,7 +1,7 @@
 import path from 'path';
 import { BrowserWindow, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-import { Channels } from '#Common/Ipc';
+import { IpcChannels } from '#Common/Ipc';
 import { WindowType } from '#Common/WindowType';
 import { IpcMainWrapper } from '#MUtils/IpcMain';
 
@@ -69,8 +69,8 @@ export abstract class AbstractWindow {
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
     protected addIpcListeners(): void {
-        this.ipcs.push(new IpcMainWrapper.On(Channels.GetWindowType, this.getWindowType));
-        this.ipcs.push(new IpcMainWrapper.On(Channels.OpenNewWindow, this.openNewWindow));
+        this.ipcs.push(new IpcMainWrapper.On(IpcChannels.GetWindowType, this.getWindowType));
+        this.ipcs.push(new IpcMainWrapper.On(IpcChannels.OpenNewWindow, this.openNewWindow));
     }
 
     private removeIpcListeners(): void {
