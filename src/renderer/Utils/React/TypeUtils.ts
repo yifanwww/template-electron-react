@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export type ReactStyleFunc<
     Arg = undefined,
@@ -26,3 +26,7 @@ export type ReactStyleFunc<
     : Arg8 extends undefined
     ? (arg: Arg, arg2: Arg2, arg3: Arg3, arg4: Arg4, arg5: Arg5, arg6: Arg6, arg7: Arg7) => CSSProperties
     : (arg: Arg, arg2: Arg2, arg3: Arg3, arg4: Arg4, arg5: Arg5, arg6: Arg6, arg7: Arg7, arg8: Arg8) => CSSProperties;
+
+export interface ReactChildrenProp {
+    children?: ReactNode;
+}
