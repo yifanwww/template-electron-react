@@ -4,7 +4,7 @@ import { BrowserWindow, IpcMainEvent } from 'electron';
 import { IpcMListener } from '#Common/Ipc';
 import { WindowType } from '#Common/WindowType';
 
-import { AppPaths } from '../AppPaths';
+import { appPaths } from '../AppPaths';
 import { mainIpc } from './MainIpc';
 import { CloseWindowOption, CreateWindowOption } from './Window.types';
 
@@ -50,7 +50,7 @@ export abstract class AbstractWindow {
 
     public async show(): Promise<void> {
         if (AbstractWindow.production) {
-            await this.window.loadFile(_path.resolve(AppPaths.srcPath, 'index.html'));
+            await this.window.loadFile(_path.resolve(appPaths.src, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
         }
