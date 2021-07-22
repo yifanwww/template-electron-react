@@ -1,11 +1,11 @@
-import _path from 'path';
-import { BrowserWindow, IpcMainEvent } from 'electron';
+import path from 'path';
+import { BrowserWindow, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-import { IpcMListener } from '#Common/Ipc';
+import { Channels } from '#Common/Ipc';
 import { WindowType } from '#Common/WindowType';
+import { IpcMainWrapper } from '#MUtils/IpcMain';
 
 import { appPaths } from '../AppPaths';
-import { mainIpc } from './MainIpc';
 import { IAbstractWindowOption, ICloseWindowOption, ICreateWindowOption } from './Types';
 
 export abstract class AbstractWindow {
@@ -17,6 +17,8 @@ export abstract class AbstractWindow {
 
     private readonly createWindow: (option: ICreateWindowOption) => Promise<void>;
     private readonly onClosedWindow: (option: ICloseWindowOption) => Promise<void>;
+
+    protected readonly ipcs: Array<IpcMainWrapper.Base> = [];
 
     public constructor(option: IAbstractWindowOption) {
         this.windowId = option.windowId;
@@ -41,7 +43,7 @@ export abstract class AbstractWindow {
 
     public async show(): Promise<void> {
         if (AbstractWindow.production) {
-            await this.window.loadFile(_path.resolve(appPaths.src, 'index.html'));
+            await this.window.loadFile(path.resolve(appPaths.src, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
         }
@@ -49,15 +51,13 @@ export abstract class AbstractWindow {
         this.window.show();
     }
 
-    // ------------------------------------------------------------------------------------------------ Window Listeners
+    // ------------------------------------------------------------------------------------------------- Window Handlers
 
     protected addWindowListeners(): void {
         this.window!.once('closed', this.onceClosedWindow);
     }
 
     protected removeWindowListeners(): void {}
-
-    // ------------------------------------------------------------------------------------------------- Window Handlers
 
     private onceClosedWindow = () => {
         this.removeWindowListeners();
@@ -66,32 +66,24 @@ export abstract class AbstractWindow {
         this.onClosedWindow({ windowId: this.windowId });
     };
 
-    // --------------------------------------------------------------------------------------------------- Ipc Listeners
-
-    protected addIpcListeners(): void {
-        mainIpc.onGetWindowType(this.bGetWindowType);
-        mainIpc.onOpenNewWindow(this.bOpenNewWindow);
-    }
-
-    protected removeIpcListeners(): void {
-        mainIpc.removeGetWindowType(this.bGetWindowType);
-        mainIpc.removeOpenNewWindow(this.bOpenNewWindow);
-    }
-
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
-    private checkSender(event: IpcMainEvent): boolean {
-        return event.sender.id === this.window!.id;
+    protected addIpcListeners(): void {
+        this.ipcs.push(new IpcMainWrapper.On(Channels.GetWindowType, this.getWindowType));
+        this.ipcs.push(new IpcMainWrapper.On(Channels.OpenNewWindow, this.openNewWindow));
     }
+
+    private removeIpcListeners(): void {
+        this.ipcs.forEach((ipc) => ipc.remove());
+    }
+
+    private checkSender = (event: IpcMainEvent | IpcMainInvokeEvent) => event.sender.id === this.window!.id;
 
     private getWindowType = (event: IpcMainEvent): void => {
         if (this.checkSender(event)) event.returnValue = this.windowType;
     };
 
-    private openNewWindow(event: IpcMainEvent, windowType: WindowType): void {
+    private openNewWindow = (event: IpcMainEvent, windowType: WindowType): void => {
         if (this.checkSender(event)) this.createWindow({ windowType });
-    }
-
-    private bGetWindowType: IpcMListener = (event) => this.getWindowType(event);
-    private bOpenNewWindow: IpcMListener<WindowType> = (event, windowType) => this.openNewWindow(event, windowType);
+    };
 }
