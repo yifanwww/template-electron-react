@@ -18,18 +18,9 @@
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git"
     },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
     "scripts": {
         "_cra-build": "react-app-rewired build --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
         "_cra-dev": "react-app-rewired start --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
@@ -93,6 +84,7 @@
         "@typescript-eslint/types": "^4.28.1",
         "@typescript-eslint/typescript-estree": "^4.28.1",
         "@typescript-eslint/visitor-keys": "^4.28.1",
+        "browserslist": "^4.16.6",
         "chalk": "^4.1.1",
         "concurrently": "^6.2.0",
         "electron": "13.1.7",
