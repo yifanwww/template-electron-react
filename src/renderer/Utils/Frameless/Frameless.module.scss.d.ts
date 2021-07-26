@@ -1,5 +1,5 @@
 declare const styles: {
-    readonly FramelessWindow: string;
+    readonly Window: string;
     readonly TitleBar: string;
 };
 export = styles;

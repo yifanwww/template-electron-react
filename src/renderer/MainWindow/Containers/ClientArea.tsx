@@ -4,7 +4,13 @@ import { memo, useEffect } from 'react';
 import { Introduction } from '../Components/Introduction';
 import { useMainDispatchingThunks } from '../Redux';
 
-const useStyles = makeStyles({ clientArea: { display: 'grid' } });
+const useStyles = makeStyles({
+    clientArea: {
+        display: 'grid',
+        overflow: 'hidden',
+        userSelect: 'none',
+    },
+});
 
 export const ClientArea = memo(function ClientArea() {
     const classes = useStyles();
