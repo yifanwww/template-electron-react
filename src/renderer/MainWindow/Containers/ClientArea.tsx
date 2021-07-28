@@ -2,7 +2,7 @@ import { makeStyles } from '@fluentui/react';
 import { memo, useEffect } from 'react';
 
 import { Introduction } from '../Components/Introduction';
-import { useMainDispatchingThunks } from '../Redux';
+import { useMainDispatchingThunks, usePrepared } from '../Redux';
 
 const useStyles = makeStyles({
     clientArea: {
@@ -15,13 +15,10 @@ const useStyles = makeStyles({
 export const ClientArea = memo(function ClientArea() {
     const classes = useStyles();
 
+    const prepared = usePrepared();
     const { prepare } = useMainDispatchingThunks();
 
     useEffect(prepare, [prepare]);
 
-    return (
-        <div className={classes.clientArea}>
-            <Introduction />
-        </div>
-    );
+    return <div className={classes.clientArea}>{prepared && <Introduction />}</div>;
 });

@@ -1,4 +1,6 @@
-import { getInitialState, _actions, _reducer } from './Slice';
+import { getInitialState, _actions, _reducer as __reducer } from './Slice';
+
+const _reducer = (...args: Parameters<typeof __reducer>) => __reducer(...args).displayConfig;
 
 describe('Test redux reducer `_finishPreparing`', () => {
     test('finishes preparing', () => {
