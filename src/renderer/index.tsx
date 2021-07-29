@@ -9,7 +9,7 @@ import { fluentuiTheme } from '#RUtils/Fluentui';
 import { IpcRendererWrapper } from '#RUtils/IpcRenderer';
 
 import { MainWindow } from './MainWindow';
-import { reportWebVitals } from './reportWebVitals';
+import { reportWebVitals } from './report-web-vitals';
 
 import './index.css';
 
