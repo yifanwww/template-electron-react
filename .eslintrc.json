@@ -25,7 +25,7 @@
     "rules": {
         "class-methods-use-this": "off",
         "consistent-return": "off",
-        // Disables this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
         "function-paren-newline": "off",
         "guard-for-in": "off",
         "implicit-arrow-linebreak": "off",
@@ -52,10 +52,12 @@
         // https://github.com/prettier/eslint-config-prettier/#no-unexpected-multiline
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         "no-unexpected-multiline": "error",
-        // Disables this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
         "object-curly-newline": "off",
-        // Disables this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
         "operator-linebreak": "off",
+        // Disable the prefer of array destructuring.
+        "prefer-destructuring": ["error", { "array": false, "object": true }, { "enforceForRenamedProperties": false }],
         // https://github.com/prettier/eslint-config-prettier/#quotes
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
@@ -64,7 +66,7 @@
         "@typescript-eslint/brace-style": "off",
         "@typescript-eslint/comma-dangle": "off",
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
-        // Disables this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
         "@typescript-eslint/indent": "off",
         "@typescript-eslint/lines-between-class-members": "off",
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
