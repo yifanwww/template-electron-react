@@ -2,4 +2,4 @@
 // eslint-disable-next-line import/export
 export * from './Components';
 export * from './Hooks';
-export * from './ReactStyles';
+export * from './TypeUtils';
