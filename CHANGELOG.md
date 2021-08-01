@@ -1,6 +1,118 @@
 # CHANGELOG
 
-## [v0.5.0] template-electron-cra (2021-06-15)
+## tecra v0.6.0 (2021-08-01)
+### Features
+
+- [Common]
+    - Add new type `Optional<T>`
+    - Add util `wait` to wait for some time
+    - Add declaration file `common.d.ts`
+- [Build]
+    - Add internal npm scripts `_cra-build`, `_cra-dev`, `_cra-test`, `_main-build` and `_main-dev`
+    - Add new npm script `run-unpacked` to execute the unpacked electron application built by `electron-builder`
+- [Github-Actions]
+    - Build windows installer and publish it if need
+    - Do coverage tests
+- [IPC] Add new IPC wrapper `IpcMainWrapper` and `IpcRendererWrapper`
+- [RUtils] - DOM
+    - Improve the performance of `CanvasUtils`
+    - Add new methods in `CanvasUtils`: `createLinePainter`, `createRectPainter`
+- [RUtils/React]
+    - New React Hooks with tests
+        - `useBoolean`
+        - `useConst`
+        - `useConstFn`
+        - `useDelayFn`
+        - `useDoubleTrigger`
+        - `useForceUpdate`
+        - `useImmediateFocus`
+        - `useInterval`
+        - `useIsFocused`
+        - `useIsHovered`
+        - `useMount`
+        - `usePrevious`
+        - `useSimpleInterval`
+        - `useSimpleTimeout`
+        - `useTimeout`
+        - `useToggle`
+        - `useUnmount`
+        - `useWhyDidYouUpdate`
+    - Add interface `ReactChildrenProp`
+- [RUtils/Fluentui]
+    - Add namespaces `FluentuiEvents` and `FluentuiStyles`
+    - Add namespaces `FluentuiStyleFunctions`, `FluentuiTokens` and `FluentuiTokenFunctions`
+- [RUtils/Redux]
+    - Add `thunkCreattorFactory` to create thunks
+- [UI] - Main Window
+    - Add tests for react components
+    - Add tests for redux reducers
+    - Add css properties `overflow` and `user-select` into container `ClientArea`
+- Add `AppInfo` to collect applicatio infomation
+- Add declaration file `renderer.d.ts`
+
+### Changes
+
+- [Build] Create folder `working` before `build` or `dev`
+- [Build] Only do incremental building for scripts
+- [Build] Change `browserslist` to 'last 9 chrome versions'
+- [Build] Typescript: do not skip lib check
+- [Eslint] Set rule `@typescript-eslint/no-explicit-any` to warn level in order to enable stricter type limitation
+- [Eslint] Set rule `prefer-destructuring` to disable the prefer of array destructuring
+- [Redux] Fix `useDispatchingThunks` not correctly pass arguments
+- [Test] Fix test for react
+- [Test] Ignore messages we output
+- [Test] Rename setupTest.ts to `test.setup.ts`, rename reportWebVitals.ts to `report-web-vitals.ts`
+- [UI] Improve ui performance, rename `InfoDisplay` to `Introduction` which will be displayed only after prepared
+- [UI] Change `LocalStorage` to be a class
+
+### Breaking Changes
+
+- [Common] Rename 'src/shared' to 'src/common', change import path aliases
+- [Public] Change public assets, add `icon.ico`
+- [RUtils] Delete `options` argument in old `CanvasUtils` methods
+- [RUtils] Delete `IStrictStyle` and `mergeStrictStyles`, move fluentui default theme into `RUtils/Fluentui`
+
+### Dependencies
+
+- New
+    - `@testing-library/react-hooks`            v7.0.1
+    - `@types/react-test-renderer`              v17.0.1
+    - `@typescript-eslint/experimental-utils`   v4.28.1
+    - `@typescript-eslint/scope-manager`        v4.28.1
+    - `@typescript-eslint/types`                v4.28.1
+    - `@typescript-eslint/typescript-estree`    v4.28.1
+    - `@typescript-eslint/visitor-keys`         v4.28.1
+    - `eslint-plugin-deprecation`               v1.2.1
+    - `react-test-renderer`                     v17.0.2
+- Upgrade
+    - `@fluentui/react`                         v8.14.13  -> v8.21.1
+    - `@reduxjs/toolkit`                        v1.5.0    -> v1.6.1
+    - `@testing-library/jest-dom`               v5.11.4   -> v5.14.1
+    - `@testing-library/react`                  v11.1.0   -> v12.0.0
+    - `@testing-library/user-event`             v12.1.10  -> v13.1.9
+    - `@types/jest`                             v26.0.21  -> v26.0.23
+    - `@types/lodash`                           v4.14.169 -> v4.14.170
+    - `@types/node`                             v14.17.3  -> v14.17.4
+    - `@types/react-dom`                        v17.0.7   -> v17.0.8
+    - `@typescript-eslint/eslint-plugin`        v4.24.0   -> v4.28.1
+    - `@typescript-eslint/parser`               v4.24.0   -> v4.28.1
+    - `concurrently`                            v6.1.0    -> v6.2.0
+    - `electron`                                v13.1.1   -> v13.1.7
+    - `electron-builder`                        v22.10.5  -> v22.11.7
+    - `eslint-plugin-import`                    v2.23.3   -> v2.23.4
+    - `eslint-plugin-react`                     v7.23.2   -> v7.24.0
+    - `prettier`                                v2.3.1    -> v2.3.2
+    - `react-redux`                             v7.2.3    -> v7.2.4
+    - `sass`                                    v1.34.0   -> v1.35.1
+    - `ts-jest`                                 v26.5.4   -> v26.5.6
+    - `ts-loader`                               v8.0.18   -> v8.3.0
+    - `typed-css-modules`                       v0.6.5    -> v0.6.8
+    - `typescript`                              v4.3.3    -> v4.3.5
+    - `webpack-cli`                             v4.5.0    -> v4.7.2
+- Remove
+    - `ts-jest`                                 v26.5.6
+
+## tecra v0.5.0 (2021-06-15)
 ### Features
 
 - Main Process
@@ -87,7 +199,7 @@
     - `immer`                               v9.0.1
 - Move dependency `react-scripts` to be a dev dependency
 
-## [v0.4.0] template-electron-cra (2021-05-09)
+## tecra v0.4.0 (2021-05-09)
 ### Features
 
 - NPM
@@ -159,7 +271,7 @@
 - Upgrade
     - Update 'electron' from v12.0.0 to v12.0.5
 
-## [v0.3.0] template-electron-cra (2021-04-06)
+## tecra v0.3.0 (2021-04-06)
 ### Features
 
 - Compilation
@@ -223,7 +335,7 @@
     - Update 'typescript' from v4.1.5 to v4.2.3
     - Update 'webpack-cli' from v3.3.12 to v4.5.0
 
-## [v0.2.0] template-electron-cra (2021-02-19)
+## tecra v0.2.0 (2021-02-19)
 ### Features
 
 - Compilation
@@ -318,7 +430,7 @@
     - typescript: ^4.1.3
     - webpack-cli: ^3.3.12
 
-## [v0.1.0-fluentui] template-electron-cra (2020-12-30)
+## tecra v0.1.0-fluentui (2020-12-30)
 ### Main Info of Environment
 
 - create-react-app@4.0.1
@@ -347,7 +459,7 @@
     - IReducer, IMapActionsToProps and IMapThunkToProps
     - type definitions for fluentui props and fluentui styles
 
-## [v0.1.0] template-electron-cra (2020-12-30)
+## tecra v0.1.0 (2020-12-30)
 ### Main Info of Environment
 
 - create-react-app@4.0.1
