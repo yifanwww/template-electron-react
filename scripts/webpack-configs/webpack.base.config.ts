@@ -22,10 +22,10 @@ export const paths = {
     appSrcRenderer: resolveProject('src/renderer'),
     appTsConfigMain: resolveProject('scripts/tsconfigs/tsconfig.main.json'),
     appTsConfigRenderer: resolveProject('scripts/tsconfigs/tsconfig.renderer.json'),
-    appTypeDeclarations: resolveProject('src/renderer/react-app-env.d.ts'),
+    appTypeDeclarations: resolveProject('src/renderer/renderer.d.ts'),
     proxySetup: resolveProject('src/renderer/setupProxy.js'),
     swSrc: resolveProject('src/renderer/service-worker.js'),
-    testsSetup: resolveProject('src/renderer/react-test.setup.ts'),
+    testsSetup: resolveProject('src/renderer/test.setup.ts'),
 };
 
 // webpack path aliases

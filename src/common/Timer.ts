@@ -1,5 +1,3 @@
-import { Optional } from './TypeUtils';
-
 export class Timer {
     private _trigger: () => void;
 

@@ -3,7 +3,6 @@ import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import { IpcChannels } from '#Common/Ipc';
-import { Optional } from '#Common/TypeUtils';
 import { WindowType } from '#Common/WindowType';
 import { fluentuiTheme } from '#RUtils/Fluentui';
 import { IpcRendererWrapper } from '#RUtils/IpcRenderer';

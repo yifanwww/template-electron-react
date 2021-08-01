@@ -1,5 +1,3 @@
-import { ClassStaticMethods } from '#Common/TypeUtils';
-
 import { ColorTransformer } from './ColorTransformer';
 
 describe('Test class `ColorTransformer`', () => {

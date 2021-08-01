@@ -1,7 +1,5 @@
 import { useCallback, useEffect } from 'react';
 
-import { Optional } from '#Common/TypeUtils';
-
 export enum Keyboard {
     KeyA = 0, // A-Z Or a-z
     KeyB,

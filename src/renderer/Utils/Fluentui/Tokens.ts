@@ -1,7 +1,5 @@
 import { IStackProps } from '@fluentui/react';
 
-import { ExcludeFunction, ExtractFunction } from '#Common/TypeUtils';
-
 export namespace FluentuiTokens {
     export type Stack = ExcludeFunction<NonNullable<IStackProps['tokens']>>;
 }

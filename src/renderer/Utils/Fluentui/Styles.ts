@@ -21,8 +21,6 @@ import {
     IToggleProps,
 } from '@fluentui/react';
 
-import { ExcludeFunction, ExtractFunction } from '#Common/TypeUtils';
-
 export namespace FluentuiStyles {
     export type Button = NonNullable<IButtonProps['styles']>;
     export type Checkbox = ExcludeFunction<NonNullable<ICheckboxProps['styles']>>;

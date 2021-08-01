@@ -1,5 +1,3 @@
-import { OmitUnderscorePrefix } from '#Common/TypeUtils';
-
 import { IActions } from './IDispatching';
 
 export function omitUnderscorePrefixActions<T extends IActions>(internalActions: T): OmitUnderscorePrefix<T> {
