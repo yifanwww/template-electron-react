@@ -1,25 +1,19 @@
 # How To Modify This Project Configurations
 
-There are some configuration files in `configs` folder:
-- [electron-builder.yml](../configs/electron-builder.yml)
-- [.eslintrc.js](../configs/.eslintrc.js)
-- [jest.config.js](../configs/jest.config.js)
-- [tsconfig.base.json](../configs/tsconfig.base.json)
-- [tsconfig.main.json](../configs/tsconfig.main.json)
-- [tsconfig.renderer.json](../configs/tsconfig.renderer.json)
-- [webpack.base.config.js](../configs/webpack.base.config.js)
-- [webpack.main.config.js](../configs/webpack.main.config.js)
-- [webpack.renderer.config.js](../configs/webpack.renderer.config.js)
+There are some configuration scripts in this project:
+- `.eslintrc.json`: [.eslintrc.json](../.eslintrc.json)
+- `electron-builder.json`: [/scripts/electron/electron-builder.json](../scripts/electron/electron-builder.json)
+- `tsconfig.base.json`: [/scripts/tsconfigs/tsconfig.base.json](../scripts/tsconfigs/tsconfig.base.json)
+- `tsconfig.main.json`: [/scripts/tsconfigs/tsconfig.main.json](../scripts/tsconfigs/tsconfig.main.json)
+- `tsconfig.renderer.json`: [/scripts/tsconfigs/tsconfig.renderer.json](../scripts/tsconfigs/tsconfig.renderer.json)
+- `webpack.base.config.ts`: [/scripts/webpack-configs/webpack.base.config.ts](../scripts/webpack-configs/webpack.base.config.ts)
+- `webpack.main.config.ts`: [/scripts/webpack-configs/webpack.main.config.ts](../scripts/webpack-configs/webpack.main.config.ts)
+- `webpack.renderer.config.ts`: [/scripts/webpack-configs/webpack.renderer.config.ts](../scripts/webpack-configs/webpack.renderer.config.ts)
+- `reload-electron-webpack-plugin.ts`: [/scripts/webpack-plugins/reload-electron-webpack-plugin.ts](../scripts/webpack-plugins/reload-electron-webpack-plugin.ts)
 
-## electron-builder.yml
+## electron-builder.json
 
-In this configuration file, this configuration about how electron-builder packs this application.
-
-<!-- TODO -->
-
-## jest.config.js
-
-In this configuration file, there is a jest's configuration.
+This configuration is about how electron-builder builds this application.
 
 <!-- TODO -->
 
@@ -33,7 +27,7 @@ Setting some path aliases in `paths` can control how typescript analyzes import 
 
 ## tsconfig.main.json
 
-This configuration is used for electron main process code, the same as [tsconfig.json](../tsconfig.json).
+This configuration is used for electron main process code.
 
 ## tsconfig.renderer.json
 
@@ -41,24 +35,20 @@ This configuration is used for electron renderer process code. It's under contro
 
 **Note**: react-scripts doesn't allow us to add path aliases in tsconfig, and it will generate a new configuration to replace the current one if we have added some path aliases. But using `extends` to extends this tsconfig won't over limit.
 
-## webpack.base.config.js
+## webpack.base.config.ts
 
 This configuration is the common part of the configurations in electron main process webpack and electron renderer process webpack.
 
 It contains some function and data copied from react-scripts, and customizes some path, path aliases, compiling mode and eslint rule configuration path.
 
-## webpack.main.config.js
+## webpack.main.config.ts
 
 This configuration is used for webpacking electron main process, configing some settings, such as target, mode, entry, output and etc.
 
-**Note**: electron-builder limits the output file, it's not sure that setting the output file to 'electron.js' has some bad influences on packing this application or not.
+**Note**: electron-builder limits the output file, it's not sure that setting the output file to 'electron.ts' has some bad influences on packing this application or not.
 
-## webpack.renderer.config.js
+## webpack.renderer.config.ts
 
 This configuration is used for webpacking electron renderer process.
 
 We will use react-app-rewired to use this configuration to change some default behaviors of react-scripts, such as changing some default paths and adding path aliases.
-
-## Some Existing Problems
-
-How to totally control eslint in webpack is still unknown, to some extent we only just close the eslint checking, to avoid some errors when checking some three-part packages which should not be token place.

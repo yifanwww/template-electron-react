@@ -1,62 +1,115 @@
-# Infos About NPM Scripts
-## `npm run app`
+# Information About NPM Scripts
+## public npm scripts
+### `build`
 
-Execute this electron application in `production` mode.
+This script will first run script [`_cra-build`] and then run script [`_main-build`].
 
-**NOTE**: You should run script `npm run build` before running script `npm run app`.
+Do not change this order, for script [`_cra-build`] (`react-scripts build`) will clear the old files in folder `build` and then put the new compiled files into it. If you run script [`_main-build`] first, the new compiled `electron.js` file will be cleared when running script [`_cra-build`].
 
-## `npm run build`
+### `build:main`
 
-This script will first run script `npm run build:renderer` and then run script `npm run build:main`.
+Only calls script [`_main-build`].
 
-Do not change this order, for `npm run build:renderer` (`react-scripts build`) will clear the old files in `build` and then put the new compiled files into it. If you run script `npm run build:main` first, the new compiled `electron.js` file will be cleared when you run script `npm run build:renderer`.
+### `build:renderer`
 
-## `npm run build:main`
+Only calls script [`_cra-build`].
 
-Builds electron main process code in `production` mode. These code will be compiled into a file `electron.js` in `build`.
+### `build-profile`
 
-## `npm run build:renderer`
+Enable profiling for better debugging production build.
 
-Builds electron renderer process code, which is actually the react code, in `production` mode.
+For more information see [profiling production build].
 
-`react-scripts build` controls how these code will be compiled. It correctly bundles React in `production` mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `build-scripts`
 
-But this script actually use `react-app-rewired build`, for which can modify some `react-scripts build` configurations through.
+The scripts are code by typescript, you should compile them before developing, building or testing this application.
 
-## `npm run dev`
+**NOTE**: You don't need to run script `build-script` manually if you just want to run scripts [`build`] or [`dev`].
 
-Execute `npm run dev:main` and `npm run dev:renderer` concurrently, you can use this script to debug this application.
+### `dev`
 
-## `npm run dev:main`
+Execute scripts [`_cra-dev`] and [`_main-dev`] concurrently, you can use this script to debug this application.
 
-Builds electron main process code in `development` mode. These code will be compiled into a file `electron.js` in `build`.
+### `dev:main`
 
-After compilation, `webpack-electron-reload` plugin (implemented in [webpack-electron-reload.js](../configs/webpack-electron-reload.js)) will start an electron process to execute this application, which will load the ui from the url [http://localhost:3000](http://localhost:3000).
+Only calls script [`_main-dev`].
 
-## `npm run dev:renderer`
+### `dev:renderer`
 
-Build the renderer process code in `development` mode, you can open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Only calls script [`_cra-dev`].
 
-`react-scripts start` controls how these code will be compiled. But this script actually use `react-app-rewired start`, for which can modify some `react-scripts start` configurations through.
-
-You will also see any lint errors in the console.
-
-## `npm run installer`
+### `gen-installer`
 
 Builds a windows installer for application.
 
 This script possibly fails to work, there are some work to do with this issue.
 
-You should run script `npm run build` before running script `npm run installer`.
+You should run script [`build`] before running script `gen-installer`.
 
-## `npm run test:react`
+### `run-build`
+
+### `run-unpacked`
+
+Execute this electron application in `production` mode.
+
+**NOTE**: You should run script `npm run build` before running script `npm run run-build`.
+
+### `test`
+
+Only calls script [`_cra-test`] with argument `--coverage`.
+
+### `test-coverage`
+
+Only calls script [`_cra-test`] with arguments `--coverage` and `--watchAll=false` (to disable watch mode).
+
+## internal npm scripts
+### `_cra-build`
+
+Builds electron renderer process code, which is actually the react code, in `production` mode.
+
+`react-scripts build` controls how these code will be compiled. It correctly bundles React in `production` mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. See the section about [deployment] for more information.
+
+But this script actually use `react-app-rewired build`, for which can modify some `react-scripts build` configurations through.
+
+### `_cra-dev`
+
+Build the renderer process code in `development` mode, you can open [http://localhost:3000] to view it in the browser.
+
+`react-scripts start` controls how these code will be compiled. But this script actually use `react-app-rewired start`, for which can modify some `react-scripts start` configurations through.
+
+You will also see any lint errors in the console.
+
+### `_cra-test`
 
 Launches the test runner in the interactive watch mode.
 
 This script possibly fails to work, there are some work to do with this issue.
 
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See the section about [running tests] for more information.
 
-## `npm run test`
+### `_main-build`
 
-This script will use `jest` to do some unit test for this application.
+Builds electron main process code in `production` mode. These code will be compiled into a file `electron.js` in `build`.
+
+### `_main-dev`
+
+Builds electron main process code in `development` mode. These code will be compiled into a file `electron.js` in `build`.
+
+After compilation, `webpack-electron-reload` plugin (implemented in [webpack-electron-reload.js]) will start an electron process to execute this application, which will load the ui from the url [http://localhost:3000].
+
+<!-- link list -->
+
+[`_cra-build`]: #_cra-build
+[`_cra-dev`]: #_cra-dev
+[`_cra-test`]: #_cra-test
+[`_main-build`]: #_cra-build
+[`_main-dev`]: #_cra-dev
+[`build`]: #build
+[`dev`]: #dev
+
+[deployment]: https://facebook.github.io/create-react-app/docs/deployment
+[profiling production build]: https://create-react-app.dev/docs/production-build/#profiling
+[running tests]: https://facebook.github.io/create-react-app/docs/running-tests
+
+[http://localhost:3000]: http://localhost:3000
+[webpack-electron-reload.js]: ../configs/webpack-electron-reload.js
