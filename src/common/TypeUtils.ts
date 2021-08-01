@@ -85,3 +85,8 @@ export type Optional<T> = T | null;
 
 export type ExcludeFunction<T> = Exclude<T, Function>;
 export type ExtractFunction<T> = Extract<T, Function>;
+
+/**
+ * Obtain the static methods of a class.
+ */
+export type ClassStaticMethods<T extends abstract new (...args: unknown[]) => unknown> = Exclude<keyof T, 'prototype'>;

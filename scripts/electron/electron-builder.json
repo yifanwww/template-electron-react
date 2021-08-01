@@ -2,7 +2,7 @@
     // For more information visit https://www.electron.build/
 
     "appId": "YSoftwareRepo.template-electron-cra",
-    "productName": "template-electron-cra",
+    "productName": "tecra",
     "extends": null,
 
     "asar": true,
@@ -36,12 +36,14 @@
                 "arch": ["x64"]
             }
         ],
+        "icon": "build/icon.ico",
         "requestedExecutionLevel": "asInvoker"
     },
 
     "nsis": {
         "allowElevation": true,
         "allowToChangeInstallationDirectory": true,
+        "artifactName": "${productName}-${version}.${ext}",
         "oneClick": false
     },
 

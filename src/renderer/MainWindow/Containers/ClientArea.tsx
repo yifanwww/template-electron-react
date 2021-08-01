@@ -2,20 +2,23 @@ import { makeStyles } from '@fluentui/react';
 import { memo, useEffect } from 'react';
 
 import { Introduction } from '../Components/Introduction';
-import { useMainDispatchingThunks } from '../Redux';
+import { useMainDispatchingThunks, usePrepared } from '../Redux';
 
-const useClassNames = makeStyles({ clientArea: { display: 'grid' } });
+const useStyles = makeStyles({
+    clientArea: {
+        display: 'grid',
+        overflow: 'hidden',
+        userSelect: 'none',
+    },
+});
 
 export const ClientArea = memo(function ClientArea() {
-    const classNames = useClassNames();
+    const classes = useStyles();
 
+    const prepared = usePrepared();
     const { prepare } = useMainDispatchingThunks();
 
     useEffect(prepare, [prepare]);
 
-    return (
-        <div className={classNames.clientArea}>
-            <Introduction />
-        </div>
-    );
+    return <div className={classes.clientArea}>{prepared && <Introduction />}</div>;
 });

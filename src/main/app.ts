@@ -1,27 +1,32 @@
 import { app, BrowserWindow } from 'electron';
 
+import { appInfo } from './AppInfo';
 import { WindowManager } from './WindowManager';
 
 const windowManager = new WindowManager();
 
 async function installExtensions(): Promise<void> {
-    const {
-        default: installExtension,
-        REDUX_DEVTOOLS,
-        REACT_DEVELOPER_TOOLS,
-    } = await import('electron-devtools-installer');
+    const { default: install, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = await import('electron-devtools-installer');
 
     const succeed = (name: string) => console.info(`Added extension: ${name}`);
     const fail = (err: unknown) => console.error('An error occurred: ', err);
 
     await Promise.all([
-        installExtension(REDUX_DEVTOOLS).then(succeed).catch(fail),
-        installExtension(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail),
+        install(REDUX_DEVTOOLS).then(succeed).catch(fail),
+        install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail),
     ]);
 }
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
 app.on('ready', async () => {
+    console.info('Name:', appInfo.name);
+    console.info('Version:', appInfo.version);
+    console.info('Electron:', appInfo.electron);
+    console.info('Chrome:', appInfo.chrome);
+    console.info('Nodejs:', appInfo.nodejs);
+    console.info('V8:', appInfo.v8);
+    console.info();
+
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }

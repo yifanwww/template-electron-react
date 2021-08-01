@@ -18,40 +18,37 @@
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git"
     },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
     "scripts": {
-        "build": "npm run build:renderer && npm run build:main",
-        "build:main": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode production",
-        "build:renderer": "react-app-rewired build --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
-        "build-profile": "npm run build:renderer -- --profile && npm run build:main",
+        "_cra-build": "react-app-rewired build --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
+        "_cra-dev": "react-app-rewired start --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
+        "_cra-test": "react-app-rewired test --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
+        "_main-build": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode production",
+        "_main-dev": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode development",
+        "build": "npm run _cra-build && npm run _main-build",
+        "build:main": "npm run _main-build",
+        "build:renderer": "npm run _cra-build",
+        "build-profile": "npm run _cra-build -- --profile && npm run _main-build",
         "build-scripts": "tsc --build scripts/tsconfigs/tsconfig.scripts.json",
         "clean": "rimraf build release scripts/**/*.js scripts/**/*.map working **/*.tsbuildinfo",
         "clean:build": "rimraf build",
         "clean:release": "rimraf release",
         "clean:scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfigs/tsconfig.scripts.tsbuildinfo",
         "clean:working": "rimraf working",
-        "dev": "concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
-        "dev:main": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode development",
-        "dev:renderer": "react-app-rewired start --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
+        "dev": "concurrently -n renderer,main \"npm run _cra-dev\" \"npm run _main-dev\"",
+        "dev:main": "npm run _main-dev",
+        "dev:renderer": "npm run _cra-dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
-        "gen-installer": "electron-builder build --config scripts/electron/electron-builder.json --win",
+        "gen-installer": "electron-builder build --config scripts/electron/electron-builder.json --win --publish never",
         "lint": "eslint .",
-        "prebuild": "npm run build-scripts && node scripts/md-working.js",
-        "predev": "npm run build-scripts && node scripts/md-working.js",
-        "run-build": "node scripts/run-app.js",
-        "test": "react-app-rewired test --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
-        "test-coverage": "npm run test -- --coverage --watchAll=false"
+        "prebuild": "npm run build-scripts && node scripts/md-working-dir.js",
+        "predev": "npm run build-scripts && node scripts/md-working-dir.js",
+        "run-build": "node scripts/run-build.js",
+        "run-unpacked": "node scripts/run-unpacked.js",
+        "test": "npm run _cra-test -- --coverage",
+        "test-coverage": "npm run _cra-test -- --coverage --watchAll=false"
     },
     "engines": {
         "node": ">=14 <15"
@@ -87,9 +84,10 @@
         "@typescript-eslint/types": "^4.28.1",
         "@typescript-eslint/typescript-estree": "^4.28.1",
         "@typescript-eslint/visitor-keys": "^4.28.1",
+        "browserslist": "^4.16.6",
         "chalk": "^4.1.1",
         "concurrently": "^6.2.0",
-        "electron": "13.1.1",
+        "electron": "13.1.7",
         "electron-builder": "^22.11.7",
         "electron-devtools-installer": "^3.2.0",
         "eslint-config-airbnb-typescript": "^12.3.1",
@@ -112,7 +110,7 @@
         "speed-measure-webpack-plugin": "^1.5.0",
         "ts-loader": "^8.3.0",
         "typed-css-modules": "^0.6.8",
-        "typescript": "4.3.4",
+        "typescript": "4.3.5",
         "webpack-cli": "^4.7.2"
     }
 }
