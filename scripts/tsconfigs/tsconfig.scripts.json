@@ -3,6 +3,7 @@
     "compilerOptions": {
         "baseUrl": "../../scripts",
         "incremental": true,
+        "module": "CommonJS",
         "outDir": "../../scripts",
         "rootDir": "../../scripts"
     },

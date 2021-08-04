@@ -7,12 +7,12 @@
         "forceConsistentCasingInFileNames": true,
         "incremental": false,
         "isolatedModules": true,
-        "jsx": "react-jsx",
-        "lib": ["dom", "dom.iterable", "esnext"],
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "listEmittedFiles": true,
-        "module": "commonjs",
+        "module": "ESNext",
         "moduleResolution": "node",
         "newLine": "lf",
+        "noFallthroughCasesInSwitch": true,
         "noImplicitOverride": true,
         "noImplicitReturns": true,
         "paths": {
@@ -40,5 +40,12 @@
          */
         "strict": true,
         "target": "ES2018"
-    }
+    },
+    "exclude": [
+        "../../build",
+        "../../node_modules",
+        "../../src/**/__tests__",
+        "../../src/**/*.spec.ts",
+        "../../src/**/*.test.ts"
+    ]
 }

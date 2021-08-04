@@ -19,7 +19,6 @@
             "**/.git": true,
             "**/.hg": true,
             "**/.svn": true,
-            "**/*.tsbuildinfo": true,
             "**/CVS": true,
             "**/node_modules": true,
             "**/scripts/**/*.js": true,
