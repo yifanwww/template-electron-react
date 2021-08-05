@@ -1,7 +1,5 @@
 import { ReactElement, useCallback, useEffect, useRef } from 'react';
 
-import { IClientAreaSize } from '#RUtils/Types';
-
 import scss from './Frameless.module.scss';
 
 export interface ITitleBarProps {

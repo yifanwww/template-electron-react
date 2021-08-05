@@ -1,5 +1,3 @@
-import { IClientAreaSize } from '#RUtils/Types';
-
 import { MainReducer } from '../Types';
 
 export const _finishPreparing: MainReducer = (state) => {

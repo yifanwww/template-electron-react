@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 
 import { FramelessWindow, TitleBar } from '#RUtils/Frameless';
-import { IClientAreaSize } from '#RUtils/Types';
 
 import { mainActions, mainStore } from './Redux';
 import { ClientArea } from './Containers/ClientArea';

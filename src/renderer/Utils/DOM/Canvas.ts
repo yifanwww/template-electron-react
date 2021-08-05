@@ -1,6 +1,4 @@
-import { IOffset } from '#RUtils/Types';
-
-import { IDotPosition, IRectPosition, ITextWithPosition } from './Types';
+import { IDotPosition, IOffset, IRectPosition, ITextWithPosition } from './Types';
 
 export interface CanvasLinePainter {
     begin(): void;

@@ -1,13 +1,28 @@
 /// <reference types="react-scripts" />
 
-import React from 'react';
-
-declare function expectElementSnapshot(element: React.ReactElement): void;
+import { CSSProperties, ReactNode } from 'react';
 
 declare global {
-    namespace NodeJS {
-        interface Global {
-            expectElementSnapshot: typeof expectElementSnapshot;
-        }
+    type ReactStyleFunc<Args extends unknown[]> = (...args: Args) => CSSProperties;
+
+    interface IReactChildrenProp {
+        children?: ReactNode;
+    }
+
+    interface IClientAreaSize {
+        width: number;
+        height: number;
+    }
+
+    interface IElementSize {
+        width: number;
+        height: number;
+    }
+
+    interface IElementPositionSize {
+        left: number;
+        top: number;
+        width: number;
+        height: number;
     }
 }
