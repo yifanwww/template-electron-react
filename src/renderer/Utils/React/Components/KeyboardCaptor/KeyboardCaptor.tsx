@@ -1,4 +1,4 @@
-import { memo, ReactElement, useRef } from 'react';
+import { ReactElement, useRef } from 'react';
 
 import { Keyboard, KeyboardEventType, useKey, UseKeyHandler } from '../../Hooks';
 
@@ -13,7 +13,7 @@ export interface IKeyboardCaptorProps {
     handler: KeyboardCaptorHandler;
 }
 
-export const KeyboardCaptor = memo(function KeyboardCaptor(props: Readonly<IKeyboardCaptorProps>): ReactElement {
+export function KeyboardCaptor(props: Readonly<IKeyboardCaptorProps>): ReactElement {
     const { children, handler, targetKey, type } = props;
 
     const ref = useRef<HTMLDivElement>(null);
@@ -31,4 +31,4 @@ export const KeyboardCaptor = memo(function KeyboardCaptor(props: Readonly<IKeyb
             {children}
         </div>
     );
-});
+}

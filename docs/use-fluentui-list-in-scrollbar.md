@@ -3,7 +3,7 @@
 Example:
 ```typescript
 import { List } from '@fluentui/react';
-import { memo, useCallback, useState } from 'react';
+import { useState } from 'react';
 import Scrollbar, { ScrollbarProps } from 'react-scrollbars-custom';
 
 interface Item {
@@ -35,24 +35,22 @@ const scrollerProps: NonNullable<ScrollbarProps['scrollerProps']> = {
 
 const renderCell = (item?: Item) => <div>{item?.content}</div>;
 
-const ScrollableList = memo(function ScrollableList() {
+function ScrollableList() {
     return <List items={items} onRenderCell={renderCell} />;
-});
+}
 
-export const ScrollablePane = memo(function ScrollablePane() {
+export function ScrollablePane() {
     const [trackYVisible, setTrackYVisible] = useState(false);
 
-    const updateScrollbar = useCallback<NonNullable<ScrollbarProps['onUpdate']>>(
-        // HACK: bug in `react-scrollbars-custom`, trackYVisible may be undefined
-        //       https://github.com/xobotyi/react-scrollbars-custom/pull/167
-        (scrollValues) => setTrackYVisible(scrollValues.trackYVisible ?? false),
-        [],
-    );
+    // HACK: bug in `react-scrollbars-custom`, trackYVisible may be undefined
+    //       https://github.com/xobotyi/react-scrollbars-custom/pull/167
+    const updateScrollbar: NonNullable<ScrollbarProps['onUpdate']> = (scrollValues) =>
+        setTrackYVisible(scrollValues.trackYVisible ?? false);
 
     return (
-        <Scrollbar noScrollX scrollerProps={scrollerProps}>
+        <Scrollbar noScrollX scrollerProps={scrollerProps} onUpdate={updateScrollbar}>
             <ScrollableList />
         </Scrollbar>
     );
-});
+}
 ```

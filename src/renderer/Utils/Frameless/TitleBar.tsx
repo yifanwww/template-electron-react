@@ -1,4 +1,4 @@
-import { ReactElement, useCallback, useEffect, useRef } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 
 import scss from './Frameless.module.scss';
 
@@ -12,20 +12,18 @@ export function TitleBar(props: Readonly<ITitleBarProps>): ReactElement {
 
     const ref = useRef<HTMLDivElement>(null);
 
-    const _onClientAreaSizeChange = useCallback(
-        () => onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth }),
-        [onClientAreaSizeChange],
-    );
-
     useEffect(() => {
-        _onClientAreaSizeChange();
+        const changeClientAreaSize = () =>
+            onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth });
 
-        window.addEventListener('resize', _onClientAreaSizeChange);
+        changeClientAreaSize();
+
+        window.addEventListener('resize', changeClientAreaSize);
 
         return () => {
-            window.removeEventListener('resize', _onClientAreaSizeChange);
+            window.removeEventListener('resize', changeClientAreaSize);
         };
-    }, [_onClientAreaSizeChange]);
+    }, [onClientAreaSizeChange]);
 
     return (
         <div id={scss.TitleBar} ref={ref}>
