@@ -5,18 +5,14 @@ import { useIsFocused } from './useIsFocused';
 
 describe('Test react hook `useIsFocused`', () => {
     test('test is focused when focus event appears', async () => {
-        let isFocused: boolean | undefined;
+        let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsFocused(ref);
-            return (
-                <div tabIndex={0} ref={ref}>
-                    Test-Component
-                </div>
-            );
+            return <div ref={ref}>Test-Component</div>;
         }
 
-        expect(isFocused).toBeUndefined();
+        expect(isFocused).toBeNull();
         const { getByText } = render(<TestComponent />);
         expect(isFocused).toBeFalsy();
 
@@ -33,18 +29,14 @@ describe('Test react hook `useIsFocused`', () => {
     });
 
     test('test if not enabled', async () => {
-        let isFocused: boolean | undefined;
+        let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsFocused(ref, false);
-            return (
-                <div tabIndex={0} ref={ref}>
-                    Test-Component
-                </div>
-            );
+            return <div ref={ref}>Test-Component</div>;
         }
 
-        expect(isFocused).toBeUndefined();
+        expect(isFocused).toBeNull();
         const { getByText } = render(<TestComponent />);
         expect(isFocused).toBeFalsy();
 

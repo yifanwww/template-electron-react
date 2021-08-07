@@ -5,14 +5,14 @@ import { useIsHovered } from './useIsHovered';
 
 describe('Test react hook `useIsHovered`', () => {
     test('test is hovered when hover event appears', async () => {
-        let isHovered: boolean | undefined;
+        let isHovered: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isHovered = useIsHovered(ref);
             return <div ref={ref}>Test-Component</div>;
         }
 
-        expect(isHovered).toBeUndefined();
+        expect(isHovered).toBeNull();
         const { getByText } = render(<TestComponent />);
         expect(isHovered).toBeFalsy();
 
@@ -29,14 +29,14 @@ describe('Test react hook `useIsHovered`', () => {
     });
 
     test('test if not enabled', async () => {
-        let isFocused: boolean | undefined;
+        let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsHovered(ref, false);
             return <div ref={ref}>Test-Component</div>;
         }
 
-        expect(isFocused).toBeUndefined();
+        expect(isFocused).toBeNull();
         const { getByText } = render(<TestComponent />);
         expect(isFocused).toBeFalsy();
 

@@ -25,8 +25,8 @@ export abstract class AbstractWindow {
         this.windowType = option.windowType;
 
         this.window = new BrowserWindow({
-            width: option.width === undefined ? 1280 : option.width,
-            height: option.height === undefined ? 720 : option.height,
+            width: option.width ?? 1280,
+            height: option.height ?? 720,
             webPreferences: {
                 contextIsolation: false,
                 enableRemoteModule: false,

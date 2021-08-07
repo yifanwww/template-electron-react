@@ -336,7 +336,7 @@ export type KeyboardEventType = 'keydown' | 'keypress' | 'keyup';
 function _useKeyImpl(
     element: Optional<HTMLElement>,
     type: KeyboardEventType,
-    key: Keyboard | undefined,
+    key: Optional<Keyboard>,
     handler: UseKeyHandler,
 ): void {
     const _handler = useCallback(
@@ -369,7 +369,7 @@ export function useKey(
     if (typeof keyOrHandler === 'number') {
         _useKeyImpl(element, type, keyOrHandler, handler!);
     } else {
-        _useKeyImpl(element, type, undefined, keyOrHandler);
+        _useKeyImpl(element, type, null, keyOrHandler);
     }
 }
 
@@ -394,7 +394,7 @@ export function useKeyUp(element: Optional<HTMLElement>, ...args: [any, any?]): 
     useKey(element, 'keyup', ...args);
 }
 
-function _useWindowKeyImpl(type: KeyboardEventType, key: Keyboard | undefined, handler: UseKeyHandler): void {
+function _useWindowKeyImpl(type: KeyboardEventType, key: Optional<Keyboard>, handler: UseKeyHandler): void {
     const _handler = useCallback(
         (event: KeyboardEvent) => (key ? filterKey(event, key, handler) : handler(event)),
         [handler, key],
@@ -419,7 +419,7 @@ export function useWindowKey(
     if (typeof keyOrHandler === 'number') {
         _useWindowKeyImpl(type, keyOrHandler, handler!);
     } else {
-        _useWindowKeyImpl(type, undefined, keyOrHandler);
+        _useWindowKeyImpl(type, null, keyOrHandler);
     }
 }
 
