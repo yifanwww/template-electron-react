@@ -1,4 +1,4 @@
-name: Publish Installer
+name: Build Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     tags: v*.*.*
 
 jobs:
-  publish:
+  release:
     runs-on: windows-latest
     timeout-minutes: 10
 

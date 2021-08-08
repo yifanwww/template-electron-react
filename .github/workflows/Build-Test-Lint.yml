@@ -1,4 +1,4 @@
-name: BuildTestLint
+name: Build-Test-Lint
 
 on:
   push:
