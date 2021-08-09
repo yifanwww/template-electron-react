@@ -137,4 +137,4 @@ export const semanticColors: Partial<ISemanticColors> = {
     // listHeaderBackgroundPressed: ''
 };
 
-export const fluentuiTheme = createTheme({ palette, semanticColors });
+export const defaultTheme = createTheme({ palette, semanticColors });

@@ -1,10 +1,9 @@
-import { initializeIcons, ThemeProvider } from '@fluentui/react';
+import { initializeIcons } from '@fluentui/react';
 import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import { IpcChannels } from '#Common/Ipc';
 import { WindowType } from '#Common/WindowType';
-import { fluentuiTheme } from '#RUtils/Fluentui';
 import { IpcRendererWrapper } from '#RUtils/IpcRenderer';
 
 import { MainWindow } from './MainWindow';
@@ -16,16 +15,16 @@ function initializeFluentui(): void {
     initializeIcons();
 }
 
-function WindowProvider(): Optional<ReactElement> {
-    const windowType: WindowType = IpcRendererWrapper.sendSync(IpcChannels.GetWindowType);
+function Window(): Optional<ReactElement> {
+    const type: WindowType = IpcRendererWrapper.sendSync(IpcChannels.GetWindowType);
 
     let never: never;
-    switch (windowType) {
+    switch (type) {
         case 'main':
             return <MainWindow />;
 
         default:
-            never = windowType;
+            never = type;
             console.error(`Wrong window type '${never}' to create the specified window user interface.`);
             return null;
     }
@@ -36,9 +35,7 @@ function main(): void {
 
     render(
         <StrictMode>
-            <ThemeProvider id="ThemeProvider" theme={fluentuiTheme}>
-                <WindowProvider />
-            </ThemeProvider>
+            <Window />
         </StrictMode>,
         document.getElementById('root'),
     );

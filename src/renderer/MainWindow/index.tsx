@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
-import { Provider } from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux';
 
+import { FluentuiProvider } from '#RUtils/Fluentui';
 import { FramelessWindow, TitleBar } from '#RUtils/Frameless';
 
 import { mainActions, mainStore } from './Redux';
@@ -12,9 +13,11 @@ export function MainWindow(): ReactElement {
     return (
         <FramelessWindow>
             <TitleBar onClientAreaSizeChange={changeClientAreaSize}>
-                <Provider store={mainStore}>
-                    <ClientArea />
-                </Provider>
+                <FluentuiProvider>
+                    <ReduxProvider store={mainStore}>
+                        <ClientArea />
+                    </ReduxProvider>
+                </FluentuiProvider>
             </TitleBar>
         </FramelessWindow>
     );

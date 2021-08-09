@@ -1,4 +1,4 @@
 export * from './Events';
+export * from './Provider';
 export * from './Styles';
-export * from './Theme.Default';
 export * from './Tokens';
