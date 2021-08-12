@@ -4,14 +4,14 @@
 
 import _path from 'path';
 
-// Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
-// Line 17-18
-const projectDir = _path.resolve(__dirname, '../..');
-const resolveProject = (relativePath: string) => _path.resolve(projectDir, relativePath);
+import { paths } from '../paths';
+
+const resolveProject = (relative: string) => _path.resolve(paths.project, relative);
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
-export const paths = {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const cra_paths = {
     appBuild: resolveProject('build'),
     appHtml: resolveProject('src/public/index.html'),
     appIndexTsMain: resolveProject('src/main/app.ts'),
@@ -39,7 +39,7 @@ export const aliases = {
     '#RUtils': resolveProject('src/renderer/Utils'),
 };
 
-const resolveJest = (relativePath: string) => `<rootDir>/${relativePath}$1`;
+const resolveJest = (relative: string) => `<rootDir>/${relative}$1`;
 
 // jest path aliases
 export const jestAliases = {

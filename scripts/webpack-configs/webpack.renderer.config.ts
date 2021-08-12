@@ -11,7 +11,7 @@ import { Config } from '@jest/types';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration } from 'webpack';
 
-import { aliases, jestAliases, paths as _paths } from './webpack.base.config';
+import { aliases, jestAliases, cra_paths } from './webpack.base.config';
 
 interface CRAPaths {
     dotent: string;
@@ -42,14 +42,14 @@ interface CRAPaths {
  * The paths config to use when compiling your react app for development or production.
  */
 function overridePathsConfigs(paths: CRAPaths): CRAPaths {
-    paths.appHtml = _paths.appHtml;
-    paths.appIndexJs = _paths.appIndexTsRenderer;
-    paths.appPublic = _paths.appPublic;
-    paths.appTsConfig = _paths.appTsConfigRenderer;
-    paths.appTypeDeclarations = _paths.appTypeDeclarations;
-    paths.proxySetup = _paths.proxySetup;
-    paths.swSrc = _paths.swSrc;
-    paths.testsSetup = _paths.testsSetup;
+    paths.appHtml = cra_paths.appHtml;
+    paths.appIndexJs = cra_paths.appIndexTsRenderer;
+    paths.appPublic = cra_paths.appPublic;
+    paths.appTsConfig = cra_paths.appTsConfigRenderer;
+    paths.appTypeDeclarations = cra_paths.appTypeDeclarations;
+    paths.proxySetup = cra_paths.proxySetup;
+    paths.swSrc = cra_paths.swSrc;
+    paths.testsSetup = cra_paths.testsSetup;
 
     return paths;
 }
@@ -68,7 +68,7 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
 
     // 2. Set the correct directories where the source code should be compiled.
 
-    webpack.module!.rules[1].oneOf![2].include = [_paths.appSrcCommon, _paths.appSrcRenderer];
+    webpack.module!.rules[1].oneOf![2].include = [cra_paths.appSrcCommon, cra_paths.appSrcRenderer];
 
     // 3. Add custom path aliases.
 
@@ -90,7 +90,7 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
 function overrideJestConfigs(config: Config.InitialOptions): Config.InitialOptions {
     // 1. The option `setupFilesAfterEnv` is `<rootDir>/src/setupTests.${setupTestsFileExtension}`, change it.
 
-    config.setupFilesAfterEnv = [_paths.testsSetup];
+    config.setupFilesAfterEnv = [cra_paths.testsSetup];
 
     // 2. The option `roots` is `['<rootDir>/src']`, change it.
 
