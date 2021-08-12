@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfigs/tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "incremental": true,
+        "module": "CommonJS",
+        "outDir": ".",
+        "rootDir": "."
+    },
+    "include": ["."],
+    "exclude": []
+}

@@ -2,7 +2,6 @@
     "compilerOptions": {
         "allowJs": false,
         "allowSyntheticDefaultImports": true,
-        "baseUrl": "../..",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "incremental": false,
@@ -15,15 +14,6 @@
         "noFallthroughCasesInSwitch": true,
         "noImplicitOverride": true,
         "noImplicitReturns": true,
-        "paths": {
-            // common
-            "#Common/*": ["src/common/*"],
-            // main
-            "#MUtils/*": ["src/main/Utils/*"],
-            // renderer
-            "#Assets/*": ["src/renderer/Assets/*"],
-            "#RUtils/*": ["src/renderer/Utils/*"]
-        },
         "resolveJsonModule": true,
         "skipLibCheck": false,
         "sourceMap": true,
@@ -40,12 +30,5 @@
          */
         "strict": true,
         "target": "ES2018"
-    },
-    "exclude": [
-        "../../build",
-        "../../node_modules",
-        "../../src/**/__tests__",
-        "../../src/**/*.spec.ts",
-        "../../src/**/*.test.ts"
-    ]
+    }
 }

@@ -1,0 +1,18 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": "../..",
+        "noEmit": true,
+        "paths": {
+            // common
+            "#Common/*": ["src/common/*"],
+            // main
+            "#MUtils/*": ["src/main/Utils/*"],
+            // renderer
+            "#Assets/*": ["src/renderer/Assets/*"],
+            "#RUtils/*": ["src/renderer/Utils/*"]
+        },
+        "rootDir": "../.."
+    },
+    "exclude": ["../**/__tests__", "../**/*.spec.ts", "../**/*.test.ts"]
+}
