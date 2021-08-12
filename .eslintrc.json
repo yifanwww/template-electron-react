@@ -41,9 +41,6 @@
         "no-param-reassign": "off",
         "no-plusplus": "off",
         "no-restricted-syntax": "off",
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/return-await.md#how-to-use
-        // The rule `@typescript-eslint/return-await` of plugin `@typescript-eslint/eslint-plugin` requires to disable this rule.
-        "no-return-await": "off",
         // https://github.com/prettier/eslint-config-prettier/#no-tabs
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         "no-tabs": "error",
@@ -56,8 +53,16 @@
         "object-curly-newline": "off",
         // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin`prettier` instead.
         "operator-linebreak": "off",
-        // Disable the prefer of array destructuring.
-        "prefer-destructuring": ["error", { "array": false, "object": true }, { "enforceForRenamedProperties": false }],
+        // Only enable object variable declarator.
+        // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/es6.js#L124
+        "prefer-destructuring": [
+            "error",
+            {
+                "VariableDeclarator": { "array": false, "object": true },
+                "AssignmentExpression": { "array": false, "object": false }
+            },
+            { "enforceForRenamedProperties": false }
+        ],
         // https://github.com/prettier/eslint-config-prettier/#quotes
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
@@ -96,7 +101,28 @@
                 "leadingUnderscore": "allow"
             }
         ],
+        // From:
+        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v12.3.1/lib/shared.js#L113
+        // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/best-practices.js#L88
+        "@typescript-eslint/no-empty-function": [
+            "error",
+            {
+                "allow": [
+                    // base
+                    "arrowFunctions",
+                    "functions",
+                    "methods",
+                    // extends
+                    "decoratedFunctions",
+                    "private-constructors",
+                    "protected-constructors"
+                ]
+            }
+        ],
         "@typescript-eslint/no-explicit-any": "warn",
+        // From:
+        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v12.3.1/lib/shared.js#L199
+        // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/best-practices.js#L264
         "@typescript-eslint/return-await": ["error", "in-try-catch"],
 
         "deprecation/deprecation": "warn",
