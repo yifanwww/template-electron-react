@@ -38,6 +38,7 @@
         "no-constant-condition": "off",
         "no-continue": "off",
         "no-else-return": "off",
+        "no-lonely-if": "off",
         "no-param-reassign": "off",
         "no-plusplus": "off",
         "no-restricted-syntax": "off",

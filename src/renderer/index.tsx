@@ -2,6 +2,9 @@ import { initializeIcons } from '@fluentui/react';
 import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
+// #Common/setup adds custom functions into global.
+import '#Common/setup';
+
 import { IpcChannels } from '#Common/Ipc';
 import { WindowType } from '#Common/WindowType';
 import { IpcRendererWrapper } from '#RUtils/IpcRenderer';
@@ -10,10 +13,6 @@ import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './report-web-vitals';
 
 import './index.css';
-
-function initializeFluentui(): void {
-    initializeIcons();
-}
 
 function Window(): Optional<ReactElement> {
     const type: WindowType = IpcRendererWrapper.sendSync(IpcChannels.GetWindowType);
@@ -31,7 +30,7 @@ function Window(): Optional<ReactElement> {
 }
 
 function main(): void {
-    initializeFluentui();
+    initializeIcons();
 
     render(
         <StrictMode>

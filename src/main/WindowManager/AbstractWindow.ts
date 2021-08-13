@@ -9,8 +9,6 @@ import { appPaths } from '../AppPaths';
 import { IAbstractWindowOption, ICloseWindowOption, ICreateWindowOption } from './Types';
 
 export abstract class AbstractWindow {
-    protected static readonly production = process.env.NODE_ENV === 'production';
-
     protected readonly window: BrowserWindow;
     protected readonly windowType: WindowType;
     protected readonly windowId: string;
@@ -42,7 +40,7 @@ export abstract class AbstractWindow {
     }
 
     public async show(): Promise<void> {
-        if (AbstractWindow.production) {
+        if (Environment.compilation === 'production') {
             await this.window.loadFile(path.resolve(appPaths.src, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');
