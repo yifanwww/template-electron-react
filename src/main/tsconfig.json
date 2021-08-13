@@ -1,4 +1,8 @@
 {
     "extends": "../../scripts/tsconfigs/tsconfig.src.json",
-    "include": ["."]
+    "compilerOptions": {
+        "noEmit": false,
+        "outDir": "../../build"
+    },
+    "include": ["../common", "."]
 }

@@ -6,7 +6,10 @@
 # Scripts
 
 /scripts/**/*.js
-/scripts/tsconfigs/tsconfig.renderer.json
+
+# Typescript Configurations
+
+/src/renderer/tsconfig.json
 
 # Running and Testing
 

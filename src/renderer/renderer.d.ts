@@ -1,5 +1,4 @@
 /// <reference types="react-scripts" />
-/// <reference path="../common/common.d.ts" />
 
 import { CSSProperties, ReactNode } from 'react';
 
