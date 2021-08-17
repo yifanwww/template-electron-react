@@ -5,7 +5,7 @@ const nodeModules = path.join(project, 'node_modules');
 
 const working = path.join(project, 'working');
 
-const unpacked = path.join(project, 'release/win-unpacked/filesync.exe');
+const unpacked = path.join(project, 'release/win-unpacked/tecra.exe');
 
 const electron = path.join(nodeModules, 'electron/dist/electron.exe');
 
