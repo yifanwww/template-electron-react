@@ -116,6 +116,8 @@ function overrideJestConfigs(config: Config.InitialOptions): Config.InitialOptio
         ...jestAliases,
     };
 
+    // Finish.
+
     return config;
 }
 

@@ -12,7 +12,7 @@ exports[`Test component \`Introduction\` renders 1`] = `
   <p>
     Edit 
     <code>
-      src/renderer/MainWindow/App.tsx
+      src/renderer/MainWindow/Components/Introduction/Introduction.tsx
     </code>
      and save to reload.
   </p>
@@ -22,7 +22,7 @@ exports[`Test component \`Introduction\` renders 1`] = `
     rel="noopener noreferrer"
     target="_blank"
   >
-    Learn @YSoftwareRepo/template-electron-cra
+    Learn template-electron-cra
   </a>
 </header>
 `;

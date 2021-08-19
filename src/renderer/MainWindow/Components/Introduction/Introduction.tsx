@@ -41,7 +41,7 @@ export function Introduction(): ReactElement {
         <header className={classes.introduction}>
             <img className={classes.logo} src={logo} alt="logo" />
             <p>
-                Edit <code>src/renderer/MainWindow/App.tsx</code> and save to reload.
+                Edit <code>src/renderer/MainWindow/Components/Introduction/Introduction.tsx</code> and save to reload.
             </p>
             <a
                 className={classes.link}
@@ -49,7 +49,7 @@ export function Introduction(): ReactElement {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Learn @YSoftwareRepo/template-electron-cra
+                Learn template-electron-cra
             </a>
         </header>
     );

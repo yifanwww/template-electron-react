@@ -1,5 +1,5 @@
 {
-    "name": "@ysoftwarerepo/template-electron-cra",
+    "name": "tecra",
     "version": "0.6.0",
     "description": "A template project for developing electron application by electron, react (CRA) and typescript.",
     "main": "build/electron.js",

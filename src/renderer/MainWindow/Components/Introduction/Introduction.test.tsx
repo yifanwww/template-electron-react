@@ -12,7 +12,7 @@ describe('Test component `Introduction`', () => {
         expect(tree).toMatchSnapshot();
 
         const { getByText } = render(reactElement);
-        const linkElement = getByText(new RegExp('Learn @YSoftwareRepo/template-electron-cra', 'i'));
+        const linkElement = getByText(new RegExp('Learn template-electron-cra', 'i'));
         expect(linkElement).toBeInTheDocument();
     });
 });
