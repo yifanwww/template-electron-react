@@ -19,7 +19,7 @@ afterAll(() => jest.restoreAllMocks());
 
 describe('Test `LocalStorage`', () => {
     test('no methods', () => {
-        expect(Reflect.ownKeys(LocalStorage)).toStrictEqual(['length', 'prototype', 'name']);
+        expect(Reflect.ownKeys(LocalStorage).length).toBe(3);
         expect(Reflect.ownKeys(new LocalStorage())).toStrictEqual([]);
     });
 });
