@@ -54,7 +54,8 @@
         "node": ">=16"
     },
     "workspaces": [
-        "packages/eslint-config"
+        "packages/eslint-config",
+        "packages/tsconfigs"
     ],
     "dependencies": {
         "@fluentui/react": "^8.28.2",
@@ -114,7 +115,7 @@
         "speed-measure-webpack-plugin": "^1.5.0",
         "ts-loader": "^8.3.0",
         "typed-css-modules": "^0.6.8",
-        "typescript": "4.3.5",
+        "typescript": "4.4.2",
         "webpack-cli": "^4.8.0"
     }
 }

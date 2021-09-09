@@ -3,6 +3,6 @@
     "extends": ["@tecra/eslint-config"],
     "ignorePatterns": ["*.cjs", "*.js", "*.mjs", "packages"],
     "parserOptions": {
-        "project": "scripts/tsconfigs/tsconfig.eslint.json"
+        "project": "./tsconfig.eslint.json"
     }
 }

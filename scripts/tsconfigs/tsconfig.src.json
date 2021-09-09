@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.base.json",
+    "extends": "@tecra/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
         "baseUrl": "../..",
         "noEmit": true,

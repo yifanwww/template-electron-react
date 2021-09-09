@@ -1,9 +1,8 @@
 {
-    "extends": "./tsconfigs/tsconfig.base.json",
+    "extends": "@tecra/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "incremental": true,
-        "module": "CommonJS",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
         "outDir": ".",
         "rootDir": "."
     },
