@@ -16,6 +16,7 @@ describe('Test react hook `useImmediateFocus`', () => {
             useImmediateFocus(ref);
 
             return (
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                 <div tabIndex={0} ref={ref}>
                     Test-Component
                 </div>
@@ -39,6 +40,7 @@ describe('Test react hook `useImmediateFocus`', () => {
             useImmediateFocus(ref, false);
 
             return (
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                 <div tabIndex={0} ref={ref}>
                     Test-Component
                 </div>

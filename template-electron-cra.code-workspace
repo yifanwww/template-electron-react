@@ -1,7 +1,12 @@
 {
     "folders": [
         {
+            "name": "tecra",
             "path": "."
+        },
+        {
+            "name": "@tecra/eslint-config",
+            "path": "packages/eslint-config"
         }
     ],
     "settings": {
@@ -21,6 +26,7 @@
             "**/.svn": true,
             "**/CVS": true,
             "**/node_modules": true,
+            "**/packages": true,
             "**/scripts/**/*.js": true,
             "**/scripts/**/*.map": true
         },

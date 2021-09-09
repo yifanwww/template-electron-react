@@ -8,7 +8,7 @@
 
 # Editors and IDEs
 
-.vscode/settings.json
+**/.vscode/settings.json
 
 # Dependencies
 
@@ -16,20 +16,19 @@
 .pnp.js
 node_modules
 
-# Source
-
-src/**/*.cjs
-src/**/*.js
-src/**/*.mjs
-
-# Compilation
+# Compilation & Source
 
 *.tsbuildinfo
 
 build
 release
-scripts/**/*.js
-scripts/**/*.map
+
+**/*.cjs
+**/*.js
+**/*.map
+**/*.mjs
+
+!packages/eslint-config/index.js
 
 # Testing
 

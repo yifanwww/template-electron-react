@@ -8,6 +8,9 @@ export interface IFluentuiProviderProps extends IReactChildrenProp {}
 
 export const FluentuiProvider = (props: Readonly<IFluentuiProviderProps>) => (
     <ThemeProvider id="FluentuiThemeProvider" theme={defaultTheme}>
-        {props.children}
+        {
+            // eslint-disable-next-line react/destructuring-assignment
+            props.children
+        }
     </ThemeProvider>
 );
