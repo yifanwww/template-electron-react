@@ -1,0 +1,30 @@
+{
+    "name": "@tecra/stylelint-config",
+    "version": "0.6.0",
+    "description": "Stylelint configurations for tecra.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": {
+        "name": "YF1999",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "packages/stylelint-config"
+    },
+    "scripts": {
+        "build": "echo NPM script `build` does nothing in `@tecra/stylelint-config`",
+        "build-scripts": "echo NPM script `build-scripts` does nothing in `@tecra/stylelint-config`",
+        "clean": "echo NPM script `clean` does nothing in `@tecra/stylelint-config`",
+        "clean-scripts": "echo NPM script `clean-scripts` does nothing in `@tecra/stylelint-config`",
+        "format": "prettier --write **/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}",
+        "lint": "echo NPM script `lint` does nothing in `@tecra/stylelint-config`",
+        "test-coverage": "echo NPM script `test-coverage` does nothing in `@tecra/stylelint-config`"
+    }
+}

@@ -29,6 +29,7 @@ release
 **/*.mjs
 
 !packages/eslint-config/index.js
+!packages/stylelint-config/index.js
 
 # Testing
 
