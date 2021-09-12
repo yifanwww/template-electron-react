@@ -60,6 +60,7 @@
     },
     "workspaces": [
         "packages/eslint-config",
+        "packages/global-types",
         "packages/scripts",
         "packages/stylelint-config",
         "packages/tsconfigs"

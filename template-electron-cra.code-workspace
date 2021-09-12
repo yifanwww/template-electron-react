@@ -9,6 +9,10 @@
             "path": "packages/eslint-config"
         },
         {
+            "name": "@tecra/global-types",
+            "path": "packages/global-types"
+        },
+        {
             "name": "@tecra/scripts",
             "path": "packages/scripts"
         },
