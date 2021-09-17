@@ -1,0 +1,34 @@
+{
+    "name": "@tecra/scripts",
+    "version": "0.6.0",
+    "description": "Scripts for easy-projs.",
+    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "license": "MIT",
+    "author": {
+        "name": "YF1999",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YF1999/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "directory": "packages/scripts"
+    },
+    "bin": {
+        "format-code": "bin/format-code.js",
+        "skip-npm-script": "bin/skip-npm-script.js"
+    },
+    "scripts": {
+        "build": "npm run build-scripts",
+        "build-scripts": "tsc --project tsconfig.json",
+        "clean": "skip-npm-script",
+        "clean-scripts": "rimraf {utils}/**/*.js tsconfig.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "test-coverage": "skip-npm-script"
+    }
+}

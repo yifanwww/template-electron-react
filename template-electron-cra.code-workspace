@@ -9,6 +9,10 @@
             "path": "packages/eslint-config"
         },
         {
+            "name": "@tecra/scripts",
+            "path": "packages/scripts"
+        },
+        {
             "name": "@tecra/stylelint-config",
             "path": "packages/stylelint-config"
         },

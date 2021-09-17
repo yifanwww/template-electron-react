@@ -1,0 +1,7 @@
+# Compilation
+
+/utils/**/*.js
+
+# Running and Testing
+
+/coverage

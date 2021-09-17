@@ -19,12 +19,12 @@
         "directory": "packages/tsconfigs"
     },
     "scripts": {
-        "build": "echo NPM script `build` does nothing in `@tecra/tsconfigs`",
-        "build-scripts": "echo NPM script `build-scripts` does nothing in `@tecra/tsconfigs`",
-        "clean": "echo NPM script `clean` does nothing in `@tecra/tsconfigs`",
-        "clean-scripts": "echo NPM script `clean-scripts` does nothing in `@tecra/tsconfigs`",
-        "format": "prettier --write **/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}",
-        "lint": "echo NPM script `lint` does nothing in `@tecra/tsconfigs`",
-        "test-coverage": "echo NPM script `test-coverage` does nothing in `@tecra/tsconfigs`"
+        "build": "skip-npm-script",
+        "build-scripts": "skip-npm-script",
+        "clean": "skip-npm-script",
+        "clean-scripts": "skip-npm-script",
+        "format": "format-code",
+        "lint": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
     }
 }
