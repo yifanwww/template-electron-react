@@ -1,6 +1,5 @@
+import { Keyboard, KeyboardEventType, useKey, UseKeyHandler } from '@tecra/hooks';
 import { ReactElement, useRef } from 'react';
-
-import { Keyboard, KeyboardEventType, useKey, UseKeyHandler } from '../../Hooks';
 
 import scss from './KeyboardCaptor.module.scss';
 

@@ -13,6 +13,10 @@
             "path": "packages/eslint-config"
         },
         {
+            "name": "@tecra/hooks",
+            "path": "packages/hooks"
+        },
+        {
             "name": "@tecra/global-types",
             "path": "packages/global-types"
         },

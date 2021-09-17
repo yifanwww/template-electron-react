@@ -63,6 +63,7 @@
         "packages/assets",
         "packages/eslint-config",
         "packages/global-types",
+        "packages/hooks",
         "packages/scripts",
         "packages/stylelint-config",
         "packages/tsconfigs"

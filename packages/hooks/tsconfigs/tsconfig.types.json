@@ -1,0 +1,16 @@
+{
+    "extends": "@tecra/tsconfigs/tsconfig.react.types.json",
+    "compilerOptions": {
+        "baseUrl": "..",
+        "outDir": "../lib",
+        "rootDir": "../src"
+    },
+    "include": ["../src"],
+    "exclude": [
+        "../src/**/*.spec.ts",
+        "../src/**/*.spec.tsx",
+        "../src/**/*.test.ts",
+        "../src/**/*.test.tsx",
+        "../src/testUtils.ts"
+    ]
+}

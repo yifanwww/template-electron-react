@@ -1,8 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { wait } from '#Common/Utils';
-
-import { validateHookValueNotChanged } from './testUtils';
+import { validateHookValueNotChanged, wait } from './testUtils';
 import { useConstFn } from './useConstFn';
 import { useDelayFn } from './useDelayFn';
 

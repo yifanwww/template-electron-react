@@ -7,8 +7,7 @@ import { renderHook } from '@testing-library/react-hooks';
  * @param useHookAgain If you want to verify that the return value doesn't change when hook parameters change,
  * you can pass this second callback which calls the hook differently.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function validateHookValueNotChanged<TValues extends NonNullable<any>[]>(
+export function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
     testDescription: string,
     useHook: () => TValues,
     useHookAgain?: () => TValues,
@@ -45,3 +44,6 @@ export function validateHookValueNotChanged<TValues extends NonNullable<any>[]>(
         }
     });
 }
+
+// HACK: Use async timers `setTimeout` once electron main process use nodejs v16.
+export const wait = (time: number) => new Promise<void>((resolve) => setTimeout(resolve, time));
