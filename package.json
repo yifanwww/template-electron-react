@@ -27,9 +27,10 @@
         "_cra-test": "react-app-rewired test --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
         "_main-build": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode production",
         "_main-dev": "webpack --config scripts/webpack-configs/webpack.main.config.js --mode development",
-        "build": "npm run _cra-build && npm run _main-build",
+        "build": "build-packages && npm run _cra-build && npm run _main-build",
         "build:main": "npm run _main-build",
         "build:renderer": "npm run _cra-build",
+        "build-packages": "build-packages",
         "build-profile": "npm run _cra-build -- --profile && npm run _main-build",
         "build-scripts": "tsc --build scripts/tsconfig.json && npm run build-scripts --workspace @tecra/scripts",
         "clean": "rimraf build release working && npm run clean:packages",
@@ -59,6 +60,7 @@
         "node": ">=16"
     },
     "workspaces": [
+        "packages/assets",
         "packages/eslint-config",
         "packages/global-types",
         "packages/scripts",

@@ -5,6 +5,10 @@
             "path": "."
         },
         {
+            "name": "@tecra/assets",
+            "path": "packages/assets"
+        },
+        {
             "name": "@tecra/eslint-config",
             "path": "packages/eslint-config"
         },

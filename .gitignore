@@ -21,6 +21,8 @@ node_modules
 *.tsbuildinfo
 
 build
+lib
+lib-commonjs
 release
 
 **/*.cjs

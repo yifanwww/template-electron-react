@@ -19,6 +19,7 @@
         "directory": "packages/scripts"
     },
     "bin": {
+        "build-packages": "bin/build-packages.js",
         "format-code": "bin/format-code.js",
         "skip-npm-script": "bin/skip-npm-script.js"
     },
