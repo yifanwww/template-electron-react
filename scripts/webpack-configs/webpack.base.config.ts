@@ -17,7 +17,6 @@ export const cra_paths = {
     appIndexTsMain: resolveProject('src/main/app.ts'),
     appIndexTsRenderer: resolveProject('src/renderer/index.tsx'),
     appPublic: resolveProject('src/public'),
-    appSrcCommon: resolveProject('src/common'),
     appSrcMain: resolveProject('src/main'),
     appSrcRenderer: resolveProject('src/renderer'),
     appTsConfigMain: resolveProject('src/main/tsconfig.json'),
@@ -30,8 +29,6 @@ export const cra_paths = {
 
 // webpack path aliases
 export const aliases = {
-    // common
-    '#Common': resolveProject('src/common'),
     // main
     '#MUtils': resolveProject('src/main/Utils'),
     // renderer
@@ -43,8 +40,6 @@ const resolveJest = (relative: string) => `<rootDir>/${relative}$1`;
 
 // jest path aliases
 export const jestAliases = {
-    // common
-    '#Common(.*)$': resolveJest('src/common'),
     // main
     '#MUtils(.*)$': resolveJest('src/main/Utils'),
     // renderer

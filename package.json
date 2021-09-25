@@ -61,6 +61,7 @@
     },
     "workspaces": [
         "packages/assets",
+        "packages/electron-common",
         "packages/eslint-config",
         "packages/global-types",
         "packages/hooks",

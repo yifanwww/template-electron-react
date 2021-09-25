@@ -1,8 +1,7 @@
+import { IpcChannels, WindowType } from '@tecra/electron-common';
 import path from 'path';
 import { BrowserWindow, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-import { IpcChannels } from '#Common/Ipc';
-import { WindowType } from '#Common/WindowType';
 import { IpcMainWrapper } from '#MUtils/IpcMain';
 
 import { appPaths } from '../AppPaths';
@@ -40,7 +39,7 @@ export abstract class AbstractWindow {
     }
 
     public async show(): Promise<void> {
-        if (Environment.compilation === 'production') {
+        if (process.env.NODE_ENV === 'production') {
             await this.window.loadFile(path.resolve(appPaths.src, 'index.html'));
         } else {
             await this.window.loadURL('http://localhost:3000/');

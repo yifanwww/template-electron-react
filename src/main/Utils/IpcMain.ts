@@ -1,8 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
+import { IpcMainHandler, IpcMainListener } from '@tecra/electron-common';
 import { ipcMain } from 'electron';
-
-import { IpcMainHandler, IpcMainListener } from '#Common/Ipc';
 
 export namespace IpcMainWrapper {
     export abstract class Base {

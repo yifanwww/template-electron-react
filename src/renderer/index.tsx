@@ -1,12 +1,8 @@
 import { initializeIcons } from '@fluentui/react';
+import { IpcChannels, WindowType } from '@tecra/electron-common';
 import { ReactElement, StrictMode } from 'react';
 import { render } from 'react-dom';
 
-// #Common/setup adds custom functions into global.
-import '#Common/setup';
-
-import { IpcChannels } from '#Common/Ipc';
-import { WindowType } from '#Common/WindowType';
 import { IpcRendererWrapper } from '#RUtils/IpcRenderer';
 
 import { MainWindow } from './MainWindow';

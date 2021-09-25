@@ -1,8 +1,5 @@
 import { app, BrowserWindow } from 'electron';
 
-// #Common/setup adds custom functions into global.
-import '#Common/setup';
-
 import { appInfo } from './AppInfo';
 import { WindowManager } from './WindowManager';
 
@@ -30,7 +27,7 @@ app.on('ready', async () => {
     console.info('V8:', appInfo.v8);
     console.info();
 
-    if (Environment.compilation === 'development') {
+    if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
 

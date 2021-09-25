@@ -68,7 +68,7 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
 
     // 2. Set the correct directories where the source code should be compiled.
 
-    webpack.module!.rules[1].oneOf![2].include = [cra_paths.appSrcCommon, cra_paths.appSrcRenderer];
+    webpack.module!.rules[1].oneOf![2].include = [cra_paths.appSrcRenderer];
 
     // 3. Add custom path aliases.
 
@@ -94,17 +94,15 @@ function overrideJestConfigs(config: Config.InitialOptions): Config.InitialOptio
 
     // 2. The option `roots` is `['<rootDir>/src']`, change it.
 
-    config.roots = ['<rootDir>/src/common', '<rootDir>/src/renderer'];
+    config.roots = ['<rootDir>/src/renderer'];
 
     // 3. The option `collectCoverageFrom` is `['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts']`, change it.
 
-    config.collectCoverageFrom = ['src/common/**/*.{ts,tsx}', 'src/renderer/**/*.{ts,tsx}', '!src/**/*.d.ts'];
+    config.collectCoverageFrom = ['src/renderer/**/*.{ts,tsx}', '!src/**/*.d.ts'];
 
     // 4. Change the option `testMatch`.
 
     config.testMatch = [
-        '<rootDir>/src/common/**/__tests__/**/*.{ts,tsx}',
-        '<rootDir>/src/common/**/*.{spec,test}.{ts,tsx}',
         '<rootDir>/src/renderer/**/__tests__/**/*.{ts,tsx}',
         '<rootDir>/src/renderer/**/*.{spec,test}.{ts,tsx}',
     ];

@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import { IpcMainEvent, IpcMainInvokeEvent, IpcRendererEvent } from 'electron';
 
 export type IpcMainHandler<ReturnType, Args extends unknown[]> = (

@@ -81,6 +81,10 @@
             "path": "packages/assets"
         },
         {
+            "name": "@tecra/electron-common",
+            "path": "packages/electron-common"
+        },
+        {
             "name": "@tecra/eslint-config",
             "path": "packages/eslint-config"
         },

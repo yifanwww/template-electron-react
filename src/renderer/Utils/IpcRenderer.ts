@@ -1,8 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
+import { IpcRendererListener } from '@tecra/electron-common';
 import { ipcRenderer } from 'electron';
-
-import { IpcRendererListener } from '#Common/Ipc';
 
 export namespace IpcRendererWrapper {
     export abstract class Base {
