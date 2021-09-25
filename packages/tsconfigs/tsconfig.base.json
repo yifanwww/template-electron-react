@@ -33,6 +33,8 @@
          */
         "strict": true,
         "target": "ES2018",
-        "useUnknownInCatchVariables": true
+        "useUnknownInCatchVariables": true,
+
+        "plugins": [{ "name": "typescript-plugin-css-modules" }]
     }
 }
