@@ -1,6 +1,6 @@
 import child from 'child_process';
 
-const packagesOrder: string[] = ['@tecra/assets', '@tecra/hooks', '@tecra/utils-redux'];
+const packagesOrder: string[] = ['@tecra/assets', '@tecra/hooks', '@tecra/utils-fluentui', '@tecra/utils-redux'];
 
 export function buildPackages(): void {
     for (const name of packagesOrder) {

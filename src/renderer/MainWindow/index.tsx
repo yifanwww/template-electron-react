@@ -1,7 +1,7 @@
+import { FluentuiProvider } from '@tecra/utils-fluentui';
 import { ReactElement } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 
-import { FluentuiProvider } from '#RUtils/Fluentui';
 import { FramelessWindow, TitleBar } from '#RUtils/Frameless';
 
 import { mainActions, mainStore } from './Redux';

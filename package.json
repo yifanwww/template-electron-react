@@ -67,6 +67,7 @@
         "packages/scripts",
         "packages/stylelint-config",
         "packages/tsconfigs",
+        "packages/utils-fluentui",
         "packages/utils-redux"
     ],
     "dependencies": {

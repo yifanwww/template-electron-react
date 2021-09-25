@@ -105,6 +105,10 @@
             "path": "packages/tsconfigs"
         },
         {
+            "name": "@tecra/utils-fluentui",
+            "path": "packages/utils-fluentui"
+        },
+        {
             "name": "@tecra/utils-redux",
             "path": "packages/utils-redux"
         }
