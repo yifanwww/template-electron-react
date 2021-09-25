@@ -1,6 +1,7 @@
 # Compilation
 
 /utils/**/*.js
+/webpack/**/*.js
 
 # Running and Testing
 

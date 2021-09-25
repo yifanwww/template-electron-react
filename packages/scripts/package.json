@@ -21,6 +21,7 @@
     "bin": {
         "build-packages": "bin/build-packages.js",
         "electron-main": "bin/electron-main.js",
+        "electron-renderer": "bin/electron-renderer.js",
         "format-code": "bin/format-code.js",
         "skip-npm-script": "bin/skip-npm-script.js"
     },

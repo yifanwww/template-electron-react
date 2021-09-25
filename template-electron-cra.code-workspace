@@ -89,6 +89,10 @@
             "path": "packages/electron-main"
         },
         {
+            "name": "@tecra/electron-renderer",
+            "path": "packages/electron-renderer"
+        },
+        {
             "name": "@tecra/eslint-config",
             "path": "packages/eslint-config"
         },

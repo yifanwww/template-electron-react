@@ -21,6 +21,7 @@ export const paths = {
 
     packages,
     tecraElectronMain: path.resolve(packages, 'electron-main'),
+    tecraElectronRenderer: path.resolve(packages, 'electron-renderer'),
 
     // compilation
 
@@ -28,9 +29,7 @@ export const paths = {
     unpacked: path.resolve(repository, 'release/win-unpacked/tecra.exe'),
 
     webpackMainConfig: path.resolve(scripts, 'webpack/webpack.main.config.js'),
-
-    appTsBuildInfoFile: path.resolve(nodeModules, '.cache/tsconfig.tsbuildinfo'),
-    webpackCache: path.resolve(nodeModules, '.cache'),
+    webpackRendererConfig: path.resolve(scripts, 'webpack/webpack.renderer.config.js'),
 
     // working
 

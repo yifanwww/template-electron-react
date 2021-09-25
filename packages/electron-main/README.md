@@ -1,3 +1,3 @@
-# @tecra/electron-common
+# @tecra/electron-main
 
 Electron main process code.

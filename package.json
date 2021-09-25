@@ -18,18 +18,13 @@
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git"
     },
-    "browserslist": [
-        "last 9 chrome versions"
-    ],
     "scripts": {
-        "_cra-build": "react-app-rewired build --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
-        "_cra-dev": "react-app-rewired start --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
-        "_cra-test": "react-app-rewired test --config-overrides scripts/webpack-configs/webpack.renderer.config.js",
-        "build": "build-packages && npm run _cra-build && npm run build:main",
+        "build": "build-packages && npm run build:renderer && npm run build:main",
         "build:main": "npm run build --workspace @tecra/electron-main",
-        "build:renderer": "npm run _cra-build",
+        "build:renderer": "npm run build --workspace @tecra/electron-renderer",
+        "build:renderer-profile": "npm run build-profile --workspace @tecra/electron-renderer",
         "build-packages": "build-packages",
-        "build-profile": "npm run _cra-build -- --profile && npm run build:main",
+        "build-profile": "build-packages && npm run build:renderer-profile && npm run build:main",
         "build-scripts": "tsc --build scripts/tsconfig.json && npm run build-scripts --workspace @tecra/scripts",
         "clean": "rimraf build release working && npm run clean:packages",
         "clean:build": "rimraf build",
@@ -37,9 +32,9 @@
         "clean:release": "rimraf release",
         "clean:working": "rimraf working",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo && npm run clean-scripts --workspace @tecra/scripts",
-        "dev": "build-packages && concurrently -n renderer,main \"npm run _cra-dev\" \"npm run dev:main\"",
+        "dev": "build-packages && concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
         "dev:main": "npm run dev --workspace @tecra/electron-main",
-        "dev:renderer": "npm run _cra-dev",
+        "dev:renderer": "npm run dev --workspace @tecra/electron-renderer",
         "format": "npm run format:root && npm run format:packages",
         "format:packages": "npm run format --workspaces",
         "format:root": "format-code",
@@ -51,8 +46,7 @@
         "predev": "npm run build-scripts && node scripts/npm/md-working-dir.js",
         "run-build": "node scripts/npm/run-build.js",
         "run-unpacked": "node scripts/npm/run-unpacked.js",
-        "test": "npm run _cra-test -- --coverage",
-        "test-coverage": "npm run _cra-test -- --coverage --watchAll=false"
+        "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {
         "node": ">=16"
@@ -61,6 +55,7 @@
         "packages/assets",
         "packages/electron-common",
         "packages/electron-main",
+        "packages/electron-renderer",
         "packages/eslint-config",
         "packages/global-types",
         "packages/hooks",

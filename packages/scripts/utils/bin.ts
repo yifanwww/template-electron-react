@@ -18,35 +18,76 @@ export function buildPackages(): void {
     }
 }
 
-type CompilationMode = 'build' | 'dev';
+type CompilationFlagMain = 'build' | 'dev';
+type CompilationFlagRenderer = 'build' | 'build-profile' | 'dev';
 
-const compilationFlag = {
+const compilationMode = {
     build: 'production',
+    'build-profile': 'production',
     dev: 'development',
 };
 
-export function electronMain(): void {
-    const mode = process.argv[2] as CompilationMode;
-
-    if (mode === undefined) {
-        console.error(chalk.red('electron-main [mode]'));
-        console.error(chalk.red('[mode] can be "build" or "dev"'));
-        process.exit(1);
-    } else if (mode !== 'build' && mode !== 'dev') {
-        console.error(chalk.red(`Unknown argument "mode": ${mode}\n`));
-        console.error(chalk.red('electron-main [mode]'));
-        console.error(chalk.red('[mode] can only be "build" or "dev"'));
+function checkFlag<T>(
+    type: 'main' | 'renderer',
+    flag: T extends 'main' ? CompilationFlagMain : CompilationFlagRenderer,
+): void {
+    function printHelpInfo(): void {
+        console.error(chalk.red(`electron-${type} [mode]`));
+        console.error(
+            chalk.red(
+                type === 'main' ? '[mode] can be "build" or "dev"' : '[mode] can be "build", "build-profile" or "dev"',
+            ),
+        );
     }
 
-    const command = ['webpack', '--config', paths.webpackMainConfig, '--mode', compilationFlag[mode]].join(' ');
+    if (flag === undefined) {
+        printHelpInfo();
+        process.exit(1);
+    } else if (
+        flag !== 'build' &&
+        flag !== 'dev' &&
+        (type !== 'renderer' || (type === 'renderer' && flag !== 'build-profile'))
+    ) {
+        console.error(chalk.red(`Unknown argument "mode": ${flag}\n`));
+        printHelpInfo();
+        process.exit(1);
+    }
+}
+
+export function electronMain(): void {
+    const flag = process.argv[2] as CompilationFlagMain;
+
+    checkFlag('main', flag);
+
+    const command = ['webpack', '--config', paths.webpackMainConfig, '--mode', compilationMode[flag]].join(' ');
 
     const env = {
         ...process.env,
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        BABEL_ENV: compilationFlag[mode],
+        BABEL_ENV: compilationMode[flag],
         // eslint-disable-next-line @typescript-eslint/naming-convention
-        NODE_ENV: compilationFlag[mode],
+        NODE_ENV: compilationMode[flag],
     };
 
+    console.info(chalk.yellow(command));
     child.execSync(command, { env, stdio: 'inherit' });
+}
+
+export function electronRenderer(): void {
+    const flag = process.argv[2] as CompilationFlagRenderer;
+
+    checkFlag('renderer', flag);
+
+    const command = [
+        'react-app-rewired',
+        flag === 'dev' ? 'start' : 'build',
+        '--config-overrides',
+        paths.webpackRendererConfig,
+        flag === 'build-profile' && '--profile',
+    ]
+        .filter(Boolean)
+        .join(' ');
+
+    console.info(chalk.yellow(command));
+    child.execSync(command, { stdio: 'inherit' });
 }
