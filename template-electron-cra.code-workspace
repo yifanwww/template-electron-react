@@ -28,6 +28,7 @@
             }
         ],
 
+        "typescript.enablePromptUseWorkspaceTsdk": true,
         "typescript.tsdk": "tecra/node_modules/typescript/lib",
 
         "[css]": {
