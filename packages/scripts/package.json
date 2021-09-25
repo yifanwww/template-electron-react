@@ -1,21 +1,21 @@
 {
     "name": "@tecra/scripts",
     "version": "0.6.0",
-    "description": "Scripts for easy-projs.",
-    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "description": "Scripts for tecra.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",
     "author": {
-        "name": "YF1999",
+        "name": "yifanwww",
         "email": "yifanw1101@gmail.com",
-        "url": "https://github.com/YF1999"
+        "url": "https://github.com/yifanwww"
     },
     "bugs": {
-        "url": "https://github.com/YF1999/easy-projs/issues"
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
         "directory": "packages/scripts"
     },
     "bin": {
@@ -23,6 +23,9 @@
         "electron-main": "bin/electron-main.js",
         "electron-renderer": "bin/electron-renderer.js",
         "format-code": "bin/format-code.js",
+        "mkdir-working": "bin/mkdir-working.js",
+        "run-build": "bin/run-build.js",
+        "run-unpacked": "bin/run-unpacked.js",
         "skip-npm-script": "bin/skip-npm-script.js"
     },
     "scripts": {

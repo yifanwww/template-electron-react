@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import child from 'child_process';
+import fs from 'fs';
 
 import { paths } from './paths';
 
@@ -91,3 +92,14 @@ export function electronRenderer(): void {
     console.info(chalk.yellow(command));
     child.execSync(command, { stdio: 'inherit' });
 }
+
+export async function mkdirWorking(): Promise<void> {
+    return fs.promises
+        .mkdir(paths.working)
+        .then(() => console.info(`Create directory "${paths.working}"`))
+        .catch(() => console.info(`Directory "${paths.working}" exists.`));
+}
+
+export const runBuild = () => child.spawn(paths.electron, [paths.repository], { cwd: paths.working, stdio: 'inherit' });
+
+export const runUnpacked = () => child.spawn(paths.unpacked, [], { cwd: paths.working, stdio: 'inherit' });

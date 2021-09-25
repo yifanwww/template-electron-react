@@ -3,17 +3,11 @@
 /build
 /release
 
-/scripts/**/*.js
-
-# Typescript Configurations
-
-/src/renderer/tsconfig.json
-
 # Packages
 
 /packages
 
-# Running and Testing
+# Running and Test
 
 /coverage
 /working

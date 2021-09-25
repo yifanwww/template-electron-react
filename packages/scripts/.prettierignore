@@ -3,6 +3,6 @@
 /utils/**/*.js
 /webpack/**/*.js
 
-# Running and Testing
+# Running and Test
 
 /coverage

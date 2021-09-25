@@ -16,9 +16,7 @@
             "**/.svn": true,
             "**/CVS": true,
             "**/node_modules": true,
-            "**/packages": true,
-            "**/scripts/**/*.js": true,
-            "**/scripts/**/*.map": true
+            "**/packages": true
         },
 
         "git.enabled": true,

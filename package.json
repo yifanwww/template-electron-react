@@ -6,9 +6,9 @@
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",
     "author": {
-        "name": "YF1999",
+        "name": "yifanwww",
         "email": "yifanw1101@gmail.com",
-        "url": "https://github.com/YF1999"
+        "url": "https://github.com/yifanwww"
     },
     "bugs": {
         "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
@@ -25,27 +25,25 @@
         "build:renderer-profile": "npm run build-profile --workspace @tecra/electron-renderer",
         "build-packages": "build-packages",
         "build-profile": "build-packages && npm run build:renderer-profile && npm run build:main",
-        "build-scripts": "tsc --build scripts/tsconfig.json && npm run build-scripts --workspace @tecra/scripts",
+        "build-scripts": "npm run build-scripts --workspace @tecra/scripts",
         "clean": "rimraf build release working && npm run clean:packages",
         "clean:build": "rimraf build",
         "clean:packages": "npm run clean --workspaces",
         "clean:release": "rimraf release",
         "clean:working": "rimraf working",
-        "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo && npm run clean-scripts --workspace @tecra/scripts",
+        "clean-scripts": "npm run clean-scripts --workspace @tecra/scripts",
         "dev": "build-packages && concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
         "dev:main": "npm run dev --workspace @tecra/electron-main",
         "dev:renderer": "npm run dev --workspace @tecra/electron-renderer",
         "format": "npm run format:root && npm run format:packages",
         "format:packages": "npm run format --workspaces",
         "format:root": "format-code",
-        "gen-installer": "electron-builder build --config scripts/electron/electron-builder.json --win --publish never",
-        "lint": "npm run lint:root && npm run lint:packages",
-        "lint:packages": "npm run lint --workspaces",
-        "lint:root": "eslint .",
-        "prebuild": "npm run build-scripts && node scripts/npm/md-working-dir.js",
-        "predev": "npm run build-scripts && node scripts/npm/md-working-dir.js",
-        "run-build": "node scripts/npm/run-build.js",
-        "run-unpacked": "node scripts/npm/run-unpacked.js",
+        "gen-installer": "electron-builder build --config configs/electron-builder.json --win --publish never",
+        "lint": "npm run lint --workspaces",
+        "prebuild": "npm run build-scripts && mkdir-working",
+        "predev": "npm run build-scripts && mkdir-working",
+        "run-build": "run-build",
+        "run-unpacked": "run-unpacked",
         "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {
