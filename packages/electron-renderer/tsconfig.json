@@ -1,0 +1,12 @@
+{
+  "extends": "@tecra/tsconfigs/tsconfig.react.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "noEmit": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": []
+}

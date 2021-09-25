@@ -1,0 +1,4 @@
+{
+    "extends": "@tecra/tsconfigs/tsconfig.eslint.json",
+    "include": ["lib"]
+}

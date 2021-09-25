@@ -1,6 +1,5 @@
 # Environment
 
-.DS_Store
 .env.development.local
 .env.local
 .env.production.local
@@ -8,7 +7,7 @@
 
 # Editors and IDEs
 
-.vscode/settings.json
+.vscode
 
 # Dependencies
 
@@ -16,22 +15,25 @@
 .pnp.js
 node_modules
 
-# Source
-
-src/**/*.cjs
-src/**/*.js
-src/**/*.mjs
-
-# Compilation
+# Compilation & Source
 
 *.tsbuildinfo
 
 build
+lib
+lib-commonjs
 release
-scripts/**/*.js
-scripts/**/*.map
 
-# Testing
+**/*.cjs
+**/*.js
+**/*.map
+**/*.mjs
+
+!packages/eslint-config/index.js
+!packages/scripts/bin/**/*.js
+!packages/stylelint-config/index.js
+
+# Test
 
 coverage
 
@@ -41,10 +43,11 @@ working
 
 # Misc
 
+.DS_Store
+
 .eslintcache
 
 debug.log
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

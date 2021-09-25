@@ -1,11 +1,6 @@
 {
-    "folders": [
-        {
-            "path": "."
-        }
-    ],
     "settings": {
-        // vscode settings
+        // --------------------------------------------------------------------------------- Visual Studio Code Settings
 
         "editor.insertSpaces": true,
         "editor.rulers": [120],
@@ -21,8 +16,7 @@
             "**/.svn": true,
             "**/CVS": true,
             "**/node_modules": true,
-            "**/scripts/**/*.js": true,
-            "**/scripts/**/*.map": true
+            "**/packages": true
         },
 
         "git.enabled": true,
@@ -33,6 +27,8 @@
                 "url": "https://json.schemastore.org/electron-builder.json"
             }
         ],
+
+        "typescript.tsdk": "tecra/node_modules/typescript/lib",
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -71,12 +67,60 @@
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.insertSpaces": true,
             "editor.tabSize": 2
+        }
+    },
+    "folders": [
+        {
+            "name": "tecra",
+            "path": "."
         },
-
-        // extension settings
-
-        "prettier.prettierPath": "node_modules/prettier",
-
-        "typescript.tsdk": "node_modules/typescript/lib"
-    }
+        {
+            "name": "@tecra/assets",
+            "path": "packages/assets"
+        },
+        {
+            "name": "@tecra/electron-common",
+            "path": "packages/electron-common"
+        },
+        {
+            "name": "@tecra/electron-main",
+            "path": "packages/electron-main"
+        },
+        {
+            "name": "@tecra/electron-renderer",
+            "path": "packages/electron-renderer"
+        },
+        {
+            "name": "@tecra/eslint-config",
+            "path": "packages/eslint-config"
+        },
+        {
+            "name": "@tecra/hooks",
+            "path": "packages/hooks"
+        },
+        {
+            "name": "@tecra/global-types",
+            "path": "packages/global-types"
+        },
+        {
+            "name": "@tecra/scripts",
+            "path": "packages/scripts"
+        },
+        {
+            "name": "@tecra/stylelint-config",
+            "path": "packages/stylelint-config"
+        },
+        {
+            "name": "@tecra/tsconfigs",
+            "path": "packages/tsconfigs"
+        },
+        {
+            "name": "@tecra/utils-fluentui",
+            "path": "packages/utils-fluentui"
+        },
+        {
+            "name": "@tecra/utils-redux",
+            "path": "packages/utils-redux"
+        }
+    ]
 }
