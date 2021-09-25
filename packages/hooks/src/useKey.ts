@@ -53,6 +53,7 @@ export enum Keyboard {
     X,
     Y,
     Z,
+    /* eslint-disable @typescript-eslint/naming-convention */
     a = 60, // a-z
     b,
     c,
@@ -79,6 +80,7 @@ export enum Keyboard {
     x,
     y,
     z,
+    /* eslint-enable @typescript-eslint/naming-convention */
     Num0 = 90, // 0-9
     Num1,
     Num2,
@@ -195,7 +197,6 @@ const checkSpecialKeys: Checker = (event, key) => {
         else if (key === Keyboard.NumpadMultiply) return event.key === 'NumpadMultiply';
         else if (key === Keyboard.NumpadSubtract) return event.key === 'NumpadSubtract';
     } else {
-        // eslint-disable-next-line no-lonely-if
         if (key === Keyboard.Backquote) return event.key === '`';
         else if (key === Keyboard.Backslash) return event.key === '\\';
         else if (key === Keyboard.BracketLeft) return event.key === '[';

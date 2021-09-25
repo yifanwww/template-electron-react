@@ -17,10 +17,7 @@ export function FluentuiProvider(props: Readonly<IFluentuiProviderProps>) {
 
     return (
         <ThemeProvider id={classes.fluentuiThemeProvider} theme={defaultTheme}>
-            {
-                // eslint-disable-next-line react/destructuring-assignment
-                props.children
-            }
+            {props.children}
         </ThemeProvider>
     );
 }

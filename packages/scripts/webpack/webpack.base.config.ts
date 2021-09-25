@@ -19,7 +19,6 @@ const resolveRenderer = (relative: string) => path.resolve(paths.tecraElectronRe
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export const pathsRenderer = {
     appBuild: paths.build,
     appHtml: resolveRenderer('public/index.html'),
