@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 
-import { IActions, IDispatchingActions } from './IDispatching';
+import { IActions, IDispatchingActions } from './types.IDispatching';
 
 /**
  * This hook returns functions which will dispatch the certain actions automatically. You can use this hook to write

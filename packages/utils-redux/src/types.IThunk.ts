@@ -11,15 +11,3 @@ export type IThunk<ReturnType, State, ThunkArgs extends unknown[]> = (
 export type IThunkClosure<ReturnType, State, ThunkArgs extends unknown[]> = ThunkArgs extends undefined
     ? () => IThunkAction<ReturnType, State>
     : (...thunkArgs: ThunkArgs) => IThunkAction<ReturnType, State>;
-
-export function thunkCreatorFactory<State>() {
-    return function createThunk<ReturnType, ThunkArgs extends unknown[]>(
-        thunk: IThunk<ReturnType, State, ThunkArgs>,
-    ): IThunkClosure<ReturnType, State, ThunkArgs> {
-        function thunkClosure(...thunkArgs: ThunkArgs): IThunkAction<ReturnType, State> {
-            return (dispatch, getState) => thunk(dispatch, getState, ...thunkArgs);
-        }
-
-        return thunkClosure as never;
-    };
-}

@@ -1,6 +1,6 @@
 import { ActionCreatorWithoutPayload, ActionCreatorWithPayload, PayloadAction } from '@reduxjs/toolkit';
 
-import { IThunk } from './Thunk';
+import { IThunk } from './types.IThunk';
 
 // ------------------------------------------------------------------------------------------------- IDispatchingActions
 

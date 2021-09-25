@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 
-import { IThunks, IDispatchingThunks } from './IDispatching';
+import { IThunks, IDispatchingThunks } from './types.IDispatching';
 
 /**
  * This hook returns functions which will dispatch the certain thunks automatically. You can use this hook to write

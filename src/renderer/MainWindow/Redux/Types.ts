@@ -1,4 +1,4 @@
-import { IReducer } from '#RUtils/Redux';
+import { IReducer } from '@tecra/utils-redux';
 
 interface IDisplayConfig {
     clientAreaSize: IClientAreaSize;

@@ -1,4 +1,4 @@
-import { useDispatchingActions, useDispatchingThunks } from '#RUtils/Redux';
+import { useDispatchingActions, useDispatchingThunks } from '@tecra/utils-redux';
 
 import { actions } from '../Actions';
 import { thunks } from '../Thunks';

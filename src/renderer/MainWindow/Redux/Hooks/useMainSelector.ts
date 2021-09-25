@@ -1,4 +1,4 @@
-import { createTypedSelector } from '#RUtils/Redux';
+import { createTypedSelector } from '@tecra/utils-redux';
 
 import { IStoreState } from '../Types';
 

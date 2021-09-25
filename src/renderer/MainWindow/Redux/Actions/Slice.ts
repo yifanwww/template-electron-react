@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-import { omitUnderscorePrefixActions } from '#RUtils/Redux';
+import { omitUnderscorePrefixActions } from '@tecra/utils-redux';
 
 import { IStoreState } from '../Types';
 import { _finishPreparing, updateClientAreaSize } from './Reducers.DisplayConfig';

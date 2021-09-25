@@ -1,38 +1,4 @@
 {
-    "folders": [
-        {
-            "name": "tecra",
-            "path": "."
-        },
-        {
-            "name": "@tecra/assets",
-            "path": "packages/assets"
-        },
-        {
-            "name": "@tecra/eslint-config",
-            "path": "packages/eslint-config"
-        },
-        {
-            "name": "@tecra/hooks",
-            "path": "packages/hooks"
-        },
-        {
-            "name": "@tecra/global-types",
-            "path": "packages/global-types"
-        },
-        {
-            "name": "@tecra/scripts",
-            "path": "packages/scripts"
-        },
-        {
-            "name": "@tecra/stylelint-config",
-            "path": "packages/stylelint-config"
-        },
-        {
-            "name": "@tecra/tsconfigs",
-            "path": "packages/tsconfigs"
-        }
-    ],
     "settings": {
         // --------------------------------------------------------------------------------- Visual Studio Code Settings
 
@@ -104,5 +70,43 @@
             "editor.insertSpaces": true,
             "editor.tabSize": 2
         }
-    }
+    },
+    "folders": [
+        {
+            "name": "tecra",
+            "path": "."
+        },
+        {
+            "name": "@tecra/assets",
+            "path": "packages/assets"
+        },
+        {
+            "name": "@tecra/eslint-config",
+            "path": "packages/eslint-config"
+        },
+        {
+            "name": "@tecra/hooks",
+            "path": "packages/hooks"
+        },
+        {
+            "name": "@tecra/global-types",
+            "path": "packages/global-types"
+        },
+        {
+            "name": "@tecra/scripts",
+            "path": "packages/scripts"
+        },
+        {
+            "name": "@tecra/stylelint-config",
+            "path": "packages/stylelint-config"
+        },
+        {
+            "name": "@tecra/tsconfigs",
+            "path": "packages/tsconfigs"
+        },
+        {
+            "name": "@tecra/utils-redux",
+            "path": "packages/utils-redux"
+        }
+    ]
 }
