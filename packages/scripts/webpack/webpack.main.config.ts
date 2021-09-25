@@ -1,9 +1,8 @@
-import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration, ConfigurationFactory } from 'webpack';
 
-import { paths } from '../paths';
-import { ReloadElectronWebpackPlugin } from '../webpack-plugins/reload-electron-webpack-plugin';
-import { aliases, cra_paths } from './webpack.base.config';
+import { paths } from '../utils';
+import { ReloadElectronWebpackPlugin } from './plugins/reloadElectronWebpackPlugin';
+import { pathsMain } from './webpack.base.config';
 
 const factory: ConfigurationFactory = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
@@ -11,11 +10,11 @@ const factory: ConfigurationFactory = (env, argv) => {
 
     const webpack: Configuration = {
         target: 'electron-main',
-        entry: cra_paths.appIndexTsMain,
+        entry: pathsMain.appIndexTs,
 
         output: {
             filename: 'electron.js',
-            path: cra_paths.appBuild,
+            path: pathsMain.build,
         },
 
         devtool: isEnvProduction ? 'source-map' : 'cheap-module-source-map',
@@ -25,17 +24,19 @@ const factory: ConfigurationFactory = (env, argv) => {
                 {
                     test: /\.ts$/,
                     loader: 'ts-loader',
-                    include: [cra_paths.appSrcMain],
-                    options: { configFile: cra_paths.appTsConfigMain },
+                    include: [pathsMain.appSrc],
+                    options: { configFile: pathsMain.appTsConfig },
                 },
             ],
         },
 
-        plugins: isEnvDevelopment ? [new ReloadElectronWebpackPlugin(paths.project, paths.working)] : [],
+        plugins: isEnvDevelopment ? [new ReloadElectronWebpackPlugin(paths.repository, paths.working)] : [],
 
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
-            alias: aliases,
+            alias: {
+                src: pathsMain.appSrc,
+            },
         },
 
         watch: isEnvDevelopment,
@@ -52,7 +53,7 @@ const factory: ConfigurationFactory = (env, argv) => {
         },
     };
 
-    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
+    return webpack;
 };
 
-module.exports = factory;
+export = factory;

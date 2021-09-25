@@ -2,10 +2,10 @@ import { IpcChannels, WindowType } from '@tecra/electron-common';
 import path from 'path';
 import { BrowserWindow, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-import { IpcMainWrapper } from '#MUtils/IpcMain';
+import { appPaths } from 'src/appPaths';
+import { IpcMainWrapper } from 'src/ipc';
 
-import { appPaths } from '../AppPaths';
-import { IAbstractWindowOption, ICloseWindowOption, ICreateWindowOption } from './Types';
+import { IAbstractWindowOption, ICloseWindowOption, ICreateWindowOption } from './types';
 
 export abstract class AbstractWindow {
     protected readonly window: BrowserWindow;

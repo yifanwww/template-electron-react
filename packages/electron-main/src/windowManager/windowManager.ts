@@ -1,6 +1,6 @@
-import { AbstractWindow } from './AbstractWindow';
-import { MainWindow } from './MainWindow';
-import { ICloseWindowOption, ICreateWindowOption } from './Types';
+import { AbstractWindow } from './abstractWindow';
+import { MainWindow } from './mainWindow';
+import { ICloseWindowOption, ICreateWindowOption } from './types';
 
 interface IWindowStore {
     [id: string]: Optional<AbstractWindow>;

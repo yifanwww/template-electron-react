@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 
-import { appInfo } from './AppInfo';
-import { WindowManager } from './WindowManager';
+import { appInfo } from './appInfo';
+import { WindowManager } from './windowManager';
 
 const windowManager = new WindowManager();
 
