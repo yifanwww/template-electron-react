@@ -21,9 +21,7 @@
     },
     "scripts": {
         "build": "skip-npm-script",
-        "build-scripts": "skip-npm-script",
         "clean": "skip-npm-script",
-        "clean-scripts": "skip-npm-script",
         "format": "format-code",
         "lint": "skip-npm-script",
         "test-coverage": "skip-npm-script"

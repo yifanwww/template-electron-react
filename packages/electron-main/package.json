@@ -20,9 +20,7 @@
     },
     "scripts": {
         "build": "electron-main build",
-        "build-scripts": "skip-npm-script",
         "clean": "rimraf coverage",
-        "clean-scripts": "skip-npm-script",
         "dev": "electron-main dev",
         "format": "format-code",
         "lint": "eslint .",

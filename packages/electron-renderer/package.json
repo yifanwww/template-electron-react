@@ -24,9 +24,7 @@
     "scripts": {
         "build": "electron-renderer build",
         "build-profile": "electron-renderer build-profile",
-        "build-scripts": "skip-npm-script",
         "clean": "rimraf coverage",
-        "clean-scripts": "skip-npm-script",
         "dev": "electron-renderer dev",
         "format": "format-code",
         "lint": "eslint .",
