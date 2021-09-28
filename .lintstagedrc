@@ -1,0 +1,17 @@
+{
+    "*.css": [
+        "stylelint"
+    ],
+    "*.sass": [
+        "stylelint"
+    ],
+    "*.scss": [
+        "stylelint"
+    ],
+    "*.ts": [
+        "eslint"
+    ],
+    "*.tsx": [
+        "eslint"
+    ]
+}

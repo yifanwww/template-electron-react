@@ -24,6 +24,7 @@
         "electron-renderer": "bin/electron-renderer.js",
         "format-code": "bin/format-code.js",
         "mkdir-working": "bin/mkdir-working.js",
+        "post-install": "bin/post-install.js",
         "run-build": "bin/run-build.js",
         "run-unpacked": "bin/run-unpacked.js",
         "skip-npm-script": "bin/skip-npm-script.js"
@@ -35,6 +36,7 @@
         "clean-scripts": "rimraf {jest,utils,webpack}/**/*.js tsconfig.tsbuildinfo",
         "format": "format-code",
         "lint": "eslint .",
+        "pre-commit": "lint-staged",
         "test-coverage": "skip-npm-script"
     }
 }

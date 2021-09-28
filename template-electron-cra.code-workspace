@@ -7,7 +7,9 @@
         "editor.tabSize": 4,
 
         "files.associations": {
-            "electron-builder.json": "jsonc"
+            ".lintstagedrc": "json",
+            "electron-builder.json": "jsonc",
+            "pre-commit": "javascript"
         },
         "files.exclude": {
             "**/.DS_Store": true,

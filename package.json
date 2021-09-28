@@ -40,8 +40,10 @@
         "format:root": "format-code",
         "gen-installer": "electron-builder build --config configs/electron-builder.json --win --publish never",
         "lint": "npm run lint --workspaces",
+        "postinstall": "post-install",
         "prebuild": "npm run build-scripts && mkdir-working",
         "predev": "npm run build-scripts && mkdir-working",
+        "pre-commit": "npm run pre-commit --workspaces",
         "run-build": "run-build",
         "run-unpacked": "run-unpacked",
         "test-coverage": "npm run test-coverage --workspaces"
@@ -111,6 +113,7 @@
         "eslint-plugin-prettier": "^3.4.1",
         "eslint-plugin-react": "^7.25.1",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "lint-staged": "^11.1.2",
         "lodash": "^4.17.21",
         "prettier": "2.3.2",
         "react-app-rewired": "^2.1.8",

@@ -28,6 +28,7 @@
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
         "format": "format-code",
         "lint": "eslint .",
+        "pre-commit": "lint-staged",
         "test": "skip-npm-script",
         "test-coverage": "skip-npm-script"
     }
