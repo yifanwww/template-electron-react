@@ -27,7 +27,7 @@
         "clean": "rimraf coverage",
         "dev": "electron-renderer dev",
         "format": "format-code",
-        "lint": "eslint .",
+        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged",
         "test": "skip-npm-script",
         "test-coverage": "skip-npm-script"
