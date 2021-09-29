@@ -21,7 +21,7 @@
         "skipLibCheck": true,
         "sourceMap": true,
         /**
-         * The following options will be thruned on if option `--strict` is set:
+         * The following options will be turned on if option `--strict` is set:
          * - alwaysStrict
          * - noImplicitAny
          * - noImplicitThis
@@ -29,11 +29,10 @@
          * - strictFunctionTypes
          * - strictNullChecks
          * - strictPropertyInitialization
-         * - useUnknownInCatchVariable
+         * - useUnknownInCatchVariables
          */
         "strict": true,
         "target": "ES2018",
-        "useUnknownInCatchVariables": true,
 
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
     }

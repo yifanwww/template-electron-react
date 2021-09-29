@@ -22,7 +22,7 @@ module.exports = {
     rules: {
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
-        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin-prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` instead.
         'function-paren-newline': 'off',
         'guard-for-in': 'off',
         'implicit-arrow-linebreak': 'off',
@@ -42,14 +42,14 @@ module.exports = {
         // https://github.com/prettier/eslint-config-prettier/#no-tabs
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         'no-tabs': 'error',
-        // Disabled for rule `@typescript-eslint/naming-convention` of plugin `@typescript-eslint/eslint-plugin`.
+        // Disabled for underscore prefix.
         'no-underscore-dangle': 'off',
         // https://github.com/prettier/eslint-config-prettier/#no-unexpected-multiline
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         'no-unexpected-multiline': 'error',
-        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin-prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` instead.
         'object-curly-newline': 'off',
-        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin-prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` instead.
         'operator-linebreak': 'off',
         // Only enable object variable declarator.
         // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/es6.js#L124
@@ -69,7 +69,7 @@ module.exports = {
         '@typescript-eslint/brace-style': 'off',
         '@typescript-eslint/comma-dangle': 'off',
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
-        // Disable this rule and use rule `prettier/prettier` of plugin `eslint-plugin-prettier` instead.
+        // Disable this rule and use rule `prettier/prettier` instead.
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
@@ -136,7 +136,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-cycle': 'error',
         'import/no-default-export': 'error',
-        // Disable this rule and use rule `deprecation/deprecation` of plugin `eslint-plugin-deprecation` instead.
+        // Disable this rule and use rule `deprecation/deprecation` instead.
         'import/no-deprecated': 'off',
         // Disabled for import-statement of dev dependencies.
         'import/no-extraneous-dependencies': 'off',

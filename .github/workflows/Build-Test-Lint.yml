@@ -43,6 +43,12 @@ jobs:
       - name: Setup node modules
         run: npm ci
 
+      - name: Build scripts
+        run: npm run build-scripts
+
+      - name: Build packages
+        run: npm run build-packages
+
       - name: Lint
         run: npm run lint
 
