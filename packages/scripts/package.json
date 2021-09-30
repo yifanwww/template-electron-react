@@ -1,6 +1,6 @@
 {
     "name": "@tecra/scripts",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "description": "Scripts for tecra.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",

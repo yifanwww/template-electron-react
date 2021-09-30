@@ -1,4 +1,97 @@
 # CHANGELOG
+## tecra v0.7.0 (2021-10-01)
+### Features
+
+- [Code] Add class `SessionStorage`
+- [Git] Lint code before git commit (in git pre-commit stage)
+- [Github] Add issue templates
+- [Fluentui] Add `FluentuiProvider` and use it in `Window`
+- [Workspaces] Use NPM workspaces to manage source code
+- [Test] Use custom jest configurations to do unit test
+
+### Changes
+
+- [Code] Remove premature performance optimization
+- [ESlint] Add new extended configuration `airbnb/hooks`
+- [ESlint] Add rule `@typescript-eslint/no-empty-function`
+- [ESlint] Only enable object variable declarator
+- [ESlint] Change rule `@typescript-eslint/naming-convening`
+- [ESlint] Disable rule `react/destructuring-assignment`
+- [ESlint] Disable rule `react/jsx-props-no-spreading`
+- [Github] Use action `setup-node@v2`
+- [Types] These type declarations are moved into global declaration
+  - `ReactStyleFunc`
+  - `IClientAreaSize`
+  - `IElementPositionSize`
+  - `IElementSize`
+
+### Breaking Changes
+
+- Rename root project name to `tecra`
+- [Deps] Bump lock file to v2
+- [Webpack] Delete support for custom path alias (use NPM workspaces instead).
+- [Workspaces] Use NPM workspaces to manage source code
+
+### Packages
+
+- New
+  - `@tecra/assets`
+  - `@tecra/electron-common`
+  - `@tecra/electron-main`
+  - `@tecra/electron-renderer`
+  - `@tecra/eslint-config`
+  - `@tecra/hooks`
+  - `@tecra/global-types`
+  - `@tecra/scripts`
+  - `@tecra/stylelint-config`
+  - `@tecra/tsconfigs`
+  - `@tecra/utils-fluentui`
+  - `@tecra/utils-redux`
+
+### Dependency Changes
+
+- New
+  - `error-oop`                                 v0.4.0
+  - `eslint-config-airbnb`                      v18.2.1
+  - `lint-staged`                               v11.1.2
+  - `stylelint`                                 v13.13.1
+  - `stylelint-config-sass-guidelines`          v8.0.0
+  - `typescript-plugin-css-modules`             v3.4.0
+- Upgrade
+  - `@fluentui/react`                           v8.21.1   -> v8.28.2
+  - `@reduxjs/toolkit`                          v1.6.0    -> v1.6.1
+  - `@testing-library/user-event`               v13.1.9   -> v13.2.1
+  - `@types/jest`                               v26.0.23  -> v26.0.24
+  - `@types/lodash`                             v4.14.170 -> v4.14.172
+  - `@types/node`                               v14.17.4  -> v14.17.9
+  - `@types/react`                              v17.0.11  -> v17.0.18
+  - `@types/react-dom`                          v17.0.8   -> v17.0.9
+  - `@types/react-redux`                        v7.1.16   -> v7.1.18
+  - `@typescript-eslint/eslint-plugin`          v4.28.1   -> v4.30.0
+  - `@typescript-eslint/experimental-utils`     v4.28.1   -> v4.30.0
+  - `@typescript-eslint/parser`                 v4.28.1   -> v4.30.0
+  - `@typescript-eslint/scope-manager`          v4.28.1   -> v4.30.0
+  - `@typescript-eslint/types`                  v4.28.1   -> v4.30.0
+  - `@typescript-eslint/typescript-estree`      v4.28.1   -> v4.30.0
+  - `@typescript-eslint/visitor-keys`           v4.28.1   -> v4.30.0
+  - `browserslist`                              v4.16.6   -> v4.16.7
+  - `chalk`                                     v4.1.1    -> v4.1.2
+  - `concurrently`                              v6.2.0    -> v6.2.1
+  - `eslint-config-airbnb-typescript`           v12.3.1   -> v14.0.0
+  - `eslint-plugin-import`                      v2.23.4   -> v2.24.2
+  - `eslint-plugin-jest`                        v24.3.6   -> v24.4.0
+  - `eslint-plugin-prettier`                    v3.4.0    -> v3.4.1
+  - `eslint-plugin-react`                       v7.24.0   -> v7.25.1
+  - `react-scrollbars-custom`                   v4.0.25   -> v4.0.27
+  - `sass`                                      v1.35.1   -> v1.38.0
+  - `typescript`                                v4.3.5    -> v4.4.2
+  - `web-vitals`                                v2.0.1    -> v2.1.0
+  - `webpack-cli`                               v4.7.2    -> v4.8.0
+- Remove
+  - `@types/speed-measure-webpack-plugin`       v1.3.3
+  - `node-errors-pro`                           v0.2.0
+  - `speed-measure-webpack-plugin`              v1.5.0
+  - `typed-css-modules`                         v0.6.8
 
 ## tecra v0.6.0 (2021-08-01)
 ### Features

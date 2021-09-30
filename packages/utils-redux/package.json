@@ -1,6 +1,6 @@
 {
     "name": "@tecra/utils-redux",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "description": "Redux utils for tecra.",
     "main": "lib/index.js",
     "module": "lib/index.js",
