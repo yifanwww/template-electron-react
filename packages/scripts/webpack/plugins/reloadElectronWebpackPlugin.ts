@@ -55,7 +55,7 @@ export class ReloadElectronWebpackPlugin {
             this._info(`Kill electron process: ${this._process.pid}`);
             try {
                 this._process.removeAllListeners();
-                process.kill(this._process.pid);
+                process.kill(this._process.pid!);
                 this._process = null;
             } catch (err) {
                 console.error(err);

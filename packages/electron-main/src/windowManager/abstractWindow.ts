@@ -26,7 +26,6 @@ export abstract class AbstractWindow {
             height: option.height ?? 720,
             webPreferences: {
                 contextIsolation: false,
-                enableRemoteModule: false,
                 nodeIntegration: true,
             },
         });
