@@ -24,6 +24,8 @@ lib
 lib-commonjs
 release
 
+!packages/global-types/lib
+
 **/*.cjs
 **/*.js
 **/*.map

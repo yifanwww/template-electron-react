@@ -7,7 +7,6 @@
 // - webpack.config.js:
 //   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
 
-import { Config } from '@jest/types';
 import { Configuration } from 'webpack';
 
 import { pathsRenderer } from './webpack.base.config';
@@ -68,29 +67,7 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
     return webpack;
 }
 
-/**
- * Override jest configurations.
- *
- * The Jest config to use when running your jest tests - note that the normal rewires do not work here.
- */
-function overrideJestConfigs(config: Config.InitialOptions): Config.InitialOptions {
-    // 1. The option `setupFilesAfterEnv` is `<rootDir>/src/setupTests.${setupTestsFileExtension}`, change it.
-    config.setupFilesAfterEnv = [pathsRenderer.testsSetup];
-
-    // 2. The option `roots` is `['<rootDir>/src']`, change it.
-    config.roots = ['<rootDir>/src'];
-
-    // 3. The option `collectCoverageFrom` is `['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts']`, change it.
-    config.collectCoverageFrom = ['src/**/*.{ts,tsx}', '!src/**/*.d.ts'];
-
-    // 4. Change the option `testMatch`.
-    config.testMatch = ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}', '<rootDir>/src/**/*.{spec,test}.{ts,tsx}'];
-
-    return config;
-}
-
 export = {
     webpack: overrideWebpackConfigs,
     paths: overridePathsConfigs,
-    jest: overrideJestConfigs,
 };

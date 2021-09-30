@@ -34,4 +34,14 @@ export const paths = {
     // working
 
     working: path.resolve(repository, 'working'),
+
+    // test
+
+    jestConfig: path.resolve(scripts, 'jest/jest.config.js'),
+    testSetup: path.resolve(scripts, 'jest/test.setup.ts'),
+    transforms: {
+        babel: path.resolve(scripts, 'jest/transform.babel.js'),
+        css: path.resolve(scripts, 'jest/transform.css.js'),
+        file: path.resolve(scripts, 'jest/transform.file.js'),
+    },
 };

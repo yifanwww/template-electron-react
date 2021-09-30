@@ -32,8 +32,8 @@
         ],
 
         "search.exclude": {
-            "**/node_modules": true,
             "**/bower_components": true,
+            "**/node_modules": true,
             "**/*.code-search": true,
             // additional
             "**/build": true,

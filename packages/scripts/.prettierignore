@@ -1,8 +1,9 @@
 # Compilation
 
+/jest/**/*.js
 /utils/**/*.js
 /webpack/**/*.js
 
-# Running and Test
+# Test
 
 /coverage

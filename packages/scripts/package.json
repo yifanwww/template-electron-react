@@ -27,7 +27,8 @@
         "post-install": "bin/post-install.js",
         "run-build": "bin/run-build.js",
         "run-unpacked": "bin/run-unpacked.js",
-        "skip-npm-script": "bin/skip-npm-script.js"
+        "skip-npm-script": "bin/skip-npm-script.js",
+        "unit-test": "bin/unit-test.js"
     },
     "scripts": {
         "build": "npm run build-scripts",

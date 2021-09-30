@@ -103,3 +103,17 @@ export async function mkdirWorking(): Promise<void> {
 export const runBuild = () => child.spawn(paths.electron, [paths.repository], { cwd: paths.working, stdio: 'inherit' });
 
 export const runUnpacked = () => child.spawn(paths.unpacked, [], { cwd: paths.working, stdio: 'inherit' });
+
+export function unitTest(watch: boolean): void {
+    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage'].join(' ');
+
+    const env = {
+        ...process.env,
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        BABEL_ENV: 'test',
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        NODE_ENV: 'test',
+    };
+
+    child.execSync(command, { env, stdio: 'inherit' });
+}
