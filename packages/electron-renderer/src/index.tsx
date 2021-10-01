@@ -1,6 +1,6 @@
 import { initializeIcons } from '@fluentui/react';
 import { IpcChannels, WindowType } from '@tecra/electron-common';
-import { ReactElement, StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import { IpcRendererWrapper } from 'src/utils/IpcRenderer';
@@ -10,7 +10,7 @@ import { reportWebVitals } from './reportWebVitals';
 
 import './index.css';
 
-function Window(): Optional<ReactElement> {
+function Window(): Optional<React.ReactElement> {
     const type: WindowType = IpcRendererWrapper.sendSync(IpcChannels.GetWindowType);
 
     let never: never;

@@ -37,6 +37,7 @@
             "**/*.code-search": true,
             // additional
             "**/build": true,
+            "**/coverage": true,
             "**/lib": true,
             "**/release": true,
             "**/*.js": true

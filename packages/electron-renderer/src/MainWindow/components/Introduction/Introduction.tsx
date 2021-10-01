@@ -1,6 +1,5 @@
 import { keyframes, makeStyles } from '@fluentui/react';
 import { Assets } from '@tecra/assets';
-import { ReactElement } from 'react';
 
 const useStyles = makeStyles(() => {
     const _keyframes = keyframes({
@@ -33,7 +32,7 @@ const useStyles = makeStyles(() => {
     };
 });
 
-export function Introduction(): ReactElement {
+export function Introduction(): React.ReactElement {
     const classes = useStyles();
 
     return (
