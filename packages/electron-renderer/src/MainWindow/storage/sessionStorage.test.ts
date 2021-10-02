@@ -1,6 +1,7 @@
 import { SessionStorage } from './sessionStorage';
 
-beforeAll(() => {
+// Mocks will be restored before every test because option `resetMocks` is turned on in `jest.config.ts`.
+beforeEach(() => {
     let store: Record<string, string> = {};
 
     const storagePrototype = Reflect.getPrototypeOf(window.sessionStorage) as typeof window.sessionStorage;
@@ -13,10 +14,6 @@ beforeAll(() => {
         store = {};
     });
 });
-
-afterEach(() => window.sessionStorage.clear());
-
-afterAll(() => jest.restoreAllMocks());
 
 describe('Test `SessionStorage`', () => {
     test('no methods', () => {

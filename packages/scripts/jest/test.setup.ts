@@ -28,6 +28,10 @@ function wrapConsole() {
         return output;
     }
 
+    console.testError = console.error;
+    console.testInfo = console.info;
+    console.testWarn = console.warn;
+
     console.debug = outputFactory(console.debug);
     console.error = outputFactory(console.error);
     console.info = outputFactory(console.info);

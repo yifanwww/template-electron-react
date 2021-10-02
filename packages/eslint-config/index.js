@@ -31,7 +31,10 @@ module.exports = {
         'max-len': ['error', { code: 120, ignoreUrls: true }],
         // Allows bitwise operators, but be CAREFUL for not using them in most case.
         'no-bitwise': 'off',
-        'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
+        'no-console': [
+            'error',
+            { allow: ['log', 'debug', 'info', 'warn', 'error', 'testInfo', 'testWarn', 'testError'] },
+        ],
         'no-constant-condition': 'off',
         'no-continue': 'off',
         'no-else-return': 'off',

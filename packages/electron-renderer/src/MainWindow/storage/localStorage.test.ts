@@ -1,6 +1,7 @@
 import { LocalStorage } from './localStorage';
 
-beforeAll(() => {
+// Mocks will be restored before every test because option `resetMocks` is turned on in `jest.config.ts`.
+beforeEach(() => {
     let store: Record<string, string> = {};
 
     const storagePrototype = Reflect.getPrototypeOf(window.localStorage) as typeof window.localStorage;
@@ -13,10 +14,6 @@ beforeAll(() => {
         store = {};
     });
 });
-
-afterEach(() => window.localStorage.clear());
-
-afterAll(() => jest.restoreAllMocks());
 
 describe('Test `LocalStorage`', () => {
     test('no methods', () => {
