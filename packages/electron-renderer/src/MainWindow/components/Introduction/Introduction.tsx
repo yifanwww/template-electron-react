@@ -39,7 +39,7 @@ export function Introduction(): React.ReactElement {
         <header className={classes.introduction}>
             <img className={classes.logo} src={Assets.logo} alt="logo" />
             <p>
-                Edit <code>src/renderer/MainWindow/Components/Introduction/Introduction.tsx</code> and save to reload.
+                Edit <code>src/MainWindow/components/Introduction/Introduction.tsx</code> and save to reload.
             </p>
             <a
                 className={classes.link}

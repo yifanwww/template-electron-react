@@ -11,8 +11,6 @@ It's recommanded for you to use `Visual Studio Code` to develop your electron ap
 
 After you creating your own project, you need to rename the `template-electron-cra.code-workspace` file to `<YouProjectName>.code-workspace`, and then use vscode to open it.
 
-You need to install three vscode packages: `ESLint`, `Prettier - Code formatter` and `Todo Tree`.
-
 ## More Information
 
 - If the installation of electron tooks too much time, or it fails to install electron, check out the [Infos About The Installation Of Electron].

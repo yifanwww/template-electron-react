@@ -12,7 +12,7 @@ exports[`Test component \`Introduction\` renders 1`] = `
   <p>
     Edit 
     <code>
-      src/renderer/MainWindow/Components/Introduction/Introduction.tsx
+      src/MainWindow/components/Introduction/Introduction.tsx
     </code>
      and save to reload.
   </p>

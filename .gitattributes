@@ -12,6 +12,7 @@ LICENSE                     text eol=lf
 ## git
 
 .gitattributes              text eol=lf
+.gitkeep                    text eol=lf
 .gitmodules                 text eol=lf
 .gitignore                  text eol=lf
 
