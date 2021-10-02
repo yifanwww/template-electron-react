@@ -2,11 +2,11 @@
 
 exports[`Test component \`Introduction\` renders 1`] = `
 <header
-  className="introduction-110"
+  className="introduction"
 >
   <img
     alt="logo"
-    className="logo-112"
+    className="logo"
     src="logo.svg"
   />
   <p>
@@ -17,7 +17,7 @@ exports[`Test component \`Introduction\` renders 1`] = `
      and save to reload.
   </p>
   <a
-    className="link-111"
+    className="link"
     href="https://github.com/YSoftwareRepo/template-electron-cra"
     rel="noopener noreferrer"
     target="_blank"

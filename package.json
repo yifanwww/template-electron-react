@@ -19,7 +19,8 @@
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git"
     },
     "scripts": {
-        "build": "npm run build:renderer && npm run build:main",
+        "build": "npm run build:app",
+        "build:app": "npm run build:renderer && npm run build:main",
         "build:main": "npm run build --workspace @tecra/electron-main",
         "build:renderer": "npm run build --workspace @tecra/electron-renderer",
         "build:renderer-profile": "npm run build-profile --workspace @tecra/electron-renderer",
@@ -32,7 +33,8 @@
         "clean:release": "rimraf release",
         "clean:working": "rimraf working",
         "clean-scripts": "npm run clean-scripts --workspace @tecra/scripts",
-        "dev": "concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
+        "dev": "npm run dev:app",
+        "dev:app": "concurrently -n renderer,main \"npm run dev:renderer\" \"npm run dev:main\"",
         "dev:main": "npm run dev --workspace @tecra/electron-main",
         "dev:renderer": "npm run dev --workspace @tecra/electron-renderer",
         "format": "npm run format:root && npm run format:packages",

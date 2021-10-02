@@ -83,7 +83,23 @@
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.insertSpaces": true,
             "editor.tabSize": 2
-        }
+        },
+
+        // ------------------------------------------------------------------------------------------ Extension Settings
+
+        "stylelint.validate": [
+            "css",
+            "html",
+            "less",
+            "postcss",
+            "sass",
+            "scss",
+            "source.css.styled",
+            "styled-css",
+            "vue",
+            "vue-html",
+            "vue-postcss"
+        ]
     },
     "folders": [
         {
