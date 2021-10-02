@@ -16,7 +16,7 @@ export function FluentuiProvider(props: Readonly<IFluentuiProviderProps>) {
     const classes = useStyles();
 
     return (
-        <ThemeProvider id={classes.fluentuiThemeProvider} theme={defaultTheme}>
+        <ThemeProvider className={classes.fluentuiThemeProvider} theme={defaultTheme}>
             {props.children}
         </ThemeProvider>
     );
