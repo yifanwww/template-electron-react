@@ -6,7 +6,6 @@ const useStyles = makeStyles({
     fluentuiThemeProvider: {
         display: 'grid',
         overflow: 'hidden',
-        userSelect: 'none',
     },
 });
 

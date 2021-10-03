@@ -3,8 +3,8 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 
-import { mainActions, mainStore } from './redux';
 import { ClientArea } from './containers/ClientArea';
+import { mainActions, mainStore } from './redux';
 
 const changeClientAreaSize = (size: IClientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(size));
 
