@@ -1,12 +1,12 @@
 .introduction {
-    align-items: center;
-    background: #282c34;
-    color: #fff;
     display: flex;
     flex-direction: column;
-    font-size: calc(10px + 2vmin);
+    align-items: center;
     justify-content: center;
     min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: #fff;
+    background: #282c34;
 }
 
 .link {
