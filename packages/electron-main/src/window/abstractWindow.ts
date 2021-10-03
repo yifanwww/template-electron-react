@@ -1,21 +1,19 @@
-import { IpcChannels, WindowType } from '@tecra/electron-common';
+import { IpcServer, WindowType } from '@tecra/electron-common';
+import { BrowserWindow } from 'electron';
 import path from 'path';
-import { BrowserWindow, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
 import { appPaths } from 'src/appPaths';
-import { IpcMainWrapper } from 'src/ipc';
 
-import { IAbstractWindowOption, ICloseWindowOption, ICreateWindowOption } from './types';
+import { IAbstractWindowOption, ICloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
     protected readonly window: BrowserWindow;
     protected readonly windowType: WindowType;
     protected readonly windowId: string;
 
-    private readonly createWindow: (option: ICreateWindowOption) => Promise<void>;
     private readonly onClosedWindow: (option: ICloseWindowOption) => Promise<void>;
 
-    protected readonly ipcs: Array<IpcMainWrapper.Base> = [];
+    protected readonly _ipcServer: IpcServer;
 
     public constructor(option: IAbstractWindowOption) {
         this.windowId = option.windowId;
@@ -30,7 +28,8 @@ export abstract class AbstractWindow {
             },
         });
 
-        this.createWindow = option.createWindow;
+        this._ipcServer = new IpcServer(this.window.id);
+
         this.onClosedWindow = option.onClosedWindow;
 
         this.addWindowListeners();
@@ -65,21 +64,8 @@ export abstract class AbstractWindow {
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
     protected addIpcListeners(): void {
-        this.ipcs.push(new IpcMainWrapper.On(IpcChannels.GetWindowType, this.getWindowType));
-        this.ipcs.push(new IpcMainWrapper.On(IpcChannels.OpenNewWindow, this.openNewWindow));
+        this._ipcServer.handleGetWindowType(() => this.windowType);
     }
 
-    private removeIpcListeners(): void {
-        this.ipcs.forEach((ipc) => ipc.remove());
-    }
-
-    private checkSender = (event: IpcMainEvent | IpcMainInvokeEvent) => event.sender.id === this.window!.id;
-
-    private getWindowType = (event: IpcMainEvent): void => {
-        if (this.checkSender(event)) event.returnValue = this.windowType;
-    };
-
-    private openNewWindow = (event: IpcMainEvent, windowType: WindowType): void => {
-        if (this.checkSender(event)) this.createWindow({ windowType });
-    };
+    private removeIpcListeners = () => this._ipcServer.clear();
 }

@@ -23,7 +23,6 @@ export class WindowManager {
                     windowId,
                     height: option?.height,
                     width: option?.width,
-                    createWindow: this.createWindow,
                     onClosedWindow: this.onClosedWindow,
                 });
                 break;
@@ -42,3 +41,5 @@ export class WindowManager {
         this.store[windowId] = null;
     };
 }
+
+export const windowManager = new WindowManager();

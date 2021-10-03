@@ -1,9 +1,7 @@
 import { initializeIcons } from '@fluentui/react';
-import { IpcChannels, WindowType } from '@tecra/electron-common';
-import { StrictMode } from 'react';
+import { IpcClient, WindowType } from '@tecra/electron-common';
+import { StrictMode, useEffect, useState } from 'react';
 import { render } from 'react-dom';
-
-import { IpcRendererWrapper } from 'src/utils/IpcRenderer';
 
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
@@ -11,12 +9,18 @@ import { reportWebVitals } from './reportWebVitals';
 import './index.css';
 
 function Window(): Optional<React.ReactElement> {
-    const type: WindowType = IpcRendererWrapper.sendSync(IpcChannels.GetWindowType);
+    const [type, setType] = useState<Optional<WindowType>>(null);
+
+    useEffect(() => {
+        IpcClient.getWindowType().then(setType);
+    }, []);
 
     let never: never;
     switch (type) {
         case 'main':
             return <MainWindow />;
+        case null:
+            return <div />;
 
         default:
             never = type;

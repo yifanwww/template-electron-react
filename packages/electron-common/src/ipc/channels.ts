@@ -1,5 +1,5 @@
 export enum IpcChannels {
-    GetWindowType = 'GetWindowType-r2m',
-
-    OpenNewWindow = 'OpenNewWindow-r2m',
+    CreateWindow = 'CreateWindow',
+    GetAppDetails = 'GetAppDetails',
+    GetWindowType = 'GetWindowType',
 }

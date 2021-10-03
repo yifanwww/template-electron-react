@@ -1,9 +1,8 @@
 import { app, BrowserWindow } from 'electron';
 
-import { appInfo } from './appInfo';
-import { WindowManager } from './windowManager';
-
-const windowManager = new WindowManager();
+import { registerIpcGlobalListeners } from './ipc';
+import { getAppDetails } from './utils';
+import { windowManager } from './window';
 
 async function installExtensions(): Promise<void> {
     const { default: install, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = await import('electron-devtools-installer');
@@ -19,17 +18,21 @@ async function installExtensions(): Promise<void> {
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
 app.on('ready', async () => {
-    console.info('Name:', appInfo.name);
-    console.info('Version:', appInfo.version);
-    console.info('Electron:', appInfo.electron);
-    console.info('Chrome:', appInfo.chrome);
-    console.info('Nodejs:', appInfo.nodejs);
-    console.info('V8:', appInfo.v8);
+    const appDetails = getAppDetails();
+
+    console.info('Name:', appDetails.name);
+    console.info('Version:', appDetails.version);
+    console.info('Electron:', appDetails.module.electron);
+    console.info('Chrome:', appDetails.module.chrome);
+    console.info('Nodejs:', appDetails.module.node);
+    console.info('V8:', appDetails.module.v8);
     console.info();
 
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
+
+    registerIpcGlobalListeners();
 
     windowManager.createWindow({ windowType: 'main' });
 });
