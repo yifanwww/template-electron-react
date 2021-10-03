@@ -1,7 +1,6 @@
 {
     "extends": "@tecra/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
-        "baseUrl": ".",
         "outDir": ".",
         "rootDir": ".",
         "sourceMap": false,

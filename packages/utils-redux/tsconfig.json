@@ -1,7 +1,6 @@
 {
     "extends": "@tecra/tsconfigs/tsconfig.eslint.json",
     "compilerOptions": {
-        "baseUrl": ".",
         "rootDir": "src"
     },
     "include": ["src"],
