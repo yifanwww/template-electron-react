@@ -2,14 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 import { omitUnderscorePrefixActions } from '@tecra/utils-redux';
 
 import { IStoreState } from '../types';
-import { _finishPreparing, updateClientAreaSize } from './reducers.DisplayConfig';
+import { _finishPreparing, _setAppDetails } from './reducers';
+import { updateClientAreaSize } from './reducers.DisplayConfig';
 
 export function getInitialState(): IStoreState {
     return {
+        appDetails: null as never,
         displayConfig: {
-            clientAreaSize: { height: 720, width: 1280 },
-            prepared: false,
+            clientAreaSize: null as never,
         },
+        prepared: false,
     };
 }
 
@@ -18,6 +20,7 @@ const slice = createSlice({
     initialState: getInitialState(),
     reducers: {
         _finishPreparing,
+        _setAppDetails,
         updateClientAreaSize,
     },
 });

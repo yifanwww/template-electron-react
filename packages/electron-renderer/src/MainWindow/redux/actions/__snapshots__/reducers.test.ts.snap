@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test redux reducer \`_finishPreparing\` finishes preparing 1`] = `true`;
+
+exports[`Test redux reducer \`_setAppDetails\` finishes preparing 1`] = `
+Object {
+  "module": Object {
+    "chrome": "unknown",
+    "electron": "unknown",
+    "node": "unknown",
+    "v8": "unknown",
+  },
+  "name": "tecra",
+  "version": "unknown",
+}
+`;
