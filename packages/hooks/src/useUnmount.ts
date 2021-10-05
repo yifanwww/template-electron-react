@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useRef } from 'react';
 
 /**
  * Hook which synchronously executes a callback when the component is about to unmount.
@@ -6,12 +6,12 @@ import * as React from 'react';
  * @param callback Function to call during unmount.
  */
 export function useUnmount(callback: () => void) {
-    const unmountRef = React.useRef(callback);
+    const unmountRef = useRef(callback);
 
     // Update the ref each render so that the latest callback will be invoked if it changes.
     unmountRef.current = callback;
 
-    React.useEffect(
+    useEffect(
         () => () => {
             unmountRef.current?.();
         },

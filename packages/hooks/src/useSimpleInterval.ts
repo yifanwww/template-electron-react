@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-import { useConst } from './useConst';
+import { useConstFn } from './useConstFn';
 
-export interface IUseSimpleIntervalActions {
+export interface IUseSimpleIntervalUpdaters {
     readonly isWorking: () => boolean;
     readonly setInterval: (callback: () => void, duration?: number) => void;
     readonly clearInterval: () => void;
@@ -11,7 +11,7 @@ export interface IUseSimpleIntervalActions {
 /**
  *  Returns a simple wrapper function for `setInterval` which automatically handles disposal.
  */
-export function useSimpleInterval(): IUseSimpleIntervalActions {
+export function useSimpleInterval(): IUseSimpleIntervalUpdaters {
     const intervalIdRef = useRef<number>();
 
     // Cleanup function.
@@ -20,17 +20,15 @@ export function useSimpleInterval(): IUseSimpleIntervalActions {
         return () => clearInterval(intervalIdRef.current);
     }, []);
 
-    const actions = useConst<IUseSimpleIntervalActions>({
-        isWorking: () => intervalIdRef.current !== undefined,
+    const isWorking = useConstFn(() => intervalIdRef.current !== undefined);
 
-        setInterval: (callback: () => void, duration?: number): void => {
-            clearInterval(intervalIdRef.current);
+    const _setInterval = useConstFn((callback: () => void, duration?: number): void => {
+        clearInterval(intervalIdRef.current);
 
-            intervalIdRef.current = setInterval(callback, duration) as unknown as number;
-        },
-
-        clearInterval: () => clearInterval(intervalIdRef.current),
+        intervalIdRef.current = setInterval(callback, duration) as unknown as number;
     });
 
-    return actions;
+    const _clearInterval = useConstFn(() => clearInterval(intervalIdRef.current));
+
+    return { isWorking, setInterval: _setInterval, clearInterval: _clearInterval };
 }

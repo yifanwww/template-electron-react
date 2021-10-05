@@ -1,10 +1,12 @@
 import { render } from '@testing-library/react';
 import { useEffect } from 'react';
 
-import { validateHookValueNotChanged } from './testUtils';
-import { useForceUpdate } from './useForceUpdate';
+import { useForceUpdate } from '../useForceUpdate';
+import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useForceUpdate`', () => {
+    validateHookValueNotChanged('returns the same callback each time', () => [useForceUpdate()]);
+
     test('updates component when called', async () => {
         let renderCount = 0;
         function TestComponent() {
@@ -18,6 +20,4 @@ describe('Test react hook `useForceUpdate`', () => {
         render(<TestComponent />);
         expect(renderCount).toBe(2);
     });
-
-    validateHookValueNotChanged('returns the same callback each time', () => [useForceUpdate()]);
 });

@@ -1,9 +1,14 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { validateHookValueNotChanged } from './testUtils';
-import { useToggle } from './useToggle';
+import { useToggle } from '../useToggle';
+import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useToggle`', () => {
+    validateHookValueNotChanged('returns the same callbacks', () => {
+        const [, { setLeft, setRight, toggle }] = useToggle();
+        return [setLeft, setRight, toggle];
+    });
+
     function useToggleWrapper<T, R>(initialValue: T, reverseValue?: R) {
         const result = useToggle(initialValue, reverseValue);
         return { value: result[0], ...result[1] };
@@ -18,11 +23,6 @@ describe('Test react hook `useToggle`', () => {
 
         const { result: result3 } = renderHook(() => useToggleWrapper('hi'));
         expect(result3.current.value).toBe('hi');
-    });
-
-    validateHookValueNotChanged('returns the same callbacks', () => {
-        const [, { setLeft, setRight, toggle }] = useToggle();
-        return [setLeft, setRight, toggle];
     });
 
     test('updates the boolean value', () => {

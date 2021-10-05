@@ -1,11 +1,12 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { validateHookValueNotChanged, wait } from './testUtils';
-import { useConstFn } from './useConstFn';
-import { useDoubleTrigger } from './useDoubleTrigger';
+import { useDoubleTrigger } from '../useDoubleTrigger';
+import { validateHookValueNotChanged, wait } from './utils.test';
+
+const emptyfn = () => {};
 
 describe('Test react hook `useDoubleTrigger`', () => {
-    validateHookValueNotChanged('returns the same function', () => [useDoubleTrigger(useConstFn(() => {}))]);
+    validateHookValueNotChanged('returns the same function', () => [useDoubleTrigger(emptyfn)]);
 
     test('trigger only once', async () => {
         const fn = jest.fn(() => {});

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { useUnmount } from './useUnmount';
+import { useUnmount } from '../useUnmount';
 
 describe('Test react hook `useUnmount`', () => {
     test('fires a callback', () => {

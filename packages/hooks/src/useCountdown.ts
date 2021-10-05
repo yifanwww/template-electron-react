@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { useConstFn } from './useConstFn';
 import { useSimpleInterval } from './useSimpleInterval';
 
-export type ISetCountdownAction = (countdown: number) => void;
+export type ISetCountdownUpdater = (countdown: number) => void;
 
-export function useCountdown(): [number, ISetCountdownAction] {
+export function useCountdown(): [number, ISetCountdownUpdater] {
     const [currentTime, setCurrentTime] = useState(0);
     const [targetTime, setTargetTime] = useState(0);
 

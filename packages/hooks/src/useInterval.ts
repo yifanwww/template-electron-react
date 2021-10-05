@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
 import { useConst } from './useConst';
+import { useConstFn } from './useConstFn';
 
-export interface IUseIntervalActions {
+export interface IUseIntervalUpdaters {
     readonly setInterval: (callback: () => void, duration?: number) => number;
     readonly clearInterval: (id: number) => void;
 }
@@ -10,7 +11,7 @@ export interface IUseIntervalActions {
 /**
  *  Returns a wrapper function for `setInterval` which automatically handles disposal.
  */
-export function useInterval(): IUseIntervalActions {
+export function useInterval(): IUseIntervalUpdaters {
     const intervalIds = useConst<Record<number, number>>({});
 
     // Cleanup function.
@@ -26,18 +27,16 @@ export function useInterval(): IUseIntervalActions {
         [intervalIds],
     );
 
-    const actions = useConst<IUseIntervalActions>({
-        setInterval: (callback: () => void, duration?: number): number => {
-            const id = setInterval(callback, duration) as unknown as number;
-            intervalIds[id] = 1;
-            return id;
-        },
-
-        clearInterval: (id: number): void => {
-            delete intervalIds[id];
-            clearInterval(id);
-        },
+    const _setInterval = useConstFn((callback: () => void, duration?: number): number => {
+        const id = setInterval(callback, duration) as unknown as number;
+        intervalIds[id] = 1;
+        return id;
     });
 
-    return actions;
+    const _clearInterval = useConstFn((id: number): void => {
+        delete intervalIds[id];
+        clearInterval(id);
+    });
+
+    return { setInterval: _setInterval, clearInterval: _clearInterval };
 }

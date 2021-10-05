@@ -1,38 +1,38 @@
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
 
-import { useIsFocused } from './useIsFocused';
+import { useIsHovered } from '../useIsHovered';
 
-describe('Test react hook `useIsFocused`', () => {
-    test('test is focused when focus event appears', async () => {
-        let isFocused: Optional<boolean> = null;
+describe('Test react hook `useIsHovered`', () => {
+    test('test is hovered when hover event appears', async () => {
+        let isHovered: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
-            isFocused = useIsFocused(ref);
+            isHovered = useIsHovered(ref);
             return <div ref={ref}>Test-Component</div>;
         }
 
-        expect(isFocused).toBeNull();
+        expect(isHovered).toBeNull();
         const { getByText } = render(<TestComponent />);
-        expect(isFocused).toBeFalsy();
+        expect(isHovered).toBeFalsy();
 
         const component = getByText('Test-Component');
 
-        fireEvent.focus(component);
-        expect(isFocused).toBeTruthy();
+        fireEvent.mouseOver(component);
+        expect(isHovered).toBeTruthy();
 
-        fireEvent.focusOut(component);
-        expect(isFocused).toBeFalsy();
+        fireEvent.mouseOut(component);
+        expect(isHovered).toBeFalsy();
 
-        fireEvent.focusIn(component);
-        expect(isFocused).toBeTruthy();
+        fireEvent.mouseEnter(component);
+        expect(isHovered).toBeTruthy();
     });
 
     test('test if not enabled', async () => {
         let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
-            isFocused = useIsFocused(ref, false);
+            isFocused = useIsHovered(ref, false);
             return <div ref={ref}>Test-Component</div>;
         }
 
@@ -42,13 +42,13 @@ describe('Test react hook `useIsFocused`', () => {
 
         const component = getByText('Test-Component');
 
-        fireEvent.focus(component);
+        fireEvent.mouseOver(component);
         expect(isFocused).toBeFalsy();
 
-        fireEvent.focusOut(component);
+        fireEvent.mouseOut(component);
         expect(isFocused).toBeFalsy();
 
-        fireEvent.focusIn(component);
+        fireEvent.mouseEnter(component);
         expect(isFocused).toBeFalsy();
     });
 });

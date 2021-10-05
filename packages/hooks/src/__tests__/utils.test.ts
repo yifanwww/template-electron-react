@@ -1,4 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
+import { setTimeout } from 'timers/promises';
+
+test.skip('file for exports in test', () => {});
 
 /**
  * Validate that value(s) returned by a hook do not change in identity.
@@ -45,5 +48,5 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
     });
 }
 
-// HACK: Use async timers `setTimeout` once electron main process use nodejs v16.
-export const wait = (time: number) => new Promise<void>((resolve) => setTimeout(resolve, time));
+// eslint-disable-next-line @typescript-eslint/no-implied-eval
+export const wait = (time: number) => setTimeout(time);

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { useMount } from './useMount';
+import { useMount } from '../useMount';
 
 describe('Test react hook `useMount`', () => {
     test('fires a callback', () => {

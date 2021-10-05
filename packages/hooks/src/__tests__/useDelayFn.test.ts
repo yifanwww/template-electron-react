@@ -1,11 +1,12 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { validateHookValueNotChanged, wait } from './testUtils';
-import { useConstFn } from './useConstFn';
-import { useDelayFn } from './useDelayFn';
+import { useDelayFn } from '../useDelayFn';
+import { validateHookValueNotChanged, wait } from './utils.test';
+
+const emptyfn = () => {};
 
 describe('Test react hook `useDelayFn`', () => {
-    validateHookValueNotChanged('returns the same function', () => [useDelayFn(useConstFn(() => {}))]);
+    validateHookValueNotChanged('returns the same function', () => [useDelayFn(emptyfn)]);
 
     test('trigger only once', async () => {
         const fn = jest.fn(() => {});

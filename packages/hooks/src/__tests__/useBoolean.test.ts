@@ -1,25 +1,28 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { validateHookValueNotChanged } from './testUtils';
-import { useBoolean } from './useBoolean';
+import { useBoolean } from '../useBoolean';
+import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useBoolean`', () => {
-    function useBooleanWrapper(initialValue: boolean) {
+    validateHookValueNotChanged('returns the same callbacks', () => {
+        const [, { setFalse, setTrue, toggle }] = useBoolean(true);
+        return [setFalse, setTrue, toggle];
+    });
+
+    function useBooleanWrapper(initialValue?: boolean) {
         const result = useBoolean(initialValue);
         return { value: result[0], ...result[1] };
     }
 
     test('test initial value', () => {
-        const { result: result1 } = renderHook(() => useBooleanWrapper(false));
+        const { result: result1 } = renderHook(() => useBooleanWrapper());
         expect(result1.current.value).toBeFalsy();
 
-        const { result: result2 } = renderHook(() => useBooleanWrapper(true));
-        expect(result2.current.value).toBeTruthy();
-    });
+        const { result: result2 } = renderHook(() => useBooleanWrapper(false));
+        expect(result2.current.value).toBeFalsy();
 
-    validateHookValueNotChanged('returns the same callbacks', () => {
-        const [, { setFalse, setTrue, toggle }] = useBoolean(true);
-        return [setFalse, setTrue, toggle];
+        const { result: result3 } = renderHook(() => useBooleanWrapper(true));
+        expect(result3.current.value).toBeTruthy();
     });
 
     test('updates the value', () => {

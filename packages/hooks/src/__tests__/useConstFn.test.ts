@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { validateHookValueNotChanged } from './testUtils';
-import { useConstFn } from './useConstFn';
+import { useConstFn } from '../useConstFn';
+import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useConstFn`', () => {
     validateHookValueNotChanged('returns the same function', () => [useConstFn(() => 'hi')]);

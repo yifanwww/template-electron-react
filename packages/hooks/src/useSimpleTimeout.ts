@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-import { useConst } from './useConst';
 import { useConstFn } from './useConstFn';
 
-export interface IUseSimpleTimeoutActions {
+export interface IUseSimpleTimeoutUpdaters {
     readonly isWorking: () => boolean;
     readonly setTimeout: (callback: () => void, duration?: number) => void;
     readonly clearTimeout: () => void;
@@ -12,7 +11,7 @@ export interface IUseSimpleTimeoutActions {
 /**
  *  Returns a simple wrapper function for `setTimeout` which automatically handles disposal.
  */
-export function useSimpleTimeout(): IUseSimpleTimeoutActions {
+export function useSimpleTimeout(): IUseSimpleTimeoutUpdaters {
     const timeoutIdRef = useRef<number>();
 
     // Cleanup function.
@@ -21,22 +20,18 @@ export function useSimpleTimeout(): IUseSimpleTimeoutActions {
         return () => clearTimeout(timeoutIdRef.current);
     }, []);
 
-    const trigger = useConstFn((callback: () => void) => {
-        timeoutIdRef.current = undefined;
-        callback();
+    const isWorking = useConstFn(() => timeoutIdRef.current !== undefined);
+
+    const _setTimeout = useConstFn((callback: () => void, duration?: number): void => {
+        clearTimeout(timeoutIdRef.current);
+
+        timeoutIdRef.current = setTimeout(() => {
+            timeoutIdRef.current = undefined;
+            callback();
+        }, duration) as unknown as number;
     });
 
-    const actions = useConst<IUseSimpleTimeoutActions>({
-        isWorking: () => timeoutIdRef.current !== undefined,
+    const _clearTimeout = useConstFn(() => clearTimeout(timeoutIdRef.current));
 
-        setTimeout: (callback: () => void, duration?: number): void => {
-            clearTimeout(timeoutIdRef.current);
-
-            timeoutIdRef.current = setTimeout(() => trigger(callback), duration) as unknown as number;
-        },
-
-        clearTimeout: () => clearTimeout(timeoutIdRef.current),
-    });
-
-    return actions;
+    return { isWorking, setTimeout: _setTimeout, clearTimeout: _clearTimeout };
 }
