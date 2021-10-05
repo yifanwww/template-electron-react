@@ -15,7 +15,7 @@ const config: Config.InitialOptions = {
     setupFilesAfterEnv: [paths.testSetup],
 
     testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}', '<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
-    testEnvironment: 'jsdom',
+    testEnvironment: 'jest-environment-jsdom',
     testRunner: require.resolve('jest-circus/runner'),
 
     transform: {
