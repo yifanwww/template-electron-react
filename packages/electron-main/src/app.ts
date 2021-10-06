@@ -1,7 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 
 import { registerIpcGlobalListeners } from './ipc';
-import { getAppDetails } from './utils';
 import { windowManager } from './window';
 
 async function installExtensions(): Promise<void> {
@@ -18,16 +17,6 @@ async function installExtensions(): Promise<void> {
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
 app.on('ready', async () => {
-    const appDetails = getAppDetails();
-
-    console.info('Name:', appDetails.name);
-    console.info('Version:', appDetails.version);
-    console.info('Electron:', appDetails.module.electron);
-    console.info('Chrome:', appDetails.module.chrome);
-    console.info('Nodejs:', appDetails.module.node);
-    console.info('V8:', appDetails.module.v8);
-    console.info();
-
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
