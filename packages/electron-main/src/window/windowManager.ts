@@ -23,7 +23,7 @@ export class WindowManager {
                     windowId,
                     height: option?.height,
                     width: option?.width,
-                    onClosedWindow: this.onClosedWindow,
+                    onClose: this.closeWindow,
                 });
                 break;
 
@@ -35,7 +35,7 @@ export class WindowManager {
         this.store[windowId]!.show();
     };
 
-    private onClosedWindow = async (option: ICloseWindowOption): Promise<void> => {
+    private closeWindow = async (option: ICloseWindowOption): Promise<void> => {
         const { windowId } = option;
 
         this.store[windowId] = null;

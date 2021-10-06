@@ -14,7 +14,7 @@ export interface IWindowOption {
     windowId: string;
     height?: number;
     width?: number;
-    onClosedWindow: (option: ICloseWindowOption) => Promise<void>;
+    onClose: (option: ICloseWindowOption) => Promise<void>;
 }
 
 export interface IAbstractWindowOption extends IWindowOption {

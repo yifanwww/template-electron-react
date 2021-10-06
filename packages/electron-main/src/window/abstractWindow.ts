@@ -1,5 +1,5 @@
 import { IpcServer, WindowType } from '@tecra/electron-common';
-import { BrowserWindow } from 'electron';
+import { BrowserWindow, shell } from 'electron';
 import path from 'path';
 
 import { appPaths } from 'src/appPaths';
@@ -11,7 +11,7 @@ export abstract class AbstractWindow {
     protected readonly windowType: WindowType;
     protected readonly windowId: string;
 
-    private readonly onClosedWindow: (option: ICloseWindowOption) => Promise<void>;
+    private readonly onClose: (option: ICloseWindowOption) => Promise<void>;
 
     protected readonly _ipcServer: IpcServer;
 
@@ -30,7 +30,7 @@ export abstract class AbstractWindow {
 
         this._ipcServer = new IpcServer(this.window.id);
 
-        this.onClosedWindow = option.onClosedWindow;
+        this.onClose = option.onClose;
 
         this.addWindowListeners();
         this.addIpcListeners();
@@ -49,16 +49,18 @@ export abstract class AbstractWindow {
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
     protected addWindowListeners(): void {
-        this.window!.once('closed', this.onceClosedWindow);
+        this.window.webContents.setWindowOpenHandler((details) => {
+            shell.openExternal(details.url);
+            return { action: 'deny' };
+        });
+
+        this.window.once('closed', this.close);
     }
 
-    protected removeWindowListeners(): void {}
-
-    private onceClosedWindow = () => {
-        this.removeWindowListeners();
+    private close = () => {
         this.removeIpcListeners();
 
-        this.onClosedWindow({ windowId: this.windowId });
+        this.onClose({ windowId: this.windowId });
     };
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
