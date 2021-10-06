@@ -1,44 +1,51 @@
 import { Config } from '@jest/types';
+import fs from 'fs';
 import path from 'path';
 
 import { paths } from '../utils';
 
-const packageJson = process.env.npm_package_json;
+function getConfig(): Config.InitialOptions {
+    const packageJson = process.env.npm_package_json;
+    const packageDir = packageJson ? path.dirname(packageJson) : process.cwd();
 
-const config: Config.InitialOptions = {
-    rootDir: packageJson ? path.dirname(packageJson) : process.cwd(),
-    roots: ['<rootDir>/src'],
+    const packageOwnTestSetup = path.resolve(packageDir, 'src/test.setup.ts');
+    const hasPackageOwnTestSetup = fs.existsSync(packageOwnTestSetup);
 
-    collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts'],
+    return {
+        rootDir: packageDir,
+        roots: ['<rootDir>/src'],
 
-    setupFiles: [require.resolve('react-app-polyfill/jsdom')],
-    setupFilesAfterEnv: [paths.testSetup],
+        collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts', '!src/test.setup.ts'],
 
-    testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}', '<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
-    testEnvironment: 'jest-environment-jsdom',
-    testRunner: require.resolve('jest-circus/runner'),
+        setupFiles: [require.resolve('react-app-polyfill/jsdom')],
+        setupFilesAfterEnv: hasPackageOwnTestSetup ? [paths.testSetup, packageOwnTestSetup] : [paths.testSetup],
 
-    transform: {
-        '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': paths.transforms.babel,
-        '^.+\\.css$': paths.transforms.css,
-        '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': paths.transforms.file,
-    },
-    transformIgnorePatterns: [
-        '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
-        '^.+\\.module\\.(css|sass|scss)$',
-    ],
+        testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}', '<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
+        testEnvironment: 'jest-environment-jsdom',
+        testRunner: require.resolve('jest-circus/runner'),
 
-    modulePaths: [],
-    moduleNameMapper: {
-        '^react-native$': 'react-native-web',
-        '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-        '^src/(.*)$': '<rootDir>/src/$1',
-    },
-    moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx', 'web.js', 'web.jsx', 'web.ts', 'web.tsx'],
+        transform: {
+            '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': paths.transforms.babel,
+            '^.+\\.css$': paths.transforms.css,
+            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': paths.transforms.file,
+        },
+        transformIgnorePatterns: [
+            '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
+            '^.+\\.module\\.(css|sass|scss)$',
+        ],
 
-    watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
+        modulePaths: [],
+        moduleNameMapper: {
+            '^react-native$': 'react-native-web',
+            '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+            '^src/(.*)$': '<rootDir>/src/$1',
+        },
+        moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx', 'web.js', 'web.jsx', 'web.ts', 'web.tsx'],
 
-    resetMocks: true,
-};
+        watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 
-export = config;
+        resetMocks: true,
+    };
+}
+
+export = getConfig();

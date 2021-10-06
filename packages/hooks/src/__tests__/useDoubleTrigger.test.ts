@@ -1,7 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useDoubleTrigger } from '../useDoubleTrigger';
-import { validateHookValueNotChanged, wait } from './utils.test';
 
 const emptyfn = () => {};
 

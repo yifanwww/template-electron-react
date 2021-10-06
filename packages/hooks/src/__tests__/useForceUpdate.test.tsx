@@ -2,7 +2,6 @@ import { render } from '@testing-library/react';
 import { useEffect } from 'react';
 
 import { useForceUpdate } from '../useForceUpdate';
-import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useForceUpdate`', () => {
     validateHookValueNotChanged('returns the same callback each time', () => [useForceUpdate()]);

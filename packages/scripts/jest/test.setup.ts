@@ -1,4 +1,3 @@
-import { initializeIcons } from '@fluentui/react';
 import path from 'path';
 import renderer from 'react-test-renderer';
 
@@ -39,17 +38,11 @@ function wrapConsole() {
     console.warn = outputFactory(console.warn);
 }
 
-function setupJestGlobalFunctions(): void {
+function setupTest(): void {
+    wrapConsole();
+
     global.expectSnapshot = (actual) => expect(actual).toMatchSnapshot();
     global.expectElementSnapshot = (element) => expect(renderer.create(element).toJSON()).toMatchSnapshot();
 }
 
-function setupJest(): void {
-    initializeIcons();
-
-    wrapConsole();
-
-    setupJestGlobalFunctions();
-}
-
-setupJest();
+setupTest();

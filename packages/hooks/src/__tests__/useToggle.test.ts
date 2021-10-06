@@ -1,7 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useToggle } from '../useToggle';
-import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useToggle`', () => {
     validateHookValueNotChanged('returns the same callbacks', () => {

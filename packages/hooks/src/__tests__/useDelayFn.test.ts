@@ -1,7 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useDelayFn } from '../useDelayFn';
-import { validateHookValueNotChanged, wait } from './utils.test';
 
 const emptyfn = () => {};
 

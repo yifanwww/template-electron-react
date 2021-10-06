@@ -1,7 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useBoolean } from '../useBoolean';
-import { validateHookValueNotChanged } from './utils.test';
 
 describe('Test react hook `useBoolean`', () => {
     validateHookValueNotChanged('returns the same callbacks', () => {
