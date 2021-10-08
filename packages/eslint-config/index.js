@@ -139,8 +139,6 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-cycle': 'error',
         'import/no-default-export': 'error',
-        // Disable this rule and use rule `deprecation/deprecation` instead.
-        'import/no-deprecated': 'off',
         // Disabled for import-statement of dev dependencies.
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
@@ -151,6 +149,7 @@ module.exports = {
         'prettier/prettier': 'error',
 
         'react/destructuring-assignment': 'off',
+        'react/jsx-one-expression-per-line': 'off',
         'react/jsx-props-no-spreading': 'off',
         // https://github.com/yannickcr/eslint-plugin-react/blob/v7.25.1/docs/rules/react-in-jsx-scope.md
         // Disables this rule for using new JSX transform from React 17.
