@@ -1,9 +1,20 @@
-name: Build Release
+name: Release
 
 on:
   push:
-    branches: main
-    tags: v*.*.*
+    branches:
+      - main
+      - main-test
+      - ci
+      - ci-test
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+      - v[0-9]+.[0-9]+.[0-9]+-alpha
+      - v[0-9]+.[0-9]+.[0-9]+-alpha.[0-9]+
+      - v[0-9]+.[0-9]+.[0-9]+-beta
+      - v[0-9]+.[0-9]+.[0-9]+-beta.[0-9]+
+      - v[0-9]+.[0-9]+.[0-9]+-rc
+      - v[0-9]+.[0-9]+.[0-9]+-rc.[0-9]+
 
 jobs:
   release:
@@ -18,6 +29,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup node modules
