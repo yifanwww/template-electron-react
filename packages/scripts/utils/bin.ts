@@ -105,7 +105,11 @@ export const runBuild = () => child.spawn(paths.electron, [paths.repository], { 
 export const runUnpacked = () => child.spawn(paths.unpacked, [], { cwd: paths.working, stdio: 'inherit' });
 
 export function unitTest(watch: boolean): void {
-    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage'].join(' ');
+    const isVerbose = process.argv.includes('--verbose');
+
+    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', isVerbose && '--verbose']
+        .filter(Boolean)
+        .join(' ');
 
     const env = {
         ...process.env,
