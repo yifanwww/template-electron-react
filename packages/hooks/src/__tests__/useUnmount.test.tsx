@@ -2,14 +2,13 @@ import { render } from '@testing-library/react';
 
 import { useUnmount } from '../useUnmount';
 
-describe('Test react hook `useUnmount`', () => {
+describe(`Test react hook \`${useUnmount.name}\``, () => {
     test('fires a callback', () => {
         const onUnmount = jest.fn();
 
         function TestComponent() {
             useUnmount(() => onUnmount());
-
-            return <>Test-Component</>;
+            return <div />;
         }
 
         expect(onUnmount).toBeCalledTimes(0);

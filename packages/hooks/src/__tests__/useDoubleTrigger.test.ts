@@ -2,13 +2,38 @@ import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useDoubleTrigger } from '../useDoubleTrigger';
 
-const emptyfn = () => {};
+const noop = () => {};
 
-describe('Test react hook `useDoubleTrigger`', () => {
-    validateHookValueNotChanged('returns the same function', () => [useDoubleTrigger(emptyfn)]);
+describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
+    validateHookValueNotChanged('returns the same function', () => [useDoubleTrigger(noop)]);
 
-    test('trigger only once', async () => {
-        const fn = jest.fn(() => {});
+    let dateTime = 1_000;
+    let intervalId: number;
+
+    beforeAll(() => {
+        jest.useFakeTimers();
+
+        intervalId = setInterval(() => {
+            dateTime++;
+        }, 1) as never;
+    });
+
+    afterAll(() => {
+        jest.useRealTimers();
+
+        clearInterval(intervalId);
+    });
+
+    beforeEach(() => {
+        jest.spyOn(Date, 'now').mockImplementation(() => dateTime);
+    });
+
+    afterEach(() => {
+        dateTime = 1_000;
+    });
+
+    test('trigger only once', () => {
+        const fn = jest.fn(noop);
         const { result } = renderHook(() => useDoubleTrigger(fn, 100));
         expect(fn).toHaveBeenCalledTimes(0);
 
@@ -16,23 +41,23 @@ describe('Test react hook `useDoubleTrigger`', () => {
         expect(fn).toHaveBeenCalledTimes(0);
     });
 
-    test('trigger multiple times', async () => {
-        const fn = jest.fn(() => {});
+    test('trigger multiple times', () => {
+        const fn = jest.fn(noop);
         const { result } = renderHook(() => useDoubleTrigger(fn, 250));
         expect(fn).toHaveBeenCalledTimes(0);
 
         act(() => result.current());
         expect(fn).toHaveBeenCalledTimes(0);
 
-        await wait(50);
+        jest.advanceTimersByTime(50);
         act(() => result.current());
         expect(fn).toHaveBeenCalledTimes(1);
 
-        await wait(50);
+        jest.advanceTimersByTime(50);
         act(() => result.current());
         expect(fn).toHaveBeenCalledTimes(1);
 
-        await wait(50);
+        jest.advanceTimersByTime(50);
         act(() => result.current());
         expect(fn).toHaveBeenCalledTimes(2);
     });

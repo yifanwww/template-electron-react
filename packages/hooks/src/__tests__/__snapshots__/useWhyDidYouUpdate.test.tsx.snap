@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test react hook \`useWhyDidYouUpdate\` complex props 1`] = `
+Array [
+  "[why-did-you-update] 'TestComponent' first render.",
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` complex props 2`] = `
+Array [
+  "[why-did-you-update] 'TestComponent'",
+  Object {
+    "style": Object {
+      "from": undefined,
+      "to": Object {
+        "fontSize": "28px",
+      },
+    },
+  },
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` complex props 3`] = `
+Array [
+  "[why-did-you-update] 'TestComponent'",
+  Object {
+    "style": Object {
+      "from": Object {
+        "fontSize": "28px",
+      },
+      "to": Object {
+        "fontSize": "28px",
+        "margin": "8px 0px",
+      },
+    },
+    "title": Object {
+      "from": "title",
+      "to": "new-title",
+    },
+  },
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` complex props 4`] = `
+Array [
+  "[why-did-you-update] 'TestComponent'",
+  Object {
+    "color": Object {
+      "from": "red",
+      "to": "green",
+    },
+    "style": Object {
+      "from": Object {
+        "fontSize": "28px",
+        "margin": "8px 0px",
+      },
+      "to": Object {
+        "fontSize": "28px",
+        "margin": "8px 0px",
+      },
+    },
+  },
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` simple props 1`] = `
+Array [
+  "[why-did-you-update] 'TestComponent' first render.",
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` simple props 2`] = `
+Array [
+  "[why-did-you-update] 'TestComponent'",
+  Object {
+    "fontSize": Object {
+      "from": "20px",
+      "to": 20,
+    },
+  },
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` simple props 3`] = `
+Array [
+  "[why-did-you-update] 'TestComponent'",
+  Object {
+    "title": Object {
+      "from": "title",
+      "to": "new-title",
+    },
+  },
+]
+`;
+
+exports[`Test react hook \`useWhyDidYouUpdate\` simple props 4`] = `
+Array [
+  "[why-did-you-update] 'TestComponent'",
+  Object {
+    "fontSize": Object {
+      "from": 20,
+      "to": "28px",
+    },
+  },
+]
+`;

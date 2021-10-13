@@ -13,6 +13,6 @@ export function usePrevious<T>(value: T, initialValue: T | null | undefined = un
     const ref = useRef(initialValue);
     useEffect(() => {
         ref.current = value;
-    });
+    }, [value]);
     return ref.current;
 }

@@ -3,8 +3,8 @@ import { useRef } from 'react';
 
 import { useIsHovered } from '../useIsHovered';
 
-describe('Test react hook `useIsHovered`', () => {
-    test('test is hovered when hover event appears', async () => {
+describe(`Test react hook \`${useIsHovered.name}\``, () => {
+    test('test is hovered when hover event appears', () => {
         let isHovered: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ describe('Test react hook `useIsHovered`', () => {
         expect(isHovered).toBeTruthy();
     });
 
-    test('test if not enabled', async () => {
+    test('test if not enabled', () => {
         let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);

@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useToggle } from '../useToggle';
 
-describe('Test react hook `useToggle`', () => {
+describe(`Test react hook \`${useToggle.name}\``, () => {
     validateHookValueNotChanged('returns the same callbacks', () => {
         const [, { setLeft, setRight, toggle }] = useToggle();
         return [setLeft, setRight, toggle];

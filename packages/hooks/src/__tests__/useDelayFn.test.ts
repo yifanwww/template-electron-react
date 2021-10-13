@@ -2,49 +2,50 @@ import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useDelayFn } from '../useDelayFn';
 
-const emptyfn = () => {};
+const noop = () => {};
 
-describe('Test react hook `useDelayFn`', () => {
-    validateHookValueNotChanged('returns the same function', () => [useDelayFn(emptyfn)]);
+describe(`Test react hook \`${useDelayFn.name}\``, () => {
+    validateHookValueNotChanged('returns the same function', () => [useDelayFn(noop)]);
 
-    test('trigger only once', async () => {
-        const fn = jest.fn(() => {});
+    beforeAll(() => {
+        jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+        jest.useRealTimers();
+    });
+
+    test('trigger only once', () => {
+        const fn = jest.fn(noop);
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
 
         act(() => result.current());
-        await wait(0);
-        expect(fn).toHaveBeenCalledTimes(0);
-        await wait(0);
-        expect(fn).toHaveBeenCalledTimes(0);
 
-        await wait(550);
+        expect(fn).toHaveBeenCalledTimes(0);
+        jest.advanceTimersByTime(500);
         expect(fn).toHaveBeenCalledTimes(1);
-        await wait(100);
+        jest.advanceTimersByTime(500);
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    test('trigger multiple times', async () => {
-        const fn = jest.fn(() => {});
+    test('trigger multiple times', () => {
+        const fn = jest.fn(noop);
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
 
         act(() => result.current());
-        await wait(0);
+
         expect(fn).toHaveBeenCalledTimes(0);
-        await wait(0);
+        jest.advanceTimersByTime(250);
         expect(fn).toHaveBeenCalledTimes(0);
 
-        await wait(250);
         act(() => result.current());
-        await wait(0);
-        expect(fn).toHaveBeenCalledTimes(0);
-        await wait(0);
-        expect(fn).toHaveBeenCalledTimes(0);
 
-        await wait(550);
+        expect(fn).toHaveBeenCalledTimes(0);
+        jest.advanceTimersByTime(500);
         expect(fn).toHaveBeenCalledTimes(1);
-        await wait(100);
+        jest.advanceTimersByTime(500);
         expect(fn).toHaveBeenCalledTimes(1);
     });
 

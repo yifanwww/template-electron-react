@@ -10,5 +10,3 @@ declare function validateHookValueNotChanged<TValues extends NonNullable<unknown
     useHook: () => TValues,
     useHookAgain?: () => TValues,
 ): void;
-
-declare function wait(time: number): Promise<void>;

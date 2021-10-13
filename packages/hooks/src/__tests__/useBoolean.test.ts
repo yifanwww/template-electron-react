@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useBoolean } from '../useBoolean';
 
-describe('Test react hook `useBoolean`', () => {
+describe(`Test react hook \`${useBoolean.name}\``, () => {
     validateHookValueNotChanged('returns the same callbacks', () => {
         const [, { setFalse, setTrue, toggle }] = useBoolean(true);
         return [setFalse, setTrue, toggle];

@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import { useConst } from '../useConst';
 
-describe('Test react hook `useConst`', () => {
+describe(`Test react hook \`${useConst.name}\``, () => {
     validateHookValueNotChanged('returns the same value with value initializer', () => [useConst(Math.random())]);
 
     validateHookValueNotChanged('returns the same value with function initializer', () => [useConst(Math.random)]);

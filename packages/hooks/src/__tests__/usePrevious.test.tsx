@@ -26,7 +26,7 @@ function testMultiRerender(Component: React.FunctionComponent<IProps>, ref: IRef
     expect(ref.value).toBe('3');
 }
 
-describe('Test react hook `usePrevious`', () => {
+describe(`Test react hook \`${usePrevious.name}\``, () => {
     test('returns previous value', () => {
         const { rerender, result } = renderHook(usePrevious);
         expect(result.current).toBeUndefined();

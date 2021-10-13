@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 
 import { useImmediateFocus } from '../useImmediateFocus';
 
-describe('Test react hook `useImmediateFocus`', () => {
-    test('test is immediately focused', async () => {
+describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
+    test('test is immediately focused', () => {
         let isFocused: boolean = false;
 
         function TestComponent() {
@@ -17,9 +17,7 @@ describe('Test react hook `useImmediateFocus`', () => {
 
             return (
                 // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                <div tabIndex={0} ref={ref}>
-                    Test-Component
-                </div>
+                <div tabIndex={0} ref={ref} />
             );
         }
 
@@ -28,7 +26,7 @@ describe('Test react hook `useImmediateFocus`', () => {
         expect(isFocused).toBeTruthy();
     });
 
-    test('test but not enabled', async () => {
+    test('test but not enabled', () => {
         let isFocused: boolean = false;
 
         function TestComponent() {
@@ -41,9 +39,7 @@ describe('Test react hook `useImmediateFocus`', () => {
 
             return (
                 // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                <div tabIndex={0} ref={ref}>
-                    Test-Component
-                </div>
+                <div tabIndex={0} ref={ref} />
             );
         }
 
