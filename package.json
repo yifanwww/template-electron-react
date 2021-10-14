@@ -65,6 +65,7 @@
         "packages/stylelint-config",
         "packages/tsconfigs",
         "packages/utils-fluentui",
+        "packages/utils-react",
         "packages/utils-redux"
     ],
     "dependencies": {

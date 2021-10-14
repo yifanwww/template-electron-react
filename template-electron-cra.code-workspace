@@ -151,6 +151,10 @@
             "path": "packages/utils-fluentui"
         },
         {
+            "name": "@tecra/utils-react",
+            "path": "packages/utils-react"
+        },
+        {
             "name": "@tecra/utils-redux",
             "path": "packages/utils-redux"
         }

@@ -9,6 +9,7 @@ export function buildPackages(): void {
         '@tecra/assets',
         '@tecra/hooks',
         '@tecra/utils-fluentui',
+        '@tecra/utils-react',
         '@tecra/utils-redux',
         '@tecra/electron-common',
     ];

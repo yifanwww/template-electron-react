@@ -1,0 +1,35 @@
+{
+    "name": "@tecra/utils-react",
+    "version": "0.7.0",
+    "description": "React utils for tecra.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": {
+        "name": "yifanwww",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/yifanwww"
+    },
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "packages/utils-react"
+    },
+    "scripts": {
+        "build": "concurrently -n esm,types \"npm run build:esm\" \"npm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
+    }
+}
