@@ -1,3 +1,12 @@
+/* ----- Types ----- */
+
+declare type Integer = number;
+
+declare type Primitive = string | number | boolean | bigint | symbol | undefined | null;
+declare type Builtin = Primitive | Function | Date | Error | RegExp;
+
+/* ----- Type Utils ----- */
+
 /**
  * TypeScript type to return a deep partial object (each property can be undefined, recursively).
  */
@@ -11,9 +20,6 @@ declare type DeepPartial<T> = {
                 ? DeepPartial<T[P]>
                 : T[P];
 };
-
-declare type Primitive = string | number | boolean | bigint | symbol | undefined | null;
-declare type Builtin = Primitive | Function | Date | Error | RegExp;
 
 /**
  * TypeScript type to return a deep readonly object (recursively).
@@ -76,4 +82,4 @@ declare type ExtractFunction<T> = Extract<T, Function>;
  */
 declare type ClassStaticMethods<T extends abstract new (...args: unknown[]) => unknown> = Exclude<keyof T, 'prototype'>;
 
-declare type Integer = number;
+declare type PickProp<P, K extends keyof P> = NonNullable<P[K]>;
