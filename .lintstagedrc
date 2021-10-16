@@ -1,17 +1,8 @@
 {
-    "*.css": [
+    "*.{css,sass,scss}": [
         "stylelint --cache"
     ],
-    "*.sass": [
-        "stylelint --cache"
-    ],
-    "*.scss": [
-        "stylelint --cache"
-    ],
-    "*.ts": [
-        "eslint --cache"
-    ],
-    "*.tsx": [
+    "*.{ts,tsx}": [
         "eslint --cache"
     ]
 }
