@@ -1,13 +1,13 @@
-import { IThunk, IThunkAction, IThunkClosure } from './types.IThunk';
+import { IThunk, IThunkAction, IThunkActionWithArgs } from './types.IThunk';
 
 export function thunkCreatorFactory<State>() {
     return function createThunk<ReturnType, ThunkArgs extends unknown[]>(
         thunk: IThunk<ReturnType, State, ThunkArgs>,
-    ): IThunkClosure<ReturnType, State, ThunkArgs> {
-        function thunkClosure(...thunkArgs: ThunkArgs): IThunkAction<ReturnType, State> {
+    ): IThunkActionWithArgs<ReturnType, State, ThunkArgs> {
+        function thunkWithArgs(...thunkArgs: ThunkArgs): IThunkAction<ReturnType, State> {
             return (dispatch, getState) => thunk(dispatch, getState, ...thunkArgs);
         }
 
-        return thunkClosure as never;
+        return thunkWithArgs as never;
     };
 }

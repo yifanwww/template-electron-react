@@ -140,20 +140,6 @@ export function App() {
 }
 ```
 
-### `createTypedSelector`
-
-`createTypedSelector` is used to create a generic version of `useSelector`.
-
-```ts
-export const useTecraSelector = createTypedSelector<ITecraState>();
-```
-
-Then you can use `useTecraSelector` to create multiple selectors.
-
-```ts
-export const usePrepared = () => useMainSelector((state) => state.prepared);
-```
-
 ## Develop this package
 
 You need to build package `@tecra/scripts` before building or testing this package.

@@ -1,5 +1,5 @@
-import { createTypedSelector } from '@tecra/utils-redux';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
 import { IStoreState } from '../types';
 
-export const useMainSelector = createTypedSelector<IStoreState>();
+export const useMainSelector: TypedUseSelectorHook<IStoreState> = useSelector;

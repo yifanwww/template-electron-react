@@ -8,6 +8,6 @@ export type IThunk<ReturnType, State, ThunkArgs extends unknown[]> = (
     ...thunkArgs: ThunkArgs
 ) => ReturnType;
 
-export type IThunkClosure<ReturnType, State, ThunkArgs extends unknown[]> = ThunkArgs extends undefined
+export type IThunkActionWithArgs<ReturnType, State, ThunkArgs extends unknown[]> = ThunkArgs extends undefined
     ? () => IThunkAction<ReturnType, State>
     : (...thunkArgs: ThunkArgs) => IThunkAction<ReturnType, State>;

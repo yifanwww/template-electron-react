@@ -1,4 +1,3 @@
-export * from './createTypedSelector';
 export * from './omitUnderscorePrefixActions';
 export * from './thunkCreatorFactory';
 export * from './types.IDispatching';
