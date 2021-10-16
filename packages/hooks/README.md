@@ -18,6 +18,7 @@ React hooks for tecra.
 - `useIsMounted`
 - `useKey`
 - `useMount`
+- `usePersistFn`
 - `usePrevious`
 - `useSimpleInterval`
 - `useSimpleTimeout`

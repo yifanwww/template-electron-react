@@ -7,6 +7,9 @@ import { useRef } from 'react';
  *
  * If the value should ever change based on dependencies, use `React.useCallback` instead.
  *
+ * If the value should ever change based on dependencies but don't want to use `React.useMemo` or `React.useCallback`
+ * to wrap the dependencies, use `usePersistFn` instead.
+ *
  * @param initialFn Initial function.
  * @returns The function. The identity of this function will always be the same.
  */

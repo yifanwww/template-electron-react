@@ -19,3 +19,4 @@ export * from './useSimpleTimeout';
 export * from './useTimeout';
 export * from './useToggle';
 export * from './useUnmount';
+export * from './useWhyDidYouUpdate';
