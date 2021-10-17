@@ -66,7 +66,8 @@
         "packages/tsconfigs",
         "packages/utils-fluentui",
         "packages/utils-react",
-        "packages/utils-redux"
+        "packages/utils-redux",
+        "packages/utils-test"
     ],
     "dependencies": {
         "@fluentui/react": "^8.36.0",

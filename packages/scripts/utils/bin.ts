@@ -6,6 +6,7 @@ import { paths } from './paths';
 
 export function buildPackages(): void {
     const packagesOrder = [
+        '@tecra/utils-test',
         '@tecra/assets',
         '@tecra/hooks',
         '@tecra/utils-fluentui',

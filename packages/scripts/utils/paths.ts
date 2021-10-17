@@ -38,7 +38,7 @@ export const paths = {
     // test
 
     jestConfig: path.resolve(scripts, 'jest/jest.config.js'),
-    testSetup: path.resolve(scripts, 'jest/test.setup.ts'),
+    testSetup: path.resolve(packages, 'utils-test/src/setup.ts'),
     transforms: {
         babel: path.resolve(scripts, 'jest/transform.babel.js'),
         css: path.resolve(scripts, 'jest/transform.css.js'),

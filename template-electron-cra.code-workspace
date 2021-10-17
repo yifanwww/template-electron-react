@@ -159,6 +159,10 @@
         {
             "name": "@tecra/utils-redux",
             "path": "packages/utils-redux"
+        },
+        {
+            "name": "@tecra/utils-test",
+            "path": "packages/utils-test"
         }
     ]
 }

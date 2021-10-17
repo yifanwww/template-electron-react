@@ -7,7 +7,7 @@ import { renderHook } from '@testing-library/react-hooks';
  * @param useHookAgain If you want to verify that the return value doesn't change when hook parameters change,
  * you can pass this second callback which calls the hook differently.
  */
-function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
+export function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
     testDescription: string,
     useHook: () => TValues,
     useHookAgain?: () => TValues,
@@ -44,9 +44,3 @@ function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
         }
     });
 }
-
-function setupTest(): void {
-    global.validateHookValueNotChanged = validateHookValueNotChanged;
-}
-
-setupTest();
