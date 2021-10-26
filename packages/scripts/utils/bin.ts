@@ -4,9 +4,14 @@ import fs from 'fs';
 
 import { paths } from './paths';
 
+const genCommand = <T extends (string | false | undefined | null)[]>(...params: T) => params.filter(Boolean).join(' ');
+
 export function buildPackages(): void {
     const packagesOrder = [
+        /* ----- may be used by all other packages ----- */
         '@tecra/utils-test',
+
+        /* ----- product packages ----- */
         '@tecra/assets',
         '@tecra/hooks',
         '@tecra/utils-fluentui',
@@ -62,7 +67,7 @@ export function electronMain(): void {
 
     checkFlag('main', flag);
 
-    const command = ['webpack', '--config', paths.webpackMainConfig, '--mode', compilationMode[flag]].join(' ');
+    const command = genCommand('webpack', '--config', paths.webpackMainConfig, '--mode', compilationMode[flag]);
 
     const env = {
         ...process.env,
@@ -81,15 +86,13 @@ export function electronRenderer(): void {
 
     checkFlag('renderer', flag);
 
-    const command = [
+    const command = genCommand(
         'react-app-rewired',
         flag === 'dev' ? 'start' : 'build',
         '--config-overrides',
         paths.webpackRendererConfig,
         flag === 'build-profile' && '--profile',
-    ]
-        .filter(Boolean)
-        .join(' ');
+    );
 
     console.info(chalk.yellow(command));
     child.execSync(command, { stdio: 'inherit' });
@@ -109,9 +112,13 @@ export const runUnpacked = () => child.spawn(paths.unpacked, [], { cwd: paths.wo
 export function unitTest(watch: boolean): void {
     const isVerbose = process.argv.includes('--verbose');
 
-    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', isVerbose && '--verbose']
-        .filter(Boolean)
-        .join(' ');
+    const command = genCommand(
+        'jest',
+        '--config',
+        paths.jestConfig,
+        watch ? '--watch' : '--coverage',
+        isVerbose && '--verbose',
+    );
 
     const env = {
         ...process.env,

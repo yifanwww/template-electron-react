@@ -1,15 +1,40 @@
 # @tecra/utils-react
 
-React utils for tecra.
+A package that contains React utilities.
 
 ## Usage
-### `clns`
+### `renderFactory` && `defaultOnRender`
 
 ```tsx
-import { clns } from '@tecra/utils-react';
+import { defaultOnRender, renderFactory, RenderFn } from '@tecra/utils-react';
 
-function Component() {
-    return <div classNames={clns('class-a', 'class-b')} />;
+export interface IPageHeaderProps {
+    title: string;
+}
+
+export const PageHeader = (props: Readonly<IPageHeaderProps>) => (
+    <div>
+        {props.title}
+        {/* ... */}
+    </div>
+);
+
+const renderHeader = renderFactory(PageHeader);
+
+export interface IPageProps {
+    onRenderHeader?: RenderFn<IPageHeaderProps>;
+    title: string;
+}
+
+export function Page(props: Readonly<IPageProps>) {
+    const { onRenderHeader = defaultOnRender, title } = props;
+
+    return (
+        <div>
+            {onRenderHeader({ title }, renderHeader)}
+            {/* ... */}
+        </div>
+    );
 }
 ```
 
