@@ -1,3 +1,3 @@
-import { Assets } from './index';
+import * as exports from './index';
 
-test('Test exports of assets', () => expect(Assets).toMatchSnapshot());
+test('Test exports of assets', () => expect(exports).toMatchSnapshot());

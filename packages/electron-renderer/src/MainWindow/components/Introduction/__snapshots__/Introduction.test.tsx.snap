@@ -25,7 +25,6 @@ Array [
     >
       Learn template-electron-cra
     </a>
-    <p />
   </header>,
   <div
     className="appDetails"

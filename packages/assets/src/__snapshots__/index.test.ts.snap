@@ -2,6 +2,8 @@
 
 exports[`Test exports of assets 1`] = `
 Object {
-  "logo": "logo.svg",
+  "default": Object {
+    "logo": "logo.svg",
+  },
 }
 `;

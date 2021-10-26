@@ -1,13 +1,13 @@
 # @tecra/assets
 
-Assets for tecra.
+A package that contains assets.
 
 ## Usage
 
 It's very easy to use there assets.
 
 ```ts
-import { Assets } from '@tecra/assets';
+import Assets from '@tecra/assets';
 ```
 
 ## Develop this package

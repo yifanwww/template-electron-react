@@ -1,4 +1,4 @@
-import { Assets } from '@tecra/assets';
+import Assets from '@tecra/assets';
 import { IAppDetails } from '@tecra/electron-common';
 
 import scss from './Introduction.module.scss';
@@ -25,7 +25,6 @@ export function Introduction(props: Readonly<IIntroductionProps>): React.ReactEl
                 >
                     Learn template-electron-cra
                 </a>
-                <p />
             </header>
             <div className={scss.appDetails}>
                 <code>Name: {appDetails.name}</code>
