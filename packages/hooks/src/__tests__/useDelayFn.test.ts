@@ -1,9 +1,8 @@
 import { validateHookValueNotChanged } from '@tecra/utils-test';
 import { act, renderHook } from '@testing-library/react-hooks';
+import { noop } from 'ts-essentials';
 
 import { useDelayFn } from '../useDelayFn';
-
-const noop = () => {};
 
 describe(`Test react hook \`${useDelayFn.name}\``, () => {
     validateHookValueNotChanged('returns the same function', () => [useDelayFn(noop)]);

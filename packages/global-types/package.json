@@ -23,8 +23,8 @@
         "build": "skip-npm-script",
         "clean": "skip-npm-script",
         "format": "format-code",
-        "lint": "skip-npm-script",
-        "pre-commit": "skip-npm-script",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
         "test-coverage": "skip-npm-script"
     }
 }

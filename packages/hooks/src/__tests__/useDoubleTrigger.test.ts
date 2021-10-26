@@ -1,9 +1,8 @@
 import { validateHookValueNotChanged } from '@tecra/utils-test';
 import { act, renderHook } from '@testing-library/react-hooks';
+import { noop } from 'ts-essentials';
 
 import { useDoubleTrigger } from '../useDoubleTrigger';
-
-const noop = () => {};
 
 describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     validateHookValueNotChanged('returns the same function', () => [useDoubleTrigger(noop)]);
