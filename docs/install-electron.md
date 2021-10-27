@@ -1,4 +1,4 @@
-# Infos About The Installation Of Electron
+# Electron Installation
 
 When installing `electron` package, it will download a compressed pack, `electron-v15.0.0-win32-x64.zip`, directly from Github by its own download tool [electron/get]. It may take a long time if you do not have a fast network connection to Github.
 

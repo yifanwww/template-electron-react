@@ -1,4 +1,6 @@
-# How To Modify This Project Configurations
+# Modify This Project Configurations
+
+> TODO: Need Update
 
 There are some configuration scripts in this project:
 - `.eslintrc.json`: [.eslintrc.json](../.eslintrc.json)

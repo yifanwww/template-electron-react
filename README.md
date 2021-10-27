@@ -13,17 +13,17 @@ After you creating your own project, you need to rename the `template-electron-c
 
 ## More Information
 
-- If the installation of electron tooks too much time, or it fails to install electron, check out the [Infos About The Installation Of Electron].
-- Check out the [Information About NPM Scripts] to know how to use the existing `npm` scripts.
+- If the installation of electron tooks too much time, or it fails to install electron, check out the [Electron Installation].
+- Check out [NPM Scripts] to know how to use the `npm` scripts of this project.
 - You can learn more in the [Create React App documentation].
 - To learn React, check out the [React documentation].
-- To modify this project configurations, check out the [How To Modify This Project Configurations].
+- To modify this project configurations, check out [Modify This Project Configurations].
 
 <!-- link list -->
 
-[Create React App]: https://github.com/facebook/create-react-app
-[Infos About The Installation Of Electron]: ./docs/install-electron.md
-[Information About NPM Scripts]: ./docs/npm-scripts.md
-[Create React App documentation]: https://facebook.github.io/create-react-app/docs/getting-started
-[React documentation]: https://reactjs.org/
-[How To Modify This Project Configurations]: ./docs/modify-project-configurations.md
+[create react app]: https://github.com/facebook/create-react-app
+[electron installation]: ./docs/install-electron.md
+[npm scripts]: ./docs/npm-scripts.md
+[create react app documentation]: https://facebook.github.io/create-react-app/docs/getting-started
+[react documentation]: https://reactjs.org/
+[how to modify this project configurations]: ./docs/modify-project-configurations.md

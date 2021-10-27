@@ -3,10 +3,10 @@ import { IpcClient, WindowType } from '@tecra/electron-common';
 import { StrictMode, useEffect, useState } from 'react';
 import { render } from 'react-dom';
 
+import './index.css';
+
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
-
-import './index.css';
 
 function Window(): Optional<React.ReactElement> {
     const [type, setType] = useState<Optional<WindowType>>(null);
