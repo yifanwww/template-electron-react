@@ -1,0 +1,30 @@
+{
+    "name": "@tecra/utils-type",
+    "version": "0.7.0",
+    "description": "Type utilities.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "packages/utils-type"
+    },
+    "scripts": {
+        "build": "concurrently -n esm,types \"npm run build:esm\" \"npm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test-coverage": "skip-npm-script"
+    }
+}

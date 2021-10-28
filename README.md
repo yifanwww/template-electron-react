@@ -26,4 +26,4 @@ After you creating your own project, you need to rename the `template-electron-c
 [npm scripts]: ./docs/npm-scripts.md
 [create react app documentation]: https://facebook.github.io/create-react-app/docs/getting-started
 [react documentation]: https://reactjs.org/
-[how to modify this project configurations]: ./docs/modify-project-configurations.md
+[modify this project configurations]: ./docs/modify-project-configurations.md

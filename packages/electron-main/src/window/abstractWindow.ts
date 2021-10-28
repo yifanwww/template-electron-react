@@ -40,7 +40,6 @@ export abstract class AbstractWindow {
         if (process.env.NODE_ENV === 'production') {
             await this.window.loadFile(path.resolve(appPaths.src, 'index.html'));
         } else {
-            console.info('http://localhost:4321/');
             await this.window.loadURL('http://localhost:4321/');
         }
 

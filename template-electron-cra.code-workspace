@@ -163,6 +163,10 @@
         {
             "name": "@tecra/utils-test",
             "path": "packages/utils-test"
+        },
+        {
+            "name": "@tecra/utils-type",
+            "path": "packages/utils-type"
         }
     ]
 }

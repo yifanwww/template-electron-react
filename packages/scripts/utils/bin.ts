@@ -9,6 +9,7 @@ const genCommand = <T extends (string | false | undefined | null)[]>(...params: 
 export function buildPackages(): void {
     const packagesOrder = [
         /* ----- may be used by all other packages ----- */
+        '@tecra/utils-type',
         '@tecra/utils-test',
 
         /* ----- product packages ----- */

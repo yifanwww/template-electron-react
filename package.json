@@ -63,7 +63,8 @@
         "packages/utils-fluentui",
         "packages/utils-react",
         "packages/utils-redux",
-        "packages/utils-test"
+        "packages/utils-test",
+        "packages/utils-type"
     ],
     "dependencies": {
         "@fluentui/react": "^8.36.0",
