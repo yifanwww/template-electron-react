@@ -1,10 +1,48 @@
 import { FluentuiProvider } from '@tecra/utils-fluentui';
+import { useEffect } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router';
+import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 
-import { ClientArea } from './containers/ClientArea';
-import { mainActions, mainStore } from './redux';
+import { getPageInfo, homePageURL, pageURLs } from './containers/configs';
+import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from './redux';
+
+import scss from './index.module.scss';
+
+function ClientArea(): React.ReactElement {
+    const prepared = usePrepared();
+
+    const { prepare } = useMainDispatchingThunks();
+
+    useEffect(() => {
+        prepare();
+    }, [prepare]);
+
+    const getPageRoutes = () =>
+        pageURLs.map((pageURL) => {
+            const pageInfo = getPageInfo(pageURL);
+            return (
+                <Route key={pageURL} exact path={pageURL}>
+                    <pageInfo.component />
+                </Route>
+            );
+        });
+
+    return (
+        <div className={scss.clientArea}>
+            {prepared && (
+                <Switch>
+                    {getPageRoutes()}
+                    <Route key="/" path="/">
+                        <Redirect to={homePageURL} />
+                    </Route>
+                </Switch>
+            )}
+        </div>
+    );
+}
 
 const changeClientAreaSize = (size: IClientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(size));
 
@@ -13,9 +51,11 @@ export function MainWindow(): React.ReactElement {
         <FramelessWindow>
             <TitleBar onClientAreaSizeChange={changeClientAreaSize}>
                 <FluentuiProvider>
-                    <ReduxProvider store={mainStore}>
-                        <ClientArea />
-                    </ReduxProvider>
+                    <HashRouter>
+                        <ReduxProvider store={mainStore}>
+                            <ClientArea />
+                        </ReduxProvider>
+                    </HashRouter>
                 </FluentuiProvider>
             </TitleBar>
         </FramelessWindow>
