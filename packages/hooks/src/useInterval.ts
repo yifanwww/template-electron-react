@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useConst } from './useConst';
 import { useConstFn } from './useConstFn';
 
-export interface IUseIntervalUpdaters {
+export interface IUseIntervalActions {
     readonly setInterval: (callback: () => void, duration?: number) => number;
     readonly clearInterval: (id: number) => void;
 }
@@ -11,7 +11,7 @@ export interface IUseIntervalUpdaters {
 /**
  *  Returns a wrapper function for `setInterval` which automatically handles disposal.
  */
-export function useInterval(): IUseIntervalUpdaters {
+export function useInterval(): IUseIntervalActions {
     const intervalIds = useConst<Record<number, number>>({});
 
     // Cleanup function.

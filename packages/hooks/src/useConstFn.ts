@@ -15,9 +15,5 @@ import { useRef } from 'react';
  */
 export function useConstFn<T extends (...args: never[]) => unknown>(initialFn: T): T {
     // Use useRef to store the function because it's the least expensive built-in hook that works here.
-    const ref = useRef<T>();
-    if (ref.current === undefined) {
-        ref.current = initialFn;
-    }
-    return ref.current;
+    return useRef<T>(initialFn).current;
 }

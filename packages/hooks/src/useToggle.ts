@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 type IToggleState = string | number | boolean | undefined;
 
 /** Updater actions returned by `useToggle`. */
-export interface IUseToggleUpdaters<T = IToggleState> {
+export interface IUseToggleActions<T = IToggleState> {
     /** Set the value to the initial value. */
     readonly setLeft: () => void;
     /** Set the value to the reverse value. */
@@ -12,17 +12,17 @@ export interface IUseToggleUpdaters<T = IToggleState> {
     readonly toggle: (value?: T) => void;
 }
 
-export function useToggle<T = boolean | undefined>(): [boolean, IUseToggleUpdaters<T>];
-export function useToggle<T = IToggleState>(defaultValue: T): [T, IUseToggleUpdaters<T>];
+export function useToggle<T = boolean | undefined>(): [boolean, IUseToggleActions<T>];
+export function useToggle<T = IToggleState>(defaultValue: T): [T, IUseToggleActions<T>];
 export function useToggle<T = IToggleState, U = IToggleState>(
     defaultValue: T,
     reverseValue: U,
-): [T | U, IUseToggleUpdaters<T | U>];
+): [T | U, IUseToggleActions<T | U>];
 
 export function useToggle<I extends IToggleState = IToggleState, R extends IToggleState = IToggleState>(
     initialValue: I = false as I,
     reverseValue?: R,
-): [I | R, IUseToggleUpdaters<I | R>] {
+): [I | R, IUseToggleActions<I | R>] {
     const [value, setValue] = useState<I | R>(initialValue);
 
     const defaultReverseValue = (reverseValue === undefined ? !initialValue : reverseValue) as I | R;

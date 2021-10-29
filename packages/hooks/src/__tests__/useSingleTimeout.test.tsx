@@ -2,11 +2,11 @@ import { validateHookValueNotChanged } from '@tecra/utils-test';
 import { render } from '@testing-library/react';
 import { createRef, forwardRef, useImperativeHandle } from 'react';
 
-import { useSimpleTimeout } from '../useSimpleTimeout';
+import { useSingleTimeout } from '../useSingleTimeout';
 
-describe(`Test react hook \`${useSimpleTimeout.name}\``, () => {
+describe(`Test react hook \`${useSingleTimeout.name}\``, () => {
     validateHookValueNotChanged('returns the same callbacks each time', () => {
-        const { setTimeout, clearTimeout } = useSimpleTimeout();
+        const { setTimeout, clearTimeout } = useSingleTimeout();
         return [setTimeout, clearTimeout];
     });
 
@@ -26,7 +26,7 @@ describe(`Test react hook \`${useSimpleTimeout.name}\``, () => {
     });
 
     const TestComponent = forwardRef((props: unknown, ref: React.Ref<{ clearTimeout: () => void }>) => {
-        const { setTimeout, clearTimeout } = useSimpleTimeout();
+        const { setTimeout, clearTimeout } = useSingleTimeout();
 
         useImperativeHandle(ref, () => ({ clearTimeout }), [clearTimeout]);
 

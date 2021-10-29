@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
  *
  * @param callback Function to call during unmount.
  */
-export function useUnmount(callback: () => void) {
+export function useUnmount(callback: () => void): void {
     const unmountRef = useRef(callback);
 
     // Update the ref each render so that the latest callback will be invoked if it changes.

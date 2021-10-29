@@ -2,19 +2,19 @@ import { useEffect, useRef } from 'react';
 
 import { useConstFn } from './useConstFn';
 import { useForceUpdate } from './useForceUpdate';
-import { useSimpleInterval } from './useSimpleInterval';
+import { useSingleInterval } from './useSingleInterval';
 
 /**
  * @param countdown The unit is `second`. If the parameter `countdown` is less than `0`, will stop the countdown.
  */
-export type ISetCountdownUpdater = (countdown: number) => void;
+export type SetCountdown = (countdown: number) => void;
 
-export function useCountdown(): [Integer, ISetCountdownUpdater] {
+export function useCountdown(): [Integer, SetCountdown] {
     const targetTimeRef = useRef(0);
     const remainTimeRef = useRef(0);
 
     const forceUpdate = useForceUpdate();
-    const { clearInterval, setInterval } = useSimpleInterval();
+    const { clearInterval, setInterval } = useSingleInterval();
 
     const setCountdown = useConstFn((countdown: number) => {
         // Stop the countdown

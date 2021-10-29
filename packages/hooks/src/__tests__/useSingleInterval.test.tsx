@@ -2,13 +2,13 @@ import { validateHookValueNotChanged } from '@tecra/utils-test';
 import { render } from '@testing-library/react';
 import { createRef, forwardRef, useImperativeHandle } from 'react';
 
-import { useSimpleInterval } from '../useSimpleInterval';
+import { useSingleInterval } from '../useSingleInterval';
 
 const time = 10;
 
-describe(`Test react hook \`${useSimpleInterval.name}\``, () => {
+describe(`Test react hook \`${useSingleInterval.name}\``, () => {
     validateHookValueNotChanged('returns the same callbacks each time', () => {
-        const { setInterval, clearInterval } = useSimpleInterval();
+        const { setInterval, clearInterval } = useSingleInterval();
         return [setInterval, clearInterval];
     });
 
@@ -28,7 +28,7 @@ describe(`Test react hook \`${useSimpleInterval.name}\``, () => {
     });
 
     const TestComponent = forwardRef((props: unknown, ref: React.Ref<{ clearInterval: () => void }>) => {
-        const { setInterval, clearInterval } = useSimpleInterval();
+        const { setInterval, clearInterval } = useSingleInterval();
 
         useImperativeHandle(ref, () => ({ clearInterval }), [clearInterval]);
 

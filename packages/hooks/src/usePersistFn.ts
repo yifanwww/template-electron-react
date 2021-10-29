@@ -13,6 +13,5 @@ import { useConstFn } from './useConstFn';
 export function usePersistFn<T extends (...args: never[]) => unknown>(fn: T): T {
     const ref = useRef<T>(fn);
     ref.current = fn;
-
     return useConstFn((...args: never[]) => ref.current(...args)) as never;
 }
