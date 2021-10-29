@@ -1,10 +1,8 @@
-import { Digit, LowerAlpha, UpperAlpha } from './base';
-
-type ColorBit = LowerAlpha | UpperAlpha | Digit;
+import { HexDigit } from './base';
 
 type IsHexColorNumber<Color extends string, Position extends number> = Position extends 0
     ? true
-    : Color extends `${ColorBit}${infer R}`
+    : Color extends `${HexDigit}${infer R}`
     ? IsHexColorNumber<R, [-1, 0, 1, 2, 3, 4, 5][Position]>
     : false;
 
