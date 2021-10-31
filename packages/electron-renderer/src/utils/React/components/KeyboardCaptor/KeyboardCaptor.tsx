@@ -5,14 +5,13 @@ import scss from './KeyboardCaptor.module.scss';
 
 export type KeyboardCaptorHandler = UseKeyHandler;
 
-export interface IKeyboardCaptorProps {
-    children?: React.ReactElement;
+export interface IKeyboardCaptorProps extends IChildrenProps {
     targetKey?: Keyboard;
     type: KeyboardEventType;
     handler: KeyboardCaptorHandler;
 }
 
-export function KeyboardCaptor(props: Readonly<IKeyboardCaptorProps>): React.ReactElement {
+export function KeyboardCaptor(props: IKeyboardCaptorProps): React.ReactElement {
     const { children, handler, targetKey, type } = props;
 
     const ref = useRef<HTMLDivElement>(null);

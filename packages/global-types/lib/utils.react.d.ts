@@ -2,10 +2,6 @@ declare interface IChildrenProps {
     children?: React.ReactNode;
 }
 
-declare interface IChildrenElementProps {
-    children?: React.ReactElement;
-}
-
 declare type ReactStyleFunc<Args extends unknown[]> = (...args: Args) => React.CSSProperties;
 
 declare interface IClientAreaSize {

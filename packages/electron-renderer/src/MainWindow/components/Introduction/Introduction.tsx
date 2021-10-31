@@ -7,7 +7,7 @@ export interface IIntroductionProps {
     appDetails: IAppDetails;
 }
 
-export function Introduction(props: Readonly<IIntroductionProps>): React.ReactElement {
+export function Introduction(props: IIntroductionProps): React.ReactElement {
     const { appDetails } = props;
 
     return (

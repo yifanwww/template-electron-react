@@ -151,8 +151,10 @@ module.exports = {
         'react/destructuring-assignment': 'off',
         'react/jsx-one-expression-per-line': 'off',
         'react/jsx-props-no-spreading': 'off',
+        // Disable this rule because we only use Typescript to write components, no need to use `prop-types`
+        'react/prop-types': 'off',
         // https://github.com/yannickcr/eslint-plugin-react/blob/v7.25.1/docs/rules/react-in-jsx-scope.md
-        // Disables this rule for using new JSX transform from React 17.
+        // Disable this rule for using new JSX transform from React 17.
         'react/react-in-jsx-scope': 'off',
     },
     overrides: [

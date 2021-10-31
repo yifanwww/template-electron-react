@@ -12,7 +12,7 @@ export interface IPageHeaderProps {
     title: string;
 }
 
-export const PageHeader = (props: Readonly<IPageHeaderProps>) => (
+export const PageHeader = (props: IPageHeaderProps): React.ReactElement => (
     <div>
         {props.title}
         {/* ... */}
@@ -26,7 +26,7 @@ export interface IPageProps {
     title: string;
 }
 
-export function Page(props: Readonly<IPageProps>) {
+export function Page(props: IPageProps): React.ReactElement {
     const { onRenderHeader = defaultOnRender, title } = props;
 
     return (

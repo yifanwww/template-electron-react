@@ -13,7 +13,7 @@ describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
             title: string;
         }
 
-        function TestComponent(props: Readonly<IProps>) {
+        function TestComponent(props: IProps) {
             useWhyDidYouUpdate(TestComponent.name, props);
             return <div />;
         }
@@ -31,7 +31,7 @@ describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
             title: string;
         }
 
-        function TestComponent(props: Readonly<IProps>) {
+        function TestComponent(props: IProps) {
             useWhyDidYouUpdate(TestComponent.name, props);
             return <div />;
         }

@@ -43,7 +43,7 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
 
     test('returns previous value, no initial value', () => {
         const ref: IRef = { value: undefined };
-        function TestComponent({ value }: Readonly<IProps>) {
+        function TestComponent({ value }: IProps) {
             ref.value = usePrevious(value);
             return <div />;
         }
@@ -57,7 +57,7 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
 
     test('returns previous value, with initial value `null`', () => {
         const ref: IRef = { value: undefined };
-        function TestComponent({ value }: Readonly<IProps>) {
+        function TestComponent({ value }: IProps) {
             ref.value = usePrevious(value, null);
             return <div />;
         }
@@ -71,7 +71,7 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
 
     test('returns previous value, with initial value of same type', () => {
         const ref: IRef = { value: undefined };
-        function TestComponent({ value }: Readonly<IProps>) {
+        function TestComponent({ value }: IProps) {
             ref.value = usePrevious(value, 'initial value');
             return <div />;
         }
