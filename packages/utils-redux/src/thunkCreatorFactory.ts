@@ -1,10 +1,8 @@
-import { IThunk, IThunkAction, IThunkActionWithArgs } from './types.IThunk';
+import { ReduxThunkAction, ThunkFn, ThunkArgsAction } from './types';
 
-export function thunkCreatorFactory<State>() {
-    return function createThunk<ReturnType, ThunkArgs extends unknown[]>(
-        thunk: IThunk<ReturnType, State, ThunkArgs>,
-    ): IThunkActionWithArgs<ReturnType, State, ThunkArgs> {
-        function thunkWithArgs(...thunkArgs: ThunkArgs): IThunkAction<ReturnType, State> {
+export function thunkCreatorFactory<S>() {
+    return function createThunk<R, Args extends unknown[]>(thunk: ThunkFn<R, S, Args>): ThunkArgsAction<R, S, Args> {
+        function thunkWithArgs(...thunkArgs: Args): ReduxThunkAction<R, S> {
             return (dispatch, getState) => thunk(dispatch, getState, ...thunkArgs);
         }
 

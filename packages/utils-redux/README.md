@@ -3,18 +3,18 @@
 Redux utils for tecra.
 
 ## Usage
-### `IReducer`
+### `ReduxReducer`
 
 This type is used to create redux reducers in a simpler way.
 
 ```ts
-import { IReducer } from '@tecra/utils-redux';
+import { ReduxReducer } from '@tecra/utils-redux';
 
 export interface ITecraState {
     prepared: boolean;
 }
 
-type TecraReducer<Payload = undefined> = IReducer<ITecraState, Payload>;
+type TecraReducer<Payload = undefined> = ReduxReducer<ITecraState, Payload>;
 ```
 
 Then you can use `TecraReducer` to create your reducers.

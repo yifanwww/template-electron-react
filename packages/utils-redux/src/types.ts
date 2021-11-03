@@ -1,6 +1,28 @@
-import { ActionCreatorWithoutPayload, ActionCreatorWithPayload, PayloadAction } from '@reduxjs/toolkit';
+import {
+    ActionCreatorWithoutPayload,
+    ActionCreatorWithPayload,
+    AnyAction,
+    PayloadAction,
+    ThunkAction,
+    ThunkDispatch,
+} from '@reduxjs/toolkit';
+import { WritableDraft } from 'immer/dist/types/types-external';
 
-import { IThunk } from './types.IThunk';
+export type ReduxReducer<State, Payload> = (state: WritableDraft<State>, action: PayloadAction<Payload>) => void;
+
+// -------------------------------------------------------------------------------------------------------------- IThunk
+
+export type ReduxThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
+
+export type ThunkFn<ReturnType, State, ThunkArgs extends unknown[]> = (
+    dispatch: ThunkDispatch<State, never, AnyAction>,
+    getState: () => State,
+    ...thunkArgs: ThunkArgs
+) => ReturnType;
+
+export type ThunkArgsAction<ReturnType, State, ThunkArgs extends unknown[]> = ThunkArgs extends undefined
+    ? () => ReduxThunkAction<ReturnType, State>
+    : (...thunkArgs: ThunkArgs) => ReduxThunkAction<ReturnType, State>;
 
 // ------------------------------------------------------------------------------------------------- IDispatchingActions
 
@@ -24,7 +46,7 @@ export type IDispatchingActions<TActions extends IActions> = {
 // -------------------------------------------------------------------------------------------------- IDispatchingThunks
 
 export interface IThunks {
-    readonly [key: string]: (...args: never[]) => IThunk<unknown, never, never>;
+    readonly [key: string]: (...args: never[]) => ReduxThunkAction<unknown, never>;
 }
 
 // prettier-ignore

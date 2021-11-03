@@ -1,4 +1,4 @@
-import { IActions } from './types.IDispatching';
+import { IActions } from './types';
 
 export function omitUnderscorePrefixActions<T extends IActions>(internalActions: T): OmitUnderscorePrefix<T> {
     const actions: Record<string, Function> = {};
