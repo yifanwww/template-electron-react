@@ -1,3 +1,3 @@
-import { WritableDraft } from 'immer/dist/types/types-external';
+import { Draft } from 'immer';
 
-export type ReactImmerReducer<IContext, Action> = (state: WritableDraft<IContext>, action: Action) => void;
+export type ReactImmerReducer<State extends {}, Action> = (state: Draft<State>, action: Action) => void;

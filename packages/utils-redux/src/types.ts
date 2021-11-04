@@ -6,9 +6,9 @@ import {
     ThunkAction,
     ThunkDispatch,
 } from '@reduxjs/toolkit';
-import { WritableDraft } from 'immer/dist/types/types-external';
+import { Draft } from 'immer';
 
-export type ReduxReducer<State, Payload> = (state: WritableDraft<State>, action: PayloadAction<Payload>) => void;
+export type ReduxReducer<State extends {}, Payload> = (state: Draft<State>, action: PayloadAction<Payload>) => void;
 
 // -------------------------------------------------------------------------------------------------------------- IThunk
 

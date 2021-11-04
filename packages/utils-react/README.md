@@ -42,14 +42,9 @@ export function Page(props: IPageProps): React.ReactElement {
 
 ```tsx
 import { ReactImmerReducer } from '@tecra/utils-react';
-import produce from 'immer';
-import { useReducer } from 'react';
+import { useImmerReducer } from 'use-immer';
 
-export interface ITecraContext {
-    value1: number;
-    value2: string;
-}
-
+type ITecraContext = { value1: number; value2: string };
 type ITecraAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
 const reducer: ReactImmerReducer<ITecraContext, ITecraAction> = (state, action) => {
@@ -66,12 +61,11 @@ const reducer: ReactImmerReducer<ITecraContext, ITecraAction> = (state, action) 
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;
-            break;
     }
 };
 
 export function Component(): React.ReactElement {
-    const [context, dispatch] = useReducer(produce(reducer), { value1: 0, value2: '' });
+    const [context, dispatch] = useImmerReducer(reducer, { value1: 0, value2: '' });
 
     // do something
 
