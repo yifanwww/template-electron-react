@@ -1,16 +1,14 @@
-import { IPages, IPageInfo, PageURL } from 'src/MainWindow/common';
+import { genRouteInfos, RoutePath } from 'src/MainWindow/common/route';
 
 import { HomePage } from './HomePage';
 
-export const pages: IPages = {
-    '/home': {
+export const pages = genRouteInfos({
+    [RoutePath.HomePage]: {
         component: HomePage,
-        url: '/home',
+        exact: true,
     },
-};
+});
 
-export const pageURLs = Object.keys(pages) as PageURL[];
+export const pageRoutePaths = Object.keys(pages) as RoutePath[];
 
-export const homePageURL: PageURL = '/home';
-
-export const getPageInfo = (url: PageURL): IPageInfo => pages[url];
+export const getPageInfo = (path: RoutePath) => pages[path];

@@ -6,7 +6,8 @@ import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 
-import { getPageInfo, homePageURL, pageURLs } from './containers/configs';
+import { RoutePath } from './common/route';
+import { getPageInfo, pageRoutePaths } from './containers/configs';
 import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from './redux';
 
 import scss from './index.module.scss';
@@ -20,23 +21,22 @@ function ClientArea(): React.ReactElement {
         prepare();
     }, [prepare]);
 
-    const getPageRoutes = () =>
-        pageURLs.map((pageURL) => {
-            const pageInfo = getPageInfo(pageURL);
-            return (
-                <Route key={pageURL} exact path={pageURL}>
-                    <pageInfo.component />
-                </Route>
-            );
-        });
+    const pageRoutes = pageRoutePaths.map((path) => {
+        const pageInfo = getPageInfo(path)!;
+        return (
+            <Route key={path} exact={pageInfo.exact} path={path}>
+                <pageInfo.component />
+            </Route>
+        );
+    });
 
     return (
         <div className={scss.clientArea}>
             {prepared && (
                 <Switch>
-                    {getPageRoutes()}
+                    {pageRoutes}
                     <Route key="/" path="/">
-                        <Redirect to={homePageURL} />
+                        <Redirect to={RoutePath.HomePage} />
                     </Route>
                 </Switch>
             )}
