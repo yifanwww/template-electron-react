@@ -1,7 +1,7 @@
 import { FluentuiProvider } from '@tecra/utils-fluentui';
 import { useEffect } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { Redirect, Route, Switch } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
@@ -23,22 +23,16 @@ function ClientArea(): React.ReactElement {
 
     const pageRoutes = pageRoutePaths.map((path) => {
         const pageInfo = getPageInfo(path)!;
-        return (
-            <Route key={path} exact={pageInfo.exact} path={path}>
-                <pageInfo.component />
-            </Route>
-        );
+        return <Route key={path} path={pageInfo.deepMatch ? `${path}/*` : path} element={<pageInfo.component />} />;
     });
 
     return (
         <div className={scss.clientArea}>
             {prepared && (
-                <Switch>
+                <Routes>
                     {pageRoutes}
-                    <Route key="/" path="/">
-                        <Redirect to={RoutePath.HomePage} />
-                    </Route>
-                </Switch>
+                    <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
+                </Routes>
             )}
         </div>
     );

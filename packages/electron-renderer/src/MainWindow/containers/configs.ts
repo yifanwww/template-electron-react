@@ -5,7 +5,6 @@ import { HomePage } from './HomePage';
 export const pages = genRouteInfos({
     [RoutePath.HomePage]: {
         component: HomePage,
-        exact: true,
     },
 });
 
