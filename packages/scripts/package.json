@@ -20,7 +20,6 @@
         "electron-renderer": "bin/electron-renderer.js",
         "format-code": "bin/format-code.js",
         "mkdir-working": "bin/mkdir-working.js",
-        "post-install": "bin/post-install.js",
         "run-build": "bin/run-build.js",
         "run-unpacked": "bin/run-unpacked.js",
         "skip-npm-script": "bin/skip-npm-script.js",

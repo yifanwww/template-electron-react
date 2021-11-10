@@ -10,8 +10,7 @@
             ".eslintcache": "json",
             ".lintstagedrc": "json",
             ".stylelintcache": "json",
-            "electron-builder.json": "jsonc",
-            "pre-commit": "javascript"
+            "electron-builder.json": "jsonc"
         },
         "files.exclude": {
             "**/.DS_Store": true,
