@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { useUnmount } from '../useUnmount';
 
 describe(`Test react hook \`${useUnmount.name}\``, () => {
-    test('fires a callback', () => {
+    it('fires a callback', () => {
         const onUnmount = jest.fn();
 
         function TestComponent() {

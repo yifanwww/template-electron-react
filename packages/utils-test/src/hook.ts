@@ -12,7 +12,7 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
     useHook: () => TValues,
     useHookAgain?: () => TValues,
 ): void {
-    test(testDescription, () => {
+    it(testDescription, () => {
         let callCount = 0;
 
         function hookWrapper() {

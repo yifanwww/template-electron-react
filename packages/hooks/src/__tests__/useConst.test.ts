@@ -8,7 +8,7 @@ describe(`Test react hook \`${useConst.name}\``, () => {
 
     validateHookValueNotChanged('returns the same value with function initializer', () => [useConst(Math.random)]);
 
-    test('calls the function initializer only once', () => {
+    it('calls the function initializer only once', () => {
         const initializer = jest.fn(() => Math.random());
         const { rerender, result } = renderHook(() => useConst(initializer));
 
@@ -21,7 +21,7 @@ describe(`Test react hook \`${useConst.name}\``, () => {
         expect(initializer).toHaveBeenCalledTimes(1);
     });
 
-    test('works with a function initializer which returns undefined', () => {
+    it('works with a function initializer which returns undefined', () => {
         const initializer = jest.fn(() => undefined);
         const { rerender } = renderHook(() => useConst(initializer));
 

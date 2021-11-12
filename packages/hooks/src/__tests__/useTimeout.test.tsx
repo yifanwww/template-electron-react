@@ -44,7 +44,7 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
         return <div />;
     });
 
-    test('updates value when mounted', () => {
+    it('updates value when mounted', () => {
         render(<TestComponent />);
         expect(timesCalled).toStrictEqual(0);
 
@@ -55,7 +55,7 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
         expect(timesCalled).toStrictEqual(1);
     });
 
-    test('does not execute the timeout when unmounted', () => {
+    it('does not execute the timeout when unmounted', () => {
         const { unmount } = render(<TestComponent />);
         expect(timesCalled).toStrictEqual(0);
 
@@ -65,7 +65,7 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
         expect(timesCalled).toStrictEqual(0);
     });
 
-    test('can cancel timeout', () => {
+    it('can cancel timeout', () => {
         const ref = createRef<{ clearTimeout: () => void }>();
         render(<TestComponent ref={ref} />);
 

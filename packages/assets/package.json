@@ -25,7 +25,7 @@
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
-        "test": "unit-test",
-        "test-coverage": "unit-test"
+        "test": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
     }
 }

@@ -1,13 +1,14 @@
 import { validateHookValueNotChanged } from '@tecra/utils-test';
 import { act, render } from '@testing-library/react';
 import { useState } from 'react';
+import { noop } from 'ts-essentials';
 
 import { usePersistFn } from '../usePersistFn';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
-    validateHookValueNotChanged('returns the same callbacks', () => [usePersistFn(() => {})]);
+    validateHookValueNotChanged('returns the same callbacks', () => [usePersistFn(noop)]);
 
-    test('test non-persist fn triggered when trigger persist fn', () => {
+    it('calls the non-persist function', () => {
         let count: Optional<number> = null;
         let increaseCount: Optional<() => void> = null;
         expect(count).toBeNull();

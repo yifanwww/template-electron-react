@@ -14,7 +14,7 @@ describe(`Test react hook \`${useBoolean.name}\``, () => {
         return { value: result[0], ...result[1] };
     }
 
-    test('test initial value', () => {
+    it('returns initial value', () => {
         const { result: result1 } = renderHook(() => useBooleanWrapper());
         expect(result1.current.value).toBeFalsy();
 
@@ -25,7 +25,7 @@ describe(`Test react hook \`${useBoolean.name}\``, () => {
         expect(result3.current.value).toBeTruthy();
     });
 
-    test('updates the value', () => {
+    it('updates the value', () => {
         const { result } = renderHook(() => useBooleanWrapper(false));
 
         act(() => result.current.setTrue());

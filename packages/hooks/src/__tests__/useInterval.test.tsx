@@ -46,7 +46,7 @@ describe(`Test react hook \`${useInterval.name}\``, () => {
         return <div />;
     });
 
-    test('updates value when mounted', () => {
+    it('updates value when mounted', () => {
         render(<TestComponent />);
         expect(timesCalled).toStrictEqual(0);
 
@@ -57,7 +57,7 @@ describe(`Test react hook \`${useInterval.name}\``, () => {
         expect(timesCalled).toStrictEqual(2);
     });
 
-    test('does not execute the interval when unmounted', () => {
+    it('does not execute the interval when unmounted', () => {
         const { unmount } = render(<TestComponent />);
         expect(timesCalled).toStrictEqual(0);
 
@@ -67,7 +67,7 @@ describe(`Test react hook \`${useInterval.name}\``, () => {
         expect(timesCalled).toStrictEqual(0);
     });
 
-    test('can cancel intervals', () => {
+    it('can cancel intervals', () => {
         const ref = createRef<{ clearInterval: () => void }>();
         render(<TestComponent ref={ref} />);
 

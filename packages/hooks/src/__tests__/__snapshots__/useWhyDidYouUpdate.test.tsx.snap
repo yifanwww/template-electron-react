@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test react hook \`useWhyDidYouUpdate\` complex props 1`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 1`] = `
 Array [
   "[why-did-you-update] 'TestComponent' first render.",
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` complex props 2`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 2`] = `
 Array [
   "[why-did-you-update] 'TestComponent'",
   Object {
@@ -20,7 +20,7 @@ Array [
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` complex props 3`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 3`] = `
 Array [
   "[why-did-you-update] 'TestComponent'",
   Object {
@@ -41,7 +41,7 @@ Array [
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` complex props 4`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 4`] = `
 Array [
   "[why-did-you-update] 'TestComponent'",
   Object {
@@ -63,13 +63,13 @@ Array [
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` simple props 1`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 1`] = `
 Array [
   "[why-did-you-update] 'TestComponent' first render.",
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` simple props 2`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 2`] = `
 Array [
   "[why-did-you-update] 'TestComponent'",
   Object {
@@ -81,7 +81,7 @@ Array [
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` simple props 3`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 3`] = `
 Array [
   "[why-did-you-update] 'TestComponent'",
   Object {
@@ -93,7 +93,7 @@ Array [
 ]
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` simple props 4`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 4`] = `
 Array [
   "[why-did-you-update] 'TestComponent'",
   Object {

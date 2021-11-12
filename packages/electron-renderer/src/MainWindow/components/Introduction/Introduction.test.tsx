@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import { Introduction } from './Introduction';
 
 describe('Test component `Introduction`', () => {
-    test('renders', () => {
+    it('renders', () => {
         const appDetails: IAppDetails = {
             name: 'tecra',
             version: 'unknown',

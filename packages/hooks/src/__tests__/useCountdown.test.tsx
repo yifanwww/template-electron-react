@@ -42,7 +42,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         jest.spyOn(React, 'useState').mockImplementation(_useState as never);
     }
 
-    test('count down', () => {
+    it('rerenders while counting down', () => {
         spyOnUseState();
 
         let renderCount = 0;
@@ -72,7 +72,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         expect(renderCount).toBe(7);
     });
 
-    test('unmount while counting down', () => {
+    it('does not rerender after unmount', () => {
         spyOnUseState();
 
         let renderCount = 0;

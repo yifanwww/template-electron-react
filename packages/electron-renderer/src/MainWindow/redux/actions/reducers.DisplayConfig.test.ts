@@ -1,7 +1,7 @@
 import { getInitialState, _actions, _reducer } from './slice';
 
 describe('Test redux reducer `updateClientAreaSize`', () => {
-    test('updates client area size', () => {
+    it('updates client area size', () => {
         const prevState = getInitialState();
 
         expect(

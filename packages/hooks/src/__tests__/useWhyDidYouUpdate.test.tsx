@@ -7,7 +7,7 @@ beforeEach(() => {
 });
 
 describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
-    test('simple props', () => {
+    it('works with simple props', () => {
         interface IProps {
             fontSize: number | string;
             title: string;
@@ -24,7 +24,7 @@ describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
         rerender(<TestComponent fontSize="28px" title="new-title" />);
     });
 
-    test('complex props', () => {
+    it('works with complex props', () => {
         interface IProps {
             color: string;
             style?: React.CSSProperties;

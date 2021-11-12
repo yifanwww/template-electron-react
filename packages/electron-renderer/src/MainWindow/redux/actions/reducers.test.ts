@@ -2,7 +2,7 @@ import { IAppDetails } from '@tecra/electron-common';
 import { getInitialState, _actions, _reducer } from './slice';
 
 describe('Test redux reducer `_setAppDetails`', () => {
-    test('finishes preparing', () => {
+    it('updates app details', () => {
         const prevState = getInitialState();
 
         const appDetails: IAppDetails = {
@@ -21,7 +21,7 @@ describe('Test redux reducer `_setAppDetails`', () => {
 });
 
 describe('Test redux reducer `_finishPreparing`', () => {
-    test('finishes preparing', () => {
+    it('finishes preparing', () => {
         const prevState = getInitialState();
 
         expect(_reducer(prevState, _actions._finishPreparing()).prepared).toMatchSnapshot();

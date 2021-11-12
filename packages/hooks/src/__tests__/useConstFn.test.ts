@@ -6,9 +6,15 @@ import { useConstFn } from '../useConstFn';
 describe(`Test react hook \`${useConstFn.name}\``, () => {
     validateHookValueNotChanged('returns the same function', () => [useConstFn(() => 'hi')]);
 
-    test('does not call the callback', () => {
+    it('calls the function', () => {
         const fn = jest.fn(() => 'hi');
-        renderHook(() => useConstFn(fn));
+        const { result } = renderHook(() => useConstFn(fn));
         expect(fn).toHaveBeenCalledTimes(0);
+
+        result.current();
+        expect(fn).toHaveBeenCalledTimes(1);
+
+        result.current();
+        expect(fn).toHaveBeenCalledTimes(2);
     });
 });

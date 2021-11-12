@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { useIsHovered } from '../useIsHovered';
 
 describe(`Test react hook \`${useIsHovered.name}\``, () => {
-    test('test is hovered when hover event appears', () => {
+    it('returns whether the component is hovered', () => {
         let isHovered: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
         expect(isHovered).toBeTruthy();
     });
 
-    test('test if not enabled', () => {
+    it('does not work if disabled', () => {
         let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);

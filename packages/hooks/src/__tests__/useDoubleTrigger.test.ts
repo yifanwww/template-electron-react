@@ -32,7 +32,7 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
         dateTime = 1_000;
     });
 
-    test('trigger only once', () => {
+    it('triggers only once', () => {
         const fn = jest.fn(noop);
         const { result } = renderHook(() => useDoubleTrigger(fn, 100));
         expect(fn).toHaveBeenCalledTimes(0);
@@ -41,7 +41,7 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
         expect(fn).toHaveBeenCalledTimes(0);
     });
 
-    test('trigger multiple times', () => {
+    it('triggers multiple times', () => {
         const fn = jest.fn(noop);
         const { result } = renderHook(() => useDoubleTrigger(fn, 250));
         expect(fn).toHaveBeenCalledTimes(0);
@@ -62,7 +62,7 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
         expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    test('test with no delay function', () => {
+    it('works with no function', () => {
         const { result } = renderHook(() => useDoubleTrigger());
         act(() => result.current());
     });

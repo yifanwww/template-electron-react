@@ -16,7 +16,7 @@ beforeEach(() => {
 });
 
 describe('Test `LocalStorage`', () => {
-    test('no methods', () => {
+    it('has no method', () => {
         expect(Reflect.ownKeys(LocalStorage).length).toBe(3);
         expect(Reflect.ownKeys(new LocalStorage())).toStrictEqual([]);
     });

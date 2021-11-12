@@ -7,7 +7,7 @@ import { useForceUpdate } from '../useForceUpdate';
 describe(`Test react hook \`${useForceUpdate.name}\``, () => {
     validateHookValueNotChanged('returns the same callback each time', () => [useForceUpdate()]);
 
-    test('updates component when called', () => {
+    it('updates component when called', () => {
         let renderCount = 0;
         function TestComponent() {
             const forceUpdate = useForceUpdate();

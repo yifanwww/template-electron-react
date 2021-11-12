@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { useIsMounted } from '../useIsMounted';
 
 describe(`Test react hook \`${useIsMounted.name}\``, () => {
-    test('test is mounted after mounting and unmounting', () => {
+    it('returns whether the component is mounted', () => {
         let isMounted: Optional<React.MutableRefObject<boolean>> = null;
         function TestComponent() {
             isMounted = useIsMounted();

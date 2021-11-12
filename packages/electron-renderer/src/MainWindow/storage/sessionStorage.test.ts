@@ -16,7 +16,7 @@ beforeEach(() => {
 });
 
 describe('Test `SessionStorage`', () => {
-    test('no methods', () => {
+    it('has no method', () => {
         expect(Reflect.ownKeys(SessionStorage).length).toBe(3);
         expect(Reflect.ownKeys(new SessionStorage())).toStrictEqual([]);
     });

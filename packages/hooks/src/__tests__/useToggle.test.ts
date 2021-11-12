@@ -14,7 +14,7 @@ describe(`Test react hook \`${useToggle.name}\``, () => {
         return { value: result[0], ...result[1] };
     }
 
-    test('test initial value', () => {
+    it('returns initial value', () => {
         const { result: result1 } = renderHook(() => useToggleWrapper(false));
         expect(result1.current.value).toBeFalsy();
 
@@ -25,7 +25,7 @@ describe(`Test react hook \`${useToggle.name}\``, () => {
         expect(result3.current.value).toBe('hi');
     });
 
-    test('updates the boolean value', () => {
+    it('updates the boolean value', () => {
         const { result } = renderHook(() => useToggleWrapper(true));
 
         act(() => result.current.setLeft());
@@ -47,7 +47,7 @@ describe(`Test react hook \`${useToggle.name}\``, () => {
         expect(result.current.value).toBeTruthy();
     });
 
-    test('updates the string value', () => {
+    it('updates the string value', () => {
         const $true = 'true';
         const $false = 'false';
 

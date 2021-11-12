@@ -15,7 +15,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         jest.useRealTimers();
     });
 
-    test('trigger only once', () => {
+    it('triggers only once', () => {
         const fn = jest.fn(noop);
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
@@ -29,7 +29,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    test('trigger multiple times', () => {
+    it('triggers multiple times', () => {
         const fn = jest.fn(noop);
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
@@ -49,7 +49,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    test('test with no delay function', () => {
+    it('works with no delay function', () => {
         const { result } = renderHook(() => useDelayFn());
         act(() => result.current());
     });

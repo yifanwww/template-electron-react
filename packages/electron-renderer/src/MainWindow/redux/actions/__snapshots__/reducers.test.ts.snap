@@ -2,7 +2,7 @@
 
 exports[`Test redux reducer \`_finishPreparing\` finishes preparing 1`] = `true`;
 
-exports[`Test redux reducer \`_setAppDetails\` finishes preparing 1`] = `
+exports[`Test redux reducer \`_setAppDetails\` updates app details 1`] = `
 Object {
   "module": Object {
     "chrome": "unknown",

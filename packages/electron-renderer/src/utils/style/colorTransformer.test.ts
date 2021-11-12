@@ -3,8 +3,8 @@ import { ColorTransformer } from './colorTransformer';
 describe('Test class `ColorTransformer`', () => {
     type StaticMethods = ClassStaticMethods<typeof ColorTransformer>;
 
-    function _test(methodName: StaticMethods): void {
-        test(`test method '${methodName}'`, () => {
+    function _it(methodName: StaticMethods): void {
+        it(`tests method '${methodName}'`, () => {
             if (methodName === 'translucent') {
                 expect(ColorTransformer[methodName]('#123456', '78')).toBe('#12345678');
             } else {
@@ -15,5 +15,5 @@ describe('Test class `ColorTransformer`', () => {
 
     Reflect.ownKeys(ColorTransformer)
         .filter((method): method is StaticMethods => typeof method === 'string' && method.startsWith('translucent'))
-        .forEach(_test);
+        .forEach(_it);
 });
