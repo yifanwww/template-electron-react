@@ -1,4 +1,6 @@
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
+
+import { useSingleTimeout } from './useSingleTimeout';
 
 /**
  * Hook to generate a delayed execution function.
@@ -10,23 +12,18 @@ import { useCallback, useRef } from 'react';
  * @returns The trigger.
  */
 export function useDelayFn<T extends UnknownFn>(fn?: T, delay: number = 1000): T {
-    const timeoutIdRef = useRef<number>();
+    const { clearTimeout, setTimeout } = useSingleTimeout();
 
-    const trigger = useCallback(
+    const _fn = useCallback(
         (...args: never[]) => {
-            if (timeoutIdRef.current) {
-                clearTimeout(timeoutIdRef.current);
-            }
+            clearTimeout();
 
             if (fn) {
-                timeoutIdRef.current = setTimeout(() => {
-                    timeoutIdRef.current = undefined;
-                    fn(...args);
-                }, delay) as unknown as number;
+                setTimeout(() => fn(...args), delay) as unknown as number;
             }
         },
-        [delay, fn],
+        [clearTimeout, delay, fn, setTimeout],
     );
 
-    return trigger as T;
+    return _fn as T;
 }

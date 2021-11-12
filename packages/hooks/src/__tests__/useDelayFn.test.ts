@@ -53,4 +53,20 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         const { result } = renderHook(() => useDelayFn());
         act(() => result.current());
     });
+
+    it('does not execute fn after unmount', () => {
+        const fn = jest.fn(noop);
+        const { result, unmount } = renderHook(() => useDelayFn(fn, 500));
+
+        act(() => result.current());
+        expect(fn).toHaveBeenCalledTimes(0);
+
+        jest.advanceTimersByTime(250);
+        unmount();
+        jest.advanceTimersByTime(250);
+
+        expect(fn).toHaveBeenCalledTimes(0);
+        jest.advanceTimersByTime(100);
+        expect(fn).toHaveBeenCalledTimes(0);
+    });
 });
