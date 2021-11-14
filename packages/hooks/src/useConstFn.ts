@@ -13,7 +13,7 @@ import { useRef } from 'react';
  * @param initialFn Initial function.
  * @returns The function. The identity of this function will always be the same.
  */
-export function useConstFn<T extends (...args: never[]) => unknown>(initialFn: T): T {
+export function useConstFn<T extends UnknownFn>(initialFn: T): T {
     // Use useRef to store the function because it's the least expensive built-in hook that works here.
     return useRef<T>(initialFn).current;
 }

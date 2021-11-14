@@ -8,7 +8,12 @@ declare global {
 
     type Integer = number;
 
+    type AnyFn = (...args: unknown[]) => unknown;
+    type UnknownFn = (...args: never[]) => unknown;
+
     /* ----- Type Utils ----- */
+
+    type Optional<T> = T | null;
 
     /**
      * TypeScript type to return a deep partial object (each property can be undefined, recursively).
@@ -34,8 +39,6 @@ declare global {
      * TypeScript type to return a deep writable object (each property is not readonly, recursively).
      */
     type DeepWritable<T> = TS.DeepWritable<T>;
-
-    type Optional<T> = T | null;
 
     type Merge<M, N> = TS.Merge<M, N>;
 
@@ -100,4 +103,6 @@ declare global {
      * the result of `PickProp<Props, 'b'>` is not `string | undefined` but `string`.
      */
     type PickProp<P, K extends keyof P> = NonNullable<P[K]>;
+
+    type VoidReturn<T extends UnknownFn> = (...args: Parameters<T>) => void;
 }
