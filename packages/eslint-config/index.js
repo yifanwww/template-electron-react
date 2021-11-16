@@ -10,7 +10,7 @@ module.exports = {
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
     plugins: [
         '@typescript-eslint',
-        'deprecation',
+        // 'deprecation',
         'import',
         'jest',
         'jsx-a11y',
@@ -22,6 +22,7 @@ module.exports = {
     rules: {
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
+        'default-param-last': 'off',
         // Disable this rule and use rule `prettier/prettier` instead.
         'function-paren-newline': 'off',
         'guard-for-in': 'off',
@@ -96,11 +97,11 @@ module.exports = {
                 format: ['camelCase', 'PascalCase'],
                 leadingUnderscore: 'allow',
             },
-            { selector: 'interface', format: ['PascalCase'] },
+            { selector: 'interface', format: ['PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
-            { selector: 'typeAlias', format: ['PascalCase'] },
+            { selector: 'typeAlias', format: ['PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'typeParameter', format: ['PascalCase'] },
             {
                 selector: 'variable',
@@ -134,7 +135,8 @@ module.exports = {
         // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/best-practices.js#L264
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
-        'deprecation/deprecation': 'warn',
+        // `eslint-plugin-deprecation` does not support ESLint v8 yet, we can enable it when it supports ESLint v8.
+        // 'deprecation/deprecation': 'warn',
 
         'import/extensions': 'off',
         'import/no-cycle': 'error',
@@ -149,6 +151,8 @@ module.exports = {
         'prettier/prettier': 'error',
 
         'react/destructuring-assignment': 'off',
+        'react/function-component-definition': 'off',
+        'react/jsx-no-useless-fragment': 'off',
         'react/jsx-one-expression-per-line': 'off',
         'react/jsx-props-no-spreading': 'off',
         // Disable this rule because we only use Typescript to write components, no need to use `prop-types`
