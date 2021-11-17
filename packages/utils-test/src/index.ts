@@ -1,9 +1,12 @@
-import * as TestHook from './hook';
+import * as UtilsForHook from './hook';
+import * as UtilsForStorage from './storage';
 
 export * from './hook';
+export * from './storage';
 
 const Test = {
-    ...TestHook,
+    ...UtilsForHook,
+    ...UtilsForStorage,
 };
 
 // eslint-disable-next-line import/no-default-export
