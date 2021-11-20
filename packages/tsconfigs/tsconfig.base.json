@@ -2,6 +2,8 @@
 {
     "compilerOptions": {
         "allowJs": false,
+        // This option must be enabled explicitly for the need of `react-scripts`, even though it's enabled via `esModuleInterop` implicitly.
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "incremental": true,
