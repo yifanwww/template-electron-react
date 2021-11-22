@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import { useConstFn } from './useConstFn';
 
-export interface IUseSingleIntervalActions {
+export interface UseSingleIntervalActions {
     readonly isWorking: () => boolean;
     readonly setInterval: (callback: () => void, duration?: number) => void;
     readonly clearInterval: () => void;
@@ -11,7 +11,7 @@ export interface IUseSingleIntervalActions {
 /**
  *  Returns a simple wrapper function for `setInterval` which automatically handles disposal.
  */
-export function useSingleInterval(): IUseSingleIntervalActions {
+export function useSingleInterval(): UseSingleIntervalActions {
     const intervalIdRef = useRef<number>();
 
     // Cleanup function.

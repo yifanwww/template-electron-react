@@ -3,16 +3,16 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import { usePrevious } from '../usePrevious';
 
-interface IProps {
+interface Props {
     value: string;
 }
 
-interface IRef {
+interface Ref {
     value: unknown;
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-function testMultiRerender(Component: React.FunctionComponent<IProps>, ref: IRef, rerender: RenderResult['rerender']) {
+function testMultiRerender(Component: React.FunctionComponent<Props>, ref: Ref, rerender: RenderResult['rerender']) {
     rerender(<Component value="2" />);
     expect(ref.value).toBe('1');
 
@@ -42,8 +42,8 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
     });
 
     it('returns previous value with no initial value', () => {
-        const ref: IRef = { value: undefined };
-        function TestComponent({ value }: IProps) {
+        const ref: Ref = { value: undefined };
+        function TestComponent({ value }: Props) {
             ref.value = usePrevious(value);
             return <div />;
         }
@@ -56,8 +56,8 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
     });
 
     it('returns previous value with initial value `null`', () => {
-        const ref: IRef = { value: undefined };
-        function TestComponent({ value }: IProps) {
+        const ref: Ref = { value: undefined };
+        function TestComponent({ value }: Props) {
             ref.value = usePrevious(value, null);
             return <div />;
         }
@@ -70,8 +70,8 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
     });
 
     it('returns previous value with initial value of the same type', () => {
-        const ref: IRef = { value: undefined };
-        function TestComponent({ value }: IProps) {
+        const ref: Ref = { value: undefined };
+        function TestComponent({ value }: Props) {
             ref.value = usePrevious(value, 'initial value');
             return <div />;
         }

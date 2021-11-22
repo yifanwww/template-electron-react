@@ -1,6 +1,6 @@
-import { IActions } from './types';
+import { ReduxActions } from './types';
 
-export function omitUnderscorePrefixActions<T extends IActions>(internalActions: T): OmitUnderscorePrefix<T> {
+export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {
     const actions: Record<string, Function> = {};
 
     for (const key in internalActions) {

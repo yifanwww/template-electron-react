@@ -10,11 +10,11 @@ This type is used to create redux reducers in a simpler way.
 ```ts
 import { ReduxReducer } from '@tecra/utils-redux';
 
-export interface ITecraState {
+export interface TecraState {
     prepared: boolean;
 }
 
-type TecraReducer<Payload = undefined> = ReduxReducer<ITecraState, Payload>;
+type TecraReducer<Payload = undefined> = ReduxReducer<TecraState, Payload>;
 ```
 
 Then you can use `TecraReducer` to create your reducers.
@@ -34,7 +34,7 @@ This function is used to avoid using the internal reducers in react components.
 ```ts
 import { omitUnderscorePrefixActions } from '@tecra/utils-redux';
 
-const getInitialState = (): ITecraState => ({ prepared: false });
+const getInitialState = (): TecraState => ({ prepared: false });
 
 const slice = createSlice({
     name: 'tecra',
@@ -63,7 +63,7 @@ First, you need to create a creator by using this factory `thunkCreatorFactory`.
 ```ts
 import { thunkCreatorFactory } from '@tecra/utils-redux';
 
-export const createTecraThunk = thunkCreatorFactory<ITecraState>();
+export const createTecraThunk = thunkCreatorFactory<TecraState>();
 ```
 
 Then you can use this creator to create asynchronous middlewares.

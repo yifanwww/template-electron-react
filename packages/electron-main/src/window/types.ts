@@ -1,22 +1,22 @@
 import { WindowType } from '@tecra/electron-common';
 
-export interface ICreateWindowOption {
+export interface CreateWindowOption {
     windowType: WindowType;
     height?: number;
     width?: number;
 }
 
-export interface ICloseWindowOption {
+export interface CloseWindowOption {
     windowId: string;
 }
 
-export interface IWindowOption {
+export interface WindowOption {
     windowId: string;
     height?: number;
     width?: number;
-    onClose: (option: ICloseWindowOption) => Promise<void>;
+    onClose: (option: CloseWindowOption) => Promise<void>;
 }
 
-export interface IAbstractWindowOption extends IWindowOption {
+export interface AbstractWindowOption extends WindowOption {
     windowType: WindowType;
 }

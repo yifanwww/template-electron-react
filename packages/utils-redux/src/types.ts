@@ -10,7 +10,7 @@ import { Draft } from 'immer';
 
 export type ReduxReducer<State extends {}, Payload> = (state: Draft<State>, action: PayloadAction<Payload>) => void;
 
-// -------------------------------------------------------------------------------------------------------------- IThunk
+// ----------------------------------------------------------------------------------------------------- ThunkArgsAction
 
 export type ReduxThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
@@ -24,9 +24,9 @@ export type ThunkArgsAction<ReturnType, State, ThunkArgs extends unknown[]> = Th
     ? () => ReduxThunkAction<ReturnType, State>
     : (...thunkArgs: ThunkArgs) => ReduxThunkAction<ReturnType, State>;
 
-// ------------------------------------------------------------------------------------------------- IDispatchingActions
+// -------------------------------------------------------------------------------------------------- DispatchingActions
 
-export interface IActions {
+export interface ReduxActions {
     readonly [key: string]: ActionCreator;
 }
 
@@ -39,18 +39,18 @@ type DispatchAction<TAction extends ActionCreator> = TAction extends ActionCreat
     ? () => ReturnType<TAction>
     : (payload: PayloadInAction<TAction>) => ReturnType<TAction>;
 
-export type IDispatchingActions<TActions extends IActions> = {
+export type DispatchingActions<TActions extends ReduxActions> = {
     readonly [ReducerName in keyof TActions]: DispatchAction<TActions[ReducerName]>;
 };
 
-// -------------------------------------------------------------------------------------------------- IDispatchingThunks
+// --------------------------------------------------------------------------------------------------- DispatchingThunks
 
-export interface IThunks {
+export interface ReduxThunks {
     readonly [key: string]: (...args: never[]) => ReduxThunkAction<unknown, never>;
 }
 
 // prettier-ignore
-export type IDispatchingThunks<TThunks extends IThunks> = {
+export type DispatchingThunks<TThunks extends ReduxThunks> = {
     readonly [ThunkName in keyof TThunks]:
         (...args: Parameters<TThunks[ThunkName]>) => ReturnType<ReturnType<TThunks[ThunkName]>>;
 };

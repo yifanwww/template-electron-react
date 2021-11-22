@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { omitUnderscorePrefixActions } from '@tecra/utils-redux';
 
-import { IStoreState } from '../types';
+import { StoreState } from '../types';
 import { _finishPreparing, _setAppDetails } from './reducers';
 import { updateClientAreaSize } from './reducers.DisplayConfig';
 
-export function getInitialState(): IStoreState {
+export function getInitialState(): StoreState {
     return {
         appDetails: null as never,
         displayConfig: {

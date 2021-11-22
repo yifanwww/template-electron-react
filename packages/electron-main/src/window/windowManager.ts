@@ -1,16 +1,16 @@
 import { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
-import { ICloseWindowOption, ICreateWindowOption } from './types';
+import { CloseWindowOption, CreateWindowOption } from './types';
 
-interface IWindowStore {
+interface WindowStore {
     [id: string]: Optional<AbstractWindow>;
 }
 
 export class WindowManager {
     private count: number = 0;
-    private store: IWindowStore = {};
+    private store: WindowStore = {};
 
-    public createWindow = async (option: ICreateWindowOption): Promise<void> => {
+    public createWindow = async (option: CreateWindowOption): Promise<void> => {
         this.count++;
 
         const { windowType } = option;
@@ -35,7 +35,7 @@ export class WindowManager {
         this.store[windowId]!.show();
     };
 
-    private closeWindow = async (option: ICloseWindowOption): Promise<void> => {
+    private closeWindow = async (option: CloseWindowOption): Promise<void> => {
         const { windowId } = option;
 
         this.store[windowId] = null;

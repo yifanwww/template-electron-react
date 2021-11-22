@@ -1,6 +1,6 @@
 import { ipcRenderer } from 'electron';
 
-import { IAppDetails, WindowType } from '../type';
+import { AppDetails, WindowType } from '../type';
 import { IpcChannels } from './channels';
 
 const ipcRendererFactory = {
@@ -11,6 +11,6 @@ const ipcRendererFactory = {
 
 export class IpcClient {
     public static createWindow = ipcRendererFactory.invoke<void, [windowType: WindowType]>(IpcChannels.CreateWindow);
-    public static getAppDetails = ipcRendererFactory.invoke<IAppDetails, []>(IpcChannels.GetAppDetails);
+    public static getAppDetails = ipcRendererFactory.invoke<AppDetails, []>(IpcChannels.GetAppDetails);
     public static getWindowType = ipcRendererFactory.invoke<WindowType, []>(IpcChannels.GetWindowType);
 }

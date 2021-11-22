@@ -1,6 +1,6 @@
 import { ipcMain, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-import { IAppDetails, WindowType } from '../type';
+import { AppDetails, WindowType } from '../type';
 import { IpcChannels } from './channels';
 import { IpcMainHandler, IpcMainListener } from './types';
 
@@ -19,14 +19,14 @@ const ipcMainFactory = {
     },
 };
 
-interface IListeners {
+interface Listeners {
     [channel: string]: (...args: unknown[]) => never;
 }
 
 export class IpcServer {
     private readonly _windowId: number;
 
-    private _listeners: IListeners = {};
+    private _listeners: Listeners = {};
 
     public constructor(windowId: number) {
         this._windowId = windowId;
@@ -85,7 +85,7 @@ export class IpcServer {
     }
 
     public static handleCreateWindow = ipcMainFactory.handle<void, [windowType: WindowType]>(IpcChannels.CreateWindow);
-    public static handleGetAppDetails = ipcMainFactory.handle<IAppDetails, []>(IpcChannels.GetAppDetails);
+    public static handleGetAppDetails = ipcMainFactory.handle<AppDetails, []>(IpcChannels.GetAppDetails);
 
     public handleGetWindowType = this._handleFactory<WindowType, []>(IpcChannels.GetWindowType);
 }

@@ -10,7 +10,6 @@ export * from './useInterval';
 export * from './useIsFocused';
 export * from './useIsHovered';
 export * from './useIsMounted';
-export * from './useKey';
 export * from './useMount';
 export * from './usePersistFn';
 export * from './usePrevious';

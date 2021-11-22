@@ -8,12 +8,12 @@ beforeEach(() => {
 
 describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
     it('works with simple props', () => {
-        interface IProps {
+        interface Props {
             fontSize: number | string;
             title: string;
         }
 
-        function TestComponent(props: IProps) {
+        function TestComponent(props: Props) {
             useWhyDidYouUpdate(TestComponent.name, props);
             return <div />;
         }
@@ -25,13 +25,13 @@ describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
     });
 
     it('works with complex props', () => {
-        interface IProps {
+        interface Props {
             color: string;
             style?: React.CSSProperties;
             title: string;
         }
 
-        function TestComponent(props: IProps) {
+        function TestComponent(props: Props) {
             useWhyDidYouUpdate(TestComponent.name, props);
             return <div />;
         }

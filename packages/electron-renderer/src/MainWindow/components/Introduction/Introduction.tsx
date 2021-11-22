@@ -1,13 +1,13 @@
 import Assets from '@tecra/assets';
-import { IAppDetails } from '@tecra/electron-common';
+import { AppDetails } from '@tecra/electron-common';
 
 import scss from './Introduction.module.scss';
 
-export interface IIntroductionProps {
-    appDetails: IAppDetails;
+export interface IntroductionProps {
+    appDetails: AppDetails;
 }
 
-export function Introduction(props: IIntroductionProps): React.ReactElement {
+export function Introduction(props: IntroductionProps): React.ReactElement {
     const { appDetails } = props;
 
     return (

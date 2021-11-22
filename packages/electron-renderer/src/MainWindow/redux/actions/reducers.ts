@@ -1,7 +1,7 @@
-import { IAppDetails } from '@tecra/electron-common';
+import { AppDetails } from '@tecra/electron-common';
 import { MainReducer } from '../types';
 
-export const _setAppDetails: MainReducer<IAppDetails> = (state, action) => {
+export const _setAppDetails: MainReducer<AppDetails> = (state, action) => {
     state.appDetails = action.payload;
 };
 

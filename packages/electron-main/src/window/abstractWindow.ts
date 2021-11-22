@@ -4,18 +4,18 @@ import path from 'path';
 
 import { appPaths } from 'src/appPaths';
 
-import { IAbstractWindowOption, ICloseWindowOption } from './types';
+import { AbstractWindowOption, CloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
     protected readonly window: BrowserWindow;
     protected readonly windowType: WindowType;
     protected readonly windowId: string;
 
-    private readonly onClose: (option: ICloseWindowOption) => Promise<void>;
+    private readonly onClose: (option: CloseWindowOption) => Promise<void>;
 
     protected readonly _ipcServer: IpcServer;
 
-    public constructor(option: IAbstractWindowOption) {
+    public constructor(option: AbstractWindowOption) {
         this.windowId = option.windowId;
         this.windowType = option.windowType;
 

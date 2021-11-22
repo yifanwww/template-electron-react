@@ -1,11 +1,11 @@
-import { IAppDetails } from '@tecra/electron-common';
+import { AppDetails } from '@tecra/electron-common';
 import { getInitialState, _actions, _reducer } from './slice';
 
 describe('Test redux reducer `_setAppDetails`', () => {
     it('updates app details', () => {
         const prevState = getInitialState();
 
-        const appDetails: IAppDetails = {
+        const appDetails: AppDetails = {
             name: 'tecra',
             version: 'unknown',
             module: {

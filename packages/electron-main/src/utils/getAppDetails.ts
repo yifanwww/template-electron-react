@@ -1,9 +1,9 @@
-import { IAppDetails } from '@tecra/electron-common';
+import { AppDetails } from '@tecra/electron-common';
 import { app } from 'electron';
 
-let appDetails: Optional<IAppDetails> = null;
+let appDetails: Optional<AppDetails> = null;
 
-export function getAppDetails(): IAppDetails {
+export function getAppDetails(): AppDetails {
     if (appDetails === null) {
         appDetails = {
             name: app.getName(),

@@ -1,14 +1,14 @@
-import { IAppDetails } from '@tecra/electron-common';
+import { AppDetails } from '@tecra/electron-common';
 import { ReduxReducer } from '@tecra/utils-redux';
 
-interface IDisplayConfig {
-    clientAreaSize: IClientAreaSize;
+interface DisplayConfig {
+    clientAreaSize: ClientAreaSize;
 }
 
-export interface IStoreState {
-    appDetails: IAppDetails;
-    displayConfig: IDisplayConfig;
+export interface StoreState {
+    appDetails: AppDetails;
+    displayConfig: DisplayConfig;
     prepared: boolean;
 }
 
-export type MainReducer<Payload = undefined> = ReduxReducer<IStoreState, Payload>;
+export type MainReducer<Payload = undefined> = ReduxReducer<StoreState, Payload>;

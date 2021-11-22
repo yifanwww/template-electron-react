@@ -38,7 +38,7 @@ function ClientArea(): React.ReactElement {
     );
 }
 
-const changeClientAreaSize = (size: IClientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(size));
+const changeClientAreaSize = (size: ClientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(size));
 
 export function MainWindow(): React.ReactElement {
     return (

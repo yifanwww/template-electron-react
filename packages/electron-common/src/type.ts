@@ -1,6 +1,6 @@
 export type WindowType = 'main';
 
-export interface IAppDetails {
+export interface AppDetails {
     name: string;
     version: string;
     release?: {

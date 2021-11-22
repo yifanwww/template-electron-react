@@ -2,23 +2,20 @@ export enum RoutePath {
     HomePage = '/home',
 }
 
-export interface IRouteInfo {
+export interface RouteInfo {
     component: React.ComponentType;
     deepMatch?: boolean;
     path: RoutePath;
 }
 
-export type IPartialRouteInfos = {
-    [Path in RoutePath]?: Omit<IRouteInfo, 'path'>;
+export type RouteInfos = {
+    [Path in RoutePath]?: RouteInfo;
 };
 
-export type IRouteInfos = {
-    [Path in RoutePath]?: IRouteInfo;
-};
-
-export function genRouteInfos(routes: IPartialRouteInfos): IRouteInfos {
-    for (const path of Object.keys(routes) as RoutePath[]) {
-        (routes as IRouteInfos)[path]!.path = path;
+export function genRouteInfos(routes: RouteInfo[]): RouteInfos {
+    const infos: RouteInfos = {};
+    for (const route of routes) {
+        infos[route.path] = route;
     }
-    return routes as IRouteInfos;
+    return infos;
 }

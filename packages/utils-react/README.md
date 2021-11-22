@@ -8,11 +8,11 @@ A package that contains React utilities.
 ```tsx
 import { defaultOnRender, renderFactory, RenderFn } from '@tecra/utils-react';
 
-export interface IPageHeaderProps {
+export interface PageHeaderProps {
     title: string;
 }
 
-export const PageHeader = (props: IPageHeaderProps): React.ReactElement => (
+export const PageHeader = (props: PageHeaderProps): React.ReactElement => (
     <div>
         {props.title}
         {/* ... */}
@@ -21,12 +21,12 @@ export const PageHeader = (props: IPageHeaderProps): React.ReactElement => (
 
 const renderHeader = renderFactory(PageHeader);
 
-export interface IPageProps {
-    onRenderHeader?: RenderFn<IPageHeaderProps>;
+export interface PageProps {
+    onRenderHeader?: RenderFn<PageHeaderProps>;
     title: string;
 }
 
-export function Page(props: IPageProps): React.ReactElement {
+export function Page(props: PageProps): React.ReactElement {
     const { onRenderHeader = defaultOnRender, title } = props;
 
     return (
@@ -44,10 +44,10 @@ export function Page(props: IPageProps): React.ReactElement {
 import { ReactImmerReducer } from '@tecra/utils-react';
 import { useImmerReducer } from 'use-immer';
 
-type ITecraContext = { value1: number; value2: string };
-type ITecraAction = { type: 'value1' } | { type: 'value2'; payload: string };
+type TecraContext = { value1: number; value2: string };
+type TecraAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
-const reducer: ReactImmerReducer<ITecraContext, ITecraAction> = (state, action) => {
+const reducer: ReactImmerReducer<TecraContext, TecraAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'value1':

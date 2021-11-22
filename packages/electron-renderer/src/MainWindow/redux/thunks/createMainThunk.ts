@@ -1,5 +1,5 @@
 import { thunkCreatorFactory } from '@tecra/utils-redux';
 
-import { IStoreState } from '../types';
+import { StoreState } from '../types';
 
-export const createMainThunk = thunkCreatorFactory<IStoreState>();
+export const createMainThunk = thunkCreatorFactory<StoreState>();

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useConst } from './useConst';
 import { useConstFn } from './useConstFn';
 
-export interface IUseTimeoutActions {
+export interface UseTimeoutActions {
     readonly setTimeout: (callback: () => void, duration?: number) => number;
     readonly clearTimeout: (id: number) => void;
 }
@@ -11,7 +11,7 @@ export interface IUseTimeoutActions {
 /**
  *  Returns a wrapper function for `setTimeout` which automatically handles disposal.
  */
-export function useTimeout(): IUseTimeoutActions {
+export function useTimeout(): UseTimeoutActions {
     const timeoutIds = useConst<Record<number, number>>({});
 
     // Cleanup function.

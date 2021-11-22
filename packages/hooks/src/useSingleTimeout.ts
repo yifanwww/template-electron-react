@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import { useConstFn } from './useConstFn';
 
-export interface IUseSingleTimeoutActions {
+export interface UseSingleTimeoutActions {
     readonly isWorking: () => boolean;
     readonly setTimeout: (callback: () => void, duration?: number) => void;
     readonly clearTimeout: () => void;
@@ -11,7 +11,7 @@ export interface IUseSingleTimeoutActions {
 /**
  *  Returns a simple wrapper function for `setTimeout` which automatically handles disposal.
  */
-export function useSingleTimeout(): IUseSingleTimeoutActions {
+export function useSingleTimeout(): UseSingleTimeoutActions {
     const timeoutIdRef = useRef<number>();
 
     // Cleanup function.
