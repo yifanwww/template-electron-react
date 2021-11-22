@@ -25,7 +25,7 @@
         "build-scripts": "npm run build-scripts --workspace @tecra/scripts",
         "clean": "rimraf build release working && npm run clean:packages",
         "clean:build": "rimraf build",
-        "clean:packages": "npm run clean --workspaces",
+        "clean:packages": "npm run clean --workspaces --if-present",
         "clean:release": "rimraf release",
         "clean:working": "rimraf working",
         "clean-scripts": "npm run clean-scripts --workspace @tecra/scripts",
@@ -34,17 +34,17 @@
         "dev:main": "npm run dev --workspace @tecra/electron-main",
         "dev:renderer": "npm run dev --workspace @tecra/electron-renderer",
         "format": "npm run format:root && npm run format:packages",
-        "format:packages": "npm run format --workspaces",
+        "format:packages": "npm run format --workspaces --if-present",
         "format:root": "format-code",
         "gen-installer": "electron-builder build --config configs/electron-builder.json --win --publish never",
-        "lint": "npm run lint --workspaces",
+        "lint": "npm run lint --workspaces --if-present",
         "postinstall": "husky install",
         "prebuild": "npm run build-scripts && mkdir-working && build-packages",
         "predev": "npm run build-scripts && mkdir-working && build-packages",
-        "pre-commit": "npm run pre-commit --workspaces",
+        "pre-commit": "npm run pre-commit --workspaces --if-present",
         "run-build": "run-build",
         "run-unpacked": "run-unpacked",
-        "test-coverage": "npm run test-coverage --workspaces"
+        "test-coverage": "npm run test-coverage --workspaces --if-present"
     },
     "engines": {
         "node": ">=16"

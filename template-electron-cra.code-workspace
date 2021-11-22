@@ -39,9 +39,13 @@
             // additional
             "**/build": true,
             "**/coverage": true,
+            "**/dist": true,
             "**/lib": true,
+            "**/lib-commonjs": true,
             "**/release": true,
-            "**/*.js": true
+            "**/*.js": true,
+            "**/*.map": true,
+            "**/*.tsbuildinfo": true
         },
 
         "typescript.enablePromptUseWorkspaceTsdk": true,

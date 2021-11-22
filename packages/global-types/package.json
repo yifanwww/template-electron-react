@@ -16,11 +16,8 @@
         "directory": "packages/global-types"
     },
     "scripts": {
-        "build": "skip-npm-script",
-        "clean": "skip-npm-script",
         "format": "format-code",
         "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test-coverage": "skip-npm-script"
+        "pre-commit": "lint-staged"
     }
 }
