@@ -27,3 +27,12 @@ For example:
 /// <reference types="@tecra/global-types/lib/test" />
 /// <reference types="@tecra/global-types/lib/utils.type" />
 ```
+
+In React packages you will need to import `@tecra/global-types/lib/utils.react` manually:
+
+```ts
+// global.d.ts
+
+/// <reference types="@tecra/global-types" />
+/// <reference types="@tecra/global-types/lib/utils.react" />
+```
