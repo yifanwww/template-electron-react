@@ -1,7 +1,3 @@
-// These two type declarations are used to overwrite that two in `@types/node`.
-declare function setInterval(handler: TimerHandler, timeout?: number, ...arguments: unknown[]): number;
-declare function setTimeout(handler: TimerHandler, timeout?: number, ...arguments: unknown[]): number;
-
 declare interface ReactChildrenProps {
     children?: React.ReactNode;
 }

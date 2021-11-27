@@ -13,9 +13,9 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     beforeAll(() => {
         jest.useFakeTimers();
 
-        intervalId = setInterval(() => {
+        intervalId = window.setInterval(() => {
             dateTime++;
-        }, 1) as never;
+        }, 1);
     });
 
     afterAll(() => {

@@ -20,23 +20,23 @@ export function useInterval(): UseIntervalActions {
             // Here runs only when this component did unmount.
             return () => {
                 // Clear the interval timers if they exist.
-                for (const id of Object.keys(intervalIds)) clearInterval(id as unknown as number);
+                for (const id of Object.keys(intervalIds)) window.clearInterval(id as unknown as number);
             };
         },
         // useConst ensures this will never change, but `react-hooks/exhaustive-deps` doesn't know that.
         [intervalIds],
     );
 
-    const _setInterval = useConstFn((callback: () => void, duration?: number): number => {
-        const id = setInterval(callback, duration) as unknown as number;
+    const setInterval = useConstFn((callback: () => void, duration?: number): number => {
+        const id = window.setInterval(callback, duration) as unknown as number;
         intervalIds[id] = 1;
         return id;
     });
 
-    const _clearInterval = useConstFn((id: number): void => {
+    const clearInterval = useConstFn((id: number): void => {
         delete intervalIds[id];
-        clearInterval(id);
+        window.clearInterval(id);
     });
 
-    return { setInterval: _setInterval, clearInterval: _clearInterval };
+    return { setInterval, clearInterval };
 }

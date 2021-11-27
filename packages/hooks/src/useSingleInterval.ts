@@ -17,18 +17,18 @@ export function useSingleInterval(): UseSingleIntervalActions {
     // Cleanup function.
     useEffect(() => {
         // Here runs only when this component did unmount. Clear the interval timer if it exists.
-        return () => clearInterval(intervalIdRef.current);
+        return () => window.clearInterval(intervalIdRef.current);
     }, []);
 
     const isWorking = useConstFn(() => intervalIdRef.current !== undefined);
 
-    const _setInterval = useConstFn((callback: () => void, duration?: number): void => {
-        clearInterval(intervalIdRef.current);
+    const setInterval = useConstFn((callback: () => void, duration?: number): void => {
+        window.clearInterval(intervalIdRef.current);
 
-        intervalIdRef.current = setInterval(callback, duration) as unknown as number;
+        intervalIdRef.current = window.setInterval(callback, duration) as unknown as number;
     });
 
-    const _clearInterval = useConstFn(() => clearInterval(intervalIdRef.current));
+    const clearInterval = useConstFn(() => window.clearInterval(intervalIdRef.current));
 
-    return { isWorking, setInterval: _setInterval, clearInterval: _clearInterval };
+    return { isWorking, setInterval, clearInterval };
 }
