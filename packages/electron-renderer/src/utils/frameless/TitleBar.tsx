@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 
 import scss from './Frameless.module.scss';
 
-export interface TitleBarProps extends ReactChildrenProps {
+export interface TitleBarProps {
     onClientAreaSizeChange?: (clientAreaSize: ClientAreaSize) => void;
 }
 
-export function TitleBar(props: TitleBarProps): React.ReactElement {
+export const TitleBar: React.FC<TitleBarProps> = (props) => {
     const { children, onClientAreaSizeChange } = props;
 
     const ref = useRef<HTMLDivElement>(null);
@@ -29,4 +29,4 @@ export function TitleBar(props: TitleBarProps): React.ReactElement {
             {children}
         </div>
     );
-}
+};

@@ -9,9 +9,7 @@ const useStyles = makeStyles({
     },
 });
 
-export interface FluentuiProviderProps extends ReactChildrenProps {}
-
-export function FluentuiProvider(props: FluentuiProviderProps): React.ReactElement {
+export const FluentuiProvider: React.FC = (props) => {
     const classes = useStyles();
 
     return (
@@ -19,4 +17,4 @@ export function FluentuiProvider(props: FluentuiProviderProps): React.ReactEleme
             {props.children}
         </ThemeProvider>
     );
-}
+};

@@ -1,7 +1,3 @@
-// Used for `react-scripts` 4.0.3
-// For more information about how to override default configs of `react-scripts`
-// visit: https://github.com/timarney/react-app-rewired
-
 import path from 'path';
 
 import { paths } from '../utils/paths';
@@ -17,8 +13,7 @@ export const pathsMain = {
 
 const resolveRenderer = (relative: string) => path.resolve(paths.tecraElectronRenderer, relative);
 
-// Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
-// Line 62-79
+// Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
 export const pathsRenderer = {
     appBuild: paths.build,
     appHtml: resolveRenderer('public/index.html'),

@@ -36,13 +36,13 @@ Here is an example about how to use hook `useIsHovered`.
 ```ts
 import { useIsHovered } from '@tecra/hooks';
 
-export function Component(): React.ReactElement {
+export const Component: React.VFC = () => {
     const ref = useRef<SubComponent>(null);
 
     const isHovered = useIsHovered(ref);
 
     return <SubComponent className={isHovered ? 'sub-component-hover' : 'sub-component'} ref={ref} />;
-}
+};
 ```
 
 ## Develop this package

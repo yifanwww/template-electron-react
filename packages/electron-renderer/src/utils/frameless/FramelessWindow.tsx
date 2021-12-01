@@ -1,7 +1,7 @@
 import scss from './Frameless.module.scss';
 
-export interface FramelessWindowProps extends ReactChildrenProps {}
+export interface FramelessWindowProps {}
 
-export function FramelessWindow(props: FramelessWindowProps): React.ReactElement {
+export const FramelessWindow: React.FC<FramelessWindowProps> = (props) => {
     return <div id={scss.Window}>{props.children}</div>;
-}
+};

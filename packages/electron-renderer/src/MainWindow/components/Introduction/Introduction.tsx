@@ -7,7 +7,7 @@ export interface IntroductionProps {
     appDetails: AppDetails;
 }
 
-export function Introduction(props: IntroductionProps): React.ReactElement {
+export const Introduction: React.VFC<IntroductionProps> = (props) => {
     const { appDetails } = props;
 
     return (
@@ -36,4 +36,4 @@ export function Introduction(props: IntroductionProps): React.ReactElement {
             </div>
         </>
     );
-}
+};

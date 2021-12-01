@@ -15,6 +15,8 @@ declare global {
 
     type Optional<T> = T | null;
 
+    type ValueOf<T> = T[keyof T];
+
     /**
      * TypeScript type to return a deep partial object (each property can be undefined, recursively).
      */

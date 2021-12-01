@@ -8,7 +8,7 @@ import './index.css';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
-function Window(): Optional<React.ReactElement> {
+const Window: React.VFC = () => {
     const [type, setType] = useState<Optional<WindowType>>(null);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function Window(): Optional<React.ReactElement> {
             console.error(`Wrong window type '${never}' to create the specified window user interface.`);
             return null;
     }
-}
+};
 
 function main(): void {
     initializeIcons();

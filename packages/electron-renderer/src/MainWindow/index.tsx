@@ -12,7 +12,7 @@ import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from '.
 
 import scss from './index.module.scss';
 
-function ClientArea(): React.ReactElement {
+const ClientArea: React.VFC = () => {
     const prepared = usePrepared();
 
     const { prepare } = useMainDispatchingThunks();
@@ -36,11 +36,11 @@ function ClientArea(): React.ReactElement {
             )}
         </div>
     );
-}
+};
 
 const changeClientAreaSize = (size: ClientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(size));
 
-export function MainWindow(): React.ReactElement {
+export const MainWindow: React.VFC = () => {
     return (
         <FramelessWindow>
             <TitleBar onClientAreaSizeChange={changeClientAreaSize}>
@@ -54,4 +54,4 @@ export function MainWindow(): React.ReactElement {
             </TitleBar>
         </FramelessWindow>
     );
-}
+};

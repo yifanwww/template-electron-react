@@ -1,11 +1,6 @@
 // Used for `react-scripts` 4.0.3
 // For more information about how to override default configs of `react-scripts`
-// visit: https://github.com/timarney/react-app-rewired
-
-// - paths.js:
-//   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
-// - webpack.config.js:
-//   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
+// please visit https://github.com/timarney/react-app-rewired
 
 import { Configuration } from 'webpack';
 
@@ -38,6 +33,8 @@ interface CRAPaths {
  * Override paths configurations.
  *
  * The paths config to use when compiling your react app for development or production.
+ *
+ * Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
  */
 function overridePathsConfigs(paths: CRAPaths): CRAPaths {
     paths.appBuild = pathsRenderer.appBuild;
@@ -59,6 +56,8 @@ function overridePathsConfigs(paths: CRAPaths): CRAPaths {
  * Override webpack configurations.
  *
  * The Webpack config to use when compiling your react app for development or production.
+ *
+ * Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
     // Set target.
@@ -68,6 +67,6 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
 }
 
 export = {
-    webpack: overrideWebpackConfigs,
     paths: overridePathsConfigs,
+    webpack: overrideWebpackConfigs,
 };
