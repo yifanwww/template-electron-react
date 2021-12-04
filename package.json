@@ -94,7 +94,7 @@
         "electron-devtools-installer": "^3.2.0",
         "eslint": "^8.2.0",
         "eslint-config-airbnb": "^19.0.0",
-        "eslint-config-airbnb-typescript": "^15.0.0",
+        "eslint-config-airbnb-typescript": "^16.1.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-jest": "^25.2.4",
