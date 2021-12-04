@@ -10,7 +10,7 @@ import { Draft } from 'immer';
 
 export type ReduxReducer<State extends {}, Payload> = (state: Draft<State>, action: PayloadAction<Payload>) => void;
 
-// ----------------------------------------------------------------------------------------------------- ThunkArgsAction
+// ------------------------------------------------------------------------------------------------------------- ThunkFn
 
 export type ReduxThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
@@ -19,10 +19,6 @@ export type ThunkFn<ReturnType, State, ThunkArgs extends unknown[]> = (
     getState: () => State,
     ...thunkArgs: ThunkArgs
 ) => ReturnType;
-
-export type ThunkArgsAction<ReturnType, State, ThunkArgs extends unknown[]> = ThunkArgs extends undefined
-    ? () => ReduxThunkAction<ReturnType, State>
-    : (...thunkArgs: ThunkArgs) => ReduxThunkAction<ReturnType, State>;
 
 // -------------------------------------------------------------------------------------------------- DispatchingActions
 
