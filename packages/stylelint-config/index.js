@@ -3,6 +3,7 @@ module.exports = {
     rules: {
         indentation: 4,
         'selector-class-pattern': null,
+        'selector-max-id': null,
 
         'order/properties-alphabetical-order': null,
     },

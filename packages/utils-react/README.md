@@ -12,9 +12,9 @@ export interface PageHeaderProps {
     title: string;
 }
 
-export const PageHeader: React.VFC<PageHeaderProps> = (props) => (
+export const PageHeader: React.VFC<PageHeaderProps> = ({ title }) => (
     <div>
-        {props.title}
+        {title}
         {/* ... */}
     </div>
 );

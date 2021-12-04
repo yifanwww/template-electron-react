@@ -9,12 +9,12 @@ const useStyles = makeStyles({
     },
 });
 
-export const FluentuiProvider: React.FC = (props) => {
+export const FluentuiProvider: React.FC = ({ children }) => {
     const classes = useStyles();
 
     return (
         <ThemeProvider className={classes.fluentuiThemeProvider} theme={defaultTheme}>
-            {props.children}
+            {children}
         </ThemeProvider>
     );
 };

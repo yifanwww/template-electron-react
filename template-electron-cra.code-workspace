@@ -94,7 +94,6 @@
 
         "stylelint.validate": [
             "css",
-            "html",
             "less",
             "postcss",
             "sass",

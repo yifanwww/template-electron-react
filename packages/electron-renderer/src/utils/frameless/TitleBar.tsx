@@ -6,9 +6,7 @@ export interface TitleBarProps {
     onClientAreaSizeChange?: (clientAreaSize: ClientAreaSize) => void;
 }
 
-export const TitleBar: React.FC<TitleBarProps> = (props) => {
-    const { children, onClientAreaSizeChange } = props;
-
+export const TitleBar: React.FC<TitleBarProps> = ({ children, onClientAreaSizeChange }) => {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

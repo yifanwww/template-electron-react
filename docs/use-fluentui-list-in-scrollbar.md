@@ -22,9 +22,7 @@ const items: Item[] = [
 ];
 
 const scrollerProps: NonNullable<ScrollbarProps['scrollerProps']> = {
-    renderer: (props) => {
-        const { elementRef, ...rest } = props;
-
+    renderer: ({ elementRef, ...rest }) => {
         // Accroding to @fluentui List (https://developer.microsoft.com/en-us/fluentui#/controls/web/list),
         // `data-is-scrollable` attribute should be added to this element,
         // for @fluentui List listening the correct scroll events.
