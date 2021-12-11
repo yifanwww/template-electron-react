@@ -16,7 +16,6 @@ React hooks for tecra.
 - `useIsFocused`
 - `useIsHovered`
 - `useIsMounted`
-- `useKey`
 - `useMount`
 - `usePersistFn`
 - `usePrevious`

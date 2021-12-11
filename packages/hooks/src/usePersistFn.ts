@@ -1,6 +1,9 @@
 import { useRef } from 'react';
 
-import { useConstFn } from './useConstFn';
+interface PersistRef<T> {
+    fn: T;
+    persistFn: T;
+}
 
 /**
  * Hook to return a persist function.
@@ -11,7 +14,13 @@ import { useConstFn } from './useConstFn';
  * @returns The function. The identity of this function will always be the same.
  */
 export function usePersistFn<T extends UnknownFn>(fn: T): T {
-    const ref = useRef<T>(fn);
-    ref.current = fn;
-    return useConstFn((...args: never[]) => ref.current(...args)) as never;
+    const ref = useRef<PersistRef<T>>();
+    if (!ref.current) {
+        ref.current = {
+            fn,
+            persistFn: ((...args) => ref.current!.fn(...args)) as T,
+        };
+    }
+    ref.current.fn = fn;
+    return ref.current.persistFn;
 }
