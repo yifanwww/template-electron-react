@@ -28,6 +28,7 @@
     "scripts": {
         "build-scripts": "tsc --project tsconfig.json",
         "clean-scripts": "rimraf {jest,utils,webpack}/**/*.js tsconfig.tsbuildinfo",
+        "dev": "npm run build-scripts -- --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
