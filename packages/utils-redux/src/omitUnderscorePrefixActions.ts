@@ -1,3 +1,5 @@
+import { OmitUnderscorePrefix } from '@tecra/utils-type';
+
 import { ReduxActions } from './types';
 
 export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {

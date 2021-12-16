@@ -20,6 +20,7 @@ import {
     ITextProps,
     IToggleProps,
 } from '@fluentui/react';
+import { ExcludeFunction, ExtractFunction } from '@tecra/utils-type';
 
 export namespace FluentuiStyles {
     export type Button = PickProp<IButtonProps, 'styles'>;
