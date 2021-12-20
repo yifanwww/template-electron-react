@@ -1,9 +1,10 @@
+import { mockConsoleToMatchSnapshot } from '@tecra/utils-test';
 import { render } from '@testing-library/react';
 
 import { useWhyDidYouUpdate } from '../useWhyDidYouUpdate';
 
 beforeEach(() => {
-    jest.spyOn(console, 'log').mockImplementation((...params) => expect(params).toMatchSnapshot());
+    mockConsoleToMatchSnapshot();
 });
 
 describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {

@@ -1,4 +1,5 @@
 import { AppDetails } from '@tecra/electron-common';
+import { expectSnapshot } from '@tecra/utils-test';
 import { getInitialState, _actions, _reducer } from './slice';
 
 describe('Test redux reducer `_setAppDetails`', () => {
@@ -16,7 +17,7 @@ describe('Test redux reducer `_setAppDetails`', () => {
             },
         };
 
-        expect(_reducer(prevState, _actions._setAppDetails(appDetails)).appDetails).toMatchSnapshot();
+        expectSnapshot(_reducer(prevState, _actions._setAppDetails(appDetails)).appDetails);
     });
 });
 
@@ -24,6 +25,6 @@ describe('Test redux reducer `_finishPreparing`', () => {
     it('finishes preparing', () => {
         const prevState = getInitialState();
 
-        expect(_reducer(prevState, _actions._finishPreparing()).prepared).toMatchSnapshot();
+        expectSnapshot(_reducer(prevState, _actions._finishPreparing()).prepared);
     });
 });
