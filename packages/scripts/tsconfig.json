@@ -6,6 +6,6 @@
         "sourceMap": false,
         "target": "ES2020"
     },
-    "include": ["jest", "utils", "webpack"],
+    "include": ["jest/**/*", "utils/**/*", "webpack/**/*"],
     "exclude": []
 }
