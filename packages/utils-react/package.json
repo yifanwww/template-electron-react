@@ -1,6 +1,6 @@
 {
     "name": "@tecra/utils-react",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "description": "A package that contains React utilities.",
     "main": "lib/index.js",
     "module": "lib/index.js",

@@ -1,4 +1,150 @@
 # CHANGELOG
+## tecra v0.8.0 (2022-01-04)
+### Features
+
+- Support to open links in external default browser
+- [Github] Use cache in CI
+- [Hooks] Add parameter `initialValue` into `usePrevious`, parameter `initialValue` of `useBoolean` now is optional
+- [Hooks] Add new hooks `useIsMounted` and `usePersistFn`
+- [Hooks] Improve `usePrevious`, only re-run effect when value changes
+- [Hooks] Improve `useCountdown` to avoid unnecessary re-renders
+- [Hooks] Add tests for hooks `useCountdown`, `useInterval`, `useSimpleInterval`, `useSimpleTimeout`, `useTimeout` and `useWhyDidYouUpdate`
+- [IPC] Add `IpcServer` and `IpcClient`
+- [Lint] When in stage `pre-commit` only lint changed files
+- [Lint] Use `stylelint-config-recess-order` to lint css properties order
+- [Lint] Disable stylelint rule `selector-max-id`
+- [NPM] Add `--if-present` in npm scripts
+- [NPM] Add npm script `dev` in not-react packages
+- [Renderer] Display app details in the Introduction UI
+- [Renderer] Use `react-router` to route urls
+- [Test] Support package own `setup.test.ts`
+- [Test] Support to pass `--verbose` when do unit test
+- [Types] Add global types `PickProp`, `AnyFn`, `UnknownFn` and `VoidReturn`
+- [Utils/React] Add utils for callback prop `onRenderXXX`: `defaultOnRender` and `renderFactory`
+- [Utils/React] Add type `ReactImmerReducer`
+- [Utils/Test] Add `mockLocalStorage` and `mockSessionStorage` to help mock local storage and session storage
+- [Utils/Test] Add test utils: `expectElementSnapshot`, `expectSnapshot`, `mockConsoleToMatchSnapshot`
+- [Utils/Type] Add base type utilities: `LowerAlpha`, `UpperAlpha`, `Alpha`, `Digit` and `HexDigit`
+- [Utils/Type] Add type utilities for hex color: `IsHexColor` and `MakeHexColor`
+- [Utils/Type] Add type utilities:
+  - `OmitNonNullableProps`
+  - `OmitNullableProps`
+  - `OmitUndefinableProps`
+  - `PickNonNullableKeys`
+  - `PickNonNullableProps`
+  - `PickNullableKeys`
+  - `PickNullableProps`
+  - `PickUndefinableKeys`
+  - `PickUndefinableProps`
+
+### Changes
+
+- Change local webpack server port to `4321`
+- [Git] Use `husky` to execute pre-commit scripts
+- [Hooks] Simplify `useConstFn`, use `useConstFn` to create updater actions
+- [Test] Fix mocks setup in test for local storage and session storage
+- [Test] Set jest environment to `jest-environment-jsdom`
+- [Utils/FluenUI] Fix `FluentuiProvider` css class
+
+### Bugfixes
+
+- [Hooks] Clear timeout when unmount in `useDelayFn`
+
+### Breaking Changes
+
+- [Hooks] Rename `useSimpleInterval` to `useSingleInterval`, rename `useSimpleTimeout` to `useSingleTimeout`
+- [Hooks] `useKey` is longer supported
+- [IPC] `IpcMainWrapper` and `IpcRendererWrapper` are no longer supported
+- [Renderer] `KeyboardCaptor` is longer supported
+- [Types] Delete type `IChildrenElementProps`
+- [Utils/Redux] `createTypedSelector` is no longer supported, use `react-redux` `TypedUseSelectorHook` instead.
+- [Utils/Redux] `WritableDraft` won't be re-exported from `immer`
+- [Uitls/Type] Move some global types into `@tecra/utils-type`:
+  - `Contain`
+  - `Contained`
+  - `ExcludeFunction`
+  - `ExcludeUnderscorePrefix`
+  - `ExtractFunction`
+  - `OmitUnderscorePrefix`
+
+- Rename type declarations, here only list the (maybe) important changes
+  - [Hooks]
+    - `IUseBooleanUpdaters`             -> `UseBooleanActions`
+    - `ISetCountdownUpdater`            -> `SetCountdown`
+    - `IUseIntervalUpdaters`            -> `UseIntervalActions`
+    - `IUseSimpleIntervalUpdaters`      -> `UseSingleIntervalActions`
+    - `IUseSimpleTimeoutUpdaters`       -> `UseSingleTimeoutActions`
+    - `IUseTimeoutUpdaters`             -> `UseTimeoutActions`
+    - `IUseToggleUpdaters`              -> `UseToggleActions`
+  - [Types]
+    - `IChildrenProps`          -> `ReactChildrenProps`
+    - `IClientAreaSize`         -> `ClientAreaSize`
+  - [Utils/Redux]
+    - `IActions`                -> `ReduxActions`
+    - `IDispatchingActions`     -> `DispatchingActions`
+    - `IDispatchingThunks`      -> `DispatchingThunks`
+    - `IReducer`                -> `ReduxReducer`
+    - `IThunks`                 -> `ReduxThunks`
+    - `IThunk`                  -> `ThunkFn`
+    - `IThunkAction`            -> `ThunkAction`
+    - `IThunkActionWithArgs`    -> deleted
+
+### Packages Changes
+
+- New
+  - `@easy/utils-react`
+  - `@easy/utils-test`
+
+### Dependency Changes
+
+- New
+  - `babel-jest`                                v27.2.4
+  - `eslint`                                    v8.2.0
+  - `husky`                                     v7.0.4
+  - `immer`                                     v9.0.6
+  - `jest`                                      v27.2.4
+  - `jest-circus`                               v27.2.4
+  - `jest-watch-typeahead`                      v1.0.0
+  - `react-router`                              v6.0.1
+  - `react-router-dom`                          v6.0.1
+  - `stylelint-config-recess-order`             v2.5.0
+  - `ts-essentials`                             v9.0.0
+  - `use-immer`                                 v0.6.0
+- Upgrade
+  - `@fluentui/react`                           v8.28.2   -> v8.36.0
+  - `@testing-library/react`                    v12.0.0   -> v12.1.1
+  - `@testing-library/react-hooks`              v7.0.1    -> v7.0.2
+  - `@types/jest`                               v26.0.24  -> v27.0.2
+  - `@types/lodash`                             v4.14.172 -> v4.14.175
+  - `@types/node`                               v14.17.9  -> v16.10.2
+  - `@types/react`                              v17.0.18  -> v17.0.26
+  - `@typescript-eslint/eslint-plugin`          v4.30.0   -> v5.4.0
+  - `@typescript-eslint/experimental-utils`     v4.30.0   -> v5.4.0
+  - `@typescript-eslint/parser`                 v4.30.0   -> v5.4.0
+  - `@typescript-eslint/scope-manager`          v4.30.0   -> v5.4.0
+  - `@typescript-eslint/types`                  v4.30.0   -> v5.4.0
+  - `@typescript-eslint/typescript-estree`      v4.30.0   -> v5.4.0
+  - `@typescript-eslint/visitor-keys`           v4.30.0   -> v5.4.0
+  - `browserslist`                              v4.16.7   -> v4.17.2
+  - `concurrently`                              v6.2.1    -> v6.2.2
+  - `electron`                                  v13.1.7   -> v15.0.0
+  - `eslint-config-airbnb`                      v18.2.1   -> v19.0.0
+  - `eslint-config-airbnb-typescript`           v14.0.0   -> v16.1.0
+  - `eslint-plugin-import`                      v2.24.2   -> v2.25.3
+  - `eslint-plugin-jest`                        v24.5.0   -> v25.2.4
+  - `eslint-plugin-jsx-a11y`                    v6.4.1    -> v6.5.1
+  - `eslint-plugin-prettier`                    v3.4.1    -> v4.0.0
+  - `eslint-plugin-react`                       v7.26.1   -> v7.27.0
+  - `eslint-plugin-react-hooks`                 v4.2.0    -> v4.3.0
+  - `prettier`                                  v2.3.2    -> v2.4.1
+  - `react-redux`                               v7.2.4    -> v7.2.5
+  - `sass`                                      v1.38.0   -> v1.42.1
+  - `stylelint`                                 v13.13.1  -> v14.1.0
+  - `stylelint-config-recess-order`             v2.5.0    -> v3.0.0
+  - `stylelint-config-sass-guidelines`          v8.0.0    -> v9.0.1
+- Remove
+  - `eslint-plugin-deprecation`                 v1.2.1
+
 ## tecra v0.7.0 (2021-10-01)
 ### Features
 
