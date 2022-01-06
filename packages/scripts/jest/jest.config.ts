@@ -22,7 +22,6 @@ function getConfig(): Config.InitialOptions {
 
         testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}', '<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
         testEnvironment: 'jest-environment-jsdom',
-        testRunner: require.resolve('jest-circus/runner'),
 
         transform: {
             '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': paths.transforms.babel,

@@ -56,7 +56,7 @@ module.exports = {
         // Disable this rule and use rule `prettier/prettier` instead.
         'operator-linebreak': 'off',
         // Only enable object variable declarator.
-        // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/es6.js#L124
+        // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/es6.js#L123
         'prefer-destructuring': [
             'error',
             {
@@ -112,8 +112,8 @@ module.exports = {
             },
         ],
         // From:
-        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v14.0.0/lib/shared.js#L113
-        // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/best-practices.js#L88
+        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v16.1.0/lib/shared.js#L118
+        // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/best-practices.js#L94
         '@typescript-eslint/no-empty-function': [
             'error',
             {
@@ -131,8 +131,8 @@ module.exports = {
         ],
         '@typescript-eslint/no-explicit-any': 'warn',
         // From:
-        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v14.0.0/lib/shared.js#L199
-        // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v14.2.1/packages/eslint-config-airbnb-base/rules/best-practices.js#L264
+        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v16.1.0/lib/shared.js#L209
+        // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/best-practices.js#L299
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
         // `eslint-plugin-deprecation` does not support ESLint v8 yet, we can enable it when it supports ESLint v8.
@@ -157,7 +157,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
         // Disable this rule because we only use Typescript to write components, no need to use `prop-types`
         'react/prop-types': 'off',
-        // https://github.com/yannickcr/eslint-plugin-react/blob/v7.25.1/docs/rules/react-in-jsx-scope.md
+        // https://github.com/yannickcr/eslint-plugin-react/blob/v7.28.0/docs/rules/react-in-jsx-scope.md
         // Disable this rule for using new JSX transform from React 17.
         'react/react-in-jsx-scope': 'off',
     },

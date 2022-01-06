@@ -1,8 +1,23 @@
-import { Configuration, ConfigurationFactory } from 'webpack';
+import { Configuration } from 'webpack';
 
 import { paths } from '../utils';
 import { ReloadElectronWebpackPlugin } from './plugins/reloadElectronWebpackPlugin';
 import { pathsMain } from './webpack.base.config';
+
+interface CliConfigOptions {
+    config?: string | undefined;
+    mode?: Configuration['mode'] | undefined;
+    env?: string | undefined;
+    'config-register'?: string | undefined;
+    configRegister?: string | undefined;
+    'config-name'?: string | undefined;
+    configName?: string | undefined;
+}
+
+type ConfigurationFactory = (
+    env: string | Record<string, boolean | number | string> | undefined,
+    args: CliConfigOptions,
+) => Configuration | Promise<Configuration>;
 
 const factory: ConfigurationFactory = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
