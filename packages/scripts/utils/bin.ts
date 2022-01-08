@@ -1,29 +1,44 @@
 import chalk from 'chalk';
 import child from 'child_process';
+import concurrently from 'concurrently';
 import fs from 'fs';
 
 import { paths } from './paths';
 
 const genCommand = <T extends (string | false | undefined | null)[]>(...params: T) => params.filter(Boolean).join(' ');
+const genBuildCommand = (name: string) => `npm run build --workspace ${name}`;
 
-export function buildPackages(): void {
-    const packagesOrder = [
+type Order = Array<string | string[]>;
+
+const maxProcesses = 4;
+
+export async function buildPackages(): Promise<void> {
+    const order: Order = [
         /* ----- may be used by all other packages ----- */
-        '@tecra/utils-type',
-        '@tecra/utils-test',
+        ['@tecra/utils-type', '@tecra/utils-test'],
 
         /* ----- product packages ----- */
-        '@tecra/assets',
-        '@tecra/hooks',
-        '@tecra/utils-fluentui',
-        '@tecra/utils-react',
-        '@tecra/utils-redux',
-        '@tecra/electron-common',
+        [
+            '@tecra/assets',
+            '@tecra/hooks',
+            '@tecra/utils-fluentui',
+            '@tecra/utils-react',
+            '@tecra/utils-redux',
+            '@tecra/electron-common',
+        ],
     ];
 
-    for (const name of packagesOrder) {
-        const command = `npm run build --workspace ${name}`;
-        child.execSync(command, { stdio: 'inherit' });
+    for (const names of order) {
+        if (typeof names === 'string') {
+            const command = `npm run build --workspace ${names}`;
+            child.execSync(command, { stdio: 'inherit' });
+        } else {
+            // eslint-disable-next-line no-await-in-loop
+            await concurrently(
+                names.map((name) => ({ command: genBuildCommand(name), name })),
+                { maxProcesses },
+            ).result;
+        }
     }
 }
 
