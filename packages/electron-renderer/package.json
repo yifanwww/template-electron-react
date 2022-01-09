@@ -27,5 +27,19 @@
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-coverage": "unit-test"
+    },
+    "dependencies": {
+        "@tecra/assets": "*",
+        "@tecra/electron-common": "*",
+        "@tecra/utils-fluentui": "*",
+        "@tecra/utils-redux": "*"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "*",
+        "@tecra/global-types": "*",
+        "@tecra/scripts": "*",
+        "@tecra/stylelint-config": "*",
+        "@tecra/tsconfigs": "*",
+        "@tecra/utils-test": "*"
     }
 }

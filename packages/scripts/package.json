@@ -32,5 +32,9 @@
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "*",
+        "@tecra/tsconfigs": "*"
     }
 }

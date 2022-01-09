@@ -23,5 +23,14 @@
         "pre-commit": "lint-staged",
         "test": "skip-npm-script",
         "test-coverage": "skip-npm-script"
+    },
+    "dependencies": {
+        "@tecra/electron-common": "*"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "*",
+        "@tecra/global-types": "*",
+        "@tecra/scripts": "*",
+        "@tecra/tsconfigs": "*"
     }
 }

@@ -27,5 +27,11 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test-coverage": "skip-npm-script"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "*",
+        "@tecra/global-types": "*",
+        "@tecra/scripts": "*",
+        "@tecra/tsconfigs": "*"
     }
 }

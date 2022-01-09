@@ -28,5 +28,12 @@
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-coverage": "unit-test"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "*",
+        "@tecra/global-types": "*",
+        "@tecra/scripts": "*",
+        "@tecra/tsconfigs": "*",
+        "@tecra/utils-test": "*"
     }
 }

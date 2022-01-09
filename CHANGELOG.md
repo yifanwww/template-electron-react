@@ -92,8 +92,8 @@
 ### Packages Changes
 
 - New
-  - `@easy/utils-react`
-  - `@easy/utils-test`
+  - `@tecra/utils-react`
+  - `@tecra/utils-test`
 
 ### Dependency Changes
 
