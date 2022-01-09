@@ -22,20 +22,12 @@ node_modules
 *.tsbuildinfo
 
 build
+dist
 lib
 lib-commonjs
 release
 
 !packages/global-types/lib
-
-**/*.cjs
-**/*.js
-**/*.map
-**/*.mjs
-
-!packages/eslint-config/index.js
-!packages/scripts/bin/**/*.js
-!packages/stylelint-config/index.js
 
 # Test
 

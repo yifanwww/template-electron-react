@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../utils/bin').mkdirWorking();
+require('../dist/utils/bin').mkdirWorking();

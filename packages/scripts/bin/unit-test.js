@@ -4,4 +4,4 @@
 
 const lifecycleEvent = process.env.npm_lifecycle_event;
 
-require('../utils/bin').unitTest(lifecycleEvent === 'test');
+require('../dist/utils/bin').unitTest(lifecycleEvent === 'test');

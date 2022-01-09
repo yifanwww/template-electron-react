@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../utils/bin').electronMain();
+require('../dist/utils/bin').electronMain();

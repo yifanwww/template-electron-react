@@ -1,13 +1,17 @@
 import electron from 'electron';
 import path from 'path';
 
-const repository = path.resolve(__dirname, '../../..');
+// `..` points to `<repo>/packages/scripts/src`
+// `../..` points to `<repo>/packages/scripts`
+// `../../..` points to `<repo>/packages`
+// `../../../..` points to `<repo>`
+const repository = path.resolve(__dirname, '../../../..');
 
 const build = path.resolve(repository, 'build');
 const nodeModules = path.resolve(repository, 'node_modules');
 const packages = path.resolve(repository, 'packages');
 
-const scripts = path.resolve(packages, 'scripts');
+const scriptsDist = path.resolve(packages, 'scripts/dist');
 
 export const paths = {
     repository,
@@ -28,8 +32,8 @@ export const paths = {
     build,
     unpacked: path.resolve(repository, 'release/win-unpacked/tecra.exe'),
 
-    webpackMainConfig: path.resolve(scripts, 'webpack/webpack.main.config.js'),
-    webpackRendererConfig: path.resolve(scripts, 'webpack/webpack.renderer.config.js'),
+    webpackMainConfig: path.resolve(scriptsDist, 'webpack/webpack.main.config.js'),
+    webpackRendererConfig: path.resolve(scriptsDist, 'webpack/webpack.renderer.config.js'),
 
     // working
 
@@ -37,11 +41,11 @@ export const paths = {
 
     // test
 
-    jestConfig: path.resolve(scripts, 'jest/jest.config.js'),
+    jestConfig: path.resolve(scriptsDist, 'jest/jest.config.js'),
     testSetup: path.resolve(packages, 'utils-test/src/setup.ts'),
     transforms: {
-        babel: path.resolve(scripts, 'jest/transform.babel.js'),
-        css: path.resolve(scripts, 'jest/transform.css.js'),
-        file: path.resolve(scripts, 'jest/transform.file.js'),
+        babel: path.resolve(scriptsDist, 'jest/transform.babel.js'),
+        css: path.resolve(scriptsDist, 'jest/transform.css.js'),
+        file: path.resolve(scriptsDist, 'jest/transform.file.js'),
     },
 };

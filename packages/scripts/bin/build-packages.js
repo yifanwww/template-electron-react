@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../utils/bin').buildPackages();
+require('../dist/utils/bin').buildPackages();

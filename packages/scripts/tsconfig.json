@@ -1,11 +1,11 @@
 {
     "extends": "@tecra/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
-        "outDir": ".",
-        "rootDir": ".",
+        "outDir": "dist",
+        "rootDir": "src",
         "sourceMap": false,
         "target": "ES2020"
     },
-    "include": ["jest/**/*", "utils/**/*", "webpack/**/*"],
+    "include": ["src/**/*"],
     "exclude": []
 }

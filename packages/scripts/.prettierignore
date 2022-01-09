@@ -1,8 +1,6 @@
 # Compilation
 
-/jest/**/*.js
-/utils/**/*.js
-/webpack/**/*.js
+/dist
 
 # Test
 

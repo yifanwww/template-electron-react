@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../utils/bin').runBuild();
+require('../dist/utils/bin').runBuild();
