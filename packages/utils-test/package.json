@@ -26,7 +26,7 @@
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
-        "test-coverage": "skip-npm-script"
+        "test-full": "skip-npm-script"
     },
     "devDependencies": {
         "@tecra/eslint-config": "*",

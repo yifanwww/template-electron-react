@@ -151,4 +151,4 @@ Execute `npm run build` or `yarn build` to build this package.
 ### Do coverage test
 
 - Execute `npm run test` or `yarn test` to watch test.
-- Execute `npm run test-coverage` or `yarn test-coverage` to do coverage test.
+- Execute `npm run test-full` or `yarn test-full` to do full coverage test.

@@ -44,7 +44,7 @@
         "pre-commit": "npm run pre-commit --workspaces --if-present",
         "run-build": "run-build",
         "run-unpacked": "run-unpacked",
-        "test-coverage": "npm run test-coverage --workspaces --if-present"
+        "test-full": "npm run test-full --workspaces --if-present"
     },
     "engines": {
         "node": ">=16"

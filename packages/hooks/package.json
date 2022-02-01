@@ -27,7 +27,7 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
-        "test-coverage": "unit-test"
+        "test-full": "unit-test"
     },
     "devDependencies": {
         "@tecra/eslint-config": "*",

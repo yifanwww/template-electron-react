@@ -109,9 +109,9 @@ This script will launch the test runner in the interactive watch mode.
 
 See the section about [running tests] for more information.
 
-### `test-coverage`
+### `test-full`
 
-For all packages do coverage test.
+Do full coverage test in all packages.
 
 <!-- link list -->
 
