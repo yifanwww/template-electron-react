@@ -11,7 +11,7 @@ import { useSingleTimeout } from './useSingleTimeout';
  * @param delay The delay in microseconds. Default is `1000`.
  * @returns The trigger.
  */
-export function useDelayFn<T extends UnknownFn>(fn?: T, delay: number = 1000): T {
+export function useDelayFn<T extends UnknownFn>(fn?: T, delay: number = 1000): VoidReturn<T> {
     const { clearTimeout, setTimeout } = useSingleTimeout();
 
     const _fn = useCallback(
