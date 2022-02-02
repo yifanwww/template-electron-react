@@ -2,7 +2,10 @@
 {
     "compilerOptions": {
         "allowJs": false,
-        // This option must be enabled explicitly for the need of `react-scripts`, even though it's enabled via `esModuleInterop` implicitly.
+        /**
+         * This option must be enabled explicitly for the need of `react-scripts`,
+         * even though it's enabled via `esModuleInterop` implicitly.
+         */
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
@@ -34,6 +37,10 @@
          * - useUnknownInCatchVariables
          */
         "strict": true,
+        /**
+         * Warning:
+         * - when target to `ES2022` or higher, including `ESNext`, `useDefineForClassFields` will be true by default.
+         */
         "target": "ES2018",
 
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
