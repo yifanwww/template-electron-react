@@ -126,17 +126,10 @@ export const runBuild = () => child.spawn(paths.electron, [paths.repository], { 
 export const runUnpacked = () => child.spawn(paths.unpacked, [], { cwd: paths.working, stdio: 'inherit' });
 
 export function unitTest(watch: boolean): void {
-    const coverage = process.argv.includes('--coverage');
-    const verbose = process.argv.includes('--verbose');
+    const argv = process.argv.slice(2);
 
-    const command = genCommand(
-        'jest',
-        '--config',
-        paths.jestConfig,
-        watch ? '--watch' : '--coverage',
-        watch && coverage ? '--coverage' : null,
-        verbose && '--verbose',
-    );
+    const command = genCommand('jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', ...argv);
+    // console.log(command);
 
     const env = {
         ...process.env,
