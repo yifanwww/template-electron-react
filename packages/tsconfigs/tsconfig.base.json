@@ -37,11 +37,8 @@
          * - useUnknownInCatchVariables
          */
         "strict": true,
-        /**
-         * Warning:
-         * - when target to `ES2022` or higher, including `ESNext`, `useDefineForClassFields` will be true by default.
-         */
         "target": "ES2018",
+        "useDefineForClassFields": true,
 
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
     }
