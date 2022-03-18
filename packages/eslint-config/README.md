@@ -10,7 +10,7 @@ Add `"extends": "@tecra/eslint-config"` to your ESLint config file.
 For example `.eslintrc.json`:
 ```json
 {
-    "extends": ["@tecra/eslint-config"]
+    "extends": "@tecra/eslint-config"
 }
 ```
 
@@ -23,7 +23,7 @@ In your ESLint config, set [parserOptions.project] to the path of your `tsconfig
 For example:
 ```json
 {
-    "extends": ["@tecra/eslint-config"],
+    "extends": "@tecra/eslint-config",
     "parserOptions": {
         "project": "./tsconfig.json"
     }
