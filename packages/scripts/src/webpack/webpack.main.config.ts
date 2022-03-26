@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import { Configuration } from 'webpack';
 
 import { paths } from '../utils';

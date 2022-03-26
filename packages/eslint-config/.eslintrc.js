@@ -78,22 +78,9 @@ module.exports = {
             'error',
             { selector: 'accessor', format: ['camelCase'] },
             { selector: 'class', format: ['PascalCase'] },
-            {
-                selector: 'enum',
-                // `UPPER_CASE` for constant enums.
-                format: ['PascalCase', 'UPPER_CASE'],
-            },
-            {
-                selector: 'enumMember',
-                // `UPPER_CASE` for constant enum members.
-                format: ['PascalCase', 'UPPER_CASE'],
-            },
-            {
-                selector: 'function',
-                // `PascalCase` for react function components.
-                format: ['camelCase', 'PascalCase'],
-                leadingUnderscore: 'allow',
-            },
+            { selector: 'enum', format: ['PascalCase'] },
+            { selector: 'enumMember', format: ['PascalCase', 'UPPER_CASE'] },
+            { selector: 'function', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'interface', format: ['PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },

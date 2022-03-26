@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import chalk from 'chalk';
 import child from 'child_process';
 import concurrently from 'concurrently';

@@ -15,7 +15,7 @@ export type ReduxReducer<State extends {}, Payload> = (state: Draft<State>, acti
 export type ReduxThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
 export type ThunkFn<ReturnType, State, ThunkArgs extends unknown[]> = (
-    dispatch: ThunkDispatch<State, never, AnyAction>,
+    dispatch: ThunkDispatch<State, unknown, AnyAction>,
     getState: () => State,
     ...thunkArgs: ThunkArgs
 ) => ReturnType;
