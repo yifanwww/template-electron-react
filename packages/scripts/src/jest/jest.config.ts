@@ -16,12 +16,12 @@ function getConfig(): Config.InitialOptions {
     return {
         rootDir: packageDir,
         roots: ['<rootDir>/src'],
-
-        collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts', '!src/test.setup.ts'],
+        cacheDirectory: paths.jestCache,
 
         setupFiles: [require.resolve('react-app-polyfill/jsdom')],
         setupFilesAfterEnv: hasPackageOwnTestSetup ? [paths.testSetup, packageOwnTestSetup] : [paths.testSetup],
 
+        collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts', '!src/test.setup.ts'],
         testMatch: ['<rootDir>/src/**/__tests__/**/*.{ts,tsx}', '<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
         testEnvironment: 'jest-environment-jsdom',
 
