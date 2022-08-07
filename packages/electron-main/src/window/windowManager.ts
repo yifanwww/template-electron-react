@@ -10,7 +10,7 @@ export class WindowManager {
     private count: number = 0;
     private store: WindowStore = {};
 
-    public createWindow = async (option: CreateWindowOption): Promise<void> => {
+    createWindow = async (option: CreateWindowOption): Promise<void> => {
         this.count++;
 
         const { windowType } = option;
@@ -29,7 +29,7 @@ export class WindowManager {
 
             default:
                 never = windowType;
-                console.error(`Wrong window type '${never}' to create the specified browser window`);
+                console.error(`Wrong window type '${never as string}' to create the specified browser window`);
         }
 
         this.store[windowId]!.show();

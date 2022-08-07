@@ -66,26 +66,28 @@ module.exports = {
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
         quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
 
+        '@typescript-eslint/await-thenable': 'error',
         // Disabled for better code comments
         '@typescript-eslint/brace-style': 'off',
         '@typescript-eslint/comma-dangle': 'off',
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#the-indent--typescript-eslintindent-rules
+        // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
+        '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
         // Disable this rule and use rule `prettier/prettier` instead.
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
-        // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md
+        // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md
         '@typescript-eslint/naming-convention': [
             'error',
             { selector: 'accessor', format: ['camelCase'] },
             { selector: 'class', format: ['PascalCase'] },
             { selector: 'enum', format: ['PascalCase'] },
-            { selector: 'enumMember', format: ['PascalCase', 'UPPER_CASE'] },
+            { selector: 'enumMember', format: ['PascalCase'] },
             { selector: 'function', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
-            { selector: 'interface', format: ['PascalCase'], leadingUnderscore: 'allow' },
+            { selector: 'interface', format: ['PascalCase'] },
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
-            { selector: 'typeAlias', format: ['PascalCase'], leadingUnderscore: 'allow' },
+            { selector: 'typeAlias', format: ['PascalCase'] },
             { selector: 'typeParameter', format: ['PascalCase'] },
             {
                 selector: 'variable',
@@ -114,6 +116,17 @@ module.exports = {
             },
         ],
         '@typescript-eslint/no-explicit-any': 'warn',
+        '@typescript-eslint/no-extra-non-null-assertion': 'error',
+        '@typescript-eslint/no-for-in-array': 'off',
+        '@typescript-eslint/no-misused-new': 'error',
+        '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+        '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+        '@typescript-eslint/no-unnecessary-type-constraint': 'warn',
+        // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/restrict-template-expressions.md
+        '@typescript-eslint/restrict-template-expressions': [
+            'error',
+            { allowNumber: true, allowBoolean: true, allowAny: false, allowNullish: true, allowRegExp: true },
+        ],
         // From:
         // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v16.1.0/lib/shared.js#L209
         // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/best-practices.js#L299

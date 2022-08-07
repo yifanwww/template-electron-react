@@ -4,7 +4,7 @@ export class AppPaths {
     private _app: string;
     private _src: string;
 
-    public constructor() {
+    constructor() {
         const isInASAR = __dirname.includes('.asar');
 
         this._src = __dirname;
@@ -15,11 +15,11 @@ export class AppPaths {
               __dirname;
     }
 
-    public get app() {
+    get app() {
         return this._app;
     }
 
-    public get src() {
+    get src() {
         return this._src;
     }
 }

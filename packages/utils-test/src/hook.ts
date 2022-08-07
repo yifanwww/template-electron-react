@@ -30,15 +30,16 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
         expect(callCount).toBe(2);
         const latestValues = result.current;
         expect(latestValues).toBeDefined();
-        expect(latestValues).toHaveLength(firstValues!.length);
+        expect(latestValues).toHaveLength(firstValues.length);
 
-        for (let i = 0; i < latestValues!.length; i++) {
+        for (let i = 0; i < latestValues.length; i++) {
             try {
-                expect(latestValues![i]).toBe(firstValues![i]);
+                expect(latestValues[i]).toBe(firstValues[i]);
             } catch (err) {
+                const latestValuesStr = String(latestValues[i]);
                 // Make a more informative error message
                 expect('').toBe(
-                    `Identity of value at index ${i} has changed. This might help identify it:\n${latestValues![i]}`,
+                    `Identity of value at index ${i} has changed. This might help identify it:\n${latestValuesStr}`,
                 );
             }
         }

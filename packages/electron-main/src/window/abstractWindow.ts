@@ -15,7 +15,7 @@ export abstract class AbstractWindow {
 
     protected readonly _ipcServer: IpcServer;
 
-    public constructor(option: AbstractWindowOption) {
+    constructor(option: AbstractWindowOption) {
         this.windowId = option.windowId;
         this.windowType = option.windowType;
 
@@ -36,7 +36,7 @@ export abstract class AbstractWindow {
         this.addIpcListeners();
     }
 
-    public async show(): Promise<void> {
+    async show(): Promise<void> {
         if (process.env.NODE_ENV === 'production') {
             await this.window.loadFile(path.resolve(appPaths.src, 'index.html'));
         } else {

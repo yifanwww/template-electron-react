@@ -28,7 +28,7 @@ export class IpcServer {
 
     private _listeners: Listeners = {};
 
-    public constructor(windowId: number) {
+    constructor(windowId: number) {
         this._windowId = windowId;
     }
 
@@ -77,15 +77,15 @@ export class IpcServer {
         };
     }
 
-    public clear(): void {
+    clear(): void {
         for (const channel in this._listeners) {
             ipcMain.removeListener(channel, this._listeners[channel]);
         }
         this._listeners = {};
     }
 
-    public static handleCreateWindow = ipcMainFactory.handle<void, [windowType: WindowType]>(IpcChannels.CreateWindow);
-    public static handleGetAppDetails = ipcMainFactory.handle<AppDetails, []>(IpcChannels.GetAppDetails);
+    static handleCreateWindow = ipcMainFactory.handle<void, [windowType: WindowType]>(IpcChannels.CreateWindow);
+    static handleGetAppDetails = ipcMainFactory.handle<AppDetails, []>(IpcChannels.GetAppDetails);
 
-    public handleGetWindowType = this._handleFactory<WindowType, []>(IpcChannels.GetWindowType);
+    handleGetWindowType = this._handleFactory<WindowType, []>(IpcChannels.GetWindowType);
 }

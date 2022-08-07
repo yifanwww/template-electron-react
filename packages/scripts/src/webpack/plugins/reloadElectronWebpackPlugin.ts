@@ -10,7 +10,7 @@ export class ReloadElectronWebpackPlugin {
     private _projectDir: string;
     private _process: child.ChildProcess | null;
 
-    public constructor(projectDir: string, cwd: string) {
+    constructor(projectDir: string, cwd: string) {
         this._cwd = cwd;
         this._projectDir = projectDir;
         this._process = null;
@@ -18,7 +18,7 @@ export class ReloadElectronWebpackPlugin {
         this._info(`Found electron at "${electron}"`);
     }
 
-    public apply = (compiler: Compiler) => {
+    apply = (compiler: Compiler) => {
         let server = false;
         compiler.hooks.done.tap('ReloadElectronWebpackPlugin', () => {
             if (!server) {

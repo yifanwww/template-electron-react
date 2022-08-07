@@ -24,7 +24,7 @@ const Window: React.VFC = () => {
 
         default:
             never = type;
-            console.error(`Wrong window type '${never}' to create the specified window user interface.`);
+            console.error(`Wrong window type '${never as string}' to create the specified window user interface.`);
             return null;
     }
 };

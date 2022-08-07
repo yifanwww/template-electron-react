@@ -24,7 +24,7 @@ export class Timer {
         this._trigger();
     };
 
-    public start = (autoReset: boolean = false, interval?: number): void => {
+    start = (autoReset: boolean = false, interval?: number): void => {
         if (this._id === null) {
             if (interval) this._interval = interval;
 
@@ -37,7 +37,7 @@ export class Timer {
         }
     };
 
-    public stop = (): void => {
+    stop = (): void => {
         if (this._id) {
             if (this._autoReset) {
                 clearInterval(this._id);
