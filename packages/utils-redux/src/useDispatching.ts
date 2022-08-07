@@ -52,8 +52,10 @@ export function useDispatchingThunks<TThunks extends ReduxThunks>(thunks: TThunk
     return useMemo(() => {
         const dispatchingThunks: Record<string, Function> = {};
 
-        for (const thunkName in memoThunks)
-            dispatchingThunks[thunkName] = (...args: never[]) => dispatch(memoThunks[thunkName](...args));
+        for (const thunkName in memoThunks) {
+            // The type of thunk doesn't satisfy `AnyAction` but it's valid because we use middleware `redux-thunk`.
+            dispatchingThunks[thunkName] = (...args: never[]) => dispatch(memoThunks[thunkName](...args) as never);
+        }
 
         return dispatchingThunks as DispatchingThunks<TThunks>;
     }, [memoThunks, dispatch]);
