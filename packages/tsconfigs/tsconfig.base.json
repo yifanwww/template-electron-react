@@ -37,19 +37,8 @@
          * - useUnknownInCatchVariables
          */
         "strict": true,
+        "stripInternal": true,
         "target": "ES2018",
-        "useDefineForClassFields": true,
-
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    // It seems there is no way to support named exports for css modules in *.d.ts,
-                    // so for this plugin, disable this option.
-                    // ref: https://github.com/mrmckeb/typescript-plugin-css-modules#options
-                    "namedExports": false
-                }
-            }
-        ]
+        "useDefineForClassFields": true
     }
 }
