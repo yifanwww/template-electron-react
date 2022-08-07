@@ -113,3 +113,6 @@ export type PickNonNullableProps<T> = Pick<T, PickNonNullableKeys<T>>;
  * Construct a type with the properties of T except for those are non-nullable.
  */
 export type OmitNonNullableProps<T> = Omit<T, PickNonNullableKeys<T>>;
+
+// https://stackoverflow.com/questions/69763621/check-if-object-is-empty-using-typescript-generic
+export type IsEmptyObject<T> = [keyof T] extends [never] ? true : false;
