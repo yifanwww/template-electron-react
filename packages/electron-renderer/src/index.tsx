@@ -24,6 +24,7 @@ const Window: React.VFC = () => {
 
         default:
             never = type;
+            // eslint-disable-next-line no-console
             console.error(`Wrong window type '${never as string}' to create the specified window user interface.`);
             return null;
     }
@@ -42,6 +43,7 @@ function main(): void {
     // If you want to start measuring performance in your app, pass a function to log results
     // (for example: reportWebVitals (console.log)) or send to an analytics endpoint.
     // Learn more: https://bit.ly/CRA-vitals
+    // eslint-disable-next-line no-console
     reportWebVitals(console.info);
 }
 

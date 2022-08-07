@@ -11,10 +11,10 @@ describe(`Test react hook \`${useUnmount.name}\``, () => {
             return <div />;
         }
 
-        expect(onUnmount).toBeCalledTimes(0);
+        expect(onUnmount).toHaveBeenCalledTimes(0);
         const { unmount } = render(<TestComponent />);
-        expect(onUnmount).toBeCalledTimes(0);
+        expect(onUnmount).toHaveBeenCalledTimes(0);
         unmount();
-        expect(onUnmount).toBeCalledTimes(1);
+        expect(onUnmount).toHaveBeenCalledTimes(1);
     });
 });

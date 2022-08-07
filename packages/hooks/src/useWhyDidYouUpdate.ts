@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { useEffect, useRef } from 'react';
 
 export function useWhyDidYouUpdate<P extends {}>(name: string, props: P): void;

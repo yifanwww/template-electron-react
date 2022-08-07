@@ -29,6 +29,7 @@ export class WindowManager {
 
             default:
                 never = windowType;
+                // eslint-disable-next-line no-console
                 console.error(`Wrong window type '${never as string}' to create the specified browser window`);
         }
 

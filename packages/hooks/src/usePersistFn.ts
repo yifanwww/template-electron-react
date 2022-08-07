@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-interface PersistRef<T> {
+interface PersistFnRef<T> {
     fn: T;
     persistFn: T;
 }
@@ -14,7 +14,7 @@ interface PersistRef<T> {
  * @returns The function. The identity of this function will always be the same.
  */
 export function usePersistFn<T extends UnknownFn>(fn: T): T {
-    const ref = useRef<PersistRef<T>>();
+    const ref = useRef<PersistFnRef<T>>();
     if (!ref.current) {
         ref.current = {
             fn,
