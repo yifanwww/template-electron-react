@@ -5,10 +5,13 @@ import { paths } from '../utils/paths';
 const resolveMain = (relative: string) => path.resolve(paths.tecraElectronMain, relative);
 
 export const pathsMain = {
-    build: paths.build,
     appIndexTs: resolveMain('src/app.ts'),
+    appPath: resolveMain('.'),
     appSrc: resolveMain('src'),
+    appTsBuildInfoFile: resolveMain('node_modules/.cache/tsconfig.tsbuildinfo'),
     appTsConfig: resolveMain('tsconfig.json'),
+    build: paths.build,
+    webpackCache: resolveMain('node_modules/.cache'),
 };
 
 const resolveRenderer = (relative: string) => path.resolve(paths.tecraElectronRenderer, relative);
@@ -27,4 +30,5 @@ export const pathsRenderer = {
     proxySetup: resolveRenderer('src/setup.proxy.js'),
     swSrc: resolveRenderer('src/serviceWorker.js'),
     testsSetup: resolveRenderer('src/setup.test.ts'),
+    webpackCache: resolveRenderer('node_modules/.cache'),
 };

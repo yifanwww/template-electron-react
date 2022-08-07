@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-
 import chalk from 'chalk';
 import child from 'child_process';
 import concurrently from 'concurrently';
@@ -89,9 +87,7 @@ export function electronMain(): void {
 
     const env = {
         ...process.env,
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         BABEL_ENV: compilationMode[flag],
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         NODE_ENV: compilationMode[flag],
     };
 
@@ -135,9 +131,7 @@ export function unitTest(watch: boolean): void {
 
     const env = {
         ...process.env,
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         BABEL_ENV: 'test',
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         NODE_ENV: 'test',
     };
 

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-
 import { Config } from '@jest/types';
 import fs from 'fs';
 import path from 'path';

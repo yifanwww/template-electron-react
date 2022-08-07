@@ -4,7 +4,11 @@ import { registerIpcGlobalListeners } from './ipc';
 import { windowManager } from './window';
 
 async function installExtensions(): Promise<void> {
-    const { default: install, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS } = await import('electron-devtools-installer');
+    const {
+        default: install,
+        REDUX_DEVTOOLS,
+        REACT_DEVELOPER_TOOLS,
+    } = await import(/* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer');
 
     // eslint-disable-next-line no-console
     const succeed = (name: string) => console.info(`Added extension: ${name}`);

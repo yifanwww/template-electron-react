@@ -21,6 +21,7 @@ interface CRAPaths {
     testsSetup: string;
     proxySetup: string;
     appNodeModules: string;
+    appWebpackCache: string;
     swSrc: string;
     publicUrlOrPath: string;
     ownPath: string;
@@ -45,6 +46,7 @@ function overridePathsConfigs(paths: CRAPaths): CRAPaths {
     paths.appSrc = pathsRenderer.appSrc;
     paths.appTsConfig = pathsRenderer.appTsConfig;
     paths.appTypeDeclarations = pathsRenderer.appTypeDeclarations;
+    paths.appWebpackCache = pathsRenderer.webpackCache;
     paths.proxySetup = pathsRenderer.proxySetup;
     paths.swSrc = pathsRenderer.swSrc;
     paths.testsSetup = pathsRenderer.testsSetup;
