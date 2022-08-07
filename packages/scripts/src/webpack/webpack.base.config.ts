@@ -24,7 +24,7 @@ export const pathsRenderer = {
     appSrc: resolveRenderer('src'),
     appTsConfig: resolveRenderer('tsconfig.json'),
     appTypeDeclarations: resolveRenderer('src/global.d.ts'),
-    proxySetup: resolveRenderer('src/setupProxy.js'),
+    proxySetup: resolveRenderer('src/setup.proxy.js'),
     swSrc: resolveRenderer('src/serviceWorker.js'),
-    testsSetup: resolveRenderer('src/test.setup.ts'),
+    testsSetup: resolveRenderer('src/setup.test.ts'),
 };
