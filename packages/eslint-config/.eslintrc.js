@@ -41,6 +41,15 @@ module.exports = {
         'no-lonely-if': 'off',
         'no-param-reassign': 'off',
         'no-plusplus': 'off',
+        // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/es6.js#L65
+        'no-restricted-exports': [
+            'error',
+            {
+                restrictedNamedExports: [
+                    'then', // this will cause tons of confusion when your module is dynamically `import()`ed, and will break in most node ESM versions
+                ],
+            },
+        ],
         'no-restricted-syntax': 'off',
         // https://github.com/prettier/eslint-config-prettier/#no-tabs
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error informantion.
@@ -154,7 +163,6 @@ module.exports = {
             },
         ],
         'import/no-cycle': 'error',
-        'import/no-default-export': 'error',
         // Disabled for import-statement of dev dependencies.
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',

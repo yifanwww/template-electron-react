@@ -8,7 +8,7 @@ import './index.css';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
-const Window: React.VFC = () => {
+const Window: React.FC = () => {
     const [type, setType] = useState<Optional<WindowType>>(null);
 
     useEffect(() => {

@@ -7,7 +7,7 @@ export interface IntroductionProps {
     appDetails: AppDetails;
 }
 
-export const Introduction: React.VFC<IntroductionProps> = ({ appDetails }) => (
+export const Introduction: React.FC<IntroductionProps> = ({ appDetails }) => (
     <>
         <header className={scss.introduction}>
             <img className={scss.logo} src={Assets.logo} alt="logo" />

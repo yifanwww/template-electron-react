@@ -12,7 +12,7 @@ export interface PageHeaderProps {
     title: string;
 }
 
-export const PageHeader: React.VFC<PageHeaderProps> = ({ title }) => (
+export const PageHeader: React.FC<PageHeaderProps> = ({ title }) => (
     <div>
         {title}
         {/* ... */}
@@ -26,7 +26,7 @@ export interface PageProps {
     title: string;
 }
 
-export const Page: React.VFC<PageProps> = (props) => {
+export const Page: React.FC<PageProps> = (props) => {
     const { onRenderHeader = defaultOnRender, title } = props;
 
     return (
@@ -64,7 +64,7 @@ const reducer: ReactImmerReducer<TecraContext, TecraAction> = (state, action) =>
     }
 };
 
-export const Component: React.VFC = () => {
+export const Component: React.FC = () => {
     const [context, dispatch] = useImmerReducer(reducer, { value1: 0, value2: '' });
 
     // do something
