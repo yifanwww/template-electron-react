@@ -1,7 +1,7 @@
 import Assets from '@tecra/assets';
 import { AppDetails } from '@tecra/electron-common';
 
-import scss from './Introduction.module.scss';
+import css from './Introduction.module.scss';
 
 export interface IntroductionProps {
     appDetails: AppDetails;
@@ -9,13 +9,13 @@ export interface IntroductionProps {
 
 export const Introduction: React.FC<IntroductionProps> = ({ appDetails }) => (
     <>
-        <header className={scss.introduction}>
-            <img className={scss.logo} src={Assets.logo} alt="logo" />
+        <header className={css.introduction}>
+            <img className={css.logo} src={Assets.logo} alt="logo" />
             <p>
                 Edit <code>src/MainWindow/components/Introduction/Introduction.tsx</code> and save to reload.
             </p>
             <a
-                className={scss.link}
+                className={css.link}
                 href="https://github.com/YSoftwareRepo/template-electron-cra"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -23,7 +23,7 @@ export const Introduction: React.FC<IntroductionProps> = ({ appDetails }) => (
                 Learn template-electron-cra
             </a>
         </header>
-        <div className={scss.appDetails}>
+        <div className={css.appDetails}>
             <code>Name: {appDetails.name}</code>
             <code>Version: {appDetails.version}</code>
             <code>Electron: {appDetails.module.electron}</code>

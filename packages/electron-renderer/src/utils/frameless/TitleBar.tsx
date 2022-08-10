@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import scss from './Frameless.module.scss';
+import css from './Frameless.module.scss';
 
 export interface TitleBarProps {
     onClientAreaSizeChange?: (clientAreaSize: ClientAreaSize) => void;
@@ -23,7 +23,7 @@ export const TitleBar: React.FC<TitleBarProps> = ({ children, onClientAreaSizeCh
     }, [onClientAreaSizeChange]);
 
     return (
-        <div id={scss.TitleBar} ref={ref}>
+        <div id={css.TitleBar} ref={ref}>
             {children}
         </div>
     );

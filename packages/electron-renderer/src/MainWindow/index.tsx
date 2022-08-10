@@ -9,7 +9,7 @@ import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from './redux';
 import { RoutePath, routes } from './router';
 
-import scss from './index.module.scss';
+import css from './index.module.scss';
 
 const ClientArea: React.FC = () => {
     const prepared = usePrepared();
@@ -21,7 +21,7 @@ const ClientArea: React.FC = () => {
     }, [prepare]);
 
     return (
-        <div className={scss.clientArea}>
+        <div className={css.clientArea}>
             {prepared && (
                 <Suspense fallback={<div>Loading...</div>}>
                     <Routes>
