@@ -25,7 +25,7 @@ const Window: React.FC = () => {
         default:
             never = type;
             // eslint-disable-next-line no-console
-            console.error(`Wrong window type '${never as string}' to create the specified window user interface.`);
+            console.error(`Wrong window type '${String(never)}' to create the specified window user interface.`);
             return null;
     }
 };

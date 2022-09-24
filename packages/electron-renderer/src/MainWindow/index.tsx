@@ -5,7 +5,6 @@ import { Navigate, Route, Routes } from 'react-router';
 import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
-
 import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from './redux';
 import { RoutePath, routes } from './router';
 
@@ -40,19 +39,25 @@ const ClientArea: React.FC = () => {
     );
 };
 
+export const GlobalProviders: React.FC = (props) => {
+    return (
+        <FluentuiProvider>
+            <ReduxProvider store={mainStore}>
+                <HashRouter>{props.children}</HashRouter>
+            </ReduxProvider>
+        </FluentuiProvider>
+    );
+};
+
 const changeClientAreaSize = (size: ClientAreaSize) => mainStore.dispatch(mainActions.updateClientAreaSize(size));
 
 export const MainWindow: React.FC = () => {
     return (
         <FramelessWindow>
             <TitleBar onClientAreaSizeChange={changeClientAreaSize}>
-                <FluentuiProvider>
-                    <ReduxProvider store={mainStore}>
-                        <HashRouter>
-                            <ClientArea />
-                        </HashRouter>
-                    </ReduxProvider>
-                </FluentuiProvider>
+                <GlobalProviders>
+                    <ClientArea />
+                </GlobalProviders>
             </TitleBar>
         </FramelessWindow>
     );
