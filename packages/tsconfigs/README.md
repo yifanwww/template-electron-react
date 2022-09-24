@@ -6,7 +6,8 @@ Typescript configurations for tecra.
 
 Your typescript configurations can be extended from
 - `@tecra/tsconfigs/tsconfig.base.json`
-- `@tecra/tsconfigs/tsconfig.eslint.json`
+- `@tecra/tsconfigs/tsconfig.eslint.node.json`
+- `@tecra/tsconfigs/tsconfig.eslint.react.json`
 - `@tecra/tsconfigs/tsconfig.node.json`
 - `@tecra/tsconfigs/tsconfig.node.cjs.json`
 - `@tecra/tsconfigs/tsconfig.node.esm.json`
