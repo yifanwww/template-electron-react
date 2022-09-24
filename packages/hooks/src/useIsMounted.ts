@@ -1,14 +1,24 @@
 import { useEffect, useRef } from 'react';
 
-export function useIsMounted(): React.MutableRefObject<boolean> {
-    const isMounted = useRef(false);
+import { usePersistFn } from './usePersistFn';
+
+/**
+ * Hook to check whether this component is mounted.
+ *
+ * If you use this hook to decide whether you can call `React.setState`,
+ * then you don't need to use this hook since React 18: https://github.com/reactwg/react-18/discussions/82
+ *
+ * @returns The function to get whether this component is mounted. The identity of this function will never change.
+ */
+export function useIsMounted(): () => boolean {
+    const mountedRef = useRef(false);
 
     useEffect(() => {
-        isMounted.current = true;
+        mountedRef.current = true;
         return () => {
-            isMounted.current = false;
+            mountedRef.current = false;
         };
     }, []);
 
-    return isMounted;
+    return usePersistFn(() => mountedRef.current);
 }

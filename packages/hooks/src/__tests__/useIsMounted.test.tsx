@@ -4,7 +4,7 @@ import { useIsMounted } from '../useIsMounted';
 
 describe(`Test react hook \`${useIsMounted.name}\``, () => {
     it('returns whether the component is mounted', () => {
-        let isMounted: Optional<React.MutableRefObject<boolean>> = null;
+        let isMounted: Optional<() => boolean> = null;
         function TestComponent() {
             isMounted = useIsMounted();
             return <div />;
@@ -12,9 +12,9 @@ describe(`Test react hook \`${useIsMounted.name}\``, () => {
 
         expect(isMounted).toBeNull();
         const { unmount } = render(<TestComponent />);
-        expect(isMounted!.current).toBeTruthy();
+        expect(isMounted!()).toBeTruthy();
 
         unmount();
-        expect(isMounted!.current).toBeFalsy();
+        expect(isMounted!()).toBeFalsy();
     });
 });

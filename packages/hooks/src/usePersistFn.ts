@@ -11,7 +11,7 @@ interface PersistFnRef<T> {
  * and no need to use `React.useMemo` or `React.useCallback` to warp the dependencies.
  *
  * @param fn Function that hopes to keep the same.
- * @returns The function. The identity of this function will always be the same.
+ * @returns The function. The identity of this function will never change.
  */
 export function usePersistFn<T extends UnknownFn>(fn: T): T {
     const ref = useRef<PersistFnRef<T>>();
