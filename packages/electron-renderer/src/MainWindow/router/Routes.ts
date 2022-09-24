@@ -2,16 +2,31 @@ import React, { lazy } from 'react';
 
 import { RoutePath } from './RoutePath';
 
-export interface RouteInfo {
+interface RouteConfig {
     component: React.ComponentType;
+    /** Default is `false`. */
     exact?: boolean;
     path: RoutePath;
 }
 
-export const routes: RouteInfo[] = [
+export interface RouteInfo {
+    readonly component: React.ComponentType;
+    readonly exact: boolean;
+    readonly path: RoutePath;
+}
+
+function createRoutes(routes: RouteConfig[]): RouteInfo[] {
+    return routes.map((route) => ({
+        component: route.component,
+        exact: route.exact ?? false,
+        path: route.path,
+    }));
+}
+
+export const routes: RouteInfo[] = createRoutes([
     {
         path: RoutePath.Home,
         component: lazy(() => import(/* webpackChunkName: 'mainwindow-home' */ 'src/MainWindow/containers/HomePage')),
         exact: true,
     },
-];
+]);
