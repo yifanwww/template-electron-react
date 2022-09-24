@@ -11,7 +11,7 @@ export abstract class AbstractWindow {
     protected readonly windowType: WindowType;
     protected readonly windowId: string;
 
-    private readonly onClose: (option: CloseWindowOption) => Promise<void>;
+    private readonly onClose: (option: CloseWindowOption) => void | Promise<void>;
 
     protected readonly _ipcServer: IpcServer;
 

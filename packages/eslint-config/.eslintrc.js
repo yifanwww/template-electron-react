@@ -143,6 +143,8 @@ module.exports = {
         // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v16.1.0/lib/shared.js#L209
         // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/best-practices.js#L299
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+        // https://typescript-eslint.io/rules/require-await/
+        '@typescript-eslint/require-await': 'error',
 
         // `eslint-plugin-deprecation` does not support ESLint v8 yet, we can enable it when it supports ESLint v8.
         // 'deprecation/deprecation': 'warn',
@@ -183,6 +185,7 @@ module.exports = {
         // https://github.com/yannickcr/eslint-plugin-react/blob/v7.28.0/docs/rules/react-in-jsx-scope.md
         // Disable this rule for using new JSX transform from React 17.
         'react/react-in-jsx-scope': 'off',
+        'react/require-default-props': 'off',
 
         // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-v19.0.4/packages/eslint-config-airbnb/rules/react-hooks.js#L19
         'react-hooks/exhaustive-deps': ['error', { additionalHooks: 'use[a-zA-Z]+Effect' }],

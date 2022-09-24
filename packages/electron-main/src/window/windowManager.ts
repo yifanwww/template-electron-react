@@ -10,7 +10,7 @@ export class WindowManager {
     private count: number = 0;
     private store: WindowStore = {};
 
-    createWindow = async (option: CreateWindowOption): Promise<void> => {
+    createWindow = (option: CreateWindowOption): void => {
         this.count++;
 
         const { windowType } = option;
@@ -36,7 +36,7 @@ export class WindowManager {
         this.store[windowId]!.show();
     };
 
-    private closeWindow = async (option: CloseWindowOption): Promise<void> => {
+    private closeWindow = (option: CloseWindowOption): void => {
         const { windowId } = option;
 
         this.store[windowId] = null;
