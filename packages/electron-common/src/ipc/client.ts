@@ -10,7 +10,7 @@ const ipcRendererFactory = {
 };
 
 export class IpcClient {
-    static createWindow = ipcRendererFactory.invoke<void, [windowType: WindowType]>(IpcChannels.CreateWindow);
-    static getAppDetails = ipcRendererFactory.invoke<AppDetails, []>(IpcChannels.GetAppDetails);
-    static getWindowType = ipcRendererFactory.invoke<WindowType, []>(IpcChannels.GetWindowType);
+    static createWindow = ipcRendererFactory.invoke<void, [windowType: WindowType]>(IpcChannels.CREATE_WINDOW);
+    static getAppDetails = ipcRendererFactory.invoke<AppDetails, []>(IpcChannels.GET_APP_DETAILS);
+    static getWindowType = ipcRendererFactory.invoke<WindowType, []>(IpcChannels.GET_WINDOW_TYPE);
 }

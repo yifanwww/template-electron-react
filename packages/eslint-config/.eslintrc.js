@@ -92,7 +92,7 @@ module.exports = {
             { selector: 'accessor', format: ['camelCase'] },
             { selector: 'class', format: ['PascalCase'] },
             { selector: 'enum', format: ['PascalCase'] },
-            { selector: 'enumMember', format: ['PascalCase'] },
+            { selector: 'enumMember', format: ['UPPER_CASE'] },
             { selector: 'function', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'interface', format: ['PascalCase'] },
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },

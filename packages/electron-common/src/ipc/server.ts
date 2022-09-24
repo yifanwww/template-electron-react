@@ -84,8 +84,8 @@ export class IpcServer {
         this._listeners = {};
     }
 
-    static handleCreateWindow = ipcMainFactory.handle<void, [windowType: WindowType]>(IpcChannels.CreateWindow);
-    static handleGetAppDetails = ipcMainFactory.handle<AppDetails, []>(IpcChannels.GetAppDetails);
+    static handleCreateWindow = ipcMainFactory.handle<void, [windowType: WindowType]>(IpcChannels.CREATE_WINDOW);
+    static handleGetAppDetails = ipcMainFactory.handle<AppDetails, []>(IpcChannels.GET_APP_DETAILS);
 
-    handleGetWindowType = this._handleFactory<WindowType, []>(IpcChannels.GetWindowType);
+    handleGetWindowType = this._handleFactory<WindowType, []>(IpcChannels.GET_WINDOW_TYPE);
 }

@@ -25,7 +25,7 @@ function createRoutes(routes: RouteConfig[]): RouteInfo[] {
 
 export const routes: RouteInfo[] = createRoutes([
     {
-        path: RoutePath.Home,
+        path: RoutePath.HOME,
         component: lazy(() => import(/* webpackChunkName: 'mainwindow-home' */ 'src/MainWindow/containers/HomePage')),
         exact: true,
     },

@@ -1,5 +1,5 @@
 export enum IpcChannels {
-    CreateWindow = 'CreateWindow',
-    GetAppDetails = 'GetAppDetails',
-    GetWindowType = 'GetWindowType',
+    CREATE_WINDOW = 'CreateWindow',
+    GET_APP_DETAILS = 'GetAppDetails',
+    GET_WINDOW_TYPE = 'GetWindowType',
 }
