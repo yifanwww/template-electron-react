@@ -38,16 +38,16 @@ export const Page: React.FC<PageProps> = (props) => {
 }
 ```
 
-### `ReactImmerReducer`
+### `ImmerReducer`
 
 ```tsx
-import { ReactImmerReducer } from '@tecra/utils-react';
+import { ImmerReducer } from '@tecra/utils-react';
 import { useImmerReducer } from 'use-immer';
 
 type TecraContext = { value1: number; value2: string };
 type TecraAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
-const reducer: ReactImmerReducer<TecraContext, TecraAction> = (state, action) => {
+const reducer: ImmerReducer<TecraContext, TecraAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'value1':
