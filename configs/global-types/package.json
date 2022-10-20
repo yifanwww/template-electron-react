@@ -1,8 +1,8 @@
 {
-    "name": "@tecra/global-types",
+    "name": "@tecra-config/global-types",
     "version": "0.8.0",
     "description": "Global type declarations for tecra.",
-    "typings": "lib/index.d.ts",
+    "typings": "types/index.d.ts",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -13,7 +13,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
-        "directory": "packages/global-types"
+        "directory": "configs/global-types"
     },
     "scripts": {
         "format": "format-code",
@@ -21,7 +21,7 @@
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*"
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*"
     }
 }

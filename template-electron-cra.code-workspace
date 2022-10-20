@@ -98,6 +98,26 @@
             "path": "."
         },
         {
+            "name": "@tecra-config/eslint-config",
+            "path": "configs/eslint-config"
+        },
+        {
+            "name": "@tecra-config/global-types",
+            "path": "configs/global-types"
+        },
+        {
+            "name": "@tecra-config/scripts",
+            "path": "configs/scripts"
+        },
+        {
+            "name": "@tecra-config/stylelint-config",
+            "path": "configs/stylelint-config"
+        },
+        {
+            "name": "@tecra-config/tsconfigs",
+            "path": "configs/tsconfigs"
+        },
+        {
             "name": "@tecra/assets",
             "path": "packages/assets"
         },
@@ -114,28 +134,8 @@
             "path": "packages/electron-renderer"
         },
         {
-            "name": "@tecra/eslint-config",
-            "path": "packages/eslint-config"
-        },
-        {
-            "name": "@tecra/global-types",
-            "path": "packages/global-types"
-        },
-        {
             "name": "@tecra/hooks",
             "path": "packages/hooks"
-        },
-        {
-            "name": "@tecra/scripts",
-            "path": "packages/scripts"
-        },
-        {
-            "name": "@tecra/stylelint-config",
-            "path": "packages/stylelint-config"
-        },
-        {
-            "name": "@tecra/tsconfigs",
-            "path": "packages/tsconfigs"
         },
         {
             "name": "@tecra/utils-react",

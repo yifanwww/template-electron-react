@@ -5,46 +5,50 @@ import path from 'path';
 // `../..` points to `<repo>/packages/scripts`
 // `../../..` points to `<repo>/packages`
 // `../../../..` points to `<repo>`
-const repository = path.resolve(__dirname, '../../../..');
+const repo = path.resolve(__dirname, '../../../..');
 
-const build = path.resolve(repository, 'build');
-const nodeModules = path.resolve(repository, 'node_modules');
-const packages = path.resolve(repository, 'packages');
+const build = path.resolve(repo, 'build');
+const rootNodeModules = path.resolve(repo, 'node_modules');
 
-const scriptsDist = path.resolve(packages, 'scripts/dist');
+const configs = path.resolve(repo, 'configs');
+const pkgs = path.resolve(repo, 'packages');
+
+const scriptsDist = path.resolve(configs, 'scripts/dist');
 
 export const paths = {
-    repository,
+    repository: repo,
 
     // node_modules
 
-    nodeModules,
+    rootNodeModules,
     electron: electron as unknown as string,
 
     // packages
 
-    packages,
-    tecraElectronMain: path.resolve(packages, 'electron-main'),
-    tecraElectronRenderer: path.resolve(packages, 'electron-renderer'),
+    configs,
+    pkgs,
+
+    tecraElectronMain: path.resolve(pkgs, 'electron-main'),
+    tecraElectronRenderer: path.resolve(pkgs, 'electron-renderer'),
 
     // compilation
 
     build,
-    unpacked: path.resolve(repository, 'release/win-unpacked/tecra.exe'),
+    unpacked: path.resolve(repo, 'release/win-unpacked/tecra.exe'),
 
     webpackMainConfig: path.resolve(scriptsDist, 'webpack/webpack.main.config.js'),
     webpackRendererConfig: path.resolve(scriptsDist, 'webpack/webpack.renderer.config.js'),
 
     // working
 
-    working: path.resolve(repository, 'working'),
+    working: path.resolve(repo, 'working'),
 
     // test
 
-    jestCache: path.resolve(nodeModules, '.cache/jest'),
+    jestCache: path.resolve(rootNodeModules, '.cache/jest'),
 
     jestConfig: path.resolve(scriptsDist, 'jest/jest.config.js'),
-    testSetup: path.resolve(packages, 'utils-test/src/setup.ts'),
+    testSetup: path.resolve(pkgs, 'utils-test/src/setup.ts'),
     transforms: {
         babel: path.resolve(scriptsDist, 'jest/transform.babel.js'),
         css: path.resolve(scriptsDist, 'jest/transform.css.js'),

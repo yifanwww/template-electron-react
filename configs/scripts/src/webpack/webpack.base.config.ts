@@ -21,7 +21,7 @@ export const pathsRenderer = {
     appBuild: paths.build,
     appHtml: resolveRenderer('public/index.html'),
     appIndexTs: resolveRenderer('src/index.tsx'),
-    appNodeModules: paths.nodeModules,
+    appNodeModules: paths.rootNodeModules,
     appPath: paths.tecraElectronRenderer,
     appPublic: resolveRenderer('public'),
     appSrc: resolveRenderer('src'),

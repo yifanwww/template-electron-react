@@ -1,16 +1,16 @@
-# @tecra/eslint-config
+# @tecra-config/eslint-config
 
 ESLint configurations for tecra.
 
 ## Usage
 ### 1. Configure ESLint
 
-Add `"extends": "@tecra/eslint-config"` to your ESLint config file.
+Add `"extends": "@tecra-config/eslint-config"` to your ESLint config file.
 
 For example `.eslintrc.json`:
 ```json
 {
-    "extends": "@tecra/eslint-config"
+    "extends": "@tecra-config/eslint-config"
 }
 ```
 
@@ -23,7 +23,7 @@ In your ESLint config, set [parserOptions.project] to the path of your `tsconfig
 For example:
 ```json
 {
-    "extends": "@tecra/eslint-config",
+    "extends": "@tecra-config/eslint-config",
     "parserOptions": {
         "project": "./tsconfig.json"
     }

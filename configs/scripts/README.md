@@ -1,4 +1,4 @@
-# @tecra/scripts
+# @tecra-config/scripts
 
 Scripts for tecra.
 

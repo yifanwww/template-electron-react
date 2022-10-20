@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/scripts",
+    "name": "@tecra-config/scripts",
     "version": "0.8.0",
     "description": "Scripts for tecra.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
-        "directory": "packages/scripts"
+        "directory": "configs/scripts"
     },
     "bin": {
         "build-packages": "bin/build-packages.js",
@@ -36,8 +36,8 @@
         "camelcase": "^6.3.0"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*",
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*",
         "@jest/types": "^27.5.1"
     }
 }

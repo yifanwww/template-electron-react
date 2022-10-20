@@ -75,7 +75,7 @@ export const Component: React.FC = () => {
 
 ## Develop this package
 
-You need to build package `@tecra/scripts` before building or testing this package.
+You need to build package `@tecra-config/scripts` before building or testing this package.
 
 ### Build this package
 

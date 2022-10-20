@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/eslint-config",
+    "extends": "@tecra-config/eslint-config",
     "ignorePatterns": ["*.cjs", "*.js", "*.mjs"],
     "parserOptions": {
         "project": "./tsconfig.json"

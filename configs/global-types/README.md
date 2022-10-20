@@ -1,4 +1,4 @@
-# @tecra/global-types
+# @tecra-config/global-types
 
 Global type declarations for tecra.
 
@@ -17,13 +17,13 @@ For example:
 ```ts
 // global.d.ts
 
-/// <reference types="@tecra/global-types" />
+/// <reference types="@tecra-config/global-types" />
 ```
 
 ```ts
 // global.d.ts
 
-/// <reference types="@tecra/global-types/lib/env" />
-/// <reference types="@tecra/global-types/lib/test" />
-/// <reference types="@tecra/global-types/lib/utils.type" />
+/// <reference types="@tecra-config/global-types/lib/env" />
+/// <reference types="@tecra-config/global-types/lib/test" />
+/// <reference types="@tecra-config/global-types/lib/utils.type" />
 ```

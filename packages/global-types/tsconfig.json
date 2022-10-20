@@ -1,4 +1,0 @@
-{
-    "extends": "@tecra/tsconfigs/tsconfig.eslint.react.json",
-    "include": ["lib/**/*"]
-}

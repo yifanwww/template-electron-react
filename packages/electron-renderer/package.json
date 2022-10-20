@@ -34,11 +34,11 @@
         "@tecra/utils-redux": "workspace:*"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/global-types": "workspace:*",
-        "@tecra/scripts": "workspace:*",
-        "@tecra/stylelint-config": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*",
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/global-types": "workspace:*",
+        "@tecra-config/scripts": "workspace:*",
+        "@tecra-config/stylelint-config": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*",
         "@tecra/utils-test": "workspace:*"
     }
 }

@@ -1,7 +1,7 @@
 {
-    "name": "@tecra/stylelint-config",
+    "name": "@tecra-config/eslint-config",
     "version": "0.8.0",
-    "description": "Stylelint configurations for tecra.",
+    "description": "ESLint configurations for tecra.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
-        "directory": "packages/stylelint-config"
+        "directory": "configs/eslint-config"
     },
     "scripts": {
         "format": "format-code"
