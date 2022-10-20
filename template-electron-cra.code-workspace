@@ -98,6 +98,14 @@
             "path": "."
         },
         {
+            "name": "@tecra-app/electron-main",
+            "path": "app/electron-main"
+        },
+        {
+            "name": "@tecra-app/electron-renderer",
+            "path": "app/electron-renderer"
+        },
+        {
             "name": "@tecra-config/eslint-config",
             "path": "configs/eslint-config"
         },
@@ -118,39 +126,31 @@
             "path": "configs/tsconfigs"
         },
         {
-            "name": "@tecra/assets",
+            "name": "@tecra-pkg/assets",
             "path": "packages/assets"
         },
         {
-            "name": "@tecra/electron-common",
+            "name": "@tecra-pkg/electron-common",
             "path": "packages/electron-common"
         },
         {
-            "name": "@tecra/electron-main",
-            "path": "packages/electron-main"
-        },
-        {
-            "name": "@tecra/electron-renderer",
-            "path": "packages/electron-renderer"
-        },
-        {
-            "name": "@tecra/hooks",
+            "name": "@tecra-pkg/hooks",
             "path": "packages/hooks"
         },
         {
-            "name": "@tecra/utils-react",
+            "name": "@tecra-pkg/utils-react",
             "path": "packages/utils-react"
         },
         {
-            "name": "@tecra/utils-redux",
+            "name": "@tecra-pkg/utils-redux",
             "path": "packages/utils-redux"
         },
         {
-            "name": "@tecra/utils-test",
+            "name": "@tecra-pkg/utils-test",
             "path": "packages/utils-test"
         },
         {
-            "name": "@tecra/utils-type",
+            "name": "@tecra-pkg/utils-type",
             "path": "packages/utils-type"
         }
     ]

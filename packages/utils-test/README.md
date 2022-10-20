@@ -1,4 +1,4 @@
-# @tecra/utils-test
+# @tecra-pkg/utils-test
 
 Test utils used for tecra.
 

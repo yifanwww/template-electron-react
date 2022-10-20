@@ -7,19 +7,19 @@ Scripts for tecra.
 This package contains several binary which can be called via `npx` (or `yarn`) directly:
 
 - `build-packages`
-  Build all packages except `@tecra/electron-main` and `@tecra/electron-renderer`.
+  Build all packages except `@tecra-app/electron-main` and `@tecra-app/electron-renderer`.
 - `electron-main`
   - `electron-main build`
-    Build package `@tecra/electron-main`.
+    Build package `@tecra-app/electron-main`.
   - `electron-main dev`
-    Dev package `@tecra/electron-main`.
+    Dev package `@tecra-app/electron-main`.
 - `electron-renderer`
   - `electron-renderer build`
-    Build package `@tecra/electron-renderer`.
+    Build package `@tecra-app/electron-renderer`.
   - `electron-renderer build-profile`
-    Build package `@tecra/electron-renderer` with profiling enabled. See [React Profiling].
+    Build package `@tecra-app/electron-renderer` with profiling enabled. See [React Profiling].
   - `electron-renderer dev`
-    Dev package `@tecra/electron-renderer`.
+    Dev package `@tecra-app/electron-renderer`.
 - `format-code`
   Format source code by `prettier`.
 - `mkdir-working`

@@ -1,0 +1,44 @@
+{
+    "name": "@tecra-app/electron-renderer",
+    "version": "0.8.0",
+    "description": "Electron renderer process code.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "app/electron-renderer"
+    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
+    "scripts": {
+        "build": "electron-renderer build",
+        "build-profile": "electron-renderer build-profile",
+        "clean": "rimraf coverage",
+        "dev": "electron-renderer dev",
+        "format": "format-code",
+        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
+        "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test"
+    },
+    "dependencies": {
+        "@tecra-pkg/assets": "workspace:*",
+        "@tecra-pkg/electron-common": "workspace:*",
+        "@tecra-pkg/utils-redux": "workspace:*"
+    },
+    "devDependencies": {
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/global-types": "workspace:*",
+        "@tecra-config/scripts": "workspace:*",
+        "@tecra-config/stylelint-config": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*",
+        "@tecra-pkg/utils-test": "workspace:*"
+    }
+}

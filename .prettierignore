@@ -5,6 +5,7 @@
 
 # Packages
 
+/app
 /configs
 /packages
 pnpm-lock.yaml

@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/hooks",
+    "name": "@tecra-pkg/hooks",
     "version": "0.8.0",
     "description": "React hooks for tecra.",
     "main": "lib/index.js",
@@ -34,6 +34,6 @@
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "@tecra/utils-test": "workspace:*"
+        "@tecra-pkg/utils-test": "workspace:*"
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/utils-test",
+    "name": "@tecra-pkg/utils-test",
     "version": "0.8.0",
     "description": "Test utils used for tecra.",
     "main": "lib/index.js",

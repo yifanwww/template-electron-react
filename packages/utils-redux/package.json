@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/utils-redux",
+    "name": "@tecra-pkg/utils-redux",
     "version": "0.8.0",
     "description": "Redux utils for tecra.",
     "main": "lib/index.js",
@@ -28,7 +28,7 @@
         "pre-commit": "lint-staged"
     },
     "dependencies": {
-        "@tecra/utils-type": "workspace:*"
+        "@tecra-pkg/utils-type": "workspace:*"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",

@@ -1,4 +1,4 @@
-# @tecra/utils-react
+# @tecra-pkg/utils-react
 
 A package that contains React utilities.
 
@@ -6,7 +6,7 @@ A package that contains React utilities.
 ### `renderFactory` && `defaultOnRender`
 
 ```tsx
-import { defaultOnRender, renderFactory, RenderFn } from '@tecra/utils-react';
+import { defaultOnRender, renderFactory, RenderFn } from '@tecra-pkg/utils-react';
 
 export interface PageHeaderProps {
     title: string;
@@ -41,7 +41,7 @@ export const Page: React.FC<PageProps> = (props) => {
 ### `ImmerReducer`
 
 ```tsx
-import { ImmerReducer } from '@tecra/utils-react';
+import { ImmerReducer } from '@tecra-pkg/utils-react';
 import { useImmerReducer } from 'use-immer';
 
 type TecraContext = { value1: number; value2: string };

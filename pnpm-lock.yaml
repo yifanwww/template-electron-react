@@ -153,6 +153,44 @@ importers:
       webpack: 5.74.0_webpack-cli@4.10.0
       webpack-cli: 4.10.0_webpack@5.74.0
 
+  app/electron-main:
+    specifiers:
+      '@tecra-config/eslint-config': workspace:*
+      '@tecra-config/global-types': workspace:*
+      '@tecra-config/scripts': workspace:*
+      '@tecra-config/tsconfigs': workspace:*
+      '@tecra-pkg/electron-common': workspace:*
+    dependencies:
+      '@tecra-pkg/electron-common': link:../../packages/electron-common
+    devDependencies:
+      '@tecra-config/eslint-config': link:../../configs/eslint-config
+      '@tecra-config/global-types': link:../../configs/global-types
+      '@tecra-config/scripts': link:../../configs/scripts
+      '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+
+  app/electron-renderer:
+    specifiers:
+      '@tecra-config/eslint-config': workspace:*
+      '@tecra-config/global-types': workspace:*
+      '@tecra-config/scripts': workspace:*
+      '@tecra-config/stylelint-config': workspace:*
+      '@tecra-config/tsconfigs': workspace:*
+      '@tecra-pkg/assets': workspace:*
+      '@tecra-pkg/electron-common': workspace:*
+      '@tecra-pkg/utils-redux': workspace:*
+      '@tecra-pkg/utils-test': workspace:*
+    dependencies:
+      '@tecra-pkg/assets': link:../../packages/assets
+      '@tecra-pkg/electron-common': link:../../packages/electron-common
+      '@tecra-pkg/utils-redux': link:../../packages/utils-redux
+    devDependencies:
+      '@tecra-config/eslint-config': link:../../configs/eslint-config
+      '@tecra-config/global-types': link:../../configs/global-types
+      '@tecra-config/scripts': link:../../configs/scripts
+      '@tecra-config/stylelint-config': link:../../configs/stylelint-config
+      '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      '@tecra-pkg/utils-test': link:../../packages/utils-test
+
   configs/eslint-config:
     specifiers: {}
 
@@ -207,57 +245,19 @@ importers:
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
 
-  packages/electron-main:
-    specifiers:
-      '@tecra-config/eslint-config': workspace:*
-      '@tecra-config/global-types': workspace:*
-      '@tecra-config/scripts': workspace:*
-      '@tecra-config/tsconfigs': workspace:*
-      '@tecra/electron-common': workspace:*
-    dependencies:
-      '@tecra/electron-common': link:../electron-common
-    devDependencies:
-      '@tecra-config/eslint-config': link:../../configs/eslint-config
-      '@tecra-config/global-types': link:../../configs/global-types
-      '@tecra-config/scripts': link:../../configs/scripts
-      '@tecra-config/tsconfigs': link:../../configs/tsconfigs
-
-  packages/electron-renderer:
-    specifiers:
-      '@tecra-config/eslint-config': workspace:*
-      '@tecra-config/global-types': workspace:*
-      '@tecra-config/scripts': workspace:*
-      '@tecra-config/stylelint-config': workspace:*
-      '@tecra-config/tsconfigs': workspace:*
-      '@tecra/assets': workspace:*
-      '@tecra/electron-common': workspace:*
-      '@tecra/utils-redux': workspace:*
-      '@tecra/utils-test': workspace:*
-    dependencies:
-      '@tecra/assets': link:../assets
-      '@tecra/electron-common': link:../electron-common
-      '@tecra/utils-redux': link:../utils-redux
-    devDependencies:
-      '@tecra-config/eslint-config': link:../../configs/eslint-config
-      '@tecra-config/global-types': link:../../configs/global-types
-      '@tecra-config/scripts': link:../../configs/scripts
-      '@tecra-config/stylelint-config': link:../../configs/stylelint-config
-      '@tecra-config/tsconfigs': link:../../configs/tsconfigs
-      '@tecra/utils-test': link:../utils-test
-
   packages/hooks:
     specifiers:
       '@tecra-config/eslint-config': workspace:*
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
-      '@tecra/utils-test': workspace:*
+      '@tecra-pkg/utils-test': workspace:*
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
-      '@tecra/utils-test': link:../utils-test
+      '@tecra-pkg/utils-test': link:../utils-test
 
   packages/utils-react:
     specifiers:
@@ -277,9 +277,9 @@ importers:
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
-      '@tecra/utils-type': workspace:*
+      '@tecra-pkg/utils-type': workspace:*
     dependencies:
-      '@tecra/utils-type': link:../utils-type
+      '@tecra-pkg/utils-type': link:../utils-type
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types

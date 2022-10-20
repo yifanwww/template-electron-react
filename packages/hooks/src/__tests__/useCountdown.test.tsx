@@ -1,4 +1,4 @@
-import { validateHookValueNotChanged } from '@tecra/utils-test';
+import { validateHookValueNotChanged } from '@tecra-pkg/utils-test';
 import { act, render } from '@testing-library/react';
 import React, { useEffect, useState } from 'react';
 

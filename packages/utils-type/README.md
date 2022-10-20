@@ -1,4 +1,4 @@
-# @tecra/utils-type
+# @tecra-pkg/utils-type
 
 Type utilities.
 

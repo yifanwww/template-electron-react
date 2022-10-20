@@ -10,6 +10,7 @@ const repo = path.resolve(__dirname, '../../../..');
 const build = path.resolve(repo, 'build');
 const rootNodeModules = path.resolve(repo, 'node_modules');
 
+const appProjs = path.resolve(repo, 'app');
 const configs = path.resolve(repo, 'configs');
 const pkgs = path.resolve(repo, 'packages');
 
@@ -25,11 +26,12 @@ export const paths = {
 
     // packages
 
+    appProjs,
     configs,
     pkgs,
 
-    tecraElectronMain: path.resolve(pkgs, 'electron-main'),
-    tecraElectronRenderer: path.resolve(pkgs, 'electron-renderer'),
+    tecraElectronMain: path.resolve(appProjs, 'electron-main'),
+    tecraElectronRenderer: path.resolve(appProjs, 'electron-renderer'),
 
     // compilation
 

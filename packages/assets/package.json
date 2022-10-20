@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/assets",
+    "name": "@tecra-pkg/assets",
     "version": "0.8.0",
     "description": "A package that contains assets.",
     "main": "lib/index.js",

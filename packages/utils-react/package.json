@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/utils-react",
+    "name": "@tecra-pkg/utils-react",
     "version": "0.8.0",
     "description": "A package that contains React utilities.",
     "main": "lib/index.js",

@@ -15,10 +15,10 @@ const maxProcesses = 4;
 export async function buildPackages(): Promise<void> {
     const order: Order = [
         /* ----- may be used by all other packages ----- */
-        ['@tecra/utils-type', '@tecra/utils-test'],
+        ['@tecra-pkg/utils-type', '@tecra-pkg/utils-test'],
 
         /* ----- product packages ----- */
-        ['@tecra/assets', '@tecra/hooks', '@tecra/utils-react', '@tecra/utils-redux', '@tecra/electron-common'],
+        ['@tecra-pkg/assets', '@tecra-pkg/hooks', '@tecra-pkg/utils-react', '@tecra-pkg/utils-redux', '@tecra-pkg/electron-common'],
     ];
 
     for (const names of order) {

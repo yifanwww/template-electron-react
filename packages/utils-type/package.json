@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/utils-type",
+    "name": "@tecra-pkg/utils-type",
     "version": "0.8.0",
     "description": "Type utilities.",
     "main": "lib/index.js",

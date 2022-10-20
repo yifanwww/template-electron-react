@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/electron-common",
+    "name": "@tecra-pkg/electron-common",
     "version": "0.8.0",
     "description": "Common code for electron main process and electron renderer process.",
     "main": "lib/index.js",
