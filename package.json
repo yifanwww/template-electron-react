@@ -36,7 +36,7 @@
         "format": "pnpm run format:root && pnpm run format:workspaces",
         "format:root": "format-code",
         "format:workspaces": "pnpm run --recursive --stream format",
-        "gen-installer": "electron-builder build --config configs/electron-builder.json --win --publish never",
+        "gen-installer": "electron-builder build --config electron-builder.json --win --publish never",
         "lint": "pnpm run --recursive --stream lint",
         "pre-commit": "pnpm run --recursive --stream pre-commit",
         "prepare": "husky install",
