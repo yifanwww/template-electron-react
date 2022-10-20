@@ -18,21 +18,19 @@
         "directory": "packages/utils-react"
     },
     "scripts": {
-        "build": "concurrently -n esm,types \"npm run build:esm\" \"npm run build:types\"",
+        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "npm run build:esm -- --watch",
+        "dev": "pnpm run build:esm --watch",
         "format": "format-code",
         "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-full": "skip-npm-script"
+        "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "*",
-        "@tecra/global-types": "*",
-        "@tecra/scripts": "*",
-        "@tecra/tsconfigs": "*"
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/global-types": "workspace:*",
+        "@tecra/scripts": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*"
     }
 }

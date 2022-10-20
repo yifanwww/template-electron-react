@@ -1,4 +1,3 @@
-import { FluentuiProvider } from '@tecra/utils-fluentui';
 import { Suspense, useEffect } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router';
@@ -41,11 +40,9 @@ const ClientArea: React.FC = () => {
 
 export const GlobalProviders: React.FC = (props) => {
     return (
-        <FluentuiProvider>
-            <ReduxProvider store={mainStore}>
-                <HashRouter>{props.children}</HashRouter>
-            </ReduxProvider>
-        </FluentuiProvider>
+        <ReduxProvider store={mainStore}>
+            <HashRouter>{props.children}</HashRouter>
+        </ReduxProvider>
     );
 };
 

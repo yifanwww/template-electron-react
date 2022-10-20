@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../dist/utils/bin').runUnpacked();
+require('../dist/bin').runUnpacked();

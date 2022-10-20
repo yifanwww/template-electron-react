@@ -146,9 +146,9 @@ You need to build package `@tecra/scripts` before building or testing this packa
 
 ### Build this package
 
-Execute `npm run build` or `yarn build` to build this package.
+Execute `pnpm run build` to build this package.
 
 ### Do coverage test
 
-- Execute `npm run test` or `yarn test` to watch test.
-- Execute `npm run test-full` or `yarn test-full` to do full coverage test.
+- Execute `pnpm run test` to watch test.
+- Execute `pnpm run test-full` to do full coverage test.

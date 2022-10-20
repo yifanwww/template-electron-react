@@ -21,6 +21,7 @@
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "*"
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*"
     }
 }

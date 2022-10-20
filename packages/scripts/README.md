@@ -30,8 +30,6 @@ This package contains several binary which can be called via `npx` (or `yarn`) d
   Start electron application via the generated Javascript production file.
 - `run-unpacked`
   Start electron application via the generated binary executable file.
-- `skip-npm-script`
-  Skip a npm script, some npm scripts must exist to avoid error `Missing script` when execute a script with `--workspaces`.
 - `unit-test`
   Do coverage unit test by default, if called in NPM script `test` will start unit test in watch mode.
 

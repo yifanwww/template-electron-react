@@ -1,8 +1,0 @@
-{
-    "extends": "@tecra/tsconfigs/tsconfig.eslint.react.json",
-    "compilerOptions": {
-        "rootDir": "src"
-    },
-    "include": ["src/**/*"],
-    "exclude": []
-}

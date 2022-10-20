@@ -29,17 +29,16 @@
         "test-full": "unit-test"
     },
     "dependencies": {
-        "@tecra/assets": "*",
-        "@tecra/electron-common": "*",
-        "@tecra/utils-fluentui": "*",
-        "@tecra/utils-redux": "*"
+        "@tecra/assets": "workspace:*",
+        "@tecra/electron-common": "workspace:*",
+        "@tecra/utils-redux": "workspace:*"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "*",
-        "@tecra/global-types": "*",
-        "@tecra/scripts": "*",
-        "@tecra/stylelint-config": "*",
-        "@tecra/tsconfigs": "*",
-        "@tecra/utils-test": "*"
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/global-types": "workspace:*",
+        "@tecra/scripts": "workspace:*",
+        "@tecra/stylelint-config": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*",
+        "@tecra/utils-test": "workspace:*"
     }
 }

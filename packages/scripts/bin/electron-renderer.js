@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../dist/utils/bin').electronRenderer();
+require('../dist/bin').electronRenderer();

@@ -6,6 +6,7 @@
 # Packages
 
 /packages
+pnpm-lock.yaml
 
 # Running and Test
 
