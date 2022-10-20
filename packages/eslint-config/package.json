@@ -16,5 +16,9 @@
     },
     "scripts": {
         "format": "format-code"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*"
     }
 }

@@ -1,4 +1,3 @@
-import { initializeIcons } from '@fluentui/react';
 import { IpcClient, WindowType } from '@tecra/electron-common';
 import { StrictMode, useEffect, useState } from 'react';
 import { render } from 'react-dom';
@@ -31,8 +30,6 @@ const Window: React.FC = () => {
 };
 
 function main(): void {
-    initializeIcons();
-
     render(
         <StrictMode>
             <Window />

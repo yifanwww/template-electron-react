@@ -3,8 +3,9 @@ export type RenderFn<P> = (
     defaultRender: (props: P) => Optional<React.ReactElement>,
 ) => Optional<React.ReactElement>;
 
+// HACK: Maybe it's a TypeScript bug, we shouldn't use `JSX.IntrinsicAttributes` here
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export function renderFactory<P>(Component: React.ComponentType<P>) {
+export function renderFactory<P extends JSX.IntrinsicAttributes>(Component: React.ComponentType<P>) {
     return (props: P) => <Component {...props} />;
 }
 

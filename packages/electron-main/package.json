@@ -20,17 +20,15 @@
         "dev": "electron-main dev",
         "format": "format-code",
         "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-full": "skip-npm-script"
+        "pre-commit": "lint-staged"
     },
     "dependencies": {
-        "@tecra/electron-common": "*"
+        "@tecra/electron-common": "workspace:*"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "*",
-        "@tecra/global-types": "*",
-        "@tecra/scripts": "*",
-        "@tecra/tsconfigs": "*"
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/global-types": "workspace:*",
+        "@tecra/scripts": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*"
     }
 }

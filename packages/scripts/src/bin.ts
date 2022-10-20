@@ -3,10 +3,10 @@ import child from 'child_process';
 import concurrently from 'concurrently';
 import fs from 'fs';
 
-import { paths } from './paths';
+import { paths } from './utils/paths';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
-const genBuildCommand = (name: string) => `npm run build --workspace ${name}`;
+const genBuildCommand = (name: string) => `pnpm run --filter ${name} build`;
 
 type Order = Array<string | string[]>;
 
@@ -18,19 +18,12 @@ export async function buildPackages(): Promise<void> {
         ['@tecra/utils-type', '@tecra/utils-test'],
 
         /* ----- product packages ----- */
-        [
-            '@tecra/assets',
-            '@tecra/hooks',
-            '@tecra/utils-fluentui',
-            '@tecra/utils-react',
-            '@tecra/utils-redux',
-            '@tecra/electron-common',
-        ],
+        ['@tecra/assets', '@tecra/hooks', '@tecra/utils-react', '@tecra/utils-redux', '@tecra/electron-common'],
     ];
 
     for (const names of order) {
         if (typeof names === 'string') {
-            const command = `npm run build --workspace ${names}`;
+            const command = genBuildCommand(names);
             child.execSync(command, { stdio: 'inherit' });
         } else {
             // eslint-disable-next-line no-await-in-loop
