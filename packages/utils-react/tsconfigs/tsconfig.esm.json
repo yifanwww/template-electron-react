@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/tsconfigs/tsconfig.react.esm.json",
+    "extends": "@tecra-config/tsconfigs/tsconfig.react.esm.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

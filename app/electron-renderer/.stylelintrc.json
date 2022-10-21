@@ -1,0 +1,4 @@
+{
+    "extends": "@tecra-config/stylelint-config",
+    "ignoreFiles": ["build/**/*", "coverage/**/*", "node_modules/**/*"]
+}

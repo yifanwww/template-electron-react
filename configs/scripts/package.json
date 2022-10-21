@@ -1,0 +1,43 @@
+{
+    "name": "@tecra-config/scripts",
+    "version": "0.8.0",
+    "description": "Scripts for tecra.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "configs/scripts"
+    },
+    "bin": {
+        "build-packages": "bin/build-packages.js",
+        "electron-main": "bin/electron-main.js",
+        "electron-renderer": "bin/electron-renderer.js",
+        "format-code": "bin/format-code.js",
+        "mkdir-working": "bin/mkdir-working.js",
+        "run-build": "bin/run-build.js",
+        "run-unpacked": "bin/run-unpacked.js",
+        "unit-test": "bin/unit-test.js"
+    },
+    "scripts": {
+        "build-scripts": "tsc --project tsconfig.json",
+        "clean-scripts": "rimraf dist tsconfig.tsbuildinfo",
+        "dev": "pnpm run build-scripts --watch",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "camelcase": "^6.3.0"
+    },
+    "devDependencies": {
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*",
+        "@jest/types": "^27.5.1"
+    }
+}

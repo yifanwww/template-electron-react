@@ -1,0 +1,20 @@
+{
+    "name": "@tecra-config/tsconfigs",
+    "version": "0.8.0",
+    "description": "Typescript configurations for tecra.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "configs/tsconfigs"
+    },
+    "scripts": {
+        "format": "format-code"
+    }
+}

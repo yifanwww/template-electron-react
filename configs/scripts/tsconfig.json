@@ -1,0 +1,11 @@
+{
+    "extends": "@tecra-config/tsconfigs/tsconfig.node.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDir": "src",
+        "sourceMap": false,
+        "target": "ES2020"
+    },
+    "include": ["src/**/*"],
+    "exclude": []
+}

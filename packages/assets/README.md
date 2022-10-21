@@ -1,4 +1,4 @@
-# @tecra/assets
+# @tecra-pkg/assets
 
 A package that contains assets.
 
@@ -7,12 +7,12 @@ A package that contains assets.
 It's very easy to use there assets.
 
 ```ts
-import Assets from '@tecra/assets';
+import Assets from '@tecra-pkg/assets';
 ```
 
 ## Develop this package
 
-You need to build package `@tecra/scripts` before building or testing this package.
+You need to build package `@tecra-config/scripts` before building or testing this package.
 
 ### Build this package
 

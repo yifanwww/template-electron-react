@@ -1,4 +1,4 @@
-# @tecra/hooks
+# @tecra-pkg/hooks
 
 React hooks for tecra.
 
@@ -33,7 +33,7 @@ It's very easy to use these custom React hooks.
 Here is an example about how to use hook `useIsHovered`.
 
 ```ts
-import { useIsHovered } from '@tecra/hooks';
+import { useIsHovered } from '@tecra-pkg/hooks';
 
 export const Component: React.FC = () => {
     const ref = useRef<SubComponent>(null);
@@ -46,7 +46,7 @@ export const Component: React.FC = () => {
 
 ## Develop this package
 
-You need to build package `@tecra/scripts` before building or testing this package.
+You need to build package `@tecra-config/scripts` before building or testing this package.
 
 ### Build this package
 

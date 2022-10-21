@@ -1,1 +1,1 @@
-/// <reference types="@tecra/global-types/lib/test" />
+/// <reference types="@tecra-config/global-types/lib/test" />

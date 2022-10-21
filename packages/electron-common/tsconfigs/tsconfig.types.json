@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/tsconfigs/tsconfig.node.types.json",
+    "extends": "@tecra-config/tsconfigs/tsconfig.node.types.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

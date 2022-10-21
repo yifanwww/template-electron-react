@@ -1,4 +1,4 @@
-import { OmitUnderscorePrefix } from '@tecra/utils-type';
+import { OmitUnderscorePrefix } from '@tecra-pkg/utils-type';
 
 import { ReduxActions } from './types';
 

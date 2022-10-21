@@ -1,5 +1,5 @@
 {
-    "name": "@tecra/assets",
+    "name": "@tecra-pkg/assets",
     "version": "0.8.0",
     "description": "A package that contains assets.",
     "main": "lib/index.js",
@@ -27,9 +27,9 @@
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/global-types": "workspace:*",
-        "@tecra/scripts": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*"
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/global-types": "workspace:*",
+        "@tecra-config/scripts": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*"
     }
 }

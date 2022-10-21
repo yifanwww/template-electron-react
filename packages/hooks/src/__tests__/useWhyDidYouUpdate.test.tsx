@@ -1,4 +1,4 @@
-import { mockConsoleToMatchSnapshot } from '@tecra/utils-test';
+import { mockConsoleToMatchSnapshot } from '@tecra-pkg/utils-test';
 import { render } from '@testing-library/react';
 
 import { useWhyDidYouUpdate } from '../useWhyDidYouUpdate';

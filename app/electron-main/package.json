@@ -1,0 +1,34 @@
+{
+    "name": "@tecra-app/electron-main",
+    "version": "0.8.0",
+    "description": "Electron main process code.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "app/electron-main"
+    },
+    "scripts": {
+        "build": "electron-main build",
+        "clean": "rimraf coverage",
+        "dev": "electron-main dev",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "@tecra-pkg/electron-common": "workspace:*"
+    },
+    "devDependencies": {
+        "@tecra-config/eslint-config": "workspace:*",
+        "@tecra-config/global-types": "workspace:*",
+        "@tecra-config/scripts": "workspace:*",
+        "@tecra-config/tsconfigs": "workspace:*"
+    }
+}
