@@ -1,39 +1,10 @@
 import chalk from 'chalk';
 import child from 'child_process';
-import concurrently from 'concurrently';
 import fs from 'fs';
 
 import { paths } from './utils/paths';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
-const genBuildCommand = (name: string) => `pnpm run --filter ${name} build`;
-
-type Order = Array<string | string[]>;
-
-const maxProcesses = 4;
-
-export async function buildPackages(): Promise<void> {
-    const order: Order = [
-        /* ----- may be used by all other packages ----- */
-        ['@tecra-pkg/utils-type', '@tecra-pkg/utils-test'],
-
-        /* ----- product packages ----- */
-        ['@tecra-pkg/assets', '@tecra-pkg/hooks', '@tecra-pkg/utils-react', '@tecra-pkg/utils-redux', '@tecra-pkg/electron-common'],
-    ];
-
-    for (const names of order) {
-        if (typeof names === 'string') {
-            const command = genBuildCommand(names);
-            child.execSync(command, { stdio: 'inherit' });
-        } else {
-            // eslint-disable-next-line no-await-in-loop
-            await concurrently(
-                names.map((name) => ({ command: genBuildCommand(name), name })),
-                { maxProcesses },
-            ).result;
-        }
-    }
-}
 
 type CompilationFlagMain = 'build' | 'dev';
 type CompilationFlagRenderer = 'build' | 'build-profile' | 'dev';

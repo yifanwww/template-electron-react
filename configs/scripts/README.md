@@ -6,8 +6,6 @@ Scripts for tecra.
 
 This package contains several binary which can be called via `npx` (or `yarn`) directly:
 
-- `build-packages`
-  Build all packages except `@tecra-app/electron-main` and `@tecra-app/electron-renderer`.
 - `electron-main`
   - `electron-main build`
     Build package `@tecra-app/electron-main`.

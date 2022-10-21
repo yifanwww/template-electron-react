@@ -1,4 +1,4 @@
-// Used for `react-scripts` 4.0.3
+// Used for `react-scripts` 5.0.1
 // For more information about how to override default configs of `react-scripts`
 // please visit https://github.com/timarney/react-app-rewired
 
@@ -35,7 +35,7 @@ interface CRAPaths {
  *
  * The paths config to use when compiling your react app for development or production.
  *
- * Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
+ * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/paths.js
  */
 function overridePathsConfigs(paths: CRAPaths): CRAPaths {
     paths.appBuild = pathsRenderer.appBuild;
@@ -59,7 +59,7 @@ function overridePathsConfigs(paths: CRAPaths): CRAPaths {
  *
  * The Webpack config to use when compiling your react app for development or production.
  *
- * Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
+ * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
     // Set target.

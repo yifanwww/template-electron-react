@@ -2,33 +2,34 @@ import path from 'path';
 
 import { paths } from '../utils/paths';
 
-const resolveMain = (relative: string) => path.resolve(paths.tecraElectronMain, relative);
+const resolveAppMain = (relative: string) => path.resolve(paths.tecraElectronMain, relative);
 
 export const pathsMain = {
-    appIndexTs: resolveMain('src/app.ts'),
-    appPath: resolveMain('.'),
-    appSrc: resolveMain('src'),
-    appTsBuildInfoFile: resolveMain('node_modules/.cache/tsconfig.tsbuildinfo'),
-    appTsConfig: resolveMain('tsconfig.json'),
+    appIndexTs: resolveAppMain('src/app.ts'),
+    appPath: resolveAppMain('.'),
+    appSrc: resolveAppMain('src'),
+    appTsBuildInfoFile: resolveAppMain('node_modules/.cache/tsconfig.tsbuildinfo'),
+    appTsConfig: resolveAppMain('tsconfig.json'),
     build: paths.build,
-    webpackCache: resolveMain('node_modules/.cache'),
+    webpackCache: resolveAppMain('node_modules/.cache'),
 };
 
-const resolveRenderer = (relative: string) => path.resolve(paths.tecraElectronRenderer, relative);
+const resolveAppRenderer = (relative: string) => path.resolve(paths.tecraElectronRenderer, relative);
 
-// Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
+// Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/paths.js
 export const pathsRenderer = {
     appBuild: paths.build,
-    appHtml: resolveRenderer('public/index.html'),
-    appIndexTs: resolveRenderer('src/index.tsx'),
+    appHtml: resolveAppRenderer('public/index.html'),
+    appIndexTs: resolveAppRenderer('src/index.tsx'),
+    // FIXME: not all dependencies are in root node_modules
     appNodeModules: paths.rootNodeModules,
     appPath: paths.tecraElectronRenderer,
-    appPublic: resolveRenderer('public'),
-    appSrc: resolveRenderer('src'),
-    appTsConfig: resolveRenderer('tsconfig.json'),
-    appTypeDeclarations: resolveRenderer('src/global.d.ts'),
-    proxySetup: resolveRenderer('src/setup.proxy.js'),
-    swSrc: resolveRenderer('src/serviceWorker.js'),
-    testsSetup: resolveRenderer('src/setup.test.ts'),
-    webpackCache: resolveRenderer('node_modules/.cache'),
+    appPublic: resolveAppRenderer('public'),
+    appSrc: resolveAppRenderer('src'),
+    appTsConfig: resolveAppRenderer('tsconfig.json'),
+    appTypeDeclarations: resolveAppRenderer('src/global.d.ts'),
+    proxySetup: resolveAppRenderer('src/setup.proxy.js'),
+    swSrc: resolveAppRenderer('src/serviceWorker.js'),
+    testsSetup: resolveAppRenderer('src/setup.test.ts'),
+    webpackCache: resolveAppRenderer('node_modules/.cache'),
 };
