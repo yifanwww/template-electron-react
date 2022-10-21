@@ -1,3 +1,3 @@
-import { Draft } from 'immer';
+import type { Draft, nothing } from 'immer';
 
-export type ImmerReducer<State extends {}, Action> = (state: Draft<State>, action: Action) => void;
+export type ImmerReducer<S, A> = (draftState: Draft<S>, action: A) => void | (S extends undefined ? typeof nothing : S);

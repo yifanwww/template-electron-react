@@ -1,4 +1,4 @@
-import { WindowType } from '@tecra-pkg/electron-common';
+import type { WindowType } from '@tecra-pkg/electron-common';
 
 export interface CreateWindowOption {
     windowType: WindowType;

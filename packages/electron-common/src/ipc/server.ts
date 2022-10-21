@@ -1,8 +1,10 @@
-import { ipcMain, IpcMainEvent, IpcMainInvokeEvent } from 'electron';
+import { ipcMain } from 'electron';
+import type { IpcMainEvent, IpcMainInvokeEvent } from 'electron';
 
-import { AppDetails, WindowType } from '../type';
+import type { AppDetails, WindowType } from '../type';
+
 import { IpcChannels } from './channels';
-import { IpcMainHandler, IpcMainListener } from './types';
+import type { IpcMainHandler, IpcMainListener } from './types';
 
 const ipcMainFactory = {
     handle: <Return extends Promise<unknown> | unknown, Args extends unknown[]>(channel: string) => {

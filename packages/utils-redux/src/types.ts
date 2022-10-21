@@ -1,4 +1,4 @@
-import {
+import type {
     ActionCreatorWithoutPayload,
     ActionCreatorWithPayload,
     AnyAction,
@@ -6,7 +6,7 @@ import {
     ThunkAction,
     ThunkDispatch,
 } from '@reduxjs/toolkit';
-import { Draft } from 'immer';
+import type { Draft } from 'immer';
 
 export type ReduxReducer<State extends {}, Payload> = (state: Draft<State>, action: PayloadAction<Payload>) => void;
 

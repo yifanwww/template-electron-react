@@ -1,5 +1,6 @@
-import { AppDetails } from '@tecra-pkg/electron-common';
-import { MainReducer } from '../types';
+import type { AppDetails } from '@tecra-pkg/electron-common';
+
+import type { MainReducer } from '../types';
 
 export const _setAppDetails: MainReducer<AppDetails> = (state, action) => {
     state.appDetails = action.payload;

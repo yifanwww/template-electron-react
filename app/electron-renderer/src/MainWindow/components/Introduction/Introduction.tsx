@@ -1,5 +1,5 @@
 import Assets from '@tecra-pkg/assets';
-import { AppDetails } from '@tecra-pkg/electron-common';
+import type { AppDetails } from '@tecra-pkg/electron-common';
 
 import css from './Introduction.module.scss';
 

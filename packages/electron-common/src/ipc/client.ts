@@ -1,6 +1,7 @@
 import { ipcRenderer } from 'electron';
 
-import { AppDetails, WindowType } from '../type';
+import type { AppDetails, WindowType } from '../type';
+
 import { IpcChannels } from './channels';
 
 const ipcRendererFactory = {

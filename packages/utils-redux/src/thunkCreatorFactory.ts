@@ -1,4 +1,4 @@
-import { ReduxThunkAction, ThunkFn } from './types';
+import type { ReduxThunkAction, ThunkFn } from './types';
 
 export function thunkCreatorFactory<State>() {
     return function createThunk<ReturnType, Args extends unknown[]>(thunk: ThunkFn<ReturnType, State, Args>) {

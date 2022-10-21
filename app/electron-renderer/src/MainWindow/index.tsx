@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router';
 import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
+
 import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from './redux';
 import { RoutePath, routes } from './router';
 

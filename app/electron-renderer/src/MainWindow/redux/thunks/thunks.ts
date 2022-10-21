@@ -1,6 +1,7 @@
 import { IpcClient } from '@tecra-pkg/electron-common';
 
 import { _actions } from '../actions';
+
 import { createMainThunk } from './createMainThunk';
 
 export const prepare = createMainThunk(async (dispatch) => {

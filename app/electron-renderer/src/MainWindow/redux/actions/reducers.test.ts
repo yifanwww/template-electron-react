@@ -1,5 +1,6 @@
-import { AppDetails } from '@tecra-pkg/electron-common';
+import type { AppDetails } from '@tecra-pkg/electron-common';
 import { expectSnapshot } from '@tecra-pkg/utils-test';
+
 import { getInitialState, _actions, _reducer } from './slice';
 
 describe('Test redux reducer `_setAppDetails`', () => {

@@ -1,10 +1,11 @@
-import { IpcServer, WindowType } from '@tecra-pkg/electron-common';
+import { IpcServer } from '@tecra-pkg/electron-common';
+import type { WindowType } from '@tecra-pkg/electron-common';
 import { BrowserWindow, shell } from 'electron';
 import path from 'path';
 
 import { appPaths } from 'src/appPaths';
 
-import { AbstractWindowOption, CloseWindowOption } from './types';
+import type { AbstractWindowOption, CloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
     protected readonly window: BrowserWindow;

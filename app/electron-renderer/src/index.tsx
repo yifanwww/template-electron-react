@@ -1,4 +1,5 @@
-import { IpcClient, WindowType } from '@tecra-pkg/electron-common';
+import { IpcClient } from '@tecra-pkg/electron-common';
+import type { WindowType } from '@tecra-pkg/electron-common';
 import { StrictMode, useEffect, useState } from 'react';
 import { render } from 'react-dom';
 

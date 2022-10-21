@@ -1,4 +1,4 @@
-import { AppDetails } from '@tecra-pkg/electron-common';
+import type { AppDetails } from '@tecra-pkg/electron-common';
 import { expectElementSnapshot } from '@tecra-pkg/utils-test';
 import { render } from '@testing-library/react';
 

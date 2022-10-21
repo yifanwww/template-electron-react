@@ -1,4 +1,4 @@
-import TS from 'ts-essentials';
+import type TS from 'ts-essentials';
 
 declare global {
     /* ----- Types ----- */

@@ -1,4 +1,4 @@
-import { MainReducer } from '../types';
+import type { MainReducer } from '../types';
 
 export const updateClientAreaSize: MainReducer<ClientAreaSize> = (state, action) => {
     state.displayConfig.clientAreaSize = action.payload;

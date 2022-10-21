@@ -1,9 +1,10 @@
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
-import { Configuration, WebpackPluginInstance } from 'webpack';
+import type { Configuration, WebpackPluginInstance } from 'webpack';
 
 import { paths } from '../utils';
+
 import { ReloadElectronWebpackPlugin } from './plugins/reloadElectronWebpackPlugin';
 import { createEnvironmentHash } from './utils/createEnvironmentHash';
 import { getCacheIdentifier } from './utils/getCacheIdentifier';

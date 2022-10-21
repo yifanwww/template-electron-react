@@ -1,6 +1,6 @@
-import { AbstractWindow } from './abstractWindow';
+import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
-import { CloseWindowOption, CreateWindowOption } from './types';
+import type { CloseWindowOption, CreateWindowOption } from './types';
 
 interface WindowStore {
     [id: string]: Optional<AbstractWindow>;

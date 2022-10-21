@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import child from 'child_process';
 import _electron from 'electron';
-import { Compiler } from 'webpack';
+import type { Compiler } from 'webpack';
 
 const electron = _electron as unknown as string;
 
