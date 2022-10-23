@@ -18,8 +18,6 @@ This package contains several binary which can be called via `npx` (or `yarn`) d
     Build package `@tecra-app/electron-renderer` with profiling enabled. See [React Profiling].
   - `electron-renderer dev`
     Dev package `@tecra-app/electron-renderer`.
-- `format-code`
-  Format source code by `prettier`.
 - `mkdir-working`
   Make working directory.
 - `post-install`

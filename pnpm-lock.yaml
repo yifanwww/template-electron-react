@@ -160,6 +160,7 @@ importers:
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
       '@tecra-pkg/electron-common': workspace:*
+      prettier: 2.7.1
     dependencies:
       '@tecra-pkg/electron-common': link:../../packages/electron-common
     devDependencies:
@@ -167,6 +168,7 @@ importers:
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
   app/electron-renderer:
     specifiers:
@@ -179,6 +181,7 @@ importers:
       '@tecra-pkg/electron-common': workspace:*
       '@tecra-pkg/utils-redux': workspace:*
       '@tecra-pkg/utils-test': workspace:*
+      prettier: 2.7.1
     dependencies:
       '@tecra-pkg/assets': link:../../packages/assets
       '@tecra-pkg/electron-common': link:../../packages/electron-common
@@ -190,17 +193,23 @@ importers:
       '@tecra-config/stylelint-config': link:../../configs/stylelint-config
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
       '@tecra-pkg/utils-test': link:../../packages/utils-test
+      prettier: 2.7.1
 
   configs/eslint-config:
-    specifiers: {}
+    specifiers:
+      prettier: 2.7.1
+    devDependencies:
+      prettier: 2.7.1
 
   configs/global-types:
     specifiers:
       '@tecra-config/eslint-config': workspace:*
       '@tecra-config/tsconfigs': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../eslint-config
       '@tecra-config/tsconfigs': link:../tsconfigs
+      prettier: 2.7.1
 
   configs/scripts:
     specifiers:
@@ -208,18 +217,26 @@ importers:
       '@tecra-config/eslint-config': workspace:*
       '@tecra-config/tsconfigs': workspace:*
       camelcase: ^6.3.0
+      prettier: 2.7.1
     dependencies:
       camelcase: 6.3.0
     devDependencies:
       '@jest/types': 27.5.1
       '@tecra-config/eslint-config': link:../eslint-config
       '@tecra-config/tsconfigs': link:../tsconfigs
+      prettier: 2.7.1
 
   configs/stylelint-config:
-    specifiers: {}
+    specifiers:
+      prettier: 2.7.1
+    devDependencies:
+      prettier: 2.7.1
 
   configs/tsconfigs:
-    specifiers: {}
+    specifiers:
+      prettier: 2.7.1
+    devDependencies:
+      prettier: 2.7.1
 
   packages/assets:
     specifiers:
@@ -227,11 +244,13 @@ importers:
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
   packages/electron-common:
     specifiers:
@@ -239,11 +258,13 @@ importers:
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
   packages/hooks:
     specifiers:
@@ -252,12 +273,14 @@ importers:
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
       '@tecra-pkg/utils-test': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
       '@tecra-pkg/utils-test': link:../utils-test
+      prettier: 2.7.1
 
   packages/utils-react:
     specifiers:
@@ -265,11 +288,13 @@ importers:
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
   packages/utils-redux:
     specifiers:
@@ -278,6 +303,7 @@ importers:
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
       '@tecra-pkg/utils-type': workspace:*
+      prettier: 2.7.1
     dependencies:
       '@tecra-pkg/utils-type': link:../utils-type
     devDependencies:
@@ -285,6 +311,7 @@ importers:
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
   packages/utils-test:
     specifiers:
@@ -292,11 +319,13 @@ importers:
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
   packages/utils-type:
     specifiers:
@@ -304,11 +333,13 @@ importers:
       '@tecra-config/global-types': workspace:*
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
+      prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
       '@tecra-config/global-types': link:../../configs/global-types
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
+      prettier: 2.7.1
 
 packages:
 

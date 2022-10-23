@@ -23,7 +23,7 @@
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:esm --watch",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
@@ -34,6 +34,7 @@
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "@tecra-pkg/utils-test": "workspace:*"
+        "@tecra-pkg/utils-test": "workspace:*",
+        "prettier": "2.7.1"
     }
 }

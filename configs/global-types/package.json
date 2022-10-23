@@ -16,12 +16,13 @@
         "directory": "configs/global-types"
     },
     "scripts": {
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
-        "@tecra-config/tsconfigs": "workspace:*"
+        "@tecra-config/tsconfigs": "workspace:*",
+        "prettier": "2.7.1"
     }
 }

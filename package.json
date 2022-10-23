@@ -35,7 +35,7 @@
         "dev:main": "pnpm run --filter @tecra-app/electron-main dev",
         "dev:renderer": "pnpm run --filter @tecra-app/electron-renderer dev",
         "format": "pnpm run format:root && pnpm run format:workspaces",
-        "format:root": "format-code",
+        "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "format:workspaces": "pnpm run --recursive --stream format",
         "gen-installer": "electron-builder build --config electron-builder.json --win --publish never",
         "lint": "pnpm run --recursive --stream lint",

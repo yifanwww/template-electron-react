@@ -22,7 +22,7 @@
         "build-profile": "electron-renderer build-profile",
         "clean": "rimraf coverage",
         "dev": "electron-renderer dev",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
@@ -39,6 +39,7 @@
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/stylelint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "@tecra-pkg/utils-test": "workspace:*"
+        "@tecra-pkg/utils-test": "workspace:*",
+        "prettier": "2.7.1"
     }
 }
