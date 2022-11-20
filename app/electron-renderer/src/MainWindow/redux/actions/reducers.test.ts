@@ -3,29 +3,37 @@ import { expectSnapshot } from '@tecra-pkg/utils-test';
 
 import { getInitialState, _actions, _reducer } from './slice';
 
-describe('Test redux reducer `_setAppDetails`', () => {
-    it('updates app details', () => {
-        const prevState = getInitialState();
+{
+    const name = '_setAppDetails';
 
-        const appDetails: AppDetails = {
-            name: 'tecra',
-            version: 'unknown',
-            module: {
-                chrome: 'unknown',
-                electron: 'unknown',
-                node: 'unknown',
-                v8: 'unknown',
-            },
-        };
+    describe(`Test redux reducer \`${name}\``, () => {
+        it('should update app details', () => {
+            const prevState = getInitialState();
 
-        expectSnapshot(_reducer(prevState, _actions._setAppDetails(appDetails)).appDetails);
+            const appDetails: AppDetails = {
+                name: 'tecra',
+                version: 'unknown',
+                module: {
+                    chrome: 'unknown',
+                    electron: 'unknown',
+                    node: 'unknown',
+                    v8: 'unknown',
+                },
+            };
+
+            expectSnapshot(_reducer(prevState, _actions[name](appDetails)).appDetails);
+        });
     });
-});
+}
 
-describe('Test redux reducer `_finishPreparing`', () => {
-    it('finishes preparing', () => {
-        const prevState = getInitialState();
+{
+    const name = '_finishPreparing';
 
-        expectSnapshot(_reducer(prevState, _actions._finishPreparing()).prepared);
+    describe(`Test redux reducer \`${name}\``, () => {
+        it('should finish preparing', () => {
+            const prevState = getInitialState();
+
+            expectSnapshot(_reducer(prevState, _actions[name]()).prepared);
+        });
     });
-});
+}

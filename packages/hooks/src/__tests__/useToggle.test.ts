@@ -4,7 +4,7 @@ import { act, renderHook } from '@testing-library/react-hooks';
 import { useToggle } from '../useToggle';
 
 describe(`Test react hook \`${useToggle.name}\``, () => {
-    validateHookValueNotChanged('returns the same callbacks', () => {
+    validateHookValueNotChanged('should return the same callbacks', () => {
         const [, { setLeft, setRight, toggle }] = useToggle();
         return [setLeft, setRight, toggle];
     });
@@ -14,7 +14,7 @@ describe(`Test react hook \`${useToggle.name}\``, () => {
         return { value: result[0], ...result[1] };
     }
 
-    it('returns initial value', () => {
+    it('should return initial value', () => {
         const { result: result1 } = renderHook(() => useToggleWrapper(false));
         expect(result1.current.value).toBeFalsy();
 
@@ -25,7 +25,7 @@ describe(`Test react hook \`${useToggle.name}\``, () => {
         expect(result3.current.value).toBe('hi');
     });
 
-    it('updates the boolean value', () => {
+    it('should update the boolean value', () => {
         const { result } = renderHook(() => useToggleWrapper(true));
 
         act(() => result.current.setLeft());
@@ -47,7 +47,7 @@ describe(`Test react hook \`${useToggle.name}\``, () => {
         expect(result.current.value).toBeTruthy();
     });
 
-    it('updates the string value', () => {
+    it('should update the string value', () => {
         const $true = 'true';
         const $false = 'false';
 

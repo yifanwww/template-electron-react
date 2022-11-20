@@ -4,9 +4,9 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useConstFn } from '../useConstFn';
 
 describe(`Test react hook \`${useConstFn.name}\``, () => {
-    validateHookValueNotChanged('returns the same function', () => [useConstFn(() => 'hi')]);
+    validateHookValueNotChanged('should return the same function', () => [useConstFn(() => 'hi')]);
 
-    it('calls the function', () => {
+    it('should call the function', () => {
         const fn = jest.fn(() => 'hi');
         const { result } = renderHook(() => useConstFn(fn));
         expect(fn).toHaveBeenCalledTimes(0);

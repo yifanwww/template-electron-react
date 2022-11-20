@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { useIsFocused } from '../useIsFocused';
 
 describe(`Test react hook \`${useIsFocused.name}\``, () => {
-    it('returns whether the component is focused', () => {
+    it('should return whether the component is focused', () => {
         let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
@@ -28,7 +28,7 @@ describe(`Test react hook \`${useIsFocused.name}\``, () => {
         expect(isFocused).toBeTruthy();
     });
 
-    it('does not work if disabled', () => {
+    it('should not work if disabled', () => {
         let isFocused: Optional<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);

@@ -28,7 +28,7 @@ function testMultiRerender(Component: React.FunctionComponent<Props>, ref: Ref, 
 }
 
 describe(`Test react hook \`${usePrevious.name}\``, () => {
-    it('returns previous value', () => {
+    it('should return previous value', () => {
         const { rerender, result } = renderHook(usePrevious);
         expect(result.current).toBeUndefined();
 
@@ -42,7 +42,7 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
         expect(result.current).toBe(1);
     });
 
-    it('returns previous value with no initial value', () => {
+    it('should return previous value with no initial value', () => {
         const ref: Ref = { value: undefined };
         function TestComponent({ value }: Props) {
             ref.value = usePrevious(value);
@@ -56,7 +56,7 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
         testMultiRerender(TestComponent, ref, rerender);
     });
 
-    it('returns previous value with initial value `null`', () => {
+    it('should return previous value with initial value `null`', () => {
         const ref: Ref = { value: undefined };
         function TestComponent({ value }: Props) {
             ref.value = usePrevious(value, null);
@@ -70,7 +70,7 @@ describe(`Test react hook \`${usePrevious.name}\``, () => {
         testMultiRerender(TestComponent, ref, rerender);
     });
 
-    it('returns previous value with initial value of the same type', () => {
+    it('should return previous value with initial value of the same type', () => {
         const ref: Ref = { value: undefined };
         function TestComponent({ value }: Props) {
             ref.value = usePrevious(value, 'initial value');

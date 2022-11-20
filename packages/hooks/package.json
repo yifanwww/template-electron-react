@@ -35,6 +35,8 @@
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@tecra-pkg/utils-test": "workspace:*",
+        "@types/lodash": "^4.14.189",
+        "lodash": "^4.17.21",
         "prettier": "2.7.1"
     }
 }

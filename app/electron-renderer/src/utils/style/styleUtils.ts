@@ -1,55 +1,51 @@
 import { num2px } from './num2string';
 
-export interface IMarginInfo {
+export interface MarginInfo {
     top: number;
     right: number;
     bottom: number;
     left: number;
 }
 
-interface IMargin1 {
+interface Margin1 {
     margin: number;
 }
 
-interface IMargin2 {
+interface Margin2 {
     horizontal: number;
     vertical: number;
 }
 
-export type IMargin = IMargin1 | IMargin2 | IMarginInfo;
+export type Margin = Margin1 | Margin2 | MarginInfo;
 
-function genMargin(margin: IMargin): IMarginInfo {
-    if ('margin' in margin) {
-        return {
-            top: margin.margin,
-            right: margin.margin,
-            bottom: margin.margin,
-            left: margin.margin,
-        };
-    } else if ('horizontal' in margin) {
-        return {
-            top: margin.vertical,
-            right: margin.horizontal,
-            bottom: margin.vertical,
-            left: margin.horizontal,
-        };
-    } else {
-        return margin;
+export class StyleUtil {
+    static genMargin(margin: Margin): MarginInfo {
+        if ('margin' in margin) {
+            return {
+                top: margin.margin,
+                right: margin.margin,
+                bottom: margin.margin,
+                left: margin.margin,
+            };
+        } else if ('horizontal' in margin) {
+            return {
+                top: margin.vertical,
+                right: margin.horizontal,
+                bottom: margin.vertical,
+                left: margin.horizontal,
+            };
+        } else {
+            return margin;
+        }
+    }
+
+    static genMarginStr(margin: Margin): string {
+        const _margin = StyleUtil.genMargin(margin);
+        return `${_margin.top}px ${_margin.right}px ${_margin.bottom}px ${_margin.left}px`;
+    }
+
+    static mergeToGridTemplate(arr: (number | string)[]) {
+        const _arr = arr.map((element) => (typeof element === 'string' ? element : num2px(element)));
+        return _arr.join(' ');
     }
 }
-
-function genMarginStr(margin: IMargin): string {
-    const _margin = genMargin(margin);
-    return `${_margin.top}px ${_margin.right}px ${_margin.bottom}px ${_margin.left}px`;
-}
-
-function mergeToGridTemplate(arr: (number | string)[]) {
-    const _arr = arr.map((element) => (typeof element === 'string' ? element : num2px(element)));
-    return _arr.join(' ');
-}
-
-export const StyleUtils = {
-    genMargin,
-    genMarginStr,
-    mergeToGridTemplate,
-};

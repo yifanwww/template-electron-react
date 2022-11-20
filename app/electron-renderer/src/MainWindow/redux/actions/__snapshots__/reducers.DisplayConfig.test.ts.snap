@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test redux reducer \`updateClientAreaSize\` updates client area size 1`] = `
+exports[`Test redux reducer \`updateClientAreaSize\` should update client area size 1`] = `
 Object {
   "clientAreaSize": Object {
     "height": 123,

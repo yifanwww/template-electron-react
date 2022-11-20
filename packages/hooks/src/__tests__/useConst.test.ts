@@ -4,11 +4,13 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useConst } from '../useConst';
 
 describe(`Test react hook \`${useConst.name}\``, () => {
-    validateHookValueNotChanged('returns the same value with value initializer', () => [useConst(Math.random())]);
+    validateHookValueNotChanged('should return the same value with value initializer', () => [useConst(Math.random())]);
 
-    validateHookValueNotChanged('returns the same value with function initializer', () => [useConst(Math.random)]);
+    validateHookValueNotChanged('should return the same value with function initializer', () => [
+        useConst(Math.random),
+    ]);
 
-    it('calls the function initializer only once', () => {
+    it('should call the function initializer only once', () => {
         const initializer = jest.fn(() => Math.random());
         const { rerender, result } = renderHook(() => useConst(initializer));
 
@@ -21,7 +23,7 @@ describe(`Test react hook \`${useConst.name}\``, () => {
         expect(initializer).toHaveBeenCalledTimes(1);
     });
 
-    it('works with a function initializer which returns undefined', () => {
+    it('should work with a function initializer which returns `undefined`', () => {
         const initializer = jest.fn(() => undefined);
         const { rerender } = renderHook(() => useConst(initializer));
 

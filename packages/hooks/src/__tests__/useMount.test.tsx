@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { useMount } from '../useMount';
 
 describe(`Test react hook \`${useMount.name}\``, () => {
-    it('fires a callback', () => {
+    it('should fire the callback', () => {
         const onMount = jest.fn();
 
         function TestComponent() {

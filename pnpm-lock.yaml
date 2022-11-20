@@ -273,6 +273,8 @@ importers:
       '@tecra-config/scripts': workspace:*
       '@tecra-config/tsconfigs': workspace:*
       '@tecra-pkg/utils-test': workspace:*
+      '@types/lodash': ^4.14.189
+      lodash: ^4.17.21
       prettier: 2.7.1
     devDependencies:
       '@tecra-config/eslint-config': link:../../configs/eslint-config
@@ -280,6 +282,8 @@ importers:
       '@tecra-config/scripts': link:../../configs/scripts
       '@tecra-config/tsconfigs': link:../../configs/tsconfigs
       '@tecra-pkg/utils-test': link:../utils-test
+      '@types/lodash': 4.14.189
+      lodash: 4.17.21
       prettier: 2.7.1
 
   packages/utils-react:
@@ -2868,6 +2872,10 @@ packages:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
       '@types/node': 16.11.68
+    dev: true
+
+  /@types/lodash/4.14.189:
+    resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
     dev: true
 
   /@types/mime/3.0.1:

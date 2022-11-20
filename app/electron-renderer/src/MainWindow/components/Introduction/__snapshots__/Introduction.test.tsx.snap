@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test component \`Introduction\` renders 1`] = `
+exports[`Test component \`Introduction\` should render 1`] = `
 Array [
   <header
     className="introduction"

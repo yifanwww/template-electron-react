@@ -5,7 +5,7 @@ import { createRef, forwardRef, useImperativeHandle } from 'react';
 import { useSingleTimeout } from '../useSingleTimeout';
 
 describe(`Test react hook \`${useSingleTimeout.name}\``, () => {
-    validateHookValueNotChanged('returns the same callbacks each time', () => {
+    validateHookValueNotChanged('should return the same callbacks', () => {
         const { setTimeout, clearTimeout } = useSingleTimeout();
         return [setTimeout, clearTimeout];
     });
@@ -37,7 +37,7 @@ describe(`Test react hook \`${useSingleTimeout.name}\``, () => {
         return <div />;
     });
 
-    it('updates value when mounted', () => {
+    it('should update value when mounted', () => {
         render(<TestComponent />);
         expect(timesCalled).toStrictEqual(0);
 
@@ -48,7 +48,7 @@ describe(`Test react hook \`${useSingleTimeout.name}\``, () => {
         expect(timesCalled).toStrictEqual(1);
     });
 
-    it('does not execute the timeout when unmounted', () => {
+    it('should not execute the timeout when unmounted', () => {
         const { unmount } = render(<TestComponent />);
         expect(timesCalled).toStrictEqual(0);
 
@@ -58,7 +58,7 @@ describe(`Test react hook \`${useSingleTimeout.name}\``, () => {
         expect(timesCalled).toStrictEqual(0);
     });
 
-    it('can cancel timeout', () => {
+    it('should cancel timeout', () => {
         const ref = createRef<{ clearTimeout: () => void }>();
         render(<TestComponent ref={ref} />);
 

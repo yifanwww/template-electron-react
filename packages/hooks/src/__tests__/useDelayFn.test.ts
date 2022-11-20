@@ -1,11 +1,11 @@
 import { validateHookValueNotChanged } from '@tecra-pkg/utils-test';
 import { act, renderHook } from '@testing-library/react-hooks';
-import { noop } from 'ts-essentials';
+import { noop } from 'lodash';
 
 import { useDelayFn } from '../useDelayFn';
 
 describe(`Test react hook \`${useDelayFn.name}\``, () => {
-    validateHookValueNotChanged('returns the same function', () => [useDelayFn(noop)]);
+    validateHookValueNotChanged('should return the same function', () => [useDelayFn(noop)]);
 
     beforeAll(() => {
         jest.useFakeTimers();
@@ -15,7 +15,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         jest.useRealTimers();
     });
 
-    it('triggers only once', () => {
+    it('should trigger only once', () => {
         const fn = jest.fn(noop);
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
@@ -29,7 +29,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    it('triggers multiple times', () => {
+    it('should trigger multiple times', () => {
         const fn = jest.fn(noop);
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
@@ -49,12 +49,12 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    it('works with no delay function', () => {
+    it('should work with no delay function', () => {
         const { result } = renderHook(() => useDelayFn());
         act(() => result.current());
     });
 
-    it('does not execute fn after unmount', () => {
+    it('should not execute fn after unmount', () => {
         const fn = jest.fn(noop);
         const { result, unmount } = renderHook(() => useDelayFn(fn, 500));
 

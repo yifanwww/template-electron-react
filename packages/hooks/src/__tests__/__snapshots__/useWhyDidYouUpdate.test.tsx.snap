@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 1`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with complex props 1`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -9,7 +9,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 2`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with complex props 2`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -26,7 +26,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 3`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with complex props 3`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -50,7 +50,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with complex props 4`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with complex props 4`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -75,7 +75,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 1`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with simple props 1`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -84,7 +84,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 2`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with simple props 2`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -99,7 +99,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 3`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with simple props 3`] = `
 Object {
   "console": "log",
   "messages": Array [
@@ -114,7 +114,7 @@ Object {
 }
 `;
 
-exports[`Test react hook \`useWhyDidYouUpdate\` works with simple props 4`] = `
+exports[`Test react hook \`useWhyDidYouUpdate\` should work with simple props 4`] = `
 Object {
   "console": "log",
   "messages": Array [

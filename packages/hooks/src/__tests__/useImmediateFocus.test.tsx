@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useImmediateFocus } from '../useImmediateFocus';
 
 describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
-    it('immediately focuses the component', () => {
+    it('should immediately focus the component', () => {
         let isFocused: boolean = false;
 
         function TestComponent() {
@@ -26,7 +26,7 @@ describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
         expect(isFocused).toBeTruthy();
     });
 
-    it('does not focus the component if `focus` is `false`', () => {
+    it('should not focus the component if `focus` is `false`', () => {
         let isFocused: boolean = false;
 
         function TestComponent() {

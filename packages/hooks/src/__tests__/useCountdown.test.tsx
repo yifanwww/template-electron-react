@@ -6,7 +6,7 @@ import { useConstFn } from '../useConstFn';
 import { useCountdown } from '../useCountdown';
 
 describe(`Test react hook \`${useCountdown.name}\``, () => {
-    validateHookValueNotChanged('returns the same function', () => [useCountdown()[1]]);
+    validateHookValueNotChanged('should return the same function', () => [useCountdown()[1]]);
 
     let dateTime = 0;
     let intervalId: number;
@@ -42,7 +42,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         jest.spyOn(React, 'useState').mockImplementation(_useState as never);
     }
 
-    it('rerenders while counting down', () => {
+    it('should rerender while counting down', () => {
         spyOnUseState();
 
         let renderCount = 0;
@@ -72,7 +72,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         expect(renderCount).toBe(7);
     });
 
-    it('does not rerender after unmount', () => {
+    it('should not rerender after unmount', () => {
         spyOnUseState();
 
         let renderCount = 0;
