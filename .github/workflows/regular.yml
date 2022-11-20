@@ -11,8 +11,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     timeout-minutes: 5
+
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -40,8 +41,9 @@ jobs:
         run: pnpm run typecheck
 
   lint:
-    runs-on: ubuntu-latest
     timeout-minutes: 5
+
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -72,8 +74,13 @@ jobs:
         run: pnpm run lint
 
   test:
-    runs-on: ubuntu-latest
     timeout-minutes: 5
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
