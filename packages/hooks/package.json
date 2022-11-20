@@ -27,7 +27,8 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
-        "test-full": "unit-test"
+        "test-full": "unit-test",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",

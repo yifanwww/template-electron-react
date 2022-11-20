@@ -36,6 +36,9 @@ jobs:
       - name: Build project
         run: pnpm run build
 
+      - name: Do typecheck
+        run: pnpm run typecheck
+
   lint:
     runs-on: ubuntu-latest
     timeout-minutes: 5

@@ -20,7 +20,8 @@
         "dev": "electron-main dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
-        "pre-commit": "lint-staged"
+        "pre-commit": "lint-staged",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
         "@tecra-pkg/electron-common": "workspace:*"

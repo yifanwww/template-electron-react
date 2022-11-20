@@ -43,7 +43,8 @@
         "prepare": "husky install",
         "run-build": "run-build",
         "run-unpacked": "run-unpacked",
-        "test-full": "pnpm run --recursive --stream test-full"
+        "test-full": "pnpm run --recursive --stream test-full",
+        "typecheck": "pnpm run --recursive --stream typecheck"
     },
     "engines": {
         "node": ">=16"

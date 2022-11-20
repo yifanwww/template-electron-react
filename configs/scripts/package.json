@@ -28,7 +28,8 @@
         "dev": "pnpm run build-scripts --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
-        "pre-commit": "lint-staged"
+        "pre-commit": "lint-staged",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
         "camelcase": "^6.3.0"
