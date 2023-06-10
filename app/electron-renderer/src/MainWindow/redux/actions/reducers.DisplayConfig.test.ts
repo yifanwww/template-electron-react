@@ -1,5 +1,3 @@
-import { expectSnapshot } from '@tecra-pkg/utils-test';
-
 import { getInitialState, _actions, _reducer } from './slice';
 
 {
@@ -9,7 +7,7 @@ import { getInitialState, _actions, _reducer } from './slice';
         it('should update client area size', () => {
             const prevState = getInitialState();
 
-            expectSnapshot(_reducer(prevState, _actions[name]({ height: 123, width: 456 })).displayConfig);
+            expect(_reducer(prevState, _actions[name]({ height: 123, width: 456 })).displayConfig).toMatchSnapshot();
         });
     });
 }
