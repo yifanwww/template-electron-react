@@ -3,8 +3,8 @@
 exports[`Test redux reducer \`_finishPreparing\` should finish preparing 1`] = `true`;
 
 exports[`Test redux reducer \`_setAppDetails\` should update app details 1`] = `
-Object {
-  "module": Object {
+{
+  "module": {
     "chrome": "unknown",
     "electron": "unknown",
     "node": "unknown",

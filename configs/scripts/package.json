@@ -17,6 +17,7 @@
     "bin": {
         "electron-main": "bin/electron-main.js",
         "electron-renderer": "bin/electron-renderer.js",
+        "jest": "./node_modules/jest/bin/jest.js",
         "mkdir-working": "bin/mkdir-working.js",
         "run-build": "bin/run-build.js",
         "run-unpacked": "bin/run-unpacked.js",
@@ -32,14 +33,21 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@babel/core": "^7.22.5",
+        "babel-jest": "^29.5.0",
         "camelcase": "^6.3.0",
         "chalk": "^4.1.2",
         "fork-ts-checker-webpack-plugin": "^6.5.2",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^29.5.0",
+        "jest-environment-jsdom": "^29.5.0",
+        "jest-resolve": "^29.5.0",
+        "jest-watch-typeahead": "^2.2.2",
         "terser-webpack-plugin": "^5.3.6",
         "webpack-cli": "^4.10.0"
     },
     "devDependencies": {
-        "@jest/types": "^27.5.1",
+        "@jest/types": "^29.5.0",
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/case-sensitive-paths-webpack-plugin": "^2.1.6",
