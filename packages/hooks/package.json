@@ -37,8 +37,11 @@
         "@tecra-config/tsconfigs": "workspace:*",
         "@tecra-pkg/utils-test": "workspace:*",
         "@types/lodash": "^4.14.189",
+        "concurrently": "^7.4.0",
         "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
         "lodash": "^4.17.21",
-        "prettier": "2.7.1"
+        "prettier": "2.7.1",
+        "typescript": "4.8.4"
     }
 }

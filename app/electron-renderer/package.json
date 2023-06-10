@@ -42,7 +42,9 @@
         "@tecra-config/tsconfigs": "workspace:*",
         "@tecra-pkg/utils-test": "workspace:*",
         "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
         "prettier": "2.7.1",
-        "stylelint": "^14.14.0"
+        "stylelint": "^14.14.0",
+        "typescript": "4.8.4"
     }
 }

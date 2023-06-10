@@ -102,9 +102,6 @@ importers:
       chalk:
         specifier: ^4.1.2
         version: 4.1.2
-      concurrently:
-        specifier: ^7.4.0
-        version: 7.4.0
       electron:
         specifier: 19.0.11
         version: 19.0.11
@@ -123,9 +120,6 @@ importers:
       jest:
         specifier: ^27.5.1
         version: 27.5.1
-      lint-staged:
-        specifier: ^13.0.3
-        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
@@ -181,9 +175,15 @@ importers:
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   app/electron-renderer:
     dependencies:
@@ -218,12 +218,18 @@ importers:
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
       stylelint:
         specifier: ^14.14.0
         version: 14.14.0
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   configs/eslint-config:
     dependencies:
@@ -279,9 +285,15 @@ importers:
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   configs/scripts:
     dependencies:
@@ -301,9 +313,15 @@ importers:
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   configs/stylelint-config:
     dependencies:
@@ -323,12 +341,18 @@ importers:
       stylelint:
         specifier: ^14.14.0
         version: 14.14.0
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   configs/tsconfigs:
     devDependencies:
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/assets:
     devDependencies:
@@ -344,12 +368,21 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/electron-common:
     devDependencies:
@@ -365,12 +398,21 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/hooks:
     devDependencies:
@@ -392,15 +434,24 @@ importers:
       '@types/lodash':
         specifier: ^4.14.189
         version: 4.14.189
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/utils-react:
     devDependencies:
@@ -416,12 +467,21 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/utils-redux:
     dependencies:
@@ -441,12 +501,21 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/utils-test:
     devDependencies:
@@ -462,12 +531,21 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
   packages/utils-type:
     devDependencies:
@@ -483,12 +561,21 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      concurrently:
+        specifier: ^7.4.0
+        version: 7.4.0
       eslint:
         specifier: ^8.24.0
         version: 8.25.0
+      lint-staged:
+        specifier: ^13.0.3
+        version: 13.0.3
       prettier:
         specifier: 2.7.1
         version: 2.7.1
+      typescript:
+        specifier: 4.8.4
+        version: 4.8.4
 
 packages:
 

@@ -33,7 +33,10 @@
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
+        "concurrently": "^7.4.0",
         "eslint": "^8.24.0",
-        "prettier": "2.7.1"
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "typescript": "4.8.4"
     }
 }
