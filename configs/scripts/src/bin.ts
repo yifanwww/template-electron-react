@@ -1,6 +1,6 @@
 import chalk from 'chalk';
-import child from 'child_process';
-import fs from 'fs';
+import child from 'node:child_process';
+import fs from 'node:fs';
 
 import { paths } from './utils/paths';
 
