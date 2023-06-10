@@ -28,11 +28,21 @@
         "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
+    "dependencies": {
+        "immer": "^9.0.15",
+        "react": "^17.0.2"
+    },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "prettier": "2.7.1"
+        "@types/react": "^17.0.50",
+        "concurrently": "^7.4.0",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "4.8.4"
     }
 }

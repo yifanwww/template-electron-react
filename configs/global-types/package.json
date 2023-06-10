@@ -21,9 +21,15 @@
         "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
+    "dependencies": {
+        "ts-essentials": "^9.3.0"
+    },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "prettier": "2.7.1"
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "typescript": "4.8.4"
     }
 }

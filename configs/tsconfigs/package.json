@@ -17,7 +17,14 @@
     "scripts": {
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
     },
+    "dependencies": {
+        "typescript-plugin-css-modules": "^3.4.0"
+    },
     "devDependencies": {
-        "prettier": "2.7.1"
+        "prettier": "2.7.1",
+        "typescript": "4.8.4"
+    },
+    "peerDependencies": {
+        "typescript": "4.8.4"
     }
 }

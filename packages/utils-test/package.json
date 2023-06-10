@@ -28,11 +28,24 @@
         "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
+    "dependencies": {
+        "@testing-library/react-hooks": "^8.0.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-test-renderer": "^17.0.2"
+    },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "prettier": "2.7.1"
+        "@testing-library/jest-dom": "^5.16.5",
+        "@types/react-test-renderer": "^17.0.2",
+        "concurrently": "^7.4.0",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "4.8.4"
     }
 }

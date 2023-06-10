@@ -30,9 +30,15 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@reduxjs/toolkit": "^1.8.6",
         "@tecra-pkg/assets": "workspace:*",
         "@tecra-pkg/electron-common": "workspace:*",
-        "@tecra-pkg/utils-redux": "workspace:*"
+        "@tecra-pkg/utils-redux": "workspace:*",
+        "clsx": "^1.2.1",
+        "react-redux": "^8.0.4",
+        "react-router": "^6.4.2",
+        "react-router-dom": "^6.4.2",
+        "web-vitals": "^3.0.4"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
@@ -41,6 +47,18 @@
         "@tecra-config/stylelint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@tecra-pkg/utils-test": "workspace:*",
-        "prettier": "2.7.1"
+        "@testing-library/dom": "^8.19.0",
+        "@testing-library/react": "^12.1.5",
+        "@testing-library/react-hooks": "^8.0.1",
+        "@testing-library/user-event": "^14.4.3",
+        "@types/react": "^17.0.50",
+        "@types/react-dom": "^17.0.17",
+        "@types/testing-library__jest-dom": "^5.14.5",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "stylelint": "^14.14.0",
+        "typescript": "4.8.4"
     }
 }

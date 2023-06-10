@@ -32,12 +32,21 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "camelcase": "^6.3.0"
+        "camelcase": "^6.3.0",
+        "chalk": "^4.1.2",
+        "fork-ts-checker-webpack-plugin": "^6.5.2",
+        "terser-webpack-plugin": "^5.3.6",
+        "webpack-cli": "^4.10.0"
     },
     "devDependencies": {
         "@jest/types": "^27.5.1",
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "prettier": "2.7.1"
+        "@types/case-sensitive-paths-webpack-plugin": "^2.1.6",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "4.8.4"
     }
 }
