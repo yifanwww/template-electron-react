@@ -1,6 +1,10 @@
 export interface RouteOptions {
     component: React.ComponentType;
-    /** Default is `true`. */
+    /**
+     * Specify whether to match deeply to match multiple descendant routes.
+     *
+     * Default is `true`.
+     */
     exact?: boolean;
     path: string;
 }

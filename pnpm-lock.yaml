@@ -124,6 +124,9 @@ importers:
       '@tecra-pkg/electron-common':
         specifier: workspace:*
         version: link:../../packages/electron-common
+      '@tecra-pkg/utils-react-router':
+        specifier: workspace:*
+        version: link:../../packages/utils-react-router
       '@tecra-pkg/utils-redux':
         specifier: workspace:*
         version: link:../../packages/utils-redux
