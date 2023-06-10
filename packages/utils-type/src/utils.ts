@@ -34,8 +34,7 @@ export type ExtractFunction<T> = Extract<T, Function>;
 /**
  * Exclude from T those types that start with underscore.
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export type ExcludeUnderscorePrefix<T> = T extends `_${infer R}` ? never : T;
+export type ExcludeUnderscorePrefix<T> = T extends `_${string}` ? never : T;
 
 /**
  * Construct a type with the properties of T except for those that start with underscore.
