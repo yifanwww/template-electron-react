@@ -6,13 +6,13 @@ interface RouteConfig {
     component: React.ComponentType;
     /** Default is `false`. */
     exact?: boolean;
-    path: RoutePath;
+    path: string;
 }
 
 export interface RouteInfo {
     readonly component: React.ComponentType;
     readonly exact: boolean;
-    readonly path: RoutePath;
+    readonly path: string;
 }
 
 function createRoutes(routes: RouteConfig[]): RouteInfo[] {
