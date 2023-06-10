@@ -9,6 +9,7 @@ React hooks for tecra.
 - `useConstFn`
 - `useCountdown`
 - `useDelayFn`
+- `useDialogBeforeUnload`
 - `useDoubleTrigger`
 - `useForceUpdate`
 - `useImmediateFocus`
@@ -19,8 +20,8 @@ React hooks for tecra.
 - `useMount`
 - `usePersistFn`
 - `usePrevious`
-- `useSimpleInterval`
-- `useSimpleTimeout`
+- `useSingleInterval`
+- `useSingleTimeout`
 - `useTimeout`
 - `useToggle`
 - `useUnmount`
