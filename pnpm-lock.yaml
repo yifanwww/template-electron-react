@@ -248,10 +248,6 @@ importers:
         version: 4.8.4
 
   configs/global-types:
-    dependencies:
-      ts-essentials:
-        specifier: ^9.3.0
-        version: 9.3.0(typescript@4.8.4)
     devDependencies:
       '@tecra-config/eslint-config':
         specifier: workspace:*
@@ -11595,14 +11591,6 @@ packages:
   /tryer@1.0.1:
     resolution: {integrity: sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==}
     dev: true
-
-  /ts-essentials@9.3.0(typescript@4.8.4):
-    resolution: {integrity: sha512-XeiCboEyBG8UqXZtXl59bWEi4ZgOqRsogFDI6WDGIF1LmzbYiAkIwjkXN6zZWWl4re/lsOqMlYfe8KA0XiiEPw==}
-    peerDependencies:
-      typescript: '>=4.1.0'
-    dependencies:
-      typescript: 4.8.4
-    dev: false
 
   /tsconfig-paths@3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
