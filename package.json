@@ -60,8 +60,6 @@
         "@tecra-config/scripts": "workspace:*",
         "@types/jest": "^27.5.2",
         "@types/node": "^16.11.68",
-        "@types/react": "^17.0.50",
-        "@types/react-dom": "^17.0.17",
         "babel-jest": "^27.5.1",
         "browserslist": "^4.21.4",
         "electron": "19.0.11",

@@ -33,12 +33,6 @@ importers:
       '@types/node':
         specifier: ^16.11.68
         version: 16.11.68
-      '@types/react':
-        specifier: ^17.0.50
-        version: 17.0.50
-      '@types/react-dom':
-        specifier: ^17.0.17
-        version: 17.0.17
       babel-jest:
         specifier: ^27.5.1
         version: 27.5.1(@babel/core@7.19.6)
@@ -175,10 +169,16 @@ importers:
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
       '@testing-library/react-hooks':
         specifier: ^8.0.1
-        version: 8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)
+        version: 8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react@17.0.2)
       '@testing-library/user-event':
         specifier: ^14.4.3
         version: 14.4.3(@testing-library/dom@8.19.0)
+      '@types/react':
+        specifier: ^17.0.50
+        version: 17.0.50
+      '@types/react-dom':
+        specifier: ^17.0.17
+        version: 17.0.17
       '@types/testing-library__jest-dom':
         specifier: ^5.14.5
         version: 5.14.5
@@ -442,7 +442,7 @@ importers:
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
       '@testing-library/react-hooks':
         specifier: ^8.0.1
-        version: 8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)
+        version: 8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react@17.0.2)
       '@types/lodash':
         specifier: ^4.14.189
         version: 4.14.189
@@ -479,6 +479,9 @@ importers:
       immer:
         specifier: ^9.0.15
         version: 9.0.15
+      react:
+        specifier: ^17.0.2
+        version: 17.0.2
     devDependencies:
       '@tecra-config/eslint-config':
         specifier: workspace:*
@@ -492,6 +495,9 @@ importers:
       '@tecra-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      '@types/react':
+        specifier: ^17.0.50
+        version: 17.0.50
       concurrently:
         specifier: ^7.4.0
         version: 7.4.0
@@ -567,7 +573,7 @@ importers:
     dependencies:
       '@testing-library/react-hooks':
         specifier: ^8.0.1
-        version: 8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)
+        version: 8.0.1(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)
       react:
         specifier: ^17.0.2
         version: 17.0.2
@@ -2853,7 +2859,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks@8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2):
+  /@testing-library/react-hooks@8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2874,7 +2880,30 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-error-boundary: 3.1.4(react@17.0.2)
+    dev: true
+
+  /@testing-library/react-hooks@8.0.1(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2):
+    resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      '@types/react': ^16.9.0 || ^17.0.0
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+      react-test-renderer: ^16.9.0 || ^17.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react-dom:
+        optional: true
+      react-test-renderer:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.19.4
+      react: 17.0.2
+      react-dom: 17.0.2(react@17.0.2)
+      react-error-boundary: 3.1.4(react@17.0.2)
       react-test-renderer: 17.0.2(react@17.0.2)
+    dev: false
 
   /@testing-library/react@12.1.5(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
@@ -10151,6 +10180,7 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
       react-is: 18.2.0
+    dev: false
 
   /react-test-renderer@17.0.2(react@17.0.2):
     resolution: {integrity: sha512-yaQ9cB89c17PUb0x6UfWRs7kQCorVdHlutU1boVPEsB8IDZH6n9tHxMacc3y0JoXOJUsZb/t/Mb8FUWMKaM7iQ==}
@@ -10162,6 +10192,7 @@ packages:
       react-is: 17.0.2
       react-shallow-renderer: 16.15.0(react@17.0.2)
       scheduler: 0.20.2
+    dev: false
 
   /react@17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
