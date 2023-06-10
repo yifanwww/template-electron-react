@@ -28,6 +28,9 @@
         "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
+    "dependencies": {
+        "immer": "^9.0.15"
+    },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/global-types": "workspace:*",
