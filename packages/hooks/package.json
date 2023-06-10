@@ -41,6 +41,7 @@
         "@tecra-pkg/utils-test": "workspace:*",
         "@testing-library/react": "^12.1.5",
         "@testing-library/react-hooks": "^8.0.1",
+        "@types/jest": "^29.5.2",
         "@types/lodash": "^4.14.189",
         "@types/react": "^17.0.50",
         "concurrently": "^7.4.0",
