@@ -24,6 +24,7 @@
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
+        "eslint": "^8.24.0",
         "prettier": "2.7.1"
     }
 }

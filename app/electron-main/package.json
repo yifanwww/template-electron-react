@@ -31,6 +31,7 @@
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
+        "eslint": "^8.24.0",
         "prettier": "2.7.1"
     }
 }

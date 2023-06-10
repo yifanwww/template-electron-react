@@ -41,6 +41,7 @@
         "@tecra-config/stylelint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@tecra-pkg/utils-test": "workspace:*",
+        "eslint": "^8.24.0",
         "prettier": "2.7.1"
     }
 }
