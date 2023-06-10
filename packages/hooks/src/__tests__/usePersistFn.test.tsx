@@ -26,8 +26,7 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
         expect(increaseCount).toBeInstanceOf(Function);
 
         for (let i = 1; i <= 10; i++) {
-            // eslint-disable-next-line @typescript-eslint/no-loop-func
-            act(() => increaseCount!());
+            act(increaseCount!);
             expect(count).toBe(i);
         }
     });

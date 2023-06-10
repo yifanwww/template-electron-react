@@ -12,7 +12,7 @@ const Window: React.FC = () => {
     const [type, setType] = useState<Optional<WindowType>>(null);
 
     useEffect(() => {
-        IpcClient.getWindowType().then(setType);
+        void IpcClient.getWindowType().then(setType);
     }, []);
 
     let never: never;
@@ -22,6 +22,7 @@ const Window: React.FC = () => {
         case null:
             return <div />;
 
+        /* istanbul ignore next */
         default:
             never = type;
             // eslint-disable-next-line no-console

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-default-export */
-
 /// <reference types="node" />
 /// <reference types="react" />
 /// <reference types="react-dom" />

@@ -7,39 +7,40 @@ interface WindowStore {
 }
 
 export class WindowManager {
-    private count: number = 0;
-    private store: WindowStore = {};
+    private _count: number = 0;
+    private _store: WindowStore = {};
 
     createWindow = (option: CreateWindowOption): void => {
-        this.count++;
+        this._count++;
 
         const { windowType } = option;
-        const windowId = `${windowType}-${this.count}`;
+        const windowId = `${windowType}-${this._count}`;
 
         let never: never;
         switch (windowType) {
             case 'main':
-                this.store[windowId] = new MainWindow({
+                this._store[windowId] = new MainWindow({
                     windowId,
                     height: option?.height,
                     width: option?.width,
-                    onClose: this.closeWindow,
+                    onClose: this._closeWindow,
                 });
                 break;
 
+            /* istanbul ignore next */
             default:
                 never = windowType;
                 // eslint-disable-next-line no-console
                 console.error(`Wrong window type '${never as string}' to create the specified browser window`);
         }
 
-        this.store[windowId]!.show();
+        void this._store[windowId]!.show();
     };
 
-    private closeWindow = (option: CloseWindowOption): void => {
+    private _closeWindow = (option: CloseWindowOption): void => {
         const { windowId } = option;
 
-        this.store[windowId] = null;
+        this._store[windowId] = null;
     };
 }
 

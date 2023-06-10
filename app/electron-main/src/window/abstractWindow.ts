@@ -8,19 +8,19 @@ import { appPaths } from 'src/appPaths';
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
-    protected readonly window: BrowserWindow;
-    protected readonly windowType: WindowType;
-    protected readonly windowId: string;
+    protected readonly _window: BrowserWindow;
+    protected readonly _windowType: WindowType;
+    protected readonly _windowId: string;
 
-    private readonly onClose: (option: CloseWindowOption) => void | Promise<void>;
+    private readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
     protected readonly _ipcServer: IpcServer;
 
     constructor(option: AbstractWindowOption) {
-        this.windowId = option.windowId;
-        this.windowType = option.windowType;
+        this._windowId = option.windowId;
+        this._windowType = option.windowType;
 
-        this.window = new BrowserWindow({
+        this._window = new BrowserWindow({
             width: option.width ?? 1280,
             height: option.height ?? 720,
             webPreferences: {
@@ -29,46 +29,46 @@ export abstract class AbstractWindow {
             },
         });
 
-        this._ipcServer = new IpcServer(this.window.id);
+        this._ipcServer = new IpcServer(this._window.id);
 
-        this.onClose = option.onClose;
+        this._onClose = option.onClose;
 
-        this.addWindowListeners();
-        this.addIpcListeners();
+        this._addWindowListeners();
+        this._addIpcListeners();
     }
 
     async show(): Promise<void> {
         if (process.env.NODE_ENV === 'production') {
-            await this.window.loadFile(path.resolve(appPaths.src, 'index.html'));
+            await this._window.loadFile(path.resolve(appPaths.src, 'index.html'));
         } else {
-            await this.window.loadURL('http://localhost:4321/');
+            await this._window.loadURL('http://localhost:4321/');
         }
 
-        this.window.show();
+        this._window.show();
     }
 
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
-    protected addWindowListeners(): void {
-        this.window.webContents.setWindowOpenHandler((details) => {
-            shell.openExternal(details.url);
+    protected _addWindowListeners(): void {
+        this._window.webContents.setWindowOpenHandler((details) => {
+            void shell.openExternal(details.url);
             return { action: 'deny' };
         });
 
-        this.window.once('closed', this.close);
+        this._window.once('closed', this._close);
     }
 
-    private close = () => {
-        this.removeIpcListeners();
+    private _close = () => {
+        this._removeIpcListeners();
 
-        this.onClose({ windowId: this.windowId });
+        void this._onClose({ windowId: this._windowId });
     };
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
-    protected addIpcListeners(): void {
-        this._ipcServer.handleGetWindowType(() => this.windowType);
+    protected _addIpcListeners(): void {
+        this._ipcServer.handleGetWindowType(() => this._windowType);
     }
 
-    private removeIpcListeners = () => this._ipcServer.clear();
+    private _removeIpcListeners = () => this._ipcServer.clear();
 }
