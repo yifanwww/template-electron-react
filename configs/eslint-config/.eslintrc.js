@@ -141,7 +141,7 @@ module.exports = {
         // https://typescript-eslint.io/rules/naming-convention
         '@typescript-eslint/naming-convention': naming,
         // From:
-        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v17.0.0/lib/shared.js#L118
+        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v17.0.0/lib/shared.js#L122
         // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/best-practices.js#L94
         '@typescript-eslint/no-empty-function': [
             'error',
@@ -182,7 +182,7 @@ module.exports = {
             { allowNumber: true, allowBoolean: true, allowAny: false, allowNullish: true, allowRegExp: true },
         ],
         // From:
-        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v17.0.0/lib/shared.js#L209
+        // - https://github.com/iamturns/eslint-config-airbnb-typescript/blob/v17.0.0/lib/shared.js#L213
         // - https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/best-practices.js#L299
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
         // https://typescript-eslint.io/rules/require-await/
