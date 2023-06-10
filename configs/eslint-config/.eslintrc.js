@@ -204,6 +204,26 @@ module.exports = {
     },
     overrides: [
         {
+            files: ['*.d.ts'],
+            rules: {
+                '@typescript-eslint/naming-convention': 'off',
+            },
+        },
+        {
+            files: ['src/**/__tests__/*.{ts,tsx}', 'src/**/*.{spec,test}.{ts,tsx}', 'test/**/*.{ts,tsx}'],
+            rules: {
+                // https://typescript-eslint.io/rules/dot-notation
+                '@typescript-eslint/dot-notation': [
+                    'error',
+                    {
+                        allowPrivateClassPropertyAccess: true,
+                        allowProtectedClassPropertyAccess: true,
+                        allowIndexSignaturePropertyAccess: true,
+                    },
+                ],
+            },
+        },
+        {
             files: [
                 'perf/**/*.ts',
                 'src/**/__tests__/*.{ts,tsx}',
@@ -212,12 +232,6 @@ module.exports = {
             ],
             rules: {
                 'no-console': 'off',
-            },
-        },
-        {
-            files: ['*.d.ts'],
-            rules: {
-                '@typescript-eslint/naming-convention': 'off',
             },
         },
     ],
