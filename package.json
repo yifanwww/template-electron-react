@@ -26,7 +26,7 @@
         "build-scripts": "pnpm run --filter @tecra-config/scripts build-scripts",
         "clean": "rimraf build release working && pnpm run clean:packages",
         "clean:build": "rimraf build",
-        "clean:packages": "pnpm run --recursive clean",
+        "clean:packages": "pnpm run --recursive --no-sort clean",
         "clean:release": "rimraf release",
         "clean:working": "rimraf working",
         "clean-scripts": "pnpm run --filter @tecra-config/scripts clean-scripts",
@@ -36,15 +36,15 @@
         "dev:renderer": "pnpm run --filter @tecra-app/electron-renderer dev",
         "format": "pnpm run format:root && pnpm run format:workspaces",
         "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
-        "format:workspaces": "pnpm run --recursive --stream format",
+        "format:workspaces": "pnpm run --recursive --no-sort --stream format",
         "gen-installer": "electron-builder build --config electron-builder.json --win --publish never",
-        "lint": "pnpm run --recursive --stream lint",
-        "pre-commit": "pnpm run --recursive --workspace-concurrency 1 pre-commit",
+        "lint": "pnpm run --recursive --no-sort --stream lint",
+        "pre-commit": "pnpm run --recursive --workspace-concurrency=1 pre-commit",
         "prepare": "husky install",
         "run-build": "run-build",
         "run-unpacked": "run-unpacked",
-        "test-full": "pnpm run --recursive --stream test-full",
-        "typecheck": "pnpm run --recursive --stream typecheck"
+        "test-full": "pnpm run --recursive --no-sort --stream test-full",
+        "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
     "engines": {
         "node": ">=16"
