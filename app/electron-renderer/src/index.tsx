@@ -22,6 +22,7 @@ const Window: React.FC = () => {
         case null:
             return <div />;
 
+        /* istanbul ignore next */
         default:
             never = type;
             // eslint-disable-next-line no-console

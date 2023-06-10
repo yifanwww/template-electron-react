@@ -27,6 +27,7 @@ export class WindowManager {
                 });
                 break;
 
+            /* istanbul ignore next */
             default:
                 never = windowType;
                 // eslint-disable-next-line no-console

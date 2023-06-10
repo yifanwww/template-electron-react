@@ -58,6 +58,7 @@ const reducer: ImmerReducer<TecraContext, TecraAction> = (state, action) => {
             state.value2 = action.payload;
             break;
 
+        /* istanbul ignore next */
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;
