@@ -21,8 +21,7 @@ async function installExtensions(): Promise<void> {
     ]);
 }
 
-// This method will be called when Electron has finished initialization and is ready to create browser windows.
-app.on('ready', async () => {
+async function handleReady() {
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
@@ -30,6 +29,11 @@ app.on('ready', async () => {
     registerIpcGlobalListeners();
 
     windowManager.createWindow({ windowType: 'main' });
+}
+
+// This method will be called when Electron has finished initialization and is ready to create browser windows.
+app.on('ready', () => {
+    void handleReady();
 });
 
 app.on('window-all-closed', () => {

@@ -51,7 +51,7 @@ export abstract class AbstractWindow {
 
     protected _addWindowListeners(): void {
         this._window.webContents.setWindowOpenHandler((details) => {
-            shell.openExternal(details.url);
+            void shell.openExternal(details.url);
             return { action: 'deny' };
         });
 
@@ -61,7 +61,7 @@ export abstract class AbstractWindow {
     private _close = () => {
         this._removeIpcListeners();
 
-        this._onClose({ windowId: this._windowId });
+        void this._onClose({ windowId: this._windowId });
     };
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers

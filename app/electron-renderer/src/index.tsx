@@ -12,7 +12,7 @@ const Window: React.FC = () => {
     const [type, setType] = useState<Optional<WindowType>>(null);
 
     useEffect(() => {
-        IpcClient.getWindowType().then(setType);
+        void IpcClient.getWindowType().then(setType);
     }, []);
 
     let never: never;

@@ -34,7 +34,7 @@ export class WindowManager {
                 console.error(`Wrong window type '${never as string}' to create the specified browser window`);
         }
 
-        this._store[windowId]!.show();
+        void this._store[windowId]!.show();
     };
 
     private _closeWindow = (option: CloseWindowOption): void => {

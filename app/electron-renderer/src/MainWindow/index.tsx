@@ -16,7 +16,7 @@ const ClientArea: React.FC = () => {
     const { prepare } = useMainDispatchingThunks();
 
     useEffect(() => {
-        prepare();
+        void prepare();
     }, [prepare]);
 
     return (
