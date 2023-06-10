@@ -47,9 +47,15 @@
         "@tecra-config/stylelint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@tecra-pkg/utils-test": "workspace:*",
+        "@testing-library/dom": "^8.19.0",
+        "@testing-library/react": "^12.1.5",
+        "@testing-library/react-hooks": "^8.0.1",
+        "@testing-library/user-event": "^14.4.3",
+        "@types/testing-library__jest-dom": "^5.14.5",
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",
         "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
         "stylelint": "^14.14.0",
         "typescript": "4.8.4"
     }

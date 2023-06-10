@@ -24,16 +24,19 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "@tecra-pkg/electron-common": "workspace:*"
+        "@tecra-pkg/electron-common": "workspace:*",
+        "electron-devtools-installer": "^3.2.0"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
+        "@types/electron-devtools-installer": "^2.2.2",
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",
         "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
         "typescript": "4.8.4"
     }
 }
