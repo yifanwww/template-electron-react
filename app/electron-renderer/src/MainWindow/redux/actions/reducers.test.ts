@@ -1,5 +1,4 @@
 import type { AppDetails } from '@tecra-pkg/electron-common';
-import { expectSnapshot } from '@tecra-pkg/utils-test';
 
 import { getInitialState, _actions, _reducer } from './slice';
 
@@ -21,7 +20,7 @@ import { getInitialState, _actions, _reducer } from './slice';
                 },
             };
 
-            expectSnapshot(_reducer(prevState, _actions[name](appDetails)).appDetails);
+            expect(_reducer(prevState, _actions[name](appDetails)).appDetails).toMatchSnapshot();
         });
     });
 }
@@ -33,7 +32,7 @@ import { getInitialState, _actions, _reducer } from './slice';
         it('should finish preparing', () => {
             const prevState = getInitialState();
 
-            expectSnapshot(_reducer(prevState, _actions[name]()).prepared);
+            expect(_reducer(prevState, _actions[name]()).prepared).toMatchSnapshot();
         });
     });
 }

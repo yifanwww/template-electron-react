@@ -1,6 +1,6 @@
 import type { AppDetails } from '@tecra-pkg/electron-common';
-import { expectElementSnapshot } from '@tecra-pkg/utils-test';
 import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
 import { Introduction } from './Introduction';
 
@@ -17,11 +17,11 @@ describe(`Test component \`${Introduction.name}\``, () => {
             },
         };
 
-        const reactElement = <Introduction appDetails={appDetails} />;
+        const element = <Introduction appDetails={appDetails} />;
 
-        expectElementSnapshot(reactElement);
+        expect(renderer.create(element).toJSON()).toMatchSnapshot();
 
-        const { getByText } = render(reactElement);
+        const { getByText } = render(element);
         const linkElement = getByText(/Learn template-electron-cra/i);
         expect(linkElement).toBeInTheDocument();
     });
