@@ -1,5 +1,5 @@
 import electron from 'electron';
-import path from 'path';
+import path from 'node:path';
 
 // `..` points to `<repo>/packages/scripts/src`
 // `../..` points to `<repo>/packages/scripts`
