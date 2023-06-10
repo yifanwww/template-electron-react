@@ -1,6 +1,8 @@
 {
     "extends": "@tecra-config/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
+        // disable `incremental` for NPM script `typecheck`
+        "incremental": false,
         "outDir": "dist",
         "rootDir": "src",
         "sourceMap": false,
