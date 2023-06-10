@@ -22,7 +22,7 @@ jobs:
       - name: Setup PNPM environment
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
@@ -52,7 +52,7 @@ jobs:
       - name: Setup PNPM environment
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
@@ -89,7 +89,7 @@ jobs:
       - name: Setup PNPM environment
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
