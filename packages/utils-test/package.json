@@ -26,6 +26,8 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
