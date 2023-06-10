@@ -6,7 +6,7 @@ import { HashRouter } from 'react-router-dom';
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 
 import { mainActions, mainStore, useMainDispatchingThunks, usePrepared } from './redux';
-import { RoutePath, routes } from './router';
+import { RoutePath, routes } from './routes';
 
 import css from './index.module.scss';
 
