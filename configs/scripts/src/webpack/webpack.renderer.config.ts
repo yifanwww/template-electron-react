@@ -2,6 +2,8 @@
 // For more information about how to override default configs of `react-scripts`
 // please visit https://github.com/timarney/react-app-rewired
 
+/* eslint-disable no-param-reassign */
+
 import type { Configuration } from 'webpack';
 
 import { pathsRenderer } from './webpack.base.config';
