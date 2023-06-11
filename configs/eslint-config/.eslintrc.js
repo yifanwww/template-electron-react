@@ -86,7 +86,8 @@ module.exports = {
         'no-continue': 'off',
         'no-else-return': 'off',
         'no-lonely-if': 'off',
-        'no-param-reassign': 'off',
+        // https://github.com/immerjs/immer/issues/189#issuecomment-703083451
+        'no-param-reassign': ['error', { props: true, ignorePropertyModificationsForRegex: ['^draft'] }],
         'no-plusplus': 'off',
         // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/es6.js#L65
         'no-restricted-exports': [

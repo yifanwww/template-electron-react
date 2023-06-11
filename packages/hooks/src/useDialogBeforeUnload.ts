@@ -4,10 +4,13 @@ import { useEffect } from 'react';
 
 function listener(event: BeforeUnloadEvent) {
     event.preventDefault();
+
     // In modern browsers, `returnValue` can only enable the `beforeunload` dialog, we cannot customize the message.
     // References:
     // - https://developer.apple.com/library/archive/releasenotes/General/WhatsNewInSafari/Articles/Safari_9_1.html#//apple_ref/doc/uid/TP40014305-CH10-SW11
     // - https://chromestatus.com/feature/5349061406228480
+
+    // eslint-disable-next-line no-param-reassign
     event.returnValue = 'warning';
 }
 

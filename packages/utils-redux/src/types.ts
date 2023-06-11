@@ -8,7 +8,7 @@ import type {
 } from '@reduxjs/toolkit';
 import type { Draft } from 'immer';
 
-export type ReduxReducer<State extends {}, Payload> = (state: Draft<State>, action: PayloadAction<Payload>) => void;
+export type ReduxReducer<State extends {}, Payload> = (draft: Draft<State>, action: PayloadAction<Payload>) => void;
 
 // ------------------------------------------------------------------------------------------------------------- ThunkFn
 
