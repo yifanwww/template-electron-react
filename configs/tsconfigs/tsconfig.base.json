@@ -6,6 +6,7 @@
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "incremental": true,
+        "inlineSources": true,
         "isolatedModules": true,
         "lib": ["ESNext"],
         "listEmittedFiles": true,

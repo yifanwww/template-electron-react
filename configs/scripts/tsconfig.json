@@ -3,6 +3,7 @@
     "compilerOptions": {
         // disable `incremental` for NPM script `typecheck`
         "incremental": false,
+        "inlineSources": false,
         "outDir": "dist",
         "rootDir": "src",
         "sourceMap": false,
