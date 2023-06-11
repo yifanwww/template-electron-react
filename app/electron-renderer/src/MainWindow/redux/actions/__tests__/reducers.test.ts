@@ -1,6 +1,6 @@
 import type { AppDetails } from '@tecra-pkg/electron-common';
 
-import { getInitialState, _actions, _reducer } from './slice';
+import { getInitialState, _actions, _reducer } from '../slice';
 
 {
     const name = '_setAppDetails';

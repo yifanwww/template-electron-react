@@ -1,6 +1,6 @@
 import { mockLocalStorage } from '@tecra-pkg/utils-test';
 
-import { LocalStorage } from './localStorage';
+import { LocalStorage } from '../localStorage';
 
 mockLocalStorage();
 

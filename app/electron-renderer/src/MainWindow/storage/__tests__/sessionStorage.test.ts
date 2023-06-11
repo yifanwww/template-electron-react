@@ -1,6 +1,6 @@
 import { mockSessionStorage } from '@tecra-pkg/utils-test';
 
-import { SessionStorage } from './sessionStorage';
+import { SessionStorage } from '../sessionStorage';
 
 mockSessionStorage();
 
