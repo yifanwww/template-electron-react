@@ -1,3 +1,5 @@
+import type { Optional } from '@tecra-pkg/utils-type';
+
 import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
 import type { CloseWindowOption, CreateWindowOption } from './types';

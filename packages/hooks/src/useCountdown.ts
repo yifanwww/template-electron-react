@@ -1,3 +1,4 @@
+import type { Integer } from '@tecra-pkg/utils-type';
 import { useEffect, useRef } from 'react';
 
 import { useConstFn } from './useConstFn';

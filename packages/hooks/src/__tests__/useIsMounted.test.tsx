@@ -1,3 +1,4 @@
+import type { Optional } from '@tecra-pkg/utils-type';
 import { render } from '@testing-library/react';
 
 import { useIsMounted } from '../useIsMounted';

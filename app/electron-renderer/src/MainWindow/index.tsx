@@ -1,3 +1,4 @@
+import type { ClientAreaSize } from '@tecra-pkg/utils-react';
 import { Suspense, useEffect } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router';

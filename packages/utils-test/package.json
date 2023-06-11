@@ -31,6 +31,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@tecra-pkg/utils-type": "workspace:*",
         "@testing-library/react-hooks": "^8.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"

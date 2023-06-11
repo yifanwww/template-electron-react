@@ -1,3 +1,4 @@
+import type { Optional } from '@tecra-pkg/utils-type';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
 

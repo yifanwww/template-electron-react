@@ -1,3 +1,5 @@
+import type { ClassStaticMethods } from '@tecra-pkg/utils-type';
+
 import { ColorTransformer } from './colorTransformer';
 
 function testColorTransformer() {

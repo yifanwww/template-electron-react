@@ -1,3 +1,4 @@
+import type { UnknownFn } from '@tecra-pkg/utils-type';
 import type { ConditionalKeys } from 'type-fest';
 
 function spyOn(method: ConditionalKeys<Console, UnknownFn>) {

@@ -1,3 +1,4 @@
+import type { ClientAreaSize } from '@tecra-pkg/utils-react';
 import { useEffect, useRef } from 'react';
 
 import css from './Frameless.module.scss';

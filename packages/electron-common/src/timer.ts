@@ -1,3 +1,5 @@
+import type { Optional } from '@tecra-pkg/utils-type';
+
 export class Timer {
     private _trigger: () => void;
 
