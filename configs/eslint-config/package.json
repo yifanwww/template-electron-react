@@ -1,6 +1,6 @@
 {
     "name": "@tecra-config/eslint-config",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "description": "ESLint configurations for tecra.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",

@@ -1,6 +1,6 @@
 {
     "name": "@tecra-config/global-types",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "description": "Global type declarations for tecra.",
     "typings": "types/index.d.ts",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",

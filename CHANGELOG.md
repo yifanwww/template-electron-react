@@ -1,4 +1,165 @@
 # CHANGELOG
+## tecra v0.9.0 (2023-06-11)
+### Notable Changes
+
+- [`Build`] Speed up compilation with parallel builds
+- [`Build`] Set `webpackChunkName`
+- [`Build`] Use babel to compile electron main process code
+- [`Build`] Turn on `inlineSources` for debugging
+- [`Build`] Make webpack support `declare` syntax
+- [`CI/CD`] Run `test` on multiple os
+- [`NPM`] Add new NPM script `typecheck`
+- [`Test`] Store jest caches inside this project
+- [`Test`] Change the scope of collecting coverage files
+- [`Lint`] Enable rules `import/order`, `@typescript-eslint/require-await`
+- [`Lint`] Disable rule `react/require-default-props`
+- [`Lint`] Enable rule `@typescript-eslint/consistent-type-exports`, `@typescript-eslint/consistent-type-imports`
+- [`Lint`] Sort imports in `case-insensitive` mode
+- [`Lint`] Enable rule `@typescript-eslint/no-empty-interface`
+- [`Lint`] Allow private/protected/index-signature property access in test files
+- [`Lint`] Change naming convention configurations
+- [`Lint`] Enable rule `@typescript-eslint/no-floating-promises`, `@typescript-eslint/no-misused-promises`
+
+### Bug Fixes
+
+- [`Hooks`] Fix return type of `useDelayFn`
+
+### Breaking Changes
+
+- **Use `pnpm` instead of `npm` as the package manager**
+
+- [`Lint`] Change enum member naming convention to `UPPER_CASE`
+- [`Hooks`] Change `useIsMounted` to return a function to get the state
+- [`NPM`] Rename npm script `test-coverage` to `test-full`
+- [`TS`] Enable rule `useDefineForClassFields`
+- [`TS`] Disabled `namedExports` of plugin `typescript-plugin-css-modules`
+- [`Types`] Change type utils for picking keys and props
+  - `PickNullableKeys`
+  - `PickNonNullableKeys`
+  - `PickUndefinableKeys`
+  - `PickNonUndefinableKeys`
+  - `PickNullishKeys`
+  - `PickNonNullishKeys`
+  - `PickNullableProps`
+  - `OmitNullableProps`
+  - `PickNonNullableProps`
+  - `OmitNonNullableProps`
+  - `PickUndefinableProps`
+  - `OmitUndefinableProps`
+  - `PickNonUndefinableProps`
+  - `OmitNonUndefinableProps`
+  - `PickNullishProps`
+  - `OmitNullishProps`
+  - `PickNonNullishProps`
+  - `OmitNonNullishProps`
+- [`Types`] Move some global types into `@tecra-pkg/utils-type`
+- [`Utils/React`] Delete `ReactImmerReducer`
+
+### Package Changes
+
+- New
+  - `@tecra-pkg/utils`
+  - `@tecra-pkg/utils-react-router`
+- Rename
+  - `@tecra/assets` -> `@tecra-pkg/assets`
+  - `@tecra/electron-common` -> `@tecra-pkg/electron-common`
+  - `@tecra/electron-main` (packages/electron-main) -> `@tecra-app/electron-main` (app/electron-main)
+  - `@tecra/electron-renderer` (packages/electron-renderer) -> `@tecra-app/electron-renderer` (app/electron-renderer)
+  - `@tecra/eslint-config` (packages/eslint-config) -> `@tecra-config/eslint-config` (configs/eslint-config)
+  - `@tecra/global-types` (packages/global-types) -> `@tecra-config/global-types` (configs/global-types)
+  - `@tecra/hooks` -> `@tecra-pkg/hooks`
+  - `@tecra/scripts` (packages/scripts) -> `@tecra-config/scripts` (configs/scripts)
+  - `@tecra/stylelint-config` (packages/stylelint-config) -> `@tecra-config/stylelint-config` (configs/stylelint-config)
+  - `@tecra/tsconfigs` (packages/tsconfigs) -> `@tecra-config/tsconfigs` (configs/tsconfigs)
+  - `@tecra/utils-react` -> `@tecra-pkg/utils-react`
+  - `@tecra/utils-redux` -> `@tecra-pkg/utils-redux`
+  - `@tecra/utils-test` -> `@tecra-pkg/utils-test`
+  - `@tecra/utils-type` -> `@tecra-pkg/utils-type`
+- Remove
+  - `@tecra/utils-fluentui`
+
+### Dependency Changes
+
+- New
+  - `@babel/core`                               v7.22.5
+  - `@babel/plugin-syntax-flow`                 v7.18.6
+  - `@babel/plugin-transform-react-jsx`         v7.19.0
+  - `@testing-library/dom`                      v8.19.0
+  - `@types/testing-library__jest-dom`          v5.14.5
+  - `@typescript-eslint/utils`                  v5.40.1
+  - `fork-ts-checker-webpack-plugin`            v6.5.2
+  - `identity-obj-proxy`                        v3.0.0
+  - `jest-environment-jsdom`                    v29.5.0
+  - `jest-resolve`                              v29.5.0
+  - `postcss`                                   v8.4.18
+  - `terser-webpack-plugin`                     v5.3.6
+  - `type-fest`                                 v3.2.0
+  - `webpack`                                   v5.74.0
+- Upgrade
+  - `@jest/types`                               v27.5.1   -> v29.5.0
+  - `@reduxjs/toolkit`                          v1.6.1    -> v1.8.6
+  - `@testing-library/jest-dom`                 v5.14.1   -> v5.16.5
+  - `@testing-library/react`                    v12.1.1   -> v12.1.5
+  - `@testing-library/react-host`               v7.0.2    -> v8.0.1
+  - `@testing-library/user-event`               v13.2.1   -> v14.4.3
+  - `@types/electron-devtools-installer`        v2.2.1    -> v2.2.2
+  - `@types/jest`                               v27.0.2   -> v29.5.2
+  - `@types/node`                               v16.10.2  -> v16.11.68
+  - `@types/react`                              v17.0.26  -> v17.0.50
+  - `@types/react-dom`                          v17.0.9   -> v17.0.17
+  - `@types/react-test-renderer`                v17.0.1   -> v17.0.2
+  - `@typescript-eslint/eslint-plugin`          v5.4.0    -> v5.40.1
+  - `@typescript-eslint/experimental-utils`     v5.4.0    -> v5.40.1
+  - `@typescript-eslint/parser`                 v5.4.0    -> v5.40.1
+  - `@typescript-eslint/scope-manager`          v5.4.0    -> v5.40.1
+  - `@typescript-eslint/types`                  v5.4.0    -> v5.40.1
+  - `@typescript-eslint/typescript-estree`      v5.4.0    -> v5.40.1
+  - `@typescript-eslint/visitor-keys`           v5.4.0    -> v5.40.1
+  - `babel-jest`                                v27.2.4   -> v29.5.0
+  - `browserslist`                              v4.17.2   -> v4.21.4
+  - `clsx`                                      v1.1.1    -> v1.2.1
+  - `concurrently`                              v6.2.2    -> v7.4.0
+  - `error-oop`                                 v0.4.0    -> v0.6.0
+  - `electron`                                  v16.0.6   -> v19.0.11
+  - `electron-builder`                          v22.11.7  -> v23.6.0
+  - `eslint`                                    v8.2.0    -> v8.25.0
+  - `eslint-config-airbnb`                      v19.0.0   -> v19.0.4
+  - `eslint-config-airbnb-typescript`           v16.1.0   -> v17.0.0
+  - `eslint-config-prettier`                    v8.3.0    -> v8.5.0
+  - `eslint-plugin-import`                      v2.25.3   -> v2.26.0
+  - `eslint-plugin-jest`                        v25.2.4   -> v27.1.3
+  - `eslint-plugin-jsx-a11y`                    v6.5.1    -> v6.6.1
+  - `eslint-plugin-prettier`                    v4.0.0    -> v4.2.1
+  - `eslint-plugin-react`                       v7.27.0   -> v7.31.10
+  - `eslint-plugin-react-hooks`                 v4.3.0    -> v4.6.0
+  - `husky`                                     v7.0.4    -> v8.0.1
+  - `immer`                                     v9.0.6    -> v9.0.15
+  - `jest`                                      v27.2.4   -> v29.5.0
+  - `jest-watch-typeahead`                      v1.0.0    -> v2.2.2
+  - `lint-staged`                               v11.1.2   -> v13.0.3
+  - `prettier`                                  v2.4.1    -> v2.7.1
+  - `react-app-rewired`                         v2.1.8    -> v2.1.9
+  - `react-redux`                               v7.2.5    -> v8.0.4
+  - `react-router`                              v6.0.1    -> v6.4.2
+  - `react-router-dom`                          v6.0.1    -> v6.4.2
+  - `react-scripts`                             v4.0.3    -> v5.0.1
+  - `sass`                                      v1.42.1   -> v1.55.0
+  - `stylelint`                                 v14.1.0   -> v14.14.0
+  - `ts-loader`                                 v8.3.0    -> v9.2.6
+  - `typescript`                                v4.4.2    -> v4.8.4
+  - `use-immer`                                 v0.6.0    -> v0.7.0
+  - `web-vitals`                                v2.1.0    -> v3.0.4
+  - `webpack-cli`                               v4.8.0    -> v4.10.0
+- Remove
+  - `@fluentui/react`                           v8.36.0
+  - `@types/lodash`                             v4.14.175
+  - `@types/react-redux`                        v7.1.21
+  - `error-oop`                                 v0.6.0
+  - `jest-circus`                               v27.2.4
+  - `lodash`                                    v4.17.21
+  - `react-scrollbars-custom`                   v4.0.27
+  - `ts-essentials`                             v9.0.0
+
 ## tecra v0.8.0 (2022-01-04)
 ### Features
 
