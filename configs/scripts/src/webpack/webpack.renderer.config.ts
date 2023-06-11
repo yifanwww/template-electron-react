@@ -65,6 +65,16 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
     // Set target.
     webpack.target = 'electron-renderer';
 
+    // @ts-ignore
+    webpack.module.rules[1].oneOf[3].options.presets.push([
+        '@babel/preset-typescript',
+        {
+            // Can omit this setting when babel is upgrade above v8
+            // https://github.com/babel/babel/issues/10746
+            allowDeclareFields: true,
+        },
+    ]);
+
     return webpack;
 }
 
