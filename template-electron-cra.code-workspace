@@ -97,6 +97,9 @@
             "name": "tecra",
             "path": "."
         },
+
+        // apps
+
         {
             "name": "@tecra-app/electron-main",
             "path": "app/electron-main"
@@ -105,6 +108,9 @@
             "name": "@tecra-app/electron-renderer",
             "path": "app/electron-renderer"
         },
+
+        // configs
+
         {
             "name": "@tecra-config/eslint-config",
             "path": "configs/eslint-config"
@@ -125,6 +131,9 @@
             "name": "@tecra-config/tsconfigs",
             "path": "configs/tsconfigs"
         },
+
+        // packages
+
         {
             "name": "@tecra-pkg/assets",
             "path": "packages/assets"
@@ -136,6 +145,10 @@
         {
             "name": "@tecra-pkg/hooks",
             "path": "packages/hooks"
+        },
+        {
+            "name": "@tecra-pkg/utils",
+            "path": "packages/utils"
         },
         {
             "name": "@tecra-pkg/utils-react",
