@@ -1,1 +1,1 @@
-/// <reference types="@tecra-config/global-types" />
+/// <reference types="@tecra-config/global-types/types/index.node" />
