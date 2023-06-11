@@ -1,4 +1,5 @@
 import type { AppDetails } from '@tecra-pkg/electron-common';
+import type { Optional } from '@tecra-pkg/utils-type';
 import { app } from 'electron';
 
 let appDetails: Optional<AppDetails> = null;

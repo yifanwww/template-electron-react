@@ -1,3 +1,4 @@
+import type { UnknownFn } from '@tecra-pkg/utils-type';
 import { useRef } from 'react';
 
 /**

@@ -77,6 +77,9 @@ importers:
       '@tecra-pkg/electron-common':
         specifier: workspace:*
         version: link:../../packages/electron-common
+      '@tecra-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../../packages/utils-type
       electron-devtools-installer:
         specifier: ^3.2.0
         version: 3.2.0
@@ -123,12 +126,18 @@ importers:
       '@tecra-pkg/electron-common':
         specifier: workspace:*
         version: link:../../packages/electron-common
+      '@tecra-pkg/utils-react':
+        specifier: workspace:*
+        version: link:../../packages/utils-react
       '@tecra-pkg/utils-react-router':
         specifier: workspace:*
         version: link:../../packages/utils-react-router
       '@tecra-pkg/utils-redux':
         specifier: workspace:*
         version: link:../../packages/utils-redux
+      '@tecra-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../../packages/utils-type
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -412,6 +421,10 @@ importers:
         version: 4.8.4
 
   packages/electron-common:
+    dependencies:
+      '@tecra-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../utils-type
     devDependencies:
       '@tecra-config/eslint-config':
         specifier: workspace:*
@@ -446,6 +459,9 @@ importers:
 
   packages/hooks:
     dependencies:
+      '@tecra-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../utils-type
       react:
         specifier: ^17.0.2
         version: 17.0.2
@@ -507,6 +523,9 @@ importers:
 
   packages/utils-react:
     dependencies:
+      '@tecra-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../utils-type
       immer:
         specifier: ^9.0.15
         version: 9.0.15
@@ -642,6 +661,9 @@ importers:
 
   packages/utils-test:
     dependencies:
+      '@tecra-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../utils-type
       '@testing-library/react-hooks':
         specifier: ^8.0.1
         version: 8.0.1(@types/react@17.0.50)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)

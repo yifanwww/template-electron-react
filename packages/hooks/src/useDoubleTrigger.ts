@@ -1,3 +1,4 @@
+import type { UnknownFn, VoidReturn } from '@tecra-pkg/utils-type';
 import { useCallback, useRef } from 'react';
 
 /**

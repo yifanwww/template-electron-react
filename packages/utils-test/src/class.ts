@@ -1,3 +1,4 @@
+import type { UnknownFn } from '@tecra-pkg/utils-type';
 import type { ConditionalKeys } from 'type-fest';
 
 export function buildMethodName<T extends Function>($class: T, method: ConditionalKeys<T['prototype'], UnknownFn>) {

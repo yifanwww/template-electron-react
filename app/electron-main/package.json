@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@tecra-pkg/electron-common": "workspace:*",
+        "@tecra-pkg/utils-type": "workspace:*",
         "electron-devtools-installer": "^3.2.0"
     },
     "devDependencies": {
