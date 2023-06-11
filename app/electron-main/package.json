@@ -34,6 +34,7 @@
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/electron-devtools-installer": "^2.2.2",
+        "@types/node": "^18.11.9",
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",
         "prettier": "2.7.1",
