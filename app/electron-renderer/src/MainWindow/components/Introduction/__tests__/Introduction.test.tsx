@@ -2,7 +2,7 @@ import type { AppDetails } from '@tecra-pkg/electron-common';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
-import { Introduction } from './Introduction';
+import { Introduction } from '../Introduction';
 
 describe(`Test component \`${Introduction.name}\``, () => {
     it('should render', () => {

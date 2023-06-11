@@ -1,4 +1,4 @@
-import { getInitialState, _actions, _reducer } from './slice';
+import { getInitialState, _actions, _reducer } from '../slice';
 
 {
     const name = 'updateClientAreaSize';

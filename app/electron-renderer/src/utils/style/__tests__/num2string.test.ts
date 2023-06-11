@@ -1,4 +1,4 @@
-import { num2pt, num2px, percent2string } from './num2string';
+import { num2pt, num2px, percent2string } from '../num2string';
 
 describe(`Test fn ${num2pt.name}`, () => {
     it('should convert num to pt', () => expect(num2pt(123)).toBe('123pt'));

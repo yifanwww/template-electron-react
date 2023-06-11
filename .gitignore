@@ -1,43 +1,41 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Environment
+# ---------------------------------------------------------------------------------------------------------- Environment
 
 .env.development.local
 .env.local
 .env.production.local
 .env.test.local
 
-# Editors and IDEs
+# ------------------------------------------------------------------------------------------------------- Editor and IDE
 
 .vscode
 
-# Dependencies
+# ----------------------------------------------------------------------------------------------------------- Dependency
 
 .pnp
 .pnp.js
 node_modules
 
-# Compilation & Source
+# ---------------------------------------------------------------------------------------------------------- Compilation
 
 *.tsbuildinfo
 
-build
-dist
-lib
-lib-commonjs
-release
+/build
+/configs/*/dist
+/packages/*/lib
+/release
 
-!packages/global-types/lib
+# ----------------------------------------------------------------------------------------------------------------- Test
 
-# Test
+/packages/*/coverage
+/app/*/coverage
 
-coverage
-
-# Working Directory
+# ---------------------------------------------------------------------------------------------------- Working Directory
 
 working
 
-# Misc
+# -------------------------------------------------------------------------------------------------------- Miscellaneous
 
 .DS_Store
 

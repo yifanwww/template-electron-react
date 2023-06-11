@@ -1,4 +1,4 @@
-import { StyleUtil } from './styleUtils';
+import { StyleUtil } from '../styleUtils';
 
 describe(`Test static method \`${StyleUtil.name}.${StyleUtil.genMargin.name}\``, () => {
     it('should generate margin', () => {
