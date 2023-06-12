@@ -138,10 +138,6 @@
         // packages
 
         {
-            "name": "@tecra-pkg/assets",
-            "path": "packages/assets"
-        },
-        {
             "name": "@tecra-pkg/electron-common",
             "path": "packages/electron-common"
         },
