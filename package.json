@@ -47,7 +47,8 @@
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
     "engines": {
-        "node": ">=18"
+        "node": ">=18",
+        "pnpm": ">=8"
     },
     "dependencies": {
         "react": "^17.0.2",
