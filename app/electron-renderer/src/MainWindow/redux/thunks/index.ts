@@ -1,5 +1,5 @@
-import { prepare } from './thunks';
+import { prepareAppDetails } from './thunks';
 
 export const thunks = {
-    prepare,
+    prepareAppDetails,
 };
