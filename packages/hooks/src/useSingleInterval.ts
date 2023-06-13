@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react';
-
-import { useConstFn } from './useConstFn';
+import { useCallback, useEffect, useRef } from 'react';
 
 export interface UseSingleIntervalActions {
     readonly isWorking: () => boolean;
@@ -20,15 +18,15 @@ export function useSingleInterval(): UseSingleIntervalActions {
         return () => window.clearInterval(intervalIdRef.current);
     }, []);
 
-    const isWorking = useConstFn(() => intervalIdRef.current !== undefined);
+    const isWorking = useCallback(() => intervalIdRef.current !== undefined, []);
 
-    const setInterval = useConstFn((callback: () => void, duration?: number): void => {
+    const setInterval = useCallback((callback: () => void, duration?: number): void => {
         window.clearInterval(intervalIdRef.current);
 
         intervalIdRef.current = window.setInterval(callback, duration) as unknown as number;
-    });
+    }, []);
 
-    const clearInterval = useConstFn(() => window.clearInterval(intervalIdRef.current));
+    const clearInterval = useCallback(() => window.clearInterval(intervalIdRef.current), []);
 
     return { isWorking, setInterval, clearInterval };
 }

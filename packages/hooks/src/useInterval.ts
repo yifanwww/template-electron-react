@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { useConst } from './useConst';
-import { useConstFn } from './useConstFn';
 
 export interface UseIntervalActions {
     readonly setInterval: (callback: () => void, duration?: number) => number;
@@ -15,28 +14,30 @@ export function useInterval(): UseIntervalActions {
     const intervalIds = useConst<Record<number, number>>({});
 
     // Cleanup function.
-    useEffect(
-        () => {
-            // Here runs only when this component did unmount.
-            return () => {
-                // Clear the interval timers if they exist.
-                for (const id of Object.keys(intervalIds)) window.clearInterval(id as unknown as number);
-            };
+    useEffect(() => {
+        // Here runs only when this component did unmount.
+        return () => {
+            // Clear the interval timers if they exist.
+            for (const id of Object.keys(intervalIds)) window.clearInterval(id as unknown as number);
+        };
+    }, [intervalIds]);
+
+    const setInterval = useCallback(
+        (callback: () => void, duration?: number): number => {
+            const id = window.setInterval(callback, duration) as unknown as number;
+            intervalIds[id] = 1;
+            return id;
         },
-        // useConst ensures this will never change, but `react-hooks/exhaustive-deps` doesn't know that.
         [intervalIds],
     );
 
-    const setInterval = useConstFn((callback: () => void, duration?: number): number => {
-        const id = window.setInterval(callback, duration) as unknown as number;
-        intervalIds[id] = 1;
-        return id;
-    });
-
-    const clearInterval = useConstFn((id: number): void => {
-        delete intervalIds[id];
-        window.clearInterval(id);
-    });
+    const clearInterval = useCallback(
+        (id: number): void => {
+            delete intervalIds[id];
+            window.clearInterval(id);
+        },
+        [intervalIds],
+    );
 
     return { setInterval, clearInterval };
 }

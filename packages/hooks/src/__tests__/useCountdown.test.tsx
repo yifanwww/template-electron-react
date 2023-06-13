@@ -1,8 +1,7 @@
 import { validateHookValueNotChanged } from '@tecra-pkg/utils-test';
 import { act, render } from '@testing-library/react';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
-import { useConstFn } from '../useConstFn';
 import { useCountdown } from '../useCountdown';
 
 describe(`Test react hook \`${useCountdown.name}\``, () => {
@@ -36,7 +35,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
     function spyOnUseState() {
         const _useState = (initialState: unknown) => {
             const [state, setState] = useState(initialState);
-            return [state, useConstFn((_) => act(() => setState(_)))];
+            return [state, useCallback((_) => act(() => setState(_)), [])];
         };
 
         jest.spyOn(React, 'useState').mockImplementation(_useState as never);
