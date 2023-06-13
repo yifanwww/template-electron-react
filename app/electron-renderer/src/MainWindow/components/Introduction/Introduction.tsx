@@ -4,8 +4,8 @@ import { Assets } from 'src/assets';
 
 import css from './Introduction.module.scss';
 
-export interface IntroductionProps {
-    appDetails: AppDetails;
+interface IntroductionProps {
+    appDetails: AppDetails | null;
 }
 
 export const Introduction: React.FC<IntroductionProps> = ({ appDetails }) => (
@@ -24,13 +24,15 @@ export const Introduction: React.FC<IntroductionProps> = ({ appDetails }) => (
                 Learn template-electron-cra
             </a>
         </header>
-        <div className={css.appDetails}>
-            <code>Name: {appDetails.name}</code>
-            <code>Version: {appDetails.version}</code>
-            <code>Electron: {appDetails.module.electron}</code>
-            <code>Chrome: {appDetails.module.chrome}</code>
-            <code>Node.js: {appDetails.module.node}</code>
-            <code>V8: {appDetails.module.v8}</code>
-        </div>
+        {appDetails && (
+            <div className={css.appDetails}>
+                <code>Name: {appDetails.name}</code>
+                <code>Version: {appDetails.version}</code>
+                <code>Electron: {appDetails.module.electron}</code>
+                <code>Chrome: {appDetails.module.chrome}</code>
+                <code>Node.js: {appDetails.module.node}</code>
+                <code>V8: {appDetails.module.v8}</code>
+            </div>
+        )}
     </>
 );

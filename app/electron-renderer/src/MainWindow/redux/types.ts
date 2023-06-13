@@ -3,13 +3,12 @@ import type { ClientAreaSize } from '@tecra-pkg/utils-react';
 import type { ReduxReducer } from '@tecra-pkg/utils-redux';
 
 interface DisplayConfig {
-    clientAreaSize: ClientAreaSize;
+    clientAreaSize: ClientAreaSize | null;
 }
 
 export interface StoreState {
-    appDetails: AppDetails;
+    appDetails: AppDetails | null;
     displayConfig: DisplayConfig;
-    prepared: boolean;
 }
 
 export type MainReducer<Payload = undefined> = ReduxReducer<StoreState, Payload>;
