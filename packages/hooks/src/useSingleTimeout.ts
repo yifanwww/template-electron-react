@@ -1,6 +1,4 @@
-import { useEffect, useRef } from 'react';
-
-import { useConstFn } from './useConstFn';
+import { useCallback, useEffect, useRef } from 'react';
 
 export interface UseSingleTimeoutActions {
     readonly isWorking: () => boolean;
@@ -20,18 +18,18 @@ export function useSingleTimeout(): UseSingleTimeoutActions {
         return () => window.clearTimeout(timeoutIdRef.current);
     }, []);
 
-    const isWorking = useConstFn(() => timeoutIdRef.current !== undefined);
+    const isWorking = useCallback(() => timeoutIdRef.current !== undefined, []);
 
-    const setTimeout = useConstFn((callback: () => void, duration?: number): void => {
+    const setTimeout = useCallback((callback: () => void, duration?: number): void => {
         window.clearTimeout(timeoutIdRef.current);
 
         timeoutIdRef.current = window.setTimeout(() => {
             timeoutIdRef.current = undefined;
             callback();
         }, duration);
-    });
+    }, []);
 
-    const clearTimeout = useConstFn(() => window.clearTimeout(timeoutIdRef.current));
+    const clearTimeout = useCallback(() => window.clearTimeout(timeoutIdRef.current), []);
 
     return { isWorking, setTimeout, clearTimeout };
 }

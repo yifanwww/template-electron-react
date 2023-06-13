@@ -6,10 +6,8 @@ React hooks for tecra.
 
 - `useBoolean`
 - `useConst`
-- `useConstFn`
 - `useCountdown`
 - `useDelayFn`
-- `useDialogBeforeUnload`
 - `useDoubleTrigger`
 - `useForceUpdate`
 - `useImmediateFocus`

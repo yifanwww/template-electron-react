@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-import { useConstFn } from './useConstFn';
+import { useCallback, useState } from 'react';
 
 /** Updater actions returned by `useBoolean`. */
 export interface UseBooleanActions {
@@ -22,9 +20,9 @@ export interface UseBooleanActions {
 export function useBoolean(initialValue: boolean = false): [boolean, UseBooleanActions] {
     const [value, setValue] = useState(initialValue);
 
-    const setFalse = useConstFn(() => setValue(false));
-    const setTrue = useConstFn(() => setValue(true));
-    const toggle = useConstFn(() => setValue((prev) => !prev));
+    const setFalse = useCallback(() => setValue(false), []);
+    const setTrue = useCallback(() => setValue(true), []);
+    const toggle = useCallback(() => setValue((prev) => !prev), []);
 
     return [value, { setFalse, setTrue, toggle }];
 }

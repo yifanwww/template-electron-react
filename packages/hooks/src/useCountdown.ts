@@ -1,7 +1,6 @@
 import type { Integer } from '@tecra-pkg/utils-type';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-import { useConstFn } from './useConstFn';
 import { useForceUpdate } from './useForceUpdate';
 import { useSingleInterval } from './useSingleInterval';
 
@@ -17,36 +16,39 @@ export function useCountdown(): [Integer, SetCountdown] {
     const forceUpdate = useForceUpdate();
     const { clearInterval, setInterval } = useSingleInterval();
 
-    const setCountdown = useConstFn((countdown: number) => {
-        // Stop the countdown
-        clearInterval();
+    const setCountdown = useCallback(
+        (countdown: number) => {
+            // Stop the countdown
+            clearInterval();
 
-        if (countdown <= 0) {
-            // Forcely update if need
-            if (remainTimeRef.current !== 0) {
-                remainTimeRef.current = 0;
-                forceUpdate();
-            }
-        } else {
-            targetTimeRef.current = Date.now() / 1000 + countdown;
+            if (countdown <= 0) {
+                // Forcely update if need
+                if (remainTimeRef.current !== 0) {
+                    remainTimeRef.current = 0;
+                    forceUpdate();
+                }
+            } else {
+                targetTimeRef.current = Date.now() / 1000 + countdown;
 
-            const remainTime = Math.max(0, Math.ceil(countdown));
-            if (remainTime !== remainTimeRef.current) {
-                remainTimeRef.current = remainTime;
-                forceUpdate();
-            }
-
-            setInterval(() => {
-                const newRemainTime = Math.max(0, Math.ceil(targetTimeRef.current - Date.now() / 1000));
-                if (newRemainTime !== remainTimeRef.current) {
-                    remainTimeRef.current = newRemainTime;
+                const remainTime = Math.max(0, Math.ceil(countdown));
+                if (remainTime !== remainTimeRef.current) {
+                    remainTimeRef.current = remainTime;
                     forceUpdate();
                 }
 
-                if (remainTimeRef.current === 0) clearInterval();
-            }, 50);
-        }
-    });
+                setInterval(() => {
+                    const newRemainTime = Math.max(0, Math.ceil(targetTimeRef.current - Date.now() / 1000));
+                    if (newRemainTime !== remainTimeRef.current) {
+                        remainTimeRef.current = newRemainTime;
+                        forceUpdate();
+                    }
+
+                    if (remainTimeRef.current === 0) clearInterval();
+                }, 50);
+            }
+        },
+        [clearInterval, forceUpdate, setInterval],
+    );
 
     // Cleanup function.
     useEffect(() => {
