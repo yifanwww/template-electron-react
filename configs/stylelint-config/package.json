@@ -18,7 +18,7 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
-        "postcss": "^8.4.18",
+        "postcss": "^8.4.24",
         "stylelint-config-recess-order": "^3.0.0",
         "stylelint-config-sass-guidelines": "^9.0.1"
     },
