@@ -1,9 +1,10 @@
-import { IpcServer } from '@tecra-pkg/electron-common';
 import type { WindowType } from '@tecra-pkg/electron-common';
 import { BrowserWindow, shell } from 'electron';
 import path from 'path';
 
-import { appPaths } from 'src/appPaths';
+import { appPaths } from 'src/main/appPaths';
+
+import { appAPIHandlers } from '../apis/app';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
@@ -14,8 +15,6 @@ export abstract class AbstractWindow {
 
     private readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
-    protected readonly _ipcServer: IpcServer;
-
     constructor(option: AbstractWindowOption) {
         this._windowId = option.windowId;
         this._windowType = option.windowType;
@@ -24,17 +23,14 @@ export abstract class AbstractWindow {
             width: option.width ?? 1280,
             height: option.height ?? 720,
             webPreferences: {
-                contextIsolation: false,
-                nodeIntegration: true,
+                preload: path.resolve(appPaths.src, 'preload.js'),
             },
         });
-
-        this._ipcServer = new IpcServer(this._window.id);
 
         this._onClose = option.onClose;
 
         this._addWindowListeners();
-        this._addIpcListeners();
+        this._addAPIHandlers();
     }
 
     async show(): Promise<void> {
@@ -59,16 +55,18 @@ export abstract class AbstractWindow {
     }
 
     private _close = () => {
-        this._removeIpcListeners();
+        this._removeAPIHandlers();
 
         void this._onClose({ windowId: this._windowId });
     };
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
-    protected _addIpcListeners(): void {
-        this._ipcServer.handleGetWindowType(() => this._windowType);
+    protected _addAPIHandlers(): void {
+        appAPIHandlers.getWindowType.register(this._windowId, () => this._windowType);
     }
 
-    private _removeIpcListeners = () => this._ipcServer.clear();
+    private _removeAPIHandlers = () => {
+        appAPIHandlers.getWindowType.remove(this._windowId);
+    };
 }

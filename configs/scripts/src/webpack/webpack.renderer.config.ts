@@ -6,7 +6,7 @@
 
 import type { Configuration } from 'webpack';
 
-import { pathsRenderer } from './webpack.base.config';
+import { appRendererPaths } from './webpack.base.config';
 
 interface CRAPaths {
     dotenv: string;
@@ -40,18 +40,18 @@ interface CRAPaths {
  * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/paths.js
  */
 function overridePathsConfigs(paths: CRAPaths): CRAPaths {
-    paths.appBuild = pathsRenderer.appBuild;
-    paths.appHtml = pathsRenderer.appHtml;
-    paths.appIndexJs = pathsRenderer.appIndexTs;
-    paths.appPath = pathsRenderer.appPath;
-    paths.appPublic = pathsRenderer.appPublic;
-    paths.appSrc = pathsRenderer.appSrc;
-    paths.appTsConfig = pathsRenderer.appTsConfig;
-    paths.appTypeDeclarations = pathsRenderer.appTypeDeclarations;
-    paths.appWebpackCache = pathsRenderer.webpackCache;
-    paths.proxySetup = pathsRenderer.proxySetup;
-    paths.swSrc = pathsRenderer.swSrc;
-    paths.testsSetup = pathsRenderer.testsSetup;
+    paths.appBuild = appRendererPaths.appBuild;
+    paths.appHtml = appRendererPaths.appHtml;
+    paths.appIndexJs = appRendererPaths.appIndexTs;
+    paths.appPath = appRendererPaths.appPath;
+    paths.appPublic = appRendererPaths.appPublic;
+    paths.appSrc = appRendererPaths.appSrc;
+    paths.appTsConfig = appRendererPaths.appTsConfig;
+    paths.appTypeDeclarations = appRendererPaths.appTypeDeclarations;
+    paths.appWebpackCache = appRendererPaths.webpackCache;
+    paths.proxySetup = appRendererPaths.proxySetup;
+    paths.swSrc = appRendererPaths.swSrc;
+    paths.testsSetup = appRendererPaths.testsSetup;
 
     return paths;
 }
@@ -64,8 +64,23 @@ function overridePathsConfigs(paths: CRAPaths): CRAPaths {
  * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
-    // Set target.
-    webpack.target = 'electron-renderer';
+    // We cannot set `webpack.target` to `electron-renderer` in our situation.
+    //
+    // `electron-renderer` actually can work, but we're using React.
+    // We will get `global is not defined` error in both development dev and production build.
+    // We can set `webpack.output.globalObject = 'this'` or add `<script>var global = global || window;</script>` in
+    // index.html to fix the error,
+    // see https://stackoverflow.com/questions/69747455/updating-electron-issue-uncaught-referenceerror-global-is-not-defined
+    //
+    // However, after we doing that, we will get a new error `require is not defined` only in development dev.
+    // The reason is that, in development dev we use a dev server to serve the renderer resouces and to support
+    // React-Fast-Refresh feature, which causes that in the renderer process it calls `require` to require resources.
+    //
+    // Therefore, we set `webpack.target` to `web`, it just works. See
+    // https://github.com/webpack/webpack/issues/10035#issuecomment-1077875771
+    // https://github.com/webpack/webpack/issues/10035#issuecomment-1312686562
+
+    webpack.target = 'web';
 
     // @ts-ignore
     webpack.module.rules[1].oneOf[3].options.presets.push([
