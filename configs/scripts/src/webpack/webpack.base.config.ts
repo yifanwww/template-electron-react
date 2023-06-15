@@ -2,10 +2,11 @@ import path from 'node:path';
 
 import { paths } from '../utils/paths';
 
-const resolveAppMain = (relative: string) => path.resolve(paths.tecraElectronMain, relative);
+const resolveAppMain = (relative: string) => path.resolve(paths.electronMain, relative);
 
-export const pathsMain = {
-    appIndexTs: resolveAppMain('src/app.ts'),
+export const appMainPaths = {
+    mainIndexTs: resolveAppMain('src/main/index.ts'),
+    preloadIndexTs: resolveAppMain('src/preload/index.ts'),
     appPath: resolveAppMain('.'),
     appSrc: resolveAppMain('src'),
     appTsBuildInfoFile: resolveAppMain('node_modules/.cache/tsconfig.tsbuildinfo'),
@@ -14,16 +15,16 @@ export const pathsMain = {
     webpackCache: resolveAppMain('node_modules/.cache'),
 };
 
-const resolveAppRenderer = (relative: string) => path.resolve(paths.tecraElectronRenderer, relative);
+const resolveAppRenderer = (relative: string) => path.resolve(paths.electronRenderer, relative);
 
 // Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/paths.js
-export const pathsRenderer = {
+export const appRendererPaths = {
     appBuild: paths.build,
     appHtml: resolveAppRenderer('public/index.html'),
     appIndexTs: resolveAppRenderer('src/index.tsx'),
     // FIXME: not all dependencies are in root node_modules
     appNodeModules: paths.rootNodeModules,
-    appPath: paths.tecraElectronRenderer,
+    appPath: paths.electronRenderer,
     appPublic: resolveAppRenderer('public'),
     appSrc: resolveAppRenderer('src'),
     appTsConfig: resolveAppRenderer('tsconfig.json'),

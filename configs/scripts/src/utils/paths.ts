@@ -30,8 +30,8 @@ export const paths = {
     configs,
     pkgs,
 
-    tecraElectronMain: path.resolve(appProjs, 'electron-main'),
-    tecraElectronRenderer: path.resolve(appProjs, 'electron-renderer'),
+    electronMain: path.resolve(appProjs, 'electron-main'),
+    electronRenderer: path.resolve(appProjs, 'electron-renderer'),
 
     // compilation
 

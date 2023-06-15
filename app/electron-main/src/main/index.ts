@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 
-import { registerIpcGlobalListeners } from './ipc';
+import { registerAppGlobalHandlers } from './apis/app';
 import { windowManager } from './window';
 
 async function installExtensions(): Promise<void> {
@@ -26,7 +26,7 @@ async function handleReady() {
         await installExtensions();
     }
 
-    registerIpcGlobalListeners();
+    registerAppGlobalHandlers();
 
     windowManager.createWindow({ windowType: 'main' });
 }

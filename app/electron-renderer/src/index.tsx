@@ -1,4 +1,3 @@
-import { IpcClient } from '@tecra-pkg/electron-common';
 import type { WindowType } from '@tecra-pkg/electron-common';
 import type { Optional } from '@tecra-pkg/utils-type';
 import { StrictMode, useEffect, useState } from 'react';
@@ -6,6 +5,7 @@ import { render } from 'react-dom';
 
 import './index.css';
 
+import { appAPI } from './apis';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
@@ -13,7 +13,7 @@ const Window: React.FC = () => {
     const [type, setType] = useState<Optional<WindowType>>(null);
 
     useEffect(() => {
-        void IpcClient.getWindowType().then(setType);
+        void appAPI.getWindowType().then(setType);
     }, []);
 
     let never: never;

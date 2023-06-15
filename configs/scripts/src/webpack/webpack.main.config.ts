@@ -8,7 +8,7 @@ import { paths } from '../utils';
 import { ReloadElectronWebpackPlugin } from './plugins/reloadElectronWebpackPlugin';
 import { createEnvironmentHash } from './utils/createEnvironmentHash';
 import { getCacheIdentifier } from './utils/getCacheIdentifier';
-import { pathsMain } from './webpack.base.config';
+import { appMainPaths } from './webpack.base.config';
 
 interface CliConfigOptions {
     config?: string;
@@ -39,25 +39,28 @@ const factory: ConfigurationFactory = (env, argv) => {
         // Stop compilation early in production
         bail: isEnvProduction,
         devtool: isEnvProduction ? 'source-map' : 'cheap-module-source-map',
-        entry: pathsMain.appIndexTs,
+        entry: {
+            electron: appMainPaths.mainIndexTs,
+            preload: appMainPaths.preloadIndexTs,
+        },
 
         output: {
-            path: pathsMain.build,
+            path: appMainPaths.build,
             // Add /* filename */ comments to generated require()s in the output.
             pathinfo: isEnvDevelopment,
-            filename: 'electron.js',
+            filename: '[name].js',
             chunkFilename: '[name].[contenthash:8].chunk.js',
         },
 
         cache: {
             type: 'filesystem',
             version: createEnvironmentHash({ NODE_ENV: process.env.NODE_ENV || 'development' }),
-            cacheDirectory: pathsMain.webpackCache,
+            cacheDirectory: appMainPaths.webpackCache,
             store: 'pack',
             buildDependencies: {
                 defaultWebpack: ['webpack/lib/'],
                 config: [__filename],
-                tsconfig: [pathsMain.appTsConfig],
+                tsconfig: [appMainPaths.appTsConfig],
             },
         },
 
@@ -106,7 +109,7 @@ const factory: ConfigurationFactory = (env, argv) => {
         resolve: {
             extensions: ['.js', 'mjs', '.ts'],
             alias: {
-                src: pathsMain.appSrc,
+                src: appMainPaths.appSrc,
             },
         },
 
@@ -130,7 +133,7 @@ const factory: ConfigurationFactory = (env, argv) => {
                         // The preset includes JSX, Flow, TypeScript, and some ESnext features.
                         {
                             test: /\.(js|mjs|ts)$/,
-                            include: pathsMain.appSrc,
+                            include: appMainPaths.appSrc,
                             loader: require.resolve('babel-loader'),
                             options: {
                                 customize: require.resolve('babel-preset-react-app/webpack-overrides'),
@@ -201,10 +204,10 @@ const factory: ConfigurationFactory = (env, argv) => {
                             declarationMap: false,
                             noEmit: true,
                             incremental: true,
-                            tsBuildInfoFile: pathsMain.appTsBuildInfoFile,
+                            tsBuildInfoFile: appMainPaths.appTsBuildInfoFile,
                         },
                     },
-                    context: pathsMain.appPath,
+                    context: appMainPaths.appPath,
                     diagnosticOptions: {
                         syntactic: true,
                     },

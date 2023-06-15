@@ -21,9 +21,9 @@
             "**/node_modules": true,
 
             // additional
-            "**/app": true,
-            "**/configs": true,
-            "**/packages": true
+            "app": true,
+            "configs": true,
+            "packages": true
         },
 
         "git.enabled": true,
