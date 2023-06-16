@@ -29,22 +29,22 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "@reduxjs/toolkit": "^1.8.6",
+        "@reduxjs/toolkit": "^1.9.5",
         "@tecra-pkg/utils-type": "workspace:*",
-        "immer": "^9.0.15",
+        "immer": "^9.0.21",
         "react": "^17.0.2",
-        "react-redux": "^8.0.4"
+        "react-redux": "^8.1.0"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
-        "@types/react": "^17.0.50",
-        "concurrently": "^7.4.0",
-        "eslint": "^8.24.0",
-        "lint-staged": "^13.0.3",
-        "prettier": "2.7.1",
+        "@types/react": "^17.0.62",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.42.0",
+        "lint-staged": "^13.2.2",
+        "prettier": "2.8.8",
         "rimraf": "^3.0.2",
         "typescript": "5.1.3"
     }
