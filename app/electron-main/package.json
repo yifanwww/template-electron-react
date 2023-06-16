@@ -21,6 +21,8 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
@@ -34,6 +36,7 @@
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/electron-devtools-installer": "^2.2.2",
+        "@types/jest": "^29.5.2",
         "@types/node": "^18.16.17",
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",

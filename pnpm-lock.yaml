@@ -99,6 +99,9 @@ importers:
       '@types/electron-devtools-installer':
         specifier: ^2.2.2
         version: 2.2.2
+      '@types/jest':
+        specifier: ^29.5.2
+        version: 29.5.2
       '@types/node':
         specifier: ^18.16.17
         version: 18.16.17

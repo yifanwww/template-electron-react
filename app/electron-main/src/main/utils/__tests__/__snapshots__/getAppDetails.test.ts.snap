@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test fn getAppDetails should return app details 1`] = `
+{
+  "module": {
+    "chrome": "<chrome-version>",
+    "electron": "<electron-version>",
+    "node": "<node-version>",
+    "v8": "<v8-version>",
+  },
+  "name": "tecra",
+  "version": "<app-version>",
+}
+`;
