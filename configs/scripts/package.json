@@ -37,13 +37,13 @@
         "babel-jest": "^29.5.0",
         "camelcase": "^6.3.0",
         "chalk": "^4.1.2",
-        "fork-ts-checker-webpack-plugin": "^6.5.2",
+        "fork-ts-checker-webpack-plugin": "^6.5.3",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^29.5.0",
         "jest-environment-jsdom": "^29.5.0",
         "jest-resolve": "^29.5.0",
         "jest-watch-typeahead": "^2.2.2",
-        "terser-webpack-plugin": "^5.3.6",
+        "terser-webpack-plugin": "^5.3.9",
         "webpack-cli": "^4.10.0"
     },
     "devDependencies": {
@@ -51,10 +51,10 @@
         "@tecra-config/eslint-config": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/case-sensitive-paths-webpack-plugin": "^2.1.6",
-        "@types/node": "^18.16.17",
-        "eslint": "^8.24.0",
-        "lint-staged": "^13.0.3",
-        "prettier": "2.7.1",
+        "@types/node": "^18.16.18",
+        "eslint": "^8.42.0",
+        "lint-staged": "^13.2.2",
+        "prettier": "2.8.8",
         "rimraf": "^3.0.2",
         "typescript": "5.1.3"
     }

@@ -37,10 +37,10 @@
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/electron-devtools-installer": "^2.2.2",
         "@types/jest": "^29.5.2",
-        "@types/node": "^18.16.17",
-        "eslint": "^8.24.0",
-        "lint-staged": "^13.0.3",
-        "prettier": "2.7.1",
+        "@types/node": "^18.16.18",
+        "eslint": "^8.42.0",
+        "lint-staged": "^13.2.2",
+        "prettier": "2.8.8",
         "rimraf": "^3.0.2",
         "typescript": "5.1.3"
     }
