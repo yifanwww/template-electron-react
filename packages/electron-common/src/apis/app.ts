@@ -18,9 +18,9 @@ export interface AppDetails {
 }
 
 export enum AppAPIChannel {
-    CREATE_WINDOW = 'CreateWindow',
-    GET_APP_DETAILS = 'GetAppDetails',
-    GET_WINDOW_TYPE = 'GetWindowType',
+    CREATE_WINDOW = 'App_CreateWindow',
+    GET_APP_DETAILS = 'App_GetAppDetails',
+    GET_WINDOW_TYPE = 'App_GetWindowType',
 }
 
 type CreateWindowAPI = IpcRendererInvokerAPI<void, [windowType: WindowType]>;
