@@ -79,6 +79,8 @@ module.exports = {
         // https://github.com/prettier/eslint-config-prettier/#max-len
         // This rule is disabled by `eslint-config-prettier`, enable it manually for better eslint error information.
         'max-len': ['error', { code: 120, ignoreUrls: true }],
+        // https://eslint.org/docs/latest/rules/no-await-in-loop
+        'no-await-in-loop': 'off',
         // Allows bitwise operators, but be CAREFUL for not using them in most case.
         'no-bitwise': 'off',
         'no-console': ['error', {}],
