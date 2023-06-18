@@ -1,4 +1,4 @@
-import type { WindowType } from '@tecra-pkg/electron-common';
+import { WindowType } from '@tecra-pkg/electron-common';
 import type { Optional } from '@tecra-pkg/utils-type';
 import { StrictMode, useEffect, useState } from 'react';
 import { render } from 'react-dom';
@@ -16,19 +16,19 @@ const Window: React.FC = () => {
         void appAPI.getWindowType().then(setType);
     }, []);
 
-    let never: never;
     switch (type) {
-        case 'main':
+        case WindowType.MAIN:
             return <MainWindow />;
         case null:
             return <div />;
 
         /* istanbul ignore next */
-        default:
-            never = type;
+        default: {
+            const never: never = type;
             // eslint-disable-next-line no-console
             console.error(`Wrong window type '${String(never)}' to create the specified window user interface.`);
             return null;
+        }
     }
 };
 
