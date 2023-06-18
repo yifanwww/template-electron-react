@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Introduction } from 'src/MainWindow/components/Introduction';
 import { useAppDetails, useMainDispatchingThunks } from 'src/MainWindow/redux';
 
-const HomePage: React.FC = () => {
+export const HomePage: React.FC = () => {
     const appDetails = useAppDetails();
     const { prepareAppDetails } = useMainDispatchingThunks();
 
@@ -13,5 +13,3 @@ const HomePage: React.FC = () => {
 
     return <Introduction appDetails={appDetails} />;
 };
-
-export default HomePage;

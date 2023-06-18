@@ -24,17 +24,27 @@ export enum AppAPIChannel {
 }
 
 type CreateWindowAPI = IpcRendererInvokerAPI<void, [windowType: WindowType]>;
-type GetAppDetails = IpcRendererInvokerAPI<AppDetails, []>;
 type GetWindowType = IpcRendererInvokerAPI<WindowType, []>;
+
+type GetAppDetails = IpcRendererInvokerAPI<AppDetails, []>;
 
 export interface AppMainAPI {
     handleCreateWindow: CreateWindowAPI['main'];
-    handleGetAppDetails: GetAppDetails['main'];
     handleGetWindowType: GetWindowType['main'];
+    handleGetAppDetails: GetAppDetails['main'];
 }
 
 export interface AppRendererAPI {
+    /**
+     * Create a new window.
+     */
     createWindow: CreateWindowAPI['renderer'];
-    getAppDetails: GetAppDetails['renderer'];
+    /**
+     * Get the type of current window.
+     */
     getWindowType: GetWindowType['renderer'];
+    /**
+     * Get app details, including app name and app version.
+     */
+    getAppDetails: GetAppDetails['renderer'];
 }
