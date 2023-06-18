@@ -1,3 +1,4 @@
+import { WindowType } from '@tecra-pkg/electron-common';
 import type { Optional } from '@tecra-pkg/utils-type';
 
 import type { AbstractWindow } from './abstractWindow';
@@ -18,22 +19,20 @@ export class WindowManager {
         const { windowType } = option;
         const windowId = `${windowType}-${this._count}`;
 
-        let never: never;
         switch (windowType) {
-            case 'main':
+            case WindowType.MAIN:
                 this._store[windowId] = new MainWindow({
                     windowId,
-                    height: option?.height,
-                    width: option?.width,
                     onClose: this._closeWindow,
                 });
                 break;
 
             /* istanbul ignore next */
-            default:
-                never = windowType;
+            default: {
+                const never: never = windowType;
                 // eslint-disable-next-line no-console
                 console.error(`Wrong window type '${never as string}' to create the specified browser window`);
+            }
         }
 
         void this._store[windowId]!.show();

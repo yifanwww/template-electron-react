@@ -2,8 +2,6 @@ import type { WindowType } from '@tecra-pkg/electron-common';
 
 export interface CreateWindowOption {
     windowType: WindowType;
-    height?: number;
-    width?: number;
 }
 
 export interface CloseWindowOption {
@@ -12,8 +10,6 @@ export interface CloseWindowOption {
 
 export interface WindowOption {
     windowId: string;
-    height?: number;
-    width?: number;
     onClose: (option: CloseWindowOption) => void | Promise<void>;
 }
 

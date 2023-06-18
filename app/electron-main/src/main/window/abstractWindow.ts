@@ -1,10 +1,11 @@
 import type { WindowType } from '@tecra-pkg/electron-common';
 import { BrowserWindow, shell } from 'electron';
-import path from 'path';
+import path from 'node:path';
 
 import { appPaths } from 'src/main/appPaths';
 
 import { appAPIHandlers } from '../apis/app';
+import { WindowStateKeeper } from '../configuration';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
@@ -19,13 +20,21 @@ export abstract class AbstractWindow {
         this._windowId = option.windowId;
         this._windowType = option.windowType;
 
+        const windowStateKeeper = new WindowStateKeeper(option.windowType);
+
         this._window = new BrowserWindow({
-            width: option.width ?? 1280,
-            height: option.height ?? 720,
             webPreferences: {
                 preload: path.resolve(appPaths.src, 'preload.js'),
             },
+
+            x: windowStateKeeper.x,
+            y: windowStateKeeper.y,
+            width: windowStateKeeper.width,
+            height: windowStateKeeper.height,
         });
+        if (windowStateKeeper.maximized) this._window.maximize();
+        if (windowStateKeeper.fullScreen) this._window.setFullScreen(true);
+        windowStateKeeper.registerHandlers(this._window);
 
         this._onClose = option.onClose;
 

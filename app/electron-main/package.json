@@ -28,7 +28,8 @@
     "dependencies": {
         "@tecra-pkg/electron-common": "workspace:*",
         "@tecra-pkg/utils-type": "workspace:*",
-        "electron-devtools-installer": "^3.2.0"
+        "electron-devtools-installer": "^3.2.0",
+        "electron-store": "^8.1.0"
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
