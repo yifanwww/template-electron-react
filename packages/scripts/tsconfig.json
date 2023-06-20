@@ -1,0 +1,14 @@
+{
+    "extends": "@tecra/tsconfigs/tsconfig.node.cjs.json",
+    "compilerOptions": {
+        // disable `incremental` for NPM script `typecheck`
+        "incremental": false,
+        "inlineSources": false,
+        "outDir": "dist",
+        "rootDir": "src",
+        "sourceMap": false,
+        "target": "ES2020"
+    },
+    "include": ["src/**/*"],
+    "exclude": []
+}

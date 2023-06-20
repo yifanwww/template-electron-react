@@ -1,5 +1,5 @@
 {
-    "name": "@tecra-pkg/electron-common",
+    "name": "@tecra/electron-common",
     "version": "0.9.0",
     "description": "Common code for electron main process and electron renderer process.",
     "main": "lib/index.js",
@@ -28,14 +28,11 @@
         "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
-    "dependencies": {
-        "@tecra-pkg/utils-type": "workspace:*"
-    },
     "devDependencies": {
-        "@tecra-config/eslint-config": "workspace:*",
-        "@tecra-config/global-types": "workspace:*",
-        "@tecra-config/scripts": "workspace:*",
-        "@tecra-config/tsconfigs": "workspace:*",
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/scripts": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*",
+        "@types/jest": "^29.5.2",
         "concurrently": "^7.6.0",
         "eslint": "^8.42.0",
         "lint-staged": "^13.2.2",

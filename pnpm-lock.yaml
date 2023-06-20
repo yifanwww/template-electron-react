@@ -15,13 +15,6 @@ overrides:
 importers:
 
   .:
-    dependencies:
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
     devDependencies:
       '@babel/core':
         specifier: ^7.22.5
@@ -32,9 +25,9 @@ importers:
       '@babel/plugin-transform-react-jsx':
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.5)
-      '@tecra-config/scripts':
+      '@tecra/scripts':
         specifier: workspace:*
-        version: link:configs/scripts
+        version: link:packages/scripts
       browserslist:
         specifier: ^4.21.9
         version: 4.21.9
@@ -72,14 +65,44 @@ importers:
         specifier: ^5.87.0
         version: 5.87.0(webpack-cli@4.10.0)
 
-  app/electron-main:
+  packages/electron-common:
+    devDependencies:
+      '@tecra/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@tecra/scripts':
+        specifier: workspace:*
+        version: link:../scripts
+      '@tecra/tsconfigs':
+        specifier: workspace:*
+        version: link:../tsconfigs
+      '@types/jest':
+        specifier: ^29.5.2
+        version: 29.5.2
+      concurrently:
+        specifier: ^7.6.0
+        version: 7.6.0
+      eslint:
+        specifier: ^8.42.0
+        version: 8.42.0
+      lint-staged:
+        specifier: ^13.2.2
+        version: 13.2.2
+      prettier:
+        specifier: 2.8.8
+        version: 2.8.8
+      rimraf:
+        specifier: ^3.0.2
+        version: 3.0.2
+      typescript:
+        specifier: 5.1.3
+        version: 5.1.3
+
+  packages/electron-main:
     dependencies:
-      '@tecra-pkg/electron-common':
+      '@tecra/electron-common':
         specifier: workspace:*
-        version: link:../../packages/electron-common
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../../packages/utils-type
+        version: link:../electron-common
       electron-devtools-installer:
         specifier: ^3.2.0
         version: 3.2.0
@@ -87,18 +110,15 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0
     devDependencies:
-      '@tecra-config/eslint-config':
+      '@tecra/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
+        version: link:../eslint-config
+      '@tecra/scripts':
         specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
+        version: link:../scripts
+      '@tecra/tsconfigs':
         specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
+        version: link:../tsconfigs
       '@types/electron-devtools-installer':
         specifier: ^2.2.2
         version: 2.2.2
@@ -124,29 +144,29 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
-  app/electron-renderer:
+  packages/electron-renderer:
     dependencies:
       '@reduxjs/toolkit':
         specifier: ^1.9.5
         version: 1.9.5(react-redux@8.1.0)(react@17.0.2)
-      '@tecra-pkg/electron-common':
+      '@tecra/electron-common':
         specifier: workspace:*
-        version: link:../../packages/electron-common
-      '@tecra-pkg/utils-react':
-        specifier: workspace:*
-        version: link:../../packages/utils-react
-      '@tecra-pkg/utils-react-router':
-        specifier: workspace:*
-        version: link:../../packages/utils-react-router
-      '@tecra-pkg/utils-redux':
-        specifier: workspace:*
-        version: link:../../packages/utils-redux
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../../packages/utils-type
+        version: link:../electron-common
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
+      immer:
+        specifier: ^9.0.21
+        version: 9.0.21
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+      react:
+        specifier: ^17.0.2
+        version: 17.0.2
+      react-dom:
+        specifier: ^17.0.2
+        version: 17.0.2(react@17.0.2)
       react-redux:
         specifier: ^8.1.0
         version: 8.1.0(@reduxjs/toolkit@1.9.5)(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1)
@@ -160,27 +180,21 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
     devDependencies:
-      '@tecra-config/eslint-config':
+      '@tecra/eslint-config':
         specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
+        version: link:../eslint-config
+      '@tecra/scripts':
         specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
+        version: link:../scripts
+      '@tecra/tsconfigs':
         specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/stylelint-config':
-        specifier: workspace:*
-        version: link:../../configs/stylelint-config
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@tecra-pkg/utils-test':
-        specifier: workspace:*
-        version: link:../../packages/utils-test
+        version: link:../tsconfigs
       '@testing-library/dom':
         specifier: ^8.20.0
         version: 8.20.0
+      '@testing-library/jest-dom':
+        specifier: ^5.16.5
+        version: 5.16.5
       '@testing-library/react':
         specifier: ^12.1.5
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
@@ -193,6 +207,9 @@ importers:
       '@types/jest':
         specifier: ^29.5.2
         version: 29.5.2
+      '@types/lodash':
+        specifier: ^4.14.195
+        version: 4.14.195
       '@types/react':
         specifier: ^17.0.62
         version: 17.0.62
@@ -211,6 +228,9 @@ importers:
       lint-staged:
         specifier: ^13.2.2
         version: 13.2.2
+      postcss:
+        specifier: ^8.4.24
+        version: 8.4.24
       prettier:
         specifier: 2.8.8
         version: 2.8.8
@@ -223,6 +243,12 @@ importers:
       stylelint:
         specifier: ^14.16.1
         version: 14.16.1
+      stylelint-config-recess-order:
+        specifier: ^3.1.0
+        version: 3.1.0(stylelint@14.16.1)
+      stylelint-config-sass-guidelines:
+        specifier: ^9.0.1
+        version: 9.0.1(postcss@8.4.24)(stylelint@14.16.1)
       typescript:
         specifier: 5.1.3
         version: 5.1.3
@@ -230,7 +256,7 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(typescript@5.1.3)
 
-  configs/eslint-config:
+  packages/eslint-config:
     dependencies:
       eslint-config-airbnb:
         specifier: ^19.0.4
@@ -273,28 +299,7 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
-  configs/global-types:
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../tsconfigs
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  configs/scripts:
+  packages/scripts:
     dependencies:
       '@babel/core':
         specifier: ^7.22.5
@@ -336,10 +341,10 @@ importers:
       '@jest/types':
         specifier: ^29.5.0
         version: 29.5.0
-      '@tecra-config/eslint-config':
+      '@tecra/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@tecra-config/tsconfigs':
+      '@tecra/tsconfigs':
         specifier: workspace:*
         version: link:../tsconfigs
       '@types/case-sensitive-paths-webpack-plugin':
@@ -364,400 +369,11 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
-  configs/stylelint-config:
-    dependencies:
-      postcss:
-        specifier: ^8.4.24
-        version: 8.4.24
-      stylelint-config-recess-order:
-        specifier: ^3.1.0
-        version: 3.1.0(stylelint@14.16.1)
-      stylelint-config-sass-guidelines:
-        specifier: ^9.0.1
-        version: 9.0.1(postcss@8.4.24)(stylelint@14.16.1)
+  packages/tsconfigs:
     devDependencies:
       prettier:
         specifier: 2.8.8
         version: 2.8.8
-      stylelint:
-        specifier: ^14.16.1
-        version: 14.16.1
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  configs/tsconfigs:
-    devDependencies:
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/electron-common:
-    dependencies:
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../utils-type
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/hooks:
-    dependencies:
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../utils-type
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@tecra-pkg/utils-test':
-        specifier: workspace:*
-        version: link:../utils-test
-      '@testing-library/react':
-        specifier: ^12.1.5
-        version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
-      '@testing-library/react-hooks':
-        specifier: ^8.0.1
-        version: 8.0.1(@types/react@17.0.62)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)
-      '@types/jest':
-        specifier: ^29.5.2
-        version: 29.5.2
-      '@types/lodash':
-        specifier: ^4.14.195
-        version: 4.14.195
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/utils:
-    dependencies:
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../utils-type
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/jest':
-        specifier: ^29.5.2
-        version: 29.5.2
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/utils-react:
-    dependencies:
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../utils-type
-      immer:
-        specifier: ^9.0.21
-        version: 9.0.21
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/utils-react-router:
-    dependencies:
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/utils-redux:
-    dependencies:
-      '@reduxjs/toolkit':
-        specifier: ^1.9.5
-        version: 1.9.5(react-redux@8.1.0)(react@17.0.2)
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../utils-type
-      immer:
-        specifier: ^9.0.21
-        version: 9.0.21
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-      react-redux:
-        specifier: ^8.1.0
-        version: 8.1.0(@reduxjs/toolkit@1.9.5)(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1)
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/utils-test:
-    dependencies:
-      '@tecra-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../utils-type
-      '@testing-library/react-hooks':
-        specifier: ^8.0.1
-        version: 8.0.1(@types/react@17.0.62)(react-dom@17.0.2)(react-test-renderer@17.0.2)(react@17.0.2)
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@testing-library/jest-dom':
-        specifier: ^5.16.5
-        version: 5.16.5
-      '@types/jest':
-        specifier: ^29.5.2
-        version: 29.5.2
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      type-fest:
-        specifier: ^3.12.0
-        version: 3.12.0
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
-  packages/utils-type:
-    devDependencies:
-      '@tecra-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@tecra-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@tecra-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@tecra-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      concurrently:
-        specifier: ^7.6.0
-        version: 7.6.0
-      eslint:
-        specifier: ^8.42.0
-        version: 8.42.0
-      lint-staged:
-        specifier: ^13.2.2
-        version: 13.2.2
-      prettier:
-        specifier: 2.8.8
-        version: 2.8.8
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
       typescript:
         specifier: 5.1.3
         version: 5.1.3
@@ -2406,6 +2022,7 @@ packages:
       postcss-selector-parser: ^6.0.10
     dependencies:
       postcss-selector-parser: 6.0.13
+    dev: true
 
   /@develar/schema-utils@2.6.5:
     resolution: {integrity: sha512-0cp4PsWQ/9avqTVMCtZ+GirikIA36ikvjtHweU4/j8yLtgObI0+JUPhYFScgwlteveGB1rt3Cm8UhN04XayDig==}
@@ -3202,6 +2819,7 @@ packages:
       react-dom: 17.0.2(react@17.0.2)
       react-error-boundary: 3.1.4(react@17.0.2)
       react-test-renderer: 17.0.2(react@17.0.2)
+    dev: true
 
   /@testing-library/react@12.1.5(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
@@ -3268,13 +2886,13 @@ packages:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
     dependencies:
       '@types/connect': 3.4.35
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/bonjour@3.5.10:
     resolution: {integrity: sha512-p7ienRMiS41Nu2/igbJxxLDWrSZ0WxM8UQgCeO9KhoVF7cOVFkrKsiDr1EsJIla8vV3oEEjGcz11jc5yimhzZw==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/cacheable-request@6.0.3:
@@ -3296,13 +2914,13 @@ packages:
     resolution: {integrity: sha512-4x5FkPpLipqwthjPsF7ZRbOv3uoLUFkTA9G9v583qi4pACvq0uTELrB8OLUzPWUI4IJIyvM85vzkV1nyiI2Lig==}
     dependencies:
       '@types/express-serve-static-core': 4.17.35
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/connect@3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/debug@4.1.8:
@@ -3337,7 +2955,7 @@ packages:
   /@types/express-serve-static-core@4.17.35:
     resolution: {integrity: sha512-wALWQwrgiB2AWTT91CB62b6Yt0sNHpznUXeZEcnPU3DRdlDIz74x8Qg1UUYKSVFi+va5vKOLYRBI1bRKiLLKIg==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
       '@types/send': 0.17.1
@@ -3355,7 +2973,7 @@ packages:
   /@types/fs-extra@9.0.13:
     resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/graceful-fs@4.1.6:
@@ -3381,7 +2999,7 @@ packages:
   /@types/http-proxy@1.17.11:
     resolution: {integrity: sha512-HC8G7c1WmaF2ekqpnFq626xd3Zz0uvaqFmBJNRZCGEZCXkvSdJoNFn/8Ygbd9fKNQj8UzLdCETaI0UWPAjK7IA==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/istanbul-lib-coverage@2.0.4:
@@ -3438,6 +3056,7 @@ packages:
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
+    dev: true
 
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
@@ -3446,11 +3065,9 @@ packages:
   /@types/node@18.16.18:
     resolution: {integrity: sha512-/aNaQZD0+iSBAGnvvN2Cx92HqE5sZCPZtx2TsK+4nvV23fFe09jVDvpArXr2j9DnYlzuU9WuoykDDc6wqvpNcw==}
 
-  /@types/node@20.3.1:
-    resolution: {integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==}
-
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
 
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
@@ -3515,7 +3132,7 @@ packages:
   /@types/resolve@1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/responselike@1.0.0:
@@ -3538,7 +3155,7 @@ packages:
     resolution: {integrity: sha512-Cwo8LE/0rnvX7kIIa3QHCkcuF21c05Ayb0ZfxPiv0W8VRiZiNW/WuRupHKpqqGVGf7SUA44QSOUKaEd9lIrd/Q==}
     dependencies:
       '@types/mime': 1.3.2
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/serve-index@1.9.1:
@@ -3551,13 +3168,13 @@ packages:
     resolution: {integrity: sha512-NUo5XNiAdULrJENtJXZZ3fHtfMolzZwczzBbnAeBbqBwG+LaG6YaJtuwzwGSQZ2wsCrxjEhNNjAkKigy3n8teQ==}
     dependencies:
       '@types/mime': 3.0.1
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/sockjs@0.3.33:
     resolution: {integrity: sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/source-list-map@0.1.2:
@@ -3623,7 +3240,7 @@ packages:
   /@types/ws@8.5.5:
     resolution: {integrity: sha512-lwhs8hktwxSjf9UaZ9tG5M03PGogvFaH8gUgLNbN9HKIg0dvv6q+gkSuJ8HN4/VbyxkuLzCjlN7GquQ0gUJfIg==}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
     dev: true
 
   /@types/yargs-parser@21.0.0:
@@ -4227,6 +3844,7 @@ packages:
   /arrify@1.0.1:
     resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /asap@2.0.6:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
@@ -4245,6 +3863,7 @@ packages:
   /astral-regex@2.0.0:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
     engines: {node: '>=8'}
+    dev: true
 
   /async-exit-hook@2.0.1:
     resolution: {integrity: sha512-NW2cX8m1Q7KPA7a5M2ULQeZ2wR5qI5PAbw5L0UOMxdioVk9PMZ0h1TmyZEkPYrCvYjDlFICusOu1dlEKAAeXBw==}
@@ -4464,6 +4083,7 @@ packages:
 
   /balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
+    dev: true
 
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -4714,6 +4334,7 @@ packages:
       camelcase: 5.3.1
       map-obj: 4.3.0
       quick-lru: 4.0.1
+    dev: true
 
   /camelcase@5.3.1:
     resolution: {integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==}
@@ -4925,6 +4546,7 @@ packages:
 
   /colord@2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
+    dev: true
 
   /colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
@@ -5133,6 +4755,7 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.2
+    dev: true
 
   /crc@3.8.0:
     resolution: {integrity: sha512-iX3mfgcTMIq3ZKLIsVFAbv7+Mc10kxabAGQb8HvjA1o3T1PIYprbakQ65d3I+2HGHt6nSKkM9PYjgoJO2KcFBQ==}
@@ -5178,6 +4801,7 @@ packages:
   /css-functions-list@3.1.0:
     resolution: {integrity: sha512-/9lCvYZaUbBGvYUgYGFJ4dcYiyqdhSjG7IPVluoV8A1ILjkF7ilmhp1OGUz8n+nmBcu0RNrQAzgD8B6FJbrt2w==}
     engines: {node: '>=12.22'}
+    dev: true
 
   /css-has-pseudo@3.0.4(postcss@8.4.24):
     resolution: {integrity: sha512-Vse0xpR1K9MNlp2j5w1pgWIJtm1a8qS0JwS9goFYcImjlHEmywP9VUF05aGBXzGpDJF86QXk4L0ypBmwPhGArw==}
@@ -5306,6 +4930,7 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    dev: true
 
   /cssnano-preset-default@5.2.14(postcss@8.4.24):
     resolution: {integrity: sha512-t0SFesj/ZV2OTylqQVOrFgEh5uanxbO6ZAdeCrNsUQ6fVuXwYTxJPNAGvGTxHbD68ldIJNec7PyYZDBrfDQ+6A==}
@@ -5455,10 +5080,12 @@ packages:
     dependencies:
       decamelize: 1.2.0
       map-obj: 1.0.1
+    dev: true
 
   /decamelize@1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /decimal.js@10.4.3:
     resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==}
@@ -7010,6 +6637,7 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       global-prefix: 3.0.0
+    dev: true
 
   /global-prefix@3.0.0:
     resolution: {integrity: sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg==}
@@ -7018,6 +6646,7 @@ packages:
       ini: 1.3.8
       kind-of: 6.0.3
       which: 1.3.1
+    dev: true
 
   /globals@11.12.0:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
@@ -7048,6 +6677,7 @@ packages:
 
   /globjoin@0.1.4:
     resolution: {integrity: sha512-xYfnw62CKG8nLkZBfWbhWwDw02CHty86jfPcc2cr3ZfeuK9ysoVPPEUxf21bAD/rWAgk52SuBrLJlefNy8mvFg==}
+    dev: true
 
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
@@ -7094,6 +6724,7 @@ packages:
   /hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
     engines: {node: '>=6'}
+    dev: true
 
   /harmony-reflect@1.6.2:
     resolution: {integrity: sha512-HIp/n38R9kQjDEziXyDTuW3vvoxxyxjxFzXLrBr18uB47GnSt+G9D29fqrpM5ZkspMcPICud3XsBJQ4Y2URg8g==}
@@ -7156,12 +6787,14 @@ packages:
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
+    dev: true
 
   /hosted-git-info@4.1.0:
     resolution: {integrity: sha512-kyCuEOWjJqZuDbRHzL8V93NzQhwIB71oFWSyzVo+KPZI+pnQPPxucdkrOZvkLRnrf5URsQM+IJ09Dw29cRALIA==}
     engines: {node: '>=10'}
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /hpack.js@2.1.6:
     resolution: {integrity: sha512-zJxVehUdMGIKsRaNt7apO2Gqp0BdqW5yaiGHXXmbpvxgBYVZnAql+BJb4RO5ad2MgpbZKn5G6nMnegrH1FcNYQ==}
@@ -7203,6 +6836,7 @@ packages:
   /html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
+    dev: true
 
   /html-webpack-plugin@5.5.3(webpack@5.87.0):
     resolution: {integrity: sha512-6YrDKTuqaP/TquFH7h4srYWsZx+x6k6+FbsTm0ziCwGHDP78Unr1r9F/H4+sGmMbX08GQcJ+K64x55b+7VM/jg==}
@@ -7419,6 +7053,7 @@ packages:
   /import-lazy@4.0.0:
     resolution: {integrity: sha512-rKtvo6a868b5Hu3heneU+L4yEQ4jYKLtjpnPeUdK7h0yzXGmyBTypknlkCvHFBqfX9YlorEiMM6Dnq/5atfHkw==}
     engines: {node: '>=8'}
+    dev: true
 
   /import-local@3.1.0:
     resolution: {integrity: sha512-ASB07uLtnDs1o6EHjKpX34BKYDSqnFerfTOJL2HvMqF70LnxpjkzDB8J44oT9pu4AMPkQwf8jl6szgvNd2tRIg==}
@@ -7435,6 +7070,7 @@ packages:
   /indent-string@4.0.0:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
     engines: {node: '>=8'}
+    dev: true
 
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
@@ -7451,6 +7087,7 @@ packages:
 
   /ini@1.3.8:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
+    dev: true
 
   /internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
@@ -7601,6 +7238,7 @@ packages:
   /is-plain-obj@1.1.0:
     resolution: {integrity: sha512-yvkRyxmFKEOQ4pNXCmJG5AEQNlXJS5LaONXo5/cLdTZdWvsZ1ioJEonLGAosKlMWE8lwUy/bJzMjcw8az73+Fg==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /is-plain-obj@3.0.0:
     resolution: {integrity: sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==}
@@ -7616,6 +7254,7 @@ packages:
   /is-plain-object@5.0.0:
     resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /is-potential-custom-element-name@1.0.1:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
@@ -8045,7 +7684,7 @@ packages:
       '@jest/test-result': 29.5.0
       '@jest/transform': 29.5.0
       '@jest/types': 29.5.0
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -8075,7 +7714,7 @@ packages:
       '@jest/test-result': 29.5.0
       '@jest/transform': 29.5.0
       '@jest/types': 29.5.0
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
       chalk: 4.1.2
       cjs-module-lexer: 1.2.3
       collect-v8-coverage: 1.0.1
@@ -8177,7 +7816,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -8194,7 +7833,7 @@ packages:
     resolution: {integrity: sha512-CqRA220YV/6jCo8VWvAt1KKx6eek1VIHMPeLEbpcfSfkEeWyBNppynM/o6q+Wmw+sOhos2ml34wZbSX3G13//g==}
     engines: {node: ^12.13.0 || ^14.15.0 || ^16.10.0 || >=17.0.0}
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 18.16.18
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
@@ -8394,6 +8033,7 @@ packages:
 
   /known-css-properties@0.26.0:
     resolution: {integrity: sha512-5FZRzrZzNTBruuurWpvZnvP9pum+fe0HcK8z/ooo+U+Hmp4vtbyp1/QDsqmufirXy4egGzbaH/y2uCZf+6W5Kg==}
+    dev: true
 
   /language-subtag-registry@0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}
@@ -8567,6 +8207,7 @@ packages:
 
   /lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
+    dev: true
 
   /lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
@@ -8574,7 +8215,6 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -8690,10 +8330,12 @@ packages:
   /map-obj@1.0.1:
     resolution: {integrity: sha512-7N/q3lyZ+LVCp7PzuxrJr4KMbBE2hW7BT7YNia330OFxIf4d3r5zVpicP2650l7CPN6RM9zOJRl3NGpqSiw3Eg==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /map-obj@4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
+    dev: true
 
   /matcher@3.0.0:
     resolution: {integrity: sha512-OkeDaAZ/bQCxeFAozM55PKcKU0yJMPGifLwV4Qgjitu+5MoAfSQN4lsLJeXZ1b8w0x+/Emda6MZgXS1jvsapng==}
@@ -8705,6 +8347,7 @@ packages:
 
   /mathml-tag-names@2.1.3:
     resolution: {integrity: sha512-APMBEanjybaPzUrfqU0IMU5I0AswKMH7k8OTLs0vvV4KZpExkTkY87nR/zpbuTPj+gARop7aGUbl11pnDfW6xg==}
+    dev: true
 
   /mdn-data@2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}
@@ -8741,6 +8384,7 @@ packages:
       trim-newlines: 3.0.1
       type-fest: 0.18.1
       yargs-parser: 20.2.9
+    dev: true
 
   /merge-descriptors@1.0.1:
     resolution: {integrity: sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w==}
@@ -8814,6 +8458,7 @@ packages:
   /min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
+    dev: true
 
   /mini-css-extract-plugin@2.7.6(webpack@5.87.0):
     resolution: {integrity: sha512-Qk7HcgaPkGG6eD77mLvZS1nmxlao3j+9PkrT9Uc7HAE1id3F41+DdBRYRYkbyfNRGzm8/YWtzhw7nVPmwhqTQw==}
@@ -8855,6 +8500,7 @@ packages:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
+    dev: true
 
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
@@ -8960,6 +8606,7 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: true
 
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
@@ -9061,6 +8708,7 @@ packages:
       resolve: 1.22.2
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
+    dev: true
 
   /normalize-package-data@3.0.3:
     resolution: {integrity: sha512-p2W1sgqij3zMMyRC067Dg16bfzVH+w7hyegmpIvZ4JNjqtGOVAIvLmjBx3yP7YTe9vKJgkoNOPjwQGogDoMXFA==}
@@ -9070,6 +8718,7 @@ packages:
       is-core-module: 2.12.1
       semver: 7.5.2
       validate-npm-package-license: 3.0.4
+    dev: true
 
   /normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
@@ -9830,6 +9479,7 @@ packages:
 
   /postcss-media-query-parser@0.2.3:
     resolution: {integrity: sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig==}
+    dev: true
 
   /postcss-merge-longhand@5.1.7(postcss@8.4.24):
     resolution: {integrity: sha512-YCI9gZB+PLNskrK0BB3/2OzPnGhPkBEwmwhfYk1ilBHYVAZB7/tkTHFBAnCrvBBOmeYyMYw3DMjT55SyxMBzjQ==}
@@ -10213,6 +9863,7 @@ packages:
 
   /postcss-resolve-nested-selector@0.1.1:
     resolution: {integrity: sha512-HvExULSwLqHLgUy1rl3ANIqCsvMS0WHss2UOsXhXnQaZ9VCc2oBvIpXrl00IUFT5ZDITME0o6oiXeiHr2SAIfw==}
+    dev: true
 
   /postcss-safe-parser@6.0.0(postcss@8.4.24):
     resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
@@ -10221,6 +9872,7 @@ packages:
       postcss: ^8.3.3
     dependencies:
       postcss: 8.4.24
+    dev: true
 
   /postcss-scss@4.0.6(postcss@8.4.24):
     resolution: {integrity: sha512-rLDPhJY4z/i4nVFZ27j9GqLxj1pwxE80eAzUNRMXtcpipFYIeowerzBgG3yJhMtObGEXidtIgbUpQ3eLDsf5OQ==}
@@ -10229,7 +9881,7 @@ packages:
       postcss: ^8.4.19
     dependencies:
       postcss: 8.4.24
-    dev: false
+    dev: true
 
   /postcss-selector-not@6.0.1(postcss@8.4.24):
     resolution: {integrity: sha512-1i9affjAe9xu/y9uqWH+tD4r6/hDaXJruk8xn2x1vzxC2U3J3LKO3zJW4CyxlNhA56pADJ/djpEwpH1RClI2rQ==}
@@ -10247,6 +9899,7 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
+    dev: true
 
   /postcss-sorting@7.0.1(postcss@8.4.24):
     resolution: {integrity: sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==}
@@ -10254,7 +9907,7 @@ packages:
       postcss: ^8.3.9
     dependencies:
       postcss: 8.4.24
-    dev: false
+    dev: true
 
   /postcss-svgo@5.1.0(postcss@8.4.24):
     resolution: {integrity: sha512-D75KsH1zm5ZrHyxPakAxJWtkyXew5qwS70v56exwvw542d9CRtTo78K0WeFxZB4G7JXKKMbEZtZayTGdIky/eA==}
@@ -10279,6 +9932,7 @@ packages:
 
   /postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
+    dev: true
 
   /postcss@7.0.39:
     resolution: {integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==}
@@ -10295,6 +9949,7 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
 
   /prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -10435,6 +10090,7 @@ packages:
   /quick-lru@4.0.1:
     resolution: {integrity: sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==}
     engines: {node: '>=8'}
+    dev: true
 
   /quick-lru@5.1.1:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
@@ -10549,6 +10205,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       react: 17.0.2
+    dev: true
 
   /react-error-overlay@6.0.11:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
@@ -10559,6 +10216,7 @@ packages:
 
   /react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+    dev: true
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
@@ -10733,7 +10391,8 @@ packages:
     dependencies:
       object-assign: 4.1.1
       react: 17.0.2
-      react-is: 17.0.2
+      react-is: 18.2.0
+    dev: true
 
   /react-test-renderer@17.0.2(react@17.0.2):
     resolution: {integrity: sha512-yaQ9cB89c17PUb0x6UfWRs7kQCorVdHlutU1boVPEsB8IDZH6n9tHxMacc3y0JoXOJUsZb/t/Mb8FUWMKaM7iQ==}
@@ -10745,6 +10404,7 @@ packages:
       react-is: 17.0.2
       react-shallow-renderer: 16.15.0(react@17.0.2)
       scheduler: 0.20.2
+    dev: true
 
   /react@17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
@@ -10778,6 +10438,7 @@ packages:
       find-up: 4.1.0
       read-pkg: 5.2.0
       type-fest: 0.8.1
+    dev: true
 
   /read-pkg@5.2.0:
     resolution: {integrity: sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg==}
@@ -10787,6 +10448,7 @@ packages:
       normalize-package-data: 2.5.0
       parse-json: 5.2.0
       type-fest: 0.6.0
+    dev: true
 
   /readable-stream@2.3.8:
     resolution: {integrity: sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==}
@@ -10833,6 +10495,7 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+    dev: true
 
   /redux-thunk@2.4.2(redux@4.2.1):
     resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==}
@@ -11220,6 +10883,7 @@ packages:
   /semver@5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
     hasBin: true
+    dev: true
 
   /semver@6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
@@ -11389,6 +11053,7 @@ packages:
       ansi-styles: 4.3.0
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
+    dev: true
 
   /slice-ansi@5.0.0:
     resolution: {integrity: sha512-FC+lgizVPfie0kkhqUScwRu1O/lF6NOgJmlCgK+/LYxDCTk8sGelYaHDhFcDN+Sn3Cv+3VSa4Byeo+IMCzpMgQ==}
@@ -11438,6 +11103,7 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /source-map-loader@3.0.2(webpack@5.87.0):
     resolution: {integrity: sha512-BokxPoLjyl3iOrgkWaakaxqnelAJSS+0V+De0kKIq6lyWrXuiPgYTGp6z3iHmqljKAaLXwZa+ctD8GccRJeVvg==}
@@ -11493,18 +11159,22 @@ packages:
     dependencies:
       spdx-expression-parse: 3.0.1
       spdx-license-ids: 3.0.13
+    dev: true
 
   /spdx-exceptions@2.3.0:
     resolution: {integrity: sha512-/tTrYOC7PPI1nUAgx34hUpqXuyJG+DTHJTnIULG4rDygi4xu/tfgmq1e1cIRwRzwZgo4NLySi+ricLkZkw4i5A==}
+    dev: true
 
   /spdx-expression-parse@3.0.1:
     resolution: {integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==}
     dependencies:
       spdx-exceptions: 2.3.0
       spdx-license-ids: 3.0.13
+    dev: true
 
   /spdx-license-ids@3.0.13:
     resolution: {integrity: sha512-XkD+zwiqXHikFZm4AX/7JSCXA98U5Db4AFd5XUg/+9UNtnH75+Z9KxtpYiJZx36mUDVOwH83pl7yvCer6ewM3w==}
+    dev: true
 
   /spdy-transport@3.0.0:
     resolution: {integrity: sha512-hsLVFE5SjA6TCisWeJXFKniGGOpBgMLmerfO2aCyCU5s7nJ/rpAepqmFifv/GCbSbueEeAJJnmSQ2rKC/g8Fcw==}
@@ -11710,6 +11380,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       min-indent: 1.0.1
+    dev: true
 
   /strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
@@ -11726,6 +11397,7 @@ packages:
 
   /style-search@0.1.0:
     resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
+    dev: true
 
   /stylehacks@5.1.1(postcss@8.4.24):
     resolution: {integrity: sha512-sBpcd5Hx7G6seo7b1LkpttvTz7ikD0LlH5RmdcBNb6fFR0Fl7LQwHDFr300q4cwUqi+IYrFGmsIHieMBfnN/Bw==}
@@ -11745,7 +11417,7 @@ packages:
     dependencies:
       stylelint: 14.16.1
       stylelint-order: 5.0.0(stylelint@14.16.1)
-    dev: false
+    dev: true
 
   /stylelint-config-sass-guidelines@9.0.1(postcss@8.4.24)(stylelint@14.16.1):
     resolution: {integrity: sha512-N06PsVsrgKijQ3YT5hqKA7x3NUkgELTRI1cbWMqcYiCGG6MjzvNk6Cb5YYA1PrvrksBV76BvY9P9bAswojVMqA==}
@@ -11759,7 +11431,7 @@ packages:
       stylelint: 14.16.1
       stylelint-order: 5.0.0(stylelint@14.16.1)
       stylelint-scss: 4.7.0(stylelint@14.16.1)
-    dev: false
+    dev: true
 
   /stylelint-order@5.0.0(stylelint@14.16.1):
     resolution: {integrity: sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==}
@@ -11769,7 +11441,7 @@ packages:
       postcss: 8.4.24
       postcss-sorting: 7.0.1(postcss@8.4.24)
       stylelint: 14.16.1
-    dev: false
+    dev: true
 
   /stylelint-scss@4.7.0(stylelint@14.16.1):
     resolution: {integrity: sha512-TSUgIeS0H3jqDZnby1UO1Qv3poi1N8wUYIJY6D1tuUq2MN3lwp/rITVo0wD+1SWTmRm0tNmGO0b7nKInnqF6Hg==}
@@ -11781,7 +11453,7 @@ packages:
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
       stylelint: 14.16.1
-    dev: false
+    dev: true
 
   /stylelint@14.16.1:
     resolution: {integrity: sha512-ErlzR/T3hhbV+a925/gbfc3f3Fep9/bnspMiJPorfGEmcBbXdS+oo6LrVtoUZ/w9fqD6o6k7PtUlCOsCRdjX/A==}
@@ -11828,6 +11500,7 @@ packages:
       write-file-atomic: 4.0.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /stylus@0.59.0:
     resolution: {integrity: sha512-lQ9w/XIOH5ZHVNuNbWW8D822r+/wBSO/d6XvtyHLF7LW4KaCIDeVbvn5DF8fGCJAUCwVhVi/h6J0NUcnylUEjg==}
@@ -11889,6 +11562,7 @@ packages:
     dependencies:
       has-flag: 4.0.0
       supports-color: 7.2.0
+    dev: true
 
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
@@ -11900,6 +11574,7 @@ packages:
 
   /svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
+    dev: true
 
   /svgo@1.3.2:
     resolution: {integrity: sha512-yhy/sQYxR5BkC98CY7o31VGsg014AKLEPxdfhora76l36hD9Rdy5NZA/Ocn6yayNPgSamYdtX2rFJdcv07AYVw==}
@@ -11949,6 +11624,7 @@ packages:
       slice-ansi: 4.0.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+    dev: true
 
   /tailwindcss@3.3.2:
     resolution: {integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==}
@@ -12151,6 +11827,7 @@ packages:
   /trim-newlines@3.0.1:
     resolution: {integrity: sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==}
     engines: {node: '>=8'}
+    dev: true
 
   /truncate-utf8-bytes@1.0.2:
     resolution: {integrity: sha512-95Pu1QXQvruGEhv62XCMO3Mm90GscOCClvrIUwCM0PYOXK3kaF3l3sIHxx71ThJfcbM2O5Au6SO3AWCSEfW4mQ==}
@@ -12229,6 +11906,7 @@ packages:
   /type-fest@0.18.1:
     resolution: {integrity: sha512-OIAYXk8+ISY+qTOwkHtKqzAuxchoMiD9Udx+FSGQDuiRR+PJKJHc2NJAXlbhkGwTt/4/nKZxELY1w3ReWOL8mw==}
     engines: {node: '>=10'}
+    dev: true
 
   /type-fest@0.20.2:
     resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
@@ -12241,10 +11919,12 @@ packages:
   /type-fest@0.6.0:
     resolution: {integrity: sha512-q+MB8nYR1KDLrgr4G5yemftpMC7/QLqVndBmEEdqzmNj5dcFOO4Oo8qlwZE3ULT3+Zim1F8Kq4cBnikNhlCMlg==}
     engines: {node: '>=8'}
+    dev: true
 
   /type-fest@0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+    dev: true
 
   /type-fest@2.19.0:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
@@ -12458,6 +12138,7 @@ packages:
 
   /v8-compile-cache@2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==}
+    dev: true
 
   /v8-to-istanbul@9.1.0:
     resolution: {integrity: sha512-6z3GW9x8G1gd+JIIgQQQxXuiJtCXeAjp6RaPEPLv62mH3iPHPxV6W3robxtCzNErRo6ZwTmzWhsbNvjyEBKzKA==}
@@ -12472,6 +12153,7 @@ packages:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
+    dev: true
 
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
@@ -12780,6 +12462,7 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: true
 
   /which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -13054,6 +12737,7 @@ packages:
   /yargs-parser@20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
     engines: {node: '>=10'}
+    dev: true
 
   /yargs-parser@21.1.1:
     resolution: {integrity: sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==}

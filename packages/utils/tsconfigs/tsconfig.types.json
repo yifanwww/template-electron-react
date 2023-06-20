@@ -1,9 +1,0 @@
-{
-    "extends": "@tecra-config/tsconfigs/tsconfig.node.types.json",
-    "compilerOptions": {
-        "outDir": "../lib",
-        "rootDir": "../src"
-    },
-    "include": ["../src/**/*"],
-    "exclude": ["../src/**/__tests__/**/*", "../src/**/*.spec.ts", "../src/**/*.test.ts", "../src/setup.tests.ts"]
-}

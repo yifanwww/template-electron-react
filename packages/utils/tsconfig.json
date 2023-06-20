@@ -1,9 +1,0 @@
-{
-    "extends": "@tecra-config/tsconfigs/tsconfig.eslint.node.json",
-    "compilerOptions": {
-        "incremental": false,
-        "rootDir": "src"
-    },
-    "include": ["src/**/*"],
-    "exclude": []
-}

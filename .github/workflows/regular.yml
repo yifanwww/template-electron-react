@@ -68,7 +68,7 @@ jobs:
         run: pnpm run build-scripts
 
       - name: Build packages
-        run: pnpm run build-pkgs
+        run: pnpm run build-app:common
 
       - name: Lint
         run: pnpm run lint
@@ -105,7 +105,7 @@ jobs:
         run: pnpm run build-scripts
 
       - name: Build packages
-        run: pnpm run build-pkgs
+        run: pnpm run build-app:common
 
       - name: Do coverage test
         run: pnpm run test-full

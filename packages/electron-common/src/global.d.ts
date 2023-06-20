@@ -1,2 +1,8 @@
-/// <reference types="@tecra-config/global-types/types/env" />
-/// <reference types="@tecra-config/global-types/types/typescript/lib.es5" />
+interface ProcessEnv {
+    readonly NODE_ENV: 'development' | 'production' | 'test';
+}
+
+// eslint-disable-next-line vars-on-top, no-var
+declare var process: {
+    env: ProcessEnv;
+};

@@ -100,74 +100,29 @@
             "name": "tecra",
             "path": "."
         },
-
-        // apps
-
         {
-            "name": "@tecra-app/electron-main",
-            "path": "app/electron-main"
-        },
-        {
-            "name": "@tecra-app/electron-renderer",
-            "path": "app/electron-renderer"
-        },
-
-        // configs
-
-        {
-            "name": "@tecra-config/eslint-config",
-            "path": "configs/eslint-config"
-        },
-        {
-            "name": "@tecra-config/global-types",
-            "path": "configs/global-types"
-        },
-        {
-            "name": "@tecra-config/scripts",
-            "path": "configs/scripts"
-        },
-        {
-            "name": "@tecra-config/stylelint-config",
-            "path": "configs/stylelint-config"
-        },
-        {
-            "name": "@tecra-config/tsconfigs",
-            "path": "configs/tsconfigs"
-        },
-
-        // packages
-
-        {
-            "name": "@tecra-pkg/electron-common",
+            "name": "@tecra/electron-common",
             "path": "packages/electron-common"
         },
         {
-            "name": "@tecra-pkg/hooks",
-            "path": "packages/hooks"
+            "name": "@tecra/electron-main",
+            "path": "packages/electron-main"
         },
         {
-            "name": "@tecra-pkg/utils",
-            "path": "packages/utils"
+            "name": "@tecra/electron-renderer",
+            "path": "packages/electron-renderer"
         },
         {
-            "name": "@tecra-pkg/utils-react",
-            "path": "packages/utils-react"
+            "name": "@tecra/eslint-config",
+            "path": "packages/eslint-config"
         },
         {
-            "name": "@tecra-pkg/utils-react-router",
-            "path": "packages/utils-react-router"
+            "name": "@tecra/scripts",
+            "path": "packages/scripts"
         },
         {
-            "name": "@tecra-pkg/utils-redux",
-            "path": "packages/utils-redux"
-        },
-        {
-            "name": "@tecra-pkg/utils-test",
-            "path": "packages/utils-test"
-        },
-        {
-            "name": "@tecra-pkg/utils-type",
-            "path": "packages/utils-type"
+            "name": "@tecra/tsconfigs",
+            "path": "packages/tsconfigs"
         }
     ]
 }
