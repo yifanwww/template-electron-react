@@ -2,42 +2,26 @@
 ## public npm scripts
 ### `build`
 
-This script will build all packages, then build `@tecra-app/electron-renderer` (where electron renderer process code is) and finally build `@tecra-app/electron-main` (where electron main process code is).
+This script builds all the code.
 
-### `build:app`
+### `build-app`
 
-This script will only build `@tecra-app/electron-renderer` and then build `@tecra-app/electron-main`.
+This script only build the app. Build order: `@tecra/electron-common` -> `@tecra/electron-renderer` -> `@tecra/electron-main`.
 
 Do not change this order, we actually use `react-scripts build` to build the electron renderer process code, and this command will clear folder `build` first.
-If `@tecra-app/electron-main` is built before `@tecra-app/electron-renderer`, when building `@tecra-app/electron-renderer` the compiled files of `@tecra-app/electron-main` will be deleted.
+If `@tecra/electron-main` is built before `@tecra/electron-renderer`, when building `@tecra/electron-renderer` the compiled files of `@tecra/electron-main` will be deleted.
 
-### `build:main`
+### `build-app:renderer`
 
-Build `@tecra-app/electron-main` in `production` mode. These code will be compiled into a file `electron.js` in `build`.
-
-### `build:renderer`
-
-Build `@tecra-app/electron-renderer`.
+Build `@tecra/electron-renderer`.
 
 `react-scripts build` controls how these code will be compiled. It correctly bundles React in `production` mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. See the section about [deployment] for more information.
 
 But this script actually use `react-app-rewired build`, for which can modify some `react-scripts build` configurations through.
 
-### `build:renderer-profile`
+### `build-app:renderer-profile`
 
-Build `@tecra-app/electron-renderer` and enable profiling for better debugging production build.
-
-For more information see [profiling production build].
-
-### `build-packages`
-
-Build all packages (except those packages which no need to be compiled, and electron related packages `@tecra-app/electron-main` and `@tecra-app/electron-renderer`).
-
-### `build-profile`
-
-This script will only build `@tecra-app/electron-renderer` and then build `@tecra-app/electron-main`.
-
-When building `@tecra-app/electron-renderer`, profiling will be enabled for better debugging production build.
+Build `@tecra/electron-renderer` and enable profiling for better debugging production build.
 
 For more information see [profiling production build].
 
@@ -53,19 +37,19 @@ Clean all compiled files, test result files, some cache files and some building 
 
 ### `dev`
 
-This script will build all packages, then build `@tecra-app/electron-main` and `@tecra-app/electron-renderer` in development concurrently.
+This script will build all packages, then build `@tecra/electron-main` and `@tecra/electron-renderer` in development concurrently.
 
 You can use this script to debug this application.
 
 ### `dev:main`
 
-Build `@tecra-app/electron-main` in development mode and enable electron hot reload. These code will be compiled into a file `electron.js` in `build`.
+Build `@tecra/electron-main` in development mode and enable electron hot reload.
 
-After compilation, `webpack-electron-reload` plugin (implemented in [webpack-electron-reload.js]) will start an electron process to execute this application, which will load the ui from the url [http://localhost:4321].
+After compilation, `ReloadElectronWebpackPlugin` will start an electron process to execute this application, which will load the ui from the url [http://localhost:4321].
 
 ### `dev:renderer`
 
-Build `@tecra-app/electron-renderer` in development mode and enable css, javascript hot reload.
+Build `@tecra/electron-renderer` in development mode and enable css, javascript hot reload.
 
 `react-scripts start` controls how these code will be compiled. But this script actually use `react-app-rewired start`, for which can modify some `react-scripts start` configurations through.
 
@@ -85,11 +69,7 @@ You should run script [`build`] before running script `gen-installer`.
 
 ### `lint`
 
-Use ESLint to lint all Typescript code and use `StyleLint` to lint all css / scss code.
-
-### `post-install`
-
-Check in git hook scripts.
+Use `ESLint` to lint all Typescript code and use `StyleLint` to lint all css / scss code.
 
 ### `pre-commit`
 
@@ -101,13 +81,9 @@ Execute this electron application in `production` mode.
 
 **NOTE**: You should run script `npm run build` before running script `npm run run-build`.
 
-### `test`
+### `run-unpacked`
 
-You cannot run this script in project root but in some packages.
-
-This script will launch the test runner in the interactive watch mode.
-
-See the section about [running tests] for more information.
+After `gen-installer`, can use this script to run the executable binary.
 
 ### `test-full`
 
@@ -120,7 +96,5 @@ Do full coverage test in all packages.
 
 [deployment]: https://facebook.github.io/create-react-app/docs/deployment
 [profiling production build]: https://create-react-app.dev/docs/production-build/#profiling
-[running tests]: https://facebook.github.io/create-react-app/docs/running-tests
 
 [http://localhost:4321]: http://localhost:4321
-[webpack-electron-reload.js]: ../configs/webpack-electron-reload.js

@@ -1,6 +1,6 @@
 {
     "name": "@tecra/electron-renderer",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "Electron renderer process code.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",

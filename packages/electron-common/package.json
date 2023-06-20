@@ -1,6 +1,6 @@
 {
     "name": "@tecra/electron-common",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "Common code for electron main process and electron renderer process.",
     "main": "lib/index.js",
     "module": "lib/index.js",

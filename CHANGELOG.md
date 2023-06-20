@@ -1,4 +1,82 @@
 # CHANGELOG
+## tecra v0.10.0 (2023-06-20)
+### Features
+
+- Support saving/remember window states
+
+### Bug Fixes
+
+- [`Typescript`] fix typescript-plugin-css-modules load paths to resolve imports based on baseUrl
+
+### Breaking Changes
+
+I previously put collected utilities into this project. In this version, I removed them because I already had another project for them.
+
+- Remove all unused/useless/unnecessary util functions.
+- Refactor packages structure. Now we only have 6 packages:
+  - `@tecra/electron-common`
+  - `@tecra/electron-main`
+  - `@tecra/electron-renderer`
+  - `@tecra/eslint-config`
+  - `@tecra/scripts`
+  - `@tecra/tsconfigs`
+- [`Electron`] For security reasons, enable `contextIsolation` and disable `nodeIntegration`, use preload scripts
+
+### Notable Changes
+
+- [`Lint`] Enable ESLint rule `no-param-reassign`
+- [`Lint`] Disable ESLint rule `no-await-in-loop`
+- [`Lint`] Disable StyleLint rule `max-nesting-depth`
+- [`Hooks`] Delete useless hook `useConstFn`
+- [`Types`] Split global-types entries into
+  - `@tecra-config/global-types/types/index.node`
+  - `@tecra-config/global-types/types/index.react`
+
+### Dependency Changes
+
+- New
+  - `electron-store`                            v8.1.0
+- Upgrade
+  - `@babel/core`                               v7.19.6   -> v7.22.5
+  - `@babel/plugin-syntax-flow`                 v7.18.6   -> v7.22.5
+  - `@babel/plugin-transform-react-jsx`         v7.19.0   -> v7.22.5
+  - `@reduxjs/toolkit`                          v1.8.6    -> v1.9.5
+  - `@testing-library/dom`                      v8.19.0   -> v8.20.0
+  - `@types/jest`                               v29.2.3   -> v29.5.2
+  - `@types/lodash`                             v4.14.189 -> v4.14.195
+  - `@types/node`                               v16.11.68 -> v18.16.18
+  - `@types/react`                              v17.0.50  -> v17.0.62
+  - `@types/react-dom`                          v17.0.17  -> v17.0.20
+  - `@types/testing-library__jest-dom`          v5.14.5   -> v5.14.6
+  - `browserslist`                              v4.21.4   -> v4.21.9
+  - `concurrently`                              v7.4.0    -> v7.6.0
+  - `electron`                                  v19.0.11  -> v24.5.0
+  - `electron-builder`                          v23.6.0   -> v24.4.0
+  - `eslint`                                    v8.24.0   -> v8.42.0
+  - `eslint-config-prettier`                    v8.5.0    -> v8.8.0
+  - `eslint-plugin-import`                      v2.26.0   -> v2.27.5
+  - `eslint-plugin-jest`                        v27.1.3   -> v27.2.1
+  - `eslint-plugin-jsx-a11y`                    v6.6.1    -> v6.7.1
+  - `eslint-plugin-react`                       v7.31.10  -> v7.32.2
+  - `fork-ts-checker-webpack-plugin`            v6.5.2    -> v6.5.3
+  - `huksy`                                     v8.0.1    -> v8.0.3
+  - `immer`                                     v9.0.15   -> v9.0.21
+  - `lint-staged`                               v13.0.3   -> v13.2.2
+  - `postcss`                                   v8.4.18   -> v8.4.24
+  - `prettier`                                  v2.7.1    -> v2.8.8
+  - `react-redux`                               v8.0.4    -> v8.1.0
+  - `react-router`                              v6.4.2    -> v6.13.0
+  - `react-router-dom`                          v6.4.2    -> v6.13.0
+  - `sass`                                      v1.55.0   -> v1.63.4
+  - `stylelint`                                 v14.14.0  -> v14.16.1
+  - `stylelint-cofnig-recess-order`             v3.0.0    -> v3.1.0
+  - `terser-webpack-plugin`                     v5.3.6    -> v5.3.9
+  - `type-fest`                                 v3.2.0    -> v3.12.0
+  - `typescript`                                v4.8.4    -> v5.1.3
+  - `typescript-plugin-css-modules`             v3.4.0    -> v5.0.1
+  - `web-vitals`                                v3.0.4    -> v3.3.2
+  - `webpack`                                   v5.74.0   -> v5.87.0
+
 ## tecra v0.9.0 (2023-06-11)
 ### Notable Changes
 
