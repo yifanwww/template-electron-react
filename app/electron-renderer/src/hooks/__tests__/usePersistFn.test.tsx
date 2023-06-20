@@ -1,8 +1,9 @@
-import { validateHookValueNotChanged } from '@tecra-pkg/utils-test';
 import type { Optional } from '@tecra-pkg/utils-type';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
+
+import { validateHookValueNotChanged } from 'src/__tests__/hook';
 
 import { usePersistFn } from '../usePersistFn';
 

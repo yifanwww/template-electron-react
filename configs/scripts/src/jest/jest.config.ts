@@ -8,7 +8,7 @@ function getConfig(): Config.InitialOptions {
     const packageJson = process.env.npm_package_json;
     const packageDir = packageJson ? path.dirname(packageJson) : process.cwd();
 
-    const packageOwnTestSetup = path.resolve(packageDir, 'src/setup.test.ts');
+    const packageOwnTestSetup = path.resolve(packageDir, 'src/test.setup.ts');
     const hasPackageOwnTestSetup = fs.existsSync(packageOwnTestSetup);
 
     return {
@@ -17,7 +17,7 @@ function getConfig(): Config.InitialOptions {
         cacheDirectory: paths.jestCache,
 
         setupFiles: [require.resolve('react-app-polyfill/jsdom')],
-        setupFilesAfterEnv: hasPackageOwnTestSetup ? [paths.testSetup, packageOwnTestSetup] : [paths.testSetup],
+        setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
             'src/**/*.{ts,tsx}',
