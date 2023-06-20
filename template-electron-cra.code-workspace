@@ -146,10 +146,6 @@
             "path": "packages/utils"
         },
         {
-            "name": "@tecra-pkg/utils-react",
-            "path": "packages/utils-react"
-        },
-        {
             "name": "@tecra-pkg/utils-react-router",
             "path": "packages/utils-react-router"
         },

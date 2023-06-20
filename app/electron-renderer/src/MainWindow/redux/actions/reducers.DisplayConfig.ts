@@ -1,4 +1,4 @@
-import type { ClientAreaSize } from '@tecra-pkg/utils-react';
+import type { ClientAreaSize } from 'src/utils/react';
 
 import type { MainReducer } from '../types';
 

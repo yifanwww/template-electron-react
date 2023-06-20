@@ -1,10 +1,10 @@
-import type { ClientAreaSize } from '@tecra-pkg/utils-react';
 import { Suspense } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router';
 import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
+import type { ClientAreaSize } from 'src/utils/react';
 
 import { mainActions, mainStore } from './redux';
 import { RoutePath, routes } from './routes';

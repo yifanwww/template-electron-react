@@ -1,6 +1,7 @@
 import type { AppDetails } from '@tecra-pkg/electron-common';
-import type { ClientAreaSize } from '@tecra-pkg/utils-react';
 import type { ReduxReducer } from '@tecra-pkg/utils-redux';
+
+import type { ClientAreaSize } from 'src/utils/react';
 
 interface DisplayConfig {
     clientAreaSize: ClientAreaSize | null;
