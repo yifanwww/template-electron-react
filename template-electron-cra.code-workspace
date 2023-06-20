@@ -127,10 +127,6 @@
             "path": "configs/scripts"
         },
         {
-            "name": "@tecra-config/stylelint-config",
-            "path": "configs/stylelint-config"
-        },
-        {
             "name": "@tecra-config/tsconfigs",
             "path": "configs/tsconfigs"
         },
