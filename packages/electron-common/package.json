@@ -30,7 +30,6 @@
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
-        "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/jest": "^29.5.2",

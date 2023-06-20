@@ -1,7 +1,0 @@
-{
-    "extends": "@tecra-config/tsconfigs/tsconfig.eslint.react.json",
-    "compilerOptions": {
-        "incremental": false
-    },
-    "include": ["types/**/*"]
-}

@@ -119,10 +119,6 @@
             "path": "configs/eslint-config"
         },
         {
-            "name": "@tecra-config/global-types",
-            "path": "configs/global-types"
-        },
-        {
             "name": "@tecra-config/scripts",
             "path": "configs/scripts"
         },

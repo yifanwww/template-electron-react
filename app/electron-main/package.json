@@ -32,7 +32,6 @@
     },
     "devDependencies": {
         "@tecra-config/eslint-config": "workspace:*",
-        "@tecra-config/global-types": "workspace:*",
         "@tecra-config/scripts": "workspace:*",
         "@tecra-config/tsconfigs": "workspace:*",
         "@types/electron-devtools-installer": "^2.2.2",
