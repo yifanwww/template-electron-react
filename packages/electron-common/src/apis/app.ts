@@ -1,6 +1,8 @@
-import type { WindowType } from '../types';
-
 import type { IpcRendererInvokerAPI } from './types';
+
+export enum WindowType {
+    MAIN = 'main',
+}
 
 export interface AppDetails {
     name: string;

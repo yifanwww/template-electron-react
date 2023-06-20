@@ -1,5 +1,4 @@
 import { WindowType } from '@tecra-pkg/electron-common';
-import type { Optional } from '@tecra-pkg/utils-type';
 import { StrictMode, useEffect, useState } from 'react';
 import { render } from 'react-dom';
 
@@ -10,7 +9,7 @@ import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
 const Window: React.FC = () => {
-    const [type, setType] = useState<Optional<WindowType>>(null);
+    const [type, setType] = useState<WindowType | null>(null);
 
     useEffect(() => {
         void appAPI.getWindowType().then(setType);

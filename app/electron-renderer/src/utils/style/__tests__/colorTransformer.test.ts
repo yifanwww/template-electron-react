@@ -1,6 +1,9 @@
-import type { ClassStaticMethods } from '@tecra-pkg/utils-type';
-
 import { ColorTransformer } from '../colorTransformer';
+
+/**
+ * Obtain the static methods of a class.
+ */
+type ClassStaticMethods<T extends abstract new (...args: unknown[]) => unknown> = Exclude<keyof T, 'prototype'>;
 
 function testColorTransformer() {
     const $class = ColorTransformer;

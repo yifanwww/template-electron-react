@@ -1,4 +1,4 @@
-import type { UnknownFn } from '@tecra-pkg/utils-type';
+import type { UnknownFn } from '@tecra-pkg/electron-common';
 import { useRef } from 'react';
 
 interface PersistFnRef<T> {

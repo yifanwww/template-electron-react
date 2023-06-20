@@ -1,4 +1,3 @@
-import type { Optional } from '@tecra-pkg/utils-type';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
@@ -11,8 +10,8 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
 
     it('should call the latest non-persist function', () => {
-        let count: Optional<number> = null;
-        let increaseCount: Optional<() => void> = null;
+        let count: number | null = null;
+        let increaseCount: (() => void) | null = null;
         expect(count).toBeNull();
         expect(increaseCount).toBeNull();
 
