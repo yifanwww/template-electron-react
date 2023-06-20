@@ -3,7 +3,7 @@ import Store from 'electron-store';
 import type { ConfigurationKey, IWindowState } from './types';
 
 interface IAppConfiguration {
-    [ConfigurationKey.MAIN_WINDOW_STATE]: IWindowState;
+    [ConfigurationKey.MAIN_WINDOW_STATE]?: IWindowState;
 }
 
 export const store = new Store<IAppConfiguration>({

@@ -8,7 +8,9 @@ import { ConfigurationKey } from './types';
 
 const EVENT_HANDLING_DELAY = 100;
 
-const keyMap: Record<WindowType, ConfigurationKey> = {
+type WindowStateKeys = ConfigurationKey.MAIN_WINDOW_STATE;
+
+const keyMap: Record<WindowType, WindowStateKeys> = {
     [WindowType.MAIN]: ConfigurationKey.MAIN_WINDOW_STATE,
 };
 
