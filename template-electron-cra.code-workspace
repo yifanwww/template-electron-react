@@ -142,10 +142,6 @@
             "path": "packages/electron-common"
         },
         {
-            "name": "@tecra-pkg/utils",
-            "path": "packages/utils"
-        },
-        {
             "name": "@tecra-pkg/utils-test",
             "path": "packages/utils-test"
         },

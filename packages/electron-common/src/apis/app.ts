@@ -1,4 +1,4 @@
-import type { WindowType } from '../type';
+import type { WindowType } from '../types';
 
 import type { IpcRendererInvokerAPI } from './types';
 
