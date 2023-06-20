@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { omitUnderscorePrefixActions } from '@tecra-pkg/utils-redux';
+
+import { omitUnderscorePrefixActions } from 'src/utils/redux';
 
 import type { StoreState } from '../types';
 

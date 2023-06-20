@@ -1,4 +1,4 @@
-import { thunkCreatorFactory } from '@tecra-pkg/utils-redux';
+import { thunkCreatorFactory } from 'src/utils/redux';
 
 import type { StoreState } from '../types';
 

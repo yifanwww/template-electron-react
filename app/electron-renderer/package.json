@@ -32,7 +32,6 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
         "@tecra-pkg/electron-common": "workspace:*",
-        "@tecra-pkg/utils-redux": "workspace:*",
         "@tecra-pkg/utils-type": "workspace:*",
         "clsx": "^1.2.1",
         "immer": "^9.0.21",

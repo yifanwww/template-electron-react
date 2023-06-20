@@ -146,10 +146,6 @@
             "path": "packages/utils"
         },
         {
-            "name": "@tecra-pkg/utils-redux",
-            "path": "packages/utils-redux"
-        },
-        {
             "name": "@tecra-pkg/utils-test",
             "path": "packages/utils-test"
         },
