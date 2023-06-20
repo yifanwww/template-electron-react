@@ -1,4 +1,4 @@
-export * from './use';
+export * from './use.app';
+export * from './use.displayConfig';
 export * from './useDispatching';
-export * from './useDisplayConfig';
 export * from './useMainSelector';

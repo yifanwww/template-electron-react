@@ -1,6 +1,6 @@
 import type { WindowType } from '../type';
 
-import type { IpcMainHandler, IpcRendererInvoker } from './types';
+import type { IpcRendererInvokerAPI } from './types';
 
 export interface AppDetails {
     name: string;
@@ -18,34 +18,33 @@ export interface AppDetails {
 }
 
 export enum AppAPIChannel {
-    CREATE_WINDOW = 'CreateWindow',
-    GET_APP_DETAILS = 'GetAppDetails',
-    GET_WINDOW_TYPE = 'GetWindowType',
+    CREATE_WINDOW = 'App_CreateWindow',
+    GET_APP_DETAILS = 'App_GetAppDetails',
+    GET_WINDOW_TYPE = 'App_GetWindowType',
 }
 
-interface CreateWindowAPI {
-    main: IpcMainHandler<void, [windowType: WindowType]>;
-    renderer: IpcRendererInvoker<Promise<void>, [windowType: WindowType]>;
-}
+type CreateWindowAPI = IpcRendererInvokerAPI<void, [windowType: WindowType]>;
+type GetWindowType = IpcRendererInvokerAPI<WindowType, []>;
 
-interface GetAppDetails {
-    main: IpcMainHandler<AppDetails, []>;
-    renderer: IpcRendererInvoker<Promise<AppDetails>, []>;
-}
-
-interface GetWindowType {
-    main: IpcMainHandler<WindowType, []>;
-    renderer: IpcRendererInvoker<Promise<WindowType>, []>;
-}
+type GetAppDetails = IpcRendererInvokerAPI<AppDetails, []>;
 
 export interface AppMainAPI {
     handleCreateWindow: CreateWindowAPI['main'];
-    handleGetAppDetails: GetAppDetails['main'];
     handleGetWindowType: GetWindowType['main'];
+    handleGetAppDetails: GetAppDetails['main'];
 }
 
 export interface AppRendererAPI {
+    /**
+     * Create a new window.
+     */
     createWindow: CreateWindowAPI['renderer'];
-    getAppDetails: GetAppDetails['renderer'];
+    /**
+     * Get the type of current window.
+     */
     getWindowType: GetWindowType['renderer'];
+    /**
+     * Get app details, including app name and app version.
+     */
+    getAppDetails: GetAppDetails['renderer'];
 }

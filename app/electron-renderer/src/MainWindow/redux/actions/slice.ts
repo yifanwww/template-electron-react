@@ -3,7 +3,7 @@ import { omitUnderscorePrefixActions } from '@tecra-pkg/utils-redux';
 
 import type { StoreState } from '../types';
 
-import { _setAppDetails } from './reducers';
+import { _setAppDetails } from './reducers.app';
 import { updateClientAreaSize } from './reducers.DisplayConfig';
 
 export function getInitialState(): StoreState {

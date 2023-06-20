@@ -7,3 +7,8 @@ export type IpcMainListener<Args extends unknown[]> = (event: IpcMainEvent, ...a
 export type IpcRendererInvoker<Return, Args extends unknown[]> = (...args: Args) => Return;
 
 export type IpcRendererListener<Args extends unknown[]> = (event: IpcRendererEvent, ...args: Args) => void;
+
+export type IpcRendererInvokerAPI<Return, Args extends unknown[]> = {
+    main: IpcMainHandler<Return | Promise<Return>, Args>;
+    renderer: IpcRendererInvoker<Promise<Return>, Args>;
+};
