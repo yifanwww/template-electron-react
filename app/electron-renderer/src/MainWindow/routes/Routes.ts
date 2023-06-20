@@ -1,6 +1,7 @@
-import { createRoutes } from '@tecra-pkg/utils-react-router';
-import type { RouteConfig } from '@tecra-pkg/utils-react-router';
 import { lazy } from 'react';
+
+import type { RouteConfig } from 'src/utils/react-router';
+import { createRoutes } from 'src/utils/react-router';
 
 import { RoutePath } from './RoutePath';
 
