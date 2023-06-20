@@ -1,10 +1,7 @@
 {
-    "name": "@tecra/electron-common",
+    "name": "@tecra/electron-main",
     "version": "0.9.0",
-    "description": "Common code for electron main process and electron renderer process.",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "typings": "lib/index.d.ts",
+    "description": "Electron main process code.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -15,25 +12,31 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
-        "directory": "packages/electron-common"
+        "directory": "app/electron-main"
     },
     "scripts": {
-        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
-        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
-        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build:esm -- --watch",
+        "build": "electron-main build",
+        "clean": "rimraf coverage",
+        "dev": "electron-main dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@tecra/electron-common": "workspace:*",
+        "electron-devtools-installer": "^3.2.0",
+        "electron-store": "^8.1.0"
     },
     "devDependencies": {
         "@tecra/eslint-config": "workspace:*",
         "@tecra/scripts": "workspace:*",
         "@tecra/tsconfigs": "workspace:*",
+        "@types/electron-devtools-installer": "^2.2.2",
         "@types/jest": "^29.5.2",
-        "concurrently": "^7.6.0",
+        "@types/node": "^18.16.18",
         "eslint": "^8.42.0",
         "lint-staged": "^13.2.2",
         "prettier": "2.8.8",

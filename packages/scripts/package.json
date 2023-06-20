@@ -1,0 +1,61 @@
+{
+    "name": "@tecra/scripts",
+    "version": "0.9.0",
+    "description": "Scripts for tecra.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "configs/scripts"
+    },
+    "bin": {
+        "electron-main": "bin/electron-main.js",
+        "electron-renderer": "bin/electron-renderer.js",
+        "jest": "./node_modules/jest/bin/jest.js",
+        "mkdir-working": "bin/mkdir-working.js",
+        "run-build": "bin/run-build.js",
+        "run-unpacked": "bin/run-unpacked.js",
+        "unit-test": "bin/unit-test.js"
+    },
+    "scripts": {
+        "build-scripts": "tsc --project tsconfig.json",
+        "clean-scripts": "rimraf dist tsconfig.tsbuildinfo",
+        "dev": "pnpm run build-scripts --watch",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "@babel/core": "^7.22.5",
+        "babel-jest": "^29.5.0",
+        "camelcase": "^6.3.0",
+        "chalk": "^4.1.2",
+        "fork-ts-checker-webpack-plugin": "^6.5.3",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^29.5.0",
+        "jest-environment-jsdom": "^29.5.0",
+        "jest-resolve": "^29.5.0",
+        "jest-watch-typeahead": "^2.2.2",
+        "terser-webpack-plugin": "^5.3.9",
+        "webpack-cli": "^4.10.0"
+    },
+    "devDependencies": {
+        "@jest/types": "^29.5.0",
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*",
+        "@types/case-sensitive-paths-webpack-plugin": "^2.1.6",
+        "@types/node": "^18.16.18",
+        "eslint": "^8.42.0",
+        "lint-staged": "^13.2.2",
+        "prettier": "2.8.8",
+        "rimraf": "^3.0.2",
+        "typescript": "5.1.3"
+    }
+}
