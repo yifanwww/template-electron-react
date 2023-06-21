@@ -8,7 +8,7 @@ import { appAPI } from './apis';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
-const Window: React.FC = () => {
+function Window(): JSX.Element | null {
     const [type, setType] = useState<WindowType | null>(null);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const Window: React.FC = () => {
             return null;
         }
     }
-};
+}
 
 function main(): void {
     render(

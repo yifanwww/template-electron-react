@@ -1,6 +1,4 @@
-export interface ReactChildren {
-    children?: React.ReactNode;
-}
+export type ReactChildrenProps = React.PropsWithChildren<{}>;
 
 export type ReactStyleFunc<Args extends unknown[]> = (...args: Args) => React.CSSProperties;
 
