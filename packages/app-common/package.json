@@ -1,0 +1,43 @@
+{
+    "name": "@tecra/app-common",
+    "version": "0.10.0",
+    "description": "Common code for electron main process and electron renderer process.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "packages/app-common"
+    },
+    "scripts": {
+        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
+        "dev": "pnpm run build:esm -- --watch",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
+    },
+    "devDependencies": {
+        "@tecra/eslint-config": "workspace:*",
+        "@tecra/scripts": "workspace:*",
+        "@tecra/tsconfigs": "workspace:*",
+        "@types/jest": "^29.5.2",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.42.0",
+        "lint-staged": "^13.2.2",
+        "prettier": "2.8.8",
+        "rimraf": "^3.0.2",
+        "typescript": "5.1.3"
+    }
+}

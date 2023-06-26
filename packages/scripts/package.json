@@ -15,8 +15,8 @@
         "directory": "configs/scripts"
     },
     "bin": {
-        "electron-main": "bin/electron-main.js",
-        "electron-renderer": "bin/electron-renderer.js",
+        "app-main": "bin/app-main.js",
+        "app-renderer": "bin/app-renderer.js",
         "jest": "./node_modules/jest/bin/jest.js",
         "mkdir-working": "bin/mkdir-working.js",
         "run-build": "bin/run-build.js",
