@@ -20,7 +20,7 @@ function checkFlag<T>(
     flag: T extends 'main' ? CompilationFlagMain : CompilationFlagRenderer,
 ): void {
     function printHelpInfo(): void {
-        console.error(chalk.red(`electron-${type} [mode]`));
+        console.error(chalk.red(`app-${type} [mode]`));
         console.error(
             chalk.red(
                 type === 'main' ? '[mode] can be "build" or "dev"' : '[mode] can be "build", "build-profile" or "dev"',
@@ -42,7 +42,7 @@ function checkFlag<T>(
     }
 }
 
-export function electronMain(): void {
+export function appMain(): void {
     const flag = process.argv[2] as CompilationFlagMain;
 
     checkFlag('main', flag);
@@ -59,7 +59,7 @@ export function electronMain(): void {
     child.execSync(command, { env, stdio: 'inherit' });
 }
 
-export function electronRenderer(): void {
+export function appRenderer(): void {
     const flag = process.argv[2] as CompilationFlagRenderer;
 
     checkFlag('renderer', flag);

@@ -101,16 +101,16 @@
             "path": "."
         },
         {
-            "name": "@tecra/electron-common",
-            "path": "packages/electron-common"
+            "name": "@tecra/app-common",
+            "path": "packages/app-common"
         },
         {
-            "name": "@tecra/electron-main",
-            "path": "packages/electron-main"
+            "name": "@tecra/app-main",
+            "path": "packages/app-main"
         },
         {
-            "name": "@tecra/electron-renderer",
-            "path": "packages/electron-renderer"
+            "name": "@tecra/app-renderer",
+            "path": "packages/app-renderer"
         },
         {
             "name": "@tecra/eslint-config",

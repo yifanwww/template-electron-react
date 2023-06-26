@@ -6,18 +6,18 @@ Scripts for tecra.
 
 This package contains several binary which can be called via `npx` (or `yarn`) directly:
 
-- `electron-main`
-  - `electron-main build`
-    Build package `@tecra/electron-main`.
-  - `electron-main dev`
-    Dev package `@tecra/electron-main`.
-- `electron-renderer`
-  - `electron-renderer build`
-    Build package `@tecra/electron-renderer`.
-  - `electron-renderer build-profile`
-    Build package `@tecra/electron-renderer` with profiling enabled. See [React Profiling].
-  - `electron-renderer dev`
-    Dev package `@tecra/electron-renderer`.
+- `app-main`
+  - `app-main build`
+    Build package `@tecra/app-main`.
+  - `app-main dev`
+    Dev package `@tecra/app-main`.
+- `app-renderer`
+  - `app-renderer build`
+    Build package `@tecra/app-renderer`.
+  - `app-renderer build-profile`
+    Build package `@tecra/app-renderer` with profiling enabled. See [React Profiling].
+  - `app-renderer dev`
+    Dev package `@tecra/app-renderer`.
 - `mkdir-working`
   Make working directory.
 - `post-install`
