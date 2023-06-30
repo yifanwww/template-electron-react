@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.node.esm.json",
+    "extends": "./tsconfig.bundler.json",
     "compilerOptions": {
         "noEmit": true
     }

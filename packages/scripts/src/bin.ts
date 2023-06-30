@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import assert from 'node:assert';
 import child from 'node:child_process';
 import fs from 'node:fs';
 
@@ -15,37 +16,10 @@ const compilationMode = {
     dev: 'development',
 };
 
-function checkFlag<T>(
-    type: 'main' | 'renderer',
-    flag: T extends 'main' ? CompilationFlagMain : CompilationFlagRenderer,
-): void {
-    function printHelpInfo(): void {
-        console.error(chalk.red(`app-${type} [mode]`));
-        console.error(
-            chalk.red(
-                type === 'main' ? '[mode] can be "build" or "dev"' : '[mode] can be "build", "build-profile" or "dev"',
-            ),
-        );
-    }
-
-    if (flag === undefined) {
-        printHelpInfo();
-        process.exit(1);
-    } else if (
-        flag !== 'build' &&
-        flag !== 'dev' &&
-        (type !== 'renderer' || (type === 'renderer' && flag !== 'build-profile'))
-    ) {
-        console.error(chalk.red(`Unknown argument "mode": ${flag}\n`));
-        printHelpInfo();
-        process.exit(1);
-    }
-}
-
 export function appMain(): void {
     const flag = process.argv[2] as CompilationFlagMain;
 
-    checkFlag('main', flag);
+    assert(flag === 'build' || flag === 'dev');
 
     const command = genCommand('webpack', '--config', paths.webpackMainConfig, '--mode', compilationMode[flag]);
 
@@ -62,7 +36,7 @@ export function appMain(): void {
 export function appRenderer(): void {
     const flag = process.argv[2] as CompilationFlagRenderer;
 
-    checkFlag('renderer', flag);
+    assert(flag === 'build' || flag === 'dev' || flag === 'build-profile');
 
     const command = genCommand(
         'react-app-rewired',

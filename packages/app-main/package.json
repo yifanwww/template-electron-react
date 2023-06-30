@@ -28,7 +28,8 @@
     "dependencies": {
         "@tecra/app-common": "workspace:*",
         "electron-devtools-installer": "^3.2.0",
-        "electron-store": "^8.1.0"
+        "electron-store": "^8.1.0",
+        "yargs-parser": "^21.1.1"
     },
     "devDependencies": {
         "@tecra/eslint-config": "workspace:*",
@@ -37,6 +38,7 @@
         "@types/electron-devtools-installer": "^2.2.2",
         "@types/jest": "^29.5.2",
         "@types/node": "^18.16.18",
+        "@types/yargs-parser": "^21.0.0",
         "eslint": "^8.42.0",
         "lint-staged": "^13.2.2",
         "prettier": "2.8.8",

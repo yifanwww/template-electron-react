@@ -109,6 +109,9 @@ importers:
       electron-store:
         specifier: ^8.1.0
         version: 8.1.0
+      yargs-parser:
+        specifier: ^21.1.1
+        version: 21.1.1
     devDependencies:
       '@tecra/eslint-config':
         specifier: workspace:*
@@ -128,6 +131,9 @@ importers:
       '@types/node':
         specifier: ^18.16.18
         version: 18.16.18
+      '@types/yargs-parser':
+        specifier: ^21.0.0
+        version: 21.0.0
       eslint:
         specifier: ^8.42.0
         version: 8.42.0
