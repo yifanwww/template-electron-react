@@ -4,7 +4,6 @@ import path from 'node:path';
 
 import { appPaths } from 'src/main/appPaths';
 
-import { appAPIHandlers } from '../apis/app';
 import { WindowStateKeeper } from '../configuration';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
@@ -23,14 +22,15 @@ export abstract class AbstractWindow {
         const windowStateKeeper = new WindowStateKeeper(option.windowType);
 
         this._window = new BrowserWindow({
-            webPreferences: {
-                preload: path.resolve(appPaths.src, 'preload.js'),
-            },
-
             x: windowStateKeeper.x,
             y: windowStateKeeper.y,
             width: windowStateKeeper.width,
             height: windowStateKeeper.height,
+
+            webPreferences: {
+                additionalArguments: [`--window-type=${this._windowType}`],
+                preload: path.resolve(appPaths.src, 'preload.js'),
+            },
         });
         if (windowStateKeeper.maximized) this._window.maximize();
         if (windowStateKeeper.fullScreen) this._window.setFullScreen(true);
@@ -72,10 +72,10 @@ export abstract class AbstractWindow {
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
     protected _addAPIHandlers(): void {
-        appAPIHandlers.getWindowType.register(this._windowId, () => this._windowType);
+        //
     }
 
     private _removeAPIHandlers = () => {
-        appAPIHandlers.getWindowType.remove(this._windowId);
+        //
     };
 }

@@ -1,5 +1,5 @@
 import { WindowType } from '@tecra/app-common';
-import { StrictMode, useEffect, useState } from 'react';
+import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import './index.css';
@@ -9,25 +9,12 @@ import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 
 function Window(): JSX.Element | null {
-    const [type, setType] = useState<WindowType | null>(null);
+    const type = appAPI.windowType;
 
-    useEffect(() => {
-        void appAPI.getWindowType().then(setType);
-    }, []);
-
+    // eslint-disable-next-line default-case
     switch (type) {
         case WindowType.MAIN:
             return <MainWindow />;
-        case null:
-            return <div />;
-
-        /* istanbul ignore next */
-        default: {
-            const never: never = type;
-            // eslint-disable-next-line no-console
-            console.error(`Wrong window type '${String(never)}' to create the specified window user interface.`);
-            return null;
-        }
     }
 }
 

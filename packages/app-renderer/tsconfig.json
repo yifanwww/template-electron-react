@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/tsconfigs/tsconfig.react.json",
+    "extends": "@tecra/tsconfigs/tsconfig.bundler.react.json",
     "compilerOptions": {
         "baseUrl": ".",
         "incremental": false,

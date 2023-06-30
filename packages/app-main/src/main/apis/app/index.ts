@@ -3,8 +3,6 @@ import { ipcMain } from 'electron';
 
 import { windowManager } from 'src/main/window';
 
-import { HandlerRegister } from '../utils';
-
 import { getAppDetails } from './getAppDetails';
 
 function registerCreateWindowHandler() {
@@ -21,7 +19,3 @@ export function registerAppGlobalHandlers() {
     registerCreateWindowHandler();
     registerGetAppDetailsHandler();
 }
-
-export const appAPIHandlers = {
-    getWindowType: new HandlerRegister<AppMainAPI['handleGetWindowType']>(AppAPIChannel.GET_WINDOW_TYPE),
-};
