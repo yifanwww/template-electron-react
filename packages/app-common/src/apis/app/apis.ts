@@ -1,23 +1,6 @@
-import type { IpcRendererInvokerAPI } from './types';
+import type { IpcRendererInvokerAPI } from '../types';
 
-export enum WindowType {
-    MAIN = 'main',
-}
-
-export interface AppDetails {
-    name: string;
-    version: string;
-    release?: {
-        commit: string;
-        date: string;
-    };
-    module: {
-        chrome: string;
-        electron: string;
-        node: string;
-        v8: string;
-    };
-}
+import type { AppDetails, WindowType } from './types';
 
 export enum AppAPIChannel {
     CREATE_WINDOW = 'App_CreateWindow',
