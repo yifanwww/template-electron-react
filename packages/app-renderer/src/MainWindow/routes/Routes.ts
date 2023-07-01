@@ -8,7 +8,7 @@ import { RoutePath } from './RoutePath';
 export const routes: RouteConfig[] = createRoutes([
     {
         path: RoutePath.HOME,
-        component: lazy(() => import(/* webpackChunkName: 'mainwindow-home' */ 'src/MainWindow/containers/HomePage')),
+        component: lazy(() => import(/* webpackChunkName: 'mainwindow-home' */ 'src/MainWindow/pages/HomePage')),
         exact: true,
     },
 ]);
