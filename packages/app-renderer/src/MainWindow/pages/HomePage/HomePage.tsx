@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
-import { Introduction } from 'src/MainWindow/components/Introduction';
 import { useAppDetails, useMainDispatchingThunks } from 'src/MainWindow/redux';
+
+import { Introduction } from './components/Introduction';
 
 export function HomePage(): JSX.Element {
     const appDetails = useAppDetails();
