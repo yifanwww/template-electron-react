@@ -16,7 +16,7 @@
     },
     "scripts": {
         "build": "app-main build",
-        "clean": "rimraf coverage",
+        "clean": "rimraf coverage node_modules/.cache",
         "dev": "app-main dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",

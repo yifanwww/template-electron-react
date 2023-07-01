@@ -20,7 +20,7 @@
     "scripts": {
         "build": "app-renderer build",
         "build-profile": "app-renderer build-profile",
-        "clean": "rimraf coverage",
+        "clean": "rimraf coverage node_modules/.cache",
         "dev": "app-renderer dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
