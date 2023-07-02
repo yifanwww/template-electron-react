@@ -1,11 +1,11 @@
-import type { IpcMainHandler } from '@tecra/app-common';
+import type { AnyFn, IpcMainHandler } from '@tecra/app-common';
 import { ipcMain } from 'electron';
 
 interface Handlers<Handler> {
     [windowId: string]: Handler;
 }
 
-export class HandlerRegister<Handler extends IpcMainHandler<unknown, unknown[]>> {
+export class HandlerRegister<Handler extends IpcMainHandler<AnyFn>> {
     private readonly _channel: string;
     private _handlers: Handlers<Handler>;
 
