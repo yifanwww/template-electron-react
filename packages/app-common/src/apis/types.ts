@@ -1,14 +1,35 @@
 import type { IpcMainEvent, IpcMainInvokeEvent, IpcRendererEvent } from 'electron';
 
-export type IpcMainHandler<Return, Args extends unknown[]> = (event: IpcMainInvokeEvent, ...args: Args) => Return;
+import type { UnknownFn } from '../types';
 
-export type IpcMainListener<Args extends unknown[]> = (event: IpcMainEvent, ...args: Args) => void;
+// Renderer Process Sending
 
-export type IpcRendererInvoker<Return, Args extends unknown[]> = (...args: Args) => Return;
+export type IpcMainListener<PrototypeFn extends UnknownFn> = (
+    event: IpcMainEvent,
+    ...args: Parameters<PrototypeFn>
+) => void;
 
-export type IpcRendererListener<Args extends unknown[]> = (event: IpcRendererEvent, ...args: Args) => void;
+// Renderer Process Invoking
 
-export type IpcRendererInvokerAPI<Return, Args extends unknown[]> = {
-    main: IpcMainHandler<Return | Promise<Return>, Args>;
-    renderer: IpcRendererInvoker<Promise<Return>, Args>;
+export type IpcMainHandler<PrototypeFn extends UnknownFn> = (
+    event: IpcMainInvokeEvent,
+    ...args: Parameters<PrototypeFn>
+) => Awaited<ReturnType<PrototypeFn>> | Promise<ReturnType<PrototypeFn>>;
+
+export type IpcRendererInvoker<PrototypeFn extends UnknownFn> = (
+    ...args: Parameters<PrototypeFn>
+) => Promise<ReturnType<PrototypeFn>>;
+
+// Main Process Sending
+
+export type IpcRendererListener<PrototypeFn extends UnknownFn> = (
+    event: IpcRendererEvent,
+    ...args: Parameters<PrototypeFn>
+) => void;
+
+// For Defining APIs
+
+export type IpcRendererInvokerAPI<PrototypeFn extends UnknownFn> = {
+    main: IpcMainHandler<PrototypeFn>;
+    renderer: IpcRendererInvoker<PrototypeFn>;
 };
