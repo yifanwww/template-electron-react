@@ -19,7 +19,7 @@ export interface AppRendererAPI {
     /**
      * The type of current window.
      */
-    get windowType(): WindowType;
+    windowType: WindowType;
     /**
      * Create a new window.
      */
