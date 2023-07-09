@@ -4,9 +4,9 @@ import { Navigate, Route, Routes } from 'react-router';
 import { HashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
-import type { ClientAreaSize, ReactChildrenProps } from 'src/utils/react';
+import type { ReactChildrenProps } from 'src/utils/react';
 
-import { mainActions, mainStore } from './redux';
+import { mainStore } from './redux';
 import { RoutePath, routes } from './routes';
 
 import css from './index.module.scss';
@@ -32,20 +32,16 @@ function ClientArea(): JSX.Element {
 
 function GlobalProviders(props: ReactChildrenProps) {
     return (
-        <ReduxProvider store={mainStore}>
-            <HashRouter>{props.children}</HashRouter>
-        </ReduxProvider>
+        <HashRouter>
+            <ReduxProvider store={mainStore}>{props.children}</ReduxProvider>
+        </HashRouter>
     );
-}
-
-function changeClientAreaSize(size: ClientAreaSize) {
-    mainStore.dispatch(mainActions.updateClientAreaSize(size));
 }
 
 export function MainWindow(): JSX.Element {
     return (
         <FramelessWindow>
-            <TitleBar onClientAreaSizeChange={changeClientAreaSize}>
+            <TitleBar>
                 <GlobalProviders>
                     <ClientArea />
                 </GlobalProviders>
