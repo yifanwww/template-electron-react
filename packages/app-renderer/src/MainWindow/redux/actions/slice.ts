@@ -5,14 +5,10 @@ import { omitUnderscorePrefixActions } from 'src/utils/redux';
 import type { StoreState } from '../types';
 
 import { _setAppDetails } from './reducers.app';
-import { updateClientAreaSize } from './reducers.DisplayConfig';
 
 export function getInitialState(): StoreState {
     return {
         appDetails: null,
-        displayConfig: {
-            clientAreaSize: null,
-        },
     };
 }
 
@@ -21,7 +17,6 @@ const slice = createSlice({
     initialState: getInitialState(),
     reducers: {
         _setAppDetails,
-        updateClientAreaSize,
     },
 });
 
