@@ -82,7 +82,9 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
 
     webpack.target = 'web';
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     webpack.module.rules[1].oneOf[3].options.presets.push([
         '@babel/preset-typescript',
         {

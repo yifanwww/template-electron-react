@@ -116,7 +116,7 @@ export class WindowStateKeeper {
         };
     }
 
-    private _updateState() {
+    private _updateState = () => {
         const window = this._windowRef;
         if (!window) return;
 
@@ -133,7 +133,7 @@ export class WindowStateKeeper {
         } catch {
             // Don't throw an error when window was closed
         }
-    }
+    };
 
     private _saveState() {
         store.set(keyMap[this._type], this._state);

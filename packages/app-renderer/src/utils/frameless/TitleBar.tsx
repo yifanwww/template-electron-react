@@ -12,8 +12,10 @@ export function TitleBar({ children, onClientAreaSizeChange }: React.PropsWithCh
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const changeClientAreaSize = () =>
+        const changeClientAreaSize = () => {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth });
+        };
 
         changeClientAreaSize();
 

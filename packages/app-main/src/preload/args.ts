@@ -1,4 +1,5 @@
 import type { WindowType } from '@tecra/app-common';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore `@types/yargs-parser` doesn't support this import path.
 import _yargs from 'yargs-parser/browser';
 

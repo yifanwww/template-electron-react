@@ -1,4 +1,4 @@
-export type ReactChildrenProps = React.PropsWithChildren<{}>;
+export type ReactChildrenProps = React.PropsWithChildren<NonNullable<unknown>>;
 
 export type ReactStyleFunc<Args extends unknown[]> = (...args: Args) => React.CSSProperties;
 

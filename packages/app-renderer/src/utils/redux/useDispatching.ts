@@ -1,3 +1,4 @@
+import type { AnyFn, UnknownFn } from '@tecra/app-common';
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 
@@ -22,7 +23,7 @@ export function useDispatchingActions<TActions extends ReduxActions>(actions: TA
     const dispatch = useDispatch();
 
     return useMemo(() => {
-        const dispatchingActions: Record<string, Function> = {};
+        const dispatchingActions: Record<string, AnyFn> = {};
 
         for (const actionName in memoActions)
             dispatchingActions[actionName] = (payload: unknown) => dispatch(memoActions[actionName](payload));
@@ -50,7 +51,7 @@ export function useDispatchingThunks<TThunks extends ReduxThunks>(thunks: TThunk
     const dispatch = useDispatch();
 
     return useMemo(() => {
-        const dispatchingThunks: Record<string, Function> = {};
+        const dispatchingThunks: Record<string, UnknownFn> = {};
 
         for (const thunkName in memoThunks) {
             // The type of thunk doesn't satisfy `AnyAction` but it's valid because we use middleware `redux-thunk`.

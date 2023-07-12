@@ -1,3 +1,5 @@
+import type { UnknownFn } from '@tecra/app-common';
+
 import type { ReduxActions } from './types';
 
 /**
@@ -11,7 +13,7 @@ type ExcludeUnderscorePrefix<T> = T extends `_${string}` ? never : T;
 type OmitUnderscorePrefix<T extends object> = Pick<T, ExcludeUnderscorePrefix<keyof T>>;
 
 export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {
-    const actions: Record<string, Function> = {};
+    const actions: Record<string, UnknownFn> = {};
 
     for (const key in internalActions) {
         if (!key.startsWith('_')) actions[key] = internalActions[key];
