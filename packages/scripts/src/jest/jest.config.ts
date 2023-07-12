@@ -24,7 +24,7 @@ function getConfig(): Config.InitialOptions {
             '!src/**/__tests__/**/*.{ts,tsx}',
             '!src/**/*.{spec.test}.{ts,tsx}',
             '!src/**/*.d.ts',
-            '!src/setup.test.ts',
+            '!src/test.setup.ts',
         ],
         testMatch: ['<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
         testEnvironment: 'jest-environment-jsdom',

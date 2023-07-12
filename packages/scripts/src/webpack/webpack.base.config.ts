@@ -31,6 +31,6 @@ export const appRendererPaths = {
     appTypeDeclarations: resolveAppRenderer('src/global.d.ts'),
     proxySetup: resolveAppRenderer('src/setup.proxy.js'),
     swSrc: resolveAppRenderer('src/serviceWorker.js'),
-    testsSetup: resolveAppRenderer('src/setup.test.ts'),
+    testsSetup: resolveAppRenderer('src/test.setup.ts'),
     webpackCache: resolveAppRenderer('node_modules/.cache'),
 };
