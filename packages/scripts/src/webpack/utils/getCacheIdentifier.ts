@@ -3,7 +3,7 @@ export function getCacheIdentifier(environment: string, packages: string[]) {
     for (const packageName of packages) {
         cacheIdentifier += `:${packageName}@`;
         try {
-            // eslint-disable-next-line import/no-dynamic-require, global-require
+            // eslint-disable-next-line
             cacheIdentifier += require(`${packageName}/package.json`).version;
         } catch (_) {
             // ignored

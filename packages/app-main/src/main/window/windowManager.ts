@@ -9,7 +9,7 @@ interface WindowStore {
 }
 
 export class WindowManager {
-    private _count: number = 0;
+    private _count = 0;
     private _store: WindowStore = {};
 
     createWindow = (option: CreateWindowOption): void => {
@@ -34,6 +34,7 @@ export class WindowManager {
             }
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         void this._store[windowId]!.show();
     };
 

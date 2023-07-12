@@ -18,11 +18,9 @@
             "**/.hg": true,
             "**/.svn": true,
             "**/CVS": true,
-            "**/node_modules": true,
 
             // additional
-            "app": true,
-            "configs": true,
+            "**/node_modules": true,
             "packages": true
         },
 

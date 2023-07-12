@@ -19,6 +19,7 @@ export function usePersistFn<T extends UnknownFn>(fn: T): T {
     if (!ref.current) {
         ref.current = {
             fn,
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             persistFn: ((...args) => ref.current!.fn(...args)) as T,
         };
     }

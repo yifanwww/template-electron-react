@@ -1,3 +1,4 @@
+import { assert } from '@tecra/app-common';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
@@ -11,7 +12,7 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
 
     it('should call the latest non-persist function', () => {
         let count: number | null = null;
-        let increaseCount: (() => void) | null = null;
+        let increaseCount = null as (() => void) | null;
         expect(count).toBeNull();
         expect(increaseCount).toBeNull();
 
@@ -25,9 +26,11 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
         render(<TestComponent />);
         expect(count).toBe(0);
         expect(increaseCount).toBeInstanceOf(Function);
+        assert(typeof increaseCount === 'function');
 
         for (let i = 1; i <= 10; i++) {
-            act(increaseCount!);
+            const increaseCountRef = increaseCount;
+            act(() => increaseCountRef());
             expect(count).toBe(i);
         }
     });

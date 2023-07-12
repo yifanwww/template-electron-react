@@ -55,6 +55,7 @@ export class ReloadElectronWebpackPlugin {
             this._info(`Kill electron process: ${this._process.pid}`);
             try {
                 this._process.removeAllListeners();
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 process.kill(this._process.pid!);
                 this._process = null;
             } catch (err) {
