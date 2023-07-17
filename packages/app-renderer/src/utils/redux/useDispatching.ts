@@ -1,4 +1,4 @@
-import type { AnyFn, UnknownFn } from '@tecra/app-common';
+import type { AnyFn, UnknownFn } from '@ter/app-common';
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 

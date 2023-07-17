@@ -1,6 +1,6 @@
 {
-    "short_name": "tecra",
-    "name": "template-electron-cra",
+    "short_name": "ter",
+    "name": "template-electron-react",
     "icons": [
         {
             "src": "icon.ico",

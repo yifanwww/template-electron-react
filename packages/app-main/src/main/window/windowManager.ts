@@ -1,4 +1,4 @@
-import { WindowType } from '@tecra/app-common';
+import { WindowType } from '@ter/app-common';
 
 import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';

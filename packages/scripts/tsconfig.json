@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/tsconfigs/tsconfig.node.cjs.json",
+    "extends": "@ter/tsconfigs/tsconfig.node.cjs.json",
     "compilerOptions": {
         // disable `incremental` for NPM script `typecheck`
         "incremental": false,

@@ -1,5 +1,5 @@
-import { AppAPIChannel } from '@tecra/app-common';
-import type { AppRendererAPI } from '@tecra/app-common';
+import { AppAPIChannel } from '@ter/app-common';
+import type { AppRendererAPI } from '@ter/app-common';
 import { ipcRenderer } from 'electron';
 
 import { webArgs } from './args';

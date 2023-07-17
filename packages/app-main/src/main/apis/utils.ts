@@ -1,4 +1,4 @@
-import type { AnyFn, IpcMainHandler } from '@tecra/app-common';
+import type { AnyFn, IpcMainHandler } from '@ter/app-common';
 import { ipcMain } from 'electron';
 
 interface Handlers<Handler> {

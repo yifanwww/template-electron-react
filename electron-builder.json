@@ -1,8 +1,8 @@
 {
     // For more information visit https://www.electron.build/
 
-    "appId": "YSoftwareRepo.template-electron-cra",
-    "productName": "tecra",
+    "appId": "YSoftwareRepo.template-electron-react",
+    "productName": "ter",
     "extends": null,
 
     "asar": true,

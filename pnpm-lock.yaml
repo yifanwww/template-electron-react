@@ -25,7 +25,7 @@ importers:
       '@babel/plugin-transform-react-jsx':
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.5)
-      '@tecra/scripts':
+      '@ter/scripts':
         specifier: workspace:*
         version: link:packages/scripts
       browserslist:
@@ -67,13 +67,13 @@ importers:
 
   packages/app-common:
     devDependencies:
-      '@tecra/eslint-config':
+      '@ter/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@tecra/scripts':
+      '@ter/scripts':
         specifier: workspace:*
         version: link:../scripts
-      '@tecra/tsconfigs':
+      '@ter/tsconfigs':
         specifier: workspace:*
         version: link:../tsconfigs
       '@types/jest':
@@ -100,7 +100,7 @@ importers:
 
   packages/app-main:
     dependencies:
-      '@tecra/app-common':
+      '@ter/app-common':
         specifier: workspace:*
         version: link:../app-common
       electron-devtools-installer:
@@ -113,13 +113,13 @@ importers:
         specifier: ^21.1.1
         version: 21.1.1
     devDependencies:
-      '@tecra/eslint-config':
+      '@ter/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@tecra/scripts':
+      '@ter/scripts':
         specifier: workspace:*
         version: link:../scripts
-      '@tecra/tsconfigs':
+      '@ter/tsconfigs':
         specifier: workspace:*
         version: link:../tsconfigs
       '@types/electron-devtools-installer':
@@ -155,7 +155,7 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^1.9.5
         version: 1.9.5(react-redux@8.1.0)(react@17.0.2)
-      '@tecra/app-common':
+      '@ter/app-common':
         specifier: workspace:*
         version: link:../app-common
       clsx:
@@ -186,13 +186,13 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
     devDependencies:
-      '@tecra/eslint-config':
+      '@ter/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@tecra/scripts':
+      '@ter/scripts':
         specifier: workspace:*
         version: link:../scripts
-      '@tecra/tsconfigs':
+      '@ter/tsconfigs':
         specifier: workspace:*
         version: link:../tsconfigs
       '@testing-library/dom':
@@ -350,10 +350,10 @@ importers:
       '@jest/types':
         specifier: ^29.5.0
         version: 29.5.0
-      '@tecra/eslint-config':
+      '@ter/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@tecra/tsconfigs':
+      '@ter/tsconfigs':
         specifier: workspace:*
         version: link:../tsconfigs
       '@types/case-sensitive-paths-webpack-plugin':

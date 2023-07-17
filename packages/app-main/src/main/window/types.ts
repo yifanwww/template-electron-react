@@ -1,4 +1,4 @@
-import type { WindowType } from '@tecra/app-common';
+import type { WindowType } from '@ter/app-common';
 
 export interface CreateWindowOption {
     windowType: WindowType;

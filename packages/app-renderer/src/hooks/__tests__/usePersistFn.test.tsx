@@ -1,4 +1,4 @@
-import { assert } from '@tecra/app-common';
+import { assert } from '@ter/app-common';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';

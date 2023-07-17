@@ -1,6 +1,6 @@
-# @tecra/scripts
+# @ter/scripts
 
-Scripts for tecra.
+Scripts for ter.
 
 ## Binary
 
@@ -8,16 +8,16 @@ This package contains several binary which can be called via `npx` (or `yarn`) d
 
 - `app-main`
   - `app-main build`
-    Build package `@tecra/app-main`.
+    Build package `@ter/app-main`.
   - `app-main dev`
-    Dev package `@tecra/app-main`.
+    Dev package `@ter/app-main`.
 - `app-renderer`
   - `app-renderer build`
-    Build package `@tecra/app-renderer`.
+    Build package `@ter/app-renderer`.
   - `app-renderer build-profile`
-    Build package `@tecra/app-renderer` with profiling enabled. See [React Profiling].
+    Build package `@ter/app-renderer` with profiling enabled. See [React Profiling].
   - `app-renderer dev`
-    Dev package `@tecra/app-renderer`.
+    Dev package `@ter/app-renderer`.
 - `mkdir-working`
   Make working directory.
 - `post-install`

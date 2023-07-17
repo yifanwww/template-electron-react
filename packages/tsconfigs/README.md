@@ -1,16 +1,16 @@
-# @tecra/tsconfigs
+# @ter/tsconfigs
 
-Typescript configurations for tecra.
+Typescript configurations for ter.
 
 ## Usage
 
 Your typescript configurations can be extended from
-- `@tecra/tsconfigs/tsconfig.base.json`
-- `@tecra/tsconfigs/tsconfig.bundler.json`
-- `@tecra/tsconfigs/tsconfig.bundler.react.json`
-- `@tecra/tsconfigs/tsconfig.bundler.types.json`
-- `@tecra/tsconfigs/tsconfig.eslint.bundler.json`
-- `@tecra/tsconfigs/tsconfig.node.cjs.json`
+- `@ter/tsconfigs/tsconfig.base.json`
+- `@ter/tsconfigs/tsconfig.bundler.json`
+- `@ter/tsconfigs/tsconfig.bundler.react.json`
+- `@ter/tsconfigs/tsconfig.bundler.types.json`
+- `@ter/tsconfigs/tsconfig.eslint.bundler.json`
+- `@ter/tsconfigs/tsconfig.node.cjs.json`
 
 Then you need to specify the following options if need
 - `compilerOptions`
@@ -24,7 +24,7 @@ For example:
 
 ```json
 {
-    "extends": "@tecra/tsconfigs/tsconfig.react.json",
+    "extends": "@ter/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
         "baseUrl": "...",
         "rootDir": "..."

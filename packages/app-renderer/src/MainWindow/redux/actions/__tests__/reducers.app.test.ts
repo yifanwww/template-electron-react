@@ -1,4 +1,4 @@
-import type { AppDetails } from '@tecra/app-common';
+import type { AppDetails } from '@ter/app-common';
 
 import { getInitialState, _actions, _reducer } from '../slice';
 
@@ -10,7 +10,7 @@ import { getInitialState, _actions, _reducer } from '../slice';
             const prevState = getInitialState();
 
             const appDetails: AppDetails = {
-                name: 'tecra',
+                name: 'ter',
                 version: 'unknown',
                 module: {
                     chrome: 'unknown',

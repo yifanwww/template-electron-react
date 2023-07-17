@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/tsconfigs/tsconfig.eslint.bundler.json",
+    "extends": "@ter/tsconfigs/tsconfig.eslint.bundler.json",
     "compilerOptions": {
         "baseUrl": ".",
         "incremental": false,

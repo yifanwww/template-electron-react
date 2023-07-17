@@ -1,3 +1,3 @@
-# @tecra/app-renderer
+# @ter/app-renderer
 
 Electron renderer process code.
