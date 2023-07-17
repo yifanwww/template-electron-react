@@ -1,4 +1,28 @@
 # CHANGELOG
+## template-electron-react v0.11.0 (2023-07-17)
+### Breaking Changes
+
+- Rename project to `template-electron-react` (`ter`)
+
+### Notable Changes
+
+- Stop using `React.FC`, see
+  - https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/
+  - https://github.com/facebook/create-react-app/pull/8177
+- Instead of invoking electron api to get window type, pass window type via additional arguments
+- Improve api-builder types to accept function types
+- [`Lint`] Extends `@typescript-eslint/recommended` and `@typescript-eslint/recommended-requiring-type-checking` to get stricter limits
+
+### Package Changes
+
+- Rename
+  - `@tecra/electron-common`    -> `@ter/app-common`
+  - `@tecra/electron-main`      -> `@ter/app-main`
+  - `@tecra/electron-renderer`  -> `@ter/app-renderer`
+  - `@tecra/eslint-config`      -> `@ter/eslint-config`
+  - `@tecra/scripts`            -> `@ter/scripts`
+  - `@tecra/tsconfigs`          -> `@ter/tsconfigs`
+
 ## tecra v0.10.0 (2023-06-20)
 ### Features
 

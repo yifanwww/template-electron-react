@@ -1,6 +1,6 @@
 {
     "name": "@ter/tsconfigs",
-    "version": "0.10.0",
+    "version": "0.11.0",
     "description": "Typescript configurations for ter.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
