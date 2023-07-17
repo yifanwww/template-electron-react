@@ -1,6 +1,6 @@
 module.exports = {
     extends: ['stylelint-config-sass-guidelines', 'stylelint-config-recess-order'],
-    ignoreFiles: ['build/**/*', 'coverage/**/*', 'node_modules/**/*'],
+    ignoreFiles: ['coverage/**/*', 'node_modules/**/*'],
     rules: {
         // https://stylelint.io/user-guide/rules/indentation/
         indentation: 4,

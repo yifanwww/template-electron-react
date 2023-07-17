@@ -1,13 +1,8 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.node.cjs.json",
+    "extends": "@ter/tsconfigs/tsconfig.eslint.node.json",
     "compilerOptions": {
-        // disable `incremental` for NPM script `typecheck`
         "incremental": false,
-        "inlineSources": false,
-        "outDir": "dist",
-        "rootDir": "src",
-        "sourceMap": false,
-        "target": "ES2020"
+        "rootDir": "src"
     },
     "include": ["src/**/*"],
     "exclude": []

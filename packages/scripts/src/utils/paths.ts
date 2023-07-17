@@ -33,7 +33,6 @@ export const paths = {
     unpacked: path.resolve(repo, 'release/win-unpacked/ter.exe'),
 
     webpackMainConfig: path.resolve(scriptsDist, 'webpack/webpack.main.config.js'),
-    webpackRendererConfig: path.resolve(scriptsDist, 'webpack/webpack.renderer.config.js'),
 
     // working
 

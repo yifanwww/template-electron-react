@@ -1,0 +1,9 @@
+{
+    "extends": "@ter/tsconfigs/tsconfig.node.types.json",
+    "compilerOptions": {
+        "outDir": "../dist",
+        "rootDir": "../src"
+    },
+    "include": ["../src/**/*"],
+    "exclude": []
+}

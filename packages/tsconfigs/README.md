@@ -10,7 +10,9 @@ Your typescript configurations can be extended from
 - `@ter/tsconfigs/tsconfig.bundler.react.json`
 - `@ter/tsconfigs/tsconfig.bundler.types.json`
 - `@ter/tsconfigs/tsconfig.eslint.bundler.json`
+- `@ter/tsconfigs/tsconfig.eslint.node.json`
 - `@ter/tsconfigs/tsconfig.node.cjs.json`
+- `@ter/tsconfigs/tsconfig.node.types.json`
 
 Then you need to specify the following options if need
 - `compilerOptions`
