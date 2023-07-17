@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 
 /**
  * Validate that value(s) returned by a hook do not change in identity.

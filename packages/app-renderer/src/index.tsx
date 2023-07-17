@@ -1,6 +1,6 @@
-import { WindowType } from '@ter/app-common';
+import { assert, WindowType } from '@ter/app-common';
 import { StrictMode } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import './index.css';
 
@@ -19,11 +19,14 @@ function Window(): JSX.Element | null {
 }
 
 function main(): void {
-    render(
+    const appElement = document.getElementById('app');
+    assert(appElement !== null);
+
+    const root = createRoot(appElement);
+    root.render(
         <StrictMode>
             <Window />
         </StrictMode>,
-        document.getElementById('root'),
     );
 
     // If you want to start measuring performance in your app, pass a function to log results
