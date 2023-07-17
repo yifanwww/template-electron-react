@@ -7,8 +7,7 @@ import { paths } from './utils/paths';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
 
-type CompilationFlagMain = 'build' | 'dev';
-type CompilationFlagRenderer = 'build' | 'build-profile' | 'dev';
+type CompilationFlag = 'build' | 'dev';
 
 const compilationMode = {
     build: 'production',
@@ -17,7 +16,7 @@ const compilationMode = {
 };
 
 export function appMain(): void {
-    const flag = process.argv[2] as CompilationFlagMain;
+    const flag = process.argv[2] as CompilationFlag;
 
     assert(flag === 'build' || flag === 'dev');
 
@@ -31,23 +30,6 @@ export function appMain(): void {
 
     console.info(chalk.yellow(command));
     child.execSync(command, { env, stdio: 'inherit' });
-}
-
-export function appRenderer(): void {
-    const flag = process.argv[2] as CompilationFlagRenderer;
-
-    assert(flag === 'build' || flag === 'dev' || flag === 'build-profile');
-
-    const command = genCommand(
-        'react-app-rewired',
-        flag === 'dev' ? 'start' : 'build',
-        '--config-overrides',
-        paths.webpackRendererConfig,
-        flag === 'build-profile' && '--profile',
-    );
-
-    console.info(chalk.yellow(command));
-    child.execSync(command, { stdio: 'inherit' });
 }
 
 export async function mkdirWorking(): Promise<void> {

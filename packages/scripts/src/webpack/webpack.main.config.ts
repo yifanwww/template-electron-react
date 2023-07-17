@@ -1,14 +1,25 @@
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import path from 'node:path';
 import TerserPlugin from 'terser-webpack-plugin';
-import type { Configuration, WebpackPluginInstance } from 'webpack';
+import type { Configuration } from 'webpack';
 
 import { paths } from '../utils';
 
-import { ReloadElectronWebpackPlugin } from './plugins/reloadElectronWebpackPlugin';
 import { createEnvironmentHash } from './utils/createEnvironmentHash';
 import { getCacheIdentifier } from './utils/getCacheIdentifier';
-import { appMainPaths } from './webpack.base.config';
+import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin';
+
+const resolveAppMain = (relative: string) => path.resolve(paths.electronMain, relative);
+
+const appMainPaths = {
+    mainIndexTs: resolveAppMain('src/main/index.ts'),
+    preloadIndexTs: resolveAppMain('src/preload/index.ts'),
+    appPath: resolveAppMain('.'),
+    appSrc: resolveAppMain('src'),
+    appTsBuildInfoFile: resolveAppMain('node_modules/.cache/tsconfig.tsbuildinfo'),
+    appTsConfig: resolveAppMain('tsconfig.json'),
+    build: paths.build,
+    webpackCache: resolveAppMain('node_modules/.cache'),
+};
 
 interface CliConfigOptions {
     config?: string;
@@ -186,36 +197,7 @@ const factory: ConfigurationFactory = (env, argv) => {
             ],
         },
 
-        plugins: [
-            isEnvDevelopment && new ReloadElectronWebpackPlugin(paths.repository, paths.working),
-            // Watcher doesn't work well if you mistype casing in a path,
-            // so we use a plugin that prints an error when you attempt to do this.
-            isEnvDevelopment && new CaseSensitivePathsPlugin(),
-            // TypeScript type checking
-            new ForkTsCheckerWebpackPlugin({
-                async: isEnvDevelopment,
-                typescript: {
-                    typescriptPath: require.resolve('typescript'),
-                    configOverwrite: {
-                        compilerOptions: {
-                            sourceMap: isEnvProduction || isEnvDevelopment,
-                            skipLibCheck: true,
-                            inlineSourceMap: false,
-                            declarationMap: false,
-                            noEmit: true,
-                            incremental: true,
-                            tsBuildInfoFile: appMainPaths.appTsBuildInfoFile,
-                        },
-                    },
-                    context: appMainPaths.appPath,
-                    diagnosticOptions: {
-                        syntactic: true,
-                    },
-                    mode: 'write-references',
-                    // profile: true,
-                },
-            }),
-        ].filter(Boolean) as WebpackPluginInstance[],
+        plugins: isEnvDevelopment ? [new ReloadElectronWebpackPlugin(paths.repository, paths.working)] : [],
 
         watch: isEnvDevelopment,
         watchOptions: {
