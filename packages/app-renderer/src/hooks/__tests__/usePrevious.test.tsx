@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
 import type { RenderResult } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { render, renderHook } from '@testing-library/react';
 
 import { usePrevious } from '../usePrevious';
 
