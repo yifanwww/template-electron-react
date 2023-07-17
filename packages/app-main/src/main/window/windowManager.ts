@@ -1,4 +1,4 @@
-import { WindowType } from '@ter/app-common';
+import { WindowType, assertIsNever } from '@ter/app-common';
 
 import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
@@ -27,11 +27,8 @@ export class WindowManager {
                 break;
 
             /* istanbul ignore next */
-            default: {
-                const never: never = windowType;
-                // eslint-disable-next-line no-console
-                console.error(`Wrong window type '${never as string}' to create the specified browser window`);
-            }
+            default:
+                assertIsNever(windowType);
         }
 
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
