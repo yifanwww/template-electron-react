@@ -8,7 +8,7 @@ exports[`Test redux reducer \`_setAppDetails\` should update app details 1`] = `
     "node": "unknown",
     "v8": "unknown",
   },
-  "name": "tecra",
+  "name": "ter",
   "version": "unknown",
 }
 `;

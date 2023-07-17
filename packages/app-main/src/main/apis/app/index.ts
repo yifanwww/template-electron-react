@@ -1,4 +1,4 @@
-import { AppAPIChannel, type AppMainAPI } from '@tecra/app-common';
+import { AppAPIChannel, type AppMainAPI } from '@ter/app-common';
 import { ipcMain } from 'electron';
 
 import { windowManager } from 'src/main/window';

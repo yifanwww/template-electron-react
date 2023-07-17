@@ -1,5 +1,5 @@
 {
-    "extends": "@tecra/tsconfigs/tsconfig.bundler.json",
+    "extends": "@ter/tsconfigs/tsconfig.bundler.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

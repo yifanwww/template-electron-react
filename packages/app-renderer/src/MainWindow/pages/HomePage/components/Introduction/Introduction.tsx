@@ -1,4 +1,4 @@
-import type { AppDetails } from '@tecra/app-common';
+import type { AppDetails } from '@ter/app-common';
 
 import { Assets } from 'src/assets';
 
@@ -18,11 +18,11 @@ export function Introduction({ appDetails }: IntroductionProps): JSX.Element {
                 </p>
                 <a
                     className={css.link}
-                    href="https://github.com/YSoftwareRepo/template-electron-cra"
+                    href="https://github.com/YSoftwareRepo/template-electron-react"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Learn template-electron-cra
+                    Learn template-electron-react
                 </a>
             </header>
             {appDetails && (

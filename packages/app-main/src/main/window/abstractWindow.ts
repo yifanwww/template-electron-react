@@ -1,4 +1,4 @@
-import type { WindowType } from '@tecra/app-common';
+import type { WindowType } from '@ter/app-common';
 import { BrowserWindow, shell } from 'electron';
 import path from 'node:path';
 

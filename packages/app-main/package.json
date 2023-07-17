@@ -1,17 +1,17 @@
 {
-    "name": "@tecra/app-main",
+    "name": "@ter/app-main",
     "version": "0.10.0",
     "description": "Electron main process code.",
-    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+        "url": "https://github.com/YSoftwareRepo/template-electron-react/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-react.git",
         "directory": "app/app-main"
     },
     "scripts": {
@@ -26,15 +26,15 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "@tecra/app-common": "workspace:*",
+        "@ter/app-common": "workspace:*",
         "electron-devtools-installer": "^3.2.0",
         "electron-store": "^8.1.0",
         "yargs-parser": "^21.1.1"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/scripts": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*",
+        "@ter/eslint-config": "workspace:*",
+        "@ter/scripts": "workspace:*",
+        "@ter/tsconfigs": "workspace:*",
         "@types/electron-devtools-installer": "^2.2.2",
         "@types/jest": "^29.5.2",
         "@types/node": "^18.16.18",

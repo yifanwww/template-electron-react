@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Do you have Feature or improvement for template-electron-cra? Let us know.
+about: Do you have Feature or improvement for template-electron-react? Let us know.
 ---
 
 #### Describe the feature that you would like added

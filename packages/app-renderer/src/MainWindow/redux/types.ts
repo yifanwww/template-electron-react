@@ -1,4 +1,4 @@
-import type { AppDetails } from '@tecra/app-common';
+import type { AppDetails } from '@ter/app-common';
 
 import type { ReduxReducer } from 'src/utils/redux';
 

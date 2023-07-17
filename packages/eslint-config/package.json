@@ -1,17 +1,17 @@
 {
-    "name": "@tecra/eslint-config",
+    "name": "@ter/eslint-config",
     "version": "0.10.0",
-    "description": "ESLint configurations for tecra.",
-    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "description": "ESLint configurations for ter.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+        "url": "https://github.com/YSoftwareRepo/template-electron-react/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-react.git",
         "directory": "configs/eslint-config"
     },
     "scripts": {

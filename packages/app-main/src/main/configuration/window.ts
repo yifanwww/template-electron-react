@@ -1,4 +1,4 @@
-import { WindowType } from '@tecra/app-common';
+import { WindowType } from '@ter/app-common';
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
 

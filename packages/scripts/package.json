@@ -1,17 +1,17 @@
 {
-    "name": "@tecra/scripts",
+    "name": "@ter/scripts",
     "version": "0.10.0",
-    "description": "Scripts for tecra.",
-    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "description": "Scripts for ter.",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+        "url": "https://github.com/YSoftwareRepo/template-electron-react/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-react.git",
         "directory": "configs/scripts"
     },
     "bin": {
@@ -48,8 +48,8 @@
     },
     "devDependencies": {
         "@jest/types": "^29.5.0",
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*",
+        "@ter/eslint-config": "workspace:*",
+        "@ter/tsconfigs": "workspace:*",
         "@types/case-sensitive-paths-webpack-plugin": "^2.1.6",
         "@types/node": "^18.16.18",
         "eslint": "^8.42.0",

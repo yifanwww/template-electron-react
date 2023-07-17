@@ -19,11 +19,11 @@ exports[`Test component \`Introduction\` should render 1`] = `
     </p>
     <a
       className="link"
-      href="https://github.com/YSoftwareRepo/template-electron-cra"
+      href="https://github.com/YSoftwareRepo/template-electron-react"
       rel="noopener noreferrer"
       target="_blank"
     >
-      Learn template-electron-cra
+      Learn template-electron-react
     </a>
   </header>,
   <div
@@ -31,7 +31,7 @@ exports[`Test component \`Introduction\` should render 1`] = `
   >
     <code>
       Name: 
-      tecra
+      ter
     </code>
     <code>
       Version: 

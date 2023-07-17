@@ -1,17 +1,17 @@
 {
-    "name": "@tecra/app-renderer",
+    "name": "@ter/app-renderer",
     "version": "0.10.0",
     "description": "Electron renderer process code.",
-    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+        "url": "https://github.com/YSoftwareRepo/template-electron-react/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-react.git",
         "directory": "app/app-renderer"
     },
     "browserslist": [
@@ -31,7 +31,7 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
-        "@tecra/app-common": "workspace:*",
+        "@ter/app-common": "workspace:*",
         "clsx": "^1.2.1",
         "immer": "^9.0.21",
         "lodash": "^4.17.21",
@@ -43,9 +43,9 @@
         "web-vitals": "^3.3.2"
     },
     "devDependencies": {
-        "@tecra/eslint-config": "workspace:*",
-        "@tecra/scripts": "workspace:*",
-        "@tecra/tsconfigs": "workspace:*",
+        "@ter/eslint-config": "workspace:*",
+        "@ter/scripts": "workspace:*",
+        "@ter/tsconfigs": "workspace:*",
         "@testing-library/dom": "^8.20.0",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.5",

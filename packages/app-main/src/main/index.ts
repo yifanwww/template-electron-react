@@ -1,4 +1,4 @@
-import { WindowType } from '@tecra/app-common';
+import { WindowType } from '@ter/app-common';
 import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';

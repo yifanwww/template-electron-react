@@ -37,7 +37,7 @@
         "search.useParentIgnoreFiles": true,
 
         "typescript.enablePromptUseWorkspaceTsdk": true,
-        "typescript.tsdk": "tecra/node_modules/typescript/lib",
+        "typescript.tsdk": "ter/node_modules/typescript/lib",
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -95,31 +95,31 @@
     },
     "folders": [
         {
-            "name": "tecra",
+            "name": "ter",
             "path": "."
         },
         {
-            "name": "@tecra/app-common",
+            "name": "@ter/app-common",
             "path": "packages/app-common"
         },
         {
-            "name": "@tecra/app-main",
+            "name": "@ter/app-main",
             "path": "packages/app-main"
         },
         {
-            "name": "@tecra/app-renderer",
+            "name": "@ter/app-renderer",
             "path": "packages/app-renderer"
         },
         {
-            "name": "@tecra/eslint-config",
+            "name": "@ter/eslint-config",
             "path": "packages/eslint-config"
         },
         {
-            "name": "@tecra/scripts",
+            "name": "@ter/scripts",
             "path": "packages/scripts"
         },
         {
-            "name": "@tecra/tsconfigs",
+            "name": "@ter/tsconfigs",
             "path": "packages/tsconfigs"
         }
     ]
