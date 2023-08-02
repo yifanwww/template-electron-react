@@ -3,6 +3,6 @@
     "extends": "@ter/eslint-config/.eslintrc.react.js",
     "ignorePatterns": ["/coverage", "*.cjs", "*.js", "*.mjs"],
     "parserOptions": {
-        "project": ["./tsconfig.json", "./tsconfig.node.json"]
+        "project": ["./tsconfig.json", "./tsconfig.vite.json"]
     }
 }
