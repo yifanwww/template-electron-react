@@ -1,6 +1,7 @@
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import path from 'node:path';
 import TerserPlugin from 'terser-webpack-plugin';
-import type { Configuration } from 'webpack';
+import type { Configuration, WebpackPluginInstance } from 'webpack';
 
 import { paths } from '../utils';
 
@@ -197,7 +198,33 @@ const factory: ConfigurationFactory = (env, argv) => {
             ],
         },
 
-        plugins: isEnvDevelopment ? [new ReloadElectronWebpackPlugin(paths.repository, paths.working)] : [],
+        plugins: [
+            isEnvDevelopment && new ReloadElectronWebpackPlugin(paths.repository, paths.working),
+            // TypeScript type checking
+            isEnvDevelopment &&
+                new ForkTsCheckerWebpackPlugin({
+                    async: isEnvDevelopment,
+                    typescript: {
+                        typescriptPath: require.resolve('typescript'),
+                        configOverwrite: {
+                            compilerOptions: {
+                                sourceMap: isEnvProduction || isEnvDevelopment,
+                                skipLibCheck: true,
+                                inlineSourceMap: false,
+                                declarationMap: false,
+                                noEmit: true,
+                                incremental: true,
+                                tsBuildInfoFile: appMainPaths.appTsBuildInfoFile,
+                            },
+                        },
+                        context: appMainPaths.appPath,
+                        diagnosticOptions: {
+                            syntactic: true,
+                        },
+                        mode: 'write-references',
+                    },
+                }),
+        ].filter(Boolean) as WebpackPluginInstance[],
 
         watch: isEnvDevelopment,
         watchOptions: {
