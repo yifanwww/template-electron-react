@@ -1,3 +1,4 @@
+import type { Nullable } from '@ter/app-common';
 import { WindowType, assertIsNever } from '@ter/app-common';
 
 import type { AbstractWindow } from './abstractWindow';
@@ -5,7 +6,7 @@ import { MainWindow } from './mainWindow';
 import type { CloseWindowOption, CreateWindowOption } from './types';
 
 interface WindowStore {
-    [id: string]: AbstractWindow | null;
+    [id: string]: Nullable<AbstractWindow>;
 }
 
 export class WindowManager {
