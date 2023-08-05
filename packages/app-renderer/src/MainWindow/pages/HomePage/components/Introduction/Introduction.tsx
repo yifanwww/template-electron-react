@@ -1,11 +1,11 @@
-import type { AppDetails } from '@ter/app-common';
+import type { AppDetails, Nullable } from '@ter/app-common';
 
 import { Assets } from 'src/assets';
 
 import css from './Introduction.module.scss';
 
 interface IntroductionProps {
-    appDetails: AppDetails | null;
+    appDetails: Nullable<AppDetails>;
 }
 
 export function Introduction({ appDetails }: IntroductionProps): JSX.Element {
