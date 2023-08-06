@@ -1,6 +1,10 @@
 import Store from 'electron-store';
 
-import type { ConfigurationKey, IWindowState } from './types';
+import type { IWindowState } from './window';
+
+export enum ConfigurationKey {
+    MAIN_WINDOW_STATE = 'mainWindowState',
+}
 
 interface IAppConfiguration {
     [ConfigurationKey.MAIN_WINDOW_STATE]?: IWindowState;
