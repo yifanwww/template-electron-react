@@ -1,9 +1,8 @@
 import { AppAPIChannel, type AppMainAPI } from '@ter/app-common';
 import { ipcMain } from 'electron';
 
+import { getAppDetails } from 'src/main/app';
 import { windowManager } from 'src/main/window';
-
-import { getAppDetails } from './getAppDetails';
 
 function registerCreateWindowHandler() {
     const handler: AppMainAPI['handleCreateWindow'] = (_, windowType) => windowManager.createWindow({ windowType });

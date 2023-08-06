@@ -8,7 +8,7 @@ export function assert(value: unknown): asserts value {
 }
 
 /**
- * The function for asserting whether a value's type is `never` at compile time.
+ * The function for asserting whether a value's type is `never`.
  */
 export function assertIsNever(value: never): never {
     throw new Error(`Assertion Error: ${String(value)} should be "never" type.`);
