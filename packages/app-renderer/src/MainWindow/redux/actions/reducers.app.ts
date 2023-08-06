@@ -1,4 +1,4 @@
-import type { AppDetails } from '@ter/app-common';
+import type { AppDetails } from '@ter/app-common/apis/app';
 
 import type { MainReducer } from '../types';
 

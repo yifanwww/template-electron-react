@@ -1,4 +1,5 @@
-import { assert, WindowType } from '@ter/app-common';
+import { WindowType } from '@ter/app-common/apis/app';
+import { assert } from '@ter/app-common/utils';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 

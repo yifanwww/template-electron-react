@@ -1,4 +1,4 @@
-import type { WindowType } from '@ter/app-common';
+import type { WindowType } from '@ter/app-common/apis/app';
 
 export interface CreateWindowOption {
     windowType: WindowType;

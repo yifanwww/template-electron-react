@@ -1,4 +1,4 @@
-import { WindowType } from '@ter/app-common';
+import { WindowType } from '@ter/app-common/apis/app';
 import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';
