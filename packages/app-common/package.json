@@ -2,14 +2,29 @@
     "name": "@ter/app-common",
     "version": "0.11.0",
     "description": "Common code for electron main process and electron renderer process.",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "typings": "lib/index.d.ts",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
         "url": "https://github.com/YSoftwareRepo/template-electron-react/issues"
+    },
+    "exports": {
+        "./apis/app": {
+            "types": "./lib/apis/app/index.d.ts",
+            "default": "./lib/apis/app/index.js"
+        },
+        "./apis/types": {
+            "types": "./lib/apis/types.d.ts",
+            "default": "./lib/apis/types.js"
+        },
+        "./types": {
+            "types": "./lib/types/index.d.ts",
+            "default": "./lib/types/index.js"
+        },
+        "./utils": {
+            "types": "./lib/utils/index.d.ts",
+            "default": "./lib/utils/index.js"
+        }
     },
     "private": true,
     "repository": {

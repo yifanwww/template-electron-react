@@ -1,4 +1,5 @@
-import type { AppDetails, Nullable } from '@ter/app-common';
+import type { AppDetails } from '@ter/app-common/apis/app';
+import type { Nullable } from '@ter/app-common/types';
 
 import { Assets } from 'src/assets';
 

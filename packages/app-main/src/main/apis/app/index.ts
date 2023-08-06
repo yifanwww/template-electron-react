@@ -1,4 +1,5 @@
-import { AppAPIChannel, type AppMainAPI } from '@ter/app-common';
+import type { AppMainAPI } from '@ter/app-common/apis/app';
+import { AppAPIChannel } from '@ter/app-common/apis/app';
 import { ipcMain } from 'electron';
 
 import { getAppDetails } from 'src/main/app';

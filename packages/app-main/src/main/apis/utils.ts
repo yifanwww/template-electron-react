@@ -1,4 +1,5 @@
-import type { AnyFn, IpcMainHandler } from '@ter/app-common';
+import type { IpcMainHandler } from '@ter/app-common/apis/types';
+import type { AnyFn } from '@ter/app-common/types';
 import { ipcMain } from 'electron';
 
 interface Handlers<Handler> {

@@ -1,4 +1,4 @@
-import type { UnknownFn } from '@ter/app-common';
+import type { UnknownFn } from '@ter/app-common/types';
 
 import type { ReduxActions } from './types';
 

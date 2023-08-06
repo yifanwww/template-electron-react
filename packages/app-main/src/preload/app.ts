@@ -1,5 +1,5 @@
-import { AppAPIChannel } from '@ter/app-common';
-import type { AppRendererAPI } from '@ter/app-common';
+import type { AppRendererAPI } from '@ter/app-common/apis/app';
+import { AppAPIChannel } from '@ter/app-common/apis/app';
 import { ipcRenderer } from 'electron';
 
 import { webArgs } from './args';

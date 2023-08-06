@@ -1,4 +1,4 @@
-import type { WindowType } from '@ter/app-common';
+import type { WindowType } from '@ter/app-common/apis/app';
 import { BrowserWindow, shell } from 'electron';
 import path from 'node:path';
 

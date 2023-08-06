@@ -1,5 +1,5 @@
-import type { Nullable } from '@ter/app-common';
-import { assert } from '@ter/app-common';
+import type { Nullable } from '@ter/app-common/types';
+import { assert } from '@ter/app-common/utils';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
