@@ -2,9 +2,16 @@ import { WindowType } from '@ter/app-common';
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
 
-import { store } from './store';
-import type { IWindowState } from './types';
-import { ConfigurationKey } from './types';
+import { ConfigurationKey, store } from './store';
+
+export interface IWindowState {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    maximized: boolean;
+    fullScreen: boolean;
+}
 
 const EVENT_HANDLING_DELAY = 100;
 
