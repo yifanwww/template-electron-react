@@ -8,6 +8,7 @@ import { paths } from '../utils';
 import { createEnvironmentHash } from './utils/createEnvironmentHash';
 import { getCacheIdentifier } from './utils/getCacheIdentifier';
 import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin';
+import { WebpackStatsPrettifyPlugin } from './utils/webpackStatsPrettifyPlugin';
 
 const resolveAppMain = (relative: string) => path.resolve(paths.electronMain, relative);
 
@@ -46,7 +47,7 @@ const factory: ConfigurationFactory = (env, argv) => {
     const webpack: Configuration = {
         target: 'electron-main',
         // Webpack noise constrained to errors and warnings
-        stats: { logging: 'info' },
+        stats: 'errors-warnings',
         mode: isEnvProduction ? 'production' : 'development',
         // Stop compilation early in production
         bail: isEnvProduction,
@@ -224,7 +225,12 @@ const factory: ConfigurationFactory = (env, argv) => {
                         mode: 'write-references',
                     },
                 }),
+            new WebpackStatsPrettifyPlugin(),
         ].filter(Boolean) as WebpackPluginInstance[],
+
+        performance: {
+            hints: 'warning',
+        },
 
         watch: isEnvDevelopment,
         watchOptions: {
