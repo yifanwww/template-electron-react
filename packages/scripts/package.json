@@ -55,6 +55,7 @@
         "semver": "^7.5.4",
         "source-map-loader": "^4.0.1",
         "terser-webpack-plugin": "^5.3.9",
+        "text-table": "^0.2.0",
         "vite": "^4.4.0",
         "webpack": "^5.88.1",
         "webpack-cli": "^4.10.0"
@@ -65,6 +66,7 @@
         "@ter/tsconfigs": "workspace:*",
         "@types/node": "^18.16.18",
         "@types/semver": "^7.5.0",
+        "@types/text-table": "^0.2.2",
         "concurrently": "^7.6.0",
         "eslint": "^8.42.0",
         "lint-staged": "^13.2.2",
