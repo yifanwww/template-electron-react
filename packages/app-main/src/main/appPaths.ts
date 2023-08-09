@@ -1,8 +1,8 @@
 import path from 'node:path';
 
 export class AppPaths {
-    private _app: string;
-    private _src: string;
+    private declare _app: string;
+    private declare _src: string;
 
     constructor() {
         const isInASAR = __dirname.includes('.asar');
