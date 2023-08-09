@@ -1,7 +1,6 @@
 import type { Nullable } from '@ter/app-common/types';
-import { assert } from '@ter/app-common/utils';
+import { assert, noop } from '@ter/app-common/utils';
 import { act, render } from '@testing-library/react';
-import { noop } from 'lodash';
 import { useState } from 'react';
 
 import { validateHookValueNotChanged } from 'src/__tests__/hook';
