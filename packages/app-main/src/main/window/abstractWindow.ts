@@ -9,11 +9,11 @@ import { WindowStateKeeper } from '../configuration';
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
-    protected readonly _window: BrowserWindow;
-    protected readonly _windowType: WindowType;
-    protected readonly _windowId: string;
+    protected declare readonly _window: BrowserWindow;
+    protected declare readonly _windowType: WindowType;
+    protected declare readonly _windowId: string;
 
-    private readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
+    private declare readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
     constructor(option: AbstractWindowOption) {
         this._windowId = option.windowId;

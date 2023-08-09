@@ -150,13 +150,24 @@ const factory: ConfigurationFactory = (env, argv) => {
                             options: {
                                 customize: require.resolve('babel-preset-react-app/webpack-overrides'),
                                 // TODO: Maybe can change presets
-                                presets: [[require.resolve('babel-preset-react-app'), { runtime: 'automatic' }]],
+                                presets: [
+                                    [require.resolve('babel-preset-react-app'), { runtime: 'automatic' }],
+                                    [
+                                        '@babel/preset-typescript',
+                                        {
+                                            // Can omit this setting when babel is upgrade above v8
+                                            // https://github.com/babel/babel/issues/10746
+                                            allowDeclareFields: true,
+                                        },
+                                    ],
+                                ],
                                 babelrc: false,
                                 configFile: false,
                                 // Make sure we have a unique cache identifier, erring on the side of caution.
                                 cacheIdentifier: getCacheIdentifier(isEnvProduction ? 'production' : 'development', [
                                     'babel-plugin-named-asset-import',
                                     'babel-preset-react-app',
+                                    '@babel/preset-typescript',
                                 ]),
                                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                                 // It enables caching results in ./node_modules/.cache/babel-loader/

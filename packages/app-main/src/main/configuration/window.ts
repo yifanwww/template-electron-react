@@ -1,4 +1,5 @@
 import { WindowType } from '@ter/app-common/apis/app';
+import type { Nullable } from '@ter/app-common/types';
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
 
@@ -36,16 +37,16 @@ function checkWindowVisible(state: IWindowState) {
     return visible;
 }
 
-function getWindowState(type: WindowType): IWindowState | void {
-    const previousState = store.get(keyMap[type]);
-    if (!previousState) {
-        return;
+function getWindowState(type: WindowType): Nullable<IWindowState> {
+    const prevState = store.get(keyMap[type]);
+    if (prevState) {
+        const visible = checkWindowVisible(prevState);
+        if (visible) {
+            return prevState;
+        }
     }
 
-    const visible = checkWindowVisible(previousState);
-    if (visible) {
-        return previousState;
-    }
+    return null;
 }
 
 interface IWindowStateKeeperOptions {
@@ -57,16 +58,16 @@ interface IWindowStateKeeperOptions {
 }
 
 export class WindowStateKeeper {
-    private _type: WindowType;
+    private declare _type: WindowType;
 
-    private _state: IWindowState;
-    private _stateChangeTimer: NodeJS.Timer | undefined;
-    private _windowRef: BrowserWindow | undefined;
+    private declare _state: IWindowState;
+    private declare _stateChangeTimer: Nullable<NodeJS.Timer>;
+    private declare _windowRef: Nullable<BrowserWindow>;
 
-    private _defaultWidth: number;
-    private _defaultHeight: number;
-    private _defaultMaximized: boolean;
-    private _defaultFullScreen: boolean;
+    private declare _defaultWidth: number;
+    private declare _defaultHeight: number;
+    private declare _defaultMaximized: boolean;
+    private declare _defaultFullScreen: boolean;
 
     constructor(type: WindowType, options?: IWindowStateKeeperOptions) {
         this._type = type;
@@ -77,11 +78,13 @@ export class WindowStateKeeper {
         this._defaultFullScreen = options?.fullScreen ?? false;
 
         this._state = this._getDefaultWindowState();
+        this._stateChangeTimer = null;
+        this._windowRef = null;
 
         if (!options?.ignorePrevious) {
-            const previousState = getWindowState(type);
-            if (previousState) {
-                this._state = previousState;
+            const prevState = getWindowState(type);
+            if (prevState) {
+                this._state = prevState;
             }
         }
     }
@@ -147,7 +150,9 @@ export class WindowStateKeeper {
     }
 
     private _handleStateChange = () => {
-        clearTimeout(this._stateChangeTimer);
+        if (this._stateChangeTimer) {
+            clearTimeout(this._stateChangeTimer);
+        }
         this._stateChangeTimer = setTimeout(this._updateState, EVENT_HANDLING_DELAY);
     };
 
@@ -171,9 +176,12 @@ export class WindowStateKeeper {
     private _removeListeners() {
         this._windowRef?.removeListener('move', this._handleStateChange);
         this._windowRef?.removeListener('resize', this._handleStateChange);
-        clearTimeout(this._stateChangeTimer);
+        if (this._stateChangeTimer) {
+            clearTimeout(this._stateChangeTimer);
+            this._stateChangeTimer = null;
+        }
         this._windowRef?.removeListener('close', this._handleClose);
         this._windowRef?.removeListener('closed', this._handleClosed);
-        this._windowRef = undefined;
+        this._windowRef = null;
     }
 }

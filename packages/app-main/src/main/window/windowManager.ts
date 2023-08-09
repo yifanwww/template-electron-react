@@ -11,8 +11,13 @@ interface WindowStore {
 }
 
 export class WindowManager {
-    private _count = 0;
-    private _store: WindowStore = {};
+    private declare _count: number;
+    private declare _store: WindowStore;
+
+    constructor() {
+        this._count = 0;
+        this._store = {};
+    }
 
     createWindow = (option: CreateWindowOption): void => {
         this._count++;
