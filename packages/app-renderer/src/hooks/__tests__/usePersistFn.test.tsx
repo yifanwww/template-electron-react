@@ -1,9 +1,10 @@
 import type { Nullable } from '@ter/app-common/types';
-import { assert, noop } from '@ter/app-common/utils';
+import { noop } from '@ter/app-common/utils';
 import { act, render } from '@testing-library/react';
 import { useState } from 'react';
 
 import { validateHookValueNotChanged } from 'src/__tests__/hook';
+import { assert } from 'src/utils/assert';
 
 import { usePersistFn } from '../usePersistFn';
 
