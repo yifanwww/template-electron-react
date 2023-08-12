@@ -2,8 +2,7 @@ import type { WindowType } from '@ter/app-common/apis/app';
 import { BrowserWindow, shell } from 'electron';
 import path from 'node:path';
 
-import { appPaths } from 'src/main/appPaths';
-
+import { AppInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
@@ -27,7 +26,7 @@ export abstract class AbstractWindow {
 
             webPreferences: {
                 additionalArguments: [`--window-type=${this._windowType}`],
-                preload: path.resolve(appPaths.src, 'preload.js'),
+                preload: path.resolve(AppInfo.INSTANCE.srcPath, 'preload.js'),
             },
         });
         if (windowStateKeeper.maximized) this._window.maximize();
@@ -46,7 +45,7 @@ export abstract class AbstractWindow {
 
     async show(): Promise<void> {
         if (process.env.NODE_ENV === 'production') {
-            await this._window.loadFile(path.resolve(appPaths.src, 'index.html'));
+            await this._window.loadFile(path.resolve(AppInfo.INSTANCE.srcPath, 'index.html'));
         } else {
             await this._window.loadURL('http://localhost:4321/');
         }
