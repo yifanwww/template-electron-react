@@ -1,6 +1,6 @@
 {
     "name": "@ter/app-common",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "description": "Common code for electron main process and electron renderer process.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",

@@ -1,6 +1,6 @@
 {
     "name": "@ter/app-main",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "description": "Electron main process code.",
     "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",

@@ -1,4 +1,74 @@
 # CHANGELOG
+## template-electron-react v0.12.0 (2023-08-12)
+### Breaking Changes
+
+**Compile renderer process code via `vite`**
+
+It seems that `create-react-app` (`CRA`) is no longer maintained (at least not active). It's no longer recommended by `React` either, instead `React` recommends some frameworks. For more information, see [discussion](https://github.com/facebook/create-react-app/discussions/11768) and [issue](https://github.com/reactjs/react.dev/pull/5487#issuecomment-1409720741).
+
+Continuing to use `CRA` will cause us some problems:
+- It's difficult to keep up with the latest versions of so many tools if `CRA` can't keep up.
+- `CRA` is slow.
+- `SSR` is not supported (I don't know if `SSR` is suitable for desktop applications, but there's a tool [nextron](https://github.com/saltyshiomix/nextron) that makes `SSR` work with `electron`).
+
+So I decided to migrate to compiling renderer process code via `vite`.
+
+For main process code and preload script code, it's not able to compile them via `vite`, the reasons are:
+1. `vite` only runs one `rollup` instance in a `vite` configuration.
+2. We can only have one `vite` configuration to compile main process code and preload script code, or we cannot support `hot-relaoding-electron` feature.
+3. `rollup` always chunks shared dependencies between multiple inputs, we cannot get `rollup` to generate standalone js files (see [issue](https://github.com/rollup/rollup/issues/2756#issuecomment-904711732)).
+
+**Upgrade React to v18**
+
+Upgrade React to v18 as it no longer depends on `react-scripts`.
+
+### Notable Changes
+
+- Run release dry-run workflow for PRs
+- Don't use `web-vitals` deprecated fns
+- Set electron renderer content-security-policy
+- Prettify webpack stats output
+- Allow TypeScript `declare` syntax in app-main code
+
+### Dependency Changes
+
+- New
+  - `@babel/preset-typescript`                      v7.22.5
+  - `@jest/transform`                               v29.5.0
+  - `@types/babel__core`                            v7.20.1
+  - `@types/semver`                                 v7.5.0
+  - `@vitejs/plugin-react`                          v4.0.1
+  - `babel-loader`                                  v9.1.3
+  - `babel-preset-react-app`                        v10.0.1
+  - `react-app-polyfill`                            v3.0.0
+  - `radash`                                        v11.0.0
+  - `semver`                                        v7.5.4
+  - `source-map-loader`                             v4.0.1
+  - `vite`                                          v4.4.0
+  - `vite-plugin-checker`                           v0.6.1
+  - `vite-tsconfig-paths`                           v4.2.0
+  - `webpack-cli`                                   v4.10.0
+- Upgrade
+  - `@testing-library/dom`                          v8.20.0  -> v9.3.1
+  - `@testing-library/react`                        v12.1.5  -> v14.0.0
+  - `@types/react`                                  v17.0.62 -> v18.2.15
+  - `@types/react-dom`                              v17.0.20 -> v18.2.7
+  - `@types/react-test-renderer`                    v17.0.2  -> v18.0.0
+  - `fork-ts-checker-webpack-plugin`                v6.5.3   -> v8.0.0
+  - `react`                                         v17.0.2  -> v18.2.0
+  - `react-dom`                                     v17.0.2  -> v18.2.0
+  - `react-test-renderer`                           v17.0.2  -> v18.2.0
+  - `webpack`                                       v5.87.0  -> v5.88.1
+- Remove
+  - `@babel/plugin-syntax-flow`                     v7.22.5
+  - `@babel/plugin-transform-react-jsx`             v7.22.5
+  - `@testing-library/react-hooks`                  v8.0.1
+  - `@types/case-sensitive-paths-webpack-plugin`    v2.1.6
+  - `@types/lodash`                                 v4.14.195
+  - `lodash`                                        v4.17.21
+  - `react-app-rewired`                             v2.1.9
+  - `react-scripts`                                 v5.0.1
+
 ## template-electron-react v0.11.0 (2023-07-17)
 ### Breaking Changes
 
@@ -22,6 +92,16 @@
   - `@tecra/eslint-config`      -> `@ter/eslint-config`
   - `@tecra/scripts`            -> `@ter/scripts`
   - `@tecra/tsconfigs`          -> `@ter/tsconfigs`
+
+### Dependency Changes
+
+- New
+  - `@typescript-eslint/eslint-plugin`  v5.59.11
+  - `@typescript-eslint/parse`          v5.59.11
+  - `@types/yargs-parser`               v21.0.0
+  - `yargs-parser`                      v21.1.1
+- Remove
+  - `eslint-config-airbnb-typescript`   v17.0.0
 
 ## tecra v0.10.0 (2023-06-20)
 ### Features
