@@ -11,15 +11,13 @@ import type { AbstractWindowOption, CloseWindowOption } from './types';
 export abstract class AbstractWindow {
     protected declare readonly _window: BrowserWindow;
     protected declare readonly _windowType: WindowType;
-    protected declare readonly _windowId: string;
 
     private declare readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
     constructor(option: AbstractWindowOption) {
-        this._windowId = option.windowId;
-        this._windowType = option.windowType;
+        this._windowType = option.type;
 
-        const windowStateKeeper = new WindowStateKeeper(option.windowType);
+        const windowStateKeeper = new WindowStateKeeper(this._windowType);
 
         this._window = new BrowserWindow({
             x: windowStateKeeper.x,
@@ -40,6 +38,10 @@ export abstract class AbstractWindow {
 
         this._addWindowListeners();
         this._addAPIHandlers();
+    }
+
+    get id() {
+        return this._window.id;
     }
 
     async show(): Promise<void> {
@@ -66,7 +68,7 @@ export abstract class AbstractWindow {
     private _close = () => {
         this._removeAPIHandlers();
 
-        void this._onClose({ windowId: this._windowId });
+        void this._onClose({ id: this.id });
     };
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers

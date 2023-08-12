@@ -7,47 +7,44 @@ import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
 import type { CloseWindowOption, CreateWindowOption } from './types';
 
-interface WindowStore {
-    [id: string]: Nullable<AbstractWindow>;
-}
+type WindowStore = Record<number, Nullable<AbstractWindow>>;
 
 export class WindowManager {
-    private declare _count: number;
+    private declare static _instance?: WindowManager;
+
+    static get INSTANCE() {
+        if (!WindowManager._instance) {
+            WindowManager._instance = new WindowManager();
+        }
+        return WindowManager._instance;
+    }
+
     private declare _store: WindowStore;
 
-    constructor() {
-        this._count = 0;
+    private constructor() {
         this._store = {};
     }
 
-    createWindow = (option: CreateWindowOption): void => {
-        this._count++;
-
-        const { windowType } = option;
-        const windowId = `${windowType}-${this._count}`;
-
-        switch (windowType) {
+    private _newWindow(type: WindowType): AbstractWindow {
+        switch (type) {
             case WindowType.MAIN:
-                this._store[windowId] = new MainWindow({
-                    windowId,
+                return new MainWindow({
                     onClose: this._closeWindow,
                 });
-                break;
 
             /* istanbul ignore next */
             default:
-                assertIsNever(windowType);
+                assertIsNever(type);
         }
+    }
 
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        void this._store[windowId]!.show();
-    };
+    createWindow(option: CreateWindowOption): void {
+        const window = this._newWindow(option.type);
+        this._store[window.id] = window;
+        void window.show();
+    }
 
     private _closeWindow = (option: CloseWindowOption): void => {
-        const { windowId } = option;
-
-        this._store[windowId] = null;
+        this._store[option.id] = null;
     };
 }
-
-export const windowManager = new WindowManager();

@@ -2,7 +2,7 @@ import { WindowType } from '@ter/app-common/apis/app';
 import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';
-import { windowManager } from './window';
+import { WindowManager } from './window';
 
 async function installExtensions(): Promise<void> {
     const {
@@ -29,7 +29,7 @@ async function handleReady() {
 
     registerAppGlobalHandlers();
 
-    windowManager.createWindow({ windowType: WindowType.MAIN });
+    WindowManager.INSTANCE.createWindow({ type: WindowType.MAIN });
 }
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
@@ -48,6 +48,6 @@ app.on('activate', () => {
     // On macOS, usually applications will re-create new windows if single click the dock icon when no other windows
     // opened.
     if (BrowserWindow.getAllWindows().length === 0) {
-        windowManager.createWindow({ windowType: WindowType.MAIN });
+        WindowManager.INSTANCE.createWindow({ type: WindowType.MAIN });
     }
 });

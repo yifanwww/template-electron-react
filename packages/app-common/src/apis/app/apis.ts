@@ -7,7 +7,7 @@ export enum AppAPIChannel {
     GET_APP_DETAILS = 'App_GetAppDetails',
 }
 
-type CreateWindowAPI = IpcRendererInvokerAPI<(windowType: WindowType) => void>;
+type CreateWindowAPI = IpcRendererInvokerAPI<(type: WindowType) => void>;
 type GetAppDetails = IpcRendererInvokerAPI<() => AppDetails>;
 
 export interface AppMainAPI {
