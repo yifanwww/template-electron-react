@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test fn \`assert\` should assert an expression 1`] = `"Assertion Error."`;
+
+exports[`Test fn \`assertIsNever\` should throw an error 1`] = `"hello world should be "never" type."`;

@@ -1,6 +1,7 @@
 import { WindowType } from '@ter/app-common/apis/app';
 import type { Nullable } from '@ter/app-common/types';
-import { assertIsNever } from '@ter/app-common/utils';
+
+import { assertIsNever } from '../utils/assert';
 
 import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';

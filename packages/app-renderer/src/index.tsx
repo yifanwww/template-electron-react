@@ -1,5 +1,4 @@
 import { WindowType } from '@ter/app-common/apis/app';
-import { assert } from '@ter/app-common/utils';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
@@ -8,14 +7,17 @@ import './index.css';
 import { appAPI } from './apis';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
+import { assert, assertIsNever } from './utils/assert';
 
-function Window(): JSX.Element | null {
+function Window(): JSX.Element {
     const type = appAPI.windowType;
 
-    // eslint-disable-next-line default-case
     switch (type) {
         case WindowType.MAIN:
             return <MainWindow />;
+
+        default:
+            assertIsNever(type);
     }
 }
 
