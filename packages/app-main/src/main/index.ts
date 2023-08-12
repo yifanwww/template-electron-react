@@ -56,9 +56,10 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {
-    // On macOS, most applications and their menu bars will key activated unless users use `cmd + Q` to quit.
+    // On macOS, most applications and their menu bars will stay active unless users use `cmd + Q` to quit.
     if (process.platform !== 'darwin') {
         app.quit();
+        Logger.INSTANCE.info('App quited.');
     }
 });
 

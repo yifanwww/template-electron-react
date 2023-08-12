@@ -1,4 +1,3 @@
-import type { WindowType } from '@ter/app-common/apis/app';
 import { ArrayUtil } from '@ter/app-common/utils';
 import dayjs from 'dayjs';
 import { app } from 'electron';
@@ -44,15 +43,15 @@ export class Logger {
         return nodePath.join(!app.isPackaged ? '.' : AppInfo.INSTANCE.useDataPath, 'logs', `app-${timeStr}.log`);
     }
 
-    static createLogger(type?: WindowType): winston.Logger {
+    static createLogger(label?: string): winston.Logger {
         return winston.createLogger({
             format: winston.format.combine(
                 winston.format.timestamp(),
                 combineMessageAndSplat(),
                 winston.format.printf((info) =>
-                    type
-                        ? `[${String(info.timestamp)}] [${type}] <${info.level}>: ${String(info.message)}`
-                        : `[${String(info.timestamp)}] <${info.level}>: ${String(info.message)}`,
+                    label
+                        ? `[${String(info.timestamp)}] (${label}) [${info.level}]: ${String(info.message)}`
+                        : `[${String(info.timestamp)}] [${info.level}]: ${String(info.message)}`,
                 ),
             ),
             transports: ArrayUtil.filterFalsy([

@@ -1,15 +1,20 @@
 import type { WindowType } from '@ter/app-common/apis/app';
 import { BrowserWindow, shell } from 'electron';
 import path from 'node:path';
+import type winston from 'winston';
 
+import { registerLoggerHandlers } from '../apis/logger';
 import { AppInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';
+import { Logger } from '../logger';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
     protected declare readonly _window: BrowserWindow;
     protected declare readonly _windowType: WindowType;
+
+    protected declare readonly _logger: winston.Logger;
 
     private declare readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
@@ -33,6 +38,8 @@ export abstract class AbstractWindow {
         if (windowStateKeeper.fullScreen) this._window.setFullScreen(true);
         windowStateKeeper.registerHandlers(this._window);
 
+        this._logger = Logger.createLogger(`${this._windowType}-${this.id}`);
+
         this._onClose = option.onClose;
 
         this._addWindowListeners();
@@ -53,6 +60,11 @@ export abstract class AbstractWindow {
         this._window.show();
     }
 
+    private _close = () => {
+        this._logger.info(`"${this._windowType}" window Closed.`);
+        void this._onClose({ id: this.id });
+    };
+
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
     protected _addWindowListeners(): void {
@@ -61,22 +73,16 @@ export abstract class AbstractWindow {
             return { action: 'deny' };
         });
 
+        this._window.once('show', () => {
+            this._logger.info(`"${this._windowType}" window (id "${this.id}") Showed.`);
+        });
+
         this._window.once('closed', this._close);
     }
-
-    private _close = () => {
-        this._removeAPIHandlers();
-
-        void this._onClose({ id: this.id });
-    };
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
     protected _addAPIHandlers(): void {
-        //
+        registerLoggerHandlers(this._window.webContents.ipc, this._logger);
     }
-
-    private _removeAPIHandlers = () => {
-        //
-    };
 }
