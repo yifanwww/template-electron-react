@@ -28,7 +28,7 @@
         "build-scripts": "concurrently -n cjs,types \"pnpm run build-scripts:cjs\" \"pnpm run build-scripts:types\"",
         "build-scripts:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
         "build-scripts:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf dist tsconfigs/*.tsbuildinfo",
+        "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build-scripts --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
@@ -71,7 +71,7 @@
         "eslint": "^8.42.0",
         "lint-staged": "^13.2.2",
         "prettier": "2.8.8",
-        "rimraf": "^3.0.2",
+        "rimraf": "^5.0.1",
         "typescript": "5.1.3"
     }
 }

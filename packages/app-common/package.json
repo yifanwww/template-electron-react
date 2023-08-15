@@ -36,7 +36,7 @@
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
+        "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:esm -- --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
@@ -53,7 +53,7 @@
         "eslint": "^8.42.0",
         "lint-staged": "^13.2.2",
         "prettier": "2.8.8",
-        "rimraf": "^3.0.2",
+        "rimraf": "^5.0.1",
         "typescript": "5.1.3"
     }
 }
