@@ -40,6 +40,7 @@
         "dev": "pnpm run build:esm -- --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"

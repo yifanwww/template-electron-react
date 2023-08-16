@@ -20,6 +20,7 @@
         "dev": "app-main dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-full": "unit-test",

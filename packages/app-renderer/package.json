@@ -23,6 +23,7 @@
         "dev": "vite dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
+        "lint:fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-full": "unit-test",
