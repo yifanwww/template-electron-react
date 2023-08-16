@@ -30,6 +30,7 @@
         "format:workspaces": "pnpm run --recursive --no-sort --stream format",
         "gen-installer": "electron-builder build --config electron-builder.json --win --publish never",
         "lint": "pnpm run --recursive --no-sort --stream lint",
+        "lint:fix": "pnpm run --recursive --no-sort --stream lint:fix",
         "pre-commit": "pnpm run --recursive --workspace-concurrency=1 pre-commit",
         "prepare": "husky install",
         "run-build": "run-build",
