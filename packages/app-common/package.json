@@ -13,6 +13,10 @@
             "types": "./lib/apis/app/index.d.ts",
             "default": "./lib/apis/app/index.js"
         },
+        "./apis/logger": {
+            "types": "./lib/apis/logger/index.d.ts",
+            "default": "./lib/apis/logger/index.js"
+        },
         "./apis/types": {
             "types": "./lib/apis/types.d.ts",
             "default": "./lib/apis/types.js"

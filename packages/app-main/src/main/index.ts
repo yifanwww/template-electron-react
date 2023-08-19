@@ -1,7 +1,11 @@
 import { WindowType } from '@ter/app-common/apis/app';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';
+import { AppInfo } from './appInfo';
+import { Logger } from './logger';
 import { WindowManager } from './window';
 
 async function installExtensions(): Promise<void> {
@@ -11,10 +15,13 @@ async function installExtensions(): Promise<void> {
         REACT_DEVELOPER_TOOLS,
     } = await import(/* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer');
 
-    // eslint-disable-next-line no-console
-    const succeed = (name: string) => console.info(`Added extension: ${name}`);
-    // eslint-disable-next-line no-console
-    const fail = (err: unknown) => console.error('An error occurred: ', err);
+    const succeed = (name: string) => {
+        Logger.INSTANCE.info(`Added extension "${name}"`);
+    };
+
+    const fail = (err: unknown) => {
+        Logger.INSTANCE.error('An error occurred when install extension:', err);
+    };
 
     await Promise.all([
         install(REDUX_DEVTOOLS).then(succeed).catch(fail),
@@ -22,12 +29,23 @@ async function installExtensions(): Promise<void> {
     ]);
 }
 
+function initThirdPartyModules() {
+    dayjs.extend(utc);
+}
+
 async function handleReady() {
+    AppInfo.init();
+    initThirdPartyModules();
+
+    Logger.INSTANCE.info('App ready.');
+
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
 
     registerAppGlobalHandlers();
+
+    Logger.INSTANCE.info('Registered event handlers.');
 
     WindowManager.INSTANCE.createWindow({ type: WindowType.MAIN });
 }
@@ -38,9 +56,10 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {
-    // On macOS, most applications and their menu bars will key activated unless users use `cmd + Q` to quit.
+    // On macOS, most applications and their menu bars will stay active unless users use `cmd + Q` to quit.
     if (process.platform !== 'darwin') {
         app.quit();
+        Logger.INSTANCE.info('App quited.');
     }
 });
 
