@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 import type { ReactChildrenProps } from 'src/utils/react';

@@ -150,9 +150,6 @@ importers:
       react-redux:
         specifier: ^8.1.0
         version: 8.1.0(@reduxjs/toolkit@1.9.5)(@types/react-dom@18.2.7)(@types/react@18.2.15)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
-      react-router:
-        specifier: ^6.13.0
-        version: 6.13.0(react@18.2.0)
       react-router-dom:
         specifier: ^6.13.0
         version: 6.13.0(react-dom@18.2.0)(react@18.2.0)
