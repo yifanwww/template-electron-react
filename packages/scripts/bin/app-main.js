@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../dist/bin').appMain();
+import { appMain } from '../dist/bin.js';
+
+appMain();

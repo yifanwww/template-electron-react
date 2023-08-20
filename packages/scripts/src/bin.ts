@@ -3,7 +3,7 @@ import assert from 'node:assert';
 import child from 'node:child_process';
 import fs from 'node:fs';
 
-import { paths } from './utils/paths';
+import { paths } from './utils/index.js';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
 

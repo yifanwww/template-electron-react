@@ -1,7 +1,7 @@
 {
     "extends": "./tsconfig.bundler.json",
     "compilerOptions": {
-        "jsx": "react-jsx",
-        "lib": ["DOM", "DOM.Iterable", "ESNext"]
+        "incremental": false,
+        "noEmit": true
     }
 }

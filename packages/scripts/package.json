@@ -2,8 +2,13 @@
     "name": "@ter/scripts",
     "version": "0.12.0",
     "description": "Scripts for ter.",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
     "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -25,8 +30,8 @@
         "unit-test": "./bin/unit-test.js"
     },
     "scripts": {
-        "build-scripts": "concurrently -n cjs,types \"pnpm run build-scripts:cjs\" \"pnpm run build-scripts:types\"",
-        "build-scripts:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
+        "build-scripts": "concurrently -n dist,types \"pnpm run build-scripts:dist\" \"pnpm run build-scripts:types\"",
+        "build-scripts:dist": "tsc --project tsconfigs/tsconfig.dist.json",
         "build-scripts:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build-scripts --watch",

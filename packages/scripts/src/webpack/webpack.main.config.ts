@@ -1,14 +1,19 @@
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { createRequire } from 'node:module';
 import path from 'node:path';
+import url from 'node:url';
 import TerserPlugin from 'terser-webpack-plugin';
 import type { Configuration, WebpackPluginInstance } from 'webpack';
 
-import { paths } from '../utils';
+import { paths } from '../utils/index.js';
 
-import { createEnvironmentHash } from './utils/createEnvironmentHash';
-import { getCacheIdentifier } from './utils/getCacheIdentifier';
-import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin';
-import { WebpackStatsPrettifyPlugin } from './utils/webpackStatsPrettifyPlugin';
+import { createEnvironmentHash } from './utils/createEnvironmentHash.js';
+import { getCacheIdentifier } from './utils/getCacheIdentifier.js';
+import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin.js';
+import { WebpackStatsPrettifyPlugin } from './utils/webpackStatsPrettifyPlugin.js';
+
+const _filename = url.fileURLToPath(import.meta.url);
+const require = createRequire(import.meta.url);
 
 const resolveAppMain = (relative: string) => path.resolve(paths.electronMain, relative);
 
@@ -72,7 +77,7 @@ const factory: ConfigurationFactory = (env, argv) => {
             store: 'pack',
             buildDependencies: {
                 defaultWebpack: ['webpack/lib/'],
-                config: [__filename],
+                config: [_filename],
                 tsconfig: [appMainPaths.appTsConfig],
             },
         },
@@ -258,4 +263,4 @@ const factory: ConfigurationFactory = (env, argv) => {
     return webpack;
 };
 
-export = factory;
+export default factory;

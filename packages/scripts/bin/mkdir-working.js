@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../dist/bin').mkdirWorking();
+import { mkdirWorking } from '../dist/bin.js';
+
+mkdirWorking();

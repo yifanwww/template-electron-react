@@ -1,6 +1,9 @@
 import type { TransformOptions } from '@babel/core';
 import type { SyncTransformer } from '@jest/transform';
 import babelJest from 'babel-jest';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
 
 const transformer: SyncTransformer<TransformOptions> | Promise<SyncTransformer<TransformOptions>> =
     babelJest.createTransformer({
@@ -19,4 +22,4 @@ const transformer: SyncTransformer<TransformOptions> | Promise<SyncTransformer<T
         configFile: false,
     });
 
-export = transformer;
+export default transformer;

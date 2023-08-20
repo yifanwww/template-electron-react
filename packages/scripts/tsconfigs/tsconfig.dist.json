@@ -1,5 +1,5 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.node.cjs.json",
+    "extends": "@ter/tsconfigs/tsconfig.node16.json",
     "compilerOptions": {
         "outDir": "../dist",
         "rootDir": "../src"

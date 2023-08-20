@@ -1,10 +1,8 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.bundler.react.json",
+    "extends": "@ter/tsconfigs/tsconfig.react.eslint.json",
     "compilerOptions": {
         "allowImportingTsExtensions": true,
         "baseUrl": ".",
-        "incremental": false,
-        "noEmit": true,
         "rootDir": "src",
 
         "plugins": [
