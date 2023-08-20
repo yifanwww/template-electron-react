@@ -45,7 +45,7 @@
     "devDependencies": {
         "@ter/scripts": "workspace:*",
         "concurrently": "^7.6.0",
-        "electron": "24.5.0",
+        "electron": "26.0.0",
         "electron-builder": "^24.4.0",
         "husky": "^8.0.3",
         "prettier": "2.8.8",
