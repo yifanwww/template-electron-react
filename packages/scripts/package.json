@@ -34,7 +34,7 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
         "@babel/core": "^7.22.5",

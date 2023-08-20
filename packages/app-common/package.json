@@ -47,7 +47,7 @@
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@ter/eslint-config": "workspace:*",
