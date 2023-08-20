@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../dist/bin').runUnpacked();
+import { runUnpacked } from '../dist/bin.js';
+
+runUnpacked();

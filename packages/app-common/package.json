@@ -37,17 +37,17 @@
         "directory": "packages/app-common"
     },
     "scripts": {
-        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
-        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build": "concurrently -n lib,types \"pnpm run build:lib\" \"pnpm run build:types\"",
+        "build:lib": "tsc --project tsconfigs/tsconfig.lib.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build:esm -- --watch",
+        "dev": "pnpm run build:lib -- --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@ter/eslint-config": "workspace:*",

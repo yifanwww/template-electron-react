@@ -1,7 +1,6 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.eslint.bundler.json",
+    "extends": "@ter/tsconfigs/tsconfig.bundler.eslint.json",
     "compilerOptions": {
-        "incremental": false,
         "rootDir": "src"
     },
     "include": ["src/**/*"],

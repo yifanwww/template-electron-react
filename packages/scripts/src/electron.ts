@@ -1,5 +1,8 @@
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import semver from 'semver';
+
+const require = createRequire(import.meta.url);
 
 function getElectronMajorVer(): number {
     const pkg = require.resolve('electron/package.json');

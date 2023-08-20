@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require('../dist/bin').runBuild();
+import { runBuild } from '../dist/bin.js';
+
+runBuild();

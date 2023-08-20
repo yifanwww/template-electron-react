@@ -1,0 +1,7 @@
+{
+    "extends": "./tsconfig.node16.json",
+    "compilerOptions": {
+        "incremental": false,
+        "noEmit": true
+    }
+}
