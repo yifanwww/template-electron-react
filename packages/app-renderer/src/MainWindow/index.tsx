@@ -6,7 +6,8 @@ import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 import type { ReactChildrenProps } from 'src/utils/react';
 
 import { mainStore } from './redux';
-import { RoutePath, routes } from './routes';
+import { routes } from './routes/configs';
+import { RoutePath } from './routes/path';
 
 import css from './index.module.scss';
 
