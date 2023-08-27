@@ -6,7 +6,7 @@ import type winston from 'winston';
 import { registerLoggerHandlers } from '../apis/logger';
 import { AppInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';
-import { Logger } from '../logger';
+import { AppLogger } from '../logger';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
@@ -38,7 +38,7 @@ export abstract class AbstractWindow {
         if (windowStateKeeper.fullScreen) this._window.setFullScreen(true);
         windowStateKeeper.registerHandlers(this._window);
 
-        this._logger = Logger.createLogger(`${this._windowType}-${this.id}`);
+        this._logger = AppLogger.createLogger(`${this._windowType}-${this.id}`);
 
         this._onClose = option.onClose;
 

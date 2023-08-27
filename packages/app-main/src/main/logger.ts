@@ -22,7 +22,7 @@ function combineMessageAndSplat(): winston.Logform.Format {
     };
 }
 
-export class Logger {
+export class AppLogger {
     /**
      * The instance for electron main process to log logs.
      */
@@ -32,10 +32,10 @@ export class Logger {
      * The instance for electron main process to log logs.
      */
     static get INSTANCE(): winston.Logger {
-        if (!Logger._instance) {
-            Logger._instance = Logger.createLogger();
+        if (!AppLogger._instance) {
+            AppLogger._instance = AppLogger.createLogger();
         }
-        return Logger._instance;
+        return AppLogger._instance;
     }
 
     private static _getLogFileName() {
@@ -57,7 +57,7 @@ export class Logger {
             transports: ArrayUtil.filterFalsy([
                 new winston.transports.File({
                     level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-                    filename: Logger._getLogFileName(),
+                    filename: AppLogger._getLogFileName(),
                     options: { flags: 'a' },
                 }),
                 !app.isPackaged && new winston.transports.Console(),
