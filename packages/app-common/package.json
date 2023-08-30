@@ -47,6 +47,7 @@
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test",
+        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
