@@ -1,4 +1,4 @@
-import { AssertionError, assert, assertIsNever } from '../index';
+import { AssertionError, assert, assertIsNever } from '../assert';
 
 describe(`Test fn \`${assert.name}\``, () => {
     it('should assert an expression', () => {
