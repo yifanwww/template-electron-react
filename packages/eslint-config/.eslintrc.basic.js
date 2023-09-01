@@ -60,6 +60,8 @@ module.exports = {
         // 'plugin:@typescript-eslint/strict',
         'prettier',
         'prettier/prettier',
+        'plugin:jest/recommended',
+        'plugin:jest/style',
     ],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
     plugins: ['@typescript-eslint', 'import', 'jest', 'node', 'prettier'],
@@ -335,8 +337,14 @@ module.exports = {
 
         // -------------------- Eslint-Plugin-Jest Rules --------------------
 
+        // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/expect-expect.md
+        'jest/expect-expect': ['error', { assertFunctionNames: ['expect', '_expect*'] }],
+
         // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/no-alias-methods.md
         'jest/no-alias-methods': 'error',
+
+        // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/no-commented-out-tests.md
+        'jest/no-commented-out-tests': 'off',
 
         // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/prefer-strict-equal.md
         'jest/prefer-strict-equal': 'error',

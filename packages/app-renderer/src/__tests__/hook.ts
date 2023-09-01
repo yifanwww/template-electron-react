@@ -7,11 +7,13 @@ import { renderHook } from '@testing-library/react';
  * @param useHookAgain If you want to verify that the return value doesn't change when hook parameters change,
  * you can pass this second callback which calls the hook differently.
  */
+// eslint-disable-next-line jest/no-export
 export function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
     testDescription: string,
     useHook: () => TValues,
     useHookAgain?: () => TValues,
 ): void {
+    // eslint-disable-next-line jest/valid-title
     it(testDescription, () => {
         let callCount = 0;
 
@@ -38,6 +40,7 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
             } catch (err) {
                 const latestValuesStr = String(latestValues[i]);
                 // Make a more informative error message
+                // eslint-disable-next-line jest/no-conditional-expect
                 expect('').toBe(
                     `Identity of value at index ${i} has changed. This might help identify it:\n${latestValuesStr}`,
                 );

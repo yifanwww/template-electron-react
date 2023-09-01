@@ -14,6 +14,8 @@ module.exports = {
         // 'plugin:@typescript-eslint/strict',
         'prettier',
         'prettier/prettier',
+        'plugin:jest/recommended',
+        'plugin:jest/style',
         './.eslintrc.basic.js',
     ],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
