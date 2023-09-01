@@ -11,12 +11,12 @@ import { Logger } from '../logger';
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
 export abstract class AbstractWindow {
-    protected declare readonly _window: BrowserWindow;
-    protected declare readonly _windowType: WindowType;
+    protected readonly _window: BrowserWindow;
+    protected readonly _windowType: WindowType;
 
-    protected declare readonly _logger: winston.Logger;
+    protected readonly _logger: winston.Logger;
 
-    private declare readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
+    private readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
     constructor(option: AbstractWindowOption) {
         this._windowType = option.type;

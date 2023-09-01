@@ -6,9 +6,9 @@ import type { Compiler } from 'webpack';
 const electron = _electron as unknown as string;
 
 export class ReloadElectronWebpackPlugin {
-    private declare _cwd: string;
-    private declare _projectDir: string;
-    private declare _process: child.ChildProcess | null;
+    private _cwd: string;
+    private _projectDir: string;
+    private _process: child.ChildProcess | null;
 
     constructor(projectDir: string, cwd: string) {
         this._cwd = cwd;
@@ -18,7 +18,7 @@ export class ReloadElectronWebpackPlugin {
         this._info(`Found electron at "${electron}"`);
     }
 
-    apply = (compiler: Compiler) => {
+    apply(compiler: Compiler) {
         let server = false;
         compiler.hooks.done.tap('ReloadElectronWebpackPlugin', () => {
             if (!server) {
@@ -28,11 +28,13 @@ export class ReloadElectronWebpackPlugin {
                 this._restart();
             }
         });
-    };
+    }
 
-    private _info = (msg: string) => console.info(chalk.blackBright('[reload-electron-webpack-plugin] ') + msg);
+    private _info(msg: string) {
+        console.info(chalk.blackBright('[reload-electron-webpack-plugin] ') + msg);
+    }
 
-    private _spawn = () => {
+    private _spawn() {
         this._process = child
             .spawn(electron, [this._projectDir], {
                 cwd: this._cwd,
@@ -43,14 +45,14 @@ export class ReloadElectronWebpackPlugin {
             });
 
         this._info(`Started electron process: ${this._process.pid}`);
-    };
+    }
 
-    private _start = () => {
+    private _start() {
         this._info('Spawning electron process.');
         this._spawn();
-    };
+    }
 
-    private _restart = () => {
+    private _restart() {
         if (this._process) {
             this._info(`Kill electron process: ${this._process.pid}`);
             try {
@@ -65,5 +67,5 @@ export class ReloadElectronWebpackPlugin {
 
         this._info('Respawning electron process.');
         this._spawn();
-    };
+    }
 }

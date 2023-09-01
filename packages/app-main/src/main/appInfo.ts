@@ -2,13 +2,13 @@ import { app } from 'electron';
 import path from 'node:path';
 
 export class AppInfo {
-    private declare static _instance?: AppInfo;
+    private static _instance?: AppInfo;
 
-    private declare _appPath: string;
-    private declare _srcPath: string;
-    private declare _userDataPath: string;
+    private _appPath: string;
+    private _srcPath: string;
+    private _userDataPath: string;
 
-    private declare _startedTime: number;
+    private _startedTime: number;
 
     private constructor() {
         const isInASAR = __dirname.includes('.asar');
