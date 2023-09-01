@@ -1,7 +1,6 @@
 import { WindowType } from '@ter/app-common/apis/app';
 import type { Nullable } from '@ter/app-common/types';
-
-import { assertIsNever } from '../utils/assert';
+import { match } from 'ts-pattern';
 
 import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
@@ -25,21 +24,11 @@ export class WindowManager {
         this._store = {};
     }
 
-    private _newWindow(type: WindowType): AbstractWindow {
-        switch (type) {
-            case WindowType.MAIN:
-                return new MainWindow({
-                    onClose: this._closeWindow,
-                });
-
-            /* istanbul ignore next */
-            default:
-                assertIsNever(type);
-        }
-    }
-
     createWindow(option: CreateWindowOption): void {
-        const window = this._newWindow(option.type);
+        const window = match(option.type)
+            .with(WindowType.MAIN, () => new MainWindow({ onClose: this._closeWindow }))
+            .exhaustive();
+
         this._store[window.id] = window;
         void window.show();
     }
