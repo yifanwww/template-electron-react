@@ -10,7 +10,7 @@ import type { CloseWindowOption, CreateWindowOption } from './types';
 type WindowStore = Record<number, Nullable<AbstractWindow>>;
 
 export class WindowManager {
-    private declare static _instance?: WindowManager;
+    private static _instance?: WindowManager;
 
     static get INSTANCE() {
         if (!WindowManager._instance) {
@@ -19,7 +19,7 @@ export class WindowManager {
         return WindowManager._instance;
     }
 
-    private declare _store: WindowStore;
+    private _store: WindowStore;
 
     private constructor() {
         this._store = {};

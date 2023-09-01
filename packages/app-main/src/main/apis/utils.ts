@@ -7,8 +7,8 @@ interface Handlers<Handler> {
 }
 
 export class HandlerRegister<Handler extends IpcMainHandler<AnyFn>> {
-    private declare readonly _channel: string;
-    private declare _handlers: Handlers<Handler>;
+    private readonly _channel: string;
+    private _handlers: Handlers<Handler>;
 
     constructor(channel: string) {
         this._channel = channel;

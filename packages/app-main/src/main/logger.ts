@@ -26,7 +26,7 @@ export class Logger {
     /**
      * The instance for electron main process to log logs.
      */
-    private declare static _instance?: winston.Logger;
+    private static _instance?: winston.Logger;
 
     /**
      * The instance for electron main process to log logs.
