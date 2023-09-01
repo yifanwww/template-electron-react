@@ -4,11 +4,11 @@ import path from 'node:path';
 export class AppInfo {
     private static _instance?: AppInfo;
 
-    private _appPath: string;
-    private _srcPath: string;
-    private _userDataPath: string;
+    private readonly _appPath: string;
+    private readonly _srcPath: string;
+    private readonly _userDataPath: string;
 
-    private _startedTime: number;
+    private readonly _startedTime: number;
 
     private constructor() {
         const isInASAR = __dirname.includes('.asar');

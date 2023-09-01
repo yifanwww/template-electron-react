@@ -19,7 +19,7 @@ export class WindowManager {
         return WindowManager._instance;
     }
 
-    private _store: WindowStore;
+    private readonly _store: WindowStore;
 
     private constructor() {
         this._store = {};

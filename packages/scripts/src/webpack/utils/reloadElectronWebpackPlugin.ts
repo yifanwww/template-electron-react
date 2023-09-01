@@ -6,8 +6,8 @@ import type { Compiler } from 'webpack';
 const electron = _electron as unknown as string;
 
 export class ReloadElectronWebpackPlugin {
-    private _cwd: string;
-    private _projectDir: string;
+    private readonly _cwd: string;
+    private readonly _projectDir: string;
     private _process: child.ChildProcess | null;
 
     constructor(projectDir: string, cwd: string) {
