@@ -1,6 +1,6 @@
 import { AssertionError } from 'node:assert';
 
-import { assertIsNever } from '../index';
+import { assertIsNever } from '../assert';
 
 describe(`Test fn \`${assertIsNever.name}\``, () => {
     it('should throw an error', () => {
