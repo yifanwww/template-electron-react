@@ -58,16 +58,16 @@ interface IWindowStateKeeperOptions {
 }
 
 export class WindowStateKeeper {
-    private _type: WindowType;
+    private readonly _type: WindowType;
 
-    private _state: IWindowState;
+    private readonly _state: IWindowState;
     private _stateChangeTimer: Nullable<NodeJS.Timer>;
     private _windowRef: Nullable<BrowserWindow>;
 
-    private _defaultWidth: number;
-    private _defaultHeight: number;
-    private _defaultMaximized: boolean;
-    private _defaultFullScreen: boolean;
+    private readonly _defaultWidth: number;
+    private readonly _defaultHeight: number;
+    private readonly _defaultMaximized: boolean;
+    private readonly _defaultFullScreen: boolean;
 
     constructor(type: WindowType, options?: IWindowStateKeeperOptions) {
         this._type = type;
