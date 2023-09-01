@@ -1,4 +1,38 @@
 # CHANGELOG
+## template-electron-react v0.13.0 (2023-09-01)
+### Features
+
+- Add assertion utils separately for main and renderer
+  For electron main process, it's better to use node assertion module, the only customized assertion util is `assertIsNever`
+- Add application logger `AppLogger`, logs will be stored in `<userData>/logs` folder in `app-<time>.log` file format
+- Use `esbuild` to transpile app-main code
+
+### Notable Changes
+
+- No customized window id
+- Add `lint:fix` NPM script
+- Import router stuff directly from `react-router-dom`
+- Make `@ter/scripts` a pure-esm package
+- Upgrade Electron to v26.0.0
+- Apply stricter tsconfig on vite.config.ts, do typecheck for it
+
+### Dependency Changes
+
+- Add
+  - `@types/lodash`             v4.14.197
+  - `dayjs`                     v1.11.9
+  - `esbuild-loader`            v4.0.2
+  - `lodash`                    v4.17.21
+  - `winston`                   v3.10.0
+- Upgrade
+  - `concurrently`              v7.6.0  -> v8.2.1
+  - `electron`                  v24.5.0 -> v26.0.0
+  - `rimraf`                    v3.0.2  -> v5.0.1
+- Remove
+  - `babel-loader`              v9.1.3
+  - `react-router`              v6.13.0
+  - `terser-webpack-plugin`     v5.3.9
+
 ## template-electron-react v0.12.0 (2023-08-12)
 ### Breaking Changes
 
