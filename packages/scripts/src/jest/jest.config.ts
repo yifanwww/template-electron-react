@@ -19,7 +19,6 @@ function getConfig(): Config {
         roots: ['<rootDir>/src'],
         cacheDirectory: paths.jestCache,
 
-        setupFiles: [require.resolve('react-app-polyfill/jsdom')],
         setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
@@ -33,7 +32,17 @@ function getConfig(): Config {
         testEnvironment: 'jest-environment-jsdom',
 
         transform: {
-            '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': paths.transforms.babel,
+            '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
+                require.resolve('@swc/jest'),
+                {
+                    jsc: {
+                        transform: {
+                            react: { runtime: 'automatic' },
+                            useDefineForClassFields: true,
+                        },
+                    },
+                },
+            ],
             '^.+\\.css$': paths.transforms.css,
             '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': paths.transforms.file,
         },

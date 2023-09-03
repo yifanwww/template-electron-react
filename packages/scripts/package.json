@@ -42,12 +42,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@babel/core": "^7.22.5",
-        "@babel/preset-typescript": "^7.22.5",
-        "@jest/transform": "^29.5.0",
-        "@types/babel__core": "^7.20.1",
-        "babel-jest": "^29.5.0",
-        "babel-preset-react-app": "^10.0.1",
+        "@swc/jest": "^0.2.29",
         "camelcase": "^6.3.0",
         "chalk": "^4.1.2",
         "esbuild-loader": "^4.0.2",
@@ -57,7 +52,6 @@
         "jest-environment-jsdom": "^29.5.0",
         "jest-resolve": "^29.5.0",
         "jest-watch-typeahead": "^2.2.2",
-        "react-app-polyfill": "^3.0.0",
         "semver": "^7.5.4",
         "source-map-loader": "^4.0.1",
         "text-table": "^0.2.0",
