@@ -33,3 +33,8 @@ export interface IpcRendererInvokerAPI<PrototypeFn extends UnknownFn> {
     main: IpcMainHandler<PrototypeFn>;
     renderer: IpcRendererInvoker<PrototypeFn>;
 }
+
+export interface IpcMainSenderAPI<PrototypeFn extends UnknownFn> {
+    main: (...args: Parameters<PrototypeFn>) => void;
+    renderer: (listener: IpcRendererListener<PrototypeFn>) => void;
+}
