@@ -1,12 +1,12 @@
 import type { IpcRendererInvokerAPI } from '../types';
 
 export enum LoggerAPIChannel {
-    LOG = 'Logger_Log',
-    ERROR = 'Logger_Error',
-    WARN = 'Logger_Warn',
-    INFO = 'Logger_Info',
-    VERBOSE = 'Logger_Verbose',
-    DEBUG = 'Logger_Debug',
+    LOG = 'Logger:Log',
+    ERROR = 'Logger:Error',
+    WARN = 'Logger:Warn',
+    INFO = 'Logger:Info',
+    VERBOSE = 'Logger:Verbose',
+    DEBUG = 'Logger:Debug',
 }
 
 type LogLevel = 'error' | 'warn' | 'info' | 'verbose' | 'debug';
