@@ -72,7 +72,7 @@ const factory: ConfigurationFactory = (env, argv) => {
 
         cache: {
             type: 'filesystem',
-            version: createEnvironmentHash({ NODE_ENV: process.env.NODE_ENV || 'development' }),
+            version: createEnvironmentHash({ NODE_ENV: process.env.NODE_ENV ?? 'development' }),
             cacheDirectory: appMainPaths.webpackCache,
             store: 'pack',
             buildDependencies: {

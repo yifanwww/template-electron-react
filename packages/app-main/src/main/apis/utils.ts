@@ -2,9 +2,7 @@ import type { IpcMainHandler } from '@ter/app-common/apis/types';
 import type { AnyFn } from '@ter/app-common/types';
 import { ipcMain } from 'electron';
 
-interface Handlers<Handler> {
-    [windowId: string]: Handler;
-}
+type Handlers<Handler> = Record<string, Handler>;
 
 export class HandlerRegister<Handler extends IpcMainHandler<AnyFn>> {
     private readonly _channel: string;

@@ -54,10 +54,10 @@ module.exports = {
     },
     extends: [
         'airbnb-base',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        // TODO: may enable this configuration set in the future
-        // 'plugin:@typescript-eslint/strict',
+        'plugin:@typescript-eslint/recommended-type-checked',
+        // TODO: may extends stricter rule configurations in the future
+        // 'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
         'prettier',
         'prettier/prettier',
         'plugin:jest/recommended',
@@ -121,7 +121,16 @@ module.exports = {
         // This rule is disabled by `eslint-config-prettier`, enable it here for better eslint error information.
         // https://github.com/prettier/eslint-config-prettier/#max-len
         // https://eslint.org/docs/latest/rules/max-len
-        'max-len': ['error', { code: 120, ignoreUrls: true }],
+        'max-len': [
+            'error',
+            {
+                code: 120,
+                ignoreUrls: true,
+                ignoreStrings: true,
+                ignoreTemplateLiterals: true,
+                ignoreRegExpLiterals: true,
+            },
+        ],
 
         // https://eslint.org/docs/latest/rules/no-await-in-loop
         'no-await-in-loop': 'off',
@@ -255,9 +264,6 @@ module.exports = {
         // https://typescript-eslint.io/rules/no-empty-interface
         '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
 
-        // https://typescript-eslint.io/rules/no-floating-promises
-        '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
-
         // https://typescript-eslint.io/rules/no-loop-func
         '@typescript-eslint/no-loop-func': 'error',
 
@@ -283,11 +289,11 @@ module.exports = {
         // https://typescript-eslint.io/rules/restrict-template-expressions
         '@typescript-eslint/restrict-template-expressions': [
             'error',
-            { allowNumber: true, allowBoolean: true, allowAny: false, allowNullish: true, allowRegExp: true },
+            { allowAny: false, allowBoolean: true, allowNullish: true, allowNumber: true, allowRegExp: true },
         ],
 
         // https://typescript-eslint.io/rules/return-await
-        '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+        '@typescript-eslint/return-await': 'error',
 
         // -------------------- Eslint-Plugin-Import Rules --------------------
 

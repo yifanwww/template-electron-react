@@ -29,7 +29,7 @@ export type IpcRendererListener<PrototypeFn extends UnknownFn> = (
 
 // For Defining APIs
 
-export type IpcRendererInvokerAPI<PrototypeFn extends UnknownFn> = {
+export interface IpcRendererInvokerAPI<PrototypeFn extends UnknownFn> {
     main: IpcMainHandler<PrototypeFn>;
     renderer: IpcRendererInvoker<PrototypeFn>;
-};
+}
