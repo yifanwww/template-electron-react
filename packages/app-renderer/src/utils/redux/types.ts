@@ -22,9 +22,7 @@ export type ThunkFn<ReturnType, State, ThunkArgs extends unknown[]> = (
 
 // -------------------------------------------------------------------------------------------------- DispatchingActions
 
-export interface ReduxActions {
-    readonly [key: string]: ActionCreator;
-}
+export type ReduxActions = Readonly<Record<string, ActionCreator>>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload;
@@ -41,9 +39,7 @@ export type DispatchingActions<TActions extends ReduxActions> = {
 
 // --------------------------------------------------------------------------------------------------- DispatchingThunks
 
-export interface ReduxThunks {
-    readonly [key: string]: (...args: never[]) => ReduxThunkAction<unknown, never>;
-}
+export type ReduxThunks = Readonly<Record<string, (...args: never[]) => ReduxThunkAction<unknown, never>>>;
 
 // prettier-ignore
 export type DispatchingThunks<TThunks extends ReduxThunks> = {

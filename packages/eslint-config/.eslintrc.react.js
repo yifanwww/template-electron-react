@@ -8,10 +8,10 @@ module.exports = {
     extends: [
         'airbnb',
         'airbnb/hooks',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        // TODO: may enable this configuration set in the future
-        // 'plugin:@typescript-eslint/strict',
+        'plugin:@typescript-eslint/recommended-type-checked',
+        // TODO: may extends stricter rule configurations in the future
+        // 'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
         'prettier',
         'prettier/prettier',
         'plugin:jest/recommended',
