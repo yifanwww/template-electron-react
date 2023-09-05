@@ -2,9 +2,6 @@ module.exports = {
     extends: ['stylelint-config-sass-guidelines', 'stylelint-config-recess-order'],
     ignoreFiles: ['coverage/**/*', 'node_modules/**/*'],
     rules: {
-        // https://stylelint.io/user-guide/rules/indentation/
-        indentation: 4,
-
         // https://stylelint.io/user-guide/rules/max-nesting-depth/
         'max-nesting-depth': null,
 
