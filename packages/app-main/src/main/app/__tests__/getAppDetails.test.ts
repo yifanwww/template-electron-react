@@ -1,7 +1,7 @@
 import { getAppDetails } from '../getAppDetails';
 
 jest.mock('electron', () => {
-    const app: Partial<typeof import('electron')['app']> = {
+    const app: Partial<(typeof import('electron'))['app']> = {
         getName: () => 'ter',
         getVersion: () => '<app-version>',
     };
