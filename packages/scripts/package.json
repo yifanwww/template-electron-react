@@ -55,7 +55,8 @@
         "semver": "^7.5.4",
         "source-map-loader": "^4.0.1",
         "text-table": "^0.2.0",
-        "webpack": "^5.88.2"
+        "webpack": "^5.88.2",
+        "whatwg-fetch": "^3.6.18"
     },
     "devDependencies": {
         "@jest/types": "^29.6.3",
