@@ -19,6 +19,7 @@ function getConfig(): Config {
         roots: ['<rootDir>/src'],
         cacheDirectory: paths.jestCache,
 
+        setupFiles: [require.resolve('./jest.setup.js')],
         setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
@@ -42,10 +43,11 @@ function getConfig(): Config {
                             useDefineForClassFields: true,
                         },
                     },
+                    isModule: true,
                 },
             ],
-            '^.+\\.css$': paths.transforms.css,
-            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': paths.transforms.file,
+            '^.+\\.css$': require.resolve('./transform.css.js'),
+            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': require.resolve('./transform.file.js'),
         },
         transformIgnorePatterns: [
             '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',

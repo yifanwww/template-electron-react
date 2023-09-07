@@ -44,10 +44,5 @@ export const paths = {
     // test
 
     jestCache: path.resolve(rootNodeModules, '.cache/jest'),
-
     jestConfig: path.resolve(scriptsDist, 'jest/jest.config.js'),
-    transforms: {
-        css: path.resolve(scriptsDist, 'jest/transform.css.js'),
-        file: path.resolve(scriptsDist, 'jest/transform.file.js'),
-    },
 };
