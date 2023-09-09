@@ -57,7 +57,7 @@ function getConfig(): Config {
             '^react-native$': 'react-native-web',
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
             '^src/(.*)$': '<rootDir>/src/$1',
-            '^(.*).js$': ['$1.js', '$1.ts'],
+            '^(.*)\\.js$': ['$1.js', '$1.ts'],
         },
         moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx', 'web.js', 'web.jsx', 'web.ts', 'web.tsx'],
 
