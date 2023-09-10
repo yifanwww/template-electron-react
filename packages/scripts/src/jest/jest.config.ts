@@ -23,6 +23,7 @@ function getConfig(): Config {
 
         collectCoverageFrom: [
             'src/**/*.{ts,tsx}',
+            '!src/**/__mocks__/**/*.{ts,tsx}',
             '!src/**/__tests__/**/*.{ts,tsx}',
             '!src/**/*.{spec.test}.{ts,tsx}',
             '!src/**/*.d.ts',
