@@ -1,12 +1,12 @@
 import { WindowType } from '@ter/app-common/apis/app';
-import type { Nullable } from '@ter/app-common/types';
+import type { Optional } from '@ter/app-common/types';
 import { match } from 'ts-pattern';
 
 import type { AbstractWindow } from './abstractWindow';
 import { MainWindow } from './mainWindow';
 import type { CloseWindowOption, CreateWindowOption } from './types';
 
-type WindowStore = Record<number, Nullable<AbstractWindow>>;
+type WindowStore = Record<number, Optional<AbstractWindow>>;
 
 export class WindowManager {
     private static _instance?: WindowManager;
@@ -34,6 +34,6 @@ export class WindowManager {
     }
 
     private _closeWindow = (option: CloseWindowOption): void => {
-        this._store[option.id] = null;
+        this._store[option.id] = undefined;
     };
 }

@@ -1,4 +1,4 @@
-import type { Nullable } from '@ter/app-common/types';
+import type { Nullable, Optional } from '@ter/app-common/types';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
@@ -12,9 +12,9 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
 
     it('should call the latest non-persist function', () => {
-        let count: Nullable<number> = null;
+        let count: Optional<number>;
         let increaseCount = null as Nullable<() => void>;
-        expect(count).toBeNull();
+        expect(count).toBeUndefined();
         expect(increaseCount).toBeNull();
 
         function TestComponent() {

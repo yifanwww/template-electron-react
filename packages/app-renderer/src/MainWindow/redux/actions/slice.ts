@@ -7,9 +7,7 @@ import type { StoreState } from '../types';
 import { _setAppDetails } from './reducers.app';
 
 export function getInitialState(): StoreState {
-    return {
-        appDetails: null,
-    };
+    return {};
 }
 
 const slice = createSlice({

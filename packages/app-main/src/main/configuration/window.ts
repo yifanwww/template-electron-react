@@ -61,8 +61,8 @@ export class WindowStateKeeper {
     private readonly _type: WindowType;
 
     private readonly _state: IWindowState;
-    private _stateChangeTimer: Nullable<NodeJS.Timer>;
-    private _windowRef: Nullable<BrowserWindow>;
+    private _stateChangeTimer?: NodeJS.Timer;
+    private _windowRef?: BrowserWindow;
 
     private readonly _defaultWidth: number;
     private readonly _defaultHeight: number;
@@ -78,8 +78,6 @@ export class WindowStateKeeper {
         this._defaultFullScreen = options?.fullScreen ?? false;
 
         this._state = this._getDefaultWindowState();
-        this._stateChangeTimer = null;
-        this._windowRef = null;
 
         if (!options?.ignorePrevious) {
             const prevState = getWindowState(type);
@@ -178,10 +176,10 @@ export class WindowStateKeeper {
         this._windowRef?.removeListener('resize', this._handleStateChange);
         if (this._stateChangeTimer) {
             clearTimeout(this._stateChangeTimer);
-            this._stateChangeTimer = null;
+            this._stateChangeTimer = undefined;
         }
         this._windowRef?.removeListener('close', this._handleClose);
         this._windowRef?.removeListener('closed', this._handleClosed);
-        this._windowRef = null;
+        this._windowRef = undefined;
     }
 }
