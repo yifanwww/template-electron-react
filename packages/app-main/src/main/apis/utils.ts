@@ -1,5 +1,5 @@
 import type { IpcMainHandler } from '@ter/app-common/apis/types';
-import type { AnyFn, UnknownFn } from '@ter/app-common/types';
+import type { AnyFn } from '@ter/app-common/types';
 import { ipcMain } from 'electron';
 
 type Handlers<Handler> = Record<string, Handler>;
@@ -34,8 +34,4 @@ export class HandlerRegister<Handler extends IpcMainHandler<AnyFn>> {
         }
         this._handlers = {};
     }
-}
-
-export function makeHandler<T extends IpcMainHandler<UnknownFn>>(handler: T): T {
-    return handler;
 }
