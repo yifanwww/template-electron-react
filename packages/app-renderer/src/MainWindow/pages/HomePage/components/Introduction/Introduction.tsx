@@ -8,7 +8,7 @@ interface IntroductionProps {
     appDetails?: AppDetails;
 }
 
-export function Introduction({ appDetails }: IntroductionProps): JSX.Element {
+export function Introduction({ appDetails }: IntroductionProps): React.ReactNode {
     return (
         <>
             <header className={css.introduction}>

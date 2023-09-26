@@ -11,7 +11,7 @@ import { RoutePath } from './routes/path';
 
 import css from './index.module.scss';
 
-function ClientArea(): JSX.Element {
+function ClientArea(): React.ReactNode {
     return (
         <div className={css.clientArea}>
             <Suspense fallback={<div />}>
@@ -38,7 +38,7 @@ function GlobalProviders(props: ReactChildrenProps) {
     );
 }
 
-export function MainWindow(): JSX.Element {
+export function MainWindow(): React.ReactNode {
     return (
         <FramelessWindow>
             <TitleBar>
