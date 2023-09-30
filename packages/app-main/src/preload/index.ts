@@ -1,7 +1,7 @@
 import { contextBridge } from 'electron';
 
-import { appAPI } from './app';
-import { loggerAPI } from './logger';
+import { AppAPI } from './app';
+import { LoggerAPI } from './logger';
 
-contextBridge.exposeInMainWorld('appAPI', appAPI);
-contextBridge.exposeInMainWorld('loggerAPI', loggerAPI);
+contextBridge.exposeInMainWorld('APP_API', AppAPI);
+contextBridge.exposeInMainWorld('LOGGER_API', LoggerAPI);
