@@ -5,7 +5,7 @@ import { match } from 'ts-pattern';
 
 import './index.css';
 
-import { appAPI } from './apis';
+import { AppAPI } from './apis';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 import { assert } from './utils/assert';
@@ -14,7 +14,7 @@ function main(): void {
     const appElement = document.getElementById('app');
     assert(appElement !== null);
 
-    const window = match(appAPI.windowType)
+    const window = match(AppAPI.windowType)
         .with(WindowType.MAIN, () => <MainWindow />)
         .exhaustive();
 

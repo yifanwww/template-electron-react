@@ -2,7 +2,7 @@ import type { LoggerRendererAPI } from '@ter/app-common/apis/logger';
 import { LoggerAPIChannel } from '@ter/app-common/apis/logger';
 import { ipcRenderer } from 'electron';
 
-export const loggerAPI: LoggerRendererAPI = {
+export const LoggerAPI: LoggerRendererAPI = {
     debug: (...args) => ipcRenderer.invoke(LoggerAPIChannel.DEBUG, ...args),
     error: (...args) => ipcRenderer.invoke(LoggerAPIChannel.ERROR, ...args),
     info: (...args) => ipcRenderer.invoke(LoggerAPIChannel.INFO, ...args),
