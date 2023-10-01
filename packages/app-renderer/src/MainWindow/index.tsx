@@ -1,40 +1,45 @@
-import { Suspense } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Outlet, RouterProvider, createHashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
-import type { ReactChildrenProps } from 'src/utils/react';
 
 import { mainStore } from './redux';
-import { routes } from './routes/configs';
-import { RoutePath } from './routes/path';
 
 import css from './index.module.scss';
 
 function ClientArea(): React.ReactNode {
     return (
         <div className={css.clientArea}>
-            <Suspense fallback={<div />}>
-                <Routes>
-                    {routes.map((route) => (
-                        <Route
-                            key={route.path}
-                            path={route.exact ? route.path : `${route.path}/*`}
-                            element={<route.component />}
-                        />
-                    ))}
-                    <Route key="/*" path="/*" element={<Navigate to={RoutePath.HOME} replace />} />
-                </Routes>
-            </Suspense>
+            <Outlet />
         </div>
     );
 }
 
-function GlobalProviders(props: ReactChildrenProps) {
+const router = createHashRouter([
+    {
+        path: '/',
+        element: <ClientArea />,
+        children: [
+            {
+                index: true,
+                lazy: async () => {
+                    const { HomePage } = await import('./pages/HomePage');
+                    return { element: <HomePage /> };
+                },
+            },
+        ],
+    },
+    {
+        path: '/*',
+        element: <Navigate to="/" replace />,
+    },
+]);
+
+function GlobalProviders(): React.ReactNode {
     return (
-        <HashRouter>
-            <ReduxProvider store={mainStore}>{props.children}</ReduxProvider>
-        </HashRouter>
+        <ReduxProvider store={mainStore}>
+            <RouterProvider router={router} />
+        </ReduxProvider>
     );
 }
 
@@ -42,9 +47,7 @@ export function MainWindow(): React.ReactNode {
     return (
         <FramelessWindow>
             <TitleBar>
-                <GlobalProviders>
-                    <ClientArea />
-                </GlobalProviders>
+                <GlobalProviders />
             </TitleBar>
         </FramelessWindow>
     );
