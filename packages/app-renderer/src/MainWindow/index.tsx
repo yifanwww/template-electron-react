@@ -23,8 +23,8 @@ const router = createHashRouter([
             {
                 index: true,
                 lazy: async () => {
-                    const { HomePage } = await import('./pages/HomePage');
-                    return { element: <HomePage /> };
+                    const { Home } = await import('./containers/Home');
+                    return { element: <Home /> };
                 },
             },
         ],

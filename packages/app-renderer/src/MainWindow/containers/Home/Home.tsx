@@ -4,7 +4,7 @@ import { useAppDetails, useMainDispatchingThunks } from 'src/MainWindow/redux';
 
 import { Introduction } from './components/Introduction';
 
-export function HomePage(): React.ReactNode {
+export function Home(): React.ReactNode {
     const appDetails = useAppDetails();
     const { prepareAppDetails } = useMainDispatchingThunks();
 
