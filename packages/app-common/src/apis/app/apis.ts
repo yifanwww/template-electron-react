@@ -2,10 +2,10 @@ import type { IpcRendererInvokerAPI } from '../types';
 
 import type { AppDetails, WindowType } from './types';
 
-export enum AppAPIChannel {
-    CREATE_WINDOW = 'App:CreateWindow',
-    GET_APP_DETAILS = 'App:GetAppDetails',
-}
+export const AppAPIKey = {
+    CREATE_WINDOW: 'App:CreateWindow',
+    GET_APP_DETAILS: 'App:GetAppDetails',
+};
 
 type CreateWindowAPI = IpcRendererInvokerAPI<(type: WindowType) => void>;
 type GetAppDetails = IpcRendererInvokerAPI<() => AppDetails>;
