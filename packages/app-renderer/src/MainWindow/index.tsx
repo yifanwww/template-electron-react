@@ -1,37 +1,20 @@
 import { Provider as ReduxProvider } from 'react-redux';
-import { Navigate, RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 
 import { mainStore } from './redux';
+import { routes } from './router/routes';
 
-const router = createHashRouter([
-    {
-        path: '/',
-        lazy: async () => {
-            const module = await import('./containers/ClientArea');
-            return { element: <module.ClientArea /> };
-        },
-    },
-    {
-        path: '/*',
-        element: <Navigate to="/" replace />,
-    },
-]);
-
-function GlobalProviders(): React.ReactNode {
-    return (
-        <ReduxProvider store={mainStore}>
-            <RouterProvider router={router} />
-        </ReduxProvider>
-    );
-}
+const router = createHashRouter(routes);
 
 export function MainWindow(): React.ReactNode {
     return (
         <FramelessWindow>
             <TitleBar>
-                <GlobalProviders />
+                <ReduxProvider store={mainStore}>
+                    <RouterProvider router={router} />
+                </ReduxProvider>
             </TitleBar>
         </FramelessWindow>
     );
