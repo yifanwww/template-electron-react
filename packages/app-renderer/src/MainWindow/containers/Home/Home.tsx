@@ -4,7 +4,9 @@ import { useAppDetails, useMainDispatchingThunks } from 'src/MainWindow/redux';
 
 import { Introduction } from './components/Introduction';
 
-export function HomePage(): React.ReactNode {
+import css from './Home.module.scss';
+
+export function Home(): React.ReactNode {
     const appDetails = useAppDetails();
     const { prepareAppDetails } = useMainDispatchingThunks();
 
@@ -12,5 +14,9 @@ export function HomePage(): React.ReactNode {
         void prepareAppDetails();
     }, [prepareAppDetails]);
 
-    return <Introduction appDetails={appDetails} />;
+    return (
+        <div className={css.clientArea}>
+            <Introduction appDetails={appDetails} />
+        </div>
+    );
 }
