@@ -12,17 +12,6 @@
             ".stylelintcache": "json",
             "electron-builder.json": "jsonc"
         },
-        "files.exclude": {
-            "**/.DS_Store": true,
-            "**/.git": true,
-            "**/.hg": true,
-            "**/.svn": true,
-            "**/CVS": true,
-
-            // additional
-            "**/node_modules": true,
-            "packages": true
-        },
 
         "git.enabled": true,
 
