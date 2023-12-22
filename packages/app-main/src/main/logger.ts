@@ -7,7 +7,28 @@ import winston from 'winston';
 
 import { AppInfo } from './appInfo';
 
-// reference: https://mifi.no/blog/winston-electron-logger/
+export interface AppLogger extends winston.Logger {
+    // The levels we support
+    fatal: winston.LeveledLogMethod;
+    error: winston.LeveledLogMethod;
+    warn: winston.LeveledLogMethod;
+    info: winston.LeveledLogMethod;
+    verbose: winston.LeveledLogMethod;
+    debug: winston.LeveledLogMethod;
+
+    // The built-in levels we don't support
+    help: never;
+    data: never;
+    prompt: never;
+    http: never;
+    input: never;
+    silly: never;
+    emerg: never;
+    alert: never;
+    crit: never;
+    warning: never;
+    notice: never;
+}
 
 // https://github.com/winstonjs/winston/issues/1427
 function combineMessageAndSplat(): winston.Logform.Format {
@@ -22,20 +43,20 @@ function combineMessageAndSplat(): winston.Logform.Format {
     };
 }
 
-export class AppLogger {
+export class AppLoggerService {
     /**
      * The instance for electron main process to log logs.
      */
-    private static _instance?: winston.Logger;
+    private static _instance?: AppLogger;
 
     /**
      * The instance for electron main process to log logs.
      */
-    static get INSTANCE(): winston.Logger {
-        if (!AppLogger._instance) {
-            AppLogger._instance = AppLogger.createLogger();
+    static get INSTANCE(): AppLogger {
+        if (!AppLoggerService._instance) {
+            AppLoggerService._instance = AppLoggerService.createLogger();
         }
-        return AppLogger._instance;
+        return AppLoggerService._instance;
     }
 
     private static _getLogFileName() {
@@ -43,7 +64,16 @@ export class AppLogger {
         return nodePath.join(!app.isPackaged ? '.' : AppInfo.INSTANCE.useDataPath, 'logs', `app-${timeStr}.log`);
     }
 
-    static createLogger(label?: string): winston.Logger {
+    static createLogger(label?: string): AppLogger {
+        const levels: winston.config.AbstractConfigSetLevels = {
+            fatal: 0,
+            error: 1,
+            warn: 2,
+            info: 3,
+            verbose: 4,
+            debug: 5,
+        };
+
         return winston.createLogger({
             format: winston.format.combine(
                 winston.format.timestamp(),
@@ -57,11 +87,12 @@ export class AppLogger {
             transports: ArrayUtil.filterFalsy([
                 new winston.transports.File({
                     level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-                    filename: AppLogger._getLogFileName(),
+                    filename: AppLoggerService._getLogFileName(),
                     options: { flags: 'a' },
                 }),
                 !app.isPackaged && new winston.transports.Console(),
             ]),
-        });
+            levels,
+        }) as AppLogger;
     }
 }
