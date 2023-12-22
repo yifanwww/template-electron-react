@@ -50,16 +50,23 @@ function splat(): winston.Logform.Format {
     };
 }
 
-function format(context: string, colors?: Record<string, ForegroundColorName>): winston.Logform.Format {
-    return winston.format.printf((info) => {
-        const color = colors?.[info.level];
+function format(colors?: Record<string, ForegroundColorName>): winston.Logform.Format {
+    interface TypedTransformableInfo extends winston.Logform.TransformableInfo {
+        label: string;
+        timestamp: string;
+    }
 
-        const levelStr = info.level.toUpperCase().padStart(7);
-        const contextStr = `[${context}]`;
-        const messageStr = String(info.message);
+    return winston.format.printf((info) => {
+        const typedInfo = info as TypedTransformableInfo;
+
+        const color = colors?.[typedInfo.level];
+
+        const levelStr = typedInfo.level.toUpperCase().padStart(7);
+        const contextStr = `[${typedInfo.label}]`;
+        const messageStr = String(typedInfo.message);
 
         return [
-            String(info.timestamp),
+            typedInfo.timestamp,
             color ? chalk[color](levelStr) : levelStr,
             color ? chalk.yellow(contextStr) : contextStr,
             color ? chalk[color](messageStr) : messageStr,
@@ -102,6 +109,7 @@ export class AppLoggerService {
             debug: 'blue',
         };
 
+        const labelFormat = winston.format.label({ label: context });
         const timestampFormat = winston.format.timestamp({ format: 'YYYY-MM-DD, HH:mm:ss.SSS' });
         const splatFormat = splat();
 
@@ -111,12 +119,12 @@ export class AppLoggerService {
                     level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
                     filename: getLogFileName(),
                     options: { flags: 'a' },
-                    format: winston.format.combine(timestampFormat, splatFormat, format(context)),
+                    format: winston.format.combine(labelFormat, timestampFormat, splatFormat, format()),
                 }),
                 !app.isPackaged &&
                     new winston.transports.Console({
                         level: 'debug',
-                        format: winston.format.combine(timestampFormat, splatFormat, format(context, colors)),
+                        format: winston.format.combine(labelFormat, timestampFormat, splatFormat, format(colors)),
                     }),
             ]),
             levels,
