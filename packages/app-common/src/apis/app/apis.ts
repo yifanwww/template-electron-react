@@ -1,6 +1,6 @@
-import type { IpcRendererInvokerAPI } from '../types';
+import type { IpcRendererInvokerAPI } from '../types.js';
 
-import type { AppDetails, WindowType } from './types';
+import type { AppDetails, WindowType } from './types.js';
 
 export const AppAPIKey = {
     CREATE_WINDOW: 'App:CreateWindow',

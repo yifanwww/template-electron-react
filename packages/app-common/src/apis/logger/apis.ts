@@ -1,4 +1,4 @@
-import type { IpcRendererInvokerAPI } from '../types';
+import type { IpcRendererInvokerAPI } from '../types.js';
 
 export const LoggerAPIKey = {
     LOG: 'Logger:Log',
