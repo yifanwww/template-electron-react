@@ -1,2 +1,2 @@
-export * from './array';
-export * from './function';
+export * from './array.js';
+export * from './function.js';

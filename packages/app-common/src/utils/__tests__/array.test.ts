@@ -1,4 +1,4 @@
-import { ArrayUtil } from '../array';
+import { ArrayUtil } from '../array.js';
 
 describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.filterFalsy.name}\``, () => {
     it('should filter falsy values', () => {
