@@ -46,17 +46,17 @@ type ConfigurationFactory = (
 ) => Configuration | Promise<Configuration>;
 
 const factory: ConfigurationFactory = (env, argv) => {
-    const isEnvDevelopment = argv.mode === 'development';
-    const isEnvProduction = argv.mode === 'production';
+    const isDevelopment = argv.mode === 'development';
+    const isProduction = argv.mode === 'production';
 
     const webpack: Configuration = {
         target: 'electron-main',
         // Webpack noise constrained to errors and warnings
         stats: 'errors-warnings',
-        mode: isEnvProduction ? 'production' : 'development',
+        mode: isProduction ? 'production' : 'development',
         // Stop compilation early in production
-        bail: isEnvProduction,
-        devtool: isEnvProduction ? 'source-map' : 'cheap-module-source-map',
+        bail: isProduction,
+        devtool: isProduction ? 'source-map' : 'cheap-module-source-map',
         entry: {
             electron: appMainPaths.mainIndexTs,
             preload: appMainPaths.preloadIndexTs,
@@ -65,14 +65,14 @@ const factory: ConfigurationFactory = (env, argv) => {
         output: {
             path: appMainPaths.build,
             // Add /* filename */ comments to generated require()s in the output.
-            pathinfo: isEnvDevelopment,
+            pathinfo: isDevelopment,
             filename: '[name].js',
             chunkFilename: '[name].[contenthash:8].chunk.js',
         },
 
         cache: {
             type: 'filesystem',
-            version: createEnvironmentHash({ NODE_ENV: process.env.NODE_ENV ?? 'development' }),
+            version: createEnvironmentHash({ NODE_ENV: isDevelopment ? 'development' : 'production' }),
             cacheDirectory: appMainPaths.webpackCache,
             store: 'pack',
             buildDependencies: {
@@ -122,26 +122,26 @@ const factory: ConfigurationFactory = (env, argv) => {
         },
 
         optimization: {
-            minimize: isEnvProduction,
+            minimize: isProduction,
             minimizer: [new EsbuildPlugin({ target: getElectronNodeTarget() })],
         },
 
         plugins: [
             new EsbuildPlugin({
                 define: {
-                    'process.env.NODE_ENV': JSON.stringify(isEnvDevelopment ? 'development' : 'production'),
+                    'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
                 },
             }),
-            isEnvDevelopment && new ReloadElectronWebpackPlugin(paths.repository, paths.working),
+            isDevelopment && new ReloadElectronWebpackPlugin(paths.repository, paths.working),
             // TypeScript type checking
-            isEnvDevelopment &&
+            isDevelopment &&
                 new ForkTsCheckerWebpackPlugin({
-                    async: isEnvDevelopment,
+                    async: isDevelopment,
                     typescript: {
                         typescriptPath: require.resolve('typescript'),
                         configOverwrite: {
                             compilerOptions: {
-                                sourceMap: isEnvProduction || isEnvDevelopment,
+                                sourceMap: isProduction || isDevelopment,
                                 skipLibCheck: true,
                                 inlineSourceMap: false,
                                 declarationMap: false,
@@ -164,7 +164,7 @@ const factory: ConfigurationFactory = (env, argv) => {
             hints: 'warning',
         },
 
-        watch: isEnvDevelopment,
+        watch: isDevelopment,
         watchOptions: {
             aggregateTimeout: 500,
             // poll: 10_000,

@@ -22,14 +22,8 @@ export function appMain(): void {
 
     const command = genCommand('webpack', '--config', paths.webpackMainConfig, '--mode', compilationMode[flag]);
 
-    const env = {
-        ...process.env,
-        BABEL_ENV: compilationMode[flag],
-        NODE_ENV: compilationMode[flag],
-    };
-
     console.info(chalk.yellow(command));
-    child.execSync(command, { env, stdio: 'inherit' });
+    child.execSync(command, { stdio: 'inherit' });
 }
 
 export async function mkdirWorking(): Promise<void> {
