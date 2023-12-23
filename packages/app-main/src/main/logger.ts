@@ -9,14 +9,26 @@ import winston from 'winston';
 
 import { AppInfo } from './appInfo';
 
-export interface AppLogger extends winston.Logger {
+type LogLevel = 'fatal' | 'error' | 'warn' | 'info' | 'verbose' | 'debug';
+
+interface ILogObject {
+    message: string;
+    [key: string]: unknown;
+}
+
+interface AppLogMethod<TLogger> {
+    (message: string | ILogObject): TLogger;
+    (message: string, ...meta: unknown[]): TLogger;
+}
+
+export interface AppLogger extends Omit<winston.Logger, LogLevel> {
     // The levels we support
-    fatal: winston.LeveledLogMethod;
-    error: winston.LeveledLogMethod;
-    warn: winston.LeveledLogMethod;
-    info: winston.LeveledLogMethod;
-    verbose: winston.LeveledLogMethod;
-    debug: winston.LeveledLogMethod;
+    fatal: AppLogMethod<AppLogger>;
+    error: AppLogMethod<AppLogger>;
+    warn: AppLogMethod<AppLogger>;
+    info: AppLogMethod<AppLogger>;
+    verbose: AppLogMethod<AppLogger>;
+    debug: AppLogMethod<AppLogger>;
 
     // The built-in levels we don't support
     help: never;
@@ -91,7 +103,7 @@ export class AppLoggerService {
     }
 
     static createLogger(context: string): AppLogger {
-        const levels: winston.config.AbstractConfigSetLevels = {
+        const levels: Record<LogLevel, number> = {
             fatal: 0,
             error: 1,
             warn: 2,
@@ -100,7 +112,7 @@ export class AppLoggerService {
             debug: 5,
         };
 
-        const colors: Record<string, ForegroundColorName> = {
+        const colors: Record<LogLevel, ForegroundColorName> = {
             fatal: 'magentaBright',
             error: 'red',
             warn: 'yellow',
