@@ -34,7 +34,6 @@
         "build-scripts:dist": "tsc --project tsconfigs/tsconfig.dist.json",
         "build-scripts:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build-scripts --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
