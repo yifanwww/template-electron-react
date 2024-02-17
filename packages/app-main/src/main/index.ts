@@ -5,7 +5,7 @@ import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';
 import { AppInfo } from './appInfo';
-import { AppLogger } from './logger';
+import { AppLoggerService } from './logger';
 import { WindowManager } from './window';
 
 async function installExtensions(): Promise<void> {
@@ -16,11 +16,11 @@ async function installExtensions(): Promise<void> {
     } = await import(/* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer');
 
     const succeed = (name: string) => {
-        AppLogger.INSTANCE.info(`Added extension "${name}"`);
+        AppLoggerService.INSTANCE.info(`Added extension "${name}"`);
     };
 
     const fail = (err: unknown) => {
-        AppLogger.INSTANCE.error('An error occurred when install extension:', err);
+        AppLoggerService.INSTANCE.error('An error occurred when install extension:', err);
     };
 
     await Promise.all([
@@ -37,7 +37,7 @@ async function handleReady() {
     AppInfo.init();
     initThirdPartyModules();
 
-    AppLogger.INSTANCE.info('App ready.');
+    AppLoggerService.INSTANCE.info('App ready.');
 
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
@@ -45,7 +45,7 @@ async function handleReady() {
 
     registerAppGlobalHandlers();
 
-    AppLogger.INSTANCE.info('Registered event handlers.');
+    AppLoggerService.INSTANCE.info('Registered event handlers.');
 
     WindowManager.INSTANCE.createWindow({ type: WindowType.MAIN });
 }
@@ -59,7 +59,7 @@ app.on('window-all-closed', () => {
     // On macOS, most applications and their menu bars will stay active unless users use `cmd + Q` to quit.
     if (process.platform !== 'darwin') {
         app.quit();
-        AppLogger.INSTANCE.info('App quited.');
+        AppLoggerService.INSTANCE.info('App quited.');
     }
 });
 

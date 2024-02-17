@@ -1,9 +1,10 @@
 import type { LoggerMainAPI } from '@ter/app-common/apis/logger';
 import { LoggerAPIKey } from '@ter/app-common/apis/logger';
 import type { IpcMain } from 'electron';
-import type winston from 'winston';
 
-export function registerLoggerHandlers(ipc: IpcMain, logger: winston.Logger) {
+import type { AppLogger } from 'src/main/logger';
+
+export function registerLoggerHandlers(ipc: IpcMain, logger: AppLogger) {
     const handlers: LoggerMainAPI = {
         handleLog: (_, level, message, ...meta) => void logger.log(level, message, ...meta),
 

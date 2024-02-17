@@ -1,12 +1,12 @@
 import type { WindowType } from '@ter/app-common/apis/app';
 import { BrowserWindow, shell } from 'electron';
 import path from 'node:path';
-import type winston from 'winston';
 
 import { registerLoggerHandlers } from '../apis/logger';
 import { AppInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';
-import { AppLogger } from '../logger';
+import type { AppLogger } from '../logger';
+import { AppLoggerService } from '../logger';
 
 import type { AbstractWindowOption, CloseWindowOption } from './types';
 
@@ -14,7 +14,7 @@ export abstract class AbstractWindow {
     protected readonly _window: BrowserWindow;
     protected readonly _windowType: WindowType;
 
-    protected readonly _logger: winston.Logger;
+    protected readonly _logger: AppLogger;
 
     private readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
 
@@ -38,7 +38,7 @@ export abstract class AbstractWindow {
         if (windowStateKeeper.fullScreen) this._window.setFullScreen(true);
         windowStateKeeper.registerHandlers(this._window);
 
-        this._logger = AppLogger.createLogger(`${this._windowType}-${this.id}`);
+        this._logger = AppLoggerService.createLogger(`${this._windowType}-${this.id}`);
 
         this._onClose = option.onClose;
 
