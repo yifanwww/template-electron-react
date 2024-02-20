@@ -14,7 +14,8 @@ export function Introduction({ appDetails }: IntroductionProps): React.ReactNode
             <header className={css.introduction}>
                 <img className={css.logo} src={Assets.logo} alt="logo" />
                 <p>
-                    Edit <code>src/MainWindow/components/Introduction/Introduction.tsx</code> and save to reload.
+                    Edit <code>src/MainWindow/containers/Home/components/Introduction/Introduction.tsx</code> and save
+                    to reload.
                 </p>
                 <a
                     className={css.link}
