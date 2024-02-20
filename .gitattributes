@@ -1,6 +1,6 @@
 *                           text=auto
 
-# documents
+# Document
 
 README                      text eol=lf
 CHANGELOG                   text eol=lf
@@ -12,6 +12,7 @@ LICENSE                     text eol=lf
 ## git
 
 .gitattributes              text eol=lf
+.gitconfig                  text eol=lf
 .gitkeep                    text eol=lf
 .gitmodules                 text eol=lf
 .gitignore                  text eol=lf
@@ -25,6 +26,7 @@ pre-commit                  text eol=lf
 ## visual studio & visual studio code
 
 *.code-workspace            text eol=lf
+*.code-snippets             text eol=lf
 *.csproj                    text eol=lf
 *.filters                   text eol=lf
 *.pubxml                    text eol=lf
@@ -32,18 +34,37 @@ pre-commit                  text eol=lf
 *.user                      text eol=lf
 *.vcxproj                   text eol=lf
 
+## Unix / Linux
+### mysql
+
+*.cnf                       text eol=lf
+
+### nginx
+
+mysql                       text eol=lf
+redis                       text eol=lf
+*.com                       text eol=lf
+*.conf                      text eol=lf
+
+### systemd
+
+*.service                   text eol=lf
+
 ## others
 
 .clang-format               text eol=lf
 .editorconfig               text eol=lf
 .env                        text eol=lf
 .flake8                     text eol=lf
+.lintstagedrc               text eol=lf
 .npmignore                  text eol=lf
 .npmrc                      text eol=lf
 .prettierrc                 text eol=lf
 .prettierignore             text eol=lf
 .style.yapf                 text eol=lf
+.swcrc                      text eol=lf
 .yarnrc                     text eol=lf
+config                      text eol=lf
 makefile                    text eol=lf
 
 *.ini                       text eol=lf
@@ -54,7 +75,7 @@ makefile                    text eol=lf
 *.yaml                      text eol=lf
 *.yml                       text eol=lf
 
-# programming language source code
+# Programming Language Source Code
 ## c & cpp & object-c
 
 *.c                         text eol=lf
@@ -105,6 +126,8 @@ makefile                    text eol=lf
 *.jsx                       text eol=lf
 *.map                       text eol=lf
 *.mjs                       text eol=lf
+*.cts                       text eol=lf
+*.mts                       text eol=lf
 *.ts                        text eol=lf
 *.tsx                       text eol=lf
 
