@@ -2,16 +2,16 @@
     "name": "@ter/eslint-config",
     "version": "0.13.0",
     "description": "ESLint configurations for ter.",
-    "homepage": "https://github.com/YSoftwareRepo/template-electron-react#readme",
+    "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/YSoftwareRepo/template-electron-react/issues"
+        "url": "https://github.com/yifanwww/template-electron-react/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YSoftwareRepo/template-electron-react.git",
+        "url": "git+https://github.com/yifanwww/template-electron-react.git",
         "directory": "configs/eslint-config"
     },
     "scripts": {

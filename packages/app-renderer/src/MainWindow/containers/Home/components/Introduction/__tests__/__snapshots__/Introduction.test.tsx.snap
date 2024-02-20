@@ -19,7 +19,7 @@ exports[`Test component \`Introduction\` should render 1`] = `
     </p>
     <a
       className="link"
-      href="https://github.com/YSoftwareRepo/template-electron-react"
+      href="https://github.com/yifanwww/template-electron-react"
       rel="noopener noreferrer"
       target="_blank"
     >

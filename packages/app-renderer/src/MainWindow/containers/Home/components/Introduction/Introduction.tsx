@@ -19,7 +19,7 @@ export function Introduction({ appDetails }: IntroductionProps): React.ReactNode
                 </p>
                 <a
                     className={css.link}
-                    href="https://github.com/YSoftwareRepo/template-electron-react"
+                    href="https://github.com/yifanwww/template-electron-react"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
