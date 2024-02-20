@@ -1,9 +1,11 @@
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
+import { RoutePath } from './path';
+
 export const routes: RouteObject[] = [
     {
-        path: '/',
+        path: RoutePath.HOME,
         children: [
             {
                 index: true,
@@ -16,6 +18,6 @@ export const routes: RouteObject[] = [
     },
     {
         path: '/*',
-        element: <Navigate to="/" replace />,
+        element: <Navigate to={RoutePath.HOME} replace />,
     },
 ];
