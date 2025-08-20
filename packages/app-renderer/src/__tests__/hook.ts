@@ -8,7 +8,7 @@ import { renderHook } from '@testing-library/react';
  * you can pass this second callback which calls the hook differently.
  */
 // eslint-disable-next-line jest/no-export
-export function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
+export function validateHookValueNotChanged<TValues extends unknown[]>(
     testDescription: string,
     useHook: () => TValues,
     useHookAgain?: () => TValues,
@@ -37,12 +37,12 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
         for (let i = 0; i < latestValues.length; i++) {
             try {
                 expect(latestValues[i]).toBe(firstValues[i]);
-            } catch (err) {
-                const latestValuesStr = String(latestValues[i]);
+            } catch {
                 // Make a more informative error message
                 // eslint-disable-next-line jest/no-conditional-expect
                 expect('').toBe(
-                    `Identity of value at index ${i} has changed. This might help identify it:\n${latestValuesStr}`,
+                    `Identity of value at index ${i} has changed. ` +
+                        `This might help identify it:\n${String(latestValues[i])}`,
                 );
             }
         }

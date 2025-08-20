@@ -43,13 +43,13 @@
     },
     "devDependencies": {
         "@ter/scripts": "workspace:*",
-        "concurrently": "^8.2.1",
+        "concurrently": "^9.2.0",
         "electron": "26.0.0",
         "electron-builder": "^24.6.4",
         "husky": "^9.1.7",
         "lint-staged": "^16.1.5",
-        "prettier": "3.0.3",
-        "rimraf": "^5.0.1",
-        "typescript": "5.2.2"
+        "prettier": "3.6.2",
+        "rimraf": "^6.0.1",
+        "typescript": "5.9.2"
     }
 }

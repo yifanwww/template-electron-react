@@ -1,11 +1,16 @@
 packages:
   - packages/*
+
 ignoredBuiltDependencies:
   - '@parcel/watcher'
+  - unrs-resolver
+
 onlyBuiltDependencies:
   - '@swc/core'
   - electron
   - esbuild
+
 publicHoistPattern:
   - '*eslint*'
+
 workspaceConcurrency: 0

@@ -12,9 +12,7 @@ export class WindowManager {
     private static _instance?: WindowManager;
 
     static get INSTANCE() {
-        if (!WindowManager._instance) {
-            WindowManager._instance = new WindowManager();
-        }
+        WindowManager._instance ??= new WindowManager();
         return WindowManager._instance;
     }
 

@@ -29,7 +29,7 @@ export function TitleBar(props: React.PropsWithChildren<TitleBarProps>): React.R
     }, [onClientAreaSizeChange]);
 
     return (
-        <div id={css.TitleBar} ref={ref}>
+        <div id={css['title-bar']} ref={ref}>
             {children}
         </div>
     );

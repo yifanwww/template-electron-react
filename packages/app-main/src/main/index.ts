@@ -1,6 +1,7 @@
 import { WindowType } from '@ter/app-common/apis/app';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
+import type { Extension } from 'electron';
 import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';
@@ -15,8 +16,8 @@ async function installExtensions(): Promise<void> {
         REACT_DEVELOPER_TOOLS,
     } = await import(/* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer');
 
-    const succeed = (name: string) => {
-        AppLoggerService.INSTANCE.info(`Added extension "${name}"`);
+    const succeed = (name: Extension) => {
+        AppLoggerService.INSTANCE.info(`Added extension "${name.name}"`);
     };
 
     const fail = (err: unknown) => {

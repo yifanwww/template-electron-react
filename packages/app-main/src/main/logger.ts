@@ -103,9 +103,7 @@ export class AppLoggerService {
      * The instance for electron main process to log logs.
      */
     static get INSTANCE(): AppLogger {
-        if (!AppLoggerService._instance) {
-            AppLoggerService._instance = AppLoggerService.createLogger('Application');
-        }
+        AppLoggerService._instance ??= AppLoggerService.createLogger('Application');
         return AppLoggerService._instance;
     }
 

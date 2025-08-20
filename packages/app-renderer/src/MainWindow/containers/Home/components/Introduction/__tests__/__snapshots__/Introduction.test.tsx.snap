@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Test component \`Introduction\` should render 1`] = `
-[
+<DocumentFragment>
   <header
-    className="introduction"
+    class="introduction"
   >
     <img
       alt="logo"
-      className="logo"
+      class="logo"
       src="logo.svg"
     />
     <p>
@@ -18,41 +18,35 @@ exports[`Test component \`Introduction\` should render 1`] = `
        and save to reload.
     </p>
     <a
-      className="link"
+      class="link"
       href="https://github.com/yifanwww/template-electron-react"
       rel="noopener noreferrer"
       target="_blank"
     >
       Learn template-electron-react
     </a>
-  </header>,
+  </header>
   <div
-    className="appDetails"
+    class="appDetails"
   >
     <code>
-      Name: 
-      ter
+      Name: ter
     </code>
     <code>
-      Version: 
-      unknown
+      Version: unknown
     </code>
     <code>
-      Electron: 
-      unknown
+      Electron: unknown
     </code>
     <code>
-      Chrome: 
-      unknown
+      Chrome: unknown
     </code>
     <code>
-      Node.js: 
-      unknown
+      Node.js: unknown
     </code>
     <code>
-      V8: 
-      unknown
+      V8: unknown
     </code>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;

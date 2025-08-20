@@ -16,13 +16,11 @@ interface PersistFnRef<T> {
  */
 export function usePersistFn<T extends UnknownFn>(fn: T): T {
     const ref = useRef<PersistFnRef<T>>();
-    if (!ref.current) {
-        ref.current = {
-            fn,
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            persistFn: ((...args) => ref.current!.fn(...args)) as T,
-        };
-    }
+    ref.current ??= {
+        fn,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        persistFn: ((...args) => ref.current!.fn(...args)) as T,
+    };
     ref.current.fn = fn;
     return ref.current.persistFn;
 }

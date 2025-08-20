@@ -1,6 +1,5 @@
 import type { Nullable, Optional } from '@ter/app-common/types';
 import { act, render } from '@testing-library/react';
-import { noop } from 'lodash';
 import { useState } from 'react';
 
 import { validateHookValueNotChanged } from 'src/__tests__/hook';
@@ -9,7 +8,7 @@ import { assert } from 'src/utils/assert';
 import { usePersistFn } from '../usePersistFn';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
-    validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
+    validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(() => {})]);
 
     it('should call the latest non-persist function', () => {
         let count: Optional<number>;

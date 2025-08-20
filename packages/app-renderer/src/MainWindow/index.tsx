@@ -1,5 +1,5 @@
 import { Provider as ReduxProvider } from 'react-redux';
-import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router';
 
 import { FramelessWindow, TitleBar } from 'src/utils/frameless';
 

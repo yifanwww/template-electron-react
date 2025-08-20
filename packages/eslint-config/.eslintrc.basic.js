@@ -65,25 +65,20 @@ module.exports = {
     plugins: ['@typescript-eslint', 'import', 'jest', 'prettier'],
 
     settings: {
-        // Append 'ts' extensions to Airbnb 'import/extensions' setting
-        // Original: ['.js', '.mjs', '.jsx']
-        'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
+        // Override Airbnb's 'import/extensions'
+        'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
 
-        // Resolve type definition packages
-        'import/external-module-folders': ['node_modules', 'node_modules/@types'],
-
-        'import/internal-regex': '^src',
+        'import/internal-regex': '^src/',
 
         // Apply special parsing for TypeScript files
         'import/parsers': {
-            '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+            '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
 
-        // Append 'ts' extensions to Airbnb 'import/resolver' setting
-        // Original: ['.js', '.jsx', '.json']
+        // Override Airbnb's 'import/resolver'
         'import/resolver': {
             node: {
-                extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx', '.d.ts'],
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
             },
         },
     },
@@ -256,8 +251,8 @@ module.exports = {
             },
         ],
 
-        // https://typescript-eslint.io/rules/no-empty-interface
-        '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
+        // https://typescript-eslint.io/rules/no-empty-object-type
+        '@typescript-eslint/no-empty-object-type': ['error', { allowInterfaces: 'with-single-extends' }],
 
         // https://typescript-eslint.io/rules/no-loop-func
         '@typescript-eslint/no-loop-func': 'error',
@@ -288,6 +283,9 @@ module.exports = {
         // https://typescript-eslint.io/rules/no-useless-constructor
         'no-useless-constructor': 'off',
         '@typescript-eslint/no-useless-constructor': 'error',
+
+        // https://typescript-eslint.io/rules/prefer-string-starts-ends-with
+        '@typescript-eslint/prefer-string-starts-ends-with': ['error', { allowSingleElementEquality: 'always' }],
 
         // https://typescript-eslint.io/rules/restrict-template-expressions
         '@typescript-eslint/restrict-template-expressions': [
@@ -325,11 +323,16 @@ module.exports = {
         'import/order': [
             'error',
             {
-                groups: [['builtin', 'external'], 'internal', 'parent', 'sibling'],
+                groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'unknown'],
                 pathGroups: [
                     {
-                        pattern: './*.{css,scss}',
-                        group: 'sibling',
+                        pattern: 'src/**/*.{css,scss}',
+                        group: 'unknown',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**/*.{css,scss}',
+                        group: 'unknown',
                         position: 'after',
                     },
                 ],
@@ -337,6 +340,7 @@ module.exports = {
                     caseInsensitive: true,
                     order: 'asc',
                 },
+                distinctGroup: false,
                 'newlines-between': 'always',
             },
         ],
@@ -347,7 +351,7 @@ module.exports = {
         // -------------------- Eslint-Plugin-Jest Rules --------------------
 
         // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/expect-expect.md
-        'jest/expect-expect': ['error', { assertFunctionNames: ['expect', '_expect*'] }],
+        'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'expect*'] }],
 
         // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/no-alias-methods.md
         'jest/no-alias-methods': 'error',
@@ -374,6 +378,9 @@ module.exports = {
         {
             files: ['src/**/__tests__/*.{ts,tsx}', 'src/**/*.{spec,test}.{ts,tsx}', 'test/**/*.{ts,tsx}'],
             rules: {
+                // https://eslint.org/docs/latest/rules/max-classes-per-file
+                'max-classes-per-file': 'off',
+
                 // https://typescript-eslint.io/rules/dot-notation
                 '@typescript-eslint/dot-notation': [
                     'error',
@@ -386,18 +393,6 @@ module.exports = {
 
                 // https://typescript-eslint.io/rules/unbound-method/
                 '@typescript-eslint/unbound-method': 'off',
-            },
-        },
-        {
-            files: [
-                'perf/**/*.ts',
-                'src/**/__tests__/*.{ts,tsx}',
-                'src/**/*.{spec,test}.{ts,tsx}',
-                'test/**/*.{ts,tsx}',
-            ],
-            rules: {
-                // https://eslint.org/docs/latest/rules/no-console
-                'no-console': 'off',
             },
         },
     ],

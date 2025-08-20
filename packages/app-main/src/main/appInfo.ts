@@ -32,9 +32,7 @@ export class AppInfo {
     }
 
     static init() {
-        if (!AppInfo._instance) {
-            AppInfo._instance = new AppInfo();
-        }
+        AppInfo._instance ??= new AppInfo();
     }
 
     get appPath(): string {

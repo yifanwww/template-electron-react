@@ -40,7 +40,7 @@ export function getElectronNodeTarget(): string {
     };
     if (electronVer > 10) {
         let target = nodeVer[electronVer];
-        if (!target) target = Object.values(nodeVer).reverse()[0];
+        target ??= Object.values(nodeVer).reverse()[0];
         return `node${target}`;
     }
     return '';
@@ -70,7 +70,7 @@ export function getElectronChromeTarget(): string {
     };
     if (electronVer > 10) {
         let target = chromeVer[electronVer];
-        if (!target) target = Object.values(chromeVer).reverse()[0];
+        target ??= Object.values(chromeVer).reverse()[0];
         return `chrome${target}`;
     }
     return '';
