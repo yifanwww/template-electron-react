@@ -21,7 +21,6 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
@@ -45,7 +44,6 @@
         "@types/node": "^18.17.14",
         "@types/yargs-parser": "^21.0.0",
         "eslint": "^8.48.0",
-        "lint-staged": "^14.0.1",
         "prettier": "3.0.3",
         "rimraf": "^5.0.1",
         "typescript": "5.2.2",

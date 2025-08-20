@@ -1,4 +1,15 @@
 # CHANGELOG
+## template-electron-react v0.15.0 (Unreleased)
+### Features
+
+- Require `pnpm` v10
+
+### Dependency Changes
+
+- Upgrade
+  - `husky`                             v8.0.3  -> v9.1.7
+  - `lint-staged`                       v14.0.1 -> v16.1.5
+
 ## template-electron-react v0.14.0 (2025-08-20)
 ### Features
 

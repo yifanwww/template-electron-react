@@ -32,22 +32,22 @@
         "gen-installer": "electron-builder build --config electron-builder.json --win --publish never",
         "lint": "pnpm run --recursive --no-sort --stream lint",
         "lint:fix": "pnpm run --recursive --no-sort --stream lint:fix",
-        "pre-commit": "pnpm run --recursive --workspace-concurrency=1 pre-commit",
-        "prepare": "husky install",
+        "prepare": "husky",
         "run-build": "run-build",
         "run-unpacked": "run-unpacked",
         "test-full": "pnpm run --recursive --no-sort --stream test-full",
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
     "engines": {
-        "node": ">=18"
+        "node": ">=22"
     },
     "devDependencies": {
         "@ter/scripts": "workspace:*",
         "concurrently": "^8.2.1",
         "electron": "26.0.0",
         "electron-builder": "^24.6.4",
-        "husky": "^8.0.3",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.1.5",
         "prettier": "3.0.3",
         "rimraf": "^5.0.1",
         "typescript": "5.2.2"
