@@ -47,10 +47,8 @@ const naming = [
 
 module.exports = {
     env: {
-        browser: true,
         es2020: true,
         jest: true,
-        node: true,
     },
     extends: [
         'airbnb-base',
@@ -64,7 +62,7 @@ module.exports = {
         'plugin:jest/style',
     ],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
-    plugins: ['@typescript-eslint', 'import', 'jest', 'node', 'prettier'],
+    plugins: ['@typescript-eslint', 'import', 'jest', 'prettier'],
 
     settings: {
         // Append 'ts' extensions to Airbnb 'import/extensions' setting
@@ -197,9 +195,6 @@ module.exports = {
         // https://eslint.org/docs/latest/rules/no-unused-expressions
         'no-unused-expressions': 'off',
 
-        // https://eslint.org/docs/latest/rules/no-use-before-define
-        'no-use-before-define': 'off',
-
         // https://eslint.org/docs/latest/rules/no-void
         'no-void': 'off',
 
@@ -283,8 +278,16 @@ module.exports = {
         // https://typescript-eslint.io/rules/no-unused-expressions
         '@typescript-eslint/no-unused-expressions': 'error',
 
+        // https://typescript-eslint.io/rules/no-unused-vars
+        '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
+
         // https://typescript-eslint.io/rules/no-use-before-define
+        'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': 'error',
+
+        // https://typescript-eslint.io/rules/no-useless-constructor
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': 'error',
 
         // https://typescript-eslint.io/rules/restrict-template-expressions
         '@typescript-eslint/restrict-template-expressions': [

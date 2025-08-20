@@ -1,9 +1,8 @@
 module.exports = {
     env: {
         browser: true,
-        es2017: true,
+        es2020: true,
         jest: true,
-        node: true,
     },
     extends: [
         'airbnb',
@@ -19,7 +18,7 @@ module.exports = {
         './.eslintrc.basic.js',
     ],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
-    plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
+    plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'prettier', 'react', 'react-hooks'],
 
     rules: {
         // -------------------- Eslint-Plugin-React Rules --------------------
@@ -43,6 +42,9 @@ module.exports = {
 
         // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
         'react/jsx-props-no-spreading': 'off',
+
+        // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+        'react/no-unescaped-entities': 'off',
 
         // Disable because we only use TypeScript to write components, no need to use `prop-types`
         // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
