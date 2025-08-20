@@ -1,5 +1,5 @@
 # CHANGELOG
-## template-electron-react v0.14.0 (Unreleased)
+## template-electron-react v0.14.0 (2025-08-20)
 ### Features
 
 - Add `ts-pattern` to perform pattern matching
@@ -13,7 +13,6 @@
 ### Bug Fixes
 
 - Fix jest module name wrappers
-
 
 ### Dependency Changes
 
