@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import { AssertionError, assert, assertIsNever } from '../assert';
 
 describe(`Test fn \`${assert.name}\``, () => {

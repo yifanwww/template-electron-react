@@ -51,10 +51,10 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
+        "@jest/globals": "^30.0.5",
         "@ter/eslint-config": "workspace:*",
         "@ter/scripts": "workspace:*",
         "@ter/tsconfigs": "workspace:*",
-        "@types/jest": "^30.0.0",
         "concurrently": "^9.2.0",
         "eslint": "^8.57.1",
         "prettier": "3.6.2",

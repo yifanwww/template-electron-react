@@ -36,10 +36,10 @@
         "yargs-parser": "^21.1.1"
     },
     "devDependencies": {
+        "@jest/globals": "^30.0.5",
         "@ter/eslint-config": "workspace:*",
         "@ter/scripts": "workspace:*",
         "@ter/tsconfigs": "workspace:*",
-        "@types/jest": "^30.0.0",
         "@types/node": "^18.17.14",
         "@types/yargs-parser": "^21.0.3",
         "eslint": "^8.57.1",

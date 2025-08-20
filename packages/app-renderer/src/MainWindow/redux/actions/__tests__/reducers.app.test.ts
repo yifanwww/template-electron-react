@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import type { AppDetails } from '@ter/app-common/apis/app';
 
 import { getInitialState, _actions, _reducer } from '../slice';

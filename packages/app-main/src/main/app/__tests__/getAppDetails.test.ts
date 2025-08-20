@@ -1,4 +1,4 @@
-import { getAppDetails } from '../getAppDetails';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 
 jest.mock('electron', () => {
     const app: Partial<(typeof import('electron'))['app']> = {
@@ -9,7 +9,7 @@ jest.mock('electron', () => {
     return { app };
 });
 
-describe(`Test fn ${getAppDetails.name}`, () => {
+describe('Test fn getAppDetails', () => {
     beforeEach(() => {
         const process = {
             versions: {
@@ -28,7 +28,8 @@ describe(`Test fn ${getAppDetails.name}`, () => {
         global.process = process as typeof global.process;
     });
 
-    it('should return app details', () => {
+    it('should return app details', async () => {
+        const { getAppDetails } = await import('../getAppDetails');
         expect(getAppDetails()).toMatchSnapshot();
     });
 });

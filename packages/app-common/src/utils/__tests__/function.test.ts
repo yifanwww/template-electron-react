@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import { makeFn } from '../function.js';
 
 describe(`Test fn \`${makeFn.name}\``, () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import { AssertionError } from 'node:assert';
 
 import { assertIsNever } from '../assert';
