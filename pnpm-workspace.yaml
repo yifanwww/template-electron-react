@@ -1,2 +1,11 @@
 packages:
-  - 'packages/*'
+  - packages/*
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+onlyBuiltDependencies:
+  - '@swc/core'
+  - electron
+  - esbuild
+publicHoistPattern:
+  - '*eslint*'
+workspaceConcurrency: 0

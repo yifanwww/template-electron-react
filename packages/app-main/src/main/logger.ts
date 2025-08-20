@@ -54,7 +54,7 @@ function splat(): winston.Logform.Format {
     return {
         transform: (info) => {
             const args = (info[Symbol.for('splat')] ?? []) as unknown[];
-            const message = info.message as unknown;
+            const { message } = info;
             // eslint-disable-next-line no-param-reassign
             info.message = util.format(message, ...args);
             return info;

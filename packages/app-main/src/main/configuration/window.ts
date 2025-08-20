@@ -61,7 +61,7 @@ export class WindowStateKeeper {
     private readonly _type: WindowType;
 
     private readonly _state: IWindowState;
-    private _stateChangeTimer?: NodeJS.Timer;
+    private _stateChangeTimer?: NodeJS.Timeout;
     private _windowRef?: BrowserWindow;
 
     private readonly _defaultWidth: number;
