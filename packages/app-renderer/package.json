@@ -1,6 +1,6 @@
 {
     "name": "@ter/app-renderer",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "description": "Electron renderer process code.",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",

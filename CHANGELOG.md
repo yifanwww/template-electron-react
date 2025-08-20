@@ -1,4 +1,76 @@
 # CHANGELOG
+## template-electron-react v0.14.0 (Unreleased)
+### Features
+
+- Add `ts-pattern` to perform pattern matching
+- Use `swc` to do unit testing
+- Exclude `__mocks__` folders in tsconfig and json config
+- Add `IpcMainSenderAPI` for defining main-to-renderer ipc APIs
+- use `createHashRouter` data router
+- Make `@ter/app-common` a pure-esm package
+- Turn off vite-plugin-checker `enableBuild`
+
+### Bug Fixes
+
+- Fix jest module name wrappers
+
+
+### Dependency Changes
+
+- Add
+  - `@swc/jest`                         v0.2.29
+  - `ts-pattern`                        v5.0.5
+  - `whatwg-fetch`                      v3.6.18
+- Upgrade
+  - `@jest/types`                       v29.5.0   -> v29.6.3
+  - `@testing-library/jest-dom`         v5.16.5   -> v6.1.2
+  - `@types/jest`                       v29.5.2   -> v29.5.4
+  - `@types/node`                       v18.16.18 -> v18.17.14
+  - `@types/react`                      v18.2.15  -> v18.2.21
+  - `@types/react-test-renderer`        v18.0.0   -> v18.0.1
+  - `@types/semver`                     v7.5.0    -> v7.5.1
+  - `@typescript-eslint/eslint-plugin`  v5.59.11  -> 6.6.0
+  - `@typescript-eslint/parser`         v5.59.11  -> 6.6.0
+  - `@vitejs/plugin-react`              v4.0.1    -> v4.0.4
+  - `browserslist`                      v4.21.9   -> v4.21.10
+  - `camelcase`                         v6.3.0    -> v8.0.0
+  - `chalk`                             v4.1.2    -> v5.3.0
+  - `clsx`                              v1.2.1    -> v2.0.0
+  - `electron-builder`                  v24.4.0   -> v24.6.4
+  - `eslint`                            v8.42.0   -> v8.48.0
+  - `eslint-config-prettier`            v8.8.0    -> v9.0.0
+  - `eslint-plugin-import`              v2.27.5   -> v2.28.1
+  - `eslint-plugin-jest`                v27.2.1   -> v27.2.3
+  - `eslint-plugin-prettier`            v4.2.1    -> v5.0.0
+  - `eslint-plugin-react`               v7.32.2   -> v7.33.2
+  - `jest`                              v29.5.0   -> v29.6.4
+  - `jest-environment-jsdom`            v29.5.0   -> v29.6.4
+  - `lint-staged`                       v13.2.2   -> v14.0.1
+  - `postcss`                           v8.4.24   -> v8.4.29
+  - `prettier`                          v2.8.8    -> v3.0.3
+  - `react-redux`                       v8.1.0    -> v8.1.2
+  - `react-router-dom`                  v6.13.0   -> v6.15.0
+  - `sass`                              v1.63.4   -> v1.66.1
+  - `stylelint`                         v14.16.1  -> v15.10.3
+  - `stylelint-config-recess-order`     v3.1.0    -> v4.3.0
+  - `stylelint-config-sass-guidelines`  v9.0.1    -> v10.0.0
+  - `typescript`                        v5.1.3    -> v5.2.2
+  - `vite`                              v4.4.0    -> v4.4.9
+  - `vite-plugin-checker`               v0.6.1    -> v0.6.2
+  - `web-vitals`                        v3.3.2    -> v3.4.0
+  - `webpack`                           v5.88.1   -> v5.88.2
+  - `webpack-cli`                       v4.10.0   -> v5.1.4
+- Remove
+  - `@babel/core`                       v7.22.5
+  - `@babel/preset-typescript`          v7.22.5
+  - `@jest/transform`                   v28.5.0
+  - `@types/babel__core`                v7.20.1
+  - `@types/testing-library__jest-dom`  v5.14.6
+  - `babel-jest`                        v29.5.0
+  - `babel-preset-react-app`            v10.0.1
+  - `jest-resolve`                      v29.5.0
+  - `react-app-polyfill`                v3.0.0
+
 ## template-electron-react v0.13.0 (2023-09-01)
 ### Features
 

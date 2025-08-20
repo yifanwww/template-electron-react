@@ -1,6 +1,6 @@
 {
     "name": "@ter/eslint-config",
-    "version": "0.13.0",
+    "version": "0.14.0",
     "description": "ESLint configurations for ter.",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",
