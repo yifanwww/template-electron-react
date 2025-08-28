@@ -1,18 +1,22 @@
-import { useEffect } from 'react';
+import type { AppDetails } from '@ter/app-common/apis/app';
+import { useEffect, useState } from 'react';
 
-import { useAppDetails, useMainDispatchingThunks } from 'src/MainWindow/redux';
+import { AppAPI } from 'src/apis';
 
 import { Introduction } from './components/Introduction';
 
 import css from './Home.module.scss';
 
 export function Home(): React.ReactNode {
-    const appDetails = useAppDetails();
-    const { prepareAppDetails } = useMainDispatchingThunks();
+    const [appDetails, setAppDetails] = useState<AppDetails>();
 
     useEffect(() => {
-        void prepareAppDetails();
-    }, [prepareAppDetails]);
+        AppAPI.getAppDetails()
+            .then(setAppDetails)
+            .catch(() => {
+                // stop error propagation
+            });
+    }, []);
 
     return (
         <div className={css.clientArea}>

@@ -47,7 +47,6 @@
   - `eslint-plugin-react-hooks`             v4.6.0   -> v5.2.0
   - `fork-ts-checker-webpack-plugin`        v8.0.0   -> v9.1.0
   - `husky`                                 v8.0.3   -> v9.1.7
-  - `immer`                                 v9.0.21  -> v10.1.1
   - `jest`                                  v29.6.4  -> v30.0.5
   - `jest-environment-jsdom`                v29.6.4  -> v30.0.5
   - `jest-watch-typeahead`                  v2.2.2   -> v3.0.1
@@ -56,7 +55,6 @@
   - `postcss`                               v8.4.29  -> v8.5.6
   - `react`                                 v18.2.0  -> v18.3.1
   - `react-dom`                             v18.2.0  -> v18.3.1
-  - `react-redux`                           v8.1.2   -> v9.2.0
   - `rimraf`                                v5.0.1   -> v6.0.1
   - `sass`                                  v1.66.1  -> v1.90.0
   - `semver`                                v7.5.4   -> v7.7.2
@@ -80,7 +78,9 @@
   - `@types/lodash`                         v4.14.197
   - `@types/react-test-renderer`            v18.0.1
   - `eslint-plugin-node`                    v11.1.0
+  - `immer`                                 v9.0.21
   - `lodash`                                v4.17.21
+  - `react-redux`                           v8.1.2
   - `react-router-dom`                      v6.15.0
 
 - TODO
@@ -135,7 +135,6 @@
   - `lint-staged`                       v13.2.2   -> v14.0.1
   - `postcss`                           v8.4.24   -> v8.4.29
   - `prettier`                          v2.8.8    -> v3.0.3
-  - `react-redux`                       v8.1.0    -> v8.1.2
   - `react-router-dom`                  v6.13.0   -> v6.15.0
   - `sass`                              v1.63.4   -> v1.66.1
   - `stylelint`                         v14.16.1  -> v15.10.3
@@ -157,6 +156,7 @@
   - `babel-preset-react-app`            v10.0.1
   - `jest-resolve`                      v29.5.0
   - `react-app-polyfill`                v3.0.0
+  - `react-redux`                       v8.1.0
 
 ## template-electron-react v0.13.0 (2023-09-01)
 ### Features

@@ -10,11 +10,9 @@ import { AppLoggerService } from './logger';
 import { WindowManager } from './window';
 
 async function installExtensions(): Promise<void> {
-    const {
-        default: install,
-        REDUX_DEVTOOLS,
-        REACT_DEVELOPER_TOOLS,
-    } = await import(/* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer');
+    const { default: install, REACT_DEVELOPER_TOOLS } = await import(
+        /* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer'
+    );
 
     const succeed = (name: Extension) => {
         AppLoggerService.INSTANCE.info(`Added extension "${name.name}"`);
@@ -24,10 +22,7 @@ async function installExtensions(): Promise<void> {
         AppLoggerService.INSTANCE.error('An error occurred when install extension:', err);
     };
 
-    await Promise.all([
-        install(REDUX_DEVTOOLS).then(succeed).catch(fail),
-        install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail),
-    ]);
+    await Promise.all([install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail)]);
 }
 
 function initThirdPartyModules() {
