@@ -1,6 +1,6 @@
 {
     "root": true,
-    "extends": "@ter/eslint-config/.eslintrc.react.js",
+    "extends": "@app-config/eslint-config/.eslintrc.react.js",
     "ignorePatterns": ["/coverage", "*.cjs", "*.js", "*.mjs"],
     "parserOptions": {
         "project": ["./tsconfig.json", "./tsconfig.vite.json"]

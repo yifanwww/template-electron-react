@@ -1,5 +1,5 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.react.eslint.json",
+    "extends": "@app-config/tsconfigs/tsconfig.react.eslint.json",
     "compilerOptions": {
         "allowImportingTsExtensions": true,
         "baseUrl": ".",

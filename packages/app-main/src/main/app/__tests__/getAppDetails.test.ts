@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 
 jest.mock('electron', () => {
     const app: Partial<(typeof import('electron'))['app']> = {
-        getName: () => 'ter',
+        getName: () => 'template-electron-react',
         getVersion: () => '<app-version>',
     };
 

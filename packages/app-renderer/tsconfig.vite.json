@@ -1,5 +1,5 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.base.json",
+    "extends": "@app-config/tsconfigs/tsconfig.base.json",
     "compilerOptions": {
         "composite": true,
         "moduleResolution": "bundler"

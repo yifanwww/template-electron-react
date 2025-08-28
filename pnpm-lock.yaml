@@ -8,7 +8,7 @@ importers:
 
   .:
     devDependencies:
-      '@ter/scripts':
+      '@app-config/scripts':
         specifier: workspace:*
         version: link:packages/scripts
       concurrently:
@@ -38,18 +38,18 @@ importers:
 
   packages/app-common:
     devDependencies:
+      '@app-config/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@app-config/scripts':
+        specifier: workspace:*
+        version: link:../scripts
+      '@app-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../tsconfigs
       '@jest/globals':
         specifier: ^30.0.5
         version: 30.1.1
-      '@ter/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@ter/scripts':
-        specifier: workspace:*
-        version: link:../scripts
-      '@ter/tsconfigs':
-        specifier: workspace:*
-        version: link:../tsconfigs
       concurrently:
         specifier: ^9.2.0
         version: 9.2.1
@@ -68,7 +68,7 @@ importers:
 
   packages/app-main:
     dependencies:
-      '@ter/app-common':
+      '@app/common':
         specifier: workspace:*
         version: link:../app-common
       chalk:
@@ -93,18 +93,18 @@ importers:
         specifier: ^21.1.1
         version: 21.1.1
     devDependencies:
+      '@app-config/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@app-config/scripts':
+        specifier: workspace:*
+        version: link:../scripts
+      '@app-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../tsconfigs
       '@jest/globals':
         specifier: ^30.0.5
         version: 30.1.1
-      '@ter/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@ter/scripts':
-        specifier: workspace:*
-        version: link:../scripts
-      '@ter/tsconfigs':
-        specifier: workspace:*
-        version: link:../tsconfigs
       '@types/node':
         specifier: ^22.18.0
         version: 22.18.0
@@ -132,7 +132,7 @@ importers:
 
   packages/app-renderer:
     dependencies:
-      '@ter/app-common':
+      '@app/common':
         specifier: workspace:*
         version: link:../app-common
       clsx:
@@ -154,18 +154,18 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
     devDependencies:
+      '@app-config/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@app-config/scripts':
+        specifier: workspace:*
+        version: link:../scripts
+      '@app-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../tsconfigs
       '@jest/globals':
         specifier: ^30.0.5
         version: 30.1.1
-      '@ter/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@ter/scripts':
-        specifier: workspace:*
-        version: link:../scripts
-      '@ter/tsconfigs':
-        specifier: workspace:*
-        version: link:../tsconfigs
       '@testing-library/dom':
         specifier: ^10.4.1
         version: 10.4.1
@@ -327,15 +327,15 @@ importers:
         specifier: ^3.6.20
         version: 3.6.20
     devDependencies:
+      '@app-config/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@app-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../tsconfigs
       '@jest/types':
         specifier: ^30.0.5
         version: 30.0.5
-      '@ter/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@ter/tsconfigs':
-        specifier: workspace:*
-        version: link:../tsconfigs
       '@types/node':
         specifier: ^22.18.0
         version: 22.18.0

@@ -1,4 +1,4 @@
-import type { UnknownFn } from '@ter/app-common/types';
+import type { UnknownFn } from '@app/common/types';
 import { useRef } from 'react';
 
 interface PersistFnRef<T> {

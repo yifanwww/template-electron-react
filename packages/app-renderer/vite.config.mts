@@ -1,4 +1,4 @@
-import { getElectronChromeTarget } from '@ter/scripts';
+import { getElectronChromeTarget } from '@app-config/scripts';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { checker } from 'vite-plugin-checker';

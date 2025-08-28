@@ -30,7 +30,7 @@ exports[`Test component \`Introduction\` should render 1`] = `
     class="appDetails"
   >
     <code>
-      Name: ter
+      Name: template-electron-react
     </code>
     <code>
       Version: unknown

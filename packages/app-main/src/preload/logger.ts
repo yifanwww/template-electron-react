@@ -1,5 +1,5 @@
-import type { LoggerRendererAPI } from '@ter/app-common/apis/logger';
-import { LoggerAPIKey } from '@ter/app-common/apis/logger';
+import type { LoggerRendererAPI } from '@app/common/apis/logger';
+import { LoggerAPIKey } from '@app/common/apis/logger';
 import { ipcRenderer } from 'electron';
 
 export const LoggerAPI: LoggerRendererAPI = {

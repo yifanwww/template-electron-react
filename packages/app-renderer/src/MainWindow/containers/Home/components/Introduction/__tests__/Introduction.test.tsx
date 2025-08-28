@@ -1,5 +1,5 @@
+import type { AppDetails } from '@app/common/apis/app';
 import { describe, expect, it } from '@jest/globals';
-import type { AppDetails } from '@ter/app-common/apis/app';
 import { render } from '@testing-library/react';
 
 import { Introduction } from '../Introduction';
@@ -7,7 +7,7 @@ import { Introduction } from '../Introduction';
 describe(`Test component \`${Introduction.name}\``, () => {
     it('should render', () => {
         const appDetails: AppDetails = {
-            name: 'ter',
+            name: 'template-electron-react',
             version: 'unknown',
             module: {
                 chrome: 'unknown',

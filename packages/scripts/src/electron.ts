@@ -21,6 +21,17 @@ export function getElectronNodeTarget(): string {
     const electronVer = getElectronMajorVer();
 
     const nodeVer: Record<string, string | undefined> = {
+        '37': '22.16',
+        '36': '22.14',
+        '35': '22.14',
+        '34': '20.18',
+        '33': '20.18',
+        '32': '20.16',
+        '31': '20.14',
+        '30': '20.11',
+        '29': '20.9',
+        '28': '18.18',
+        '27': '18.17',
         '26': '18.16',
         '25': '18.15',
         '24': '18.14',
@@ -50,6 +61,16 @@ export function getElectronChromeTarget(): string {
     const electronVer = getElectronMajorVer();
 
     const chromeVer: Record<string, string | undefined> = {
+        '37': '138',
+        '36': '136',
+        '35': '134',
+        '34': '132',
+        '33': '130',
+        '32': '128',
+        '31': '126',
+        '30': '124',
+        '29': '122',
+        '28': '120',
         '27': '118',
         '26': '116',
         '25': '114',

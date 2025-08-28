@@ -1,6 +1,6 @@
-import type { AppMainAPI } from '@ter/app-common/apis/app';
-import { AppAPIKey } from '@ter/app-common/apis/app';
-import { makeFn } from '@ter/app-common/utils';
+import type { AppMainAPI } from '@app/common/apis/app';
+import { AppAPIKey } from '@app/common/apis/app';
+import { makeFn } from '@app/common/utils';
 import { ipcMain } from 'electron';
 
 import { getAppDetails } from 'src/main/app';

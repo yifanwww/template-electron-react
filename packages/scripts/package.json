@@ -1,7 +1,7 @@
 {
-    "name": "@ter/scripts",
+    "name": "@app-config/scripts",
     "version": "0.14.0",
-    "description": "Scripts for ter.",
+    "description": "Scripts for template-electron-react.",
     "type": "module",
     "exports": {
         ".": {
@@ -56,9 +56,9 @@
         "whatwg-fetch": "^3.6.20"
     },
     "devDependencies": {
+        "@app-config/eslint-config": "workspace:*",
+        "@app-config/tsconfigs": "workspace:*",
         "@jest/types": "^30.0.5",
-        "@ter/eslint-config": "workspace:*",
-        "@ter/tsconfigs": "workspace:*",
         "@types/node": "^22.18.0",
         "@types/semver": "^7.7.0",
         "@types/text-table": "^0.2.5",

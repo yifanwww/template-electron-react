@@ -1,7 +1,7 @@
 {
-    "name": "@ter/eslint-config",
+    "name": "@app-config/eslint-config",
     "version": "0.14.0",
-    "description": "ESLint configurations for ter.",
+    "description": "ESLint configurations for template-electron-react.",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",

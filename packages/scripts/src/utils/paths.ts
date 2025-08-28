@@ -33,7 +33,7 @@ export const paths = {
     // compilation
 
     build,
-    unpacked: path.resolve(repo, 'release/win-unpacked/ter.exe'),
+    unpacked: path.resolve(repo, 'release/win-unpacked/template-electron-react.exe'),
 
     webpackMainConfig: path.resolve(scriptsDist, 'webpack/webpack.main.config.js'),
 

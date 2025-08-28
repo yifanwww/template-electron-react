@@ -1,4 +1,4 @@
-import type { WindowType } from '@ter/app-common/apis/app';
+import type { WindowType } from '@app/common/apis/app';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore `@types/yargs-parser` doesn't support this import path.
 import _yargs from 'yargs-parser/browser';

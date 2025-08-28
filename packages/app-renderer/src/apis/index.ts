@@ -22,8 +22,8 @@
  * ```
  */
 
-import type { AppRendererAPI } from '@ter/app-common/apis/app';
-import type { LoggerRendererAPI } from '@ter/app-common/apis/logger';
+import type { AppRendererAPI } from '@app/common/apis/app';
+import type { LoggerRendererAPI } from '@app/common/apis/logger';
 
 import { APP_API, LOGGER_API } from './exposes';
 

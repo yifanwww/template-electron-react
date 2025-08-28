@@ -1,5 +1,17 @@
 # CHANGELOG
 ## template-electron-react v0.15.0 (Unreleased)
+### Breaking Changes
+
+Rename package names:
+- `@ter/app-common`    -> `@app/common`
+- `@ter/app-main`      -> `@app/main`
+- `@ter/app-renderer`  -> `@app/renderer`
+- `@ter/eslint-config` -> `@app-config/eslint-config`
+- `@ter/scripts`       -> `@app-config/scripts`
+- `@ter/tsconfigs`     -> `@app-config/tsconfigs`
+
+Rename executable binary name to `template-electron-react`.
+
 ### Features
 
 - Require `pnpm` v10

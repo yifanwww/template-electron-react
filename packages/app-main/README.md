@@ -1,3 +1,3 @@
-# @ter/app-main
+# @app/main
 
 Electron main process code.

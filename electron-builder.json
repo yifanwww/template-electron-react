@@ -2,7 +2,7 @@
     // For more information visit https://www.electron.build/
 
     "appId": "yifanwww.template-electron-react",
-    "productName": "ter",
+    "productName": "template-electron-react",
     "extends": null,
 
     "asar": true,

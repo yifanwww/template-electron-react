@@ -1,4 +1,4 @@
-import { ArrayUtil } from '@ter/app-common/utils';
+import { ArrayUtil } from '@app/common/utils';
 import type { ForegroundColorName } from 'chalk';
 import chalk from 'chalk';
 import dayjs from 'dayjs';

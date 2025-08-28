@@ -1,4 +1,4 @@
-import { WindowType } from '@ter/app-common/apis/app';
+import { WindowType } from '@app/common/apis/app';
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
 

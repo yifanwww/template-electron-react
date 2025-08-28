@@ -1,5 +1,5 @@
 {
-    "extends": "@ter/tsconfigs/tsconfig.bundler.eslint.json",
+    "extends": "@app-config/tsconfigs/tsconfig.bundler.eslint.json",
     "compilerOptions": {
         "baseUrl": ".",
         "rootDir": "src"

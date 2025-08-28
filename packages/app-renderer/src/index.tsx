@@ -1,4 +1,4 @@
-import { WindowType } from '@ter/app-common/apis/app';
+import { WindowType } from '@app/common/apis/app';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { match } from 'ts-pattern';

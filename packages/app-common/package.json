@@ -1,5 +1,5 @@
 {
-    "name": "@ter/app-common",
+    "name": "@app/common",
     "version": "0.14.0",
     "description": "Common code for electron main process and electron renderer process.",
     "type": "module",
@@ -51,10 +51,10 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
+        "@app-config/eslint-config": "workspace:*",
+        "@app-config/scripts": "workspace:*",
+        "@app-config/tsconfigs": "workspace:*",
         "@jest/globals": "^30.0.5",
-        "@ter/eslint-config": "workspace:*",
-        "@ter/scripts": "workspace:*",
-        "@ter/tsconfigs": "workspace:*",
         "concurrently": "^9.2.0",
         "eslint": "^8.57.1",
         "prettier": "3.6.2",

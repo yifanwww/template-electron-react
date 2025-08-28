@@ -1,16 +1,16 @@
-# @ter/eslint-config
+# @app-config/eslint-config
 
-ESLint configurations for ter.
+ESLint configurations for template-electron-react.
 
 ## Usage
 ### 1. Configure ESLint
 
-Add `"extends": "@ter/eslint-config"` to your ESLint config file.
+Add `"extends": "@app-config/eslint-config"` to your ESLint config file.
 
 For example `.eslintrc.json`:
 ```json
 {
-    "extends": "@ter/eslint-config"
+    "extends": "@app-config/eslint-config"
 }
 ```
 
@@ -23,7 +23,7 @@ In your ESLint config, set [parserOptions.project] to the path of your `tsconfig
 For example:
 ```json
 {
-    "extends": "@ter/eslint-config",
+    "extends": "@app-config/eslint-config",
     "parserOptions": {
         "project": "./tsconfig.json"
     }

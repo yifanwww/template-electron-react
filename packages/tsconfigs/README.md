@@ -1,6 +1,6 @@
-# @ter/tsconfigs
+# @app-config/tsconfigs
 
-Typescript configurations for ter.
+Typescript configurations for template-electron-react.
 
 ## Usage
 
@@ -18,7 +18,7 @@ For example:
 
 ```json
 {
-    "extends": "@ter/tsconfigs/tsconfig.react.json",
+    "extends": "@app-config/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
         "baseUrl": "...",
         "rootDir": "..."

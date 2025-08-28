@@ -1,5 +1,5 @@
 {
-    "name": "@ter/app-renderer",
+    "name": "@app/renderer",
     "version": "0.14.0",
     "description": "Electron renderer process code.",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
@@ -31,7 +31,7 @@
         "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
     },
     "dependencies": {
-        "@ter/app-common": "workspace:*",
+        "@app/common": "workspace:*",
         "clsx": "^2.1.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
@@ -40,10 +40,10 @@
         "web-vitals": "^5.1.0"
     },
     "devDependencies": {
+        "@app-config/eslint-config": "workspace:*",
+        "@app-config/scripts": "workspace:*",
+        "@app-config/tsconfigs": "workspace:*",
         "@jest/globals": "^30.0.5",
-        "@ter/eslint-config": "workspace:*",
-        "@ter/scripts": "workspace:*",
-        "@ter/tsconfigs": "workspace:*",
         "@testing-library/dom": "^10.4.1",
         "@testing-library/jest-dom": "^6.7.0",
         "@testing-library/react": "^16.3.0",

@@ -1,5 +1,5 @@
-import type { LoggerMainAPI } from '@ter/app-common/apis/logger';
-import { LoggerAPIKey } from '@ter/app-common/apis/logger';
+import type { LoggerMainAPI } from '@app/common/apis/logger';
+import { LoggerAPIKey } from '@app/common/apis/logger';
 import type { IpcMain } from 'electron';
 
 import type { AppLogger } from 'src/main/logger';

@@ -6,14 +6,14 @@ This script builds all the code.
 
 ### `build-app`
 
-This script only build the app. Build order: `@ter/app-common` -> `@ter/app-renderer` -> `@ter/app-main`.
+This script only build the app. Build order: `@app/common` -> `@app/renderer` -> `@app/main`.
 
 Do not change this order, we actually use `react-scripts build` to build the electron renderer process code, and this command will clear folder `build` first.
-If `@ter/app-main` is built before `@ter/app-renderer`, when building `@ter/app-renderer` the compiled files of `@ter/app-main` will be deleted.
+If `@app/main` is built before `@app/renderer`, when building `@app/renderer` the compiled files of `@app/main` will be deleted.
 
 ### `build-app:renderer`
 
-Build `@ter/app-renderer`.
+Build `@app/renderer`.
 
 `react-scripts build` controls how these code will be compiled. It correctly bundles React in `production` mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes. See the section about [deployment] for more information.
 
@@ -21,7 +21,7 @@ But this script actually use `react-app-rewired build`, for which can modify som
 
 ### `build-app:renderer-profile`
 
-Build `@ter/app-renderer` and enable profiling for better debugging production build.
+Build `@app/renderer` and enable profiling for better debugging production build.
 
 For more information see [profiling production build].
 
@@ -37,19 +37,19 @@ Clean all compiled files, test result files, some cache files and some building 
 
 ### `dev`
 
-This script will build all packages, then build `@ter/app-main` and `@ter/app-renderer` in development concurrently.
+This script will build all packages, then build `@app/main` and `@app/renderer` in development concurrently.
 
 You can use this script to debug this application.
 
 ### `dev:main`
 
-Build `@ter/app-main` in development mode and enable electron hot reload.
+Build `@app/main` in development mode and enable electron hot reload.
 
 After compilation, `ReloadElectronWebpackPlugin` will start an electron process to execute this application, which will load the ui from the url [http://localhost:4321].
 
 ### `dev:renderer`
 
-Build `@ter/app-renderer` in development mode and enable css, javascript hot reload.
+Build `@app/renderer` in development mode and enable css, javascript hot reload.
 
 `react-scripts start` controls how these code will be compiled. But this script actually use `react-app-rewired start`, for which can modify some `react-scripts start` configurations through.
 

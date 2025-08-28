@@ -1,3 +1,3 @@
-# @ter/app-renderer
+# @app/renderer
 
 Electron renderer process code.

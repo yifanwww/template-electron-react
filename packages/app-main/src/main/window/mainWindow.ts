@@ -1,4 +1,4 @@
-import { WindowType } from '@ter/app-common/apis/app';
+import { WindowType } from '@app/common/apis/app';
 
 import { AbstractWindow } from './abstractWindow';
 import type { WindowOptions } from './types';

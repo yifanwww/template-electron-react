@@ -1,6 +1,6 @@
-# @ter/scripts
+# @app-config/scripts
 
-Scripts for ter.
+Scripts for template-electron-react.
 
 ## Binary
 

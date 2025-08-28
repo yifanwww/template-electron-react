@@ -1,5 +1,5 @@
 {
-    "name": "ter",
+    "name": "template-electron-react",
     "version": "0.14.0",
     "description": "A template project for developing electron application, using react and typescript.",
     "main": "build/electron.js",
@@ -17,15 +17,15 @@
     "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
     "scripts": {
         "build": "pnpm run build:scripts && mkdir-working && rimraf build && pnpm run --recursive --stream build",
-        "build:libs": "pnpm run --filter \"@ter/app-main^...\" --filter \"@ter/app-renderer^...\" --recursive --stream build",
-        "build:scripts": "pnpm run --filter @ter/scripts build-scripts",
+        "build:libs": "pnpm run --filter \"@app/main^...\" --filter \"@app/renderer^...\" --recursive --stream build",
+        "build:scripts": "pnpm run --filter @app-config/scripts build-scripts",
         "clean": "pnpm run clean:build && pnpm run clean:packages",
         "clean:build": "rimraf build release",
         "clean:packages": "pnpm run --recursive --no-sort clean",
         "dev": "pnpm run build:scripts && mkdir-working && rimraf build && pnpm run build:libs && pnpm run dev:app",
         "dev:app": "concurrently -n main,renderer \"pnpm run dev:main\" \"pnpm run dev:renderer\"",
-        "dev:main": "pnpm run --filter @ter/app-main dev",
-        "dev:renderer": "pnpm run --filter @ter/app-renderer dev",
+        "dev:main": "pnpm run --filter @app/main dev",
+        "dev:renderer": "pnpm run --filter @app/renderer dev",
         "format": "pnpm run format:root && pnpm run format:workspaces",
         "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "format:workspaces": "pnpm run --recursive --no-sort --stream format",
@@ -42,7 +42,7 @@
         "node": ">=22"
     },
     "devDependencies": {
-        "@ter/scripts": "workspace:*",
+        "@app-config/scripts": "workspace:*",
         "concurrently": "^9.2.0",
         "electron": "37.4.0",
         "electron-builder": "^26.0.19",

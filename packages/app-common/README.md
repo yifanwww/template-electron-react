@@ -1,3 +1,3 @@
-# @ter/app-common
+# @app/common
 
 Common code for electron main process and electron renderer process.

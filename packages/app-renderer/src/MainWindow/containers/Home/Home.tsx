@@ -1,4 +1,4 @@
-import type { AppDetails } from '@ter/app-common/apis/app';
+import type { AppDetails } from '@app/common/apis/app';
 import { useEffect, useState } from 'react';
 
 import { AppAPI } from 'src/apis';

@@ -1,5 +1,5 @@
-import type { IpcMainHandler } from '@ter/app-common/apis/types';
-import type { AnyFn } from '@ter/app-common/types';
+import type { IpcMainHandler } from '@app/common/apis/types';
+import type { AnyFn } from '@app/common/types';
 import { ipcMain } from 'electron';
 
 type Handlers<Handler> = Record<string, Handler>;

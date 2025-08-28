@@ -8,7 +8,7 @@ exports[`Test fn getAppDetails should return app details 1`] = `
     "node": "<node-version>",
     "v8": "<v8-version>",
   },
-  "name": "ter",
+  "name": "template-electron-react",
   "version": "<app-version>",
 }
 `;
