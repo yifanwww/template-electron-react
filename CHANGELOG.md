@@ -4,6 +4,7 @@
 
 - Require `pnpm` v10
 - Require `node` v22
+- Simplify window management
 
 ### Dependency Changes
 
@@ -13,66 +14,69 @@
   - `stylelint-config-standard`             v39.0.0
   - `stylelint-config-standard-scss`        v15.0.1
 - Upgrade
-  - `@jest/types`                           v29.6.3  -> v30.0.5
-  - `@reduxjs/toolkit`                      v1.9.5   -> v2.8.2
-  - `@swc/jest`                             v0.2.29  -> v0.2.39
-  - `@testing-library/dom`                  v9.3.1   -> v10.4.1
-  - `@testing-library/jest-dom`             v6.1.2   -> v6.7.0
-  - `@testing-library/react`                v14.0.0  -> v16.3.0
-  - `@testing-library/user-event`           v14.4.3  -> v14.6.1
-  - `@types/jest`                           v29.5.4  -> v30.0.0
-  - `@types/react`                          v18.2.21 -> v18.2.23
-  - `@types/react-dom`                      v18.2.7  -> v18.3.6
-  - `@types/semver`                         v7.5.1   -> v7.7.0
-  - `@types/text-table`                     v0.2.2   -> v0.2.5
-  - `@types/yargs-parser`                   v21.0.0  -> v21.0.3
-  - `@typescript-eslint/eslint-plugin`      v6.6.0   -> v8.40.0
-  - `@typescript-eslint/parser`             v6.6.0   -> v8.40.0
-  - `@vitejs/plugin-react`                  v4.0.4   -> v5.0.1
-  - `browserslist`                          v4.21.10 -> v4.25.3
-  - `chalk`                                 v5.3.0   -> v5.6.0
-  - `clsx`                                  v2.0.0   -> v2.1.1
-  - `concurrently`                          v8.2.1   -> v9.2.0
-  - `dayjs`                                 v1.11.9  -> v1.11.13
-  - `electron-devtools-installer`           v3.2.0   -> v4.0.0
-  - `electron-store`                        v8.1.0   -> v8.2.0
-  - `esbuild-loader`                        v4.0.2   -> v4.3.0
-  - `eslint`                                v8.48.0  -> v8.57.1
-  - `eslint-config-prettier`                v9.0.0   -> v10.1.8
-  - `eslint-plugin-import`                  v2.28.1  -> v2.32.0
-  - `eslint-plugin-jest`                    v27.2.3  -> v29.0.1
-  - `eslint-plugin-jsx-a11y`                v6.7.1   -> v6.10.2
-  - `eslint-plugin-prettier`                v5.0.0   -> v5.5.4
-  - `eslint-plugin-react`                   v7.33.2  -> v7.37.5
-  - `eslint-plugin-react-hooks`             v4.6.0   -> v5.2.0
-  - `fork-ts-checker-webpack-plugin`        v8.0.0   -> v9.1.0
-  - `husky`                                 v8.0.3   -> v9.1.7
-  - `jest`                                  v29.6.4  -> v30.0.5
-  - `jest-environment-jsdom`                v29.6.4  -> v30.0.5
-  - `jest-watch-typeahead`                  v2.2.2   -> v3.0.1
-  - `lint-staged`                           v14.0.1  -> v16.1.5
-  - `prettier`                              v3.0.2   -> v3.6.2
-  - `postcss`                               v8.4.29  -> v8.5.6
-  - `react`                                 v18.2.0  -> v18.3.1
-  - `react-dom`                             v18.2.0  -> v18.3.1
-  - `rimraf`                                v5.0.1   -> v6.0.1
-  - `sass`                                  v1.66.1  -> v1.90.0
-  - `semver`                                v7.5.4   -> v7.7.2
-  - `source-map-loader`                     v4.0.1   -> v5.0.0
-  - `stylelint`                             v15.10.3 -> v16.23.1
-  - `stylelint-config-recess-order`         v4.3.0   -> v7.2.0
-  - `stylelint-config-sass-guidelines`      v10.0.0  -> v12.1.0
-  - `ts-pattern`                            v5.0.5   -> v5.8.0
-  - `typescript`                            v5.2.2   -> v5.9.2
-  - `typescript-plugin-css-modules`         v5.0.1   -> v5.2.0
-  - `vite`                                  v4.4.9   -> v7.1.3
-  - `vite-plugin-checker`                   v0.6.2   -> v0.10.2
-  - `vite-tsconfig-paths`                   v4.2.0   -> v5.1.4
-  - `whatwg-fetch`                          v3.6.18  -> v3.6.20
-  - `web-vitals`                            v3.4.0   -> v5.1.0
-  - `webpack`                               v5.88.2  -> v5.101.3
-  - `webpack-cli`                           v5.1.4   -> v6.0.1
-  - `winston`                               v3.10.0  -> v3.17.0
+  - `@jest/types`                           v29.6.3   -> v30.0.5
+  - `@reduxjs/toolkit`                      v1.9.5    -> v2.8.2
+  - `@swc/jest`                             v0.2.29   -> v0.2.39
+  - `@testing-library/dom`                  v9.3.1    -> v10.4.1
+  - `@testing-library/jest-dom`             v6.1.2    -> v6.7.0
+  - `@testing-library/react`                v14.0.0   -> v16.3.0
+  - `@testing-library/user-event`           v14.4.3   -> v14.6.1
+  - `@types/jest`                           v29.5.4   -> v30.0.0
+  - `@types/node`                           v18.17.14 -> v22.18.0
+  - `@types/react`                          v18.2.21  -> v18.2.23
+  - `@types/react-dom`                      v18.2.7   -> v18.3.6
+  - `@types/semver`                         v7.5.1    -> v7.7.0
+  - `@types/text-table`                     v0.2.2    -> v0.2.5
+  - `@types/yargs-parser`                   v21.0.0   -> v21.0.3
+  - `@typescript-eslint/eslint-plugin`      v6.6.0    -> v8.40.0
+  - `@typescript-eslint/parser`             v6.6.0    -> v8.40.0
+  - `@vitejs/plugin-react`                  v4.0.4    -> v5.0.1
+  - `browserslist`                          v4.21.10  -> v4.25.3
+  - `chalk`                                 v5.3.0    -> v5.6.0
+  - `clsx`                                  v2.0.0    -> v2.1.1
+  - `concurrently`                          v8.2.1    -> v9.2.0
+  - `dayjs`                                 v1.11.9   -> v1.11.13
+  - `electron`                              v26.0.0   -> v37.4.0
+  - `electron-builder`                      v24.6.4   -> v26.0.19
+  - `electron-devtools-installer`           v3.2.0    -> v4.0.0
+  - `electron-store`                        v8.1.0    -> v10.1.0
+  - `esbuild-loader`                        v4.0.2    -> v4.3.0
+  - `eslint`                                v8.48.0   -> v8.57.1
+  - `eslint-config-prettier`                v9.0.0    -> v10.1.8
+  - `eslint-plugin-import`                  v2.28.1   -> v2.32.0
+  - `eslint-plugin-jest`                    v27.2.3   -> v29.0.1
+  - `eslint-plugin-jsx-a11y`                v6.7.1    -> v6.10.2
+  - `eslint-plugin-prettier`                v5.0.0    -> v5.5.4
+  - `eslint-plugin-react`                   v7.33.2   -> v7.37.5
+  - `eslint-plugin-react-hooks`             v4.6.0    -> v5.2.0
+  - `fork-ts-checker-webpack-plugin`        v8.0.0    -> v9.1.0
+  - `husky`                                 v8.0.3    -> v9.1.7
+  - `jest`                                  v29.6.4   -> v30.0.5
+  - `jest-environment-jsdom`                v29.6.4   -> v30.0.5
+  - `jest-watch-typeahead`                  v2.2.2    -> v3.0.1
+  - `lint-staged`                           v14.0.1   -> v16.1.5
+  - `prettier`                              v3.0.2    -> v3.6.2
+  - `postcss`                               v8.4.29   -> v8.5.6
+  - `react`                                 v18.2.0   -> v18.3.1
+  - `react-dom`                             v18.2.0   -> v18.3.1
+  - `rimraf`                                v5.0.1    -> v6.0.1
+  - `sass`                                  v1.66.1   -> v1.90.0
+  - `semver`                                v7.5.4    -> v7.7.2
+  - `source-map-loader`                     v4.0.1    -> v5.0.0
+  - `stylelint`                             v15.10.3  -> v16.23.1
+  - `stylelint-config-recess-order`         v4.3.0    -> v7.2.0
+  - `stylelint-config-sass-guidelines`      v10.0.0   -> v12.1.0
+  - `ts-pattern`                            v5.0.5    -> v5.8.0
+  - `typescript`                            v5.2.2    -> v5.9.2
+  - `typescript-plugin-css-modules`         v5.0.1    -> v5.2.0
+  - `vite`                                  v4.4.9    -> v7.1.3
+  - `vite-plugin-checker`                   v0.6.2    -> v0.10.2
+  - `vite-tsconfig-paths`                   v4.2.0    -> v5.1.4
+  - `whatwg-fetch`                          v3.6.18   -> v3.6.20
+  - `web-vitals`                            v3.4.0    -> v5.1.0
+  - `webpack`                               v5.88.2   -> v5.101.3
+  - `webpack-cli`                           v5.1.4    -> v6.0.1
+  - `winston`                               v3.10.0   -> v3.17.0
 - Remove
   - `@types/electron-devtools-installer`    v2.2.2
   - `@types/lodash`                         v4.14.197

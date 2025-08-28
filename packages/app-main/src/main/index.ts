@@ -21,7 +21,7 @@ async function installExtensions(): Promise<void> {
         AppLoggerService.INSTANCE.error('An error occurred when install extension:', err);
     };
 
-    await Promise.all([install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail)]);
+    await install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail);
 }
 
 function initThirdPartyModules() {
