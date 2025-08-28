@@ -1,1 +1,1 @@
-export * from './windowManager';
+export * from './mainWindow';

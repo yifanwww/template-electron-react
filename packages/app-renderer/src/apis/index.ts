@@ -28,7 +28,6 @@ import type { LoggerRendererAPI } from '@ter/app-common/apis/logger';
 import { APP_API, LOGGER_API } from './exposes';
 
 export const AppAPI = {
-    createWindow: APP_API.createWindow,
     getAppDetails: APP_API.getAppDetails,
     windowType: APP_API.windowType,
 } satisfies Record<keyof AppRendererAPI, unknown>;

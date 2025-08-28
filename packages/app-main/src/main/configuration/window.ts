@@ -1,5 +1,4 @@
 import { WindowType } from '@ter/app-common/apis/app';
-import type { Nullable } from '@ter/app-common/types';
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
 
@@ -37,7 +36,7 @@ function checkWindowVisible(state: IWindowState) {
     return visible;
 }
 
-function getWindowState(type: WindowType): Nullable<IWindowState> {
+function getWindowState(type: WindowType): IWindowState | null {
     const prevState = store.get(keyMap[type]);
     if (prevState) {
         const visible = checkWindowVisible(prevState);

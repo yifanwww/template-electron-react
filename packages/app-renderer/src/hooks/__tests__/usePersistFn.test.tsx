@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-import type { Nullable, Optional } from '@ter/app-common/types';
 import { act, render } from '@testing-library/react';
 import { useState } from 'react';
 
@@ -12,8 +11,8 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(() => {})]);
 
     it('should call the latest non-persist function', () => {
-        let count: Optional<number>;
-        let increaseCount = null as Nullable<() => void>;
+        let count: number | undefined;
+        let increaseCount = null as (() => void) | null;
         expect(count).toBeUndefined();
         expect(increaseCount).toBeNull();
 

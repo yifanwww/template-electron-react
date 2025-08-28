@@ -8,7 +8,7 @@ import { WindowStateKeeper } from '../configuration';
 import type { AppLogger } from '../logger';
 import { AppLoggerService } from '../logger';
 
-import type { AbstractWindowOption, CloseWindowOption } from './types';
+import type { AbstractWindowOptions } from './types';
 
 export abstract class AbstractWindow {
     protected readonly _window: BrowserWindow;
@@ -16,9 +16,9 @@ export abstract class AbstractWindow {
 
     protected readonly _logger: AppLogger;
 
-    private readonly _onClose: (option: CloseWindowOption) => void | Promise<void>;
+    private readonly _onClosed?: (windowId: number) => void | Promise<void>;
 
-    constructor(option: AbstractWindowOption) {
+    constructor(option: AbstractWindowOptions) {
         this._windowType = option.type;
 
         const windowStateKeeper = new WindowStateKeeper(this._windowType);
@@ -40,7 +40,7 @@ export abstract class AbstractWindow {
 
         this._logger = AppLoggerService.createLogger(`${this._windowType}-${this.id}`);
 
-        this._onClose = option.onClose;
+        this._onClosed = option.onClosed;
 
         this._addWindowListeners();
         this._addAPIHandlers();
@@ -60,9 +60,9 @@ export abstract class AbstractWindow {
         this._window.show();
     }
 
-    private _close = () => {
+    private _handleClosed = () => {
         this._logger.info(`"${this._windowType}" window Closed.`);
-        void this._onClose({ id: this.id });
+        void this._onClosed?.(this.id);
     };
 
     // ------------------------------------------------------------------------------------------------- Window Handlers
@@ -77,7 +77,7 @@ export abstract class AbstractWindow {
             this._logger.info(`"${this._windowType}" window (id "${this.id}") Showed.`);
         });
 
-        this._window.once('closed', this._close);
+        this._window.once('closed', this._handleClosed);
     }
 
     // ---------------------------------------------------------------------------------------------------- Ipc Handlers

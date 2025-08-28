@@ -1,17 +1,9 @@
 import type { WindowType } from '@ter/app-common/apis/app';
 
-export interface CreateWindowOption {
-    type: WindowType;
+export interface WindowOptions {
+    onClosed?: (windowId: number) => void | Promise<void>;
 }
 
-export interface CloseWindowOption {
-    id: number;
-}
-
-export interface WindowOption {
-    onClose: (option: CloseWindowOption) => void | Promise<void>;
-}
-
-export interface AbstractWindowOption extends WindowOption {
+export interface AbstractWindowOptions extends WindowOptions {
     type: WindowType;
 }

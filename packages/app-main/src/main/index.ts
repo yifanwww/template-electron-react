@@ -1,4 +1,3 @@
-import { WindowType } from '@ter/app-common/apis/app';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import type { Extension } from 'electron';
@@ -7,7 +6,7 @@ import { app, BrowserWindow } from 'electron';
 import { registerAppGlobalHandlers } from './apis/app';
 import { AppInfo } from './appInfo';
 import { AppLoggerService } from './logger';
-import { WindowManager } from './window';
+import { MainWindow } from './window';
 
 async function installExtensions(): Promise<void> {
     const { default: install, REACT_DEVELOPER_TOOLS } = await import(
@@ -43,7 +42,7 @@ async function handleReady() {
 
     AppLoggerService.INSTANCE.info('Registered event handlers.');
 
-    WindowManager.INSTANCE.createWindow({ type: WindowType.MAIN });
+    void new MainWindow().show();
 }
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
@@ -63,6 +62,6 @@ app.on('activate', () => {
     // On macOS, usually applications will re-create new windows if single click the dock icon when no other windows
     // opened.
     if (BrowserWindow.getAllWindows().length === 0) {
-        WindowManager.INSTANCE.createWindow({ type: WindowType.MAIN });
+        void new MainWindow().show();
     }
 });
