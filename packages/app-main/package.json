@@ -31,7 +31,6 @@
         "dayjs": "^1.11.13",
         "electron-devtools-installer": "^4.0.0",
         "electron-store": "^10.1.0",
-        "ts-pattern": "^5.8.0",
         "winston": "^3.17.0",
         "yargs-parser": "^21.1.1"
     },

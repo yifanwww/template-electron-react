@@ -6,7 +6,7 @@ import { routes } from './router/routes';
 
 const router = createHashRouter(routes);
 
-export function MainWindow(): React.ReactNode {
+export function MainWindow() {
     return (
         <FramelessWindow>
             <TitleBar>

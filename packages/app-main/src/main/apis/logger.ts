@@ -2,12 +2,11 @@ import type { LoggerMainAPI } from '@app/common/apis/logger';
 import { LoggerAPIKey } from '@app/common/apis/logger';
 import type { IpcMain } from 'electron';
 
-import type { AppLogger } from 'src/main/logger';
+import type { AppLogger } from '../logger';
 
 export function registerLoggerHandlers(ipc: IpcMain, logger: AppLogger) {
     const handlers: LoggerMainAPI = {
         handleLog: (_, level, message, ...meta) => void logger.log(level, message, ...meta),
-
         handleDebug: (_, message, ...meta) => void logger.debug(message, ...meta),
         handleError: (_, message, ...meta) => void logger.error(message, ...meta),
         handleInfo: (_, message, ...meta) => void logger.info(message, ...meta),

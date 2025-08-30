@@ -8,4 +8,4 @@ declare const window: {
     /* eslint-enable @typescript-eslint/naming-convention */
 };
 
-export const { APP_API, LOGGER_API } = window;
+export const { APP_API: AppAPI, LOGGER_API: Logger } = window;

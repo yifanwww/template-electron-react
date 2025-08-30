@@ -22,21 +22,9 @@
  * ```
  */
 
-import type { AppRendererAPI } from '@app/common/apis/app';
-import type { LoggerRendererAPI } from '@app/common/apis/logger';
+import { AppAPI } from './exposes';
 
-import { APP_API, LOGGER_API } from './exposes';
+export { Logger } from './exposes';
 
-export const AppAPI = {
-    getAppDetails: APP_API.getAppDetails,
-    windowType: APP_API.windowType,
-} satisfies Record<keyof AppRendererAPI, unknown>;
-
-export const LoggerAPI = {
-    debug: LOGGER_API.debug,
-    error: LOGGER_API.error,
-    info: LOGGER_API.info,
-    log: LOGGER_API.log,
-    verbose: LOGGER_API.verbose,
-    warn: LOGGER_API.warn,
-} satisfies Record<keyof LoggerRendererAPI, unknown>;
+export const WINDOW_TYPE = AppAPI.windowType;
+export const { getAppDetails } = AppAPI;

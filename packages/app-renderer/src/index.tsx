@@ -1,25 +1,29 @@
 import { WindowType } from '@app/common/apis/app';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { match } from 'ts-pattern';
 
 import './index.css';
 
-import { AppAPI } from './apis';
+import { WINDOW_TYPE } from './apis';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
-import { assert } from './utils/assert';
+import { assert, assertIsNever } from './utils/assert';
+
+function renderWindow() {
+    switch (WINDOW_TYPE) {
+        case WindowType.MAIN:
+            return <MainWindow />;
+        default:
+            assertIsNever(WINDOW_TYPE);
+    }
+}
 
 function main(): void {
     const appElement = document.getElementById('app');
     assert(appElement !== null);
 
-    const window = match(AppAPI.windowType)
-        .with(WindowType.MAIN, () => <MainWindow />)
-        .exhaustive();
-
     const root = createRoot(appElement);
-    root.render(<StrictMode>{window}</StrictMode>);
+    root.render(<StrictMode>{renderWindow()}</StrictMode>);
 
     // If you want to start measuring performance in your app, pass a function to log results
     // (for example: reportWebVitals (console.log)) or send to an analytics endpoint.

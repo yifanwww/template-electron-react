@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import type { ClientAreaSize } from '../react';
+import type { ClientAreaSize } from 'src/types/electron';
 
 import css from './Frameless.module.scss';
 

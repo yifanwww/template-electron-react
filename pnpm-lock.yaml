@@ -83,9 +83,6 @@ importers:
       electron-store:
         specifier: ^10.1.0
         version: 10.1.0
-      ts-pattern:
-        specifier: ^5.8.0
-        version: 5.8.0
       winston:
         specifier: ^3.17.0
         version: 3.17.0
@@ -147,9 +144,6 @@ importers:
       react-router:
         specifier: ^7.8.1
         version: 7.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      ts-pattern:
-        specifier: ^5.8.0
-        version: 5.8.0
       web-vitals:
         specifier: ^5.1.0
         version: 5.1.0
@@ -5043,9 +5037,6 @@ packages:
     resolution: {integrity: sha512-EDyGAwH1gO0Ausm9gV6T2nUvBgXT5kGoCMJPllOaooZ+4VvJiKBdZE7wK18N1deEowhcUptS+5GXZK8U/fvpwA==}
     peerDependencies:
       typescript: '>=4.0.0'
-
-  ts-pattern@5.8.0:
-    resolution: {integrity: sha512-kIjN2qmWiHnhgr5DAkAafF9fwb0T5OhMVSWrm8XEdTFnX6+wfXwYOFjeF86UZ54vduqiR7BfqScFmXSzSaH8oA==}
 
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
@@ -10843,8 +10834,6 @@ snapshots:
     dependencies:
       picomatch: 4.0.3
       typescript: 5.9.2
-
-  ts-pattern@5.8.0: {}
 
   tsconfck@3.1.6(typescript@5.9.2):
     optionalDependencies:
