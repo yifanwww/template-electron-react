@@ -1,6 +1,6 @@
 import type { AppDetails } from '@app/common/apis/app';
 
-import { Assets } from 'src/assets';
+import { LOGO } from 'src/assets';
 
 import css from './Introduction.module.scss';
 
@@ -12,7 +12,7 @@ export function Introduction({ appDetails }: IntroductionProps) {
     return (
         <>
             <header className={css.introduction}>
-                <img className={css.logo} src={Assets.logo} alt="logo" />
+                <img className={css.logo} src={LOGO} alt="logo" />
                 <p>
                     Edit <code>src/MainWindow/containers/Home/components/Introduction/Introduction.tsx</code> and save
                     to reload.

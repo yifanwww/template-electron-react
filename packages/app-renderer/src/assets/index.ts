@@ -1,5 +1,3 @@
-import logo from './logo.svg';
+import LOGO from './logo.svg';
 
-export const Assets = {
-    logo,
-};
+export { LOGO };
