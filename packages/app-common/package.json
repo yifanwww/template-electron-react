@@ -19,8 +19,8 @@
             "default": "./lib/apis/logger/index.js"
         },
         "./apis/types": {
-            "types": "./lib/apis/types.d.ts",
-            "default": "./lib/apis/types.js"
+            "types": "./lib/apis/types/index.d.ts",
+            "default": "./lib/apis/types/index.js"
         },
         "./types": {
             "types": "./lib/types/index.d.ts",

@@ -1,4 +1,4 @@
-import type { IpcRendererInvokerAPI } from '../types.js';
+import type { IpcRendererInvokerAPI } from '../types/index.js';
 
 export const LoggerAPIKey = {
     LOG: 'Logger:Log',
@@ -9,11 +9,15 @@ export const LoggerAPIKey = {
     DEBUG: 'Logger:Debug',
 };
 
+// -----------------------------------------------------------------------------
+
 type LogLevel = 'error' | 'warn' | 'info' | 'verbose' | 'debug';
 
 type LogAPI = IpcRendererInvokerAPI<(level: LogLevel, message: string, ...meta: unknown[]) => void>;
 
 type LeveledLogAPI = IpcRendererInvokerAPI<(message: string, ...meta: unknown[]) => void>;
+
+// -----------------------------------------------------------------------------
 
 export interface LoggerMainAPI {
     handleLog: LogAPI['main'];

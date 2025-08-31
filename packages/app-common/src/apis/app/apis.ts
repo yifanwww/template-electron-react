@@ -1,4 +1,4 @@
-import type { IpcRendererInvokerAPI } from '../types.js';
+import type { IpcRendererInvokerAPI, StandardResp } from '../types/index.js';
 
 import type { AppDetails, WindowType } from './types.js';
 
@@ -6,11 +6,15 @@ export const AppAPIKey = {
     GET_APP_DETAILS: 'App:GetAppDetails',
 };
 
-type GetAppDetails = IpcRendererInvokerAPI<() => AppDetails>;
+// -----------------------------------------------------------------------------
+
+type GetAppDetails = IpcRendererInvokerAPI<() => StandardResp<AppDetails>>;
 
 export interface AppMainAPI {
     handleGetAppDetails: GetAppDetails['main'];
 }
+
+// -----------------------------------------------------------------------------
 
 export interface AppRendererAPI {
     /**

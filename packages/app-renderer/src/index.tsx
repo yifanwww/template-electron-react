@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 
 import './index.css';
 
-import { WINDOW_TYPE } from './apis';
+import { WINDOW_TYPE } from './apis/app';
 import { MainWindow } from './MainWindow';
 import { reportWebVitals } from './reportWebVitals';
 import { assert, assertIsNever } from './utils/assert';

@@ -1,7 +1,7 @@
 import type { AppDetails } from '@app/common/apis/app';
 import { useEffect, useState } from 'react';
 
-import { getAppDetails } from 'src/apis';
+import { getAppDetails } from 'src/apis/app';
 
 import { Introduction } from './components/Introduction';
 
