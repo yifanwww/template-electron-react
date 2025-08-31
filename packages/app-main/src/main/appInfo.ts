@@ -11,16 +11,18 @@ export class AppInfo {
     private readonly _startedTime: number;
 
     private constructor() {
-        const isInASAR = __dirname.includes('.asar');
-
         this._srcPath = __dirname;
-        this._appPath = isInASAR
-            ? // The path to folder `resources` in installation root.
-              path.resolve(__dirname, '../..')
-            : // The path to folder `build` in project root.
-              __dirname;
+        this._appPath = app.isPackaged
+            ? // use installation directory in production env
+              path.resolve(__dirname, '../../..')
+            : // use `working` directory in development env
+              path.resolve('.');
 
-        this._userDataPath = app.getPath('userData');
+        this._userDataPath = app.isPackaged
+            ? // use user data directory in production env
+              app.getPath('userData')
+            : // use `working` directory in development env
+              path.resolve('.');
 
         this._startedTime = Date.now();
     }
@@ -43,7 +45,7 @@ export class AppInfo {
         return this._srcPath;
     }
 
-    get useDataPath(): string {
+    get userDataPath(): string {
         return this._userDataPath;
     }
 

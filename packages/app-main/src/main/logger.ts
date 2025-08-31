@@ -46,7 +46,7 @@ export interface AppLogger extends Omit<winston.Logger, LogLevel> {
 
 function getLogFileName() {
     const timeStr = dayjs.utc(AppInfo.INSTANCE.startedTime).format('YYYYMMDDTHHmmssSSS');
-    return nodePath.join(!app.isPackaged ? '.' : AppInfo.INSTANCE.useDataPath, 'logs', `app-${timeStr}.log`);
+    return nodePath.join(AppInfo.INSTANCE.userDataPath, 'logs', `app-${timeStr}.log`);
 }
 
 // https://github.com/winstonjs/winston/issues/1427

@@ -12,6 +12,10 @@ Rename package names:
 
 Rename executable binary name to `template-electron-react`.
 
+Change `AppInfo`:
+- `appPath` is installation directory in production env, `<repo>/working` directory in development env
+- `userDataPath` is user data directory in production env, `<repo>/working` directory in development env
+
 ### Features
 
 - Require `pnpm` v10
