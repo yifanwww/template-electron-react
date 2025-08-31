@@ -31,15 +31,12 @@ function initThirdPartyModules() {
 async function handleReady() {
     AppInfo.init();
     initThirdPartyModules();
-
-    AppLoggerService.INSTANCE.info('App ready.');
-
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
+    AppLoggerService.INSTANCE.info('App ready.');
 
     registerAppGlobalHandlers();
-
     AppLoggerService.INSTANCE.info('Registered event handlers.');
 
     void new MainWindow().show();
