@@ -14,11 +14,11 @@ export type IpcMainListener<PrototypeFn extends UnknownFn> = (
 export type IpcMainHandler<PrototypeFn extends UnknownFn> = (
     event: IpcMainInvokeEvent,
     ...args: Parameters<PrototypeFn>
-) => Awaited<ReturnType<PrototypeFn>> | Promise<ReturnType<PrototypeFn>>;
+) => Awaited<ReturnType<PrototypeFn>> | Promise<Awaited<ReturnType<PrototypeFn>>>;
 
 export type IpcRendererInvoker<PrototypeFn extends UnknownFn> = (
     ...args: Parameters<PrototypeFn>
-) => Promise<ReturnType<PrototypeFn>>;
+) => Promise<Awaited<ReturnType<PrototypeFn>>>;
 
 // Main Process Sending
 
