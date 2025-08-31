@@ -478,6 +478,7 @@ I previously put collected utilities into this project. In this version, I remov
   - `@testing-library/dom`                      v8.19.0
   - `@types/testing-library__jest-dom`          v5.14.5
   - `@typescript-eslint/utils`                  v5.40.1
+  - `cross-env`                                 v10.0.0
   - `fork-ts-checker-webpack-plugin`            v6.5.2
   - `identity-obj-proxy`                        v3.0.0
   - `jest-environment-jsdom`                    v29.5.0
@@ -513,7 +514,7 @@ I previously put collected utilities into this project. In this version, I remov
   - `error-oop`                                 v0.4.0    -> v0.6.0
   - `electron`                                  v16.0.6   -> v19.0.11
   - `electron-builder`                          v22.11.7  -> v23.6.0
-  - `eslint`                                    v8.2.0    -> v8.25.0
+  - `eslint`                                    v8.2.0    -> v9.34.0
   - `eslint-config-airbnb`                      v19.0.0   -> v19.0.4
   - `eslint-config-airbnb-typescript`           v16.1.0   -> v17.0.0
   - `eslint-config-prettier`                    v8.3.0    -> v8.5.0
