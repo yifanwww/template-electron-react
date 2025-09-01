@@ -3,7 +3,7 @@ import type { ForegroundColorName } from 'chalk';
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import { app } from 'electron';
-import nodePath from 'node:path';
+import path from 'node:path';
 import util from 'node:util';
 import winston from 'winston';
 
@@ -16,37 +16,31 @@ interface ILogObject {
     [key: string]: unknown;
 }
 
-interface AppLogMethod<TLogger> {
-    (message: string | ILogObject): TLogger;
-    (message: string, ...meta: unknown[]): TLogger;
+interface AppLogMethod {
+    (level: string, message: string): AppLogger;
+    (level: string, message: string, ...meta: unknown[]): AppLogger;
 }
 
-export interface AppLogger extends Omit<winston.Logger, LogLevel> {
-    // The levels we support
-    fatal: AppLogMethod<AppLogger>;
-    error: AppLogMethod<AppLogger>;
-    warn: AppLogMethod<AppLogger>;
-    info: AppLogMethod<AppLogger>;
-    verbose: AppLogMethod<AppLogger>;
-    debug: AppLogMethod<AppLogger>;
+interface AppLeveledLogMethod {
+    (message: string | ILogObject): AppLogger;
+    (message: string, ...meta: unknown[]): AppLogger;
+}
 
-    // The built-in levels we don't support
-    help: never;
-    data: never;
-    prompt: never;
-    http: never;
-    input: never;
-    silly: never;
-    emerg: never;
-    alert: never;
-    crit: never;
-    warning: never;
-    notice: never;
+export interface AppLogger {
+    log: AppLogMethod;
+
+    // The levels we support
+    fatal: AppLeveledLogMethod;
+    error: AppLeveledLogMethod;
+    warn: AppLeveledLogMethod;
+    info: AppLeveledLogMethod;
+    verbose: AppLeveledLogMethod;
+    debug: AppLeveledLogMethod;
 }
 
 function getLogFileName() {
     const timeStr = dayjs.utc(AppInfo.INSTANCE.startedTime).format('YYYYMMDDTHHmmssSSS');
-    return nodePath.join(AppInfo.INSTANCE.userDataPath, 'logs', `app-${timeStr}.log`);
+    return path.join(AppInfo.INSTANCE.userDataPath, 'logs', `app-${timeStr}.log`);
 }
 
 // https://github.com/winstonjs/winston/issues/1427
@@ -150,6 +144,6 @@ export class AppLoggerService {
                     }),
             ]),
             levels,
-        }) as AppLogger;
+        }) as unknown as AppLogger;
     }
 }

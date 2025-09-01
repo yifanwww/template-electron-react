@@ -29,7 +29,6 @@ export class AppInfo {
 
     static get INSTANCE() {
         AppInfo.init();
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         return AppInfo._instance!;
     }
 
