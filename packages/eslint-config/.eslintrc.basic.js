@@ -278,7 +278,7 @@ module.exports = {
 
         // https://typescript-eslint.io/rules/no-use-before-define
         'no-use-before-define': 'off',
-        '@typescript-eslint/no-use-before-define': 'error',
+        '@typescript-eslint/no-use-before-define': ['error', { functions: false }],
 
         // https://typescript-eslint.io/rules/no-useless-constructor
         'no-useless-constructor': 'off',
