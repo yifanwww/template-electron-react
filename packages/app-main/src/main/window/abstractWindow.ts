@@ -8,39 +8,38 @@ import { WindowStateKeeper } from '../configuration';
 import type { AppLogger } from '../logger';
 import { AppLoggerService } from '../logger';
 
-import type { AbstractWindowOptions } from './types';
+export interface AbstractWindowOptions {
+    memorizationEnabled: boolean;
+    type: WindowType;
+}
 
 export abstract class AbstractWindow {
     protected readonly _window: BrowserWindow;
     protected readonly _windowType: WindowType;
 
     protected readonly _logger: AppLogger;
+    protected readonly _stateKeeper: WindowStateKeeper;
 
-    private readonly _onClosed?: (windowId: number) => void | Promise<void>;
+    constructor(options: AbstractWindowOptions) {
+        this._windowType = options.type;
 
-    constructor(option: AbstractWindowOptions) {
-        this._windowType = option.type;
-
-        const windowStateKeeper = new WindowStateKeeper(this._windowType);
+        this._stateKeeper = new WindowStateKeeper(this._windowType, options.memorizationEnabled);
 
         this._window = new BrowserWindow({
-            x: windowStateKeeper.x,
-            y: windowStateKeeper.y,
-            width: windowStateKeeper.width,
-            height: windowStateKeeper.height,
+            x: this._stateKeeper.x,
+            y: this._stateKeeper.y,
+            width: this._stateKeeper.width,
+            height: this._stateKeeper.height,
 
             webPreferences: {
                 additionalArguments: [`--window-type=${this._windowType}`],
                 preload: path.resolve(AppInfo.INSTANCE.srcPath, 'preload.js'),
             },
         });
-        if (windowStateKeeper.maximized) this._window.maximize();
-        if (windowStateKeeper.fullScreen) this._window.setFullScreen(true);
-        windowStateKeeper.registerHandlers(this._window);
+        if (this._stateKeeper.maximized) this._window.maximize();
+        if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
 
         this._logger = AppLoggerService.createLogger(`${this._windowType}-${this.id}`);
-
-        this._onClosed = option.onClosed;
 
         this._addWindowListeners();
         this._addAPIHandlers();
@@ -62,19 +61,25 @@ export abstract class AbstractWindow {
 
     private _handleClosed = () => {
         this._logger.info(`"${this._windowType}" window Closed.`);
-        void this._onClosed?.(this.id);
+        this._onClosed();
     };
+
+    protected _onClosed() {
+        // do nothing
+    }
 
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
     protected _addWindowListeners(): void {
+        this._stateKeeper.registerHandlers(this._window);
+
         this._window.webContents.setWindowOpenHandler((details) => {
             void shell.openExternal(details.url);
             return { action: 'deny' };
         });
 
         this._window.once('show', () => {
-            this._logger.info(`"${this._windowType}" window (id "${this.id}") Showed.`);
+            this._logger.info(`"${this._windowType}" window Showed.`);
         });
 
         this._window.once('closed', this._handleClosed);

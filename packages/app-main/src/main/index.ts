@@ -39,7 +39,9 @@ async function handleReady() {
     registerAppGlobalHandlers();
     AppLoggerService.INSTANCE.info('Registered event handlers.');
 
-    void new MainWindow().show();
+    const main = new MainWindow();
+    main.initApplicationMenu();
+    void main.show();
 }
 
 // This method will be called when Electron has finished initialization and is ready to create browser windows.
@@ -59,6 +61,8 @@ app.on('activate', () => {
     // On macOS, usually applications will re-create new windows if single click the dock icon when no other windows
     // opened.
     if (BrowserWindow.getAllWindows().length === 0) {
-        void new MainWindow().show();
+        const main = new MainWindow();
+        main.initApplicationMenu();
+        void main.show();
     }
 });

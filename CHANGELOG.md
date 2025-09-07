@@ -18,9 +18,13 @@ Change `AppInfo`:
 
 ### Features
 
+Development environment changes:
 - Require `pnpm` v10
 - Require `node` v22
-- Simplify window management
+
+Simplify window management.
+
+Add menu item `App / Remember Window State` to control whether the window state should be restored when app opens.
 
 ### Dependency Changes
 

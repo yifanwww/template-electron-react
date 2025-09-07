@@ -10,19 +10,15 @@ export const AppAPIKey = {
 
 type GetAppDetails = IpcRendererInvokerAPI<() => StandardResp<AppDetails>>;
 
+// -----------------------------------------------------------------------------
+
 export interface AppMainAPI {
     handleGetAppDetails: GetAppDetails['main'];
 }
 
-// -----------------------------------------------------------------------------
-
 export interface AppRendererAPI {
-    /**
-     * The type of current window.
-     */
+    /** The type of current window. */
     windowType: WindowType;
-    /**
-     * Get app details, including app name and app version.
-     */
+    /** Get app details, including app name and app version. */
     getAppDetails: GetAppDetails['renderer'];
 }
