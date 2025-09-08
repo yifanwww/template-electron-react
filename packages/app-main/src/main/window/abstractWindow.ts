@@ -71,7 +71,7 @@ export abstract class AbstractWindow {
     // ------------------------------------------------------------------------------------------------- Window Handlers
 
     protected _addWindowListeners(): void {
-        this._stateKeeper.registerHandlers(this._window);
+        this._stateKeeper.register(this._window);
 
         this._window.webContents.setWindowOpenHandler((details) => {
             void shell.openExternal(details.url);

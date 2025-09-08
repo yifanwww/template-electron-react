@@ -15,9 +15,9 @@ export interface IWindowState {
 
 const EVENT_HANDLING_DELAY = 100;
 
-type WindowStateKeys = ConfigurationKey.MAIN_WINDOW_STATE;
+type WindowStateKey = ConfigurationKey.MAIN_WINDOW_STATE;
 
-const keyMap: Record<WindowType, WindowStateKeys> = {
+const KeyMap: Record<WindowType, WindowStateKey | undefined> = {
     [WindowType.MAIN]: ConfigurationKey.MAIN_WINDOW_STATE,
 };
 
@@ -30,14 +30,15 @@ interface IWindowStateKeeperOptions {
 
 export class WindowStateKeeper {
     private readonly _type: WindowType;
-    enabled: boolean;
+    private _enabled: boolean;
     private readonly _state: IWindowState;
     private _stateChangeTimer?: NodeJS.Timeout;
     private _windowRef?: BrowserWindow;
+    private _registered = false;
 
     constructor(type: WindowType, enabled: boolean, options?: IWindowStateKeeperOptions) {
         this._type = type;
-        this.enabled = enabled;
+        this._enabled = KeyMap[type] !== undefined && enabled;
 
         const { workAreaSize } = screen.getPrimaryDisplay();
         const defaultWidth = options?.defaultWidth ?? 1280;
@@ -51,12 +52,28 @@ export class WindowStateKeeper {
             fullScreen: options?.defaultFullScreen ?? false,
         };
 
-        if (this.enabled) {
-            const prevState = getWindowState(type);
+        if (this._enabled) {
+            const prevState = getWindowState(KeyMap[type]!);
             if (prevState) {
                 this._state = prevState;
             }
         }
+    }
+
+    set enabled(value: boolean) {
+        const key = KeyMap[this._type];
+
+        this._enabled = key !== undefined && value;
+        if (this._enabled && this._windowRef && !this._registered) {
+            this.register(this._windowRef);
+        } else if (!this._enabled) {
+            this._removeListeners();
+            this._saveState();
+        }
+    }
+
+    get enabled() {
+        return this._enabled;
     }
 
     get x() {
@@ -103,10 +120,12 @@ export class WindowStateKeeper {
     };
 
     private _saveState() {
-        if (this.enabled) {
-            store.set(keyMap[this._type], this._state);
-        } else {
-            store.delete(keyMap[this._type]);
+        const key = KeyMap[this._type];
+
+        if (this._enabled) {
+            store.set(key!, this._state);
+        } else if (key) {
+            store.delete(key);
         }
     }
 
@@ -123,18 +142,24 @@ export class WindowStateKeeper {
 
     private _handleClosed = () => {
         this._removeListeners();
+        this._windowRef = undefined;
         this._saveState();
     };
 
-    registerHandlers(window: BrowserWindow) {
-        window.on('move', this._handleStateChange);
-        window.on('resize', this._handleStateChange);
-        window.on('close', this._handleClose);
-        window.once('closed', this._handleClosed);
+    register(window: BrowserWindow) {
         this._windowRef = window;
+
+        if (this._enabled && !this._registered) {
+            this._registered = true;
+            window.on('move', this._handleStateChange);
+            window.on('resize', this._handleStateChange);
+            window.on('close', this._handleClose);
+            window.on('closed', this._handleClosed);
+        }
     }
 
     private _removeListeners() {
+        this._registered = false;
         this._windowRef?.removeListener('move', this._handleStateChange);
         this._windowRef?.removeListener('resize', this._handleStateChange);
         if (this._stateChangeTimer) {
@@ -142,12 +167,12 @@ export class WindowStateKeeper {
             this._stateChangeTimer = undefined;
         }
         this._windowRef?.removeListener('close', this._handleClose);
-        this._windowRef = undefined;
+        this._windowRef?.removeListener('closed', this._handleClosed);
     }
 }
 
-function getWindowState(type: WindowType): IWindowState | null {
-    const prevState = store.get(keyMap[type]);
+function getWindowState(key: WindowStateKey): IWindowState | null {
+    const prevState = store.get(key);
     if (prevState) {
         const visible = checkWindowVisible(prevState);
         if (visible) {
