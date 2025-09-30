@@ -1,5 +1,5 @@
 {
-    "extends": "@app-config/tsconfigs/tsconfig.node16.types.json",
+    "extends": "@app-config/tsconfigs/tsconfig.node.types.json",
     "compilerOptions": {
         "outDir": "../dist",
         "rootDir": "../src"

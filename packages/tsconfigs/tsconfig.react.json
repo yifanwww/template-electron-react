@@ -2,7 +2,6 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "jsx": "react-jsx",
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
-        "moduleResolution": "Bundler"
+        "lib": ["DOM", "DOM.Iterable", "ESNext"]
     }
 }

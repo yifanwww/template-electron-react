@@ -1,5 +1,5 @@
 {
-    "extends": "@app-config/tsconfigs/tsconfig.node16.eslint.json",
+    "extends": "@app-config/tsconfigs/tsconfig.node.eslint.json",
     "compilerOptions": {
         "rootDir": "src"
     },
