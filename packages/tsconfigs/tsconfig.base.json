@@ -10,8 +10,6 @@
         "isolatedModules": true,
         "lib": ["ESNext"],
         "listEmittedFiles": true,
-        "module": "esnext",
-        "moduleResolution": "bundler",
         "newLine": "lf",
         "noEmit": false,
         "noEmitOnError": true,

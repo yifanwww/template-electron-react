@@ -1,8 +1,13 @@
 {
-    "extends": "@app-config/tsconfigs/tsconfig.react.eslint.json",
+    "extends": "@app-config/tsconfigs/tsconfig.base.json",
     "compilerOptions": {
-        "allowImportingTsExtensions": true,
         "baseUrl": ".",
+        "incremental": false,
+        "jsx": "react-jsx",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "noEmit": true,
         "rootDir": "src",
 
         "plugins": [

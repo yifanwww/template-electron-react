@@ -18,7 +18,7 @@ For example:
 
 ```json
 {
-    "extends": "@app-config/tsconfigs/tsconfig.react.json",
+    "extends": "@app-config/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
         "baseUrl": "...",
         "rootDir": "..."

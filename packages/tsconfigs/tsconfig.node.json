@@ -1,7 +1,7 @@
 {
-    "extends": "./tsconfig.base.json",
+    "extends": "./tsconfig.node.base.json",
     "compilerOptions": {
-        "module": "nodenext",
-        "moduleResolution": "nodenext"
+        "incremental": false,
+        "noEmit": true
     }
 }

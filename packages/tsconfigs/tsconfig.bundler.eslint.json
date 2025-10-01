@@ -1,7 +1,0 @@
-{
-    "extends": "./tsconfig.bundler.json",
-    "compilerOptions": {
-        "incremental": false,
-        "noEmit": true
-    }
-}

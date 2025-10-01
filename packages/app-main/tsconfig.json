@@ -1,7 +1,11 @@
 {
-    "extends": "@app-config/tsconfigs/tsconfig.bundler.eslint.json",
+    "extends": "@app-config/tsconfigs/tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
+        "incremental": false,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "noEmit": true,
         "rootDir": "src"
     },
     "include": ["src/**/*"],
