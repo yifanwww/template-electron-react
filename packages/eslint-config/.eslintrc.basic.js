@@ -66,7 +66,7 @@ module.exports = {
 
     settings: {
         // Override Airbnb's 'import/extensions'
-        'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+        'import/extensions': ['.tsx', '.ts', '.jsx', '.js'],
 
         'import/internal-regex': '^src/',
 
@@ -78,7 +78,7 @@ module.exports = {
         // Override Airbnb's 'import/resolver'
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+                extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
             },
         },
     },
