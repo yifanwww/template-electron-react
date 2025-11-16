@@ -87,7 +87,10 @@ const factory: ConfigurationFactory = (env, argv) => {
         },
 
         resolve: {
-            extensions: ['.js', 'mjs', '.ts'],
+            extensions: ['.ts', '.js'],
+            extensionAlias: {
+                '.js': ['.js', '.ts'],
+            },
             alias: {
                 src: appMainPaths.appSrc,
             },
