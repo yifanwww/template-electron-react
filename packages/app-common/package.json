@@ -28,7 +28,7 @@
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:lib --watch",
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint .",
         "lint:fix": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --fix",
         "test": "unit-test",

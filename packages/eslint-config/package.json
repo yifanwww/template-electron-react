@@ -15,7 +15,7 @@
         "directory": "configs/eslint-config"
     },
     "scripts": {
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
         "@typescript-eslint/eslint-plugin": "^8.40.0",

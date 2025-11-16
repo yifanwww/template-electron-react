@@ -15,7 +15,7 @@
         "directory": "configs/tsconfigs"
     },
     "scripts": {
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "devDependencies": {
         "prettier": "3.6.2",
