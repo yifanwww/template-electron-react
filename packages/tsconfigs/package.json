@@ -18,7 +18,7 @@
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "devDependencies": {
-        "prettier": "3.6.2",
-        "typescript": "5.9.2"
+        "prettier": "3.7.4",
+        "typescript": "5.9.3"
     }
 }

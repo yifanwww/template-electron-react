@@ -39,12 +39,12 @@
         "@app-config/eslint-config": "workspace:*",
         "@app-config/scripts": "workspace:*",
         "@app-config/tsconfigs": "workspace:*",
-        "@jest/globals": "^30.0.5",
-        "concurrently": "^9.2.0",
-        "cross-env": "^10.0.0",
-        "eslint": "^9.34.0",
-        "prettier": "3.6.2",
-        "rimraf": "^6.0.1",
-        "typescript": "5.9.2"
+        "@jest/globals": "^30.2.0",
+        "concurrently": "^9.2.1",
+        "cross-env": "^10.1.0",
+        "eslint": "^9.39.2",
+        "prettier": "3.7.4",
+        "rimraf": "^6.1.2",
+        "typescript": "5.9.3"
     }
 }

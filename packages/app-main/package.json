@@ -27,26 +27,26 @@
     },
     "dependencies": {
         "@app/common": "workspace:*",
-        "chalk": "^5.6.0",
-        "dayjs": "^1.11.13",
+        "chalk": "^5.6.2",
+        "dayjs": "^1.11.19",
         "electron-devtools-installer": "^4.0.0",
-        "electron-store": "^10.1.0",
-        "winston": "^3.17.0",
-        "yargs-parser": "^21.1.1"
+        "electron-store": "^11.0.2",
+        "winston": "^3.19.0",
+        "yargs-parser": "^22.0.0"
     },
     "devDependencies": {
         "@app-config/eslint-config": "workspace:*",
         "@app-config/scripts": "workspace:*",
         "@app-config/tsconfigs": "workspace:*",
-        "@jest/globals": "^30.0.5",
-        "@types/node": "^22.18.0",
+        "@jest/globals": "^30.2.0",
+        "@types/node": "^22.19.3",
         "@types/yargs-parser": "^21.0.3",
-        "cross-env": "^10.0.0",
-        "eslint": "^9.34.0",
-        "prettier": "3.6.2",
-        "rimraf": "^6.0.1",
-        "typescript": "5.9.2",
-        "webpack": "^5.101.3",
+        "cross-env": "^10.1.0",
+        "eslint": "^9.39.2",
+        "prettier": "3.7.4",
+        "rimraf": "^6.1.2",
+        "typescript": "5.9.3",
+        "webpack": "^5.104.1",
         "webpack-cli": "^6.0.1"
     }
 }

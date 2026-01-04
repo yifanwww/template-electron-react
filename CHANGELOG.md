@@ -29,76 +29,82 @@ Add menu item `App / Remember Window State` to control whether the window state 
 ### Dependency Changes
 
 - Add
-  - `eslint-plugin-n`                       v17.21.3
-  - `react-router`                          v7.8.1
-  - `stylelint-config-standard`             v39.0.0
-  - `stylelint-config-standard-scss`        v15.0.1
+  - `@jest/globals`                         v30.2.0
+  - `cross-env`                             v10.1.0
+  - `eslint-config-airbnb-base`             v15.0.0
+  - `eslint-plugin-n`                       v17.23.1
+  - `react-router`                          v7.11.0
+  - `stylelint-config-standard`             v39.0.1
+  - `stylelint-config-standard-scss`        v16.0.0
+  - `stylelint-order`                       v7.0.1
 - Upgrade
-  - `@jest/types`                           v29.6.3   -> v30.0.5
+  - `@jest/types`                           v29.6.3   -> v30.2.0
   - `@reduxjs/toolkit`                      v1.9.5    -> v2.8.2
   - `@swc/jest`                             v0.2.29   -> v0.2.39
   - `@testing-library/dom`                  v9.3.1    -> v10.4.1
-  - `@testing-library/jest-dom`             v6.1.2    -> v6.7.0
-  - `@testing-library/react`                v14.0.0   -> v16.3.0
+  - `@testing-library/jest-dom`             v6.1.2    -> v6.9.1
+  - `@testing-library/react`                v14.0.0   -> v16.3.1
   - `@testing-library/user-event`           v14.4.3   -> v14.6.1
-  - `@types/jest`                           v29.5.4   -> v30.0.0
-  - `@types/node`                           v18.17.14 -> v22.18.0
-  - `@types/react`                          v18.2.21  -> v18.2.23
-  - `@types/react-dom`                      v18.2.7   -> v18.3.6
-  - `@types/semver`                         v7.5.1    -> v7.7.0
+  - `@types/node`                           v18.17.14 -> v22.19.3
+  - `@types/react`                          v18.2.21  -> v18.2.27
+  - `@types/react-dom`                      v18.2.7   -> v18.3.7
+  - `@types/semver`                         v7.5.1    -> v7.7.1
   - `@types/text-table`                     v0.2.2    -> v0.2.5
   - `@types/yargs-parser`                   v21.0.0   -> v21.0.3
-  - `@typescript-eslint/eslint-plugin`      v6.6.0    -> v8.40.0
-  - `@typescript-eslint/parser`             v6.6.0    -> v8.40.0
-  - `@vitejs/plugin-react`                  v4.0.4    -> v5.0.1
-  - `browserslist`                          v4.21.10  -> v4.25.3
-  - `chalk`                                 v5.3.0    -> v5.6.0
+  - `@typescript-eslint/eslint-plugin`      v6.6.0    -> v8.51.0
+  - `@typescript-eslint/parser`             v6.6.0    -> v8.51.0
+  - `@vitejs/plugin-react`                  v4.0.4    -> v5.1.2
+  - `browserslist`                          v4.21.10  -> v4.28.1
+  - `camelcase`                             v8.0.0    -> v9.0.0
+  - `chalk`                                 v5.6.0    -> v5.6.2
   - `clsx`                                  v2.0.0    -> v2.1.1
-  - `concurrently`                          v8.2.1    -> v9.2.0
-  - `dayjs`                                 v1.11.9   -> v1.11.13
+  - `concurrently`                          v8.2.1    -> v9.2.1
+  - `dayjs`                                 v1.11.9   -> v1.11.19
   - `electron`                              v26.0.0   -> v37.4.0
   - `electron-builder`                      v24.6.4   -> v26.0.19
   - `electron-devtools-installer`           v3.2.0    -> v4.0.0
-  - `electron-store`                        v8.1.0    -> v10.1.0
-  - `esbuild-loader`                        v4.0.2    -> v4.3.0
-  - `eslint`                                v8.48.0   -> v8.57.1
+  - `electron-store`                        v8.1.0    -> v11.0.2
+  - `esbuild-loader`                        v4.0.2    -> v4.4.2
+  - `eslint`                                v8.48.0   -> v9.39.2
   - `eslint-config-prettier`                v9.0.0    -> v10.1.8
   - `eslint-plugin-import`                  v2.28.1   -> v2.32.0
-  - `eslint-plugin-jest`                    v27.2.3   -> v29.0.1
+  - `eslint-plugin-jest`                    v27.2.3   -> v29.12.1
   - `eslint-plugin-jsx-a11y`                v6.7.1    -> v6.10.2
   - `eslint-plugin-prettier`                v5.0.0    -> v5.5.4
   - `eslint-plugin-react`                   v7.33.2   -> v7.37.5
-  - `eslint-plugin-react-hooks`             v4.6.0    -> v5.2.0
+  - `eslint-plugin-react-hooks`             v4.6.0    -> v7.0.1
   - `fork-ts-checker-webpack-plugin`        v8.0.0    -> v9.1.0
   - `husky`                                 v8.0.3    -> v9.1.7
-  - `jest`                                  v29.6.4   -> v30.0.5
-  - `jest-environment-jsdom`                v29.6.4   -> v30.0.5
+  - `jest`                                  v29.6.4   -> v30.2.0
+  - `jest-environment-jsdom`                v29.6.4   -> v30.2.0
   - `jest-watch-typeahead`                  v2.2.2    -> v3.0.1
   - `lint-staged`                           v14.0.1   -> v16.1.5
-  - `prettier`                              v3.0.2    -> v3.6.2
+  - `prettier`                              v3.0.2    -> v3.7.4
   - `postcss`                               v8.4.29   -> v8.5.6
   - `react`                                 v18.2.0   -> v18.3.1
   - `react-dom`                             v18.2.0   -> v18.3.1
-  - `rimraf`                                v5.0.1    -> v6.0.1
-  - `sass`                                  v1.66.1   -> v1.90.0
-  - `semver`                                v7.5.4    -> v7.7.2
+  - `rimraf`                                v5.0.1    -> v6.1.2
+  - `sass`                                  v1.66.1   -> v1.97.1
+  - `semver`                                v7.5.4    -> v7.7.3
   - `source-map-loader`                     v4.0.1    -> v5.0.0
-  - `stylelint`                             v15.10.3  -> v16.23.1
-  - `stylelint-config-recess-order`         v4.3.0    -> v7.2.0
+  - `stylelint`                             v15.10.3  -> v16.26.1
+  - `stylelint-config-recess-order`         v4.3.0    -> v7.4.0
   - `stylelint-config-sass-guidelines`      v10.0.0   -> v12.1.0
   - `ts-pattern`                            v5.0.5    -> v5.8.0
-  - `typescript`                            v5.2.2    -> v5.9.2
+  - `typescript`                            v5.2.2    -> v5.9.3
   - `typescript-plugin-css-modules`         v5.0.1    -> v5.2.0
-  - `vite`                                  v4.4.9    -> v7.1.3
-  - `vite-plugin-checker`                   v0.6.2    -> v0.10.2
-  - `vite-tsconfig-paths`                   v4.2.0    -> v5.1.4
+  - `vite`                                  v4.4.9    -> v7.3.0
+  - `vite-plugin-checker`                   v0.6.2    -> v0.12.0
+  - `vite-tsconfig-paths`                   v4.2.0    -> v6.0.3
   - `whatwg-fetch`                          v3.6.18   -> v3.6.20
   - `web-vitals`                            v3.4.0    -> v5.1.0
-  - `webpack`                               v5.88.2   -> v5.101.3
+  - `webpack`                               v5.88.2   -> v5.104.1
   - `webpack-cli`                           v5.1.4    -> v6.0.1
-  - `winston`                               v3.10.0   -> v3.17.0
+  - `winston`                               v3.10.0   -> v3.19.0
+  - `yargs-parser`                          v21.1.1   -> v22.0.0
 - Remove
   - `@types/electron-devtools-installer`    v2.2.2
+  - `@types/jest`                           v30.0.0
   - `@types/lodash`                         v4.14.197
   - `@types/react-test-renderer`            v18.0.1
   - `eslint-plugin-node`                    v11.1.0
@@ -106,10 +112,6 @@ Add menu item `App / Remember Window State` to control whether the window state 
   - `lodash`                                v4.17.21
   - `react-redux`                           v8.1.2
   - `react-router-dom`                      v6.15.0
-
-- TODO
-  - `electron-store` v10.1.0
-  - `yargs-parser` v22.0.0
 
 ## template-electron-react v0.14.0 (2025-08-20)
 ### Features
