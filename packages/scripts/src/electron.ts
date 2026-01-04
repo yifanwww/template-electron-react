@@ -1,18 +1,18 @@
 import fs from 'node:fs';
-import { createRequire } from 'node:module';
+import url from 'node:url';
 import semver from 'semver';
 
-const _require = createRequire(import.meta.url);
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 function getElectronMajorVer(): number {
-    const pkg = _require.resolve('electron/package.json');
+    const pkg = resolve('electron/package.json');
 
     if (!fs.existsSync(pkg)) {
         throw new Error('cannot resolve electron package.json');
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    const version = _require(pkg).version as string;
+    const version = JSON.parse(fs.readFileSync(pkg, 'utf-8')).version as string;
     const majorVer = semver.major(version);
     return majorVer;
 }
@@ -21,6 +21,8 @@ export function getElectronNodeTarget(): string {
     const electronVer = getElectronMajorVer();
 
     const nodeVer: Record<string, string | undefined> = {
+        '39': '22.20',
+        '38': '22.18',
         '37': '22.16',
         '36': '22.14',
         '35': '22.14',
@@ -61,6 +63,8 @@ export function getElectronChromeTarget(): string {
     const electronVer = getElectronMajorVer();
 
     const chromeVer: Record<string, string | undefined> = {
+        '39': '142',
+        '38': '140',
         '37': '138',
         '36': '136',
         '35': '134',

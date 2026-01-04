@@ -1,6 +1,5 @@
 import { EsbuildPlugin } from 'esbuild-loader';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import { createRequire } from 'node:module';
 import path from 'node:path';
 import url from 'node:url';
 import type { Configuration, WebpackPluginInstance } from 'webpack';
@@ -12,8 +11,7 @@ import { createEnvironmentHash } from './utils/createEnvironmentHash.js';
 import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin.js';
 import { WebpackStatsPrettifyPlugin } from './utils/webpackStatsPrettifyPlugin.js';
 
-const _filename = url.fileURLToPath(import.meta.url);
-const require = createRequire(import.meta.url);
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 const resolveAppMain = (relative: string) => path.resolve(paths.electronMain, relative);
 
@@ -77,7 +75,7 @@ const factory: ConfigurationFactory = (env, argv) => {
             store: 'pack',
             buildDependencies: {
                 defaultWebpack: ['webpack/lib/'],
-                config: [_filename],
+                config: [import.meta.filename],
                 tsconfig: [appMainPaths.appTsConfig],
             },
         },
@@ -108,13 +106,13 @@ const factory: ConfigurationFactory = (env, argv) => {
                     enforce: 'pre',
                     exclude: /@babel(?:\/|\\{1,2})runtime/,
                     test: /\.(js|mjs|ts)$/,
-                    loader: require.resolve('source-map-loader'),
+                    loader: resolve('source-map-loader'),
                 },
                 {
                     oneOf: [
                         {
                             test: /\.[cm]?[jt]s$/,
-                            loader: require.resolve('esbuild-loader'),
+                            loader: resolve('esbuild-loader'),
                             options: {
                                 target: getElectronNodeTarget(),
                             },
@@ -141,7 +139,7 @@ const factory: ConfigurationFactory = (env, argv) => {
                 new ForkTsCheckerWebpackPlugin({
                     async: isDevelopment,
                     typescript: {
-                        typescriptPath: require.resolve('typescript'),
+                        typescriptPath: resolve('typescript'),
                         configOverwrite: {
                             compilerOptions: {
                                 sourceMap: isProduction || isDevelopment,

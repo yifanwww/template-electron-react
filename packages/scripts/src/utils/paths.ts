@@ -1,14 +1,11 @@
 import electron from 'electron';
 import path from 'node:path';
-import url from 'node:url';
-
-const _dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 // `..` points to `<repo>/packages/scripts/src`
 // `../..` points to `<repo>/packages/scripts`
 // `../../..` points to `<repo>/packages`
 // `../../../..` points to `<repo>`
-const repo = path.resolve(_dirname, '../../../..');
+const repo = path.resolve(import.meta.dirname, '../../../..');
 
 const build = path.resolve(repo, 'build');
 const rootNodeModules = path.resolve(repo, 'node_modules');

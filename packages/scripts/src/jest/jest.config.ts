@@ -1,11 +1,11 @@
 import type { Config } from 'jest';
 import fs from 'node:fs';
-import { createRequire } from 'node:module';
 import path from 'node:path';
+import url from 'node:url';
 
 import { paths } from '../utils/index.js';
 
-const require = createRequire(import.meta.url);
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 function getConfig(): Config {
     const packageJson = process.env.npm_package_json;
@@ -19,7 +19,7 @@ function getConfig(): Config {
         roots: ['<rootDir>/src'],
         cacheDirectory: paths.jestCache,
 
-        setupFiles: [require.resolve('./jest.setup.js')],
+        setupFiles: [resolve('./jest.setup.js')],
         setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
@@ -35,7 +35,7 @@ function getConfig(): Config {
 
         transform: {
             '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
-                require.resolve('@swc/jest'),
+                resolve('@swc/jest'),
                 {
                     jsc: {
                         transform: {
@@ -46,8 +46,8 @@ function getConfig(): Config {
                     isModule: true,
                 },
             ],
-            '^.+\\.css$': require.resolve('./transform.css.js'),
-            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': require.resolve('./transform.file.js'),
+            '^.+\\.css$': resolve('./transform.css.js'),
+            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve('./transform.file.js'),
         },
         transformIgnorePatterns: [
             '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
