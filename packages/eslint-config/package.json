@@ -1,6 +1,6 @@
 {
     "name": "@app-config/eslint-config",
-    "version": "0.14.0",
+    "version": "0.15.0",
     "description": "ESLint configurations for template-electron-react.",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",

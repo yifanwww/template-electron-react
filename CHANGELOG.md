@@ -1,5 +1,5 @@
 # CHANGELOG
-## template-electron-react v0.15.0 (Unreleased)
+## template-electron-react v0.15.0 (2026-01-04)
 ### Breaking Changes
 
 Rename package names:
