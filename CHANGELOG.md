@@ -1,4 +1,13 @@
 # CHANGELOG
+## template-electron-react v0.16.0 (Unreleased)
+### Dependency Changes
+
+- Upgrade
+  - `@types/react`                          v18.2.27 -> v19.2.8
+  - `@types/react-dom`                      v18.3.7  -> v19.2.3
+  - `react`                                 v18.3.1  -> v19.2.3
+  - `react-dom`                             v18.3.1  -> v19.2.3
+
 ## template-electron-react v0.15.0 (2026-01-04)
 ### Breaking Changes
 
