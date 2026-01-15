@@ -18,26 +18,26 @@
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^8.51.0",
-        "@typescript-eslint/parser": "^8.51.0",
-        "eslint-config-airbnb": "^19.0.4",
-        "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-import": "^2.32.0",
-        "eslint-plugin-jest": "^29.12.1",
-        "eslint-plugin-jsx-a11y": "^6.10.2",
-        "eslint-plugin-n": "^17.23.1",
-        "eslint-plugin-prettier": "^5.5.4",
-        "eslint-plugin-react": "^7.37.5",
-        "eslint-plugin-react-hooks": "^7.0.1"
+        "@typescript-eslint/eslint-plugin": "catalog:",
+        "@typescript-eslint/parser": "catalog:",
+        "eslint-config-airbnb": "catalog:",
+        "eslint-config-airbnb-base": "catalog:",
+        "eslint-config-prettier": "catalog:",
+        "eslint-plugin-import": "catalog:",
+        "eslint-plugin-jest": "catalog:",
+        "eslint-plugin-jsx-a11y": "catalog:",
+        "eslint-plugin-n": "catalog:",
+        "eslint-plugin-prettier": "catalog:",
+        "eslint-plugin-react": "catalog:",
+        "eslint-plugin-react-hooks": "catalog:"
     },
     "devDependencies": {
-        "eslint": "^9.39.2",
-        "prettier": "3.7.4",
-        "typescript": "5.9.3"
+        "eslint": "catalog:",
+        "prettier": "catalog:",
+        "typescript": "catalog:"
     },
     "peerDependencies": {
-        "eslint": "^9.39.2",
-        "prettier": "3.7.4"
+        "eslint": "catalog:",
+        "prettier": "catalog:"
     }
 }

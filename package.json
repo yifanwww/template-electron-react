@@ -43,13 +43,13 @@
     },
     "devDependencies": {
         "@app-config/scripts": "workspace:*",
-        "concurrently": "^9.2.1",
-        "electron": "39.2.7",
-        "electron-builder": "^26.4.0",
-        "husky": "^9.1.7",
-        "lint-staged": "^16.2.7",
-        "prettier": "3.7.4",
-        "rimraf": "^6.1.2",
-        "typescript": "5.9.3"
+        "concurrently": "catalog:",
+        "electron": "catalog:",
+        "electron-builder": "catalog:",
+        "husky": "catalog:",
+        "lint-staged": "catalog:",
+        "prettier": "catalog:",
+        "rimraf": "catalog:",
+        "typescript": "catalog:"
     }
 }
