@@ -2,6 +2,7 @@
     "name": "@app/main",
     "version": "0.15.0",
     "description": "Electron main process code.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",

@@ -5,5 +5,5 @@
         "module": "esnext",
         "moduleResolution": "bundler"
     },
-    "include": ["vite.config.mts"]
+    "include": ["vite.config.ts"]
 }
