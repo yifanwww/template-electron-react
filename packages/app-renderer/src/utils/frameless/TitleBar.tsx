@@ -15,7 +15,6 @@ export function TitleBar(props: React.PropsWithChildren<TitleBarProps>): React.R
 
     useEffect(() => {
         const changeClientAreaSize = () => {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth });
         };
 

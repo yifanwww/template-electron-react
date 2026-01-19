@@ -8,7 +8,8 @@
 /app
 /configs
 /packages
-pnpm-lock.yaml
+
+/pnpm-lock.yaml
 
 # Running and Test
 

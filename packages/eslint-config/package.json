@@ -2,6 +2,10 @@
     "name": "@app-config/eslint-config",
     "version": "0.15.0",
     "description": "ESLint configurations for template-electron-react.",
+    "type": "module",
+    "exports": {
+        ".": "./dist/index.js"
+    },
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -15,25 +19,31 @@
         "directory": "configs/eslint-config"
     },
     "scripts": {
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
+        "build": "concurrently -n dist,types \"pnpm run build:dist\" \"pnpm run build:types\"",
+        "build:dist": "tsc --project tsconfigs/tsconfig.dist.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "catalog:",
-        "@typescript-eslint/parser": "catalog:",
-        "eslint-config-airbnb": "catalog:",
-        "eslint-config-airbnb-base": "catalog:",
-        "eslint-config-prettier": "catalog:",
+        "@eslint/js": "catalog:",
+        "confusing-browser-globals": "catalog:",
         "eslint-plugin-import": "catalog:",
         "eslint-plugin-jest": "catalog:",
-        "eslint-plugin-jsx-a11y": "catalog:",
-        "eslint-plugin-n": "catalog:",
         "eslint-plugin-prettier": "catalog:",
         "eslint-plugin-react": "catalog:",
-        "eslint-plugin-react-hooks": "catalog:"
+        "eslint-plugin-react-hooks": "catalog:",
+        "globals": "catalog:",
+        "typescript-eslint": "catalog:"
     },
     "devDependencies": {
+        "@app-config/tsconfigs": "workspace:^",
+        "@types/confusing-browser-globals": "catalog:",
+        "concurrently": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",
+        "rimraf": "catalog:",
         "typescript": "catalog:"
     },
     "peerDependencies": {

@@ -1,7 +1,2 @@
-# Compilation
-
-/lib
-
-# Test
-
 /coverage
+/lib

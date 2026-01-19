@@ -26,7 +26,7 @@ export function Introduction({ appDetails }: IntroductionProps) {
                     Learn template-electron-react
                 </a>
             </header>
-            {appDetails && (
+            {!!appDetails && (
                 <div className={css.appDetails}>
                     <code>Name: {appDetails.name}</code>
                     <code>Version: {appDetails.version}</code>
