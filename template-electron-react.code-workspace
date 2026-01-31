@@ -10,7 +10,7 @@
             ".eslintcache": "json",
             ".lintstagedrc": "json",
             ".stylelintcache": "json",
-            "electron-builder.json": "jsonc",
+            "electron-builder.json": "jsonc"
         },
 
         "git.enabled": true,
@@ -18,8 +18,8 @@
         "json.schemas": [
             {
                 "fileMatch": ["electron-builder.json"],
-                "url": "https://json.schemastore.org/electron-builder.json",
-            },
+                "url": "https://json.schemastore.org/electron-builder.json"
+            }
         ],
 
         "search.useIgnoreFiles": true,
@@ -29,42 +29,32 @@
         "typescript.tsdk": "template-electron-react/node_modules/typescript/lib",
 
         "[css]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[javascript]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[json]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[jsonc]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[html]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[scss]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[typescript]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[typescriptreact]": {
-            "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[yaml]": {
-            "editor.autoIndent": "advanced",
             "editor.defaultFormatter": "esbenp.prettier-vscode",
-            "editor.insertSpaces": true,
-            "editor.tabSize": 2,
+            "editor.tabSize": 2
         },
 
         // -------------------------------------------------- Extension Settings
@@ -79,37 +69,37 @@
             "styled-css",
             "vue",
             "vue-html",
-            "vue-postcss",
-        ],
+            "vue-postcss"
+        ]
     },
     "folders": [
         {
             "name": "template-electron-react",
-            "path": ".",
+            "path": "."
         },
         {
             "name": "@app/common",
-            "path": "packages/app-common",
+            "path": "packages/app-common"
         },
         {
             "name": "@app/main",
-            "path": "packages/app-main",
+            "path": "packages/app-main"
         },
         {
             "name": "@app/renderer",
-            "path": "packages/app-renderer",
+            "path": "packages/app-renderer"
         },
         {
             "name": "@app-config/eslint-config",
-            "path": "packages/eslint-config",
+            "path": "packages/eslint-config"
         },
         {
             "name": "@app-config/scripts",
-            "path": "packages/scripts",
+            "path": "packages/scripts"
         },
         {
             "name": "@app-config/tsconfigs",
-            "path": "packages/tsconfigs",
-        },
-    ],
+            "path": "packages/tsconfigs"
+        }
+    ]
 }
