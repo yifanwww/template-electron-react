@@ -1,12 +1,34 @@
 # CHANGELOG
 ## template-electron-react v0.16.0 (Unreleased)
+### Breaking Changes
+
+Upgrade `react` to v19.
+
+Use ESLint flat config.
+
 ### Dependency Changes
 
+- Add
+  - `@eslint/js`                            v9.39.2
+  - `@types/confusing-browser-globals`      v9.39.2
+  - `confusing-browser-globals`             v1.0.11
+  - `globals`                               v17.0.0
+  - `typescript-eslint`                     v8.53.0
 - Upgrade
   - `@types/react`                          v18.2.27 -> v19.2.8
   - `@types/react-dom`                      v18.3.7  -> v19.2.3
   - `react`                                 v18.3.1  -> v19.2.3
   - `react-dom`                             v18.3.1  -> v19.2.3
+- Remove
+  - `@typescript-eslint/eslint-plugin`      v8.51.0
+  - `@typescript-eslint/parser`             v8.51.0
+  - `browserslist`                          v4.28.1
+  - `cross-env`                             v10.1.0
+  - `eslint-config-airbnb`                  v19.0.4
+  - `eslint-config-airbnb-base`             v15.0.0
+  - `eslint-config-prettier`                v10.1.8
+  - `eslint-plugin-jsx-a11y`                v6.10.2
+  - `eslint-plugin-n`                       v17.23.1
 
 ## template-electron-react v0.15.0 (2026-01-04)
 ### Breaking Changes

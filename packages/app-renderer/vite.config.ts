@@ -10,6 +10,7 @@ export default defineConfig(() => ({
     build: {
         outDir: '../../build',
         target: getElectronChromeTarget(),
+        cssTarget: getElectronChromeTarget(),
         assetsDir: 'renderer-chunks',
         emptyOutDir: false,
         modulePreload: { polyfill: false },

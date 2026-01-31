@@ -15,9 +15,6 @@
         "url": "git+https://github.com/yifanwww/template-electron-react.git",
         "directory": "app/app-renderer"
     },
-    "browserslist": [
-        "last 9 chrome versions"
-    ],
     "scripts": {
         "build": "vite build --base=./",
         "clean": "rimraf coverage node_modules/.vite",
@@ -51,7 +48,6 @@
         "@types/react": "catalog:",
         "@types/react-dom": "catalog:",
         "@vitejs/plugin-react": "catalog:",
-        "browserslist": "catalog:",
         "eslint": "catalog:",
         "postcss": "catalog:",
         "prettier": "catalog:",
