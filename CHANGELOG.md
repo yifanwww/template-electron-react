@@ -1,5 +1,5 @@
 # CHANGELOG
-## template-electron-react v0.16.0 (Unreleased)
+## template-electron-react v0.16.0 (2026-02-01)
 ### What's Changed
 
 Turn `pnpm` catalog feature on.
@@ -10,7 +10,7 @@ Set Vite css target to the current Electron's chrome version.
 
 Upgrade `react` to v19.
 
-Upgrade `electron` to v40.
+Upgrade `electron` to v40. This requires you to develop with Node.js v24 or later.
 
 ### Dependency Changes
 

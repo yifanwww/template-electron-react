@@ -1,6 +1,6 @@
 {
     "name": "template-electron-react",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "description": "A template project for developing electron application, using react and typescript.",
     "main": "build/electron.js",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",

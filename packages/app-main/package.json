@@ -1,6 +1,6 @@
 {
     "name": "@app/main",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "description": "Electron main process code.",
     "type": "module",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",

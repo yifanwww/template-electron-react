@@ -1,6 +1,6 @@
 {
     "name": "@app-config/tsconfigs",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "description": "Typescript configurations for template-electron-react.",
     "type": "module",
     "homepage": "https://github.com/yifanwww/template-electron-react#readme",
