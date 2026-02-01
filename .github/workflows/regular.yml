@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build scripts
+        run: pnpm run build-scripts
+
       - name: Build project
         run: pnpm run build
 
@@ -65,10 +68,10 @@ jobs:
         run: pnpm install
 
       - name: Build scripts
-        run: pnpm run build:scripts
+        run: pnpm run build-scripts
 
       - name: Build libs
-        run: pnpm run build:libs
+        run: pnpm run build-libs
 
       - name: Lint
         run: pnpm run lint
@@ -100,10 +103,10 @@ jobs:
         run: pnpm install
 
       - name: Build scripts
-        run: pnpm run build:scripts
+        run: pnpm run build-scripts
 
       - name: Build libs
-        run: pnpm run build:libs
+        run: pnpm run build-libs
 
       - name: Do coverage test
         run: pnpm run test-full

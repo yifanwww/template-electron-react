@@ -1,21 +1,48 @@
 # template-electron-react
 
-A template project for developing electron application, using react and typescript.
+A template project for developing Electron application, using React and TypeScript.
 
 You can create your own project by importing this template project.
 
 ## Use Visual Studio Code as Your Editor
 
-It's recommanded for you to use `Visual Studio Code` to develop your electron application.
+It's recommanded for you to use `Visual Studio Code` to develop your Electron application.
 
-After you creating your own project, you need to rename the `template-electron-react.code-workspace` file to `<YouProjectName>.code-workspace`, and then use vscode to open it.
+After creating your own project, you will need to rename the `template-electron-react.code-workspace` file to `<YouProjectName>.code-workspace`, then open it in vscode.
 
-## More Information
+## Build This Application
 
-- Check out [NPM Scripts] to know how to use the `npm` scripts of this project.
-- To learn React, check out the [React documentation].
+You're required to use `pnpm` to manage the npm dependencies, please install the specific version of `pnpm` (check the `packageManager` field in package.json).
 
-<!-- link list -->
+If you have `corepack` installed, run `corepack enable pnpm` then you don't need to care about the `pnpm` versions.
 
-[npm scripts]: ./docs/npm-scripts.md
-[react documentation]: https://reactjs.org/
+Run these commands to prepare the environment:
+
+```sh
+pnpm install
+pnpm run prepare-env
+```
+
+Then you can build this application:
+
+```sh
+pnpm run build
+pnpm run gen-installer
+```
+
+## Development
+
+After preparing the environment, run these commands to launch this application in development mode with HMR support:
+
+```sh
+pnpm run build-libs
+pnpm run dev
+```
+
+Run these commands to perform the type checking, linting and unit testing:
+
+```sh
+pnpm run typecheck
+pnpm run lint
+pnpm run test-full
+```
