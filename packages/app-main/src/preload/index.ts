@@ -20,5 +20,5 @@ const LoggerAPI: LoggerRendererAPI = {
     warn: (...args) => ipcRenderer.invoke(LoggerAPIKey.WARN, ...args),
 };
 
-contextBridge.exposeInMainWorld('APP_API', AppAPI);
-contextBridge.exposeInMainWorld('LOGGER_API', LoggerAPI);
+contextBridge.exposeInMainWorld('__API_APP', AppAPI);
+contextBridge.exposeInMainWorld('__API_LOGGER', LoggerAPI);

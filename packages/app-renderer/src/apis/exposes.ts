@@ -3,9 +3,9 @@ import type { LoggerRendererAPI } from '@app/common/apis/logger';
 
 declare const window: {
     /* eslint-disable @typescript-eslint/naming-convention */
-    APP_API: AppRendererAPI;
-    LOGGER_API: LoggerRendererAPI;
+    __API_APP: AppRendererAPI;
+    __API_LOGGER: LoggerRendererAPI;
     /* eslint-enable @typescript-eslint/naming-convention */
 };
 
-export const { APP_API: AppAPI, LOGGER_API: Logger } = window;
+export const { __API_APP: AppAPI, __API_LOGGER: Logger } = window;
