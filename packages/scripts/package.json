@@ -46,6 +46,7 @@
         "jest": "catalog:",
         "jest-environment-jsdom": "catalog:",
         "jest-watch-typeahead": "catalog:",
+        "jsonc-parser": "catalog:",
         "semver": "catalog:",
         "source-map-loader": "catalog:",
         "text-table": "catalog:",

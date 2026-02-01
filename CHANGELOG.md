@@ -1,10 +1,16 @@
 # CHANGELOG
 ## template-electron-react v0.16.0 (Unreleased)
-### Breaking Changes
+### What's Changed
+
+Turn `pnpm` catalog feature on.
+
+Migrate to ESLint flat config, no longer use `eslint-config-airbnb` since its maintainer has no time to support ESLint flat config (see https://github.com/airbnb/javascript/issues/2961).
+
+Set Vite css target to the current Electron's chrome version.
 
 Upgrade `react` to v19.
 
-Use ESLint flat config.
+Upgrade `electron` to v40.
 
 ### Dependency Changes
 
@@ -13,10 +19,14 @@ Use ESLint flat config.
   - `@types/confusing-browser-globals`      v9.39.2
   - `confusing-browser-globals`             v1.0.11
   - `globals`                               v17.0.0
+  - `jsonc-parser`                          v3.3.1
   - `typescript-eslint`                     v8.53.0
 - Upgrade
+  - `@types/node`                           v22.19.3 -> v24.10.9
   - `@types/react`                          v18.2.27 -> v19.2.8
   - `@types/react-dom`                      v18.3.7  -> v19.2.3
+  - `electron`                              v39.2.7  -> v40.1.0
+  - `electron-builder`                      v26.4.0  -> v26.7.0
   - `react`                                 v18.3.1  -> v19.2.3
   - `react-dom`                             v18.3.1  -> v19.2.3
 - Remove

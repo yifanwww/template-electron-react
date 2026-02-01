@@ -11,7 +11,7 @@ catalog:
   '@testing-library/react': ^16.3.1
   '@testing-library/user-event': ^14.6.1
   '@types/confusing-browser-globals': ^1.0.3
-  '@types/node': ^22.19.3
+  '@types/node': ^24.10.9
   '@types/react': ^19.2.8
   '@types/react-dom': ^19.2.3
   '@types/semver': ^7.7.1
@@ -24,8 +24,8 @@ catalog:
   concurrently: ^9.2.1
   confusing-browser-globals: ^1.0.11
   dayjs: ^1.11.19
-  electron: 39.2.7
-  electron-builder: ^26.4.0
+  electron: 40.1.0
+  electron-builder: ^26.7.0
   electron-devtools-installer: ^4.0.0
   electron-store: ^11.0.2
   esbuild-loader: ^4.4.2
@@ -42,6 +42,7 @@ catalog:
   jest: ^30.2.0
   jest-environment-jsdom: ^30.2.0
   jest-watch-typeahead: ^3.0.1
+  jsonc-parser: ^3.3.1
   lint-staged: ^16.2.7
   postcss: ^8.5.6
   prettier: 3.7.4

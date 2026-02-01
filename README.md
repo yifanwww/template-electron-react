@@ -2,13 +2,13 @@
 
 A template project for developing Electron application, using React and TypeScript.
 
-You can create your own project by importing this template project.
+You can create your own project by importing this template project. Once finished, you need to search for "template-electron-react" and replace all of them with your application name.
 
-## Use Visual Studio Code as Your Editor
+## Use VSCode as Your Editor
 
-It's recommanded for you to use `Visual Studio Code` to develop your Electron application.
+It's recommanded for you to use VSCode to develop your Electron application.
 
-After creating your own project, you will need to rename the `template-electron-react.code-workspace` file to `<YouProjectName>.code-workspace`, then open it in vscode.
+Rename `template-electron-react.code-workspace` to `<YouProjectName>.code-workspace`, then open it in VSCode.
 
 ## Build This Application
 

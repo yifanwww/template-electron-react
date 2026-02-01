@@ -5,21 +5,17 @@ import path from 'node:path';
 // `../..` points to `<repo>/packages/scripts`
 // `../../..` points to `<repo>/packages`
 // `../../../..` points to `<repo>`
-const repo = path.resolve(import.meta.dirname, '../../../..');
+const repository = path.resolve(import.meta.dirname, '../../../..');
 
-const build = path.resolve(repo, 'build');
-const rootNodeModules = path.resolve(repo, 'node_modules');
+const build = path.resolve(repository, 'build');
+const rootNodeModules = path.resolve(repository, 'node_modules');
 
-const pkgs = path.resolve(repo, 'packages');
+const pkgs = path.resolve(repository, 'packages');
 
 const scriptsDist = path.resolve(pkgs, 'scripts/dist');
 
 export const paths = {
-    repository: repo,
-
-    // node_modules
-
-    rootNodeModules,
+    repository,
     electron: electron as unknown as string,
 
     // packages
@@ -30,13 +26,13 @@ export const paths = {
     // compilation
 
     build,
-    unpacked: path.resolve(repo, 'release/win-unpacked/template-electron-react.exe'),
+    unpackedWinDir: path.resolve(repository, 'release/win-unpacked'),
 
     webpackMainConfig: path.resolve(scriptsDist, 'webpack/webpack.main.config.js'),
 
     // working
 
-    working: path.resolve(repo, 'working'),
+    working: path.resolve(repository, 'working'),
 
     // test
 

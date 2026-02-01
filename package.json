@@ -39,7 +39,7 @@
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
     "engines": {
-        "node": ">=22"
+        "node": ">=24"
     },
     "devDependencies": {
         "@app-config/scripts": "workspace:*",
