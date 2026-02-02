@@ -27,13 +27,13 @@
         "unit-test": "./bin/unit-test.js"
     },
     "scripts": {
-        "build-scripts": "concurrently -n dist,types \"pnpm run build-scripts:dist\" \"pnpm run build-scripts:types\"",
-        "build-scripts:dist": "tsc --project tsconfigs/tsconfig.dist.json",
-        "build-scripts:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "build": "concurrently -n dist,types \"pnpm run build:dist\" \"pnpm run build:types\"",
+        "build:dist": "tsc --project tsconfigs/tsconfig.dist.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
+        "lint-fix": "eslint . --fix",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {

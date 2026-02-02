@@ -44,10 +44,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build scripts
-        run: pnpm run build-scripts
-
-      - name: Build project
+      - name: Build application
         run: pnpm run build
 
       - name: Generate installer

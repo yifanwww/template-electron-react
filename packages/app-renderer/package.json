@@ -21,7 +21,7 @@
         "dev": "vite dev",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
-        "lint:fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
+        "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
         "test": "unit-test",
         "test-full": "unit-test",
         "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
