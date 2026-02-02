@@ -2,9 +2,7 @@ import { WindowType } from '@app/common/apis/app';
 import { ArrayUtil } from '@app/common/utils';
 import type { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell } from 'electron';
-
 import { ConfigurationKey, store } from '../configuration/store';
-
 import { AbstractWindow } from './abstractWindow';
 
 export class MainWindow extends AbstractWindow {

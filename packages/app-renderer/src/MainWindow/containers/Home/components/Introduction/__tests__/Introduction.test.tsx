@@ -1,7 +1,6 @@
 import type { AppDetails } from '@app/common/apis/app';
 import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
-
 import { Introduction } from '../Introduction';
 
 describe(`Test component \`${Introduction.name}\``, () => {

@@ -1,7 +1,5 @@
 import Store from 'electron-store';
-
 import { AppInfo } from '../appInfo';
-
 import type { IWindowState } from './window';
 
 export enum ConfigurationKey {

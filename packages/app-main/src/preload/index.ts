@@ -3,7 +3,6 @@ import { AppAPIKey } from '@app/common/apis/app';
 import type { LoggerRendererAPI } from '@app/common/apis/logger';
 import { LoggerAPIKey } from '@app/common/apis/logger';
 import { contextBridge, ipcRenderer } from 'electron';
-
 import { webArgs } from './args';
 
 const AppAPI: AppRendererAPI = {

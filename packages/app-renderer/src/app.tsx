@@ -1,5 +1,4 @@
 import { WindowType } from '@app/common/apis/app';
-
 import { WINDOW_TYPE } from './apis/app';
 import { MainWindow } from './MainWindow';
 import { assertIsNever } from './utils/assert';

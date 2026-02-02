@@ -23,6 +23,9 @@ export default defineConfig([
             },
         },
         rules: {
+            // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/enforce-node-protocol-usage.md
+            'import/enforce-node-protocol-usage': ['error', 'always'],
+
             // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/first.md
             'import/first': 'error',
 
@@ -54,7 +57,7 @@ export default defineConfig([
             'import/order': [
                 'error',
                 {
-                    groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'unknown'],
+                    groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'unknown'],
                     pathGroups: [
                         {
                             pattern: 'src/**/*.{css,scss}',
@@ -72,7 +75,7 @@ export default defineConfig([
                         order: 'asc',
                     },
                     distinctGroup: false,
-                    'newlines-between': 'always',
+                    'newlines-between': 'ignore',
                 },
             ],
         },

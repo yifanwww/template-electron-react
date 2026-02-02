@@ -1,7 +1,6 @@
 import { WindowType } from '@app/common/apis/app';
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
-
 import { ConfigurationKey, store } from './store';
 
 export interface IWindowState {

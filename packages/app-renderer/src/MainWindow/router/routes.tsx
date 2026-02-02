@@ -1,6 +1,5 @@
 import type { RouteObject } from 'react-router';
 import { Navigate } from 'react-router';
-
 import { RoutePath } from './path';
 
 export const routes: RouteObject[] = [

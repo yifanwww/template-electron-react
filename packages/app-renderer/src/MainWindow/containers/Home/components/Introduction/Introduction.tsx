@@ -1,5 +1,4 @@
 import type { AppDetails } from '@app/common/apis/app';
-
 import { LOGO } from 'src/assets';
 
 import css from './Introduction.module.scss';

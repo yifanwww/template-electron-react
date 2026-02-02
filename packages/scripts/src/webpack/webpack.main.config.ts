@@ -1,12 +1,10 @@
-import { EsbuildPlugin } from 'esbuild-loader';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import path from 'node:path';
 import url from 'node:url';
+import { EsbuildPlugin } from 'esbuild-loader';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import type { Configuration, WebpackPluginInstance } from 'webpack';
-
 import { getElectronNodeTarget } from '../electron.js';
 import { paths } from '../utils/index.js';
-
 import { createEnvironmentHash } from './utils/createEnvironmentHash.js';
 import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin.js';
 import { WebpackStatsPrettifyPlugin } from './utils/webpackStatsPrettifyPlugin.js';

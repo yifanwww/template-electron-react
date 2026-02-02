@@ -1,5 +1,4 @@
 import type { IpcRendererInvokerAPI, StandardResp } from '../types/index.js';
-
 import type { AppDetails, WindowType } from './types.js';
 
 export const AppAPIKey = {

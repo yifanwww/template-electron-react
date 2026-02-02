@@ -1,8 +1,7 @@
-import type { Config } from 'jest';
 import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
-
+import type { Config } from 'jest';
 import { paths } from '../utils/index.js';
 
 const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));

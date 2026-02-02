@@ -1,7 +1,6 @@
 import type { LoggerMainAPI } from '@app/common/apis/logger';
 import { LoggerAPIKey } from '@app/common/apis/logger';
 import type { IpcMain } from 'electron';
-
 import type { AppLogger } from '../logger';
 
 export function registerLoggerHandlers(ipc: IpcMain, logger: AppLogger) {

@@ -1,12 +1,11 @@
+import path from 'node:path';
+import util from 'node:util';
 import { ArrayUtil } from '@app/common/utils';
 import type { ForegroundColorName } from 'chalk';
 import chalk from 'chalk';
 import dayjs from 'dayjs';
 import { app } from 'electron';
-import path from 'node:path';
-import util from 'node:util';
 import winston from 'winston';
-
 import { AppInfo } from './appInfo';
 
 type LogLevel = 'fatal' | 'error' | 'warn' | 'info' | 'verbose' | 'debug';

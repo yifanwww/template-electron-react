@@ -1,5 +1,4 @@
 import type { IpcMainEvent, IpcMainInvokeEvent, IpcRendererEvent } from 'electron';
-
 import type { UnknownFn } from '../../types/index.js';
 
 // Renderer Process Sending

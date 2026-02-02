@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import type { Extension } from 'electron';
 import { app, BrowserWindow } from 'electron';
-
 import { registerAppGlobalHandlers } from './apis/app';
 import { AppInfo } from './appInfo';
 import { AppLoggerService } from './logger';

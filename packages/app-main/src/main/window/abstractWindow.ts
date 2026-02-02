@@ -1,7 +1,6 @@
+import path from 'node:path';
 import type { WindowType } from '@app/common/apis/app';
 import { BrowserWindow, shell } from 'electron';
-import path from 'node:path';
-
 import { registerLoggerHandlers } from '../apis/logger';
 import { AppInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';

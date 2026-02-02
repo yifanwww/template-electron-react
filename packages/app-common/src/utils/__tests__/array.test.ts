@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { ArrayUtil } from '../array.js';
 
 describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.filterFalsy.name}\``, () => {

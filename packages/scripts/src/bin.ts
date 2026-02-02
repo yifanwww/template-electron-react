@@ -1,11 +1,10 @@
-import chalk from 'chalk';
-import type { Configuration } from 'electron-builder';
-import { parse } from 'jsonc-parser';
 import assert from 'node:assert';
 import child from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-
+import chalk from 'chalk';
+import type { Configuration } from 'electron-builder';
+import { parse } from 'jsonc-parser';
 import { paths } from './utils/index.js';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
