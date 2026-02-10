@@ -3,21 +3,8 @@
     "version": "0.16.0",
     "description": "Scripts for template-electron-react.",
     "type": "module",
-    "exports": {
-        ".": "./dist/index.js"
-    },
-    "homepage": "https://github.com/yifanwww/template-electron-react#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/template-electron-react/issues"
-    },
+    "exports": "./dist/index.js",
     "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/template-electron-react.git",
-        "directory": "configs/scripts"
-    },
     "bin": {
         "app-main": "./bin/app-main.js",
         "jest": "./node_modules/jest/bin/jest.js",

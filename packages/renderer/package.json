@@ -3,18 +3,7 @@
     "version": "0.16.0",
     "description": "Electron renderer process code.",
     "type": "module",
-    "homepage": "https://github.com/yifanwww/template-electron-react#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/template-electron-react/issues"
-    },
     "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/template-electron-react.git",
-        "directory": "app/app-renderer"
-    },
     "scripts": {
         "build": "vite build --base=./",
         "clean": "rimraf coverage node_modules/.vite",

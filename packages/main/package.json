@@ -3,18 +3,7 @@
     "version": "0.16.0",
     "description": "Electron main process code.",
     "type": "module",
-    "homepage": "https://github.com/yifanwww/template-electron-react#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/template-electron-react/issues"
-    },
     "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/template-electron-react.git",
-        "directory": "app/app-main"
-    },
     "scripts": {
         "build": "app-main build",
         "clean": "rimraf coverage node_modules/.cache",

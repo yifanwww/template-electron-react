@@ -3,18 +3,7 @@
     "version": "0.16.0",
     "description": "Typescript configurations for template-electron-react.",
     "type": "module",
-    "homepage": "https://github.com/yifanwww/template-electron-react#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/template-electron-react/issues"
-    },
     "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/template-electron-react.git",
-        "directory": "configs/tsconfigs"
-    },
     "scripts": {
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
     },
