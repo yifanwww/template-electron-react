@@ -20,8 +20,8 @@ export const paths = {
 
     // packages
 
-    electronMain: path.resolve(pkgs, 'app-main'),
-    electronRenderer: path.resolve(pkgs, 'app-renderer'),
+    electronMain: path.resolve(pkgs, 'main'),
+    electronRenderer: path.resolve(pkgs, 'renderer'),
 
     // compilation
 

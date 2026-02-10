@@ -79,15 +79,15 @@
         },
         {
             "name": "@app/common",
-            "path": "packages/app-common"
+            "path": "packages/common"
         },
         {
             "name": "@app/main",
-            "path": "packages/app-main"
+            "path": "packages/main"
         },
         {
             "name": "@app/renderer",
-            "path": "packages/app-renderer"
+            "path": "packages/renderer"
         },
         {
             "name": "@app-config/eslint-config",
