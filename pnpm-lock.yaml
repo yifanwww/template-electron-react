@@ -236,6 +236,12 @@ importers:
       '@types/confusing-browser-globals':
         specifier: 'catalog:'
         version: 1.0.3
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.10.9
+      '@types/text-table':
+        specifier: 'catalog:'
+        version: 0.2.5
       camelcase:
         specifier: 'catalog:'
         version: 9.0.0
@@ -254,6 +260,9 @@ importers:
       electron-builder:
         specifier: 'catalog:'
         version: 26.7.0(electron-builder-squirrel-windows@26.7.0)
+      esbuild-loader:
+        specifier: 'catalog:'
+        version: 4.4.2(webpack@5.104.1(@swc/core@1.15.8))
       eslint:
         specifier: 'catalog:'
         version: 9.39.2(jiti@2.6.1)
@@ -272,12 +281,18 @@ importers:
       eslint-plugin-react-hooks:
         specifier: 'catalog:'
         version: 7.0.1(eslint@9.39.2(jiti@2.6.1))
+      fork-ts-checker-webpack-plugin:
+        specifier: 'catalog:'
+        version: 9.1.0(typescript@5.9.3)(webpack@5.104.1(@swc/core@1.15.8))
       globals:
         specifier: 'catalog:'
         version: 17.0.0
       husky:
         specifier: 'catalog:'
         version: 9.1.7
+      identity-obj-proxy:
+        specifier: 'catalog:'
+        version: 3.0.0
       jest:
         specifier: 'catalog:'
         version: 30.2.0(@types/node@24.10.9)
@@ -296,12 +311,21 @@ importers:
       rimraf:
         specifier: 'catalog:'
         version: 6.1.2
+      source-map-loader:
+        specifier: 'catalog:'
+        version: 5.0.0(webpack@5.104.1(@swc/core@1.15.8))
+      text-table:
+        specifier: 'catalog:'
+        version: 0.2.0
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
       typescript-eslint:
         specifier: 'catalog:'
         version: 8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      webpack:
+        specifier: 'catalog:'
+        version: 5.104.1(@swc/core@1.15.8)
       whatwg-fetch:
         specifier: 'catalog:'
         version: 3.6.20
@@ -487,30 +511,12 @@ importers:
       chalk:
         specifier: 'catalog:'
         version: 5.6.2
-      esbuild-loader:
-        specifier: 'catalog:'
-        version: 4.4.2(webpack@5.104.1(@swc/core@1.15.8))
-      fork-ts-checker-webpack-plugin:
-        specifier: 'catalog:'
-        version: 9.1.0(typescript@5.9.3)(webpack@5.104.1(@swc/core@1.15.8))
-      identity-obj-proxy:
-        specifier: 'catalog:'
-        version: 3.0.0
       jsonc-parser:
         specifier: 'catalog:'
         version: 3.3.1
       semver:
         specifier: 'catalog:'
         version: 7.7.3
-      source-map-loader:
-        specifier: 'catalog:'
-        version: 5.0.0(webpack@5.104.1(@swc/core@1.15.8))
-      text-table:
-        specifier: 'catalog:'
-        version: 0.2.0
-      webpack:
-        specifier: 'catalog:'
-        version: 5.104.1(@swc/core@1.15.8)
     devDependencies:
       '@types/node':
         specifier: 'catalog:'
@@ -518,9 +524,6 @@ importers:
       '@types/semver':
         specifier: 'catalog:'
         version: 7.7.1
-      '@types/text-table':
-        specifier: 'catalog:'
-        version: 0.2.5
       concurrently:
         specifier: 'catalog:'
         version: 9.2.1

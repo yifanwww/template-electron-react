@@ -1,17 +1,18 @@
 import path from 'node:path';
-import url from 'node:url';
 import { EsbuildPlugin } from 'esbuild-loader';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import type { Configuration, WebpackPluginInstance } from 'webpack';
-import { getElectronNodeTarget } from '../electron.js';
-import { paths } from '../utils/index.js';
-import { createEnvironmentHash } from './utils/createEnvironmentHash.js';
-import { ReloadElectronWebpackPlugin } from './utils/reloadElectronWebpackPlugin.js';
-import { WebpackStatsPrettifyPlugin } from './utils/webpackStatsPrettifyPlugin.js';
+import { createEnvironmentHash } from './createEnvironmentHash.mjs';
+import { ReloadElectronWebpackPlugin } from './reloadElectronWebpackPlugin.mjs';
+import { WebpackStatsPrettifyPlugin } from './webpackStatsPrettifyPlugin.mjs';
 
-const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
+const root = path.resolve(import.meta.dirname, '../..');
+const buildDir = path.resolve(root, 'build');
+const workingDir = path.resolve(root, 'working');
+const mainPkgDir = path.resolve(root, 'packages', 'main');
 
-const resolveAppMain = (relative: string) => path.resolve(paths.electronMain, relative);
+const NODE_TARGET = 'node24.11'
+
+const resolveAppMain = (relative) => path.resolve(mainPkgDir, relative);
 
 const appMainPaths = {
     mainIndexTs: resolveAppMain('src/main/index.ts'),
@@ -20,32 +21,23 @@ const appMainPaths = {
     appSrc: resolveAppMain('src'),
     appTsBuildInfoFile: resolveAppMain('node_modules/.cache/tsconfig.tsbuildinfo'),
     appTsConfig: resolveAppMain('tsconfig.json'),
-    build: paths.build,
+    build: buildDir,
     webpackCache: resolveAppMain('node_modules/.cache'),
 };
 
-interface CliConfigOptions {
-    config?: string;
-    mode?: Configuration['mode'];
-    env?: string;
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    'config-register'?: string;
-    configRegister?: string;
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    'config-name'?: string;
-    configName?: string;
-}
-
-type ConfigurationFactory = (
-    env: string | Record<string, boolean | number | string> | undefined,
-    args: CliConfigOptions,
-) => Configuration | Promise<Configuration>;
-
-const factory: ConfigurationFactory = (env, argv) => {
+/**
+ *
+ * @param {string | Record<string, boolean | number | string> | undefined} env
+ * @param {{ mode?: import('webpack').Configuration['mode'] }} argv
+ */
+function factory(env, argv) {
     const isDevelopment = argv.mode === 'development';
     const isProduction = argv.mode === 'production';
 
-    const webpack: Configuration = {
+    /**
+     * @type {import('webpack').Configuration}
+     */
+    const webpack = {
         target: 'electron-main',
         // Webpack noise constrained to errors and warnings
         stats: 'errors-warnings',
@@ -104,15 +96,15 @@ const factory: ConfigurationFactory = (env, argv) => {
                     enforce: 'pre',
                     exclude: /@babel(?:\/|\\{1,2})runtime/,
                     test: /\.(js|mjs|ts)$/,
-                    loader: resolve('source-map-loader'),
+                    loader: 'source-map-loader',
                 },
                 {
                     oneOf: [
                         {
                             test: /\.[cm]?[jt]s$/,
-                            loader: resolve('esbuild-loader'),
+                            loader: 'esbuild-loader',
                             options: {
-                                target: getElectronNodeTarget(),
+                                target: NODE_TARGET,
                             },
                         },
                     ],
@@ -122,7 +114,7 @@ const factory: ConfigurationFactory = (env, argv) => {
 
         optimization: {
             minimize: isProduction,
-            minimizer: [new EsbuildPlugin({ target: getElectronNodeTarget() })],
+            minimizer: [new EsbuildPlugin({ target: NODE_TARGET })],
         },
 
         plugins: [
@@ -131,13 +123,13 @@ const factory: ConfigurationFactory = (env, argv) => {
                     'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
                 },
             }),
-            isDevelopment && new ReloadElectronWebpackPlugin(paths.repository, paths.working),
+            isDevelopment && new ReloadElectronWebpackPlugin(root, workingDir),
             // TypeScript type checking
             isDevelopment &&
                 new ForkTsCheckerWebpackPlugin({
                     async: isDevelopment,
                     typescript: {
-                        typescriptPath: resolve('typescript'),
+                        typescriptPath: 'typescript',
                         configOverwrite: {
                             compilerOptions: {
                                 sourceMap: isProduction || isDevelopment,
@@ -157,7 +149,7 @@ const factory: ConfigurationFactory = (env, argv) => {
                     },
                 }),
             new WebpackStatsPrettifyPlugin(),
-        ].filter(Boolean) as WebpackPluginInstance[],
+        ].filter(Boolean),
 
         performance: {
             hints: 'warning',
@@ -176,6 +168,6 @@ const factory: ConfigurationFactory = (env, argv) => {
     };
 
     return webpack;
-};
+}
 
 export default factory;

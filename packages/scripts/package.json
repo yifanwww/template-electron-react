@@ -6,7 +6,6 @@
     "exports": "./dist/index.js",
     "private": true,
     "bin": {
-        "app-main": "./bin/app-main.js",
         "mkdir-working": "./bin/mkdir-working.js",
         "run-build": "./bin/run-build.js",
         "run-unpacked": "./bin/run-unpacked.js"
@@ -23,18 +22,12 @@
     },
     "dependencies": {
         "chalk": "catalog:",
-        "esbuild-loader": "catalog:",
-        "fork-ts-checker-webpack-plugin": "catalog:",
         "jsonc-parser": "catalog:",
-        "semver": "catalog:",
-        "source-map-loader": "catalog:",
-        "text-table": "catalog:",
-        "webpack": "catalog:"
+        "semver": "catalog:"
     },
     "devDependencies": {
         "@types/node": "catalog:",
         "@types/semver": "catalog:",
-        "@types/text-table": "catalog:",
         "concurrently": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",

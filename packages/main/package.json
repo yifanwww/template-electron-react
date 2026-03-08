@@ -5,9 +5,9 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "build": "app-main build",
+        "build": "node ../../scripts/app-main.mjs build",
         "clean": "rimraf coverage node_modules/.cache",
-        "dev": "app-main dev",
+        "dev": "node ../../scripts/app-main.mjs dev",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",

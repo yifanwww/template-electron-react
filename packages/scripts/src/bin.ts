@@ -1,4 +1,3 @@
-import assert from 'node:assert';
 import child from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -6,27 +5,6 @@ import chalk from 'chalk';
 import type { Configuration } from 'electron-builder';
 import { parse } from 'jsonc-parser';
 import { paths } from './utils/index.js';
-
-const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
-
-type CompilationFlag = 'build' | 'dev';
-
-const compilationMode = {
-    build: 'production',
-    'build-profile': 'production',
-    dev: 'development',
-};
-
-export function appMain(): void {
-    const flag = process.argv[2] as CompilationFlag;
-
-    assert(flag === 'build' || flag === 'dev');
-
-    const command = genCommand('webpack', '--config', paths.webpackMainConfig, '--mode', compilationMode[flag]);
-
-    console.info(chalk.yellow(command));
-    child.execSync(command, { stdio: 'inherit' });
-}
 
 export async function mkdirWorking(): Promise<void> {
     return fs

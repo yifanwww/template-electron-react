@@ -1,14 +1,17 @@
 import chalk from 'chalk';
 import table from 'text-table';
-import type { Compiler } from 'webpack';
 
 export class WebpackStatsPrettifyPlugin {
-    apply(compiler: Compiler) {
+    /**
+     * @param {import('webpack').Compiler} compiler
+     */
+    apply(compiler) {
         compiler.hooks.done.tap('WebpackStatsPrettifyPlugin', (stats) => {
             const { assets } = stats.toJson({});
             if (!assets) return;
 
-            const data: string[][] = [];
+            /** @type {string[][]} */
+            const data = [];
 
             for (const asset of assets.sort((a, b) => b.size - a.size)) {
                 const size =

@@ -17,49 +17,6 @@ function getElectronMajorVer(): number {
     return majorVer;
 }
 
-export function getElectronNodeTarget(): string {
-    const electronVer = getElectronMajorVer();
-
-    const nodeVer: Record<string, string | undefined> = {
-        '40': '24.11',
-        '39': '22.20',
-        '38': '22.18',
-        '37': '22.16',
-        '36': '22.14',
-        '35': '22.14',
-        '34': '20.18',
-        '33': '20.18',
-        '32': '20.16',
-        '31': '20.14',
-        '30': '20.11',
-        '29': '20.9',
-        '28': '18.18',
-        '27': '18.17',
-        '26': '18.16',
-        '25': '18.15',
-        '24': '18.14',
-        '23': '18.12',
-        '22': '16.17',
-        '21': '16.16',
-        '20': '16.15',
-        '19': '16.14',
-        '18': '16.13',
-        '17': '16.13',
-        '16': '16.9',
-        '15': '16.5',
-        '14': '14.17',
-        '13': '14.17',
-        '12': '14.16',
-        '11': '12.18',
-    };
-    if (electronVer > 10) {
-        let target = nodeVer[electronVer];
-        target ??= Object.values(nodeVer).reverse()[0];
-        return `node${target}`;
-    }
-    return '';
-}
-
 export function getElectronChromeTarget(): string {
     const electronVer = getElectronMajorVer();
 

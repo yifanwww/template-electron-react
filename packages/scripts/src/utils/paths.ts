@@ -7,27 +7,13 @@ import electron from 'electron';
 // `../../../..` points to `<repo>`
 const repository = path.resolve(import.meta.dirname, '../../../..');
 
-const build = path.resolve(repository, 'build');
-
-const pkgs = path.resolve(repository, 'packages');
-
-const scriptsDist = path.resolve(pkgs, 'scripts/dist');
-
 export const paths = {
     repository,
     electron: electron as unknown as string,
 
-    // packages
-
-    electronMain: path.resolve(pkgs, 'main'),
-    electronRenderer: path.resolve(pkgs, 'renderer'),
-
     // compilation
 
-    build,
     unpackedWinDir: path.resolve(repository, 'release/win-unpacked'),
-
-    webpackMainConfig: path.resolve(scriptsDist, 'webpack/webpack.main.config.js'),
 
     // working
 

@@ -1,5 +1,8 @@
 import { createHash } from 'node:crypto';
 
-export function createEnvironmentHash(env: Record<string, unknown>) {
+/**
+ * @param {Record<string, unknown>} env
+ */
+export function createEnvironmentHash(env) {
     return createHash('md5').update(JSON.stringify(env)).digest('hex');
 }
