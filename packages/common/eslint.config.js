@@ -1,4 +1,4 @@
-import { recommended } from '@app-config/eslint-config';
 import { defineConfig, globalIgnores } from 'eslint/config';
+import { recommended } from '../../configs/eslint/index.mjs';
 
 export default defineConfig([globalIgnores(['coverage/', 'lib/']), recommended.basic]);

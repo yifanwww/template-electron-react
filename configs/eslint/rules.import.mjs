@@ -6,7 +6,7 @@ const ALL_EXTENSIONS = [...TYPESCRIPT_EXTENSIONS, '.cjs', '.mjs', '.js', '.jsx']
 
 export default defineConfig([
     {
-        name: '@app-config/eslint-config/rules-import',
+        name: 'app-eslint-config/rules-import',
         plugins: {
             import: $import,
         },

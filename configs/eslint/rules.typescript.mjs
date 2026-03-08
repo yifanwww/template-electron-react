@@ -1,7 +1,7 @@
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-const NAMING: ['error', ...unknown[]] = [
+const naming = [
     'error',
     { selector: 'accessor', modifiers: ['static'], format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
     { selector: 'accessor', format: ['camelCase'], leadingUnderscore: 'forbid' },
@@ -46,7 +46,7 @@ const NAMING: ['error', ...unknown[]] = [
 
 export default defineConfig([
     {
-        name: '@app-config/eslint-config/rules-typescript',
+        name: 'app-eslint-config/rules-typescript',
         extends: [
             tseslint.configs.recommendedTypeChecked,
             // tseslint.configs.strictTypeChecked,
@@ -71,7 +71,7 @@ export default defineConfig([
             '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
 
             // https://typescript-eslint.io/rules/naming-convention
-            '@typescript-eslint/naming-convention': NAMING,
+            '@typescript-eslint/naming-convention': naming,
 
             // https://typescript-eslint.io/rules/no-empty-function
             '@typescript-eslint/no-empty-function': [
@@ -129,7 +129,7 @@ export default defineConfig([
         },
     },
     {
-        name: '@app-config/eslint-config/rules-typescript-overrides-d.ts',
+        name: 'app-eslint-config/rules-typescript-overrides-d.ts',
         files: ['**/*.d.ts'],
         rules: {
             // https://typescript-eslint.io/rules/naming-convention
@@ -137,7 +137,7 @@ export default defineConfig([
         },
     },
     {
-        name: '@app-config/eslint-config/rules-typescript-overrides-test',
+        name: 'app-eslint-config/rules-typescript-overrides-test',
         files: ['src/**/__tests__/*.{ts,tsx}', 'src/**/*.{spec,test}.{ts,tsx}', 'test/**/*.{ts,tsx}'],
         rules: {
             // https://typescript-eslint.io/rules/dot-notation

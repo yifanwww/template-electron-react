@@ -42,13 +42,24 @@
     },
     "devDependencies": {
         "@app-config/scripts": "workspace:*",
+        "@eslint/js": "catalog:",
+        "@types/confusing-browser-globals": "catalog:",
         "concurrently": "catalog:",
+        "confusing-browser-globals": "catalog:",
         "electron": "catalog:",
         "electron-builder": "catalog:",
+        "eslint": "catalog:",
+        "eslint-plugin-import": "catalog:",
+        "eslint-plugin-jest": "catalog:",
+        "eslint-plugin-prettier": "catalog:",
+        "eslint-plugin-react": "catalog:",
+        "eslint-plugin-react-hooks": "catalog:",
+        "globals": "catalog:",
         "husky": "catalog:",
         "lint-staged": "catalog:",
         "prettier": "catalog:",
         "rimraf": "catalog:",
-        "typescript": "catalog:"
+        "typescript": "catalog:",
+        "typescript-eslint": "catalog:"
     }
 }

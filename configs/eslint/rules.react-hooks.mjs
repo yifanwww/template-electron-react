@@ -3,7 +3,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 
 export default defineConfig([
     {
-        name: '@app-config/eslint-config/rules-react-hooks',
+        name: 'app-eslint-config/rules-react-hooks',
         plugins: {
             // @ts-ignore
             'react-hooks': reactHooks,

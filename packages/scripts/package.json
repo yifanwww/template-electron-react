@@ -41,7 +41,6 @@
         "whatwg-fetch": "catalog:"
     },
     "devDependencies": {
-        "@app-config/eslint-config": "workspace:*",
         "@app-config/tsconfigs": "workspace:*",
         "@jest/types": "catalog:",
         "@types/node": "catalog:",

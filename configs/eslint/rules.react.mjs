@@ -3,7 +3,7 @@ import react from 'eslint-plugin-react';
 
 export default defineConfig([
     {
-        name: '@app-config/eslint-config/rules-react',
+        name: 'app-eslint-config/rules-react',
         plugins: {
             react,
         },

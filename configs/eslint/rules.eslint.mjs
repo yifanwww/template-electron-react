@@ -4,7 +4,7 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
     {
-        name: '@app-config/eslint-config/rules-eslint',
+        name: 'app-eslint-config/rules-eslint',
         extends: [js.configs.recommended],
         rules: {
             // https://eslint.org/docs/latest/rules/default-case

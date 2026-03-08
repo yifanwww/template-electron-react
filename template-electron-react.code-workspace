@@ -15,18 +15,13 @@
 
         "git.enabled": true,
 
-        "json.schemas": [
-            {
-                "fileMatch": ["electron-builder.json"],
-                "url": "https://json.schemastore.org/electron-builder.json"
-            }
-        ],
-
         "search.useIgnoreFiles": true,
         "search.useParentIgnoreFiles": true,
 
-        "typescript.enablePromptUseWorkspaceTsdk": true,
-        "typescript.tsdk": "template-electron-react/node_modules/typescript/lib",
+        "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+        "js/ts.tsdk.path": "template-electron-react/node_modules/typescript/lib",
+
+        // --------------------------------------------------- Language Settings
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -88,10 +83,6 @@
         {
             "name": "@app/renderer",
             "path": "packages/renderer"
-        },
-        {
-            "name": "@app-config/eslint-config",
-            "path": "packages/eslint-config"
         },
         {
             "name": "@app-config/scripts",

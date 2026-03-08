@@ -25,7 +25,6 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
-        "@app-config/eslint-config": "workspace:*",
         "@app-config/scripts": "workspace:*",
         "@app-config/tsconfigs": "workspace:*",
         "@jest/globals": "catalog:",
