@@ -1,12 +1,12 @@
 {
-    "extends": "@app-config/tsconfigs/tsconfig.node.base.json",
+    "extends": "../../../configs/tsconfigs/tsconfig.node.base.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"
     },
     "include": ["../src/**/*"],
     "exclude": [
-        "../src/**/__mockss__/**/*",
+        "../src/**/__mocks__/**/*",
         "../src/**/__tests__/**/*",
         "../src/**/*.spec.ts",
         "../src/**/*.test.ts",

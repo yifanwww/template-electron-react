@@ -26,7 +26,6 @@
     },
     "devDependencies": {
         "@app-config/scripts": "workspace:*",
-        "@app-config/tsconfigs": "workspace:*",
         "@jest/globals": "catalog:",
         "concurrently": "catalog:",
         "eslint": "catalog:",

@@ -87,10 +87,6 @@
         {
             "name": "@app-config/scripts",
             "path": "packages/scripts"
-        },
-        {
-            "name": "@app-config/tsconfigs",
-            "path": "packages/tsconfigs"
         }
     ]
 }

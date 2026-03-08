@@ -41,7 +41,6 @@
         "whatwg-fetch": "catalog:"
     },
     "devDependencies": {
-        "@app-config/tsconfigs": "workspace:*",
         "@jest/types": "catalog:",
         "@types/node": "catalog:",
         "@types/semver": "catalog:",

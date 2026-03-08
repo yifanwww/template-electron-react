@@ -27,7 +27,6 @@
     },
     "devDependencies": {
         "@app-config/scripts": "workspace:*",
-        "@app-config/tsconfigs": "workspace:*",
         "@jest/globals": "catalog:",
         "@testing-library/dom": "catalog:",
         "@testing-library/jest-dom": "catalog:",
