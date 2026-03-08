@@ -16,7 +16,6 @@
     "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
     "scripts": {
         "build": "pnpm run --recursive --stream build",
-        "build-configs": "pnpm run --filter @app-config/* --stream build",
         "build-libs": "pnpm run --filter @app/* --filter=!@app/main --filter=!@app/renderer --stream build",
         "clean": "pnpm run clean:build && pnpm run clean:packages",
         "clean:build": "rimraf build release",
@@ -31,9 +30,9 @@
         "lint": "pnpm run --recursive --no-sort --stream lint",
         "lint-fix": "pnpm run --recursive --no-sort --stream lint-fix",
         "prepare": "husky",
-        "prepare-env": "pnpm run build-configs && mkdir-working",
-        "run-build": "run-build",
-        "run-unpacked": "run-unpacked",
+        "prepare-env": "node ./scripts/mkdir-working.mjs",
+        "run-build": "node ./scripts/run-build.mjs",
+        "run-unpacked": "node ./scripts/run-unpacked.mjs",
         "test-full": "pnpm run --recursive --no-sort --stream test-full",
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
@@ -41,7 +40,6 @@
         "node": ">=24"
     },
     "devDependencies": {
-        "@app-config/scripts": "workspace:*",
         "@eslint/js": "catalog:",
         "@jest/types": "catalog:",
         "@swc/jest": "catalog:",
@@ -68,6 +66,7 @@
         "jest": "catalog:",
         "jest-environment-jsdom": "catalog:",
         "jest-watch-typeahead": "catalog:",
+        "jsonc-parser": "catalog:",
         "lint-staged": "catalog:",
         "prettier": "catalog:",
         "rimraf": "catalog:",

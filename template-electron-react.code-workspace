@@ -83,10 +83,6 @@
         {
             "name": "@app/renderer",
             "path": "packages/renderer"
-        },
-        {
-            "name": "@app-config/scripts",
-            "path": "packages/scripts"
         }
     ]
 }

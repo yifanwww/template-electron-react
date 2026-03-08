@@ -2,8 +2,7 @@ import assert from 'node:assert';
 import child from 'node:child_process';
 import path from 'node:path';
 import chalk from 'chalk';
-
-const root = path.resolve(import.meta.dirname, '..');
+import { root } from './locations.mjs';
 
 function main() {
     /**

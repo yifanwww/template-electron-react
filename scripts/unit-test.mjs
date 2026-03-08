@@ -1,18 +1,12 @@
 import child from 'node:child_process';
 import path from 'node:path';
 import chalk from 'chalk';
-
-const root = path.resolve(import.meta.dirname, '..');
+import { root } from './locations.mjs';
 
 function main() {
     const argv = process.argv.slice(2);
 
-    const command = [
-        'jest',
-        '--config',
-        path.resolve(root, './configs/jest/jest.config.mjs'),
-        ...argv,
-    ].join(' ');
+    const command = ['jest', '--config', path.resolve(root, './configs/jest/jest.config.mjs'), ...argv].join(' ');
 
     const env = {
         ...process.env,

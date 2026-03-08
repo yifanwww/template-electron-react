@@ -25,7 +25,6 @@
         "yargs-parser": "catalog:"
     },
     "devDependencies": {
-        "@app-config/scripts": "workspace:*",
         "@jest/globals": "catalog:",
         "@types/node": "catalog:",
         "@types/yargs-parser": "catalog:",

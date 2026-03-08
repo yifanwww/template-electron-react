@@ -42,9 +42,6 @@ catalogs:
     '@types/react-dom':
       specifier: ^19.2.3
       version: 19.2.3
-    '@types/semver':
-      specifier: ^7.7.1
-      version: 7.7.1
     '@types/text-table':
       specifier: ^0.2.5
       version: 0.2.5
@@ -153,9 +150,6 @@ catalogs:
     sass:
       specifier: ^1.97.1
       version: 1.97.1
-    semver:
-      specifier: ^7.7.3
-      version: 7.7.3
     source-map-loader:
       specifier: ^5.0.0
       version: 5.0.0
@@ -221,9 +215,6 @@ importers:
 
   .:
     devDependencies:
-      '@app-config/scripts':
-        specifier: workspace:*
-        version: link:packages/scripts
       '@eslint/js':
         specifier: 'catalog:'
         version: 9.39.2
@@ -302,6 +293,9 @@ importers:
       jest-watch-typeahead:
         specifier: 'catalog:'
         version: 3.0.1(jest@30.2.0(@types/node@24.10.9))
+      jsonc-parser:
+        specifier: 'catalog:'
+        version: 3.3.1
       lint-staged:
         specifier: 'catalog:'
         version: 16.2.7
@@ -332,9 +326,6 @@ importers:
 
   packages/common:
     devDependencies:
-      '@app-config/scripts':
-        specifier: workspace:*
-        version: link:../scripts
       '@jest/globals':
         specifier: 'catalog:'
         version: 30.2.0
@@ -378,9 +369,6 @@ importers:
         specifier: 'catalog:'
         version: 22.0.0
     devDependencies:
-      '@app-config/scripts':
-        specifier: workspace:*
-        version: link:../scripts
       '@jest/globals':
         specifier: 'catalog:'
         version: 30.2.0
@@ -430,9 +418,6 @@ importers:
         specifier: 'catalog:'
         version: 5.1.0
     devDependencies:
-      '@app-config/scripts':
-        specifier: workspace:*
-        version: link:../scripts
       '@jest/globals':
         specifier: 'catalog:'
         version: 30.2.0
@@ -505,40 +490,6 @@ importers:
       vite-tsconfig-paths:
         specifier: 'catalog:'
         version: 6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.9)(jiti@2.6.1)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(terser@5.44.1)(yaml@2.8.2))
-
-  packages/scripts:
-    dependencies:
-      chalk:
-        specifier: 'catalog:'
-        version: 5.6.2
-      jsonc-parser:
-        specifier: 'catalog:'
-        version: 3.3.1
-      semver:
-        specifier: 'catalog:'
-        version: 7.7.3
-    devDependencies:
-      '@types/node':
-        specifier: 'catalog:'
-        version: 24.10.9
-      '@types/semver':
-        specifier: 'catalog:'
-        version: 7.7.1
-      concurrently:
-        specifier: 'catalog:'
-        version: 9.2.1
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.2(jiti@2.6.1)
-      prettier:
-        specifier: 'catalog:'
-        version: 3.7.4
-      rimraf:
-        specifier: 'catalog:'
-        version: 6.1.2
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
 packages:
 
@@ -1679,9 +1630,6 @@ packages:
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
-
-  '@types/semver@7.7.1':
-    resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -6770,8 +6718,6 @@ snapshots:
   '@types/responselike@1.0.3':
     dependencies:
       '@types/node': 24.10.9
-
-  '@types/semver@7.7.1': {}
 
   '@types/stack-utils@2.0.3': {}
 
