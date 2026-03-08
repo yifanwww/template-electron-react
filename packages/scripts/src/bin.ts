@@ -48,18 +48,3 @@ export async function runUnpacked() {
         console.error(chalk.red('Cannot find productName in electron-builder.json'));
     }
 }
-
-export function unitTest(watch: boolean): void {
-    const argv = process.argv.slice(2);
-
-    const command = genCommand('jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', ...argv);
-    // console.log(command);
-
-    const env = {
-        ...process.env,
-        BABEL_ENV: 'test',
-        NODE_ENV: 'test',
-    };
-
-    child.execSync(command, { env, stdio: 'inherit' });
-}

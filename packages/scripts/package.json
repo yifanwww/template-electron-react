@@ -7,11 +7,9 @@
     "private": true,
     "bin": {
         "app-main": "./bin/app-main.js",
-        "jest": "./node_modules/jest/bin/jest.js",
         "mkdir-working": "./bin/mkdir-working.js",
         "run-build": "./bin/run-build.js",
-        "run-unpacked": "./bin/run-unpacked.js",
-        "unit-test": "./bin/unit-test.js"
+        "run-unpacked": "./bin/run-unpacked.js"
     },
     "scripts": {
         "build": "concurrently -n dist,types \"pnpm run build:dist\" \"pnpm run build:types\"",
@@ -24,24 +22,16 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@swc/jest": "catalog:",
-        "camelcase": "catalog:",
         "chalk": "catalog:",
         "esbuild-loader": "catalog:",
         "fork-ts-checker-webpack-plugin": "catalog:",
-        "identity-obj-proxy": "catalog:",
-        "jest": "catalog:",
-        "jest-environment-jsdom": "catalog:",
-        "jest-watch-typeahead": "catalog:",
         "jsonc-parser": "catalog:",
         "semver": "catalog:",
         "source-map-loader": "catalog:",
         "text-table": "catalog:",
-        "webpack": "catalog:",
-        "whatwg-fetch": "catalog:"
+        "webpack": "catalog:"
     },
     "devDependencies": {
-        "@jest/types": "catalog:",
         "@types/node": "catalog:",
         "@types/semver": "catalog:",
         "@types/text-table": "catalog:",

@@ -43,7 +43,11 @@
     "devDependencies": {
         "@app-config/scripts": "workspace:*",
         "@eslint/js": "catalog:",
+        "@jest/types": "catalog:",
+        "@swc/jest": "catalog:",
         "@types/confusing-browser-globals": "catalog:",
+        "camelcase": "catalog:",
+        "chalk": "catalog:",
         "concurrently": "catalog:",
         "confusing-browser-globals": "catalog:",
         "electron": "catalog:",
@@ -56,10 +60,15 @@
         "eslint-plugin-react-hooks": "catalog:",
         "globals": "catalog:",
         "husky": "catalog:",
+        "identity-obj-proxy": "catalog:",
+        "jest": "catalog:",
+        "jest-environment-jsdom": "catalog:",
+        "jest-watch-typeahead": "catalog:",
         "lint-staged": "catalog:",
         "prettier": "catalog:",
         "rimraf": "catalog:",
         "typescript": "catalog:",
-        "typescript-eslint": "catalog:"
+        "typescript-eslint": "catalog:",
+        "whatwg-fetch": "catalog:"
     }
 }

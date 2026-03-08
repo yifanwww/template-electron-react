@@ -20,8 +20,8 @@
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",
-        "test": "unit-test",
-        "test-full": "unit-test",
+        "test": "node ../../scripts/unit-test.mjs --watch",
+        "test-full": "node ../../scripts/unit-test.mjs --coverage",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {

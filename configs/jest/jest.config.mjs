@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import url from 'node:url';
-import type { Config } from 'jest';
-import { paths } from '../utils/index.js';
 
-const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
+const root = path.resolve(import.meta.dirname, '../..');
+const dirname = import.meta.dirname;
 
-function getConfig(): Config {
+/**
+ * @returns {import('jest').Config}
+ */
+function getConfig() {
     const packageJson = process.env.npm_package_json;
     const packageDir = packageJson ? path.dirname(packageJson) : process.cwd();
 
@@ -16,9 +17,9 @@ function getConfig(): Config {
     return {
         rootDir: packageDir,
         roots: ['<rootDir>/src'],
-        cacheDirectory: paths.jestCache,
+        cacheDirectory: path.resolve(root, './node_modules/.cache/jest'),
 
-        setupFiles: [resolve('./jest.setup.js')],
+        setupFiles: [path.resolve(dirname, './jest.setup.mjs')],
         setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
@@ -34,7 +35,7 @@ function getConfig(): Config {
 
         transform: {
             '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
-                resolve('@swc/jest'),
+                '@swc/jest',
                 {
                     jsc: {
                         transform: {
@@ -45,8 +46,8 @@ function getConfig(): Config {
                     isModule: true,
                 },
             ],
-            '^.+\\.css$': resolve('./transform.css.js'),
-            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve('./transform.file.js'),
+            '^.+\\.css$': path.resolve(dirname, './transform.css.mjs'),
+            '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': path.resolve(dirname, './transform.file.mjs'),
         },
         transformIgnorePatterns: [
             '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
@@ -55,7 +56,6 @@ function getConfig(): Config {
 
         modulePaths: [],
         moduleNameMapper: {
-            '^react-native$': 'react-native-web',
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
             '^src/(.*)$': '<rootDir>/src/$1',
             '^(.*)\\.js$': ['$1.js', '$1.ts'],
@@ -71,6 +71,6 @@ function getConfig(): Config {
     };
 }
 
-const config: Config = getConfig();
+const config = getConfig();
 
 export default config;

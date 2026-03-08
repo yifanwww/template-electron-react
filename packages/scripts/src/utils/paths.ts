@@ -8,7 +8,6 @@ import electron from 'electron';
 const repository = path.resolve(import.meta.dirname, '../../../..');
 
 const build = path.resolve(repository, 'build');
-const rootNodeModules = path.resolve(repository, 'node_modules');
 
 const pkgs = path.resolve(repository, 'packages');
 
@@ -33,9 +32,4 @@ export const paths = {
     // working
 
     working: path.resolve(repository, 'working'),
-
-    // test
-
-    jestCache: path.resolve(rootNodeModules, '.cache/jest'),
-    jestConfig: path.resolve(scriptsDist, 'jest/jest.config.js'),
 };

@@ -5,7 +5,11 @@ import camelcase from 'camelcase';
 // http://facebook.github.io/jest/docs/en/webpack.html
 
 export default {
-    process(src: string, filename: string) {
+    /**
+     * @param {string} src
+     * @param {string} filename
+     */
+    process(src, filename) {
         const assetFilename = JSON.stringify(path.basename(filename));
 
         if (/\.svg$/.exec(filename)) {
