@@ -1,4 +1,10 @@
 {
+    "folders": [
+        {
+            "name": "template-electron-react",
+            "path": "."
+        }
+    ],
     "settings": {
         // --------------------------------------------------- Built-in Settings
 
@@ -14,9 +20,6 @@
         },
 
         "git.enabled": true,
-
-        "search.useIgnoreFiles": true,
-        "search.useParentIgnoreFiles": true,
 
         "js/ts.tsdk.promptToUseWorkspaceVersion": true,
         "js/ts.tsdk.path": "template-electron-react/node_modules/typescript/lib",
@@ -66,23 +69,5 @@
             "vue-html",
             "vue-postcss"
         ]
-    },
-    "folders": [
-        {
-            "name": "template-electron-react",
-            "path": "."
-        },
-        {
-            "name": "@app/common",
-            "path": "packages/common"
-        },
-        {
-            "name": "@app/main",
-            "path": "packages/main"
-        },
-        {
-            "name": "@app/renderer",
-            "path": "packages/renderer"
-        }
-    ]
+    }
 }

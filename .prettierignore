@@ -1,15 +1,6 @@
-# Compilation
-
 /build
+/coverage
 /release
-
-# Packages
-
-/packages
+/working
 
 /pnpm-lock.yaml
-
-# Running and Test
-
-/coverage
-/working

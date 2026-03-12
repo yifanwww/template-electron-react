@@ -12,7 +12,7 @@ export default defineConfig([
         },
         settings: {
             'import/extensions': ALL_EXTENSIONS,
-            'import/internal-regex': '^src/',
+            'import/internal-regex': '^@(main|preload|renderer|shared)/',
             'import/parsers': {
                 '@typescript-eslint/parser': TYPESCRIPT_EXTENSIONS,
             },

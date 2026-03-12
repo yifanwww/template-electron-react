@@ -57,7 +57,10 @@ function getConfig() {
         modulePaths: [],
         moduleNameMapper: {
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-            '^src/(.*)$': '<rootDir>/src/$1',
+            '^@main/(.*)$': '<rootDir>/src/main/$1',
+            '^@preload/(.*)$': '<rootDir>/src/preload/$1',
+            '^@renderer/(.*)$': '<rootDir>/src/renderer/$1',
+            '^@shared/(.*)$': '<rootDir>/src/shared/$1',
             '^(.*)\\.js$': ['$1.js', '$1.ts'],
         },
         moduleFileExtensions: ['tsx', 'ts', 'jsx', 'js', 'json', 'node'],

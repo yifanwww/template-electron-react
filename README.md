@@ -35,7 +35,6 @@ pnpm run gen-installer
 After preparing the environment, run these commands to launch this application in development mode with HMR support:
 
 ```sh
-pnpm run build-libs
 pnpm run dev
 ```
 

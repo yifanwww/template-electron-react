@@ -22,13 +22,11 @@ node_modules
 *.tsbuildinfo
 
 /build
-/packages/*/dist
-/packages/*/lib
 /release
 
 # -------------------- Test
 
-/packages/*/coverage
+/coverage
 
 # -------------------- Working Directory
 
