@@ -1,4 +1,10 @@
 {
+    "folders": [
+        {
+            "name": "template-electron-react",
+            "path": "."
+        }
+    ],
     "settings": {
         // --------------------------------------------------- Built-in Settings
 
@@ -15,18 +21,10 @@
 
         "git.enabled": true,
 
-        "json.schemas": [
-            {
-                "fileMatch": ["electron-builder.json"],
-                "url": "https://json.schemastore.org/electron-builder.json"
-            }
-        ],
+        "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+        "js/ts.tsdk.path": "template-electron-react/node_modules/typescript/lib",
 
-        "search.useIgnoreFiles": true,
-        "search.useParentIgnoreFiles": true,
-
-        "typescript.enablePromptUseWorkspaceTsdk": true,
-        "typescript.tsdk": "template-electron-react/node_modules/typescript/lib",
+        // --------------------------------------------------- Language Settings
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -71,35 +69,5 @@
             "vue-html",
             "vue-postcss"
         ]
-    },
-    "folders": [
-        {
-            "name": "template-electron-react",
-            "path": "."
-        },
-        {
-            "name": "@app/common",
-            "path": "packages/common"
-        },
-        {
-            "name": "@app/main",
-            "path": "packages/main"
-        },
-        {
-            "name": "@app/renderer",
-            "path": "packages/renderer"
-        },
-        {
-            "name": "@app-config/eslint-config",
-            "path": "packages/eslint-config"
-        },
-        {
-            "name": "@app-config/scripts",
-            "path": "packages/scripts"
-        },
-        {
-            "name": "@app-config/tsconfigs",
-            "path": "packages/tsconfigs"
-        }
-    ]
+    }
 }

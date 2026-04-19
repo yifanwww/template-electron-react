@@ -1,0 +1,4 @@
+{
+    "*.{css,scss}": ["stylelint --cache"],
+    "*.{ts,tsx}": ["eslint --cache"]
+}
