@@ -2,13 +2,13 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app';
 import { reportWebVitals } from './reportWebVitals';
-import { assert } from './utils/assert';
+import { assertIsDefined } from './utils/assert';
 
 import './index.css';
 
 function main(): void {
     const appElement = document.getElementById('app');
-    assert(appElement !== null);
+    assertIsDefined(appElement);
 
     const root = createRoot(appElement);
     root.render(
