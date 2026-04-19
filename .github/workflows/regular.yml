@@ -65,7 +65,7 @@ jobs:
         run: pnpm install
 
       - name: Lint
-        run: pnpm run lint
+        run: pnpm run lint-ci
 
   test:
     timeout-minutes: 15
@@ -94,4 +94,4 @@ jobs:
         run: pnpm install
 
       - name: Do coverage test
-        run: pnpm run test-full
+        run: pnpm run test-ci
