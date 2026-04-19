@@ -23,11 +23,12 @@ pre-commit                  text eol=lf
 
 *.iml                       text eol=lf
 
-## visual studio & visual studio code
+## visual studio & visual studio code & visual studio like (cursor)
 
 *.code-workspace            text eol=lf
 *.code-snippets             text eol=lf
 *.csproj                    text eol=lf
+*.cursorignore              text eol=lf
 *.filters                   text eol=lf
 *.pubxml                    text eol=lf
 *.sln                       text eol=lf
@@ -53,6 +54,7 @@ redis                       text eol=lf
 ## others
 
 .clang-format               text eol=lf
+.dockerignore               text eol=lf
 .editorconfig               text eol=lf
 .env                        text eol=lf
 .flake8                     text eol=lf
@@ -65,6 +67,7 @@ redis                       text eol=lf
 .swcrc                      text eol=lf
 .yarnrc                     text eol=lf
 config                      text eol=lf
+Dockerfile                  text eol=lf
 makefile                    text eol=lf
 
 *.ini                       text eol=lf
@@ -117,16 +120,17 @@ makefile                    text eol=lf
 
 ## java
 
+*.gradle                    text eol=lf
 *.java                      text eol=lf
 
 ## javascript & typescript
 
 *.cjs                       text eol=lf
+*.cts                       text eol=lf
 *.js                        text eol=lf
 *.jsx                       text eol=lf
 *.map                       text eol=lf
 *.mjs                       text eol=lf
-*.cts                       text eol=lf
 *.mts                       text eol=lf
 *.ts                        text eol=lf
 *.tsx                       text eol=lf
@@ -181,6 +185,11 @@ makefile                    text eol=lf
 
 *.swift                     text eol=lf
 
+## zig
+
+*.zig                       text eol=lf
+
+# CLI
 ## windows cli
 
 *.bat                       text eol=lf
@@ -191,17 +200,23 @@ makefile                    text eol=lf
 ## unix-like cli
 
 gradlew                     text eol=lf
+*.bash                      text eol=lf
 *.sh                        text eol=lf
+*.zsh                       text eol=lf
 
 ## others
 
 *.svg                       text eol=lf
 
-# misc
+# Software
+
+*.drawio                    text eol=lf
+
+# Misc
 
 *.log                       text eol=lf
 *.txt                       text eol=lf
 
-# windows driver
+# Windows Driver
 
 *.inf                       text eol=crlf
