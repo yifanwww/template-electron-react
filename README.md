@@ -10,11 +10,10 @@ You're required to use `pnpm` to manage the npm dependencies, please install the
 
 If you have `corepack` installed, run `corepack enable pnpm` then you don't need to care about the `pnpm` versions.
 
-Run these commands to prepare the environment:
+Run the following command to prepare the environment:
 
 ```sh
 pnpm install
-pnpm run prepare-env
 ```
 
 Then you can build this application:

@@ -1,4 +1,14 @@
 # CHANGELOG
+## template-electron-react v0.17.0 (Unreleased)
+### What's Changed
+
+Reorganize the project's folder structure, make it simple, no longer use pnpm workspace (and vscode multi-root workspace).
+
+### Dependency Changes
+
+- Remove
+  - `@types/semver`                         v7.7.1
+
 ## template-electron-react v0.16.0 (2026-02-01)
 ### What's Changed
 
