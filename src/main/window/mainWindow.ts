@@ -52,6 +52,6 @@ export class MainWindow extends AbstractWindow {
         ]);
 
         const menu = Menu.buildFromTemplate(template);
-        Menu.setApplicationMenu(menu);
+        this._window.setMenu(menu);
     }
 }
