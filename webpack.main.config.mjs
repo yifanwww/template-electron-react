@@ -139,6 +139,7 @@ function factory(env, argv) {
                                 incremental: true,
                                 tsBuildInfoFile: locations.tsBuildInfoFile,
                             },
+                            exclude: ['src/renderer'],
                         },
                         context: root,
                         diagnosticOptions: {
