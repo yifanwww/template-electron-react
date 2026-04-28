@@ -25,5 +25,5 @@
     },
     "include": ["src/**/*"],
     "exclude": [],
-    "references": [{ "path": "./tsconfig.vite.json" }]
+    "references": [{ "path": "./tsconfig.config.json" }]
 }

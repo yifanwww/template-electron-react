@@ -17,13 +17,13 @@
     "scripts": {
         "build": "concurrently -n main,renderer \"pnpm run build:main\" \"pnpm run build:renderer\"",
         "build:main": "webpack --config webpack.main.config.mjs --mode production",
-        "build:renderer": "vite build --config vite.renderer.config.mjs --base=./",
+        "build:renderer": "vite build --config vite.renderer.config.mts --base=./",
         "clean": "pnpm run clean:build && pnpm run clean:dev",
         "clean:build": "rimraf build release",
         "clean:dev": "rimraf coverage node_modules/.cache node_modules/.vite",
         "dev": "concurrently -n main,renderer \"pnpm run dev:main\" \"pnpm run dev:renderer\"",
         "dev:main": "webpack --config webpack.main.config.mjs --mode development",
-        "dev:renderer": "vite dev --config vite.renderer.config.mjs",
+        "dev:renderer": "vite dev --config vite.renderer.config.mts",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "gen-installer": "electron-builder build --config electron-builder.json --win --publish never",
         "lint": "pnpm run lint:eslint --fix && pnpm run lint:stylelint --fix",
@@ -35,9 +35,9 @@
         "run-bundled": "node ./scripts/run-bundled.mjs",
         "test": "node ./scripts/unit-test.mjs --onlyChanged",
         "test-ci": "node ./scripts/unit-test.mjs --coverage",
-        "typecheck": "pnpm run typecheck:src && pnpm run typecheck:vite",
-        "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
-        "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
+        "typecheck": "pnpm run typecheck:src && pnpm run typecheck:config",
+        "typecheck:config": "tsc --project tsconfig.config.json --noEmit --incremental false --composite false",
+        "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "engines": {
         "node": ">=24"
