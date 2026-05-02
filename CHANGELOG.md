@@ -4,8 +4,13 @@
 
 Reorganize the project's folder structure, make it simple, no longer use pnpm workspace (and vscode multi-root workspace).
 
+Don't window menu across windows.
+
 ### Dependency Changes
 
+- Upgrade
+  - `typescript`                            v5.9.3  -> v6.0.3
+  - `typescript-eslint`                     v8.53.0 -> v8.59.0
 - Remove
   - `@types/semver`                         v7.7.1
 
