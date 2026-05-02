@@ -32,7 +32,7 @@ export abstract class AbstractWindow {
 
             webPreferences: {
                 additionalArguments: [`--window-type=${this._windowType}`],
-                preload: path.resolve(AppInfo.INSTANCE.srcPath, 'preload.js'),
+                preload: path.resolve(AppInfo.INSTANCE.sourcePath, 'preload.js'),
             },
         });
         if (this._stateKeeper.maximized) this._window.maximize();
@@ -50,7 +50,7 @@ export abstract class AbstractWindow {
 
     async show(): Promise<void> {
         if (process.env.NODE_ENV === 'production') {
-            await this._window.loadFile(path.resolve(AppInfo.INSTANCE.srcPath, 'index.html'));
+            await this._window.loadFile(path.resolve(AppInfo.INSTANCE.sourcePath, 'index.html'));
         } else {
             await this._window.loadURL('http://localhost:4321/');
         }
