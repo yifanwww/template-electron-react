@@ -30,7 +30,7 @@
         "lint:eslint": "eslint .",
         "lint:stylelint": "stylelint \"**/*.{css,scss}\"",
         "lint-ci": "pnpm run lint:eslint && pnpm run lint:stylelint",
-        "prepare": "husky && node ./scripts/mkdir-working.mjs",
+        "prepare": "husky && node ./scripts/prepare.mjs",
         "preview": "node ./scripts/preview.mjs",
         "run-bundled": "node ./scripts/run-bundled.mjs",
         "test": "node ./scripts/unit-test.mjs --onlyChanged",
