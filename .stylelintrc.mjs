@@ -5,7 +5,7 @@ export default {
         'stylelint-config-sass-guidelines',
         'stylelint-config-recess-order',
     ],
-    ignoreFiles: ['build/**/*', 'coverage/**/*', 'node_modules/**/*', 'release/**/*'],
+    ignoreFiles: ['.agents/**/*', 'build/**/*', 'coverage/**/*', 'node_modules/**/*', 'release/**/*'],
     rules: {
         // https://stylelint.io/user-guide/rules/max-nesting-depth/
         'max-nesting-depth': null,

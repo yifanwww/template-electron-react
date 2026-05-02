@@ -1,6 +1,8 @@
+/.agents
 /build
 /coverage
 /release
 /working
 
 /pnpm-lock.yaml
+/skills-lock.json

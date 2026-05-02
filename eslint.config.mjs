@@ -10,7 +10,7 @@ import typescript from './configs/eslint/rules.typescript.mjs';
 
 export default defineConfig([
     globalIgnores(
-        ['**/*.cjs', '**/*.js', '**/*.mjs', 'build/', 'coverage/', 'release/', 'scripts/', 'working/'],
+        ['**/*.cjs', '**/*.js', '**/*.mjs', '.agents', 'build/', 'coverage/', 'release/', 'scripts/', 'working/'],
         'app-eslint/ignores',
     ),
     defineConfig([
