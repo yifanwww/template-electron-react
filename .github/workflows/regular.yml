@@ -4,10 +4,8 @@ on:
   push:
     branches:
       - '**'
-      - '!changelog'
-      - '!changelog/*'
-      - '!docs'
       - '!docs/*'
+      - '!skill/*'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
