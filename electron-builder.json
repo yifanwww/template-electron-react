@@ -2,7 +2,7 @@
     // For more information visit https://www.electron.build/
     "$schema": "https://json.schemastore.org/electron-builder.json",
 
-    "appId": "yifanwww.template-electron-react",
+    "appId": "com.yifanwww.template-electron-react",
     "productName": "template-electron-react",
     "extends": null,
 
