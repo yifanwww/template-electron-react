@@ -1,7 +1,8 @@
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
 import type { Extension } from 'electron';
 import { app, BrowserWindow } from 'electron';
+
+import './dayjs';
+
 import { registerAppGlobalHandlers } from './apis/app';
 import { AppInfo } from './appInfo';
 import { AppLoggerService } from './logger';
@@ -23,13 +24,8 @@ async function installExtensions(): Promise<void> {
     await install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail);
 }
 
-function initThirdPartyModules() {
-    dayjs.extend(utc);
-}
-
 async function handleReady() {
     AppInfo.init();
-    initThirdPartyModules();
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
