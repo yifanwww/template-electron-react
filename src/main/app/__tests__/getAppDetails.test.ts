@@ -30,6 +30,15 @@ describe('Test fn getAppDetails', () => {
 
     it('should return app details', async () => {
         const { getAppDetails } = await import('../getAppDetails');
-        expect(getAppDetails()).toMatchSnapshot();
+        expect(getAppDetails()).toStrictEqual({
+            module: {
+                chrome: '<chrome-version>',
+                electron: '<electron-version>',
+                node: '<node-version>',
+                v8: '<v8-version>',
+            },
+            name: 'template-electron-react',
+            version: '<app-version>',
+        });
     });
 });

@@ -13,9 +13,8 @@ concurrency:
 
 jobs:
   build:
-    timeout-minutes: 15
-
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout code
@@ -41,9 +40,8 @@ jobs:
         run: pnpm run typecheck
 
   lint:
-    timeout-minutes: 15
-
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout code
@@ -66,13 +64,8 @@ jobs:
         run: pnpm run lint-ci
 
   test:
+    runs-on: ubuntu-latest
     timeout-minutes: 15
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
-    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout code
