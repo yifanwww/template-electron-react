@@ -1,5 +1,5 @@
 import Store from 'electron-store';
-import { AppInfo } from '../appInfo';
+import { appInfo } from '../appInfo';
 import type { IWindowState } from './window';
 
 export enum ConfigurationKey {
@@ -15,6 +15,6 @@ interface IAppConfiguration {
 export const store = new Store<IAppConfiguration>({
     name: 'settings',
     fileExtension: 'json',
-    cwd: AppInfo.INSTANCE.userDataPath,
+    cwd: appInfo.userDataPath,
     serialize: (value) => JSON.stringify(value, null, 4),
 });

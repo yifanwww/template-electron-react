@@ -2,10 +2,10 @@ import path from 'node:path';
 import { BrowserWindow, shell } from 'electron';
 import type { WindowType } from '@shared/apis/app';
 import { registerLoggerHandlers } from '../apis/logger';
-import { AppInfo } from '../appInfo';
+import { appInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';
 import type { AppLogger } from '../logger';
-import { AppLoggerService } from '../logger';
+import { createLogger } from '../logger';
 
 export interface AbstractWindowOptions {
     memorizationEnabled: boolean;
@@ -32,13 +32,13 @@ export abstract class AbstractWindow {
 
             webPreferences: {
                 additionalArguments: [`--window-type=${this._windowType}`],
-                preload: path.resolve(AppInfo.INSTANCE.srcPath, 'preload.js'),
+                preload: path.resolve(appInfo.sourcePath, 'preload.js'),
             },
         });
         if (this._stateKeeper.maximized) this._window.maximize();
         if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
 
-        this._logger = AppLoggerService.createLogger(`${this._windowType}-${this.id}`);
+        this._logger = createLogger(`${this._windowType}-${this.id}`);
 
         this._addWindowListeners();
         this._addAPIHandlers();
@@ -50,7 +50,7 @@ export abstract class AbstractWindow {
 
     async show(): Promise<void> {
         if (process.env.NODE_ENV === 'production') {
-            await this._window.loadFile(path.resolve(AppInfo.INSTANCE.srcPath, 'index.html'));
+            await this._window.loadFile(path.resolve(appInfo.sourcePath, 'index.html'));
         } else {
             await this._window.loadURL('http://localhost:4321/');
         }

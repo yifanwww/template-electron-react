@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import { app } from 'electron';
 import winston from 'winston';
 import { ArrayUtil } from '@shared/utils';
-import { AppInfo } from './appInfo';
+import { appInfo } from './appInfo';
 
 type LogLevel = 'fatal' | 'error' | 'warn' | 'info' | 'verbose' | 'debug';
 
@@ -37,13 +37,8 @@ export interface AppLogger {
     debug: AppLeveledLogMethod;
 }
 
-function getLogFileName() {
-    const timeStr = dayjs.utc(AppInfo.INSTANCE.startedTime).format('YYYYMMDDTHHmmssSSS');
-    return path.join(AppInfo.INSTANCE.userDataPath, 'logs', `app-${timeStr}.log`);
-}
-
 // https://github.com/winstonjs/winston/issues/1427
-function splat(): winston.Logform.Format {
+function makeSplatFormat(): winston.Logform.Format {
     return {
         transform: (info) => {
             const args = (info[Symbol.for('splat')] ?? []) as unknown[];
@@ -60,7 +55,7 @@ interface TypedTransformableInfo extends winston.Logform.TransformableInfo {
     timestamp: string;
 }
 
-function format(): winston.Logform.Format {
+function makeFormat(): winston.Logform.Format {
     return winston.format.printf((_info) => {
         const info = _info as TypedTransformableInfo;
 
@@ -72,7 +67,7 @@ function format(): winston.Logform.Format {
     });
 }
 
-function formatColorfully(colors: Record<string, ForegroundColorName>): winston.Logform.Format {
+function makeConsoleFormat(colors: Record<string, ForegroundColorName>): winston.Logform.Format {
     return winston.format.printf((_info) => {
         const info = _info as TypedTransformableInfo;
 
@@ -86,63 +81,58 @@ function formatColorfully(colors: Record<string, ForegroundColorName>): winston.
     });
 }
 
-export class AppLoggerService {
-    /**
-     * The instance for electron main process to log logs.
-     */
-    private static _instance?: AppLogger;
+export function createLogger(context: string): AppLogger {
+    const levels: Record<LogLevel, number> = {
+        fatal: 0,
+        error: 1,
+        warn: 2,
+        info: 3,
+        verbose: 4,
+        debug: 5,
+    };
 
-    /**
-     * The instance for electron main process to log logs.
-     */
-    static get INSTANCE(): AppLogger {
-        AppLoggerService._instance ??= AppLoggerService.createLogger('Application');
-        return AppLoggerService._instance;
-    }
+    const colors: Record<LogLevel, ForegroundColorName> = {
+        fatal: 'magentaBright',
+        error: 'red',
+        warn: 'yellow',
+        info: 'green',
+        verbose: 'cyan',
+        debug: 'blue',
+    };
 
-    static createLogger(context: string): AppLogger {
-        const levels: Record<LogLevel, number> = {
-            fatal: 0,
-            error: 1,
-            warn: 2,
-            info: 3,
-            verbose: 4,
-            debug: 5,
-        };
+    const labelFormat = winston.format.label({ label: context });
+    const timestampFormat = winston.format.timestamp({ format: 'YYYY-MM-DD, HH:mm:ss.SSS' });
+    const splatFormat = makeSplatFormat();
 
-        const colors: Record<LogLevel, ForegroundColorName> = {
-            fatal: 'magentaBright',
-            error: 'red',
-            warn: 'yellow',
-            info: 'green',
-            verbose: 'cyan',
-            debug: 'blue',
-        };
+    const filename = path.join(
+        appInfo.userDataPath,
+        'logs',
+        `app-${dayjs.utc(appInfo.startedTime).format('YYYYMMDDTHHmmssSSS')}.log`,
+    );
 
-        const labelFormat = winston.format.label({ label: context });
-        const timestampFormat = winston.format.timestamp({ format: 'YYYY-MM-DD, HH:mm:ss.SSS' });
-        const splatFormat = splat();
-
-        return winston.createLogger({
-            transports: ArrayUtil.filterFalsy([
-                new winston.transports.File({
-                    level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-                    filename: getLogFileName(),
-                    options: { flags: 'a' },
-                    format: winston.format.combine(labelFormat, timestampFormat, splatFormat, format()),
+    const logger = winston.createLogger({
+        transports: ArrayUtil.filterFalsy([
+            new winston.transports.File({
+                level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+                filename,
+                options: { flags: 'a' },
+                format: winston.format.combine(labelFormat, timestampFormat, splatFormat, makeFormat()),
+            }),
+            !app.isPackaged &&
+                new winston.transports.Console({
+                    level: 'debug',
+                    format: winston.format.combine(
+                        labelFormat,
+                        timestampFormat,
+                        splatFormat,
+                        makeConsoleFormat(colors),
+                    ),
                 }),
-                !app.isPackaged &&
-                    new winston.transports.Console({
-                        level: 'debug',
-                        format: winston.format.combine(
-                            labelFormat,
-                            timestampFormat,
-                            splatFormat,
-                            formatColorfully(colors),
-                        ),
-                    }),
-            ]),
-            levels,
-        }) as unknown as AppLogger;
-    }
+        ]),
+        levels,
+    });
+
+    return logger as unknown as AppLogger;
 }
+
+export const globalLogger = createLogger('Global');

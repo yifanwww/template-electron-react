@@ -4,8 +4,7 @@ import { app, BrowserWindow } from 'electron';
 import './dayjs';
 
 import { registerAppGlobalHandlers } from './apis/app';
-import { AppInfo } from './appInfo';
-import { AppLoggerService } from './logger';
+import { globalLogger } from './logger';
 import { MainWindow } from './window';
 
 async function installExtensions(): Promise<void> {
@@ -14,25 +13,24 @@ async function installExtensions(): Promise<void> {
     );
 
     const succeed = (name: Extension) => {
-        AppLoggerService.INSTANCE.info(`Added extension "${name.name}"`);
+        globalLogger.info(`Added extension "${name.name}"`);
     };
 
     const fail = (err: unknown) => {
-        AppLoggerService.INSTANCE.error('An error occurred when install extension:', err);
+        globalLogger.error('An error occurred when install extension:', err);
     };
 
     await install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail);
 }
 
 async function handleReady() {
-    AppInfo.init();
     if (process.env.NODE_ENV === 'development') {
         await installExtensions();
     }
-    AppLoggerService.INSTANCE.info('App ready.');
+    globalLogger.info('App ready.');
 
     registerAppGlobalHandlers();
-    AppLoggerService.INSTANCE.info('Registered event handlers.');
+    globalLogger.info('Registered event handlers.');
 
     const main = new MainWindow();
     main.initApplicationMenu();
@@ -48,7 +46,7 @@ app.on('window-all-closed', () => {
     // On macOS, most applications and their menu bars will stay active unless users use `cmd + Q` to quit.
     if (process.platform !== 'darwin') {
         app.quit();
-        AppLoggerService.INSTANCE.info('App quited.');
+        globalLogger.info('App quited.');
     }
 });
 

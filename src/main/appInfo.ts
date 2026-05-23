@@ -1,17 +1,13 @@
 import path from 'node:path';
 import { app } from 'electron';
 
-export class AppInfo {
-    private static _instance?: AppInfo;
-
+class AppInfo {
     private readonly _appPath: string;
-    private readonly _srcPath: string;
     private readonly _userDataPath: string;
 
     private readonly _startedTime: number;
 
-    private constructor() {
-        this._srcPath = __dirname;
+    constructor() {
         this._appPath = app.isPackaged
             ? // use installation directory in production env
               path.resolve(__dirname, '../../..')
@@ -27,21 +23,21 @@ export class AppInfo {
         this._startedTime = Date.now();
     }
 
-    static get INSTANCE() {
-        AppInfo.init();
-        return AppInfo._instance!;
-    }
-
-    static init() {
-        AppInfo._instance ??= new AppInfo();
-    }
-
     get appPath(): string {
         return this._appPath;
     }
 
-    get srcPath(): string {
-        return this._srcPath;
+    /**
+     * The path where the app's source code resides. This is used as the base path for loading resources and modules.
+     *
+     * In development environment, `sourcePath` points to the build output directory (e.g., `<repo>/build/`)
+     * where the compiled main process code is located.
+     *
+     * In production environment, `sourcePath` points to the `resources/app.asar/build/` directory
+     * inside the installation directory.
+     */
+    get sourcePath(): string {
+        return __dirname;
     }
 
     get userDataPath(): string {
@@ -52,3 +48,5 @@ export class AppInfo {
         return this._startedTime;
     }
 }
+
+export const appInfo = new AppInfo();
