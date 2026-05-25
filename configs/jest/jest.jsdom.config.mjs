@@ -8,30 +8,26 @@ const dirname = import.meta.dirname;
  * @returns {import('jest').Config}
  */
 function getConfig() {
-    const packageJson = process.env.npm_package_json;
-    const packageDir = packageJson ? path.dirname(packageJson) : process.cwd();
-
-    const packageOwnTestSetup = path.resolve(packageDir, 'src/test.setup.ts');
-    const hasPackageOwnTestSetup = fs.existsSync(packageOwnTestSetup);
+    const testSetup = path.resolve(root, 'src/test-jsdom.setup.ts');
+    const hasTestSetup = fs.existsSync(testSetup);
 
     return {
-        rootDir: packageDir,
-        roots: ['<rootDir>/src'],
+        rootDir: root,
+        roots: ['<rootDir>/src/renderer'],
         cacheDirectory: path.resolve(root, './node_modules/.cache/jest'),
 
         setupFiles: [path.resolve(dirname, './jest.setup.mjs')],
-        setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
+        setupFilesAfterEnv: hasTestSetup ? [testSetup] : [],
 
         collectCoverageFrom: [
             'src/**/*.{ts,tsx}',
             '!src/**/__mocks__/**/*.{ts,tsx}',
             '!src/**/__tests__/**/*.{ts,tsx}',
-            '!src/**/*.{spec.test}.{ts,tsx}',
+            '!src/**/*.{spec,test}.{ts,tsx}',
             '!src/**/*.d.ts',
-            '!src/test.setup.ts',
         ],
-        testMatch: ['<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
-        testEnvironment: 'jest-environment-jsdom',
+        testMatch: ['<rootDir>/src/renderer/**/*.{spec,test}.{ts,tsx}'],
+        testEnvironment: 'jsdom',
 
         transform: {
             '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
@@ -49,10 +45,7 @@ function getConfig() {
             '^.+\\.css$': path.resolve(dirname, './transform.css.mjs'),
             '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': path.resolve(dirname, './transform.file.mjs'),
         },
-        transformIgnorePatterns: [
-            '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
-            '^.+\\.module\\.(css|sass|scss)$',
-        ],
+        transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$', '^.+\\.module\\.(css|sass|scss)$'],
 
         modulePaths: [],
         moduleNameMapper: {
@@ -61,6 +54,7 @@ function getConfig() {
             '^@preload/(.*)$': '<rootDir>/src/preload/$1',
             '^@renderer/(.*)$': '<rootDir>/src/renderer/$1',
             '^@shared/(.*)$': '<rootDir>/src/shared/$1',
+            // Pure ESM packages needs this, to make the relative import works with TypeScript source files
             '^(.*)\\.js$': ['$1.js', '$1.ts'],
         },
         moduleFileExtensions: ['tsx', 'ts', 'jsx', 'js', 'json', 'node'],
