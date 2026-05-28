@@ -8,3 +8,21 @@ onlyBuiltDependencies:
   - electron
   - electron-winstaller
   - esbuild
+
+# Disable pnpm's side-effects cache for dependencies.
+#
+# When sideEffectsCache is enabled, pnpm caches the post-install artifacts of packages (e.g. compiled
+# native modules) and restores them on subsequent installs, which speeds things up but ties the cached
+# binaries to the Node.js version that produced them.
+#
+# You may need native modules built against both the Node.js and Electron runtimes — for example,
+# to back up the Node.js binaries before electron-builder overwrites them (useful for unit testing or other purposes):
+#
+#   in package.json:
+#   "scripts": {
+#     "postinstall": "node ./scripts/backup-native-node-modules.mjs && electron-builder install-app-deps"
+#   }
+#
+# Disabling sideEffectsCache ensures that pnpm always rebuilds native modules from source on install
+# rather than restoring a cached copy, so a backup script like the one above reliably captures Node.js binaries.
+sideEffectsCache: false
