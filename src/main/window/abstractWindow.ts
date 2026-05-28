@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, shell } from 'electron';
 import type { WindowType } from '@shared/apis/app';
 import { registerLoggerHandlers } from '../apis/logger';
 import { appInfo } from '../appInfo';
@@ -32,7 +32,7 @@ export abstract class AbstractWindow {
 
             webPreferences: {
                 additionalArguments: [`--window-type=${this._windowType}`],
-                preload: path.resolve(appInfo.sourcePath, 'preload.js'),
+                preload: path.resolve(appInfo.sourcePath, 'preload/index.js'),
             },
         });
         if (this._stateKeeper.maximized) this._window.maximize();
@@ -49,10 +49,10 @@ export abstract class AbstractWindow {
     }
 
     async show(): Promise<void> {
-        if (process.env.NODE_ENV === 'production') {
-            await this._window.loadFile(path.resolve(appInfo.sourcePath, 'index.html'));
+        if (!app.isPackaged && process.env.ELECTRON_RENDERER_URL) {
+            await this._window.loadURL(process.env.ELECTRON_RENDERER_URL);
         } else {
-            await this._window.loadURL('http://localhost:4321/');
+            await this._window.loadFile(path.resolve(appInfo.sourcePath, 'renderer/index.html'));
         }
 
         this._window.show();

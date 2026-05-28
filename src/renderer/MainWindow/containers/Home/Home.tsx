@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAppDetails } from '@renderer/apis/app';
 import type { AppDetails } from '@shared/apis/app';
-import { Introduction } from './components/Introduction';
+import { Introduction } from './Introduction';
 
 import css from './Home.module.scss';
 

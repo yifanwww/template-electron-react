@@ -13,8 +13,7 @@ export function Introduction({ appDetails }: IntroductionProps) {
             <header className={css.introduction}>
                 <img className={css.logo} src={LOGO_SVG} alt="logo" />
                 <p>
-                    Edit <code>src/MainWindow/containers/Home/components/Introduction/Introduction.tsx</code> and save
-                    to reload.
+                    Edit <code>src/renderer/MainWindow/containers/Home/Introduction.tsx</code> and save to reload.
                 </p>
                 <a
                     className={css.link}

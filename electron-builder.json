@@ -7,6 +7,7 @@
     "extends": null,
 
     "asar": true,
+    "asarUnpack": ["resources/**/*"],
 
     "directories": {
         "buildResources": "build",
@@ -18,6 +19,7 @@
         "build/**/*",
         "node_modules/**/*",
         "package.json",
+        "resources/**/*",
 
         "!**/node_modules/@*/*/{CHANGELOG.json,CHANGELOG.md,README,README.md,readme,readme.md}",
         "!**/node_modules/@*/*/{.eslintcache,.eslintrc,.eslintrc.*}",

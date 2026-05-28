@@ -30,7 +30,8 @@ node_modules
 
 # -------------------- Working Directory
 
-working
+working/*
+!working/.gitkeep
 
 # -------------------- Miscellaneous
 

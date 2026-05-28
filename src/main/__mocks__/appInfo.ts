@@ -1,7 +1,8 @@
+import path from 'node:path';
+
 class AppInfo {
-    readonly appPath = '/<app-path>';
-    readonly sourcePath = '/<source-path>';
-    readonly userDataPath = '/<user-data>';
+    readonly sourcePath = path.resolve(__dirname, '../..');
+    readonly userDataPath = path.resolve(__dirname, '../../../working');
     readonly startedTime = 0;
 }
 
