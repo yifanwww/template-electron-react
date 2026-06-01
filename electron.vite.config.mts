@@ -1,3 +1,4 @@
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'electron-vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -41,6 +42,6 @@ export default defineConfig({
             },
             copyPublicDir: true,
         },
-        plugins: [tsconfigPaths()],
+        plugins: [react(), tsconfigPaths()],
     },
 });
