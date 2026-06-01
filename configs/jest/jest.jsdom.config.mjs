@@ -19,6 +19,7 @@ function getConfig() {
         setupFiles: [path.resolve(dirname, './jest.setup.mjs')],
         setupFilesAfterEnv: hasTestSetup ? [testSetup] : [],
 
+        coverageDirectory: path.resolve(root, './coverage/jsdom'),
         collectCoverageFrom: [
             'src/**/*.{ts,tsx}',
             '!src/**/__mocks__/**/*.{ts,tsx}',

@@ -19,6 +19,7 @@ function getConfig() {
         setupFiles: [],
         setupFilesAfterEnv: hasTestSetup ? [testSetup] : [],
 
+        coverageDirectory: path.resolve(root, './coverage/node'),
         collectCoverageFrom: [
             'src/**/*.ts',
             '!src/**/__mocks__/**/*.ts',

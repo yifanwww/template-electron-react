@@ -36,5 +36,5 @@ Run these commands to perform the type checking, linting and unit testing:
 ```sh
 pnpm run typecheck
 pnpm run lint-ci
-pnpm run test-ci
+pnpm run test
 ```
