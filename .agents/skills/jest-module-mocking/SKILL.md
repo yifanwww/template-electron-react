@@ -12,11 +12,11 @@ In the classic Jest setup (global `jest`), `jest.mock()` calls are hoisted above
 When `jest` is explicitly imported from `@jest/globals`, hoisting is disabled. The compiled output looks roughly like:
 
 ```js
-const globals = require('@jest/globals');       // ← static imports run first
-const dep = require('../dep');                   //   (real module, mock not registered yet)
-const sut = require('../module-under-test');     //   (gets real dep, not the mock)
+const globals = require('@jest/globals'); // ← static imports run first
+const dep = require('../dep'); //   (real module, mock not registered yet)
+const sut = require('../module-under-test'); //   (gets real dep, not the mock)
 
-globals.jest.mock('../dep', factory);            // ← only NOW does the mock register
+globals.jest.mock('../dep', factory); // ← only NOW does the mock register
 ```
 
 So any module that is statically imported and transitively depends on `'../dep'` will have already loaded the **real** dep before the mock is ever registered.
@@ -25,7 +25,7 @@ So any module that is statically imported and transitively depends on `'../dep'`
 
 A singleton module creates its instance once at load time and exports it. Once the module is evaluated, the instance is fixed — re-registering a mock for one of its dependencies has no effect because the singleton already captured the real dependency during initialization.
 
-With `@jest/globals` and no hoisting, any static import of the singleton evaluates it before `jest.mock()` runs, permanently baking the real dependency into the instance for the lifetime of the test module. Using `await import()` (with `jest.mock()` registered first at module level) ensures the singleton is evaluated *after* the mock is in place.
+With `@jest/globals` and no hoisting, any static import of the singleton evaluates it before `jest.mock()` runs, permanently baking the real dependency into the instance for the lifetime of the test module. Using `await import()` (with `jest.mock()` registered first at module level) ensures the singleton is evaluated _after_ the mock is in place.
 
 ## The Pattern
 
@@ -39,7 +39,7 @@ Set the mock's values directly in the factory — there is no reason to use a nu
 import { jest } from '@jest/globals';
 
 jest.mock('../dep', () => ({
-    SomeSingleton: { value: 42 },
+  SomeSingleton: { value: 42 },
 }));
 ```
 
@@ -53,7 +53,7 @@ jest.mock('../dep', () => ({
 let myFn: typeof import('../module-under-test').myFn;
 
 beforeAll(async () => {
-    ({ myFn } = await import('../module-under-test'));
+  ({ myFn } = await import('../module-under-test'));
 });
 ```
 
@@ -61,8 +61,8 @@ beforeAll(async () => {
 
 ```ts
 it('should do something', async () => {
-    const { myFn } = await import('../module-under-test');
-    expect(myFn()).toEqual(value);
+  const { myFn } = await import('../module-under-test');
+  expect(myFn()).toEqual(value);
 });
 ```
 
@@ -72,9 +72,9 @@ If the mock object needs side-effectful setup (e.g. calling an init method) that
 
 ```ts
 beforeAll(async () => {
-    const { SomeSingleton } = await import('../dep');
+  const { SomeSingleton } = await import('../dep');
 
-    SomeSingleton.init();
+  SomeSingleton.init();
 });
 ```
 
@@ -84,18 +84,18 @@ When the mock needs to be a fully constructed object rather than a plain stub, b
 
 ```ts
 jest.mock('../service', () => ({
-    client: new SomeClient({ endpoint: 'http://localhost' }),
+  client: new SomeClient({ endpoint: 'http://localhost' }),
 }));
 
 let client: SomeClient;
 let doWork: typeof import('../worker').doWork;
 
 beforeAll(async () => {
-    ({ client } = await import('../service'));
-    ({ doWork } = await import('../worker'));
+  ({ client } = await import('../service'));
+  ({ doWork } = await import('../worker'));
 
-    // configure the real instance
-    client.setup();
+  // configure the real instance
+  client.setup();
 });
 
 afterAll(() => client.teardown());
@@ -105,12 +105,12 @@ Modules referenced inside the factory body are resolved through the real module 
 
 ## Quick Reference
 
-| To get the mock, use… | Hoisted `jest.mock` (global) | `@jest/globals` (no hoisting) |
-|---|---|---|
-| Static import of mocked module | ✅ | ❌ gets real module |
-| Static import of module depending on mock | ✅ | ❌ gets real dep |
-| `await import()` of mocked module | ✅ | ✅ |
-| `jest.mock()` placement | module level | module level |
+| To get the mock, use…                     | Hoisted `jest.mock` (global) | `@jest/globals` (no hoisting) |
+| ----------------------------------------- | ---------------------------- | ----------------------------- |
+| Static import of mocked module            | ✅                           | ❌ gets real module           |
+| Static import of module depending on mock | ✅                           | ❌ gets real dep              |
+| `await import()` of mocked module         | ✅                           | ✅                            |
+| `jest.mock()` placement                   | module level                 | module level                  |
 
 ## Checklist When Writing a Test
 
