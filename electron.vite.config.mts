@@ -14,7 +14,12 @@ export default defineConfig({
                 entry: 'src/main/index.ts',
                 formats: ['cjs'],
             },
-            externalizeDeps: false,
+            externalizeDeps: {
+                // https://electron-vite.org/guide/dependency-handling#customizing
+                // pure-ESM modules cannot be externalized, we need to bundle them,
+                // until we can use native ESM in Electron main process
+                exclude: ['chalk', 'electron-store'],
+            },
         },
         plugins: [tsconfigPaths()],
     },
@@ -26,6 +31,10 @@ export default defineConfig({
                 entry: 'src/preload/index.ts',
                 formats: ['cjs'],
             },
+            // https://www.electronjs.org/docs/latest/tutorial/sandbox#preload-scripts
+            // in sandbox mode, preload scripts run in a separate context,
+            // `require` function is a polyfill with limited functionality,
+            // we need to bundle all dependencies in preload scripts
             externalizeDeps: false,
         },
         plugins: [tsconfigPaths()],

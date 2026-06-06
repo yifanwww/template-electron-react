@@ -8,9 +8,7 @@ import { globalLogger } from './logger';
 import { MainWindow } from './window';
 
 async function installExtensions(): Promise<void> {
-    const { default: install, REACT_DEVELOPER_TOOLS } = await import(
-        /* webpackChunkName: 'electron-devtools-installer' */ 'electron-devtools-installer'
-    );
+    const { installExtension, REACT_DEVELOPER_TOOLS } = await import('electron-devtools-installer');
 
     const succeed = (name: Extension) => {
         globalLogger.info(`Added extension "${name.name}"`);
@@ -20,7 +18,7 @@ async function installExtensions(): Promise<void> {
         globalLogger.error('An error occurred when install extension:', err);
     };
 
-    await install(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail);
+    await installExtension(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail);
 }
 
 async function handleReady() {

@@ -3,32 +3,15 @@
     "$schema": "https://json.schemastore.org/electron-builder.json",
 
     "appId": "com.yifanwww.template-electron-react",
-    "productName": "template-electron-react",
-    "extends": null,
 
     "asar": true,
     "asarUnpack": ["resources/**/*"],
-
     "directories": {
         "buildResources": "build",
         "output": "release"
     },
-
-    // https://www.electron.build/configuration/contents#files
-    "files": [
-        "build/**/*",
-        "node_modules/**/*",
-        "package.json",
-        "resources/**/*",
-
-        "!**/node_modules/@*/*/{CHANGELOG.json,CHANGELOG.md,README,README.md,readme,readme.md}",
-        "!**/node_modules/@*/*/{.eslintcache,.eslintrc,.eslintrc.*}",
-
-        "!**/node_modules/*/{CHANGELOG.json}",
-        "!**/node_modules/*/{.eslintcache,.eslintrc,.eslintrc.*}",
-
-        "!**/node_modules/**/*.map"
-    ],
+    // https://www.electron.build/docs/configuration#files
+    "files": ["build/**/*", "resources/**/*"],
 
     // windows
 
@@ -39,7 +22,7 @@
                 "arch": ["x64"]
             }
         ],
-        "icon": "build/icon.ico",
+        // "icon": "resources/icon.ico",
         "requestedExecutionLevel": "asInvoker"
     },
 
