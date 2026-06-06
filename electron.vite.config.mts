@@ -2,8 +2,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'electron-vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-const NODE_TARGET = 'node24.11';
-const BROWSER_TARGET = 'chrome144';
+const NODE_TARGET = 'node24.15';
+const BROWSER_TARGET = 'chrome148';
 
 export default defineConfig({
     main: {
@@ -15,9 +15,6 @@ export default defineConfig({
                 formats: ['cjs'],
             },
             externalizeDeps: false,
-            rollupOptions: {
-                external: ['better-sqlite3'],
-            },
         },
         plugins: [tsconfigPaths()],
     },
