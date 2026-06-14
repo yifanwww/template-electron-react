@@ -1,8 +1,18 @@
-/.agents
+# -------------------- Compilation Outputs & Test
+
 /build
 /coverage
 /release
+/pnpm-lock.yaml
+
+# -------------------- Working Directory
+
 /working
 
-/pnpm-lock.yaml
+# -------------------- Agent Skills
+
+/.agents/*
+!/.agents/skills
+/.agents/skills/*
+!/.agents/skills/jest-module-mocking
 /skills-lock.json

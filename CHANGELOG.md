@@ -6,10 +6,40 @@
 
 Reorganize the project's folder structure, make it simple, no longer use pnpm workspace (and vscode multi-root workspace).
 
+Don't customize window menu across windows.
+
+Always load dayjs plugins, initialize app-info and logger immediately when app starts.
+
+Configure 2 jest configurations for main process and renderer process.
+
+Switch to `electron-vite` for how we build and dev the Electron application.
+
+Disable pnpm's side-effects cache for dependencies, in cause you need native modules built against both the Node.js and Electron runtimes.
+
 ### Dependency Changes
 
+<!-- prettier-ignore-start -->
+
+- Add
+  - `electron-vite`                     ^5.0.0
+- Upgrade
+  - `electron`                          40.1.0  -> 42.3.3
+  - `electron-builder`                  ^26.7.0 -> ^26.15.0
+  - `typescript`                        5.9.3   -> 6.0.3
+  - `typescript-eslint`                 ^8.53.0 -> ^8.59.0
 - Remove
-  - `@types/semver` v7.7.1
+  - `@types/semver`                     ^7.7.1
+  - `@types/text-table`                 ^0.2.5
+  - `concurrently`                      ^9.2.1
+  - `esbuild-loader`                    ^4.4.2
+  - `fork-ts-checker-webpack-plugin`    ^9.1.0
+  - `source-map-loader`                 ^5.0.0
+  - `text-table`                        ^0.2.0
+  - `vite-plugin-checker`               ^0.12.0
+  - `webpack`                           ^5.104.1
+  - `webpack-cli`                       ^6.0.1
+
+<!-- prettier-ignore-end -->
 
 ## template-electron-react v0.16.0 (2026-02-01)
 
@@ -26,6 +56,8 @@ Upgrade `react` to v19.
 Upgrade `electron` to v40. This requires you to develop with Node.js v24 or later.
 
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - Add
   - `@eslint/js`                            v9.39.2
@@ -53,11 +85,15 @@ Upgrade `electron` to v40. This requires you to develop with Node.js v24 or late
   - `eslint-plugin-jsx-a11y`                v6.10.2
   - `eslint-plugin-n`                       v17.23.1
 
+<!-- prettier-ignore-end -->
+
 ## template-electron-react v0.15.0 (2026-01-04)
 
 ### Breaking Changes
 
 Rename package names:
+
+<!-- prettier-ignore-start -->
 
 - `@ter/app-common`    -> `@app/common`
 - `@ter/app-main`      -> `@app/main`
@@ -65,6 +101,8 @@ Rename package names:
 - `@ter/eslint-config` -> `@app-config/eslint-config`
 - `@ter/scripts`       -> `@app-config/scripts`
 - `@ter/tsconfigs`     -> `@app-config/tsconfigs`
+
+<!-- prettier-ignore-end -->
 
 Rename executable binary name to `template-electron-react`.
 
@@ -85,6 +123,8 @@ Simplify window management.
 Add menu item `App / Remember Window State` to control whether the window state should be restored when app opens.
 
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - Add
   - `@jest/globals`                         v30.2.0
@@ -171,6 +211,8 @@ Add menu item `App / Remember Window State` to control whether the window state 
   - `react-redux`                           v8.1.2
   - `react-router-dom`                      v6.15.0
 
+<!-- prettier-ignore-end -->
+
 ## template-electron-react v0.14.0 (2025-08-20)
 
 ### Features
@@ -188,6 +230,8 @@ Add menu item `App / Remember Window State` to control whether the window state 
 - Fix jest module name wrappers
 
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - Add
   - `@swc/jest`                         v0.2.29
@@ -243,6 +287,8 @@ Add menu item `App / Remember Window State` to control whether the window state 
   - `react-app-polyfill`                v3.0.0
   - `react-redux`                       v8.1.0
 
+<!-- prettier-ignore-end -->
+
 ## template-electron-react v0.13.0 (2023-09-01)
 
 ### Features
@@ -263,6 +309,8 @@ Add menu item `App / Remember Window State` to control whether the window state 
 
 ### Dependency Changes
 
+<!-- prettier-ignore-start -->
+
 - Add
   - `@types/lodash`             v4.14.197
   - `dayjs`                     v1.11.9
@@ -277,6 +325,8 @@ Add menu item `App / Remember Window State` to control whether the window state 
   - `babel-loader`              v9.1.3
   - `react-router`              v6.13.0
   - `terser-webpack-plugin`     v5.3.9
+
+<!-- prettier-ignore-end -->
 
 ## template-electron-react v0.12.0 (2023-08-12)
 
@@ -313,6 +363,8 @@ Upgrade React to v18 as it no longer depends on `react-scripts`.
 - Allow TypeScript `declare` syntax in app-main code
 
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - New
   - `@babel/preset-typescript`                      v7.22.5
@@ -351,6 +403,8 @@ Upgrade React to v18 as it no longer depends on `react-scripts`.
   - `react-app-rewired`                             v2.1.9
   - `react-scripts`                                 v5.0.1
 
+<!-- prettier-ignore-end -->
+
 ## template-electron-react v0.11.0 (2023-07-17)
 
 ### Breaking Changes
@@ -368,6 +422,8 @@ Upgrade React to v18 as it no longer depends on `react-scripts`.
 
 ### Package Changes
 
+<!-- prettier-ignore-start -->
+
 - Rename
   - `@tecra/electron-common`    -> `@ter/app-common`
   - `@tecra/electron-main`      -> `@ter/app-main`
@@ -376,7 +432,11 @@ Upgrade React to v18 as it no longer depends on `react-scripts`.
   - `@tecra/scripts`            -> `@ter/scripts`
   - `@tecra/tsconfigs`          -> `@ter/tsconfigs`
 
+<!-- prettier-ignore-end -->
+
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - New
   - `@typescript-eslint/eslint-plugin`  v5.59.11
@@ -385,6 +445,8 @@ Upgrade React to v18 as it no longer depends on `react-scripts`.
   - `yargs-parser`                      v21.1.1
 - Remove
   - `eslint-config-airbnb-typescript`   v17.0.0
+
+<!-- prettier-ignore-end -->
 
 ## tecra v0.10.0 (2023-06-20)
 
@@ -421,6 +483,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `@tecra-config/global-types/types/index.react`
 
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - New
   - `electron-store`                            v8.1.0
@@ -464,6 +528,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `typescript-plugin-css-modules`             v3.4.0    -> v5.0.1
   - `web-vitals`                                v3.0.4    -> v3.3.2
   - `webpack`                                   v5.74.0   -> v5.87.0
+
+<!-- prettier-ignore-end -->
 
 ## tecra v0.9.0 (2023-06-11)
 
@@ -547,6 +613,8 @@ I previously put collected utilities into this project. In this version, I remov
 
 ### Dependency Changes
 
+<!-- prettier-ignore-start -->
+
 - New
   - `@babel/core`                               v7.22.5
   - `@babel/plugin-syntax-flow`                 v7.18.6
@@ -628,6 +696,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `react-scrollbars-custom`                   v4.0.27
   - `ts-essentials`                             v9.0.0
 
+<!-- prettier-ignore-end -->
+
 ## tecra v0.8.0 (2022-01-04)
 
 ### Features
@@ -697,27 +767,31 @@ I previously put collected utilities into this project. In this version, I remov
   - `ExtractFunction`
   - `OmitUnderscorePrefix`
 
+<!-- prettier-ignore-start -->
+
 - Rename type declarations, here only list the (maybe) important changes
   - [Hooks]
-    - `IUseBooleanUpdaters`             -> `UseBooleanActions`
-    - `ISetCountdownUpdater`            -> `SetCountdown`
-    - `IUseIntervalUpdaters`            -> `UseIntervalActions`
-    - `IUseSimpleIntervalUpdaters`      -> `UseSingleIntervalActions`
-    - `IUseSimpleTimeoutUpdaters`       -> `UseSingleTimeoutActions`
-    - `IUseTimeoutUpdaters`             -> `UseTimeoutActions`
-    - `IUseToggleUpdaters`              -> `UseToggleActions`
+    - `IUseBooleanUpdaters`         -> `UseBooleanActions`
+    - `ISetCountdownUpdater`        -> `SetCountdown`
+    - `IUseIntervalUpdaters`        -> `UseIntervalActions`
+    - `IUseSimpleIntervalUpdaters`  -> `UseSingleIntervalActions`
+    - `IUseSimpleTimeoutUpdaters`   -> `UseSingleTimeoutActions`
+    - `IUseTimeoutUpdaters`         -> `UseTimeoutActions`
+    - `IUseToggleUpdaters`          -> `UseToggleActions`
   - [Types]
-    - `IChildrenProps`          -> `ReactChildrenProps`
-    - `IClientAreaSize`         -> `ClientAreaSize`
+    - `IChildrenProps`              -> `ReactChildrenProps`
+    - `IClientAreaSize`             -> `ClientAreaSize`
   - [Utils/Redux]
-    - `IActions`                -> `ReduxActions`
-    - `IDispatchingActions`     -> `DispatchingActions`
-    - `IDispatchingThunks`      -> `DispatchingThunks`
-    - `IReducer`                -> `ReduxReducer`
-    - `IThunks`                 -> `ReduxThunks`
-    - `IThunk`                  -> `ThunkFn`
-    - `IThunkAction`            -> `ThunkAction`
-    - `IThunkActionWithArgs`    -> deleted
+    - `IActions`                    -> `ReduxActions`
+    - `IDispatchingActions`         -> `DispatchingActions`
+    - `IDispatchingThunks`          -> `DispatchingThunks`
+    - `IReducer`                    -> `ReduxReducer`
+    - `IThunks`                     -> `ReduxThunks`
+    - `IThunk`                      -> `ThunkFn`
+    - `IThunkAction`                -> `ThunkAction`
+    - `IThunkActionWithArgs`        -> deleted
+
+<!-- prettier-ignore-end -->
 
 ### Packages Changes
 
@@ -726,6 +800,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `@tecra/utils-test`
 
 ### Dependency Changes
+
+<!-- prettier-ignore-start -->
 
 - New
   - `babel-jest`                                v27.2.4
@@ -774,6 +850,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `stylelint-config-sass-guidelines`          v8.0.0    -> v9.0.1
 - Remove
   - `eslint-plugin-deprecation`                 v1.2.1
+
+<!-- prettier-ignore-end -->
 
 ## tecra v0.7.0 (2021-10-01)
 
@@ -827,6 +905,8 @@ I previously put collected utilities into this project. In this version, I remov
 
 ### Dependency Changes
 
+<!-- prettier-ignore-start -->
+
 - New
   - `error-oop`                                 v0.4.0
   - `eslint-config-airbnb`                      v18.2.1
@@ -869,6 +949,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `node-errors-pro`                           v0.2.0
   - `speed-measure-webpack-plugin`              v1.5.0
   - `typed-css-modules`                         v0.6.8
+
+<!-- prettier-ignore-end -->
 
 ## tecra v0.6.0 (2021-08-01)
 
@@ -945,6 +1027,8 @@ I previously put collected utilities into this project. In this version, I remov
 
 ### Dependencies
 
+<!-- prettier-ignore-start -->
+
 - New
   - `@testing-library/react-hooks`            v7.0.1
   - `@types/react-test-renderer`              v17.0.1
@@ -982,6 +1066,8 @@ I previously put collected utilities into this project. In this version, I remov
   - `webpack-cli`                             v4.5.0    -> v4.7.2
 - Remove
   - `ts-jest`                                 v26.5.6
+
+<!-- prettier-ignore-end -->
 
 ## tecra v0.5.0 (2021-06-15)
 
@@ -1040,6 +1126,8 @@ I previously put collected utilities into this project. In this version, I remov
 
 ### Dependencies
 
+<!-- prettier-ignore-start -->
+
 - Use `lodash` rather than `lodash-es`
 - New
   - `@typescript-eslint/parser`           v4.24.0
@@ -1070,6 +1158,8 @@ I previously put collected utilities into this project. In this version, I remov
 - Remove
   - `immer`                               v9.0.1
 - Move dependency `react-scripts` to be a dev dependency
+
+<!-- prettier-ignore-end -->
 
 ## tecra v0.4.0 (2021-05-09)
 

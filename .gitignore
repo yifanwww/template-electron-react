@@ -17,16 +17,13 @@
 .pnp.js
 node_modules
 
-# -------------------- Compilation
+# -------------------- Compilation Outputs & Test
 
 *.tsbuildinfo
 
 /build
-/release
-
-# -------------------- Test
-
 /coverage
+/release
 
 # -------------------- Working Directory
 
