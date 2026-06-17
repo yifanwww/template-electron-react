@@ -1,55 +1,55 @@
 {
-    // For more information visit https://www.electron.build/
-    "$schema": "https://json.schemastore.org/electron-builder.json",
+  // For more information visit https://www.electron.build/
+  "$schema": "https://json.schemastore.org/electron-builder.json",
 
-    "appId": "com.yifanwww.template-electron-react",
+  "appId": "com.yifanwww.template-electron-react",
 
-    "asar": true,
-    "asarUnpack": ["resources/**/*"],
-    "directories": {
-        "buildResources": "build",
-        "output": "release"
-    },
-    // https://www.electron.build/docs/configuration#files
-    "files": ["build/**/*", "resources/**/*"],
+  "asar": true,
+  "asarUnpack": ["resources/**/*"],
+  "directories": {
+    "buildResources": "build",
+    "output": "release"
+  },
+  // https://www.electron.build/docs/configuration#files
+  "files": ["build/**/*", "resources/**/*"],
 
-    // windows
+  // windows
 
-    "win": {
-        "target": [
-            {
-                "target": "nsis",
-                "arch": ["x64"]
-            }
-        ],
-        // "icon": "resources/icon.ico",
-        "requestedExecutionLevel": "asInvoker"
-    },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    // "icon": "resources/icon.ico",
+    "requestedExecutionLevel": "asInvoker"
+  },
 
-    "nsis": {
-        "allowElevation": true,
-        "allowToChangeInstallationDirectory": true,
-        "artifactName": "${productName}-${version}.${ext}",
-        "oneClick": false
-    },
+  "nsis": {
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "artifactName": "${productName}-${version}.${ext}",
+    "oneClick": false
+  },
 
-    // mac
+  // mac
 
-    "mac": {
-        "category": "public.app-category.tools",
-        "target": "dmg"
-    },
+  "mac": {
+    "category": "public.app-category.tools",
+    "target": "dmg"
+  },
 
-    "dmg": {
-        "contents": [
-            { "type": "link", "path": "/Application", "x": 410, "y": 150 },
-            { "type": "file", "x": 130, "y": 150 }
-        ]
-    },
+  "dmg": {
+    "contents": [
+      { "type": "link", "path": "/Application", "x": 410, "y": 150 },
+      { "type": "file", "x": 130, "y": 150 }
+    ]
+  },
 
-    // linux
+  // linux
 
-    "linux": {
-        "target": ["deb", "AppImage"]
-    }
+  "linux": {
+    "target": ["deb", "AppImage"]
+  }
 }

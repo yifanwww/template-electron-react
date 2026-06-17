@@ -4,31 +4,31 @@ import type { ClientAreaSize } from '@renderer/types/electron';
 import css from './Frameless.module.scss';
 
 export interface TitleBarProps {
-    onClientAreaSizeChange?: (clientAreaSize: ClientAreaSize) => void;
+  onClientAreaSizeChange?: (clientAreaSize: ClientAreaSize) => void;
 }
 
 export function TitleBar(props: React.PropsWithChildren<TitleBarProps>): React.ReactNode {
-    const { children, onClientAreaSizeChange } = props;
+  const { children, onClientAreaSizeChange } = props;
 
-    const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const changeClientAreaSize = () => {
-            onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth });
-        };
+  useEffect(() => {
+    const changeClientAreaSize = () => {
+      onClientAreaSizeChange?.({ height: ref.current!.clientHeight, width: ref.current!.clientWidth });
+    };
 
-        changeClientAreaSize();
+    changeClientAreaSize();
 
-        window.addEventListener('resize', changeClientAreaSize);
+    window.addEventListener('resize', changeClientAreaSize);
 
-        return () => {
-            window.removeEventListener('resize', changeClientAreaSize);
-        };
-    }, [onClientAreaSizeChange]);
+    return () => {
+      window.removeEventListener('resize', changeClientAreaSize);
+    };
+  }, [onClientAreaSizeChange]);
 
-    return (
-        <div id={css['title-bar']} ref={ref}>
-            {children}
-        </div>
-    );
+  return (
+    <div id={css['title-bar']} ref={ref}>
+      {children}
+    </div>
+  );
 }

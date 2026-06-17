@@ -2,13 +2,13 @@
 // http://facebook.github.io/jest/docs/en/webpack.html
 
 export default {
-    process() {
-        return {
-            code: 'module.exports = {};',
-        };
-    },
-    getCacheKey() {
-        // The output is always the same.
-        return 'cssTransform';
-    },
+  process() {
+    return {
+      code: 'module.exports = {};',
+    };
+  },
+  getCacheKey() {
+    // The output is always the same.
+    return 'cssTransform';
+  },
 };

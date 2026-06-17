@@ -11,128 +11,123 @@ import { appInfo } from './appInfo';
 type LogLevel = 'fatal' | 'error' | 'warn' | 'info' | 'verbose' | 'debug';
 
 interface ILogObject {
-    message: string;
-    [key: string]: unknown;
+  message: string;
+  [key: string]: unknown;
 }
 
 interface AppLogMethod {
-    (level: string, message: string): AppLogger;
-    (level: string, message: string, ...meta: unknown[]): AppLogger;
+  (level: string, message: string): AppLogger;
+  (level: string, message: string, ...meta: unknown[]): AppLogger;
 }
 
 interface AppLeveledLogMethod {
-    (message: string | ILogObject): AppLogger;
-    (message: string, ...meta: unknown[]): AppLogger;
+  (message: string | ILogObject): AppLogger;
+  (message: string, ...meta: unknown[]): AppLogger;
 }
 
 export interface AppLogger {
-    log: AppLogMethod;
+  log: AppLogMethod;
 
-    // The levels we support
-    fatal: AppLeveledLogMethod;
-    error: AppLeveledLogMethod;
-    warn: AppLeveledLogMethod;
-    info: AppLeveledLogMethod;
-    verbose: AppLeveledLogMethod;
-    debug: AppLeveledLogMethod;
+  // The levels we support
+  fatal: AppLeveledLogMethod;
+  error: AppLeveledLogMethod;
+  warn: AppLeveledLogMethod;
+  info: AppLeveledLogMethod;
+  verbose: AppLeveledLogMethod;
+  debug: AppLeveledLogMethod;
 }
 
 // https://github.com/winstonjs/winston/issues/1427
 function makeSplatFormat(): winston.Logform.Format {
-    return {
-        transform: (info) => {
-            const args = (info[Symbol.for('splat')] ?? []) as unknown[];
-            const { message } = info;
-            // eslint-disable-next-line no-param-reassign
-            info.message = util.format(message, ...args);
-            return info;
-        },
-    };
+  return {
+    transform: (info) => {
+      const args = (info[Symbol.for('splat')] ?? []) as unknown[];
+      const { message } = info;
+      // eslint-disable-next-line no-param-reassign
+      info.message = util.format(message, ...args);
+      return info;
+    },
+  };
 }
 
 interface TypedTransformableInfo extends winston.Logform.TransformableInfo {
-    label: string;
-    timestamp: string;
+  label: string;
+  timestamp: string;
 }
 
 function makeFormat(): winston.Logform.Format {
-    return winston.format.printf((_info) => {
-        const info = _info as TypedTransformableInfo;
+  return winston.format.printf((_info) => {
+    const info = _info as TypedTransformableInfo;
 
-        const levelStr = info.level.toUpperCase().padStart(7);
-        const contextStr = `[${info.label}]`;
-        const messageStr = String(info.message);
+    const levelStr = info.level.toUpperCase().padStart(7);
+    const contextStr = `[${info.label}]`;
+    const messageStr = String(info.message);
 
-        return [info.timestamp, levelStr, contextStr, messageStr].join(' ');
-    });
+    return [info.timestamp, levelStr, contextStr, messageStr].join(' ');
+  });
 }
 
 function makeConsoleFormat(colors: Record<string, ForegroundColorName>): winston.Logform.Format {
-    return winston.format.printf((_info) => {
-        const info = _info as TypedTransformableInfo;
+  return winston.format.printf((_info) => {
+    const info = _info as TypedTransformableInfo;
 
-        const color = colors[info.level];
+    const color = colors[info.level];
 
-        const levelStr = info.level.toUpperCase().padStart(7);
-        const contextStr = `[${info.label}]`;
-        const messageStr = String(info.message);
+    const levelStr = info.level.toUpperCase().padStart(7);
+    const contextStr = `[${info.label}]`;
+    const messageStr = String(info.message);
 
-        return [info.timestamp, chalk[color](levelStr), chalk.yellow(contextStr), chalk[color](messageStr)].join(' ');
-    });
+    return [info.timestamp, chalk[color](levelStr), chalk.yellow(contextStr), chalk[color](messageStr)].join(' ');
+  });
 }
 
 export function createLogger(context: string): AppLogger {
-    const levels: Record<LogLevel, number> = {
-        fatal: 0,
-        error: 1,
-        warn: 2,
-        info: 3,
-        verbose: 4,
-        debug: 5,
-    };
+  const levels: Record<LogLevel, number> = {
+    fatal: 0,
+    error: 1,
+    warn: 2,
+    info: 3,
+    verbose: 4,
+    debug: 5,
+  };
 
-    const colors: Record<LogLevel, ForegroundColorName> = {
-        fatal: 'magentaBright',
-        error: 'red',
-        warn: 'yellow',
-        info: 'green',
-        verbose: 'cyan',
-        debug: 'blue',
-    };
+  const colors: Record<LogLevel, ForegroundColorName> = {
+    fatal: 'magentaBright',
+    error: 'red',
+    warn: 'yellow',
+    info: 'green',
+    verbose: 'cyan',
+    debug: 'blue',
+  };
 
-    const labelFormat = winston.format.label({ label: context });
-    const timestampFormat = winston.format.timestamp({ format: 'YYYY-MM-DD, HH:mm:ss.SSS' });
-    const splatFormat = makeSplatFormat();
+  const labelFormat = winston.format.label({ label: context });
+  const timestampFormat = winston.format.timestamp({ format: 'YYYY-MM-DD, HH:mm:ss.SSS' });
+  const splatFormat = makeSplatFormat();
 
-    const filename = path.join(
-        appInfo.userDataPath,
-        'logs',
-        `app-${dayjs.utc(appInfo.startedTime).format('YYYYMMDDTHHmmssSSS')}.log`,
-    );
+  const filename = path.join(
+    appInfo.userDataPath,
+    'logs',
+    `app-${dayjs.utc(appInfo.startedTime).format('YYYYMMDDTHHmmssSSS')}.log`,
+  );
 
-    const logger = winston.createLogger({
-        transports: ArrayUtil.filterFalsy([
-            new winston.transports.File({
-                level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-                filename,
-                options: { flags: 'a' },
-                format: winston.format.combine(labelFormat, timestampFormat, splatFormat, makeFormat()),
-            }),
-            !app.isPackaged &&
-                new winston.transports.Console({
-                    level: 'debug',
-                    format: winston.format.combine(
-                        labelFormat,
-                        timestampFormat,
-                        splatFormat,
-                        makeConsoleFormat(colors),
-                    ),
-                }),
-        ]),
-        levels,
-    });
+  const logger = winston.createLogger({
+    transports: ArrayUtil.filterFalsy([
+      new winston.transports.File({
+        level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+        filename,
+        options: { flags: 'a' },
+        format: winston.format.combine(labelFormat, timestampFormat, splatFormat, makeFormat()),
+      }),
+      !app.isPackaged &&
+        new winston.transports.Console({
+          level: 'debug',
+          format: winston.format.combine(labelFormat, timestampFormat, splatFormat, makeConsoleFormat(colors)),
+        }),
+    ]),
+    levels,
+  });
 
-    return logger as unknown as AppLogger;
+  return logger as unknown as AppLogger;
 }
 
 export const globalLogger = createLogger('Global');

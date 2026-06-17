@@ -6,19 +6,19 @@ import { Introduction } from './Introduction';
 import css from './Home.module.scss';
 
 export function Home() {
-    const [appDetails, setAppDetails] = useState<AppDetails>();
+  const [appDetails, setAppDetails] = useState<AppDetails>();
 
-    useEffect(() => {
-        getAppDetails()
-            .then(setAppDetails)
-            .catch(() => {
-                // stop error propagation
-            });
-    }, []);
+  useEffect(() => {
+    getAppDetails()
+      .then(setAppDetails)
+      .catch(() => {
+        // stop error propagation
+      });
+  }, []);
 
-    return (
-        <div className={css.clientArea}>
-            <Introduction appDetails={appDetails} />
-        </div>
-    );
+  return (
+    <div className={css.clientArea}>
+      <Introduction appDetails={appDetails} />
+    </div>
+  );
 }

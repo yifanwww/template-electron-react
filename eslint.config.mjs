@@ -9,35 +9,35 @@ import reactHooks from './configs/eslint/rules.react-hooks.mjs';
 import typescript from './configs/eslint/rules.typescript.mjs';
 
 export default defineConfig([
-    globalIgnores(
-        ['**/*.cjs', '**/*.js', '**/*.mjs', '.agents', 'build/', 'coverage/', 'release/', 'scripts/', 'working/'],
-        'app-eslint/ignores',
-    ),
-    defineConfig([
-        {
-            name: 'app-eslint/main',
-            files: ['src/main/**/*.ts', 'src/preload/**/*.ts'],
-            extends: [eslint, typescript, $import, jest, prettier],
-            languageOptions: {
-                globals: globals.node,
-            },
-        },
-    ]),
-    defineConfig([
-        {
-            name: 'app-eslint/renderer',
-            files: ['src/renderer/**/*.{ts,tsx}'],
-            extends: [eslint, typescript, $import, jest, react, reactHooks, prettier],
-            languageOptions: {
-                globals: globals.browser,
-            },
-        },
-    ]),
-    defineConfig([
-        {
-            name: 'app-eslint/shared',
-            files: ['src/shared/**/*.ts'],
-            extends: [eslint, typescript, $import, jest, prettier],
-        },
-    ]),
+  globalIgnores(
+    ['**/*.cjs', '**/*.js', '**/*.mjs', '.agents', 'build/', 'coverage/', 'release/', 'scripts/', 'working/'],
+    'app-eslint/ignores',
+  ),
+  defineConfig([
+    {
+      name: 'app-eslint/main',
+      files: ['src/main/**/*.ts', 'src/preload/**/*.ts'],
+      extends: [eslint, typescript, $import, jest, prettier],
+      languageOptions: {
+        globals: globals.node,
+      },
+    },
+  ]),
+  defineConfig([
+    {
+      name: 'app-eslint/renderer',
+      files: ['src/renderer/**/*.{ts,tsx}'],
+      extends: [eslint, typescript, $import, jest, react, reactHooks, prettier],
+      languageOptions: {
+        globals: globals.browser,
+      },
+    },
+  ]),
+  defineConfig([
+    {
+      name: 'app-eslint/shared',
+      files: ['src/shared/**/*.ts'],
+      extends: [eslint, typescript, $import, jest, prettier],
+    },
+  ]),
 ]);

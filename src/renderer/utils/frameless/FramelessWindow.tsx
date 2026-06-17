@@ -4,5 +4,5 @@ import css from './Frameless.module.scss';
 export interface FramelessWindowProps {}
 
 export function FramelessWindow({ children }: React.PropsWithChildren<FramelessWindowProps>): React.ReactNode {
-    return <div id={css.window}>{children}</div>;
+  return <div id={css.window}>{children}</div>;
 }

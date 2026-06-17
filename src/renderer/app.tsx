@@ -4,16 +4,16 @@ import { MainWindow } from './MainWindow';
 import { assertIsNever } from './utils/assert';
 
 export function App(): React.ReactNode {
-    // put cross-window configurations here
+  // put cross-window configurations here
 
-    return renderWindow();
+  return renderWindow();
 }
 
 function renderWindow() {
-    switch (WINDOW_TYPE) {
-        case WindowType.MAIN:
-            return <MainWindow />;
-        default:
-            assertIsNever(WINDOW_TYPE);
-    }
+  switch (WINDOW_TYPE) {
+    case WindowType.MAIN:
+      return <MainWindow />;
+    default:
+      assertIsNever(WINDOW_TYPE);
+  }
 }

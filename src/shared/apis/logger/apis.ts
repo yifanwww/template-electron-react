@@ -1,12 +1,12 @@
 import type { IpcRendererInvokerAPI } from '../types/index.js';
 
 export const LoggerAPIKey = {
-    LOG: 'Logger:Log',
-    ERROR: 'Logger:Error',
-    WARN: 'Logger:Warn',
-    INFO: 'Logger:Info',
-    VERBOSE: 'Logger:Verbose',
-    DEBUG: 'Logger:Debug',
+  LOG: 'Logger:Log',
+  ERROR: 'Logger:Error',
+  WARN: 'Logger:Warn',
+  INFO: 'Logger:Info',
+  VERBOSE: 'Logger:Verbose',
+  DEBUG: 'Logger:Debug',
 };
 
 // -----------------------------------------------------------------------------
@@ -20,19 +20,19 @@ type LeveledLogAPI = IpcRendererInvokerAPI<(message: string, ...meta: unknown[])
 // -----------------------------------------------------------------------------
 
 export interface LoggerMainAPI {
-    handleLog: LogAPI['main'];
-    handleError: LeveledLogAPI['main'];
-    handleWarn: LeveledLogAPI['main'];
-    handleInfo: LeveledLogAPI['main'];
-    handleVerbose: LeveledLogAPI['main'];
-    handleDebug: LeveledLogAPI['main'];
+  handleLog: LogAPI['main'];
+  handleError: LeveledLogAPI['main'];
+  handleWarn: LeveledLogAPI['main'];
+  handleInfo: LeveledLogAPI['main'];
+  handleVerbose: LeveledLogAPI['main'];
+  handleDebug: LeveledLogAPI['main'];
 }
 
 export interface LoggerRendererAPI {
-    log: LogAPI['renderer'];
-    error: LeveledLogAPI['renderer'];
-    warn: LeveledLogAPI['renderer'];
-    info: LeveledLogAPI['renderer'];
-    verbose: LeveledLogAPI['renderer'];
-    debug: LeveledLogAPI['renderer'];
+  log: LogAPI['renderer'];
+  error: LeveledLogAPI['renderer'];
+  warn: LeveledLogAPI['renderer'];
+  info: LeveledLogAPI['renderer'];
+  verbose: LeveledLogAPI['renderer'];
+  debug: LeveledLogAPI['renderer'];
 }

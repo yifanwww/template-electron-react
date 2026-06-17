@@ -8,85 +8,85 @@ import type { AppLogger } from '../logger';
 import { createLogger } from '../logger';
 
 export interface AbstractWindowOptions {
-    memorizationEnabled: boolean;
-    type: WindowType;
+  memorizationEnabled: boolean;
+  type: WindowType;
 }
 
 export abstract class AbstractWindow {
-    protected readonly _window: BrowserWindow;
-    protected readonly _windowType: WindowType;
+  protected readonly _window: BrowserWindow;
+  protected readonly _windowType: WindowType;
 
-    protected readonly _logger: AppLogger;
-    protected readonly _stateKeeper: WindowStateKeeper;
+  protected readonly _logger: AppLogger;
+  protected readonly _stateKeeper: WindowStateKeeper;
 
-    constructor(options: AbstractWindowOptions) {
-        this._windowType = options.type;
+  constructor(options: AbstractWindowOptions) {
+    this._windowType = options.type;
 
-        this._stateKeeper = new WindowStateKeeper(this._windowType, options.memorizationEnabled);
+    this._stateKeeper = new WindowStateKeeper(this._windowType, options.memorizationEnabled);
 
-        this._window = new BrowserWindow({
-            x: this._stateKeeper.x,
-            y: this._stateKeeper.y,
-            width: this._stateKeeper.width,
-            height: this._stateKeeper.height,
+    this._window = new BrowserWindow({
+      x: this._stateKeeper.x,
+      y: this._stateKeeper.y,
+      width: this._stateKeeper.width,
+      height: this._stateKeeper.height,
 
-            webPreferences: {
-                additionalArguments: [`--window-type=${this._windowType}`],
-                preload: path.resolve(appInfo.sourcePath, 'preload/index.js'),
-            },
-        });
-        if (this._stateKeeper.maximized) this._window.maximize();
-        if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
+      webPreferences: {
+        additionalArguments: [`--window-type=${this._windowType}`],
+        preload: path.resolve(appInfo.sourcePath, 'preload/index.js'),
+      },
+    });
+    if (this._stateKeeper.maximized) this._window.maximize();
+    if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
 
-        this._logger = createLogger(`${this._windowType}-${this.id}`);
+    this._logger = createLogger(`${this._windowType}-${this.id}`);
 
-        this._addWindowListeners();
-        this._addAPIHandlers();
+    this._addWindowListeners();
+    this._addAPIHandlers();
+  }
+
+  get id() {
+    return this._window.id;
+  }
+
+  async show(): Promise<void> {
+    if (!app.isPackaged && process.env.ELECTRON_RENDERER_URL) {
+      await this._window.loadURL(process.env.ELECTRON_RENDERER_URL);
+    } else {
+      await this._window.loadFile(path.resolve(appInfo.sourcePath, 'renderer/index.html'));
     }
 
-    get id() {
-        return this._window.id;
-    }
+    this._window.show();
+  }
 
-    async show(): Promise<void> {
-        if (!app.isPackaged && process.env.ELECTRON_RENDERER_URL) {
-            await this._window.loadURL(process.env.ELECTRON_RENDERER_URL);
-        } else {
-            await this._window.loadFile(path.resolve(appInfo.sourcePath, 'renderer/index.html'));
-        }
+  private _handleClosed = () => {
+    this._logger.info(`"${this._windowType}" window Closed.`);
+    this._onClosed();
+  };
 
-        this._window.show();
-    }
+  protected _onClosed() {
+    // do nothing
+  }
 
-    private _handleClosed = () => {
-        this._logger.info(`"${this._windowType}" window Closed.`);
-        this._onClosed();
-    };
+  // ------------------------------------------------------------------------------------------------- Window Handlers
 
-    protected _onClosed() {
-        // do nothing
-    }
+  protected _addWindowListeners(): void {
+    this._stateKeeper.register(this._window);
 
-    // ------------------------------------------------------------------------------------------------- Window Handlers
+    this._window.webContents.setWindowOpenHandler((details) => {
+      void shell.openExternal(details.url);
+      return { action: 'deny' };
+    });
 
-    protected _addWindowListeners(): void {
-        this._stateKeeper.register(this._window);
+    this._window.once('show', () => {
+      this._logger.info(`"${this._windowType}" window Showed.`);
+    });
 
-        this._window.webContents.setWindowOpenHandler((details) => {
-            void shell.openExternal(details.url);
-            return { action: 'deny' };
-        });
+    this._window.once('closed', this._handleClosed);
+  }
 
-        this._window.once('show', () => {
-            this._logger.info(`"${this._windowType}" window Showed.`);
-        });
+  // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
-        this._window.once('closed', this._handleClosed);
-    }
-
-    // ---------------------------------------------------------------------------------------------------- Ipc Handlers
-
-    protected _addAPIHandlers(): void {
-        registerLoggerHandlers(this._window.webContents.ipc, this._logger);
-    }
+  protected _addAPIHandlers(): void {
+    registerLoggerHandlers(this._window.webContents.ipc, this._logger);
+  }
 }

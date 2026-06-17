@@ -1,9 +1,9 @@
 {
-    "extends": "./configs/tsconfigs/tsconfig.base.json",
-    "compilerOptions": {
-        "composite": true,
-        "module": "esnext",
-        "moduleResolution": "bundler"
-    },
-    "include": ["electron.vite.config.mts"]
+  "extends": "./configs/tsconfigs/tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  },
+  "include": ["electron.vite.config.mts"]
 }

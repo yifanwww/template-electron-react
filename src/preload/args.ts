@@ -6,7 +6,7 @@ import type { WindowType } from '@shared/apis/app';
 const yargs = _yargs as typeof import('yargs-parser');
 
 interface Arguments {
-    windowType: WindowType;
+  windowType: WindowType;
 }
 
 export const webArgs = yargs(process.argv.slice(2)) as unknown as Arguments;
