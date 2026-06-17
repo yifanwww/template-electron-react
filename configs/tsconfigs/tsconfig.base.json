@@ -34,7 +34,7 @@
     "strict": true,
     "stripInternal": true,
     "target": "es2020",
-    "types": ["*"],
+    "types": [],
     "useDefineForClassFields": true
   }
 }
