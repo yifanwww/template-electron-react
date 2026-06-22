@@ -154,7 +154,8 @@ import { MainWindow } from '@renderer/MainWindow';
 | `pnpm run dev`              | Start development mode with hot reload (HMR)           |
 | `pnpm run build`            | Build production bundles for all processes             |
 | `pnpm run preview`          | Preview the built app without rebuilding               |
-| `pnpm run gen-installer`    | Generate Windows installer (.exe) via electron-builder |
+| `pnpm run dist:mac`         | Generate MacOS installer (DMG) via electron-builder    |
+| `pnpm run dist:win`         | Generate Windows installer (.exe) via electron-builder |
 | `pnpm run typecheck`        | Run TypeScript type checking on all sources            |
 | `pnpm run typecheck:src`    | Type-check `src/` only                                 |
 | `pnpm run typecheck:config` | Type-check config files only                           |
@@ -207,8 +208,8 @@ This project uses **Jest 30** with **@swc/jest** for fast TypeScript/JSX transfo
 # Production build
 pnpm run build
 
-# Generate Windows installer (NSIS .exe)
-pnpm run gen-installer
+pnpm run dist:mac # Generate MacOS installer (DMG)
+pnpm run dist:win # Generate Windows installer (NSIS .exe)
 ```
 
 - Build output: `build/` (three bundles: main, preload, renderer)

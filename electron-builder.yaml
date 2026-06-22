@@ -1,0 +1,27 @@
+appId: com.yifanwww.template-electron-react
+productName: Template Electron React
+directories:
+  buildResources: resources
+  output: release/${version}
+artifactName: ${name}-${version}-${arch}.${ext}
+files:
+  - build/**
+  - resources/**
+  - package.json
+asarUnpack:
+  - resources/**
+win:
+  target:
+    - target: nsis
+      arch: x64
+  # icon: icon.ico
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  # installerIcon: icon.ico
+  # uninstallerIcon: icon.ico
+mac:
+  target:
+    - dmg
+  category: public.app-category.developer-tools
+  # icon: icon.icns

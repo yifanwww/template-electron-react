@@ -48,7 +48,7 @@ jobs:
         run: pnpm run build
 
       - name: Generate installer
-        run: pnpm run gen-installer
+        run: pnpm run dist:win
 
       - name: Upload release to Github
         uses: softprops/action-gh-release@v1
