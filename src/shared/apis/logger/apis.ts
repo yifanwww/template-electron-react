@@ -1,6 +1,6 @@
 import type { IpcRendererInvokerAPI } from '../types/index.js';
 
-export const LoggerAPIKey = {
+export const LoggerIpcKey = {
   LOG: 'Logger:Log',
   ERROR: 'Logger:Error',
   WARN: 'Logger:Warn',

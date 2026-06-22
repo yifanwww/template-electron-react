@@ -1,10 +1,9 @@
-import path from 'node:path';
 import util from 'node:util';
 import type { ForegroundColorName } from 'chalk';
 import chalk from 'chalk';
-import dayjs from 'dayjs';
 import { app } from 'electron';
 import winston from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
 import { ArrayUtil } from '@shared/utils';
 import { appInfo } from './appInfo';
 
@@ -35,6 +34,9 @@ export interface AppLogger {
   info: AppLeveledLogMethod;
   verbose: AppLeveledLogMethod;
   debug: AppLeveledLogMethod;
+
+  // close the logger and flush all logs to disk
+  close(): Promise<void>;
 }
 
 // https://github.com/winstonjs/winston/issues/1427
@@ -55,18 +57,6 @@ interface TypedTransformableInfo extends winston.Logform.TransformableInfo {
   timestamp: string;
 }
 
-function makeFormat(): winston.Logform.Format {
-  return winston.format.printf((_info) => {
-    const info = _info as TypedTransformableInfo;
-
-    const levelStr = info.level.toUpperCase().padStart(7);
-    const contextStr = `[${info.label}]`;
-    const messageStr = String(info.message);
-
-    return [info.timestamp, levelStr, contextStr, messageStr].join(' ');
-  });
-}
-
 function makeConsoleFormat(colors: Record<string, ForegroundColorName>): winston.Logform.Format {
   return winston.format.printf((_info) => {
     const info = _info as TypedTransformableInfo;
@@ -79,6 +69,15 @@ function makeConsoleFormat(colors: Record<string, ForegroundColorName>): winston
 
     return [info.timestamp, chalk[color](levelStr), chalk.yellow(contextStr), chalk[color](messageStr)].join(' ');
   });
+}
+
+function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error(`Timed out after ${timeoutMs}ms`)), timeoutMs);
+    }),
+  ]);
 }
 
 export function createLogger(context: string): AppLogger {
@@ -101,33 +100,47 @@ export function createLogger(context: string): AppLogger {
   };
 
   const labelFormat = winston.format.label({ label: context });
-  const timestampFormat = winston.format.timestamp({ format: 'YYYY-MM-DD, HH:mm:ss.SSS' });
   const splatFormat = makeSplatFormat();
 
-  const filename = path.join(
-    appInfo.userDataPath,
-    'logs',
-    `app-${dayjs.utc(appInfo.startedTime).format('YYYYMMDDTHHmmssSSS')}.log`,
-  );
-
-  const logger = winston.createLogger({
+  const winstonLogger = winston.createLogger({
     transports: ArrayUtil.filterFalsy([
-      new winston.transports.File({
+      new DailyRotateFile({
+        dirname: appInfo.logsPath,
+        filename: 'app-%DATE%.jsonl',
+        datePattern: 'YYYY-MM-DD',
+        utc: true,
+        // maxFiles: '14d',
         level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
-        filename,
-        options: { flags: 'a' },
-        format: winston.format.combine(labelFormat, timestampFormat, splatFormat, makeFormat()),
+        format: winston.format.combine(labelFormat, winston.format.timestamp(), splatFormat, winston.format.json()),
       }),
       !app.isPackaged &&
         new winston.transports.Console({
           level: 'debug',
-          format: winston.format.combine(labelFormat, timestampFormat, splatFormat, makeConsoleFormat(colors)),
+          format: winston.format.combine(
+            labelFormat,
+            winston.format.timestamp({ format: 'HH:mm:ss.SSS' }),
+            splatFormat,
+            makeConsoleFormat(colors),
+          ),
         }),
     ]),
     levels,
   });
 
-  return logger as unknown as AppLogger;
+  const logger = winstonLogger as unknown as AppLogger;
+
+  logger.close = () => {
+    return withTimeout(
+      new Promise<void>((resolve, reject) => {
+        winstonLogger.on('finish', resolve);
+        winstonLogger.on('error', reject);
+        winstonLogger.end();
+      }),
+      3000,
+    );
+  };
+
+  return logger;
 }
 
 export const globalLogger = createLogger('Global');

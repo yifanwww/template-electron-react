@@ -61,6 +61,9 @@ export abstract class AbstractWindow {
 
   private _handleClosed = () => {
     this._logger.info(`"${this._windowType}" window Closed.`);
+    void this._logger.close().catch(() => {
+      // Winston may already be shutting down, so we just do nothing here.
+    });
     this._onClosed();
   };
 

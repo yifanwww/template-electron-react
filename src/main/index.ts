@@ -7,6 +7,18 @@ import { registerAppGlobalHandlers } from './apis/app';
 import { globalLogger } from './logger';
 import { MainWindow } from './window';
 
+process.on('uncaughtException', (error: Error) => {
+  globalLogger.fatal('Uncaught exception', error);
+  // The process is in an unknown state; exiting is the safest choice.
+  // Electron may show a native error dialog before exit.
+  app.exit(1);
+});
+
+process.on('unhandledRejection', (reason: unknown) => {
+  globalLogger.error('Unhandled promise rejection', reason);
+  // We do NOT exit — unhandled rejections don't necessarily corrupt process state the way uncaught exceptions do.
+});
+
 async function installExtensions(): Promise<void> {
   const { installExtension, REACT_DEVELOPER_TOOLS } = await import('electron-devtools-installer');
 
@@ -55,5 +67,24 @@ app.on('activate', () => {
     const main = new MainWindow();
     main.initApplicationMenu();
     void main.show();
+  }
+});
+
+let quitting = false;
+
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+app.on('before-quit', async (event) => {
+  if (quitting) return;
+
+  event.preventDefault();
+  quitting = true;
+  globalLogger.info('App is quitting.');
+
+  try {
+    await globalLogger.close();
+  } catch {
+    // Winston may already be shutting down, so we just do nothing here.
+  } finally {
+    app.exit(0);
   }
 });

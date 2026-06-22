@@ -1,24 +1,23 @@
 import path from 'node:path';
 import { app } from 'electron';
 
-class AppInfo {
-  private readonly _sourcePath: string;
-  private readonly _userDataPath: string;
+const sourcePath = path.resolve(__dirname, '..');
 
-  private readonly _startedTime: number;
+const userDataPath = app.isPackaged
+  ? // use user data directory in production env
+    app.getPath('userData')
+  : // use `working` directory in development env
+    path.resolve('working');
 
-  constructor() {
-    this._sourcePath = path.resolve(__dirname, '..');
+const logsPath = app.isPackaged
+  ? // use logs directory in production env
+    app.getPath('logs')
+  : // use `working/logs` directory in development env
+    path.resolve('working/logs');
 
-    this._userDataPath = app.isPackaged
-      ? // use user data directory in production env
-        app.getPath('userData')
-      : // use `working` directory in development env
-        path.resolve('working');
+const startedTime = Date.now();
 
-    this._startedTime = Date.now();
-  }
-
+export const appInfo = {
   /**
    * The path where the app's source code resides. This is used as the base path for loading resources and modules.
    *
@@ -31,23 +30,32 @@ class AppInfo {
    * In test environment, `sourcePath` points to the `src/` directory of the project.
    */
   get sourcePath(): string {
-    return this._sourcePath;
-  }
+    return sourcePath;
+  },
 
   /**
-   * The path where the app can store user data, such as logs, settings, and databases.
+   * The path where the app can store user data, such as settings and databases.
    *
    * In production environment, this is determined by Electron's `app.getPath('userData')` method.
    *
-   * In development environment and test environment, this defaults to a `working` directory.
+   * In development environment and test environment, this defaults to the `working` directory.
    */
   get userDataPath(): string {
-    return this._userDataPath;
-  }
+    return userDataPath;
+  },
+
+  /**
+   * The path where the app can store log files.
+   *
+   * In production environment, this is determined by Electron's `app.getPath('logs')` method.
+   *
+   * In development environment and test environment, this defaults to the `working/logs` directory.
+   */
+  get logsPath(): string {
+    return logsPath;
+  },
 
   get startedTime(): number {
-    return this._startedTime;
-  }
-}
-
-export const appInfo = new AppInfo();
+    return startedTime;
+  },
+};

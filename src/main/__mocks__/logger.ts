@@ -9,6 +9,7 @@ export function createLogger(): AppLogger {
     info: () => logger,
     verbose: () => logger,
     debug: () => logger,
+    close: async () => {},
   };
   return logger;
 }
