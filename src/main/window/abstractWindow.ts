@@ -29,6 +29,7 @@ export abstract class AbstractWindow {
       y: this._stateKeeper.y,
       width: this._stateKeeper.width,
       height: this._stateKeeper.height,
+      backgroundColor: '#282c34',
 
       webPreferences: {
         additionalArguments: [`--window-type=${this._windowType}`],
