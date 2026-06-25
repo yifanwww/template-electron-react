@@ -13,9 +13,9 @@ export const LoggerIpcKey = {
 
 type LogLevel = 'error' | 'warn' | 'info' | 'verbose' | 'debug';
 
-type LogAPI = IpcRendererInvokerAPI<(level: LogLevel, message: string, ...meta: unknown[]) => void>;
+type LogAPI = IpcRendererInvokerAPI<(level: LogLevel, message: string, meta: object) => void>;
 
-type LeveledLogAPI = IpcRendererInvokerAPI<(message: string, ...meta: unknown[]) => void>;
+type LeveledLogAPI = IpcRendererInvokerAPI<(message: string, meta: object) => void>;
 
 // -----------------------------------------------------------------------------
 

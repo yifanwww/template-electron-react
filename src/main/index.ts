@@ -1,46 +1,43 @@
-import type { Extension } from 'electron';
 import { app, BrowserWindow } from 'electron';
 
 import './dayjs';
 
 import { registerAppGlobalHandlers } from './apis/app';
-import { globalLogger } from './logger';
+import { logger } from './logger';
 import { MainWindow } from './window';
 
-process.on('uncaughtException', (error: Error) => {
-  globalLogger.fatal('Uncaught exception', error);
+process.on('uncaughtException', (error) => {
+  logger.fatal('Uncaught exception', error);
   // The process is in an unknown state; exiting is the safest choice.
   // Electron may show a native error dialog before exit.
   app.exit(1);
 });
 
-process.on('unhandledRejection', (reason: unknown) => {
-  globalLogger.error('Unhandled promise rejection', reason);
+process.on('unhandledRejection', (reason) => {
+  logger.error('Unhandled promise rejection', Error.isError(reason) ? reason : { reason });
   // We do NOT exit — unhandled rejections don't necessarily corrupt process state the way uncaught exceptions do.
 });
 
 async function installExtensions(): Promise<void> {
   const { installExtension, REACT_DEVELOPER_TOOLS } = await import('electron-devtools-installer');
 
-  const succeed = (name: Extension) => {
-    globalLogger.info(`Added extension "${name.name}"`);
-  };
-
-  const fail = (err: unknown) => {
-    globalLogger.error('An error occurred when install extension:', err);
-  };
-
-  await installExtension(REACT_DEVELOPER_TOOLS).then(succeed).catch(fail);
+  await installExtension(REACT_DEVELOPER_TOOLS)
+    .then((name) => {
+      logger.info(`Added extension "${name.name}"`);
+    })
+    .catch((err: Error) => {
+      logger.error('An error occurred when install extension:', err);
+    });
 }
 
 async function handleReady() {
   if (import.meta.env.DEV) {
     await installExtensions();
   }
-  globalLogger.info('App ready.');
+  logger.info('App ready.');
 
   registerAppGlobalHandlers();
-  globalLogger.info('Registered event handlers.');
+  logger.info('Registered event handlers.');
 
   const main = new MainWindow();
   main.initApplicationMenu();
@@ -56,7 +53,7 @@ app.on('window-all-closed', () => {
   // On macOS, most applications and their menu bars will stay active unless users use `cmd + Q` to quit.
   if (process.platform !== 'darwin') {
     app.quit();
-    globalLogger.info('App quited.');
+    logger.info('App quited.');
   }
 });
 
@@ -78,10 +75,10 @@ app.on('before-quit', async (event) => {
 
   event.preventDefault();
   quitting = true;
-  globalLogger.info('App is quitting.');
+  logger.info('App is quitting.');
 
   try {
-    await globalLogger.close();
+    await logger.close();
   } catch {
     // Winston may already be shutting down, so we just do nothing here.
   } finally {

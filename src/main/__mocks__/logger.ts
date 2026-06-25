@@ -10,6 +10,7 @@ export function createLogger(): AppLogger {
     verbose: () => logger,
     debug: () => logger,
     close: async () => {},
+    child: () => logger,
   };
   return logger;
 }

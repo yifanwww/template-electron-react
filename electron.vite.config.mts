@@ -18,7 +18,7 @@ export default defineConfig({
         // https://electron-vite.org/guide/dependency-handling#customizing
         // pure-ESM modules cannot be externalized, we need to bundle them,
         // until we can use native ESM in Electron main process
-        exclude: ['chalk', 'electron-store'],
+        exclude: ['electron-store'],
       },
     },
     plugins: [tsconfigPaths()],
