@@ -110,7 +110,7 @@ export function createLogger(context: string): AppLogger {
         datePattern: 'YYYY-MM-DD',
         utc: true,
         // maxFiles: '14d',
-        level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+        level: import.meta.env.DEV ? 'debug' : 'info',
         format: winston.format.combine(labelFormat, winston.format.timestamp(), splatFormat, winston.format.json()),
       }),
       !app.isPackaged &&

@@ -34,7 +34,7 @@ async function installExtensions(): Promise<void> {
 }
 
 async function handleReady() {
-  if (process.env.NODE_ENV === 'development') {
+  if (import.meta.env.DEV) {
     await installExtensions();
   }
   globalLogger.info('App ready.');
