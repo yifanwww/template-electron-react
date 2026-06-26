@@ -158,8 +158,8 @@ import { MainWindow } from '@renderer/MainWindow';
 | `pnpm run typecheck`        | Run TypeScript type checking on all sources            |
 | `pnpm run typecheck:src`    | Type-check `src/` only                                 |
 | `pnpm run typecheck:config` | Type-check config files only                           |
-| `pnpm run lint`             | Lint and auto-fix (ESLint + Stylelint)                 |
-| `pnpm run lint-ci`          | Lint without auto-fix (for CI/CD)                      |
+| `pnpm run lint`             | Lint without auto-fix (for CI/CD)                      |
+| `pnpm run lint-fix`         | Lint and auto-fix (ESLint + Stylelint)                 |
 | `pnpm run lint:eslint`      | Run ESLint only                                        |
 | `pnpm run lint:stylelint`   | Run Stylelint only (CSS/SCSS)                          |
 | `pnpm run format`           | Format all code with Prettier                          |
@@ -198,8 +198,8 @@ This project uses **Jest 30** with **@swc/jest** for fast TypeScript/JSX transfo
 | **Prettier 3**   | All supported formats | Integrated with ESLint via `eslint-plugin-prettier` |
 
 - **Pre-commit hooks:** [husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) run linters on staged files automatically.
-- Use `pnpm run lint` for local development (auto-fixes where possible).
-- Use `pnpm run lint-ci` in CI pipelines (report-only, no fix).
+- Use `pnpm run lint` in CI pipelines (report-only, no fix).
+- Use `pnpm run lint-fix` for local development (auto-fixes where possible).
 
 ## Building & Packaging
 
