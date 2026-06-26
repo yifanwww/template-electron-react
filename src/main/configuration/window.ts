@@ -132,7 +132,10 @@ export class WindowStateKeeper {
     if (this._stateChangeTimer) {
       clearTimeout(this._stateChangeTimer);
     }
-    this._stateChangeTimer = setTimeout(this._updateState, EVENT_HANDLING_DELAY);
+    this._stateChangeTimer = setTimeout(() => {
+      this._stateChangeTimer = undefined;
+      this._updateState();
+    }, EVENT_HANDLING_DELAY);
   };
 
   private _handleClose = () => {
