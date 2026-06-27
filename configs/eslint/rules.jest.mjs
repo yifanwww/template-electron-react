@@ -1,10 +1,10 @@
 import { defineConfig } from 'eslint/config';
-import jest from 'eslint-plugin-jest';
+import pluginJest from 'eslint-plugin-jest';
 
 export default defineConfig([
   {
     name: 'app-eslint-config/rules-jest',
-    extends: [jest.configs['flat/recommended'], jest.configs['flat/style']],
+    extends: [pluginJest.configs['flat/recommended'], pluginJest.configs['flat/style']],
     rules: {
       // https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/expect-expect.md
       'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'expect*'] }],
