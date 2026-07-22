@@ -7,14 +7,11 @@ interface ILogObject {
   [key: string]: unknown;
 }
 
-interface AppLogMethod {
-  (level: string, message: string): AppLogger;
-  (level: string, message: string, meta: object): AppLogger;
-}
+type AppLogMethod = (level: string, message: string, meta?: object) => AppLogger;
 
 interface AppLeveledLogMethod {
   (message: string | ILogObject): AppLogger;
-  (message: string, meta: object): AppLogger;
+  (message: string, meta?: object): AppLogger;
 }
 
 export interface AppLogger {
