@@ -1,7 +1,7 @@
-import typescriptParser from '@typescript-eslint/parser';
 import pluginImport from 'eslint-plugin-import';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 import eslintConfig from './configs/eslint/rules.eslint.mjs';
 import importConfig from './configs/eslint/rules.import.mjs';
 import jestConfig from './configs/eslint/rules.jest.mjs';
@@ -86,9 +86,7 @@ export default defineConfig([
   {
     name: 'app-eslint/architectural-boundaries',
     files: ['src/**/*.ts'],
-    languageOptions: {
-      parser: typescriptParser,
-    },
+    extends: [tseslint.configs.base],
     plugins: {
       import: pluginImport,
     },
