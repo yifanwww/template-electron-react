@@ -1,6 +1,8 @@
 import type { AppLogger } from '../logger';
 
-export function createLogger(): AppLogger {
+export function configureLogsPath() {}
+
+export function getLogger(): AppLogger {
   const logger: AppLogger = {
     log: () => logger,
     fatal: () => logger,
@@ -14,5 +16,3 @@ export function createLogger(): AppLogger {
   };
   return logger;
 }
-
-export const globalLogger = createLogger();

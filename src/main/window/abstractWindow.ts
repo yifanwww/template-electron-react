@@ -5,7 +5,7 @@ import { registerLoggerHandlers } from '../apis/logger';
 import { appInfo } from '../appInfo';
 import { WindowStateKeeper } from '../configuration';
 import type { AppLogger } from '../logger';
-import { createLogger } from '../logger';
+import { getLogger } from '../logger';
 
 export interface AbstractWindowOptions {
   memorizationEnabled: boolean;
@@ -39,7 +39,7 @@ export abstract class AbstractWindow {
     if (this._stateKeeper.maximized) this._window.maximize();
     if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
 
-    this._logger = createLogger(`${this._windowType}-${this.id}`);
+    this._logger = getLogger(`${this._windowType}-${this.id}`);
 
     this._addWindowListeners();
     this._addAPIHandlers();

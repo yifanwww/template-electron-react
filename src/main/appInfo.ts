@@ -9,12 +9,6 @@ const userDataPath = app.isPackaged
   : // use `working` directory in development env
     path.resolve('working');
 
-const logsPath = app.isPackaged
-  ? // use logs directory in production env
-    app.getPath('logs')
-  : // use `working/logs` directory in development env
-    path.resolve('working/logs');
-
 const startedTime = Date.now();
 
 export const appInfo = {
@@ -42,17 +36,6 @@ export const appInfo = {
    */
   get userDataPath(): string {
     return userDataPath;
-  },
-
-  /**
-   * The path where the app can store log files.
-   *
-   * In production environment, this is determined by Electron's `app.getPath('logs')` method.
-   *
-   * In development environment and test environment, this defaults to the `working/logs` directory.
-   */
-  get logsPath(): string {
-    return logsPath;
   },
 
   get startedTime(): number {

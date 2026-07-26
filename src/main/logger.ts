@@ -1,6 +1,7 @@
+import path from 'node:path';
+import { app } from 'electron';
 import winston from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
-import { appInfo } from './appInfo';
 
 interface ILogObject {
   message: string;
@@ -32,52 +33,75 @@ export interface AppLogger {
   child(options: Record<string, unknown>): AppLogger;
 }
 
-const winstonLogger = winston.createLogger({
-  transports: [
-    new DailyRotateFile({
-      dirname: appInfo.logsPath,
-      filename: 'app-%DATE%.jsonl',
-      datePattern: 'YYYY-MM-DD',
-      utc: true,
-      // maxFiles: '14d',
-      level: import.meta.env.DEV ? 'debug' : 'info',
-      format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
-    }),
-  ],
-  levels: {
-    fatal: 0,
-    error: 1,
-    warn: 2,
-    info: 3,
-    verbose: 4,
-    debug: 5,
-  },
-});
-
-const baseLogger = winstonLogger as unknown as AppLogger;
-
-function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-  return Promise.race([
-    promise,
-    new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms);
-    }),
-  ]);
+export function configureLogsPath() {
+  if (!app.isPackaged) {
+    // In development environment and test environment, put the logs into the `working/logs` directory.
+    app.setAppLogsPath(path.resolve('working/logs'));
+  }
 }
 
-baseLogger.close = function close() {
-  return withTimeout(
-    new Promise<void>((resolve, reject) => {
-      winstonLogger.on('finish', resolve);
-      winstonLogger.on('error', reject);
-      winstonLogger.end();
-    }),
-    3000,
-  );
-};
+function createBaseLogger(): AppLogger {
+  const winstonLogger = winston.createLogger({
+    transports: [
+      new DailyRotateFile({
+        dirname: app.getPath('logs'),
+        filename: 'app-%DATE%.jsonl',
+        datePattern: 'YYYY-MM-DD',
+        utc: true,
+        // maxFiles: '14d',
+        level: import.meta.env.DEV ? 'debug' : 'info',
+        format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
+      }),
+    ],
+    levels: {
+      fatal: 0,
+      error: 1,
+      warn: 2,
+      info: 3,
+      verbose: 4,
+      debug: 5,
+    },
+  });
 
-export function createLogger(label: string): AppLogger {
-  return baseLogger.child({ label });
+  const _baseLogger = winstonLogger as unknown as AppLogger;
+
+  function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+    return Promise.race([
+      promise,
+      new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms);
+      }),
+    ]);
+  }
+
+  _baseLogger.close = function close() {
+    return withTimeout(
+      new Promise<void>((resolve, reject) => {
+        winstonLogger.on('finish', resolve);
+        winstonLogger.on('error', reject);
+        winstonLogger.end();
+      }),
+      3000,
+    );
+  };
+
+  return _baseLogger;
 }
 
-export const logger = createLogger('global');
+let baseLogger: AppLogger | undefined;
+
+function getBaseLogger(): AppLogger {
+  baseLogger ??= createBaseLogger();
+  return baseLogger;
+}
+
+let globalLogger: AppLogger | undefined;
+
+export function getLogger(label?: string): AppLogger {
+  if (!label || label === 'global') {
+    globalLogger ??= getBaseLogger().child({ label: 'global' });
+    return globalLogger;
+  }
+
+  return getBaseLogger().child({ label });
+}
