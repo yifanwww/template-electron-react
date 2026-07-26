@@ -3,20 +3,29 @@ import type { AppRendererAPI } from '@shared/apis/app';
 import { AppIpcKey } from '@shared/apis/app';
 import type { LoggerRendererAPI } from '@shared/apis/logger';
 import { LoggerIpcKey } from '@shared/apis/logger';
+import type { UnknownFn } from '@shared/types';
 import { webArgs } from './args';
+
+/**
+ * Keep ordinary bridge methods as exact argument forwarders. This avoids a method silently
+ * discarding a newly added request parameter when a cross-process contract evolves.
+ */
+function forward<T extends UnknownFn>(channel: string): T {
+  return ((...args: Parameters<T>) => ipcRenderer.invoke(channel, ...args)) as T;
+}
 
 const AppAPI: AppRendererAPI = {
   windowType: webArgs.windowType,
-  getAppDetails: (...args) => ipcRenderer.invoke(AppIpcKey.GET_APP_DETAILS, ...args),
+  getAppDetails: forward(AppIpcKey.GET_APP_DETAILS),
 };
 
 const LoggerAPI: LoggerRendererAPI = {
-  debug: (...args) => ipcRenderer.invoke(LoggerIpcKey.DEBUG, ...args),
-  error: (...args) => ipcRenderer.invoke(LoggerIpcKey.ERROR, ...args),
-  info: (...args) => ipcRenderer.invoke(LoggerIpcKey.INFO, ...args),
-  log: (...args) => ipcRenderer.invoke(LoggerIpcKey.LOG, ...args),
-  verbose: (...args) => ipcRenderer.invoke(LoggerIpcKey.VERBOSE, ...args),
-  warn: (...args) => ipcRenderer.invoke(LoggerIpcKey.WARN, ...args),
+  debug: forward(LoggerIpcKey.DEBUG),
+  error: forward(LoggerIpcKey.ERROR),
+  info: forward(LoggerIpcKey.INFO),
+  log: forward(LoggerIpcKey.LOG),
+  verbose: forward(LoggerIpcKey.VERBOSE),
+  warn: forward(LoggerIpcKey.WARN),
 };
 
 contextBridge.exposeInMainWorld('__API_APP', AppAPI);
