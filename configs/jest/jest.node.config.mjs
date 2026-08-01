@@ -63,8 +63,6 @@ function getConfig() {
     },
     moduleFileExtensions: ['ts', 'js', 'json', 'node'],
 
-    watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
-
     // https://jestjs.io/docs/configuration/#resetmocks-boolean
     resetMocks: true,
     // https://jestjs.io/docs/configuration/#restoremocks-boolean
