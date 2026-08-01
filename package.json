@@ -22,7 +22,7 @@
     "dev": "electron-vite dev --config electron.vite.config.mts --watch",
     "dist:mac": "electron-builder build --config electron-builder.yaml --publish never --mac",
     "dist:win": "electron-builder build --config electron-builder.yaml --publish never --win",
-    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
     "lint": "pnpm run lint:eslint && pnpm run lint:stylelint",
     "lint:eslint": "eslint .",
     "lint:stylelint": "stylelint \"**/*.{css,scss}\"",
