@@ -4,42 +4,75 @@
 
 ### What's Changed
 
-Reorganize the project's folder structure, make it simple, no longer use pnpm workspace (and vscode multi-root workspace).
+#### 🔨 Build & Tooling
 
-Don't customize window menu across windows.
+- Switch to `electron-vite` for how we build and dev the Electron application.
+- Migrate electron-builder config from JSON to YAML, split dist scripts by platform (`dist:win`, `dist:mac`).
+- Disable pnpm's side-effects cache for dependencies, in case you need native modules built against both the Node.js and Electron runtimes.
 
-Always load dayjs plugins, initialize app-info and logger immediately when app starts.
+#### 📁 Project Structure
 
-Configure 2 jest configurations for main process and renderer process.
+- Reorganize the project's folder structure, make it simpler — no longer use pnpm workspace (and VS Code multi-root workspace).
+- Configure 2 separate Jest configurations for main process and renderer process.
+- Change indent size to 2.
+- Turn on `verbatimModuleSyntax` in tsconfig. Don't auto load all `@types/*` packages.
 
-Switch to `electron-vite` for how we build and dev the Electron application.
+#### ✨ Features & Improvements
 
-Disable pnpm's side-effects cache for dependencies, in cause you need native modules built against both the Node.js and Electron runtimes.
+- Always load dayjs plugins, initialize app-info and logger immediately when app starts.
+- Improve logger with daily rotation (via `winston-daily-rotate-file`), graceful shutdown, and IPC cleanup. Remove `chalk`, simplify logger to file-only with `child()` API and optional meta parameter. Defer logger initialization with `configureLogsPath`/`getLogger` pattern.
+- Extract forward helper in preload to deduplicate IPC bridge methods.
+- Use `import.meta.env.DEV` instead of `process.env.NODE_ENV`.
+- Set BrowserWindow `backgroundColor` to `#282c34` to prevent white flash on startup.
+- Don't customize window menu across windows.
+
+#### 🐛 Bug Fixes
+
+- Fix: clear window `stateChangeTimer` reference after firing.
+
+#### 🧹 Code Quality
+
+- Enforce architectural boundaries in ESLint. Refactor ESLint config structure, extract periodic rules and prettier config. Use `typescript-eslint` instead of `@typescript-eslint/parser`.
+- Swap `lint`/`lint-ci` semantics, add `lint-fix` script for local dev. Only format files when git committing.
 
 ### Dependency Changes
 
-<!-- prettier-ignore-start -->
-
+```
 - Add
-  - `electron-vite`                     ^5.0.0
+  - `@typescript/native`                  npm:typescript@7.0.2
+  - `electron-vite`                       ^5.0.0
+  - `eslint-config-prettier`              ^10.1.8
+  - `eslint-import-resolver-typescript`   ^4.4.5
+  - `winston-daily-rotate-file`           ^5.0.0
 - Upgrade
-  - `electron`                          40.1.0  -> 42.3.3
-  - `electron-builder`                  ^26.7.0 -> ^26.15.0
-  - `typescript`                        5.9.3   -> 6.0.3
-  - `typescript-eslint`                 ^8.53.0 -> ^8.59.0
+  - `@testing-library/jest-dom`           ^6.9.1   -> ^7.0.0
+  - `electron`                            40.1.0   -> 42.8.0
+  - `electron-builder`                    ^26.7.0  -> ^26.15.3
+  - `lint-staged`                         ^16.2.7  -> ^17.3.0
+  - `react-router`                        ^7.11.0  -> ^8.3.0
+  - `stylelint`                           ^16.26.1 -> ^17.14.1
+  - `stylelint-config-sass-guidelines`    ^12.1.0  -> ^13.0.0
+  - `stylelint-config-standard`           ^39.0.1  -> ^40.0.0
+  - `stylelint-config-standard-scss`      ^16.0.0  -> ^17.0.0
+  - `stylelint-order`                     ^7.0.1   -> ^8.1.1
+  - `typescript`                          5.9.3    -> npm:@typescript/typescript6@6.0.2
+  - `typescript-eslint`                   ^8.53.0  -> ^8.65.0
+  - `web-vitals`                          ^5.1.0   -> ^6.0.1
 - Remove
-  - `@types/semver`                     ^7.7.1
-  - `@types/text-table`                 ^0.2.5
-  - `concurrently`                      ^9.2.1
-  - `esbuild-loader`                    ^4.4.2
-  - `fork-ts-checker-webpack-plugin`    ^9.1.0
-  - `source-map-loader`                 ^5.0.0
-  - `text-table`                        ^0.2.0
-  - `vite-plugin-checker`               ^0.12.0
-  - `webpack`                           ^5.104.1
-  - `webpack-cli`                       ^6.0.1
-
-<!-- prettier-ignore-end -->
+  - `@types/semver`                       ^7.7.1
+  - `@types/text-table`                   ^0.2.5
+  - `chalk`                               ^5.6.2
+  - `concurrently`                        ^9.2.1
+  - `esbuild-loader`                      ^4.4.2
+  - `fork-ts-checker-webpack-plugin`      ^9.1.0
+  - `jest-watch-typeahead`                ^3.0.1
+  - `source-map-loader`                   ^5.0.0
+  - `text-table`                          ^0.2.0
+  - `typescript-plugin-css-modules`       ^5.2.0
+  - `vite-plugin-checker`                 ^0.12.0
+  - `webpack`                             ^5.104.1
+  - `webpack-cli`                         ^6.0.1
+```
 
 ## template-electron-react v0.16.0 (2026-02-01)
 
