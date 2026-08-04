@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A524-brightgreen)](package.json)
 
-A template for building cross-platform desktop applications with **Electron**, **React 19**, and **TypeScript 6** — powered by Vite for fast HMR and electron-builder for packaging.
+A template for building cross-platform desktop applications with **Electron**, **React 19**, and **TypeScript 6/7** — powered by Vite for fast HMR and electron-builder for packaging.
 
 > **Template usage:** after creating your project from this template, search for `template-electron-react` and replace all occurrences with your application name.
 
@@ -14,12 +14,12 @@ A template for building cross-platform desktop applications with **Electron**, *
 | ----------------- | ------------------------------------------------------------------------------------- |
 | Desktop framework | [Electron](https://www.electronjs.org/) 42                                            |
 | UI library        | [React](https://react.dev/) 19                                                        |
-| Language          | [TypeScript](https://www.typescriptlang.org/) 6                                       |
+| Language          | [TypeScript](https://www.typescriptlang.org/) 6/7                                     |
 | Build tool        | [electron-vite](https://electron-vite.org/) 5 (Vite-based)                            |
 | Packaging         | [electron-builder](https://www.electron.build/) 26                                    |
 | Package manager   | [pnpm](https://pnpm.io/) 10                                                           |
-| Testing           | [Jest](https://jestjs.io/) 30 + [Testing Library](https://testing-library.com/)       |
-| Linting           | [ESLint](https://eslint.org/) 9 (flat config) + [Stylelint](https://stylelint.io/) 16 |
+| Testing           | [Vitest](https://vitest.dev/) 4 + [Testing Library](https://testing-library.com/)     |
+| Linting           | [ESLint](https://eslint.org/) 9 (flat config) + [Stylelint](https://stylelint.io/) 17 |
 | Formatting        | [Prettier](https://prettier.io/) 3                                                    |
 
 ## Prerequisites
@@ -78,7 +78,6 @@ template-electron-react/
 │       └── utils/             #   Shared utility functions
 ├── configs/
 │   ├── eslint/                # ESLint rule sets
-│   ├── jest/                  # Jest configurations
 │   └── tsconfigs/             # TypeScript base config
 ├── resources/                 # Static resources bundled with the app
 ├── scripts/                   # Build & utility scripts
@@ -88,6 +87,8 @@ template-electron-react/
 ├── electron-builder.json      # electron-builder configuration
 ├── eslint.config.mjs          # ESLint flat config
 ├── tsconfig.json              # TypeScript configuration
+├── vitest.jsdom.config.mts    # Vitest jsdom configuration
+├── vitest.node.config.mts     # Vitest node configuration
 └── package.json
 ```
 
@@ -174,31 +175,28 @@ import { MainWindow } from '@renderer/MainWindow';
 
 ## Testing
 
-This project uses **Jest 30** with **@swc/jest** for fast TypeScript/JSX transformation. Tests are split into two environments:
+This project uses **Vitest 4**. Tests are split into two environments:
 
 ### Renderer Tests (`pnpm run test:jsdom`)
 
 - **Environment:** [`jsdom`](https://github.com/jsdom/jsdom) (browser simulation)
 - **Location:** `src/renderer/**/*.{spec,test}.{ts,tsx}`
 - **Libraries:** `@testing-library/react`, `@testing-library/user-event`, `@testing-library/jest-dom`
-- CSS modules are mocked via `identity-obj-proxy`
 
-### Main & Shared Tests (`pnpm run test:node`)
+### Main & Preload & Shared Tests (`pnpm run test:node`)
 
 - **Environment:** Node.js
-- **Location:** `src/main/**/*.{spec,test}.ts`, `src/shared/**/*.{spec,test}.ts`
-
-> **Note:** Jest is imported from `@jest/globals` (not global). See the [jest-module-mocking skill](.agents/skills/jest-module-mocking/SKILL.md) for guidance on mocking modules.
+- **Location:** `src/main/**/*.{spec,test}.ts`, `src/preload/**/*.{spec,test}.ts`, `src/shared/**/*.{spec,test}.ts`
 
 ## Linting & Formatting
 
 | Tool             | Scope                 | Config                                              |
 | ---------------- | --------------------- | --------------------------------------------------- |
 | **ESLint 9**     | `.ts`, `.tsx`         | `eslint.config.mjs` (flat config)                   |
-| **Stylelint 16** | `.css`, `.scss`       | Standard + SCSS + Sass guidelines + recess order    |
+| **Stylelint 17** | `.css`, `.scss`       | Standard + SCSS + Sass guidelines + recess order    |
 | **Prettier 3**   | All supported formats | Integrated with ESLint via `eslint-plugin-prettier` |
 
-- **Pre-commit hooks:** [husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) run linters on staged files automatically.
+- **Pre-commit hooks:** [husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) format staged files automatically.
 - Use `pnpm run lint` in CI pipelines (report-only, no fix).
 - Use `pnpm run lint-fix` for local development (auto-fixes where possible).
 

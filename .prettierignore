@@ -12,7 +12,4 @@
 # -------------------- Agent Skills
 
 /.agents/*
-!/.agents/skills
-/.agents/skills/*
-!/.agents/skills/jest-module-mocking
 /skills-lock.json

@@ -1,6 +1,6 @@
-import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-jest.mock('electron', () => {
+vi.mock('electron', () => {
   const app: Partial<(typeof import('electron'))['app']> = {
     getName: () => 'template-electron-react',
     getVersion: () => '<app-version>',

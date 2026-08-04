@@ -5,5 +5,5 @@
     "module": "esnext",
     "moduleResolution": "bundler"
   },
-  "include": ["electron.vite.config.mts"]
+  "include": ["electron.vite.config.mts", "vitest.jsdom.config.mts", "vitest.node.config.mts"]
 }

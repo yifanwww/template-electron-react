@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import { assertIsDefined, assertIsNever } from '../assert';
 
 describe(`Test fn \`${assertIsNever.name}\``, () => {

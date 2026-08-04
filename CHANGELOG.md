@@ -13,7 +13,7 @@
 #### 📁 Project Structure
 
 - Reorganize the project's folder structure, make it simpler — no longer use pnpm workspace (and VS Code multi-root workspace).
-- Configure 2 separate Jest configurations for main process and renderer process.
+- Migrate test framework from Jest to Vitest. Configure 2 separate Vitest configurations for main process (`vitest.node.config.mts`) and renderer process (`vitest.jsdom.config.mts`).
 - Change indent size to 2.
 - Turn on `verbatimModuleSyntax` in tsconfig. Don't auto load all `@types/*` packages.
 
@@ -32,7 +32,7 @@
 
 #### 🧹 Code Quality
 
-- Enforce architectural boundaries in ESLint. Refactor ESLint config structure, extract periodic rules and prettier config. Use `typescript-eslint` instead of `@typescript-eslint/parser`.
+- Enforce architectural boundaries in ESLint. Refactor ESLint config structure, extract periodic rules and prettier config. Use `typescript-eslint` instead of `@typescript-eslint/parser`. Replace `eslint-plugin-jest` with `@vitest/eslint-plugin`.
 - Swap `lint`/`lint-ci` semantics, add `lint-fix` script for local dev. Only format files when git committing.
 
 ### Dependency Changes
@@ -40,9 +40,12 @@
 ```
 - Add
   - `@typescript/native`                  npm:typescript@7.0.2
+  - `@vitest/coverage-v8`                 ^4.1.10
+  - `@vitest/eslint-plugin`               ^1.6.26
   - `electron-vite`                       ^5.0.0
   - `eslint-config-prettier`              ^10.1.8
   - `eslint-import-resolver-typescript`   ^4.4.5
+  - `vitest`                              ^4.1.10
   - `winston-daily-rotate-file`           ^5.0.0
 - Upgrade
   - `@testing-library/jest-dom`           ^6.9.1   -> ^7.0.0
@@ -59,19 +62,28 @@
   - `typescript-eslint`                   ^8.53.0  -> ^8.65.0
   - `web-vitals`                          ^5.1.0   -> ^6.0.1
 - Remove
-  - `@types/semver`                       ^7.7.1
-  - `@types/text-table`                   ^0.2.5
-  - `chalk`                               ^5.6.2
-  - `concurrently`                        ^9.2.1
-  - `esbuild-loader`                      ^4.4.2
-  - `fork-ts-checker-webpack-plugin`      ^9.1.0
-  - `jest-watch-typeahead`                ^3.0.1
-  - `source-map-loader`                   ^5.0.0
-  - `text-table`                          ^0.2.0
-  - `typescript-plugin-css-modules`       ^5.2.0
-  - `vite-plugin-checker`                 ^0.12.0
-  - `webpack`                             ^5.104.1
-  - `webpack-cli`                         ^6.0.1
+  - `@jest/globals`
+  - `@jest/types`
+  - `@swc/jest`
+  - `@types/semver`
+  - `@types/text-table`
+  - `camelcase`
+  - `chalk`
+  - `concurrently`
+  - `esbuild-loader`
+  - `eslint-plugin-jest`
+  - `fork-ts-checker-webpack-plugin`
+  - `identity-obj-proxy`
+  - `jest`
+  - `jest-environment-jsdom`
+  - `jest-watch-typeahead`
+  - `source-map-loader`
+  - `text-table`
+  - `typescript-plugin-css-modules`
+  - `vite-plugin-checker`
+  - `webpack`
+  - `webpack-cli`
+  - `whatwg-fetch`
 ```
 
 ## template-electron-react v0.16.0 (2026-02-01)

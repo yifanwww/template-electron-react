@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from 'vitest';
 import { makeFn } from '../function.js';
 
 describe(`Test fn \`${makeFn.name}\``, () => {

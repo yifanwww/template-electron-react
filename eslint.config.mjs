@@ -4,12 +4,12 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import eslintConfig from './configs/eslint/rules.eslint.mjs';
 import importConfig from './configs/eslint/rules.import.mjs';
-import jestConfig from './configs/eslint/rules.jest.mjs';
 import periodicConfig from './configs/eslint/rules.periodic.mjs';
 import prettierConfig from './configs/eslint/rules.prettier.mjs';
 import reactConfig from './configs/eslint/rules.react.mjs';
 import reactHooksConfig from './configs/eslint/rules.react-hooks.mjs';
 import typescriptConfig from './configs/eslint/rules.typescript.mjs';
+import vitestConfig from './configs/eslint/rules.vitest.mjs';
 
 export default defineConfig([
   globalIgnores(
@@ -34,7 +34,7 @@ export default defineConfig([
       eslintConfig,
       typescriptConfig,
       importConfig,
-      jestConfig,
+      vitestConfig,
       prettierConfig,
       /*
        * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
@@ -53,7 +53,7 @@ export default defineConfig([
       eslintConfig,
       typescriptConfig,
       importConfig,
-      jestConfig,
+      vitestConfig,
       reactConfig,
       reactHooksConfig,
       prettierConfig,
@@ -74,7 +74,7 @@ export default defineConfig([
       eslintConfig,
       typescriptConfig,
       importConfig,
-      jestConfig,
+      vitestConfig,
       prettierConfig,
       /*
        * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
