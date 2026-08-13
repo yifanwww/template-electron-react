@@ -1,13 +1,9 @@
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - less
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - '@swc/core'
-  - electron
-  - electron-winstaller
-  - esbuild
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': true
+  electron-winstaller: false
+  esbuild: true
+  unrs-resolver: false
 
 # Disable pnpm's side-effects cache for dependencies.
 #

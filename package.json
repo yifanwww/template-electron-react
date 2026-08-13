@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/yifanwww/template-electron-react.git"
   },
-  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
+  "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1",
   "scripts": {
     "build": "electron-vite build --config electron.vite.config.mts",
     "clean": "pnpm run clean:build && pnpm run clean:dev",
