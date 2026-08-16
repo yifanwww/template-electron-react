@@ -8,6 +8,7 @@
 
 - Switch to `electron-vite` for how we build and dev the Electron application.
 - Migrate electron-builder config from JSON to YAML, split dist scripts by platform (`dist:win`, `dist:mac`).
+- Upgrade `pnpm` from v10 to v11.
 - Disable pnpm's side-effects cache for dependencies, in case you need native modules built against both the Node.js and Electron runtimes.
 
 #### 📁 Project Structure
@@ -32,6 +33,7 @@
 
 #### 🧹 Code Quality
 
+- Refactor configuration store to use typed getter/setter methods, pass `WindowStateKeeper` into `AbstractWindow` from the outside.
 - Enforce architectural boundaries in ESLint. Refactor ESLint config structure, extract periodic rules and prettier config. Use `typescript-eslint` instead of `@typescript-eslint/parser`. Replace `eslint-plugin-jest` with `@vitest/eslint-plugin`.
 - Swap `lint`/`lint-ci` semantics, add `lint-fix` script for local dev. Only format files when git committing.
 

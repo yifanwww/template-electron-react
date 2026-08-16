@@ -1,7 +1,6 @@
 import type { BrowserWindow } from 'electron';
 import { screen } from 'electron';
-import { WindowType } from '@shared/apis/app';
-import { ConfigurationKey, store } from './store';
+import { store } from './store';
 
 export interface IWindowState {
   x: number;
@@ -14,45 +13,38 @@ export interface IWindowState {
 
 const EVENT_HANDLING_DELAY = 100;
 
-type WindowStateKey = ConfigurationKey.MAIN_WINDOW_STATE;
-
-const KeyMap: Record<WindowType, WindowStateKey | undefined> = {
-  [WindowType.MAIN]: ConfigurationKey.MAIN_WINDOW_STATE,
-};
-
 interface IWindowStateKeeperOptions {
-  defaultWidth?: number;
-  defaultHeight?: number;
-  defaultMaximized?: boolean;
-  defaultFullScreen?: boolean;
+  defaultWidth: number;
+  defaultHeight: number;
+  defaultMaximized: boolean;
+  defaultFullScreen: boolean;
 }
 
 export class WindowStateKeeper {
-  private readonly _type: WindowType;
+  private readonly _key: string;
   private _enabled: boolean;
   private readonly _state: IWindowState;
   private _stateChangeTimer?: NodeJS.Timeout;
   private _windowRef?: BrowserWindow;
   private _registered = false;
 
-  constructor(type: WindowType, enabled: boolean, options?: IWindowStateKeeperOptions) {
-    this._type = type;
-    this._enabled = KeyMap[type] !== undefined && enabled;
+  constructor(key: string, enabled: boolean, options: IWindowStateKeeperOptions) {
+    this._key = key;
+    this._enabled = enabled;
 
     const { workAreaSize } = screen.getPrimaryDisplay();
-    const defaultWidth = options?.defaultWidth ?? 1280;
-    const defaultHeight = options?.defaultHeight ?? 720;
+    const { defaultFullScreen, defaultHeight, defaultMaximized, defaultWidth } = options;
     this._state = {
       x: Math.round((workAreaSize.width - defaultWidth) / 2),
       y: Math.round((workAreaSize.height - defaultHeight) / 2),
       width: defaultWidth,
       height: defaultHeight,
-      maximized: options?.defaultMaximized ?? false,
-      fullScreen: options?.defaultFullScreen ?? false,
+      maximized: defaultMaximized,
+      fullScreen: defaultFullScreen,
     };
 
     if (this._enabled) {
-      const prevState = getWindowState(KeyMap[type]!);
+      const prevState = getWindowState(key);
       if (prevState) {
         this._state = prevState;
       }
@@ -60,9 +52,7 @@ export class WindowStateKeeper {
   }
 
   set enabled(value: boolean) {
-    const key = KeyMap[this._type];
-
-    this._enabled = key !== undefined && value;
+    this._enabled = value;
     if (this._enabled && this._windowRef && !this._registered) {
       this.register(this._windowRef);
     } else if (!this._enabled) {
@@ -119,12 +109,10 @@ export class WindowStateKeeper {
   };
 
   private _saveState() {
-    const key = KeyMap[this._type];
-
     if (this._enabled) {
-      store.set(key!, this._state);
-    } else if (key) {
-      store.delete(key);
+      store.setWindowState(this._key, this._state);
+    } else {
+      store.setWindowState(this._key, undefined);
     }
   }
 
@@ -173,8 +161,8 @@ export class WindowStateKeeper {
   }
 }
 
-function getWindowState(key: WindowStateKey): IWindowState | null {
-  const prevState = store.get(key);
+function getWindowState(key: string): IWindowState | null {
+  const prevState = store.getWindowState(key);
   if (prevState) {
     const visible = checkWindowVisible(prevState);
     if (visible) {

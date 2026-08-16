@@ -1,18 +1,29 @@
 import type { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell } from 'electron';
+import { WindowStateKeeper } from '@main/configuration';
 import { WindowType } from '@shared/apis/app';
 import { ArrayUtil } from '@shared/utils';
-import { ConfigurationKey, store } from '../configuration/store';
+import { store } from '../configuration/store';
 import { AbstractWindow } from './abstractWindow';
 
 export class MainWindow extends AbstractWindow {
   constructor() {
-    const memorizationEnabled = store.get(ConfigurationKey.RESTORE_LAST_WINDOW_STATE) ?? true;
-    super({ memorizationEnabled, type: WindowType.MAIN });
+    const stateKeeperEnabled = store.getRestoreLastWindowState();
+    const stateKeeper = new WindowStateKeeper(WindowType.MAIN, stateKeeperEnabled, {
+      defaultHeight: 720,
+      defaultWidth: 1280,
+      defaultMaximized: false,
+      defaultFullScreen: false,
+    });
+
+    super({
+      type: WindowType.MAIN,
+      stateKeeper,
+    });
   }
 
   protected override _onClosed() {
-    store.set(ConfigurationKey.RESTORE_LAST_WINDOW_STATE, this._stateKeeper.enabled);
+    store.setRestoreLastWindowState(this._stateKeeper.enabled);
   }
 
   initApplicationMenu() {
@@ -29,7 +40,7 @@ export class MainWindow extends AbstractWindow {
             checked: this._stateKeeper.enabled,
             click: () => {
               this._stateKeeper.enabled = !this._stateKeeper.enabled;
-              store.set(ConfigurationKey.RESTORE_LAST_WINDOW_STATE, this._stateKeeper.enabled);
+              store.setRestoreLastWindowState(this._stateKeeper.enabled);
             },
           },
           { role: isMac ? 'close' : 'quit' },

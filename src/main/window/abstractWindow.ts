@@ -3,12 +3,12 @@ import { app, BrowserWindow, shell } from 'electron';
 import type { WindowType } from '@shared/apis/app';
 import { registerLoggerHandlers } from '../apis/logger';
 import { appInfo } from '../appInfo';
-import { WindowStateKeeper } from '../configuration';
+import type { WindowStateKeeper } from '../configuration';
 import type { AppLogger } from '../logger';
 import { getLogger } from '../logger';
 
 export interface AbstractWindowOptions {
-  memorizationEnabled: boolean;
+  stateKeeper: WindowStateKeeper;
   type: WindowType;
 }
 
@@ -21,8 +21,7 @@ export abstract class AbstractWindow {
 
   constructor(options: AbstractWindowOptions) {
     this._windowType = options.type;
-
-    this._stateKeeper = new WindowStateKeeper(this._windowType, options.memorizationEnabled);
+    this._stateKeeper = options.stateKeeper;
 
     this._window = new BrowserWindow({
       x: this._stateKeeper.x,

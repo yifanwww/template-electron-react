@@ -1,20 +1,43 @@
-import Store from 'electron-store';
+import ElectronStore from 'electron-store';
 import { appInfo } from '../appInfo';
 import type { IWindowState } from './window';
 
-export enum ConfigurationKey {
-  MAIN_WINDOW_STATE = 'mainWindowState',
-  RESTORE_LAST_WINDOW_STATE = 'restoreLastWindowState',
-}
-
 interface IAppConfiguration {
-  [ConfigurationKey.MAIN_WINDOW_STATE]?: IWindowState;
-  [ConfigurationKey.RESTORE_LAST_WINDOW_STATE]?: boolean;
+  window?: Record<string, IWindowState | undefined>;
+  restoreLastWindowState?: boolean;
 }
 
-export const store = new Store<IAppConfiguration>({
-  name: 'settings',
-  fileExtension: 'json',
-  cwd: appInfo.userDataPath,
-  serialize: (value) => JSON.stringify(value, null, 4),
-});
+class Store {
+  private _store = new ElectronStore<IAppConfiguration>({
+    name: 'settings',
+    fileExtension: 'json',
+    cwd: appInfo.userDataPath,
+    serialize: (value) => JSON.stringify(value, null, 4),
+  });
+
+  getWindowState(key: string): IWindowState | undefined {
+    return this._store.get(`window.${key}`);
+  }
+
+  setWindowState(key: string, value: IWindowState | undefined) {
+    if (value) {
+      this._store.set(`window.${key}`, value);
+    } else {
+      this._store.delete(`window.${key}`);
+    }
+  }
+
+  getRestoreLastWindowState(): boolean {
+    return this._store.get('restoreLastWindowState') ?? true;
+  }
+
+  setRestoreLastWindowState(value: boolean | undefined) {
+    if (value !== undefined) {
+      this._store.set('restoreLastWindowState', value);
+    } else {
+      this._store.delete('restoreLastWindowState');
+    }
+  }
+}
+
+export const store = new Store();
