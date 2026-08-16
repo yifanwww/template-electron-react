@@ -39,51 +39,52 @@
 
 ```
 - Add
-  - `@typescript/native`                  npm:typescript@7.0.2
-  - `@vitest/coverage-v8`                 ^4.1.10
-  - `@vitest/eslint-plugin`               ^1.6.26
-  - `electron-vite`                       ^5.0.0
-  - `eslint-config-prettier`              ^10.1.8
-  - `eslint-import-resolver-typescript`   ^4.4.5
-  - `vitest`                              ^4.1.10
-  - `winston-daily-rotate-file`           ^5.0.0
+  - @typescript/native                  npm:typescript@7.0.2
+  - @vitest/coverage-v8                 ^4.1.10
+  - @vitest/eslint-plugin               ^1.6.26
+  - electron-vite                       ^5.0.0
+  - eslint-config-prettier              ^10.1.8
+  - eslint-import-resolver-typescript   ^4.4.5
+  - vitest                              ^4.1.10
+  - winston-daily-rotate-file           ^5.0.0
 - Upgrade
-  - `@testing-library/jest-dom`           ^6.9.1   -> ^7.0.0
-  - `electron`                            40.1.0   -> 42.8.0
-  - `electron-builder`                    ^26.7.0  -> ^26.15.3
-  - `lint-staged`                         ^16.2.7  -> ^17.3.0
-  - `react-router`                        ^7.11.0  -> ^8.3.0
-  - `stylelint`                           ^16.26.1 -> ^17.14.1
-  - `stylelint-config-sass-guidelines`    ^12.1.0  -> ^13.0.0
-  - `stylelint-config-standard`           ^39.0.1  -> ^40.0.0
-  - `stylelint-config-standard-scss`      ^16.0.0  -> ^17.0.0
-  - `stylelint-order`                     ^7.0.1   -> ^8.1.1
-  - `typescript`                          5.9.3    -> npm:@typescript/typescript6@6.0.2
-  - `typescript-eslint`                   ^8.53.0  -> ^8.65.0
-  - `web-vitals`                          ^5.1.0   -> ^6.0.1
+  - @testing-library/jest-dom           ^6.9.1   -> ^7.0.0
+  - electron                            40.1.0   -> 42.8.0
+  - electron-builder                    ^26.7.0  -> ^26.15.3
+  - lint-staged                         ^16.2.7  -> ^17.3.0
+  - react-router                        ^7.11.0  -> ^8.3.0
+  - stylelint                           ^16.26.1 -> ^17.14.1
+  - stylelint-config-sass-guidelines    ^12.1.0  -> ^13.0.0
+  - stylelint-config-standard           ^39.0.1  -> ^40.0.0
+  - stylelint-config-standard-scss      ^16.0.0  -> ^17.0.0
+  - stylelint-order                     ^7.0.1   -> ^8.1.1
+  - typescript                          5.9.3    -> npm:@typescript/typescript6@6.0.2
+  - typescript-eslint                   ^8.53.0  -> ^8.65.0
+  - web-vitals                          ^5.1.0   -> ^6.0.1
 - Remove
-  - `@jest/globals`
-  - `@jest/types`
-  - `@swc/jest`
-  - `@types/semver`
-  - `@types/text-table`
-  - `camelcase`
-  - `chalk`
-  - `concurrently`
-  - `esbuild-loader`
-  - `eslint-plugin-jest`
-  - `fork-ts-checker-webpack-plugin`
-  - `identity-obj-proxy`
-  - `jest`
-  - `jest-environment-jsdom`
-  - `jest-watch-typeahead`
-  - `source-map-loader`
-  - `text-table`
-  - `typescript-plugin-css-modules`
-  - `vite-plugin-checker`
-  - `webpack`
-  - `webpack-cli`
-  - `whatwg-fetch`
+  - @jest/globals
+  - @jest/types
+  - @swc/jest
+  - @testing-library/dom
+  - @types/semver
+  - @types/text-table
+  - camelcase
+  - chalk
+  - concurrently
+  - esbuild-loader
+  - eslint-plugin-jest
+  - fork-ts-checker-webpack-plugin
+  - identity-obj-proxy
+  - jest
+  - jest-environment-jsdom
+  - jest-watch-typeahead
+  - source-map-loader
+  - text-table
+  - typescript-plugin-css-modules
+  - vite-plugin-checker
+  - webpack
+  - webpack-cli
+  - whatwg-fetch
 ```
 
 ## template-electron-react v0.16.0 (2026-02-01)
