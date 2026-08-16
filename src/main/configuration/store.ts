@@ -4,7 +4,7 @@ import type { IWindowState } from './window';
 
 interface IAppConfiguration {
   window?: Record<string, IWindowState | undefined>;
-  restoreLastWindowState?: boolean;
+  restoreLastWindowState: boolean;
 }
 
 class Store {
@@ -13,6 +13,27 @@ class Store {
     fileExtension: 'json',
     cwd: appInfo.userDataPath,
     serialize: (value) => JSON.stringify(value, null, 4),
+    schema: {
+      window: {
+        type: 'object',
+        additionalProperties: {
+          type: 'object',
+          properties: {
+            x: { type: 'number' },
+            y: { type: 'number' },
+            width: { type: 'number', minimum: 1 },
+            height: { type: 'number', minimum: 1 },
+            maximized: { type: 'boolean' },
+            fullScreen: { type: 'boolean' },
+          },
+          required: ['x', 'y', 'width', 'height', 'maximized', 'fullScreen'],
+        },
+      },
+      restoreLastWindowState: {
+        type: 'boolean',
+        default: true,
+      },
+    },
   });
 
   getWindowState(key: string): IWindowState | undefined {
@@ -28,7 +49,7 @@ class Store {
   }
 
   getRestoreLastWindowState(): boolean {
-    return this._store.get('restoreLastWindowState') ?? true;
+    return this._store.get('restoreLastWindowState');
   }
 
   setRestoreLastWindowState(value: boolean | undefined) {
