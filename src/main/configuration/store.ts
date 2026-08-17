@@ -12,7 +12,7 @@ class Store {
     name: 'settings',
     fileExtension: 'json',
     cwd: appInfo.userDataPath,
-    serialize: (value) => JSON.stringify(value, null, 4),
+    serialize: (value) => JSON.stringify(value, null, 2),
     schema: {
       window: {
         type: 'object',
