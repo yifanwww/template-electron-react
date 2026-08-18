@@ -36,6 +36,7 @@
 - Refactor configuration store to use typed getter/setter methods, pass `WindowStateKeeper` into `AbstractWindow` from the outside. Add JSON schema validation for store data via `electron-store`'s `schema` option.
 - Enforce architectural boundaries in ESLint. Refactor ESLint config structure, extract periodic rules and prettier config. Use `typescript-eslint` instead of `@typescript-eslint/parser`. Replace `eslint-plugin-jest` with `@vitest/eslint-plugin`.
 - Swap `lint`/`lint-ci` semantics, add `lint-fix` script for local dev. Only format files when git committing.
+- Remove custom frameless window utilities (`FramelessWindow`, `TitleBar`).
 
 ### Dependency Changes
 
