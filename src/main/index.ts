@@ -3,19 +3,20 @@ import { app, BrowserWindow } from 'electron';
 import './dayjs';
 
 import { registerAppGlobalHandlers } from './apis/app';
-import { configureLogsPath, getLogger } from './logger';
+import { getLogger } from './logger';
 import { MainWindow } from './window';
 
+const logger = getLogger();
+
 process.on('uncaughtException', (error) => {
-  configureLogsPath();
-  getLogger().fatal('Uncaught exception', error);
+  logger.fatal('Uncaught exception', error);
   // The process is in an unknown state; exiting is the safest choice.
   // Electron may show a native error dialog before exit.
   app.exit(1);
 });
 
 process.on('unhandledRejection', (reason) => {
-  getLogger().error('Unhandled promise rejection', Error.isError(reason) ? reason : { reason });
+  logger.error('Unhandled promise rejection', Error.isError(reason) ? reason : { reason });
   // We do NOT exit — unhandled rejections don't necessarily corrupt process state the way uncaught exceptions do.
 });
 
@@ -24,23 +25,21 @@ async function installExtensions(): Promise<void> {
 
   await installExtension(REACT_DEVELOPER_TOOLS)
     .then((name) => {
-      getLogger().info(`Added extension "${name.name}"`);
+      logger.info(`Added extension "${name.name}"`);
     })
     .catch((err: Error) => {
-      getLogger().error('An error occurred when install extension:', err);
+      logger.error('An error occurred when install extension:', err);
     });
 }
 
 async function handleReady() {
-  configureLogsPath();
-
   if (import.meta.env.DEV) {
     await installExtensions();
   }
-  getLogger().info('App ready.');
+  logger.info('App ready.');
 
   registerAppGlobalHandlers();
-  getLogger().info('Registered event handlers.');
+  logger.info('Registered event handlers.');
 
   const main = new MainWindow();
   main.initApplicationMenu();
@@ -56,7 +55,7 @@ app.on('window-all-closed', () => {
   // On macOS, most applications and their menu bars will stay active unless users use `cmd + Q` to quit.
   if (process.platform !== 'darwin') {
     app.quit();
-    getLogger().info('App quited.');
+    logger.info('App quited.');
   }
 });
 
@@ -78,10 +77,10 @@ app.on('before-quit', async (event) => {
 
   event.preventDefault();
   quitting = true;
-  getLogger().info('App is quitting.');
+  logger.info('App is quitting.');
 
   try {
-    await getLogger().close();
+    await logger.close();
   } catch {
     // Winston may already be shutting down, so we just do nothing here.
   } finally {

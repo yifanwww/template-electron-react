@@ -21,7 +21,7 @@
 #### ✨ Features & Improvements
 
 - Always load dayjs plugins, initialize app-info and logger immediately when app starts.
-- Improve logger with daily rotation (via `winston-daily-rotate-file`), graceful shutdown, and IPC cleanup. Remove `chalk`, simplify logger to file-only with `child()` API and optional meta parameter. Defer logger initialization with `configureLogsPath`/`getLogger` pattern.
+- Rewrite logger with daily rotation (via `winston-daily-rotate-file`), graceful shutdown via `close()`, and `child()` API for labeled loggers. Remove `chalk` and console transport — logs are now file-only in JSONL format. Auto-configure logs path for development environment. Simplify IPC logger handlers with optional meta parameter.
 - Extract forward helper in preload to deduplicate IPC bridge methods.
 - Use `import.meta.env.DEV` instead of `process.env.NODE_ENV`.
 - Set BrowserWindow `backgroundColor` to `#282c34` to prevent white flash on startup.

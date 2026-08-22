@@ -33,14 +33,12 @@ export interface AppLogger {
   child(options: Record<string, unknown>): AppLogger;
 }
 
-export function configureLogsPath() {
+function createBaseLogger(): AppLogger {
   if (!app.isPackaged) {
     // In development environment and test environment, put the logs into the `working/logs` directory.
     app.setAppLogsPath(path.resolve('working/logs'));
   }
-}
 
-function createBaseLogger(): AppLogger {
   const winstonLogger = winston.createLogger({
     transports: [
       new DailyRotateFile({
@@ -89,19 +87,15 @@ function createBaseLogger(): AppLogger {
 }
 
 let baseLogger: AppLogger | undefined;
-
-function getBaseLogger(): AppLogger {
-  baseLogger ??= createBaseLogger();
-  return baseLogger;
-}
-
 let globalLogger: AppLogger | undefined;
 
 export function getLogger(label?: string): AppLogger {
+  baseLogger ??= createBaseLogger();
+
   if (!label || label === 'global') {
-    globalLogger ??= getBaseLogger().child({ label: 'global' });
+    globalLogger ??= baseLogger.child({ label: 'global' });
     return globalLogger;
   }
 
-  return getBaseLogger().child({ label });
+  return baseLogger.child({ label });
 }
