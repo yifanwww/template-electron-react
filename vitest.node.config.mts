@@ -1,10 +1,9 @@
-import type { UserConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-export default defineConfig((): UserConfig => ({
+export default defineConfig({
   build: {
-    target: 'node24.15',
+    target: 'node24.18',
   },
   plugins: [tsconfigPaths()],
   test: {
@@ -21,4 +20,4 @@ export default defineConfig((): UserConfig => ({
     // https://vitest.dev/config/restoremocks.html
     restoreMocks: true,
   },
-}));
+});

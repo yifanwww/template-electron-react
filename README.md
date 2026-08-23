@@ -12,12 +12,12 @@ A template for building cross-platform desktop applications with **Electron**, *
 
 | Layer             | Technology                                                                            |
 | ----------------- | ------------------------------------------------------------------------------------- |
-| Desktop framework | [Electron](https://www.electronjs.org/) 42                                            |
+| Desktop framework | [Electron](https://www.electronjs.org/) 43                                            |
 | UI library        | [React](https://react.dev/) 19                                                        |
 | Language          | [TypeScript](https://www.typescriptlang.org/) 6/7                                     |
 | Build tool        | [electron-vite](https://electron-vite.org/) 5 (Vite-based)                            |
 | Packaging         | [electron-builder](https://www.electron.build/) 26                                    |
-| Package manager   | [pnpm](https://pnpm.io/) 10                                                           |
+| Package manager   | [pnpm](https://pnpm.io/) 11                                                           |
 | Testing           | [Vitest](https://vitest.dev/) 4 + [Testing Library](https://testing-library.com/)     |
 | Linting           | [ESLint](https://eslint.org/) 9 (flat config) + [Stylelint](https://stylelint.io/) 17 |
 | Formatting        | [Prettier](https://prettier.io/) 3                                                    |

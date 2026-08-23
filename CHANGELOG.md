@@ -9,7 +9,6 @@
 - Switch to `electron-vite` for how we build and dev the Electron application.
 - Migrate electron-builder config from JSON to YAML, split dist scripts by platform (`dist:win`, `dist:mac`).
 - Upgrade `pnpm` from v10 to v11.
-- Disable pnpm's side-effects cache for dependencies, in case you need native modules built against both the Node.js and Electron runtimes.
 
 #### 📁 Project Structure
 
@@ -52,7 +51,7 @@
   - winston-daily-rotate-file           ^5.0.0
 - Upgrade
   - @testing-library/jest-dom           ^6.9.1   -> ^7.0.0
-  - electron                            40.1.0   -> 42.8.0
+  - electron                            40.1.0   -> 43.4.1
   - electron-builder                    ^26.7.0  -> ^26.15.3
   - lint-staged                         ^16.2.7  -> ^17.3.0
   - react-router                        ^7.11.0  -> ^8.3.0

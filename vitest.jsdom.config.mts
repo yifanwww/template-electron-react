@@ -1,18 +1,17 @@
 import react from '@vitejs/plugin-react';
-import type { UserConfig } from 'vite';
 import { defineConfig } from 'vitest/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-export default defineConfig((): UserConfig => ({
+export default defineConfig({
   build: {
-    target: 'chrome148',
+    target: 'chrome150',
   },
   plugins: [react(), tsconfigPaths()],
   test: {
-    setupFiles: ['./src/test-jsdom.setup.ts'],
-
     include: ['src/renderer/**/*.{spec,test}.{ts,tsx}'],
     environment: 'jsdom',
+
+    setupFiles: ['./src/test-jsdom.setup.ts'],
 
     coverage: {
       include: ['src/renderer/**/*.{ts,tsx}'],
@@ -29,4 +28,4 @@ export default defineConfig((): UserConfig => ({
     // https://vitest.dev/config/restoremocks.html
     restoreMocks: true,
   },
-}));
+});

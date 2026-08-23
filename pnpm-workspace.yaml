@@ -11,14 +11,12 @@ allowBuilds:
 # native modules) and restores them on subsequent installs, which speeds things up but ties the cached
 # binaries to the Node.js version that produced them.
 #
-# You may need native modules built against both the Node.js and Electron runtimes — for example,
-# to back up the Node.js binaries before electron-builder overwrites them (useful for unit testing or other purposes):
+# Native modules built against N-API (e.g. better-sqlite3 v13+) ship prebuilt binaries that are
+# ABI-stable across Node.js and Electron versions, so the cache is safe for them. However, if a
+# non-N-API native module (one that links against V8's C++ API) is ever added, its binaries are
+# runtime-specific and the cache could serve stale builds. In that case, uncomment the line below
+# and add a backup step to postinstall:
 #
-#   in package.json:
-#   "scripts": {
-#     "postinstall": "node ./scripts/backup-native-node-modules.mjs && electron-builder install-app-deps"
-#   }
+#   "postinstall": "node ./scripts/backup-native-node-modules.mjs && electron-builder install-app-deps"
 #
-# Disabling sideEffectsCache ensures that pnpm always rebuilds native modules from source on install
-# rather than restoring a cached copy, so a backup script like the one above reliably captures Node.js binaries.
-sideEffectsCache: false
+# sideEffectsCache: false
