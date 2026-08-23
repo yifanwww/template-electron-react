@@ -1,7 +1,5 @@
 import { app, BrowserWindow } from 'electron';
 
-import './dayjs';
-
 import { registerAppGlobalHandlers } from './apis/app';
 import { getLogger } from './logger';
 import { MainWindow } from './window';

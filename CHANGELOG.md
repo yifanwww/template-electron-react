@@ -20,7 +20,7 @@
 
 #### ✨ Features & Improvements
 
-- Always load dayjs plugins, initialize app-info and logger immediately when app starts.
+- Initialize app-info and logger immediately when app starts.
 - Rewrite logger with daily rotation (via `winston-daily-rotate-file`), graceful shutdown via `close()`, and `child()` API for labeled loggers. Remove `chalk` and console transport — logs are now file-only in JSONL format. Auto-configure logs path for development environment. Simplify IPC logger handlers with optional meta parameter.
 - Extract forward helper in preload to deduplicate IPC bridge methods.
 - Use `import.meta.env.DEV` instead of `process.env.NODE_ENV`.
@@ -74,6 +74,7 @@
   - camelcase
   - chalk
   - concurrently
+  - dayjs
   - esbuild-loader
   - eslint-plugin-jest
   - fork-ts-checker-webpack-plugin
