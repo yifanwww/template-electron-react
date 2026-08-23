@@ -3,7 +3,7 @@ import { getAppDetails } from '@renderer/apis/app';
 import type { AppDetails } from '@shared/apis/app';
 import { Introduction } from './Introduction';
 
-import css from './Home.module.scss';
+import css from './Home.module.css';
 
 export function Home() {
   const [appDetails, setAppDetails] = useState<AppDetails>();

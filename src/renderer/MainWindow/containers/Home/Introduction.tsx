@@ -1,7 +1,7 @@
 import { LOGO_SVG } from '@renderer/assets';
 import type { AppDetails } from '@shared/apis/app';
 
-import css from './Introduction.module.scss';
+import css from './Introduction.module.css';
 
 interface IntroductionProps {
   appDetails?: AppDetails;
