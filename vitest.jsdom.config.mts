@@ -1,10 +1,11 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { BROWSER_TARGET } from './electron.vite.config.mjs';
 
 export default defineConfig({
   build: {
-    target: 'chrome150',
+    target: BROWSER_TARGET,
   },
   plugins: [react(), tsconfigPaths()],
   test: {

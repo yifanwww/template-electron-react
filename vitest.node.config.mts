@@ -1,9 +1,10 @@
 import { defineConfig } from 'vitest/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { NODE_TARGET } from './electron.vite.config.mjs';
 
 export default defineConfig({
   build: {
-    target: 'node24.18',
+    target: NODE_TARGET,
   },
   plugins: [tsconfigPaths()],
   test: {

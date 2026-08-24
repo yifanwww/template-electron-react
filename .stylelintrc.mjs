@@ -1,10 +1,5 @@
 export default {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-standard-scss',
-    'stylelint-config-sass-guidelines',
-    'stylelint-config-recess-order',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   ignoreFiles: ['.agents/**/*', 'build/**/*', 'coverage/**/*', 'node_modules/**/*', 'release/**/*'],
   rules: {
     // https://stylelint.io/user-guide/rules/max-nesting-depth/
@@ -25,13 +20,7 @@ export default {
       },
     ],
 
-    // https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/indentation/README.md
-    '@stylistic/indentation': 2,
-
     // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-alphabetical-order/README.md
     'order/properties-alphabetical-order': null,
-
-    // https://github.com/stylelint-scss/stylelint-scss/tree/master/src/rules/dollar-variable-colon-space-after
-    'scss/dollar-variable-colon-space-after': 'always-single-line',
   },
 };

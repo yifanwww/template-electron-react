@@ -2,8 +2,8 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'electron-vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-const NODE_TARGET = 'node24.15';
-const BROWSER_TARGET = 'chrome148';
+export const NODE_TARGET = 'node24.18';
+export const BROWSER_TARGET = 'chrome150';
 
 export default defineConfig({
   main: {

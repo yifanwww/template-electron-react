@@ -56,12 +56,12 @@ export default defineConfig([
           groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'unknown'],
           pathGroups: [
             {
-              pattern: 'src/**/*.{css,scss}',
+              pattern: 'src/**/*.css',
               group: 'unknown',
               position: 'after',
             },
             {
-              pattern: './**/*.{css,scss}',
+              pattern: './**/*.css',
               group: 'unknown',
               position: 'after',
             },

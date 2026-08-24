@@ -9,6 +9,7 @@
 - Switch to `electron-vite` for how we build and dev the Electron application.
 - Migrate electron-builder config from JSON to YAML, split dist scripts by platform (`dist:win`, `dist:mac`).
 - Upgrade `pnpm` from v10 to v11.
+- Remove sass/scss support. Use plain CSS instead.
 
 #### 📁 Project Structure
 
@@ -56,9 +57,7 @@
   - lint-staged                         ^16.2.7  -> ^17.3.0
   - react-router                        ^7.11.0  -> ^8.3.0
   - stylelint                           ^16.26.1 -> ^17.14.1
-  - stylelint-config-sass-guidelines    ^12.1.0  -> ^13.0.0
   - stylelint-config-standard           ^39.0.1  -> ^40.0.0
-  - stylelint-config-standard-scss      ^16.0.0  -> ^17.0.0
   - stylelint-order                     ^7.0.1   -> ^8.1.1
   - typescript                          5.9.3    -> npm:@typescript/typescript6@6.0.2
   - typescript-eslint                   ^8.53.0  -> ^8.65.0
@@ -81,7 +80,10 @@
   - jest
   - jest-environment-jsdom
   - jest-watch-typeahead
+  - sass
   - source-map-loader
+  - stylelint-config-sass-guidelines
+  - stylelint-config-standard-scss
   - text-table
   - typescript-plugin-css-modules
   - vite-plugin-checker
