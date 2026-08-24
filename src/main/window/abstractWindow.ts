@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { app, BrowserWindow, shell } from 'electron';
+import { BrowserWindow, shell } from 'electron';
 import type { WindowType } from '@shared/apis/app';
 import { registerLoggerHandlers } from '../apis/logger';
 import { appInfo } from '../appInfo';
@@ -49,7 +49,7 @@ export abstract class AbstractWindow {
   }
 
   async show(): Promise<void> {
-    if (!app.isPackaged && process.env.ELECTRON_RENDERER_URL) {
+    if (process.env.ELECTRON_RENDERER_URL) {
       await this._window.loadURL(process.env.ELECTRON_RENDERER_URL);
     } else {
       await this._window.loadFile(path.resolve(appInfo.sourcePath, 'renderer/index.html'));
