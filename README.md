@@ -1,6 +1,6 @@
 # template-electron-react
 
-[![Version](https://img.shields.io/badge/version-0.16.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.17.0-blue)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A524-brightgreen)](package.json)
 
@@ -118,7 +118,7 @@ This template follows Electron's **secure multi-process architecture**:
 │  ┌──────────────────────────────────┐     │
 │  │        Renderer Process          │     │
 │  │  (Chromium — React 19, React     │     │
-│  │   Router, CSS Modules, SCSS)     │     │
+│  │   Router, CSS Modules)           │     │
 │  │                                  │     │
 │  │  src/renderer/                   │     │
 │  └──────────────────────────────────┘     │
@@ -163,7 +163,7 @@ import { MainWindow } from '@renderer/MainWindow';
 | `pnpm run lint`             | Lint without auto-fix (for CI/CD)                      |
 | `pnpm run lint-fix`         | Lint and auto-fix (ESLint + Stylelint)                 |
 | `pnpm run lint:eslint`      | Run ESLint only                                        |
-| `pnpm run lint:stylelint`   | Run Stylelint only (CSS/SCSS)                          |
+| `pnpm run lint:stylelint`   | Run Stylelint only (CSS)                               |
 | `pnpm run format`           | Format all code with Prettier                          |
 | `pnpm run test`             | Run all tests (jsdom + node)                           |
 | `pnpm run test:jsdom`       | Run renderer tests (jsdom environment)                 |
@@ -193,7 +193,7 @@ This project uses **Vitest 4**. Tests are split into two environments:
 | Tool             | Scope                 | Config                                              |
 | ---------------- | --------------------- | --------------------------------------------------- |
 | **ESLint 9**     | `.ts`, `.tsx`         | `eslint.config.mjs` (flat config)                   |
-| **Stylelint 17** | `.css`, `.scss`       | Standard + SCSS + Sass guidelines + recess order    |
+| **Stylelint 17** | `.css`                | Standard + recess order                             |
 | **Prettier 3**   | All supported formats | Integrated with ESLint via `eslint-plugin-prettier` |
 
 - **Pre-commit hooks:** [husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) format staged files automatically.

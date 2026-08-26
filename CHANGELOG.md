@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## template-electron-react v0.17.0 (Unreleased)
+## template-electron-react v0.17.0 (2026-08-27)
 
 ### What's Changed
 
