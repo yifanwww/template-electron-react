@@ -1,16 +1,23 @@
-import type { AppLogger } from '../logger';
+import type { AppLogger, AppManagedLogger } from '../logger';
 
-export function getLogger(): AppLogger {
+export function createLogger(): AppLogger {
   const logger: AppLogger = {
-    log: () => logger,
-    fatal: () => logger,
-    error: () => logger,
-    warn: () => logger,
-    info: () => logger,
-    verbose: () => logger,
-    debug: () => logger,
+    error: () => {},
+    warn: () => {},
+    info: () => {},
+    debug: () => {},
+  };
+  return logger;
+}
+
+export function createManagedLogger(): AppManagedLogger {
+  const logger: AppManagedLogger = {
+    fatal: () => {},
+    error: () => {},
+    warn: () => {},
+    info: () => {},
+    debug: () => {},
     close: async () => {},
-    child: () => logger,
   };
   return logger;
 }

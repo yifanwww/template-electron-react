@@ -23,8 +23,6 @@ const LoggerAPI: LoggerRendererAPI = {
   debug: forward(LoggerIpcKey.DEBUG),
   error: forward(LoggerIpcKey.ERROR),
   info: forward(LoggerIpcKey.INFO),
-  log: forward(LoggerIpcKey.LOG),
-  verbose: forward(LoggerIpcKey.VERBOSE),
   warn: forward(LoggerIpcKey.WARN),
 };
 

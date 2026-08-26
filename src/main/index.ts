@@ -1,10 +1,10 @@
 import { app, BrowserWindow } from 'electron';
 
 import { registerAppGlobalHandlers } from './apis/app';
-import { getLogger } from './logger';
+import { createManagedLogger } from './logger';
 import { MainWindow } from './window';
 
-const logger = getLogger();
+const logger = createManagedLogger();
 
 process.on('uncaughtException', (error) => {
   logger.fatal('Uncaught exception', error);

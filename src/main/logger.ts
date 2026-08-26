@@ -3,43 +3,31 @@ import { app } from 'electron';
 import winston from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 
-interface ILogObject {
-  message: string;
-  [key: string]: unknown;
-}
-
-type AppLogMethod = (level: string, message: string, meta?: object) => AppLogger;
-
-interface AppLeveledLogMethod {
-  (message: string | ILogObject): AppLogger;
-  (message: string, meta?: object): AppLogger;
-}
-
 export interface AppLogger {
-  log: AppLogMethod;
-
-  // The levels we support
-  fatal: AppLeveledLogMethod;
-  error: AppLeveledLogMethod;
-  warn: AppLeveledLogMethod;
-  info: AppLeveledLogMethod;
-  verbose: AppLeveledLogMethod;
-  debug: AppLeveledLogMethod;
-
-  // close the logger and flush all logs to disk
-  close(): Promise<void>;
-
-  // create a child logger with additional options
-  child(options: Record<string, unknown>): AppLogger;
+  error: (message: string, context?: object) => void;
+  warn: (message: string, context?: object) => void;
+  info: (message: string, context?: object) => void;
+  debug: (message: string, context?: object) => void;
 }
 
-function createBaseLogger(): AppLogger {
+export interface AppManagedLogger extends AppLogger {
+  fatal: (message: string, context?: object) => void;
+  close(): Promise<void>;
+}
+
+let _winstonLogger: winston.Logger | undefined;
+
+function createWinstonLogger(): winston.Logger {
+  if (_winstonLogger) {
+    return _winstonLogger;
+  }
+
   if (!app.isPackaged) {
     // In development environment and test environment, put the logs into the `working/logs` directory.
     app.setAppLogsPath(path.resolve('working/logs'));
   }
 
-  const winstonLogger = winston.createLogger({
+  _winstonLogger = winston.createLogger({
     transports: [
       new DailyRotateFile({
         dirname: app.getPath('logs'),
@@ -56,23 +44,56 @@ function createBaseLogger(): AppLogger {
       error: 1,
       warn: 2,
       info: 3,
-      verbose: 4,
-      debug: 5,
+      debug: 4,
     },
   });
 
-  const _baseLogger = winstonLogger as unknown as AppLogger;
+  return _winstonLogger;
+}
 
-  function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-    return Promise.race([
-      promise,
-      new Promise<never>((_, reject) => {
-        setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms);
-      }),
-    ]);
-  }
+function wrapLogger(winstonLogger: winston.Logger): AppLogger {
+  const logger: AppLogger = {
+    error: (message, _context) => {
+      winstonLogger.log('error', message, _context);
+    },
+    warn: (message, _context) => {
+      winstonLogger.log('warn', message, _context);
+    },
+    info: (message, _context) => {
+      winstonLogger.log('info', message, _context);
+    },
+    debug: (message, _context) => {
+      winstonLogger.log('debug', message, _context);
+    },
+  };
 
-  _baseLogger.close = function close() {
+  return logger;
+}
+
+export function createLogger(context: object): AppLogger {
+  const winstonLogger = createWinstonLogger().child(context);
+  return wrapLogger(winstonLogger);
+}
+
+function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms);
+    }),
+  ]);
+}
+
+export function createManagedLogger(): AppManagedLogger {
+  const winstonLogger = createWinstonLogger().child({ service: 'app' });
+
+  const logger = wrapLogger(winstonLogger) as AppManagedLogger;
+
+  logger.fatal = (message, context) => {
+    winstonLogger.log('fatal', message, context);
+  };
+
+  logger.close = () => {
     return withTimeout(
       new Promise<void>((resolve, reject) => {
         winstonLogger.on('finish', resolve);
@@ -83,19 +104,5 @@ function createBaseLogger(): AppLogger {
     );
   };
 
-  return _baseLogger;
-}
-
-let baseLogger: AppLogger | undefined;
-let globalLogger: AppLogger | undefined;
-
-export function getLogger(label?: string): AppLogger {
-  baseLogger ??= createBaseLogger();
-
-  if (!label || label === 'global') {
-    globalLogger ??= baseLogger.child({ label: 'global' });
-    return globalLogger;
-  }
-
-  return baseLogger.child({ label });
+  return logger;
 }

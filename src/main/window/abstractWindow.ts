@@ -5,7 +5,7 @@ import { registerLoggerHandlers } from '../apis/logger';
 import { appInfo } from '../appInfo';
 import type { WindowStateKeeper } from '../configuration';
 import type { AppLogger } from '../logger';
-import { getLogger } from '../logger';
+import { createLogger } from '../logger';
 
 export interface AbstractWindowOptions {
   stateKeeper: WindowStateKeeper;
@@ -38,7 +38,7 @@ export abstract class AbstractWindow {
     if (this._stateKeeper.maximized) this._window.maximize();
     if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
 
-    this._logger = getLogger(`${this._windowType}-${this.id}`);
+    this._logger = createLogger({ service: 'window', windowType: this._windowType, windowId: this.id });
 
     this._addWindowListeners();
     this._addAPIHandlers();
@@ -87,6 +87,9 @@ export abstract class AbstractWindow {
   // ---------------------------------------------------------------------------------------------------- Ipc Handlers
 
   protected _addAPIHandlers(): void {
-    registerLoggerHandlers(this._window.webContents.ipc, this._logger);
+    registerLoggerHandlers(
+      this._window.webContents.ipc,
+      createLogger({ source: 'renderer', windowType: this._windowType, windowId: this.id }),
+    );
   }
 }
