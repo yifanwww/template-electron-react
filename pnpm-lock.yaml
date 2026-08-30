@@ -129,15 +129,9 @@ importers:
       stylelint:
         specifier: ^17.14.1
         version: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
-      stylelint-config-recess-order:
-        specifier: ^7.7.0
-        version: 7.7.0(stylelint-order@8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)))(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
       stylelint-config-standard:
         specifier: ^40.0.0
         version: 40.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
-      stylelint-order:
-        specifier: ^8.1.1
-        version: 8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
       typescript:
         specifier: npm:@typescript/typescript6@6.0.2
         version: '@typescript/typescript6@6.0.2'
@@ -3384,11 +3378,6 @@ packages:
     resolution: {integrity: sha512-HeP7D2wyhkR+XaK6v4W8oRF62Dsz4flyuczALJp61GckGm42u1saSSJ/0auvcBqxs3jMRFEcPK34At/0JBKdOg==}
     engines: {node: '>=4'}
 
-  postcss-sorting@10.0.0:
-    resolution: {integrity: sha512-TXbU+h6vVRW+86c/+ewhWq9k7pr7ijASTnepVhCQiC87zAOTkvB1v2dHyWP+ggstSTX/PNvjzS+IOqzejndz9w==}
-    peerDependencies:
-      postcss: ^8.4.20
-
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
@@ -3811,12 +3800,6 @@ packages:
   stubborn-utils@1.0.2:
     resolution: {integrity: sha512-zOh9jPYI+xrNOyisSelgym4tolKTJCQd5GBhK0+0xJvcYDcwlOoxF/rnFKQ2KRZknXSG9jWAp66fwP6AxN9STg==}
 
-  stylelint-config-recess-order@7.7.0:
-    resolution: {integrity: sha512-TWRkg+BrwHOki4pi9y1emWgx6pFwZXOYZhNsbEObke/mzYUJVJvDEzJJQXhH7ajslQJGcrExy8ZvJqDiUbhFpA==}
-    peerDependencies:
-      stylelint: ^16.18.0 || ^17.0.0
-      stylelint-order: ^7.0.0 || ^8.0.0
-
   stylelint-config-recommended@18.0.0:
     resolution: {integrity: sha512-mxgT2XY6YZ3HWWe3Di8umG6aBmWmHTblTgu/f10rqFXnyWxjKWwNdjSWkgkwCtxIKnqjSJzvFmPT5yabVIRxZg==}
     engines: {node: '>=20.19.0'}
@@ -3828,12 +3811,6 @@ packages:
     engines: {node: '>=20.19.0'}
     peerDependencies:
       stylelint: ^17.0.0
-
-  stylelint-order@8.1.1:
-    resolution: {integrity: sha512-LqsEB6VggJuu5v10RtkrQsBObcdwBE7GuAOlwfc/LR3VL/w8UqKX2BOLIjhyGt0Gne/njo7gRNGiJAKhfmPMNw==}
-    engines: {node: '>=20.19.0'}
-    peerDependencies:
-      stylelint: ^16.18.0 || ^17.0.0
 
   stylelint@17.14.1:
     resolution: {integrity: sha512-xVQwyiuxALUBNB2fBe0tmNemg9KqLtdj3T64mioFDar79B2cU8LIyz+3KL6LdiHs9NkeNfwxpKSaIVOY8f112g==}
@@ -7609,10 +7586,6 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@10.0.0(postcss@8.5.25):
-    dependencies:
-      postcss: 8.5.25
-
   postcss-value-parser@4.2.0: {}
 
   postcss@8.5.25:
@@ -8100,11 +8073,6 @@ snapshots:
 
   stubborn-utils@1.0.2: {}
 
-  stylelint-config-recess-order@7.7.0(stylelint-order@8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)))(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)):
-    dependencies:
-      stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
-      stylelint-order: 8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
-
   stylelint-config-recommended@18.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)):
     dependencies:
       stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
@@ -8113,12 +8081,6 @@ snapshots:
     dependencies:
       stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
       stylelint-config-recommended: 18.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
-
-  stylelint-order@8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)):
-    dependencies:
-      postcss: 8.5.25
-      postcss-sorting: 10.0.0(postcss@8.5.25)
-      stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
 
   stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2):
     dependencies:
