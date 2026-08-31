@@ -1,9 +1,8 @@
 import type { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell } from 'electron';
-import { WindowStateKeeper } from '@main/configuration';
 import { WindowType } from '@shared/apis/app';
 import { ArrayUtil } from '@shared/utils';
-import { store } from '../configuration/store';
+import { WindowStateKeeper, store } from '../configuration';
 import { AbstractWindow } from './abstractWindow';
 
 export class MainWindow extends AbstractWindow {
