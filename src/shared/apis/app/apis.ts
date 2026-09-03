@@ -2,7 +2,7 @@ import type { IpcRendererInvokerAPI, StandardResp } from '../types/index.js';
 import type { AppDetails, WindowType } from './types.js';
 
 export const AppIpcKey = {
-  GET_APP_DETAILS: 'App:GetAppDetails',
+  GET_APP_DETAILS: 'app:get-app-details',
 };
 
 // -----------------------------------------------------------------------------

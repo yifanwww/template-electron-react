@@ -1,8 +1,8 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import type { AppRendererAPI } from '@shared/apis/app';
 import { AppIpcKey } from '@shared/apis/app';
-import type { LoggerRendererAPI } from '@shared/apis/logger';
-import { LoggerIpcKey } from '@shared/apis/logger';
+import type { LoggingRendererAPI } from '@shared/apis/logging';
+import { LoggingIpcKey } from '@shared/apis/logging';
 import type { UnknownFn } from '@shared/types';
 import { webArgs } from './args';
 
@@ -19,12 +19,12 @@ const AppAPI: AppRendererAPI = {
   getAppDetails: forward(AppIpcKey.GET_APP_DETAILS),
 };
 
-const LoggerAPI: LoggerRendererAPI = {
-  debug: forward(LoggerIpcKey.DEBUG),
-  error: forward(LoggerIpcKey.ERROR),
-  info: forward(LoggerIpcKey.INFO),
-  warn: forward(LoggerIpcKey.WARN),
+const LoggingAPI: LoggingRendererAPI = {
+  debug: forward(LoggingIpcKey.DEBUG),
+  error: forward(LoggingIpcKey.ERROR),
+  info: forward(LoggingIpcKey.INFO),
+  warn: forward(LoggingIpcKey.WARN),
 };
 
 contextBridge.exposeInMainWorld('__API_APP', AppAPI);
-contextBridge.exposeInMainWorld('__API_LOGGER', LoggerAPI);
+contextBridge.exposeInMainWorld('__API_LOGGING', LoggingAPI);

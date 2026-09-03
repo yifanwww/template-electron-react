@@ -1,1 +1,1 @@
-export { Logger } from './exposes';
+export { Logging } from './exposes';

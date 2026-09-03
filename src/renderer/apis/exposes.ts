@@ -1,11 +1,11 @@
 import type { AppRendererAPI } from '@shared/apis/app';
-import type { LoggerRendererAPI } from '@shared/apis/logger';
+import type { LoggingRendererAPI } from '@shared/apis/logging';
 
 declare const window: {
   /* eslint-disable @typescript-eslint/naming-convention */
   __API_APP: AppRendererAPI;
-  __API_LOGGER: LoggerRendererAPI;
+  __API_LOGGING: LoggingRendererAPI;
   /* eslint-enable @typescript-eslint/naming-convention */
 };
 
-export const { __API_APP: AppAPI, __API_LOGGER: Logger } = window;
+export const { __API_APP: AppAPI, __API_LOGGING: Logging } = window;
