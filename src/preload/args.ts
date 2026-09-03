@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore `@types/yargs-parser` doesn't support this import path.
 import _yargs from 'yargs-parser/browser';
-import type { WindowType } from '@shared/apis/app';
+import type { WindowType } from '@shared/app/contracts';
 
 const yargs = _yargs as typeof import('yargs-parser');
 

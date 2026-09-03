@@ -1,8 +1,8 @@
 import { contextBridge, ipcRenderer } from 'electron';
-import type { AppRendererAPI } from '@shared/apis/app';
-import { AppIpcKey } from '@shared/apis/app';
-import type { LoggingRendererAPI } from '@shared/apis/logging';
-import { LoggingIpcKey } from '@shared/apis/logging';
+import type { AppRendererAPI } from '@shared/app/apis';
+import { AppIpcKey } from '@shared/app/apis';
+import type { LoggingRendererAPI } from '@shared/logging/apis';
+import { LoggingIpcKey } from '@shared/logging/apis';
 import type { UnknownFn } from '@shared/types';
 import { webArgs } from './args';
 

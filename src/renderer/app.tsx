@@ -1,4 +1,4 @@
-import { WindowType } from '@shared/apis/app';
+import { WindowType } from '@shared/app/contracts';
 import { WINDOW_TYPE } from './apis/app';
 import { MainWindow } from './MainWindow';
 import { assertIsNever } from './utils/assert';

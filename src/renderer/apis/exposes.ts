@@ -1,5 +1,5 @@
-import type { AppRendererAPI } from '@shared/apis/app';
-import type { LoggingRendererAPI } from '@shared/apis/logging';
+import type { AppRendererAPI } from '@shared/app/apis';
+import type { LoggingRendererAPI } from '@shared/logging/apis';
 
 declare const window: {
   /* eslint-disable @typescript-eslint/naming-convention */

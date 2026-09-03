@@ -1,5 +1,41 @@
 import type { IpcMainEvent, IpcMainInvokeEvent, IpcRendererEvent } from 'electron';
-import type { UnknownFn } from '../../types/index.js';
+import type { UnknownFn } from './types';
+
+export type IpcStandardSuccessResp<T> = undefined extends T
+  ? {
+      status: 'success';
+      data?: T;
+    }
+  : {
+      status: 'success';
+      data: T;
+    };
+
+export type IpcStandardErrorResp<T = undefined> = undefined extends T
+  ? {
+      status: 'error';
+      /**
+       * The short description of the API error.
+       */
+      message: string;
+      /**
+       * The error detail.
+       */
+      error?: T;
+    }
+  : {
+      status: 'error';
+      /**
+       * The short description of the API error.
+       */
+      message: string;
+      /**
+       * The error detail.
+       */
+      error: T;
+    };
+
+export type IpcStandardResp<Data, Err = undefined> = IpcStandardSuccessResp<Data> | IpcStandardErrorResp<Err>;
 
 // Renderer Process Sending
 

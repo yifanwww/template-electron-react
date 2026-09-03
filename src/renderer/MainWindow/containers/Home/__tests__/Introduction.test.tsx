@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import type { AppDetails } from '@shared/apis/app';
+import type { AppDetails } from '@shared/app/contracts';
 import { Introduction } from '../Introduction';
 
 describe(`Test component \`${Introduction.name}\``, () => {

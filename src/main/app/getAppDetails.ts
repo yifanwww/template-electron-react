@@ -1,5 +1,5 @@
 import { app } from 'electron';
-import type { AppDetails } from '@shared/apis/app';
+import type { AppDetails } from '@shared/app/contracts';
 
 export function getAppDetails(): AppDetails {
   return {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAppDetails } from '@renderer/apis/app';
-import type { AppDetails } from '@shared/apis/app';
+import type { AppDetails } from '@shared/app/contracts';
 import { Introduction } from './Introduction';
 
 import css from './Home.module.css';

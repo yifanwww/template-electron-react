@@ -1,6 +1,6 @@
 import { ipcMain } from 'electron';
-import type { AppMainAPI } from '@shared/apis/app';
-import { AppIpcKey } from '@shared/apis/app';
+import type { AppMainAPI } from '@shared/app/apis';
+import { AppIpcKey } from '@shared/app/apis';
 import { makeFn } from '@shared/utils';
 import { getAppDetails } from '../app';
 

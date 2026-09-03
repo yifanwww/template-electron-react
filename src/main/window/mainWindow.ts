@@ -1,6 +1,6 @@
 import type { MenuItemConstructorOptions } from 'electron';
 import { Menu, shell } from 'electron';
-import { WindowType } from '@shared/apis/app';
+import { WindowType } from '@shared/app/contracts';
 import { ArrayUtil } from '@shared/utils';
 import { WindowStateKeeper, store } from '../configuration';
 import { AbstractWindow } from './abstractWindow';

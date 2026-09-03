@@ -1,5 +1,5 @@
 import { ipcMain } from 'electron';
-import type { IpcMainHandler } from '@shared/apis/types';
+import type { IpcMainHandler } from '@shared/api-types';
 import type { AnyFn } from '@shared/types';
 
 type Handlers<Handler> = Record<string, Handler>;

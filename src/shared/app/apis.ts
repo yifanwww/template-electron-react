@@ -1,5 +1,5 @@
-import type { IpcRendererInvokerAPI, StandardResp } from '../types/index.js';
-import type { AppDetails, WindowType } from './types.js';
+import type { IpcRendererInvokerAPI, IpcStandardResp } from '../api-types.js';
+import type { AppDetails, WindowType } from './contracts.js';
 
 export const AppIpcKey = {
   GET_APP_DETAILS: 'app:get-app-details',
@@ -7,7 +7,7 @@ export const AppIpcKey = {
 
 // -----------------------------------------------------------------------------
 
-type GetAppDetails = IpcRendererInvokerAPI<() => StandardResp<AppDetails>>;
+type GetAppDetails = IpcRendererInvokerAPI<() => IpcStandardResp<AppDetails>>;
 
 // -----------------------------------------------------------------------------
 

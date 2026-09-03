@@ -1,6 +1,6 @@
 import type { IpcMain } from 'electron';
-import type { LoggingMainAPI } from '@shared/apis/logging';
-import { LoggingIpcKey } from '@shared/apis/logging';
+import type { LoggingMainAPI } from '@shared/logging/apis';
+import { LoggingIpcKey } from '@shared/logging/apis';
 import { makeFn } from '@shared/utils';
 import type { AppLogger } from '../logger';
 

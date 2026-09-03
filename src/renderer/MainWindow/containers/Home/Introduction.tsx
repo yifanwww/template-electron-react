@@ -1,5 +1,5 @@
 import { LOGO_SVG } from '@renderer/assets';
-import type { AppDetails } from '@shared/apis/app';
+import type { AppDetails } from '@shared/app/contracts';
 
 import css from './Introduction.module.css';
 

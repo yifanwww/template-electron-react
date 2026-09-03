@@ -1,4 +1,4 @@
-import type { IpcRendererInvokerAPI } from '../types/index.js';
+import type { IpcRendererInvokerAPI } from '../api-types.js';
 
 export const LoggingIpcKey = {
   ERROR: 'logging:error',
