@@ -2,7 +2,7 @@
   "name": "template-electron-react",
   "version": "0.17.0",
   "description": "A template project for developing electron application, using react and typescript.",
-  "main": "build/main/index.js",
+  "main": "out/main/index.js",
   "homepage": "https://github.com/yifanwww/template-electron-react#readme",
   "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
   "bugs": {
@@ -17,8 +17,8 @@
   "scripts": {
     "build": "electron-vite build --config electron.vite.config.mts",
     "clean": "pnpm run clean:build && pnpm run clean:dev",
-    "clean:build": "rimraf build release",
-    "clean:dev": "rimraf coverage node_modules/.cache node_modules/.vite",
+    "clean:build": "rimraf out release",
+    "clean:dev": "rimraf coverage node_modules/.vite",
     "dev": "electron-vite dev --config electron.vite.config.mts --watch",
     "dist:mac": "electron-builder build --config electron-builder.yaml --publish never --mac",
     "dist:win": "electron-builder build --config electron-builder.yaml --publish never --win",

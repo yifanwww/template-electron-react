@@ -1,6 +1,6 @@
 export default {
   extends: ['stylelint-config-standard'],
-  ignoreFiles: ['.agents/**/*', 'build/**/*', 'coverage/**/*', 'node_modules/**/*', 'release/**/*'],
+  ignoreFiles: ['.agents/**/*', 'coverage/**/*', 'node_modules/**/*', 'out/**/*', 'release/**/*'],
   rules: {
     // https://stylelint.io/user-guide/rules/max-nesting-depth/
     'max-nesting-depth': null,

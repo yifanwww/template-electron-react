@@ -9,7 +9,7 @@ export default defineConfig({
   main: {
     build: {
       target: NODE_TARGET,
-      outDir: './build/main',
+      outDir: './out/main',
       lib: {
         entry: 'src/main/index.ts',
         formats: ['cjs'],
@@ -26,7 +26,7 @@ export default defineConfig({
   preload: {
     build: {
       target: NODE_TARGET,
-      outDir: './build/preload',
+      outDir: './out/preload',
       lib: {
         entry: 'src/preload/index.ts',
         formats: ['cjs'],
@@ -42,7 +42,7 @@ export default defineConfig({
   renderer: {
     build: {
       target: BROWSER_TARGET,
-      outDir: './build/renderer',
+      outDir: './out/renderer',
       rollupOptions: {
         input: 'src/renderer/index.html',
       },

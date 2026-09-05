@@ -13,7 +13,7 @@ import vitestConfig from './configs/eslint/rules.vitest.mjs';
 
 export default defineConfig([
   globalIgnores(
-    ['**/*.cjs', '**/*.js', '**/*.mjs', '.agents/', 'build/', 'coverage/', 'release/', 'scripts/', 'working/'],
+    ['**/*.cjs', '**/*.js', '**/*.mjs', '.agents/', 'coverage/', 'out/', 'release/', 'scripts/', 'working/'],
     'app-eslint/ignores',
   ),
   {

@@ -21,8 +21,8 @@ node_modules
 
 *.tsbuildinfo
 
-/build
 /coverage
+/out
 /release
 
 # -------------------- Working Directory

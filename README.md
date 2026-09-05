@@ -24,7 +24,7 @@ A template for building cross-platform desktop applications with **Electron**, *
 
 ## Prerequisites
 
-- **Node.js** ≥ 24
+- **Node.js** >= 24
 - **pnpm** — the exact version is pinned in the `packageManager` field of `package.json`
 
 If you have [Corepack](https://nodejs.org/api/corepack.html) enabled, it will automatically use the correct pnpm version:
@@ -81,10 +81,10 @@ template-electron-react/
 │   └── tsconfigs/             # TypeScript base config
 ├── resources/                 # Static resources bundled with the app
 ├── scripts/                   # Build & utility scripts
-├── build/                     # Compiled output (generated)
+├── out/                       # Compiled output (generated)
 ├── release/                   # Packaged installers (generated)
 ├── electron.vite.config.mts   # electron-vite configuration
-├── electron-builder.json      # electron-builder configuration
+├── electron-builder.yaml      # electron-builder configuration
 ├── eslint.config.mjs          # ESLint flat config
 ├── tsconfig.json              # TypeScript configuration
 ├── vitest.jsdom.config.mts    # Vitest jsdom configuration
@@ -169,7 +169,7 @@ import { MainWindow } from '@renderer/MainWindow';
 | `pnpm run test:jsdom`       | Run renderer tests (jsdom environment)                 |
 | `pnpm run test:node`        | Run main & shared tests (node environment)             |
 | `pnpm run clean`            | Remove all build artifacts and caches                  |
-| `pnpm run clean:build`      | Remove `build/` and `release/`                         |
+| `pnpm run clean:build`      | Remove `out/` and `release/`                           |
 | `pnpm run clean:dev`        | Remove `coverage/` and Vite cache                      |
 | `pnpm run run-bundled`      | Run the bundled Electron app directly with Node        |
 
@@ -210,12 +210,12 @@ pnpm run dist:mac # Generate MacOS installer (DMG)
 pnpm run dist:win # Generate Windows installer (NSIS .exe)
 ```
 
-- Build output: `build/` (three bundles: main, preload, renderer)
+- Build output: `out/` (three bundles: main, preload, renderer)
 - Installer output: `release/` (`.exe`, `.blockmap`, `latest.yml`)
 - **ASAR** packing is enabled; files in `resources/**/*` are unpacked.
-- macOS DMG target is also configured in `electron-builder.json`.
+- macOS DMG target is also configured in `electron-builder.yaml`.
 
-See [`electron-builder.json`](electron-builder.json) for full packaging configuration.
+See [`electron-builder.yaml`](electron-builder.yaml) for full packaging configuration.
 
 ## Using This Template
 
@@ -223,9 +223,9 @@ After creating your project from this template, follow this checklist:
 
 1. **Rename the app** — search for `template-electron-react` across the entire project and replace with your app name. Key files to update:
    - `package.json` — `name`, `description`, `homepage`, `repository`, `bugs`, `author`
-   - `electron-builder.json` — `appId`, `productName`
+   - `electron-builder.yaml` — `appId`, `productName`
    - `README.md` — title and description
-2. **Update the app icon** — replace the icon file referenced in `electron-builder.json` (currently commented out).
+2. **Update the app icon** — replace the icon file referenced in `electron-builder.yaml` (currently commented out).
 3. **Update the license** — modify `LICENSE` with your name and year.
 4. **Review `src/main/appInfo.ts`** — update app metadata as needed.
 5. **Start building!** — `pnpm install && pnpm run dev`

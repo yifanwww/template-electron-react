@@ -1,10 +1,5 @@
-# -------------------- Compilation Outputs & Test
-
-/build
 /coverage
+/out
 /release
 /pnpm-lock.yaml
-
-# -------------------- Working Directory
-
 /working

@@ -2,7 +2,7 @@ import path from 'node:path';
 
 const sourcePath = path.resolve(__dirname, '../..');
 const userDataPath = path.resolve(__dirname, '../../../working');
-const startedTime = 0;
+const resourcesPath = path.resolve(__dirname, '../../../resources');
 
 export const appInfo = {
   get sourcePath(): string {
@@ -13,7 +13,7 @@ export const appInfo = {
     return userDataPath;
   },
 
-  get startedTime(): number {
-    return startedTime;
+  get resourcesPath(): string {
+    return resourcesPath;
   },
 };
