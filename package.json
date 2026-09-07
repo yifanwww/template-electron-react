@@ -3,16 +3,7 @@
   "version": "0.17.0",
   "description": "A template project for developing electron application, using react and typescript.",
   "main": "out/main/index.js",
-  "homepage": "https://github.com/yifanwww/template-electron-react#readme",
-  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-  "bugs": {
-    "url": "https://github.com/yifanwww/template-electron-react/issues"
-  },
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yifanwww/template-electron-react.git"
-  },
   "packageManager": "pnpm@11.21.0+sha512.521705bce689924eac72f5a3587122f362689ef6571e55ba80076fd637c11132ecffada26fad4ea79c485bfddbfd3d5a2a5b05805a77e893de71ec8a6cca3bb1",
   "scripts": {
     "build": "electron-vite build --config electron.vite.config.mts",
