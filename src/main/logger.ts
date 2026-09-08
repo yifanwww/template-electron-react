@@ -12,7 +12,7 @@ export interface AppLogger {
 
 export interface AppManagedLogger extends AppLogger {
   fatal: (message: string, context?: object) => void;
-  close(): Promise<void>;
+  close: () => Promise<void>;
 }
 
 let _winstonLogger: winston.Logger | undefined;
@@ -85,7 +85,7 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 }
 
 export function createManagedLogger(): AppManagedLogger {
-  const winstonLogger = createWinstonLogger().child({ service: 'app' });
+  const winstonLogger = createWinstonLogger().child({ _service: 'app' });
 
   const logger = wrapLogger(winstonLogger) as AppManagedLogger;
 

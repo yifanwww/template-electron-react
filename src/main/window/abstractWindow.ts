@@ -38,7 +38,7 @@ export abstract class AbstractWindow {
     if (this._stateKeeper.maximized) this._window.maximize();
     if (this._stateKeeper.fullScreen) this._window.setFullScreen(true);
 
-    this._logger = createLogger({ service: 'window', windowType: this._windowType, windowId: this.id });
+    this._logger = createLogger({ _service: 'window', _windowType: this._windowType, _windowId: this.id });
 
     this._addWindowListeners();
     this._addAPIHandlers();
@@ -89,7 +89,7 @@ export abstract class AbstractWindow {
   protected _addAPIHandlers(): void {
     registerLoggingHandlers(
       this._window.webContents.ipc,
-      createLogger({ source: 'renderer', windowType: this._windowType, windowId: this.id }),
+      createLogger({ _source: 'renderer', _windowType: this._windowType, _windowId: this.id }),
     );
   }
 }
