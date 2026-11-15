@@ -2,14 +2,6 @@ import pluginImport from 'eslint-plugin-import';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import eslintConfig from './configs/eslint/rules.eslint.mjs';
-import importConfig from './configs/eslint/rules.import.mjs';
-import periodicConfig from './configs/eslint/rules.periodic.mjs';
-import prettierConfig from './configs/eslint/rules.prettier.mjs';
-import reactConfig from './configs/eslint/rules.react.mjs';
-import reactHooksConfig from './configs/eslint/rules.react-hooks.mjs';
-import typescriptConfig from './configs/eslint/rules.typescript.mjs';
-import vitestConfig from './configs/eslint/rules.vitest.mjs';
 
 export default defineConfig([
   globalIgnores(
@@ -30,18 +22,7 @@ export default defineConfig([
   {
     name: 'app-eslint/main',
     files: ['src/main/**/*.ts', 'src/preload/**/*.ts'],
-    extends: [
-      eslintConfig,
-      typescriptConfig,
-      importConfig,
-      vitestConfig,
-      prettierConfig,
-      /*
-       * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
-       * execution). We can enable them periodically to check for violations, like once a month.
-       */
-      // periodicConfig,
-    ],
+    extends: tseslint.configs.recommended,
     languageOptions: {
       globals: globals.node,
     },
@@ -49,20 +30,7 @@ export default defineConfig([
   {
     name: 'app-eslint/renderer',
     files: ['src/renderer/**/*.{ts,tsx}'],
-    extends: [
-      eslintConfig,
-      typescriptConfig,
-      importConfig,
-      vitestConfig,
-      reactConfig,
-      reactHooksConfig,
-      prettierConfig,
-      /*
-       * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
-       * execution). We can enable them periodically to check for violations, like once a month.
-       */
-      // periodicConfig,
-    ],
+    extends: tseslint.configs.recommended,
     languageOptions: {
       globals: globals.browser,
     },
@@ -70,23 +38,11 @@ export default defineConfig([
   {
     name: 'app-eslint/shared',
     files: ['src/shared/**/*.ts'],
-    extends: [
-      eslintConfig,
-      typescriptConfig,
-      importConfig,
-      vitestConfig,
-      prettierConfig,
-      /*
-       * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
-       * execution). We can enable them periodically to check for violations, like once a month.
-       */
-      // periodicConfig,
-    ],
+    extends: tseslint.configs.recommended,
   },
   {
     name: 'app-eslint/architectural-boundaries',
-    files: ['src/**/*.ts'],
-    extends: [tseslint.configs.base],
+    files: ['src/**/*.{ts,tsx}'],
     plugins: {
       import: pluginImport,
     },

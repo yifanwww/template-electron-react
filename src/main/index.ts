@@ -69,7 +69,6 @@ app.on('activate', () => {
 
 let quitting = false;
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.on('before-quit', async (event) => {
   if (quitting) return;
 

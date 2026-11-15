@@ -7,9 +7,7 @@ import type { IWindowState } from '../window';
 vi.mock('../../appInfo');
 
 interface MockStore extends Omit<Store, '_getSettingsStoreLocation' | '_getAppStateStoreLocation'> {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   _getSettingsStoreLocation(): IStoreLocation;
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   _getAppStateStoreLocation(): IStoreLocation;
 }
 
