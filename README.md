@@ -27,12 +27,6 @@ A template for building cross-platform desktop applications with **Electron**, *
 - **Node.js** >= 24
 - **pnpm** — the exact version is pinned in the `packageManager` field of `package.json`
 
-If you have [Corepack](https://nodejs.org/api/corepack.html) enabled, it will automatically use the correct pnpm version:
-
-```sh
-corepack enable pnpm
-```
-
 ## Quick Start
 
 ```sh

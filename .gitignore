@@ -21,6 +21,7 @@ node_modules
 
 *.tsbuildinfo
 
+/.vitest
 /coverage
 /out
 /release
